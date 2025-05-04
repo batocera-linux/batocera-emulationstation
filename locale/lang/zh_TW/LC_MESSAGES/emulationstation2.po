@@ -2258,6 +2258,9 @@ msgstr "包裝盒來源"
 msgid "LOGO SOURCE"
 msgstr "LOGO 來源"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "商標"
 

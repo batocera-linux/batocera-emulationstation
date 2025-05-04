@@ -2305,6 +2305,9 @@ msgstr "BOX QUELLE"
 msgid "LOGO SOURCE"
 msgstr "LOGO QUELLE"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "WHEEL"
 

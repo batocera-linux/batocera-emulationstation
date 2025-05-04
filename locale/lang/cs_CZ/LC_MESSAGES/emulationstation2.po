@@ -2283,6 +2283,9 @@ msgstr "ZDROJ OBALU"
 msgid "LOGO SOURCE"
 msgstr "ZDROJ LOGA"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "KOLO"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-21 16:54+0300\n"
+"PO-Revision-Date: 2025-04-27 19:08+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -436,7 +436,7 @@ msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
 msgstr "'%s' ile BAĞLANTIYI KESMEK İSTİYOR MUSUN?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "OYUN KUMANDASI VE KLAVYE YAPILANDIRMASI"
+msgstr "KOL İLE KLAVYE YAPILANDIRMASI"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr "DEĞİŞTİRİLECEK EYLEMLERİ SEÇİN"
@@ -677,7 +677,7 @@ msgid "UNLOCK SOUND"
 msgstr "KİLİT AÇILMA SESİ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "ANA MENÜDE RETROBAŞARIM GİRİŞİNİ GÖSTER"
+msgstr "ANA MENÜDE RETROBAŞARIMLAR GİRİŞİNİ GÖSTER"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "RetroBaşarım istatistiklerinizi doğrudan ana menüden görüntüleyin!"
@@ -1047,10 +1047,10 @@ msgid "DISABLED"
 msgstr "PASİF"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr "DMDSERVER (gerçek dmd için)"
+msgstr "DMDSUNUCU (gerçek dmd için)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr "SİMULATÖR (web dmd için)"
+msgstr "SİMÜLATÖR (web dmd için)"
 
 msgid "dmd server"
 msgstr "dmd sunucu"
@@ -1068,13 +1068,13 @@ msgid "BRIGHTNESS"
 msgstr "PARLAKLIK"
 
 msgid "DMDSERVER stopped"
-msgstr "DMDSERVER durduruldu"
+msgstr "DMDSUNUCU durduruldu"
 
 msgid "DMDSERVER restarted"
-msgstr "DMDSERVER yeniden başlatıldı"
+msgstr "DMDSUNUCU yeniden başlatıldı"
 
 msgid "DMDSERVER started"
-msgstr "DMDSERVER başlatıldı"
+msgstr "DMDSUNUCU başlatıldı"
 
 msgid "MULTISCREENS"
 msgstr "ÇOKLU EKRAN"
@@ -1197,7 +1197,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TÜM OYUNLARIN NETPLAY/BAŞARIMLARI BUL"
+msgstr "TÜM OYUNLAR İÇİN NETPLAY/BAŞARIMLAR BUL"
 
 msgid "CLEAR CACHES"
 msgstr "ÖNBELLEĞİ TEMİZLE"
@@ -1209,7 +1209,7 @@ msgid "Building image cache"
 msgstr "Görüntü önbelleği oluşturuluyor"
 
 msgid "DISPLAY SETTINGS"
-msgstr "GÖRÜNTÜ AYARLARI"
+msgstr "GÖRÜNTÜLEME AYARLARI"
 
 msgid "MENU FONT SCALE"
 msgstr "MENÜ YAZI TİPİ ÖLÇEĞİ"
@@ -1524,7 +1524,7 @@ msgid "cyan"
 msgstr "camgöbeği"
 
 msgid "POWER LED COLOR"
-msgstr "GÜÇ IŞIK RENGİ"
+msgstr "GÜÇ IŞIĞI RENGİ"
 
 msgid "heartbeat"
 msgstr "kalpatışı"
@@ -1706,7 +1706,7 @@ msgid "VIDEO FILTER"
 msgstr "VİDEO FİLTRESİ"
 
 msgid "DECORATIONS"
-msgstr "DEKARASYONLAR"
+msgstr "DEKORASYONLAR"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ÇERÇEVELERİ UZAT (4K & GENİŞ EKRAN)"
@@ -1814,7 +1814,7 @@ msgid "DEFAULT VALUE"
 msgstr "VARSAYILAN DEĞER"
 
 msgid "GAMELIST OPTIONS"
-msgstr "OYUN LİSTESİ AYARLARI"
+msgstr "OYUN LİSTESİ SEÇENEKLERİ"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "FAVORİLERİ EN ÜSTTE GÖSTER"
@@ -1853,7 +1853,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "KILAVUZ SİMGESİNİ GÖSTER"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "RETROARŞİV SİMGESİNİ GÖSTER"
+msgstr "RETROBAŞARIMLAR SİMGESİNİ GÖSTER"
 
 msgid "SHOW GUN ICON"
 msgstr "SİLAH SİMGESİNİ GÖSTER"
@@ -2080,13 +2080,13 @@ msgid "FULL BOOT"
 msgstr "TAM ÖNYÜKLEME"
 
 msgid "EMULATED WIIMOTES"
-msgstr "EMULASYONLU WIIMOTES"
+msgstr "EMÜLASYONLU WIIMOTES"
 
 msgid "CHANGE SCREEN LAYOUT"
 msgstr "EKRAN DÜZENİNİ DEĞİŞTİR"
 
 msgid "LARGE SCREEN"
-msgstr "GENİŞ EKRAN"
+msgstr "BÜYÜK EKRAN"
 
 msgid "SIDE BY SIDE"
 msgstr "YAN YANA"
@@ -2095,13 +2095,13 @@ msgid "INTERNAL RESOLUTION"
 msgstr "DAHİLİ ÇÖZÜNÜRLÜK"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "PADTOKEY PROFİLİNİ DÜZENLE"
+msgstr "KOL İLE TUŞ PROFİLİNİ DÜZENLE"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "PADTOKEY PROFİLİ OLUŞTUR"
+msgstr "KOL İLE TUŞ PROFİLİ OLUŞTUR"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "BU OYUNU AÇILIŞTA YÜKLE"
+msgstr "BU OYUNU AÇILIŞTA ÇALIŞTIR"
 
 msgid "FORMAT DEVICE"
 msgstr "CİHAZI BİÇİMLENDİR"
@@ -2177,7 +2177,7 @@ msgid "OPEN"
 msgstr "AÇ"
 
 msgid "START A NETPLAY GAME"
-msgstr "BİR NETPLAY OYUNUNA BAŞLA"
+msgstr "BİR NETPLAY OYUNU BAŞLAT"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -2246,7 +2246,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "OYUN ÜST VERİLERİNİ DÜZENLE"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "PAD TO KEYBOARD BİLGİLERİNİ GÖRÜNTÜLE"
+msgstr "KOL İLE KLAVYE BİLGİLERİNİ GÖRÜNTÜLE"
 
 msgid "RESET"
 msgstr "SIFIRLA"
@@ -2289,6 +2289,9 @@ msgstr "KUTU KAYNAĞI"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO KAYNAĞI"
+
+msgid "HD WHEEL"
+msgstr ""
 
 msgid "WHEEL"
 msgstr "DİREKSİYON"
@@ -2336,7 +2339,7 @@ msgid "MANUAL"
 msgstr "KILAVUZ"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "PADTOKEY AYARLARI"
+msgstr "KOL İLE TUŞ AYARLARI"
 
 msgid "ACCOUNT"
 msgstr "HESAP"
@@ -2381,7 +2384,7 @@ msgid "BY MANUFACTURER"
 msgstr "ÜRETİCİYE GÖRE"
 
 msgid "BY HARDWARE TYPE"
-msgstr "DONANIMA GÖRE"
+msgstr "DONANIM TÜRÜNE GÖRE"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "ÜRETİCİYE VE TÜRE GÖRE"
@@ -2592,7 +2595,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLAR"
 
 msgid "NO GAMES FOUND"
-msgstr "HİÇBİR OYUN BULUNAMADI"
+msgstr "OYUN BULUNAMADI"
 
 msgid "JOIN GAME"
 msgstr "OYUNA KATIL"
@@ -2604,7 +2607,7 @@ msgid "CONTROLLER SETTINGS"
 msgstr "KONTROLCÜ AYARLARI"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KONTROLCÜ VE BLUETOOTH AYARLARI"
+msgstr "KONTROLCÜ & BLUETOOTH AYARLARI"
 
 msgid "CONTROLLERS PRIORITY"
 msgstr "ÖNCELİKLİ KONTROLCÜ"
@@ -2662,7 +2665,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLCÜ ETKİNLİKLERİNİ GÖSTER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "KONTROLCÜ PİL DÜZEYİNİ GÖSTER"
+msgstr "KONTROLCÜ PİL SEVİYESİNİ GÖSTER"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "SİLAH NİŞANINI ÇİZ"
@@ -2914,8 +2917,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Geçerli bir hesap gerekli. Lütfen hesap oluşturmak için https://"
-"retroachievements.org adresini ziyaret ediniz"
+"Geçerli bir hesap gerekli. Lütfen bu adresten hesap oluşturun https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Tam"
@@ -2927,7 +2930,7 @@ msgid "Kid"
 msgstr "Çocuk"
 
 msgid "Basic"
-msgstr "Temel"
+msgstr "Basit"
 
 msgid "Games similar to"
 msgstr "Benzeşen oyunlar"
@@ -2949,7 +2952,7 @@ msgstr "RASGELE"
 
 #, c-format
 msgid "Back to %s"
-msgstr "%s Geri Dön"
+msgstr "%s Geri dön"
 
 msgid "No Entries Found"
 msgstr "Girdi Bulunamadı"
@@ -3101,7 +3104,7 @@ msgid "SCRAPE FAILED"
 msgstr "BİLGİLER GETİRİLEMEDİ"
 
 msgid "SCRAPING FINISHED"
-msgstr "BİLGİ GETİRME TAMAMLANDI"
+msgstr "BİLGİLER GETİRİLDİ"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "DEĞİŞİKLİKLERİ UYGULAMAK İÇİN OYUN LİSTELERİNİ GÜNCELLE."
@@ -3122,10 +3125,10 @@ msgid "INVALID CONFIGURATION"
 msgstr "GEÇERSİZ AYAR"
 
 msgid "UNKNOWN EMULATOR"
-msgstr "BİLİNMEYEN EMÜLATOR"
+msgstr "BİLİNMEYEN EMÜLATÖR"
 
 msgid "EMULATOR IS MISSING"
-msgstr "EMÜLATOR BULUNAMADI"
+msgstr "EMÜLATÖR BULUNAMADI"
 
 msgid "CORE IS MISSING"
 msgstr "ÇEKİRDEK BULUNAMADI"

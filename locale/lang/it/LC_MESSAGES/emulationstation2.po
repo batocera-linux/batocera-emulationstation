@@ -2286,6 +2286,9 @@ msgstr "SORGENTE BOX"
 msgid "LOGO SOURCE"
 msgstr "SORGENTE LOGO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "TARGHETTA"
 

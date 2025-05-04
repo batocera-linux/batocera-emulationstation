@@ -2271,6 +2271,9 @@ msgstr "박스 출처"
 msgid "LOGO SOURCE"
 msgstr "로고 출처"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "휠"
 

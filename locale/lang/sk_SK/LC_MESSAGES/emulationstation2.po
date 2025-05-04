@@ -2283,6 +2283,9 @@ msgstr "Zdroj krabice"
 msgid "LOGO SOURCE"
 msgstr "Zdroj loga"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "Koliesko"
 

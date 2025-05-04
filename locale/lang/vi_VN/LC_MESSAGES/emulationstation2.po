@@ -2292,6 +2292,9 @@ msgstr "NGUỒN BOX"
 msgid "LOGO SOURCE"
 msgstr "NGUỒN LOGO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "WHEEL"
 

@@ -2270,6 +2270,9 @@ msgstr "ΠΗΓΗ BOX"
 msgid "LOGO SOURCE"
 msgstr "ΠΗΓΗ ΛΟΓΟΤΥΠΟΥ"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr ""
 

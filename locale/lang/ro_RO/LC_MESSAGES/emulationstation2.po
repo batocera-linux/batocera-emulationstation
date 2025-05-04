@@ -2302,6 +2302,9 @@ msgstr "SURSĂ CUTIE"
 msgid "LOGO SOURCE"
 msgstr "SURSĂ LOGO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "ROATĂ"
 

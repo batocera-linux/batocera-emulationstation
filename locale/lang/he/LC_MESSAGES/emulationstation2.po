@@ -2248,6 +2248,9 @@ msgstr "מקור קופסה"
 msgid "LOGO SOURCE"
 msgstr "מקור סמל"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "גלגל"
 

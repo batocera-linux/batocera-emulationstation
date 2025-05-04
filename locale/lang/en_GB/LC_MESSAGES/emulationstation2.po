@@ -2274,6 +2274,9 @@ msgstr "BOX SOURCE"
 msgid "LOGO SOURCE"
 msgstr "LOGO SOURCE"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "WHEEL"
 

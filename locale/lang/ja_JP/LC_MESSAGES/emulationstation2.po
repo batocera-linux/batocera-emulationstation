@@ -2283,6 +2283,9 @@ msgstr "ボックス ソース元"
 msgid "LOGO SOURCE"
 msgstr "ロゴ(マーキー) ソース元"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "ホイール<marquee>"
 

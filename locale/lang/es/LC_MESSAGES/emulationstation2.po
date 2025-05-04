@@ -2306,6 +2306,9 @@ msgstr "TIPO DE CAJA"
 msgid "LOGO SOURCE"
 msgstr "TIPO DE LOGO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "LOGO PARA RUEDA (WHEEL)"
 

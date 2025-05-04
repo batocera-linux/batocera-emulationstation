@@ -2283,6 +2283,9 @@ msgstr "BOXKÄLLA"
 msgid "LOGO SOURCE"
 msgstr "LOGOTYPKÄLLA"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "HJUL"
 
@@ -2907,8 +2910,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"

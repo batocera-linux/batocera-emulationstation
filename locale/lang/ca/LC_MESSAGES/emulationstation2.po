@@ -2300,6 +2300,9 @@ msgstr "ORIGEN DE LA CAIXA"
 msgid "LOGO SOURCE"
 msgstr "ORIGEN DEL LOGO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "RODA"
 

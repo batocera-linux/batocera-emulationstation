@@ -2257,6 +2257,9 @@ msgstr "盒子封面数据"
 msgid "LOGO SOURCE"
 msgstr "LOGO数据"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "方向盘"
 

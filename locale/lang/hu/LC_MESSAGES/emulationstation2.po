@@ -2301,6 +2301,9 @@ msgstr "DOBOZ FORRÁSA"
 msgid "LOGO SOURCE"
 msgstr "LOGO FORRÁSA"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "KERÉK"
 
