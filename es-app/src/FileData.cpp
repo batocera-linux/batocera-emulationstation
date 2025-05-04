@@ -890,7 +890,7 @@ std::set<std::string> FileData::getContentFiles()
 			files.insert(path + "/" + stem + ".bin");
 			files.insert(path + "/" + stem + ".sub");
 		}
-		else if (ext == ".m3u")
+		else if (ext == ".m3u" || ext == ".xbox360")
 		{
 			std::ifstream m3u(WINSTRINGW(mPath));
 			if (m3u && m3u.is_open())
@@ -937,6 +937,12 @@ void FileData::deleteGameFiles()
 			continue;
 
 		Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
+	}
+
+	if (Utils::FileSystem::isDirectory(getPath()))
+	{
+		Utils::FileSystem::deleteDirectoryFiles(getPath(), true);
+		return;
 	}
 
 	Utils::FileSystem::removeFile(getPath());
