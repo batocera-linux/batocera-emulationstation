@@ -23,13 +23,13 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
 	mDescription(window),
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
-	mKidGame(nullptr), mNotKidGame(nullptr), mHidden(nullptr), 
+	mKidGame(nullptr), mNotKidGame(nullptr), mHidden(nullptr),
 	mGunGame(nullptr), mNotGunGame(nullptr),
 	mWheelGame(nullptr), mNotWheelGame(nullptr),
 	mTrackballGame(nullptr), mNotTrackballGame(nullptr),
 	mSpinnerGame(nullptr), mNotSpinnerGame(nullptr),
 	mFavorite(nullptr), mNotFavorite(nullptr),
-	mManual(nullptr), mNoManual(nullptr), 
+	mManual(nullptr), mNoManual(nullptr),
 	mMap(nullptr), mNoMap(nullptr),
 	mCheevos(nullptr), mNotCheevos(nullptr),
 	mNetplay(nullptr), mNotNetplay(nullptr),
@@ -41,7 +41,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 
 	mRating(window), mReleaseDate(window), mDeveloper(window), mPublisher(window),
 	mGenre(window), mPlayers(window), mLastPlayed(window), mPlayCount(window),
-	mName(window), mGameTime(window), mTextFavorite(window)	
+	mName(window), mGameTime(window), mTextFavorite(window), mIsPerGameExtrasPathBinding(false)
 {
 	std::vector<MdImage> mdl = 
 	{ 
@@ -426,9 +426,18 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		mTheme = theme;
 
 		const ThemeData::ThemeElement* elem = theme->getElement(viewName, "gameextras", "gameextras");
-		if (elem && elem->has("path"))
+
+		if (elem && elem->has("path_binding"))
+		{
+			mPerGameExtrasPath = elem->get<std::string>("path_binding");
+			mIsPerGameExtrasPathBinding = true;
+		}
+		else if (elem && elem->has("path"))
+		{
+			mIsPerGameExtrasPathBinding = false;
 			mPerGameExtrasPath = elem->get<std::string>("path");
-		else
+		}
+		else					
 			mPerGameExtrasPath = "";
 
 		initMDLabels();
@@ -730,22 +739,38 @@ void DetailedContainer::loadThemedExtras(FileData* file)
 		resetThemedExtras();			
 		return;
 	}
-
-	auto path = Utils::FileSystem::combine(mPerGameExtrasPath, Utils::FileSystem::getStem(file->getPath()) + ".xml");
 	
-	if (!Utils::FileSystem::exists(path) && !file->getMetadata(MetaDataId::Crc32).empty())
-		path = Utils::FileSystem::combine(mPerGameExtrasPath, file->getMetadata(MetaDataId::Crc32) + ".xml");
+	std::string rootPath = mPerGameExtrasPath;
 
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::combine(mPerGameExtrasPath, Utils::FileSystem::getStem(file->getPath()) + "/theme.xml");
-
-	if (!Utils::FileSystem::exists(path) && !file->getMetadata(MetaDataId::Crc32).empty())
-		path = Utils::FileSystem::combine(mPerGameExtrasPath, file->getMetadata(MetaDataId::Crc32) + "/theme.xml");
-
-	if (!Utils::FileSystem::exists(path))
+	if (mIsPerGameExtrasPathBinding)
 	{
-		resetThemedExtras();
-		return;
+		std::string evaluationResult = BindingManager::evaluateBindableExpression(mPerGameExtrasPath, file);		
+		if (evaluationResult.size())
+			rootPath = Utils::FileSystem::getCanonicalPath(evaluationResult);
+	}
+
+	std::string path;
+
+	if (Utils::String::endsWith(rootPath, ".xml") && Utils::FileSystem::exists(rootPath))
+		path = rootPath;
+	else
+	{
+		path = Utils::FileSystem::combine(rootPath, Utils::FileSystem::getStem(file->getPath()) + ".xml");
+
+		if (!Utils::FileSystem::exists(path) && !file->getMetadata(MetaDataId::Crc32).empty())
+			path = Utils::FileSystem::combine(rootPath, file->getMetadata(MetaDataId::Crc32) + ".xml");
+
+		if (!Utils::FileSystem::exists(path))
+			path = Utils::FileSystem::combine(rootPath, Utils::FileSystem::getStem(file->getPath()) + "/theme.xml");
+
+		if (!Utils::FileSystem::exists(path) && !file->getMetadata(MetaDataId::Crc32).empty())
+			path = Utils::FileSystem::combine(rootPath, file->getMetadata(MetaDataId::Crc32) + "/theme.xml");
+
+		if (!Utils::FileSystem::exists(path))
+		{
+			resetThemedExtras();
+			return;
+		}
 	}
 
 	auto customTheme = mTheme->clone(getName());
