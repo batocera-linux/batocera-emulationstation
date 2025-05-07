@@ -597,6 +597,315 @@ void GuiMenu::openEmuELECSettings()
         SystemConf::getInstance()->set("ee_bootvideo.enabled", "1");
 		SystemConf::getInstance()->saveSystemConf();
 	});
+	
+// Splash Settings
+s->addGroup(_("SPLASH SETTINGS"));
+s->addEntry(_("CONFIGURE SPLASH OPTIONS"), true, [this] {
+	auto s = new GuiSettings(mWindow, _("SPLASH SETTINGS"));
+	
+// Custom splash image
+auto enable_customsplashimage = std::make_shared<SwitchComponent>(mWindow);
+bool customSplashImageEnabled = SystemConf::getInstance()->get("ee_customsplashimage.enabled") == "1";
+enable_customsplashimage->setState(customSplashImageEnabled);
+s->addWithLabel(_("ENABLE CUSTOM SPLASH IMAGE"), enable_customsplashimage);
+
+// File picker for custom splash image
+s->addFileBrowser(_("CUSTOM SPLASH IMAGE"), "ee_customsplashimage", GuiFileBrowser::IMAGES);
+
+// Custom splash video
+auto enable_customsplashvideo = std::make_shared<SwitchComponent>(mWindow);
+bool customSplashVideoEnabled = SystemConf::getInstance()->get("ee_customsplashvideo.enabled") == "1";
+enable_customsplashvideo->setState(customSplashVideoEnabled);
+s->addWithLabel(_("ENABLE CUSTOM SPLASH VIDEO"), enable_customsplashvideo);
+
+// File picker for custom splash video
+s->addFileBrowser(_("CUSTOM SPLASH VIDEO"), "ee_customsplashvideo", GuiFileBrowser::VIDEO);
+
+
+
+/* Play launching.mp4 from /storage/roms/splash/ when loading a game */
+auto enable_loadingvideo = std::make_shared<SwitchComponent>(mWindow);
+bool loadingVideoEnabled = SystemConf::getInstance()->get("ee_standardloadingvideo.enabled") == "1";
+enable_loadingvideo->setState(loadingVideoEnabled);
+s->addWithLabel(_("PLAY STANDARD LOADING VIDEO"), enable_loadingvideo);
+
+/* Play launching.mp4 from /storage/roms/splash/<system>/ when loading a game */
+auto enable_systemloadingvideo = std::make_shared<SwitchComponent>(mWindow);
+bool systemloadingVideoEnabled = SystemConf::getInstance()->get(
+"ee_systemloadingvideo.enabled") == "1";
+enable_systemloadingvideo->setState(systemloadingVideoEnabled);
+s->addWithLabel(_("PLAY SYSTEM LOADING VIDEO"), enable_systemloadingvideo);
+
+/* Play random .mp4 video from /storage/roms/splash/<system>/ when loading a game */
+auto enable_randomsystemvideo = std::make_shared<SwitchComponent>(mWindow);
+bool randomsystemvideoEnabled = SystemConf::getInstance()->get("ee_randomsystemvideo.enabled") == "1";
+enable_randomsystemvideo->setState(randomsystemvideoEnabled);
+s->addWithLabel(_("PLAY RANDOM SYSTEM LOADING VIDEO"), enable_randomsystemvideo);
+
+/* Show a random splash mp4 video from /storage/roms/splash/video */
+auto enable_randomloadingvideo = std::make_shared<SwitchComponent>(mWindow);
+bool randomloadingVideoEnabled = SystemConf::getInstance()->get("ee_randomloadingvideo.enabled") == "1";
+enable_randomloadingvideo->setState(randomloadingVideoEnabled);
+s->addWithLabel(_("PLAY RANDOM LOADING VIDEO"), enable_randomloadingvideo);
+
+/* Show launching.png from /storage/roms/splash/ when loading a game */
+auto enable_standardloadingimage = std::make_shared<SwitchComponent>(mWindow);
+bool standardLoadingImageEnabled = SystemConf::getInstance()->get("ee_standardloadingimage.enabled") == "1";
+enable_standardloadingimage->setState(standardLoadingImageEnabled);
+s->addWithLabel(_("SHOW STANDARD LOADING IMAGE"), enable_standardloadingimage);
+
+/* Show the specific launching.png from the platform folder */
+auto enable_systemsplashimage = std::make_shared<SwitchComponent>(mWindow);
+bool systemSplashImageEnabled = SystemConf::getInstance()->get("ee_systemsplashimage.enabled") == "1";
+enable_systemsplashimage->setState(systemSplashImageEnabled);
+s->addWithLabel(_("SHOW SYSTEM SPLASH IMAGE"), enable_systemsplashimage);
+
+/* Show a random splash image from the respective platform folder */
+auto enable_randomsystemimage = std::make_shared<SwitchComponent>(mWindow);
+bool randomSystemImageEnabled = SystemConf::getInstance()->get("ee_randomsystemimage.enabled") == "1";
+enable_randomsystemimage->setState(randomSystemImageEnabled);
+s->addWithLabel(_("SHOW RANDOM SYSTEM SPLASH IMAGE"), enable_randomsystemimage);
+
+/* Show a random splash image from /storage/roms/splash/random when loading a game */
+auto enable_randomloadimage = std::make_shared<SwitchComponent>(mWindow);
+bool randomLoadImageEnabled = SystemConf::getInstance()->get("ee_randomimage.enabled") == "1";
+enable_randomloadimage->setState(randomLoadImageEnabled);
+s->addWithLabel(_("SHOW RANDOM SPLASH LOADING IMAGE"), enable_randomloadimage);
+
+// Custom exit-splash image
+auto enable_customexitsplashimage = std::make_shared<SwitchComponent>(mWindow);
+bool customExitSplashImageEnabled = SystemConf::getInstance()->get("ee_customexitsplashimage.enabled") == "1";
+enable_customexitsplashimage->setState(customExitSplashImageEnabled);
+s->addWithLabel(_("ENABLE CUSTOM EXIT-SPLASH IMAGE"), enable_customexitsplashimage);
+
+// File picker for custom splash image
+s->addFileBrowser(_("CUSTOM EXIT-SPLASH IMAGE"), "ee_customexitsplashimage", GuiFileBrowser::IMAGES);
+
+
+// Custom exit-splash video
+auto enable_customexitsplashvideo = std::make_shared<SwitchComponent>(mWindow);
+bool customExitSplashVideoEnabled = SystemConf::getInstance()->get("ee_customexitsplashvideo.enabled") == "1";
+enable_customexitsplashvideo->setState(customExitSplashVideoEnabled);
+s->addWithLabel(_("ENABLE CUSTOM EXIT-SPLASH VIDEO"), enable_customexitsplashvideo);
+
+// File picker for custom exit-splash video
+s->addFileBrowser(_("CUSTOM EXIT-SPLASH VIDEO"), "ee_customexitsplashvideo", GuiFileBrowser::VIDEO);
+
+
+/* Show exitsplash.png from /storage/roms/splash/ after game ends */
+auto enable_exitsplashimage = std::make_shared<SwitchComponent>(mWindow);
+bool exitSplashImageEnabled = SystemConf::getInstance()->get("ee_exitsplashimage.enabled") == "1";
+enable_exitsplashimage->setState(exitSplashImageEnabled);
+s->addWithLabel(_("SHOW EXIT SPLASH IMAGE"), enable_exitsplashimage);
+
+/* Play exitvideo.mp4 from /storage/roms/splash/ after game ends */
+auto enable_exitvideo = std::make_shared<SwitchComponent>(mWindow);
+bool exitVideoEnabled = SystemConf::getInstance()->get("ee_exitvideo.enabled") == "1";
+enable_exitvideo->setState(exitVideoEnabled);
+s->addWithLabel(_("PLAY EXIT SPLASH VIDEO"), enable_exitvideo);
+
+
+
+enable_exitvideo->setOnChangedCallback([=] {
+	if (enable_exitvideo->getState()) {
+		enable_exitsplashimage->setState(false);
+		enable_customexitsplashimage->setState(false);
+		enable_customexitsplashvideo->setState(false);
+	}
+});
+
+enable_exitsplashimage->setOnChangedCallback([=] {
+	if (enable_exitsplashimage->getState()) {
+		enable_exitvideo->setState(false);
+		enable_customexitsplashimage->setState(false);
+		enable_customexitsplashvideo->setState(false);
+	}
+});
+
+enable_customexitsplashvideo->setOnChangedCallback([=] {
+	if (enable_customexitsplashvideo->getState()) {
+		enable_exitsplashimage->setState(false);
+		enable_customexitsplashimage->setState(false);
+		enable_exitvideo->setState(false);
+	}
+});
+
+enable_customexitsplashimage->setOnChangedCallback([=] {
+	if (enable_customexitsplashimage->getState()) {
+		enable_exitvideo->setState(false);
+		enable_exitsplashimage->setState(false);
+		enable_customexitsplashvideo->setState(false);
+	}
+});
+
+
+
+
+
+enable_loadingvideo->setOnChangedCallback([=] {
+	if (enable_loadingvideo->getState()) {
+		enable_systemloadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_randomloadingvideo->setOnChangedCallback([=] {
+	if (enable_randomloadingvideo->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_systemloadingvideo->setOnChangedCallback([=] {
+	if (enable_systemloadingvideo->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_randomsystemvideo->setOnChangedCallback([=] {
+	if (enable_randomsystemvideo->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_randomloadimage->setOnChangedCallback([=] {
+	if (enable_randomloadimage->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_randomsystemimage->setOnChangedCallback([=] {
+	if (enable_randomsystemimage->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_systemsplashimage->setOnChangedCallback([=] {
+	if (enable_systemsplashimage->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_standardloadingimage->setOnChangedCallback([=] {
+	if (enable_standardloadingimage->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_customsplashimage->setOnChangedCallback([=] {
+	if (enable_customsplashimage->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashvideo->setState(false);
+	}
+});
+
+enable_customsplashvideo->setOnChangedCallback([=] {
+	if (enable_customsplashvideo->getState()) {
+		enable_loadingvideo->setState(false);
+		enable_randomloadingvideo->setState(false);
+		enable_systemloadingvideo->setState(false);
+		enable_randomsystemvideo->setState(false);
+		enable_randomloadimage->setState(false);
+		enable_randomsystemimage->setState(false);
+		enable_standardloadingimage->setState(false);
+		enable_systemsplashimage->setState(false);
+		enable_customsplashimage->setState(false);
+	}
+});
+
+
+
+s->addSaveFunc([=] {
+	SystemConf::getInstance()->set("ee_customsplashimage.enabled", enable_customsplashimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_customsplashvideo.enabled", enable_customsplashvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_standardloadingvideo.enabled", enable_loadingvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_randomloadingvideo.enabled", enable_randomloadingvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_systemloadingvideo.enabled", enable_systemloadingvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_randomsystemvideo.enabled", enable_randomsystemvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_randomimage.enabled", enable_randomloadimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_standardloadingimage.enabled", enable_standardloadingimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_randomsystemimage.enabled", enable_randomsystemimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_systemsplashimage.enabled", enable_systemsplashimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_exitvideo.enabled", enable_exitvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_exitsplashimage.enabled", enable_exitsplashimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_customexitsplashimage.enabled", enable_customexitsplashimage->getState() ? "1" : "0");
+	SystemConf::getInstance()->set("ee_customexitsplashvideo.enabled", enable_customexitsplashvideo->getState() ? "1" : "0");
+	SystemConf::getInstance()->saveSystemConf();
+});
+
+	mWindow->pushGui(s);
+});
+
+
 
 	s->addInputTextRow(_("DEFAULT YOUTUBE SEARCH WORD"), "youtube.searchword", false);
 
@@ -4601,6 +4910,11 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 				Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 			}, _("NO"), nullptr));
 		}, "iconControllers");
+		
+		s->addEntry(_("KILL LIBRESPOT"), false, [] {
+            system("/emuelec/scripts/librekill.sh");
+        }, "iconLibrekill");
+
 		
 		s->addEntry(_("REBOOT FROM NAND"), false, [window] {
 			window->pushGui(new GuiMsgBox(window, _("REALLY REBOOT FROM NAND?"), _("YES"),
