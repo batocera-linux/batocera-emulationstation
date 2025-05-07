@@ -613,146 +613,135 @@ GameScreenSaverBase::~GameScreenSaverBase()
 #include <rapidjson/filereadstream.h>
 
 void GameScreenSaverBase::setGame(FileData* game)
-{	
-	if (mLabelGame != nullptr)
-	{
-		delete mLabelGame;
-		mLabelGame = nullptr;
-	}
-
-	if (mLabelSystem != nullptr)
-	{
-		delete mLabelSystem;
-		mLabelSystem = nullptr;
-	}
-
-	if (mMarquee != nullptr)
-	{
-		delete mMarquee;
-		mMarquee = nullptr;
-	}
-
-	if (mDecoration != nullptr)
-	{
-		delete mDecoration;
-		mDecoration = nullptr;
-	}
-
-	if (game == nullptr)
-		return;
+{   
+	if (mLabelGame != nullptr) { delete mLabelGame; mLabelGame = nullptr; }
+	if (mLabelSystem != nullptr) { delete mLabelSystem; mLabelSystem = nullptr; }
+	if (mMarquee != nullptr) { delete mMarquee; mMarquee = nullptr; }
+	if (mDecoration != nullptr) { delete mDecoration; mDecoration = nullptr; }
+	if (game == nullptr) return;
 
 	mViewport = Renderer::Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
 	std::string decos = Settings::getInstance()->getString("ScreenSaverDecorations");
 
 #ifdef _RPI_
-	if (!Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
+if (!Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
 #endif
-	if (decos != "none")
+
+// SYSTEM-BEZEL: exakt /storage/roms/bezels/<system>/default.png
+if (decos == "systems")
+{
+	std::string systemName = game->getSystem()->getName();
+	std::string imagePath = "/storage/roms/bezels/" + systemName + "/default.png";
+	std::string infoPath = Utils::String::replace(imagePath, ".png", ".info");
+
+	if (Utils::FileSystem::exists(imagePath))
 	{
-		auto sets = GuiMenu::getDecorationsSets(game->getSystem());
-		int setId = Randomizer::random(sets.size()); // (int)(((float)rand() / float(RAND_MAX)) * (float)sets.size());
-
-		if (decos == "systems")
+		if (Utils::FileSystem::exists(infoPath))
 		{
-			std::string bezel = SystemConf::getInstance()->get("global.bezel");
-
-			bool found = false;
-
-			if (bezel != "default" && Utils::String::startsWith(bezel, "default"))
+			FILE* fp = fopen(infoPath.c_str(), "r");
+			if (fp)
 			{
-				for (int i = 0; i < sets.size(); i++)
-				{
-					if (sets[i].name == bezel && Utils::FileSystem::exists(sets[i].path + "/systems") && !sets[i].imageUrl.empty())
-					{
-						found = true;
-						setId = i;
-						break;
-					}
-				}
-			}
+				char readBuffer[65536];
+				rapidjson::FileReadStream is(fp, readBuffer, sizeof(readBuffer));
+				rapidjson::Document doc;
+				doc.ParseStream(is);
+				fclose(fp);
 
-			if (!found)
-			{
-				for (int i = 0; i < sets.size(); i++)
+				if (!doc.HasParseError() && doc.HasMember("top") && doc.HasMember("left") && doc.HasMember("bottom") && doc.HasMember("right") && doc.HasMember("width") && doc.HasMember("height"))
 				{
-					if (sets[i].name == "default")
+					int width = doc["width"].GetInt();
+					int height = doc["height"].GetInt();
+					if (width > 0 && height > 0)
 					{
-						found = true;
-						setId = i;
-						break;
-					}
-				}
-			}
+						Vector2i sz = ImageIO::adjustPictureSize(Vector2i(width, height), Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()));
+						float px = (float)sz.x() / (float)width;
+						float py = (float)sz.y() / (float)height;
+						float dx = (Renderer::getScreenWidth() - sz.x()) / 2.0f;
+						float dy = (Renderer::getScreenHeight() - sz.y()) / 2.0f;
 
-			if (!found)
-			{
-				for (int i = 0; i < sets.size(); i++)
-				{
-					if (sets[i].name == "default_unglazed")
-					{
-						found = true;
-						setId = i;
-						break;
+						int top = doc["top"].GetInt();
+						int left = doc["left"].GetInt();
+						int bottom = doc["bottom"].GetInt();
+						int right = doc["right"].GetInt();
+
+						mViewport = Renderer::Rect(dx + left * px, dy + top * py,
+							(width - right - left) * px, (height - bottom - top) * py);
 					}
 				}
 			}
 		}
 
-		if (setId >= 0 && setId < sets.size() && Utils::FileSystem::exists(sets[setId].imageUrl))
+		if (!Renderer::isVerticalScreen())
 		{
-			std::string infoFile = Utils::String::replace(sets[setId].imageUrl, ".png", ".info");
-			if (Utils::FileSystem::exists(infoFile))
-			{
-				FILE* fp = fopen(infoFile.c_str(), "r"); // non-Windows use "r"
-				if (fp)
-				{
-					char readBuffer[65536];
-					rapidjson::FileReadStream is(fp, readBuffer, sizeof(readBuffer));
-					rapidjson::Document doc;
-					doc.ParseStream(is);
-
-					if (!doc.HasParseError())
-					{
-						if (doc.HasMember("top") && doc.HasMember("left") && doc.HasMember("bottom") && doc.HasMember("right") && doc.HasMember("width") && doc.HasMember("height"))
-						{
-							auto width = doc["width"].GetInt();
-							auto height = doc["height"].GetInt();
-							if (width > 0 && height > 0)
-							{
-								Vector2i sz = ImageIO::adjustPictureSize(Vector2i(width, height), Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()));
-
-								float px = (float) sz.x() / (float)width;
-								float py = (float) sz.y() / (float)height;
-
-								float dx = (Renderer::getScreenWidth() - sz.x()) / 2.0;
-								float dy = (Renderer::getScreenHeight() - sz.y()) / 2.0;
-
-								auto top = doc["top"].GetInt();
-								auto left = doc["left"].GetInt();
-								auto bottom = doc["bottom"].GetInt();
-								auto right = doc["right"].GetInt();
-
-								mViewport = Renderer::Rect(dx + left * px, dy + top * py, (width - right - left) * px, (height - bottom - top) * py);
-							}
-						}
-					}
-
-					fclose(fp);
-				}
-			}
-
-			if (!Renderer::isVerticalScreen())
-			{
-				mDecoration = new ImageComponent(mWindow, true);
-				mDecoration->setImage(sets[setId].imageUrl);
-				mDecoration->setOrigin(0.5f, 0.5f);
-				mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, (float)Renderer::getScreenHeight() / 2.0f);
-				mDecoration->setMaxSize((float)Renderer::getScreenWidth() * Renderer::getScreenProportion(), (float)Renderer::getScreenHeight());
-			}
+			mDecoration = new ImageComponent(mWindow, true);
+			mDecoration->setImage(imagePath);
+			mDecoration->setOrigin(0.5f, 0.5f);
+			mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f);
+			mDecoration->setMaxSize(Renderer::getScreenWidth() * Renderer::getScreenProportion(), Renderer::getScreenHeight());
 		}
 	}
+}
 
+else if (decos != "none")
+{
+
+	auto sets = GuiMenu::getDecorationsSets(game->getSystem());
+	int setId = Randomizer::random(sets.size());
+
+	if (setId >= 0 && setId < sets.size() && Utils::FileSystem::exists(sets[setId].imageUrl))
+	{
+		std::string infoFile = Utils::String::replace(sets[setId].imageUrl, ".png", ".info");
+		if (Utils::FileSystem::exists(infoFile))
+		{
+			FILE* fp = fopen(infoFile.c_str(), "r");
+			if (fp)
+			{
+				char readBuffer[65536];
+				rapidjson::FileReadStream is(fp, readBuffer, sizeof(readBuffer));
+				rapidjson::Document doc;
+				doc.ParseStream(is);
+				fclose(fp);
+
+				if (!doc.HasParseError())
+				{
+					if (doc.HasMember("top") && doc.HasMember("left") && doc.HasMember("bottom") && doc.HasMember("right") && doc.HasMember("width") && doc.HasMember("height"))
+					{
+						auto width = doc["width"].GetInt();
+						auto height = doc["height"].GetInt();
+						if (width > 0 && height > 0)
+						{
+							Vector2i sz = ImageIO::adjustPictureSize(Vector2i(width, height), Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()));
+							float px = (float)sz.x() / (float)width;
+							float py = (float)sz.y() / (float)height;
+							float dx = (Renderer::getScreenWidth() - sz.x()) / 2.0;
+							float dy = (Renderer::getScreenHeight() - sz.y()) / 2.0;
+
+							auto top = doc["top"].GetInt();
+							auto left = doc["left"].GetInt();
+							auto bottom = doc["bottom"].GetInt();
+							auto right = doc["right"].GetInt();
+
+							mViewport = Renderer::Rect(dx + left * px, dy + top * py, (width - right - left) * px, (height - bottom - top) * py);
+						}
+					}
+				}
+			}
+		}
+
+		if (!Renderer::isVerticalScreen())
+		{
+			mDecoration = new ImageComponent(mWindow, true);
+			mDecoration->setImage(sets[setId].imageUrl);
+			mDecoration->setOrigin(0.5f, 0.5f);
+			mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f);
+			mDecoration->setMaxSize(Renderer::getScreenWidth() * Renderer::getScreenProportion(), Renderer::getScreenHeight());
+		}
+	}
+}
+
+	
+	
 	if (!Settings::getInstance()->getBool("SlideshowScreenSaverGameName"))
 		return;
 
