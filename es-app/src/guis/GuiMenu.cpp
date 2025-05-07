@@ -4387,7 +4387,7 @@ void GuiMenu::openSoundSettings()
 	s->addSwitch(_("LOWER MUSIC WHEN PLAYING VIDEO"), "VideoLowersMusic", true);
 
 	s->addGroup(_("SOUNDS"));
-
+	s->addFileBrowser(_("CUSTOM MENU SCROLL SOUND"), "ee_menuscrollsound", GuiFileBrowser::AUDIO); 
 	s->addSwitch(_("ENABLE NAVIGATION SOUNDS"), "EnableSounds", true, []
 	{
 		if (Settings::getInstance()->getBool("EnableSounds") && PowerSaver::getMode() == PowerSaver::INSTANT)

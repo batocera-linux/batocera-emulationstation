@@ -16,7 +16,7 @@ public:
 		MANUALS = 2,
 		VIDEO = 3,
 		DIRECTORY = 4,
-
+		AUDIO = 5,
 		ALL = 255
 	};
 
