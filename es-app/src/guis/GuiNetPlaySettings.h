@@ -7,5 +7,8 @@ class Window;
 class GuiNetPlaySettings : public GuiSettings
 {
 public:
-	GuiNetPlaySettings(Window* window);
+	GuiNetPlaySettings(Window* window, int selectItem = -1);
+
+private:
+	void addRelayServerOptions(int selectItem);
 };
