@@ -37,6 +37,7 @@
 #include "ApiSystem.h"
 #include "InputManager.h"
 #include "AudioManager.h"
+#include "FavoriteMusicManager.h"
 #include <LibretroRatio.h>
 #include "guis/GuiUpdate.h"
 #include "guis/GuiInstallStart.h"
@@ -59,6 +60,7 @@
 #include "Gamelist.h"
 #include "TextToSpeech.h"
 #include "Paths.h"
+#include <set> 
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -230,7 +232,6 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
 	}
 }
-
 void GuiMenu::openScraperSettings()
 {		
 	mWindow->pushGui(new GuiScraperStart(mWindow));
@@ -4090,26 +4091,103 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUICK ACCESS") : _("QUIT")).c_str());
 	s->setCloseButton("select");
 
+	
 	if (quickAccessMenu)
 	{
-		s->addGroup(_("QUICK ACCESS"));
+    		s->addGroup(_("QUICK ACCESS"));
 
-		// Don't like one of the songs? Press next
-		if (AudioManager::getInstance()->isSongPlaying())
-		{
-			auto sname = AudioManager::getInstance()->getSongName();
-			if (!sname.empty())
+			if (AudioManager::getInstance()->isSongPlaying())
 			{
-				s->addWithDescription(_("SKIP TO THE NEXT SONG"), _("NOW PLAYING") + ": " + sname, nullptr, [s, window]
+			    std::string songName = AudioManager::getInstance()->getSongName();
+			    std::string currentSongPath = AudioManager::getInstance()->getCurrentSongPath();
+			
+			    if (!songName.empty())
+			    {
+			        s->addWithDescription(_("SKIP TO THE NEXT SONG"),
+			                              _("NOW PLAYING") + ": " + songName,
+			                              nullptr,
+			                              [s, window]()
+			                              {
+			                                  Window* w = window;
+			                                  AudioManager::getInstance()->playRandomMusic(false);
+			                                  delete s;
+			                                  GuiMenu::openQuitMenu_static(w, true, false);
+			                              },
+			                              "iconSound");
+			
+                    std::string favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath();
+			        std::list<std::string> lines;
+			
+			        if (Utils::FileSystem::exists(favoritesFile))
+			            lines = Utils::FileSystem::readAllLines(favoritesFile);
+			
+			        bool inFavorites = false;
+			        for (const auto& line : lines)
+			        {
+			            if (line == currentSongPath + ";" + songName)
+			            {
+			                inFavorites = true;
+			                break;
+			            }
+			        }
+			
+			        if (inFavorites)
+			        {
+			            s->addWithDescription(_("REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"),"",
+			                                  nullptr,
+			                                  [s, window, currentSongPath, songName]()
+			                                  {
+			                                      Window* w = window;
+			                                      if (FavoriteMusicManager::getInstance().removeSongFromFavorites(currentSongPath, songName, window))
+			                                      {
+			                                          AudioManager::getInstance()->playRandomMusic(true);
+			                                          delete s;
+			                                          GuiMenu::openQuitMenu_static(w, true, false);
+			                                      }
+			                                  },
+			                                  "iconSound");
+			        }
+			        else
+			        {
+			            s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"),"",
+			                                  nullptr,
+			                                  [s, window, currentSongPath, songName]()
+			                                  {
+			                                      Window* w = window;
+			                                      if (FavoriteMusicManager::getInstance().saveSongToFavorites(currentSongPath, songName, window))
+			                                      {
+			                                          Settings::getInstance()->setBool("audio.useFavoriteMusic", false);
+			                                          Settings::getInstance()->saveFile();
+			                                          AudioManager::getInstance()->playRandomMusic(true);
+			                                          delete s;
+			                                          GuiMenu::openQuitMenu_static(w, true, false);
+			                                      }
+			                                  },
+			                                  "iconSound");
+			        }
+			
+			        if (!lines.empty() || Settings::getInstance()->getBool("audio.useFavoriteMusic"))
+			        {
+			            auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
+			            favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
+					
+				    s->addWithDescription(_("PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"),"",
+						    	favoriteSwitch,
+						    	nullptr,
+					    		"iconSound"
+							);
+			            s->addSaveFunc([favoriteSwitch]()
 					{
-						Window* w = window;
-						AudioManager::getInstance()->playRandomMusic(false);
-						delete s;
-						openQuitMenu_static(w, true, false);
-					}, "iconSound");
-			}
-		}
+					    bool useFavorite = favoriteSwitch->getState();
+					    Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
+					    Settings::getInstance()->saveFile();
+					    AudioManager::getInstance()->playRandomMusic(useFavorite);
+					});
 
+			        }
+			    }
+			}
+					
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 			{
 				Window* w = window;
@@ -4151,7 +4229,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			}
 		}
 	}
-
+	
 	if (quickAccessMenu)
 		s->addGroup(_("QUIT"));
 
@@ -4176,7 +4254,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconShutdown");
 
-	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"), _("Shutdown without saving metadata."), nullptr, [window] {
+	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"),_("Shutdown without saving metadata."), nullptr, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
 			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));

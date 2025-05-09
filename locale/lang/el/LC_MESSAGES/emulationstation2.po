@@ -1993,6 +1993,15 @@ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"
 msgid "NOW PLAYING"
 msgstr "ΤΩΡΑ ΠΑΙΖΕΙ"
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ΑΠΟΘΗΚΕΥΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΣΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "ΑΦΑΙΡΕΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΝΟ ΤΡΑΓΟΥΔΙΩΝ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
 
