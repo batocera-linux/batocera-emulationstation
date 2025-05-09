@@ -2295,7 +2295,7 @@ msgid "LOGO SOURCE"
 msgstr "FONTE DA MEDIA DO LOGOTIPO"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "LOGOTIPO HD"
 
 msgid "WHEEL"
 msgstr "LOGOTIPO"

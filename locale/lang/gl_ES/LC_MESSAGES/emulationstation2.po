@@ -2303,7 +2303,7 @@ msgid "LOGO SOURCE"
 msgstr "ORIXE DO LOGO"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "RODA HD"
 
 msgid "WHEEL"
 msgstr "CARRUSEL"

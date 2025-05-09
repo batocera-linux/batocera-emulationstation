@@ -2296,7 +2296,7 @@ msgid "LOGO SOURCE"
 msgstr "ŹRÓDŁO LOGA"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "KIEROWNICA HD"
 
 msgid "WHEEL"
 msgstr "KOŁO"

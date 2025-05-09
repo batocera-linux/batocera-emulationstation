@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-27 19:08+0300\n"
+"PO-Revision-Date: 2025-05-06 18:25+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -1343,7 +1343,7 @@ msgstr ""
 "açılış süresini artırır"
 
 msgid "THREADED LOADING"
-msgstr "BASKIN YÜKLENİYOR"
+msgstr "İŞ PARÇACIKLARI YÜKLENİYOR"
 
 msgid "ASYNC IMAGE LOADING"
 msgstr "EŞ ZAMANSIZ RESİMLER YÜKLENİYOR"
@@ -1355,7 +1355,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VİDEO VRAM KULLANIMINI İYİLEŞTİR"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "YAPILANDIRMA UYGULANMASI İÇİN SİSTEM YENİDEN BAŞLATILMALI"
+msgstr "YAPILANDIRILMASI İÇİN SİSTEM YENİDEN BAŞLATILMALI"
 
 msgid "DOWNLOADS"
 msgstr "İNDİRMELER"
@@ -1415,11 +1415,10 @@ msgid "INSTANT"
 msgstr "ANINDA"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
-"Boştayken güç tüketimini azaltır (el bilgisayarları için kullanışlıdır)."
+msgstr "Boşta güç tüketimini azaltır (el tipi cihazlar için kullanışlıdır)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
-msgstr "EKRAN OKUYUCUSU (METİNDEN SESE)"
+msgstr "EKRAN OKUYUCU (METİNDEN SESE)"
 
 msgid "USER INTERFACE MODE"
 msgstr "KULLANICI ARAYÜZÜ MODU"
@@ -1661,7 +1660,7 @@ msgid "Use current slot on a new game."
 msgstr "Yeni oyunda mevcut yuvayı kullan."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr "DURUM KAYDI YÖNETİCİSİNİ GÖSTER"
+msgstr "DURUM KAYIT YÖNETİCİSİNİ GÖSTER"
 
 msgid "ALWAYS"
 msgstr "HER ZAMAN"
@@ -1670,7 +1669,7 @@ msgid "IF NOT EMPTY"
 msgstr "BOŞ DEĞİLSE"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Oyunu yüklemeden önce durum kaydı yöneticisini göster."
+msgstr "Oyunu yüklemeden önce durum kayıt yöneticisini göster."
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "VARSAYILAN GENEL AYARLAR"
@@ -1847,7 +1846,7 @@ msgid "SHOW REGION FLAG"
 msgstr "DİL BAYRAKLARINI GÖTER"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "DURUM KAYDI SİMGESİNİ GÖSTER"
+msgstr "DURUM KAYIT SİMGESİNİ GÖSTER"
 
 msgid "SHOW MANUAL ICON"
 msgstr "KILAVUZ SİMGESİNİ GÖSTER"
@@ -2291,7 +2290,7 @@ msgid "LOGO SOURCE"
 msgstr "LOGO KAYNAĞI"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "HD DİREKSİYON"
 
 msgid "WHEEL"
 msgstr "DİREKSİYON"
@@ -2468,7 +2467,7 @@ msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "KALDIRMA KUYRUĞA EKLENDİ"
 
 msgid "SAVESTATE MANAGER"
-msgstr "DURUM KAYDI YÖNETİCİSİ"
+msgstr "DURUM KAYIT YÖNETİCİSİ"
 
 msgid "START NEW GAME"
 msgstr "YENİ OYUN BAŞLAT"
@@ -2818,7 +2817,7 @@ msgid "random video"
 msgstr "rasgele video"
 
 msgid "slideshow"
-msgstr "slayt şov"
+msgstr "slayt gösterisi"
 
 msgid "suspend"
 msgstr "askıya al"
@@ -2863,7 +2862,7 @@ msgid "TIME FORMAT"
 msgstr "ZAMAN BİÇİMİ"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "OYUN BİLGİSİ OLARAK KAYAN YAZI KULLAN"
+msgstr "OYUN BİLGİSİNDE KAYAN YAZI KULLAN"
 
 msgid "DECORATION SET USED"
 msgstr "KULLANILAN DEKORASYON SETİ"
@@ -3122,7 +3121,7 @@ msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "HATALI KOMUT SATIRI DEĞİŞKENLERİ"
 
 msgid "INVALID CONFIGURATION"
-msgstr "GEÇERSİZ AYAR"
+msgstr "GEÇERSİZ YAPILANDIRMA"
 
 msgid "UNKNOWN EMULATOR"
 msgstr "BİLİNMEYEN EMÜLATÖR"
