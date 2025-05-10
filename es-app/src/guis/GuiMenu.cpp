@@ -1351,6 +1351,26 @@ void GuiMenu::openSystemSettings()
 	{
 		if (language_choice->changed() && SystemConf::getInstance()->set("system.language", language_choice->getSelected()))
 		{
+#ifndef WIN32
+			// RetroArch default OSD font
+			if (SystemConf::getInstance()->get("global.retroarch.video_font_path").empty())
+				SystemConf::getInstance()->set("global.retroarch.video_font_path", "/usr/share/fonts/dejavu/DejaVuSansMono.ttf");
+
+			if (language_choice->getSelected() == "ko_KR")
+			{
+				SystemConf::getInstance()->set("global.retroarch.video_font_path.backup", SystemConf::getInstance()->get("global.retroarch.video_font_path"));
+				SystemConf::getInstance()->set("global.retroarch.video_font_path", "/usr/share/fonts/truetype/nanum/NanumGothicBold.ttf");
+			}
+			else
+			{
+				if (!SystemConf::getInstance()->get("global.retroarch.video_font_path.backup").empty())
+				{
+					SystemConf::getInstance()->set("global.retroarch.video_font_path", SystemConf::getInstance()->get("global.retroarch.video_font_path.backup"));
+					SystemConf::getInstance()->set("global.retroarch.video_font_path.backup", "");
+				}
+			}
+#endif
+
 			FileSorts::reset();
 			MetaDataList::initMetadata();
 
