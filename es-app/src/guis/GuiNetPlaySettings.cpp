@@ -6,10 +6,9 @@
 #include "GuiHashStart.h"
 #include <unordered_map>
 
-static std::unordered_map<std::string, std::string> communityRelayServers =
-{
-	{"seoul",		"138.2.119.137"},
-};
+#define fake_gettext_seoul _("SEOUL")
+
+static std::vector<std::pair<std::string, std::string>> communityRelayServers;
 
 GuiNetPlaySettings::GuiNetPlaySettings(Window* window, int selectItem) : GuiSettings(window, _("NETPLAY SETTINGS").c_str())
 {
@@ -56,8 +55,58 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window, int selectItem) : GuiSett
 	});
 }
 
+void GuiNetPlaySettings::loadCommunityRelayServers()
+{
+	communityRelayServers.clear();
+
+	std::string xmlpath = ResourceManager::getInstance()->getResourcePath(":/community_relay_servers.xml");
+	if (!Utils::FileSystem::exists(xmlpath))
+		return;
+
+	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(WINSTRINGW(xmlpath).c_str());
+
+	if (!result)
+	{
+		LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
+		return;
+	}
+
+	pugi::xml_node root = doc.child("community_relay_servers");
+	if (!root)
+	{
+		LOG(LogError) << "Could not find <community_relay_servers> node in \"" << xmlpath << "\"!";
+		return;
+	}
+
+	for (pugi::xml_node server = root.child("server"); server; server = server.next_sibling("server"))
+	{
+		if (!server.attribute("id"))
+			continue;
+
+		std::string id = server.attribute("id").as_string();
+		if (id.empty())
+			continue;
+
+		if (!server.attribute("address"))
+			continue;
+
+		std::string address = server.attribute("address").as_string();
+		if (address.empty())
+			continue;
+
+		communityRelayServers.emplace_back(id, address);
+		LOG(LogInfo) << "Loaded community relay server: id=\"" << id << "\", address=\"" << address << "\"";
+	}
+}
+
 void GuiNetPlaySettings::addRelayServerOptions(int selectItem)
 {
+	if (communityRelayServers.empty())
+		loadCommunityRelayServers();
+
 	const std::string customRelayServerAddress = SystemConf::getInstance()->get("global.netplay.customserver");
 	std::string selectedRelayServer = SystemConf::getInstance()->get("global.netplay.relay");
 	if (selectedRelayServer == "custom")
@@ -82,7 +131,11 @@ void GuiNetPlaySettings::addRelayServerOptions(int selectItem)
 	relayServer->add(_("SAO PAULO"), "saopaulo", selectedRelayServer == "saopaulo");
 
 	// User Community relay servers
-	relayServer->add(_("SEOUL"), "seoul", selectedRelayServer == "seoul");
+	for (auto& kv : communityRelayServers)
+	{
+		std::string serverName = kv.first;
+		relayServer->add(Utils::String::toUpper(serverName.c_str()), serverName, selectedRelayServer == serverName);
+	}
 
 	// Custom relay server
 	relayServer->add(_("CUSTOM"), "custom", selectedRelayServer == "custom");
@@ -97,12 +150,14 @@ void GuiNetPlaySettings::addRelayServerOptions(int selectItem)
 		std::string originalCustomServerAddress = SystemConf::getInstance()->get("global.netplay.customserver");
 		std::string backupCustomServerAddress = SystemConf::getInstance()->get("global.netplay.customserver.backup");
 
-		if (communityRelayServers.find(newRelayServer) != communityRelayServers.end())
+		auto it = std::find_if(communityRelayServers.begin(), communityRelayServers.end(), [&](const auto& kv) { return kv.first == newRelayServer; });
+		if (it != communityRelayServers.end())
 		{
 			SystemConf::getInstance()->set("global.netplay.relay", "custom");
-			SystemConf::getInstance()->set("global.netplay.customserver", communityRelayServers[newRelayServer]);
+			SystemConf::getInstance()->set("global.netplay.customserver", it->second);
 
-			if (!std::any_of(communityRelayServers.begin(), communityRelayServers.end(), [&](const auto& kv) { return kv.second == originalCustomServerAddress; }))
+			bool foundOriginal = std::any_of(communityRelayServers.begin(), communityRelayServers.end(), [&](const auto& kv) { return kv.second == originalCustomServerAddress; });
+			if (!foundOriginal)
 				SystemConf::getInstance()->set("global.netplay.customserver.backup", originalCustomServerAddress);
 		}
 		else if (newRelayServer == "custom")

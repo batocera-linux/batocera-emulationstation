@@ -10,5 +10,6 @@ public:
 	GuiNetPlaySettings(Window* window, int selectItem = -1);
 
 private:
+	void loadCommunityRelayServers();
 	void addRelayServerOptions(int selectItem);
 };
