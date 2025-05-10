@@ -23,6 +23,16 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window) : GuiSettings(window, _("
 	addOptionList(_("USE RELAY SERVER"), { { _("NONE"), "" },{ _("NEW YORK") , "nyc" },{ _("MADRID") , "madrid" },{ _("MONTREAL") , "montreal" },{ _("SAO PAULO") , "saopaulo" },{ _("CUSTOM") , "custom" } }, "global.netplay.relay", false);
 	addInputTextRow(_("CUSTOM RELAY SERVER"), "global.netplay.customserver", false);
 
+#ifndef WIN32
+	auto enableHotspot = std::make_shared<SwitchComponent>(mWindow);
+	enableHotspot->setState(SystemConf::getInstance()->getBool("global.netplay.hotspot"));
+	addWithDescription(_("AUTOMATICALLY USE HOTSPOT FOR LOCAL NETPLAY"), _("Creates a hotspot when hosting, or connects when joining.") + _U("\n\uF071 ") + _("CAUTION: This may drain battery faster."), enableHotspot);
+	addSaveFunc([enableHotspot] {
+		if (enableHotspot->getState() != SystemConf::getInstance()->getBool("global.netplay.hotspot"))
+			SystemConf::getInstance()->setBool("global.netplay.hotspot", enableHotspot->getState());
+	});
+#endif
+
 	addSwitch(_("AUTOMATICALLY CREATE LOBBY"), _("Automatically creates a Netplay lobby when starting a game."), "NetPlayAutomaticallyCreateLobby", true, nullptr);
 	addSwitch(_("SHOW RELAY SERVER GAMES ONLY"), _("Relay server games have a higher chance of successful entry."), "NetPlayShowOnlyRelayServerGames", true, nullptr);
 	addSwitch(_("SHOW UNAVAILABLE GAMES"), _("Show rooms for games not present on this machine."), "NetPlayShowMissingGames", true, nullptr);
