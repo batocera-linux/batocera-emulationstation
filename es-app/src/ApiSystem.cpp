@@ -2307,3 +2307,15 @@ bool ApiSystem::enableService(std::string name, bool enable)
 	
 	return res;
 }
+
+bool ApiSystem::isServiceEnabled(std::string name)
+{
+	std::string serviceName = name;
+	if (serviceName.find(" ") != std::string::npos)
+		serviceName = "\"" + serviceName + "\"";
+
+	auto slines = executeEnumerationScript("batocera-services status " + serviceName);
+	auto sline = slines[0];
+	auto splits = Utils::String::split(sline, ';', true);
+	return splits.size() == 2 && splits[1] == "*";
+}
