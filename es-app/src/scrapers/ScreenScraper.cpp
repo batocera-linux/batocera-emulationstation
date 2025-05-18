@@ -204,6 +204,7 @@ const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedM
 		ScraperMediaSource::BoxBack,
 		ScraperMediaSource::TitleShot,
 		ScraperMediaSource::Wheel,
+		ScraperMediaSource::WheelHD,
 		ScraperMediaSource::Marquee,
 		ScraperMediaSource::Mix,
 		ScraperMediaSource::Manual,
@@ -431,6 +432,8 @@ std::vector<std::string> ScreenScraperRequest::getRipList(std::string imageSourc
 		return { "box-3D", "box-2D" };
 	if (imageSource == "wheel")
 		return { "wheel", "wheel-hd", "wheel-steel", "wheel-carbon", "screenmarqueesmall", "screenmarquee" };
+	if (imageSource == "wheel-hd")
+		return { "wheel-hd", "wheel", "wheel-steel", "wheel-carbon", "screenmarqueesmall", "screenmarquee" };
 	if (imageSource == "marquee")
 		return { "screenmarqueesmall", "screenmarquee", "wheel", "wheel-hd", "wheel-steel", "wheel-carbon" };
 	if (imageSource == "video")

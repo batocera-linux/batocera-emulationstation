@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-17 09:15+0800\n"
+"PO-Revision-Date: 2025-05-08 11:18+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -2256,6 +2256,9 @@ msgstr "盒子封面数据"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO数据"
+
+msgid "HD WHEEL"
+msgstr "HD车轮"
 
 msgid "WHEEL"
 msgstr "方向盘"

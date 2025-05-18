@@ -79,7 +79,7 @@ namespace Utils
 		int         daysInYear  (const int _year);
 		std::string secondsToString(const long seconds, bool asTime = false);
 
-		std::string getSystemDateFormat();
+		std::string getSystemDateFormat(bool includeHours = false);
 		std::string getElapsedSinceString(const time_t& _time);
 
 	} // Time::

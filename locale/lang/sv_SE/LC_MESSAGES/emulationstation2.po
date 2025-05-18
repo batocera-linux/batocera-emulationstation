@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-04 15:13+0200\n"
+"PO-Revision-Date: 2025-05-09 12:45+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -1217,7 +1217,7 @@ msgid "THEME FONT SCALE"
 msgstr "TYPSNITTSSKALA FÖR TEMA"
 
 msgid "FULL SCREEN MENUS"
-msgstr "FULLSKÄRMSMENYER"
+msgstr "HELSKÄRMSMENYER"
 
 msgid "FORCE SMALL SCREEN THEMING"
 msgstr "TVINGA TEMA FÖR LITEN SKÄRM"
@@ -2282,6 +2282,9 @@ msgstr "BOXKÄLLA"
 
 msgid "LOGO SOURCE"
 msgstr "LOGOTYPKÄLLA"
+
+msgid "HD WHEEL"
+msgstr "HD WHEEL"
 
 msgid "WHEEL"
 msgstr "HJUL"

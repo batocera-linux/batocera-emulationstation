@@ -185,6 +185,21 @@ std::string BindingManager::updateBoundExpression(std::string& xp, IBindable* bi
 	return evaluableExpression;
 }
 
+std::string   BindingManager::evaluateBindableExpression(const std::string& xp, IBindable* bindable)
+{
+	std::string val = xp;
+	std::string evaluableExpression = BindingManager::updateBoundExpression(val, bindable, false);
+	auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str());
+
+	if (ret.type == Utils::MathExpr::STRING)
+		return ret.string;
+
+	if (ret.type == Utils::MathExpr::NUMBER)
+		return std::to_string(ret.number);
+	
+	return "";
+}
+
 void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, bool recursive)
 {
 	if (comp == nullptr || comp->getExtraType() == ExtraType::BUILTIN)

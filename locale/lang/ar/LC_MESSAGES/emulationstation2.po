@@ -2304,6 +2304,9 @@ msgstr "مصدر الصندوق"
 msgid "LOGO SOURCE"
 msgstr "مصدر الشعار"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "عجلة"
 

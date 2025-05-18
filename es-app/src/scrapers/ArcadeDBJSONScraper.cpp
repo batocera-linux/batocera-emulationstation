@@ -97,7 +97,7 @@ std::vector<std::string> getMediaTagNames(std::string imageSource)
 		return { "url_image_title" };
 	if (imageSource == "box-2D" || imageSource == "box-3D")
 		return { "url_image_flyer" };
-	if (imageSource == "wheel")
+	if (imageSource == "wheel" || imageSource == "wheel-hd")
 		return { "url_image_marquee" };
 	if (imageSource == "marquee")
 		return { "url_image_marquee" };

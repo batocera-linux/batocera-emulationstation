@@ -931,7 +931,7 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 			if (!appliesToAttr.empty())
 				subSet.appliesTo = Utils::String::splitAny(appliesToAttr, ", ", true);
 
-			mSubsets.push_back(subSet);
+			mSubsets.push_back(subSet);			
 		}
 	}
 	
@@ -941,10 +941,18 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else if (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "iconset")
 	{
@@ -952,20 +960,36 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else if (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "menu")
 	{
 		if (nameAttr == mMenu || (mMenu.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "systemview")
 	{
 		if (nameAttr == mSystemview || (mSystemview.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "gamelistview")
 	{
@@ -973,10 +997,18 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else if (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else
 	{
@@ -984,20 +1016,26 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else
 		{
 			std::string setID = Settings::getInstance()->getString("subset." + subsetAttr);
 			if (nameAttr == setID || (setID.empty() && isFirstSubset(node)))
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 	}
 
 	return false;
 }
-
-
 
 void ThemeData::parseInclude(const pugi::xml_node& node)
 {
@@ -1671,7 +1709,14 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 		break;
 
 	case COLOR:
-		element.properties[name] = Utils::HtmlColor::parse(str);
+		if (str.find("{") != std::string::npos && str.find(":") != std::string::npos && str.find("}") != std::string::npos)
+			element.properties[name + "_binding"] = str;
+		else
+		{
+			element.properties.erase(name + "_binding");
+			element.properties[name] = Utils::HtmlColor::parse(str);
+		}
+				
 		break;
 
 	case BOOLEAN:
@@ -1963,8 +2008,8 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				node.set_name("animateSelection");
 			else if (element.type == "shader" || element.type == "screenshader" || element.type == "menuShader" || element.type == "fadeShader")
 			{
-				// Child properties of shaders are to be added dynamically. They can't be described here as they are used for uniforms arguments
-				type = STRING;
+				// Child properties of shaders are to be added dynamically. They can't be described here as they are used for uniforms arguments, except "path"
+				type = (name == "path") ? PATH : STRING;
 			}
 			else if (name == "itemTemplate" && sSupportedItemTemplate.find(root.name()) != sSupportedItemTemplate.cend())
 			{

@@ -212,6 +212,8 @@ formatseconds(int)          string                formats a duration in seconds,
 year(date)                  string                extract the year of a date to a string
 month(date)                 string                extract the month of a date to a string
 day(date)                   string                extract the day of a date to a string
+date(datetime)              string                keep only the date part of a timetime ex : date({game:lastplayed})
+time(datetime)              string                keep only the time part of a timetime ex : time({game:lastplayed})
 
 Conditions :
 ------------

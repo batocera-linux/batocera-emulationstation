@@ -2282,6 +2282,9 @@ msgstr "BOKS KILDE"
 msgid "LOGO SOURCE"
 msgstr "LOGO KILDE"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "HJUL"
 

@@ -2302,6 +2302,9 @@ msgstr "ORIXE DA CAIXA"
 msgid "LOGO SOURCE"
 msgstr "ORIXE DO LOGO"
 
+msgid "HD WHEEL"
+msgstr "RODA HD"
+
 msgid "WHEEL"
 msgstr "CARRUSEL"
 

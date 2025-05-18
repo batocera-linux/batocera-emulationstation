@@ -312,8 +312,8 @@ GameGenre* Genres::fromGenreName(const std::string& name)
 bool Genres::genreExists(MetaDataList* file, int id)
 {
 	auto idToFind = std::to_string(id);
-	auto ids = Utils::String::split(file->get(MetaDataId::GenreIds), ',', true);
-	for (auto id : ids)
+
+	for (auto id : getGenreFiltersNames(file))
 		if (id == idToFind)
 			return true;
 
@@ -331,13 +331,28 @@ void Genres::convertGenreToGenreIds(MetaDataList* file)
 	auto g = mAllGenresNames.find(genre);
 	if (g != mAllGenresNames.cend())
 		ids.insert(g->second);
-	else if (genre.find(",") >= 0 || genre.find("/") >= 0)
+	else if (std::any_of(genre.cbegin(), genre.cend(), [](const char c) { return c == ',' || c == '/'; }))		
 	{
-		for (auto subgenre : Utils::String::splitAny(genre, ",/", true))
+		for (auto subgenre : Utils::String::splitAny(genre, ",", true))
 		{
 			auto sg = mAllGenresNames.find(Utils::String::trim(subgenre));
 			if (sg != mAllGenresNames.cend())
 				ids.insert(sg->second);
+			else if (genre.find("/") >= 0)
+			{
+				std::vector<std::string> subItems = Utils::String::splitAny(subgenre, "/", true);	
+				std::reverse(subItems.begin(), subItems.end());
+
+				for (auto subitem : subItems)
+				{
+					auto sg = mAllGenresNames.find(Utils::String::trim(subitem));
+					if (sg != mAllGenresNames.cend())
+					{
+						ids.insert(sg->second);
+						break;
+					}
+				}
+			}
 		}
 	}
 

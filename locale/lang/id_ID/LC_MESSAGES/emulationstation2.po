@@ -2282,6 +2282,9 @@ msgstr "SUMBER BOX"
 msgid "LOGO SOURCE"
 msgstr "SUMBER LOGO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "WHEEL"
 

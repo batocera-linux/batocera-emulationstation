@@ -2302,6 +2302,9 @@ msgstr "FONTE DA MÍDIA DA CAIXA"
 msgid "LOGO SOURCE"
 msgstr "FONTE DA MÍDIA DO LOGOTIPO"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "LOGOTIPO"
 

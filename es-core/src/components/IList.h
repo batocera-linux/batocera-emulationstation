@@ -130,7 +130,7 @@ public:
 	{
 		GuiComponent::onHide();
 
-		if (isScrolling())
+		if (mScrollVelocity != 0 && mScrollTier > 0)
 			stopScrolling();
 	}
 	

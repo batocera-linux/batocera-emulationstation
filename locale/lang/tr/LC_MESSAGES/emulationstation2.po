@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-15 20:28+0300\n"
+"PO-Revision-Date: 2025-05-06 18:25+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -429,14 +429,14 @@ msgstr "HAYIR"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr "'%s' 'A BAĞLANMAK İSTEDİĞİNE EMİN MİSİN ?"
+msgstr "'%s' ile BAĞLANMAK İSTİYOR MUSUN?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr "'%s' 'A BAĞLANTIYI KESMEK İSTEDİĞİNE EMİN MİSİN ?"
+msgstr "'%s' ile BAĞLANTIYI KESMEK İSTİYOR MUSUN?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "OYUN KUMANDASI VE KLAVYE YAPILANDIRMASI"
+msgstr "KOL İLE KLAVYE YAPILANDIRMASI"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr "DEĞİŞTİRİLECEK EYLEMLERİ SEÇİN"
@@ -466,13 +466,13 @@ msgid "MOUSE CURSOR"
 msgstr "FARE İMLECİ"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr "FARE İMLECİ EMULASYONU"
+msgstr "FARE İMLECİ EMÜLASYONU"
 
 msgid "LEFT ANALOG STICK"
-msgstr "SOL ANALOG"
+msgstr "SOL ANALOG ÇUBUK"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "SAĞ ANALOG"
+msgstr "SAĞ ANALOG ÇUBUK"
 
 msgid "EDIT DESCRIPTION"
 msgstr "AÇIKLAMAYI DÜZENLE"
@@ -535,7 +535,7 @@ msgid "NEW YORK"
 msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr "MADRID"
+msgstr "MADRİD"
 
 msgid "MONTREAL"
 msgstr "MONTREAL"
@@ -559,7 +559,7 @@ msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "SADECE ARA SUNUCULU OYUNLARI GÖSTER"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Ara sunuculu oyunlara giriş şansı daha yüksektir."
+msgstr "Ara sunucuda bulunan oyunlara giriş şansı daha yüksektir."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
@@ -626,8 +626,8 @@ msgstr "HARDCORE MODU"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Daha fazla puan için yükleme durumlarını, geri sarmayı ve hileleri devre "
-"dışı bırakın."
+"Daha fazla puan için durum kayıtlarını, geri sarmayı ve hileleri devre dışı "
+"bırakın."
 
 msgid "LEADERBOARDS"
 msgstr "SKOR TAHTALARI"
@@ -638,7 +638,7 @@ msgstr ""
 "gerektirir)."
 
 msgid "VERBOSE MODE"
-msgstr "AYRINTILI MODU"
+msgstr "AYRINTILI MOD"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
@@ -651,7 +651,7 @@ msgid "ENCORE MODE"
 msgstr "TEKRAR MODU"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "Kilitlenmemiş başarımlar tekrar kazanılabilir."
+msgstr "Açılmış başarımlar tekrar kazanılabilir."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
@@ -668,22 +668,22 @@ msgid ""
 msgstr "Uygun başarımlar kazanılabildiğine sağ alt köşede simgeleri gösterir."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROBAŞARIM AÇILMA SESİ"
+msgstr "RETROBAŞARIM KİLİT AÇILMA SESİ"
 
 msgid "none"
 msgstr "yok"
 
 msgid "UNLOCK SOUND"
-msgstr "SES KİLİDİNİ AÇ"
+msgstr "KİLİT AÇILMA SESİ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "ANA MENÜDE RETROBAŞARIM GİRİŞİNİ GÖSTER"
+msgstr "ANA MENÜDE RETROBAŞARIMLAR GİRİŞİNİ GÖSTER"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "RetroBaşarım istatistiklerinizi doğrudan ana menüden görüntüleyin!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "RETROBAŞARIMLAR AKTİVE EDİLEMİYOR:"
+msgstr "RETROBAŞARIMLAR AKTİF EDİLEMİYOR:"
 
 msgid "BLUETOOTH DEVICE LIST"
 msgstr "BLUETOOTH CİHAZ LİSTESİ"
@@ -718,7 +718,7 @@ msgid "UPDATE IS READY"
 msgstr "GÜNCELLEME HAZIR"
 
 msgid "REBOOT TO APPLY"
-msgstr "UYGULAMAK İÇİN BAŞTAN BAŞLAT"
+msgstr "UYGULAMAK İÇİN ÖNYÜKLE"
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
@@ -775,10 +775,10 @@ msgid "GAMES MISSING ANY MEDIA"
 msgstr "EKSİK MEDYALI OYUNLAR"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "HİÇBİR MEDYASI OLMAYAN OYUNLAR"
+msgstr "MEDYASI OLMAYAN OYUNLAR"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "YAKINLARDA BİLGİLERİ GETİLMİŞ OYUNLARI YOKSAY"
+msgstr "YAKINLARDA BİLGİSİ GETİRİLENLERİ YOKSAY"
 
 msgid "LAST DAY"
 msgstr "SON GÜN"
@@ -820,7 +820,7 @@ msgstr ""
 "YİNE DE DEVAM ET?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "BİLGİLERİ GETİRME İŞLEMİ SÜRÜYOR. İPTAL EDİLSİN Mİ?"
+msgstr "BİLGİLER GETİRİLİYOR. İŞLEM İPTAL EDİLSİN Mİ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "HİÇBİR OYUN BU KRİTERE UYMUYOR."
@@ -984,7 +984,7 @@ msgid "MAIN MENU"
 msgstr "ANA MENÜ"
 
 msgid "KODI MEDIA CENTER"
-msgstr "KODİ MEDIA CENTER"
+msgstr "KODİ MEDİA CENTER"
 
 msgid "GAME SETTINGS"
 msgstr "OYUN AYARLARI"
@@ -1014,7 +1014,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "SİSTEM AYARLARI"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr "KULLANICI ARAYÜZÜ MODUNUN KİLİDİNİ AÇ"
+msgstr "KULLANICI ARAYÜZÜ MODU KİLİDİNİ AÇ"
 
 msgid "QUIT"
 msgstr "ÇIKIŞ"
@@ -1047,10 +1047,10 @@ msgid "DISABLED"
 msgstr "PASİF"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr "DMDSERVER (gerçek dmd için)"
+msgstr "DMDSUNUCU (gerçek dmd için)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr "SİMULATÖR (web dmd için)"
+msgstr "SİMÜLATÖR (web dmd için)"
 
 msgid "dmd server"
 msgstr "dmd sunucu"
@@ -1068,13 +1068,13 @@ msgid "BRIGHTNESS"
 msgstr "PARLAKLIK"
 
 msgid "DMDSERVER stopped"
-msgstr "DMDSERVER durduruldu"
+msgstr "DMDSUNUCU durduruldu"
 
 msgid "DMDSERVER restarted"
-msgstr "DMDSERVER yeniden başlatıldı"
+msgstr "DMDSUNUCU yeniden başlatıldı"
 
 msgid "DMDSERVER started"
-msgstr "DMDSERVER başlatıldı"
+msgstr "DMDSUNUCU başlatıldı"
 
 msgid "MULTISCREENS"
 msgstr "ÇOKLU EKRAN"
@@ -1095,7 +1095,7 @@ msgid "Sets the display's resolution."
 msgstr "Ekranın çözünürlüğünü ayarlar."
 
 msgid "ROTATION"
-msgstr "DÖNDÜRME"
+msgstr "DÖNDÜR"
 
 msgid "0 DEGREES"
 msgstr "0 DERECE"
@@ -1110,13 +1110,13 @@ msgid "270 DEGREES"
 msgstr "270 DERECE"
 
 msgid "SCREEN ROTATION"
-msgstr "EKRAN DÖNDÜRME"
+msgstr "EKRANI DÖNDÜR"
 
 msgid "DMD SCREEN"
 msgstr "DMD EKRANI"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr "YÜZEYSEL GELİŞTİRİCİ SEÇENEKLERİ"
+msgstr "GELİŞTİRİCİ SEÇENEKLERİ"
 
 msgid "VIDEO OPTIONS"
 msgstr "VİDEO SEÇENEKLERİ"
@@ -1171,11 +1171,11 @@ msgid "FORMAT A DISK"
 msgstr "BİR DİSKİ BİÇİMLENDİR"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr "OYUN LİSTELERİNİ TEMİZLE & KULLANILMAYAN ORTAMLARI KALDIR"
+msgstr "OYUN LİSTELERİNİ TEMİZLE & BOŞ MEDYALARI KALDIR"
 
 msgid "Remove unused entries, and clean references to missing medias."
 msgstr ""
-"Kullanılmayan girişleri kaldırın ve eksik ortamlara yönelik referansları "
+"Kullanılmayan girişleri kaldırın ve eksik medyalara yönelik referansları "
 "temizleyin."
 
 msgid "Cleaning"
@@ -1197,7 +1197,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TÜM OYUNLARIN NETPLAY/BAŞARIMLARI BUL"
+msgstr "TÜM OYUNLAR İÇİN NETPLAY/BAŞARIMLAR BUL"
 
 msgid "CLEAR CACHES"
 msgstr "ÖNBELLEĞİ TEMİZLE"
@@ -1209,7 +1209,7 @@ msgid "Building image cache"
 msgstr "Görüntü önbelleği oluşturuluyor"
 
 msgid "DISPLAY SETTINGS"
-msgstr "GÖRÜNTÜ AYARLARI"
+msgstr "GÖRÜNTÜLEME AYARLARI"
 
 msgid "MENU FONT SCALE"
 msgstr "MENÜ YAZI TİPİ ÖLÇEĞİ"
@@ -1242,15 +1242,15 @@ msgstr ""
 "gösterilmeyeceği."
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "ÇIKIŞTA VERİLERİ KAYDET"
+msgstr "ÇIKIŞTA ÜST VERİLERİ KAYDET"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr "SADECE OYUN DOSYALARINI AYRIŞTIR"
+msgstr "SADECE OYUN LİSTELERİNİ AYIR"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
-"Hata ayıklama aracı: ROM'ların gerçekten var olup olmadığını kontrol etme. "
-"Sorunlara neden olabilir!"
+"Hata ayıklama aracı: ROM'ların var olup olmadığını denetlenmesin. Sorunlara "
+"neden olabilir!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "YEREL RESİMLERİ ARA"
@@ -1259,8 +1259,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Oyun listesinde herhangi bir resim belirtilmemişse, kullanmak için aynı "
-"dosya adına sahip medya bulmayı deneyin."
+"Oyun listesinde bir resim belirtilmemişse, kullanmak için aynı dosya adına "
+"sahip medya bulmayı deneyin."
 
 msgid "USER INTERFACE"
 msgstr "KULLANICI ARAYÜZÜ"
@@ -1278,7 +1278,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "EKRAN KLAVYESİ"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "OYUN ÇALIŞIRKEN EMULATIONSTATION'U GİZLE"
+msgstr "OYUN ÇALIŞIRKEN EMULATIONSTATION GİZLENSİN"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENÜDEN ÇIKIŞI TAMAMLA"
@@ -1287,7 +1287,7 @@ msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH MENÜ SÜRÜCÜSÜ"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "EMULATIONSTATION ONAYLAMA VE İPTAL TUŞLARINI DEĞİŞTİR"
+msgstr "EMULATIONSTATION ONAY & İPTAL TUŞLARINI DEĞİŞTİR"
 
 msgid "Switches the South and East buttons' functionality"
 msgstr "Güney ve Doğu tuşlarının işlevselliğini değiştir"
@@ -1343,7 +1343,7 @@ msgstr ""
 "açılış süresini artırır"
 
 msgid "THREADED LOADING"
-msgstr "THREADED YÜKLENİYOR"
+msgstr "İŞ PARÇACIKLARI YÜKLENİYOR"
 
 msgid "ASYNC IMAGE LOADING"
 msgstr "EŞ ZAMANSIZ RESİMLER YÜKLENİYOR"
@@ -1355,7 +1355,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VİDEO VRAM KULLANIMINI İYİLEŞTİR"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEM YENİDEN BAŞLATILMALI"
+msgstr "YAPILANDIRILMASI İÇİN SİSTEM YENİDEN BAŞLATILMALI"
 
 msgid "DOWNLOADS"
 msgstr "İNDİRMELER"
@@ -1415,11 +1415,10 @@ msgid "INSTANT"
 msgstr "ANINDA"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
-"Boştayken güç tüketimini azaltır (el bilgisayarları için kullanışlıdır)."
+msgstr "Boşta güç tüketimini azaltır (el tipi cihazlar için kullanışlıdır)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
-msgstr "EKRAN OKUYUCUSU (METİNDEN SESE)"
+msgstr "EKRAN OKUYUCU (METİNDEN SESE)"
 
 msgid "USER INTERFACE MODE"
 msgstr "KULLANICI ARAYÜZÜ MODU"
@@ -1476,7 +1475,7 @@ msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr "SESSİZ VİDEO/KULLANICI GÖRSELİ"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA GÖRSEL GÖRÜNTÜSÜ"
+msgstr "BATOCERA AÇILIŞ GÖRSELİ"
 
 msgid "SPLASH SETTING"
 msgstr "GÖRSEL AYARLARI"
@@ -1485,7 +1484,7 @@ msgid "MISSING BIOS CHECK"
 msgstr "EKSİK BİOS DENETİMİ"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "OYUNU ÇALIŞTIRMADAN ÖNCE BİOS DENETİMİ"
+msgstr "OYUN ÇALIŞTIRMADAN ÖNCE BİOS DENETİMİ"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTİMEDYA TUŞLARI"
@@ -1524,7 +1523,7 @@ msgid "cyan"
 msgstr "camgöbeği"
 
 msgid "POWER LED COLOR"
-msgstr "GÜÇ IŞIK RENGİ"
+msgstr "GÜÇ IŞIĞI RENGİ"
 
 msgid "heartbeat"
 msgstr "kalpatışı"
@@ -1554,7 +1553,7 @@ msgid "STORAGE"
 msgstr "DEPOLAMA"
 
 msgid "STORAGE DEVICE"
-msgstr "DEPO CİHAZI"
+msgstr "DEPOLAMA CİHAZI"
 
 msgid "BACKUP USER DATA"
 msgstr "KULLANICI VERİLERİNİ YEDEKLE"
@@ -1578,7 +1577,7 @@ msgid "LATENCY REDUCTION"
 msgstr "GECİKMEYİ AZALT"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "ÖNDEN ÇALIŞAN KARELER"
+msgstr "ÖNDEN GİDEN KARELER"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Yüksek sayılar görünür titreşime neden olabilir."
@@ -1652,7 +1651,7 @@ msgid "INCREMENT SLOT"
 msgstr "ARTAN YUVA"
 
 msgid "Increment slot on a new game."
-msgstr "Yeni oyunda yuva'yı arttır."
+msgstr "Yeni bir oyunda yuvayı artırın."
 
 msgid "DO NOT INCREMENT"
 msgstr "ESKİ KAYIT KULLAN"
@@ -1661,7 +1660,7 @@ msgid "Use current slot on a new game."
 msgstr "Yeni oyunda mevcut yuvayı kullan."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr "DURUM KAYDI YÖNETİCİSİNİ GÖSTER"
+msgstr "DURUM KAYIT YÖNETİCİSİNİ GÖSTER"
 
 msgid "ALWAYS"
 msgstr "HER ZAMAN"
@@ -1670,7 +1669,7 @@ msgid "IF NOT EMPTY"
 msgstr "BOŞ DEĞİLSE"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Oyunu yüklemeden önce durum kaydı yöneticisini göster."
+msgstr "Oyunu yüklemeden önce durum kayıt yöneticisini göster."
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "VARSAYILAN GENEL AYARLAR"
@@ -1686,7 +1685,7 @@ msgid ""
 msgstr "Ekranın çözünürlüğünü ayarlar. İşleme çözünürlüğünü etkilemez."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "AKICI OYUNLAR (BILINEAR FILTERING)"
+msgstr "PÜRÜZSÜZ OYUNLAR (ÇİFT DOĞRUSAL FİLTRE)"
 
 msgid "REWIND"
 msgstr "GERİ SAR"
@@ -1697,7 +1696,7 @@ msgstr ""
 "durumları sakla."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "TAM SAYI ÖLÇEĞİ (PIXEL PERFECT)"
+msgstr "TAM SAYI ÖLÇEĞİ (MÜKEMMEL PİKSEL)"
 
 msgid "SHADER SET"
 msgstr "GÖLGE AYARLA"
@@ -1706,7 +1705,7 @@ msgid "VIDEO FILTER"
 msgstr "VİDEO FİLTRESİ"
 
 msgid "DECORATIONS"
-msgstr "DEKARASYONLAR"
+msgstr "DEKORASYONLAR"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ÇERÇEVELERİ UZAT (4K & GENİŞ EKRAN)"
@@ -1814,7 +1813,7 @@ msgid "DEFAULT VALUE"
 msgstr "VARSAYILAN DEĞER"
 
 msgid "GAMELIST OPTIONS"
-msgstr "OYUN LİSTESİ AYARLARI"
+msgstr "OYUN LİSTESİ SEÇENEKLERİ"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "FAVORİLERİ EN ÜSTTE GÖSTER"
@@ -1847,13 +1846,13 @@ msgid "SHOW REGION FLAG"
 msgstr "DİL BAYRAKLARINI GÖTER"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "DURUM KAYDI SİMGESİNİ GÖSTER"
+msgstr "DURUM KAYIT SİMGESİNİ GÖSTER"
 
 msgid "SHOW MANUAL ICON"
 msgstr "KILAVUZ SİMGESİNİ GÖSTER"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "RETROARŞİV SİMGESİNİ GÖSTER"
+msgstr "RETROBAŞARIMLAR SİMGESİNİ GÖSTER"
 
 msgid "SHOW GUN ICON"
 msgstr "SİLAH SİMGESİNİ GÖSTER"
@@ -1865,7 +1864,7 @@ msgid "SHOW TRACKBALL ICON"
 msgstr "TRACKBALL SİMGESİNİ GÖSTER"
 
 msgid "SHOW SPINNER ICON"
-msgstr "TOPAÇ SİMGESİNİ GÖSTER"
+msgstr "ÇARK SİMGESİNİ GÖSTER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "DOSYA İSİMLERİNİ GÖSTER"
@@ -1901,7 +1900,7 @@ msgid "auto"
 msgstr "otomatik"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr "OYUN BAŞLATMA GEÇİŞİ"
+msgstr "OYUN BAŞLATICI GEÇİŞİ"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
 msgstr "HIZLI KAYDIRMA SIRASINDA OYUN MEDYALARI"
@@ -1958,7 +1957,7 @@ msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "SADECE SİSTEME ÖZGÜ MÜZİK KLASÖRÜNÜ OYNAT"
 
 msgid "PLAY SYSTEM-SPECIFIC MUSIC"
-msgstr "TEMA MÜZİKLERİNİ OYNAT"
+msgstr "SİSTEME ÖZGÜ MÜZİK OYNAT"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "VİDEO OYNATIRKEN MÜZİĞİ KIS"
@@ -1970,7 +1969,7 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "GEZİNTİ SESLERİNİ ETKİNLEŞTİR"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "VİDEO SESİNİ ETKİNLEŞTİR"
+msgstr "VİDEO ÖNİZLEME SESİNİ ETKİNLEŞTİR"
 
 msgid "IP ADDRESS"
 msgstr "İP ADRESİ"
@@ -2024,7 +2023,7 @@ msgid "ENABLE PLANE MODE"
 msgstr "UÇAK MODU AÇIK"
 
 msgid "RESTART SYSTEM"
-msgstr "YENİDEN BAŞLAT"
+msgstr "SİSTEMİ YENİDEN BAŞLAT"
 
 msgid "REALLY RESTART?"
 msgstr "YENİDEN BAŞLATILSIN MI?"
@@ -2080,13 +2079,13 @@ msgid "FULL BOOT"
 msgstr "TAM ÖNYÜKLEME"
 
 msgid "EMULATED WIIMOTES"
-msgstr "EMULASYONLU WIIMOTES"
+msgstr "EMÜLASYONLU WIIMOTES"
 
 msgid "CHANGE SCREEN LAYOUT"
 msgstr "EKRAN DÜZENİNİ DEĞİŞTİR"
 
 msgid "LARGE SCREEN"
-msgstr "GENİŞ EKRAN"
+msgstr "BÜYÜK EKRAN"
 
 msgid "SIDE BY SIDE"
 msgstr "YAN YANA"
@@ -2095,13 +2094,13 @@ msgid "INTERNAL RESOLUTION"
 msgstr "DAHİLİ ÇÖZÜNÜRLÜK"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "PADTOKEY PROFİLİNİ DÜZENLE"
+msgstr "KOL İLE TUŞ PROFİLİNİ DÜZENLE"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "PADTOKEY PROFİLİ OLUŞTUR"
+msgstr "KOL İLE TUŞ PROFİLİ OLUŞTUR"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "BU OYUNU AÇILIŞTA YÜKLE"
+msgstr "BU OYUNU AÇILIŞTA ÇALIŞTIR"
 
 msgid "FORMAT DEVICE"
 msgstr "CİHAZI BİÇİMLENDİR"
@@ -2141,7 +2140,7 @@ msgid "%d%% complete"
 msgstr "%d%% tamamlandı"
 
 msgid "GAME MEDIA"
-msgstr "OYUN ORTAMI"
+msgstr "OYUN MEDYASI"
 
 msgid "VIEW GAME MANUAL"
 msgstr "OYUN KILAVUZUNU GÖR"
@@ -2156,7 +2155,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "TAM EKRAN VİDEO GÖSTER"
 
 msgid "VIEW GAME MEDIA"
-msgstr "OYUN ORTAMINI GÖSTER"
+msgstr "OYUN MEDYASINI GÖSTER"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "MEVCUT ÇEKİRDEK UYUMSUZ"
@@ -2177,7 +2176,7 @@ msgid "OPEN"
 msgstr "AÇ"
 
 msgid "START A NETPLAY GAME"
-msgstr "BİR NETPLAY OYUNUNA BAŞLA"
+msgstr "BİR NETPLAY OYUNU BAŞLAT"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -2228,7 +2227,7 @@ msgid "FAVORITES"
 msgstr "FAVORİLER"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ÖZEL KOLLEKSİYONA EKLE..."
+msgstr "ÖZEL KOLEKSİYONA EKLE..."
 
 msgid "DELETE COLLECTION"
 msgstr "KOLEKSİYONU SİL"
@@ -2237,16 +2236,16 @@ msgid "SCRAPE"
 msgstr "BİLGİ GETİRİCİ"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "GELİŞMİŞ OYUN AYARLARI"
+msgstr "GELİŞMİŞ OYUN SEÇENEKLERİ"
 
 msgid "EDIT FOLDER METADATA"
-msgstr "KLASÖR BİLGİLERİNİ DÜZENLE"
+msgstr "KLASÖR ÜST VERİLERİNİ DÜZENLE"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "OYUN BİLGİLERİNİ DÜZENLE"
+msgstr "OYUN ÜST VERİLERİNİ DÜZENLE"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "PAD TO KEYBOARD BİLGİLERİNİ GÖRÜNTÜLE"
+msgstr "KOL İLE KLAVYE BİLGİLERİNİ GÖRÜNTÜLE"
 
 msgid "RESET"
 msgstr "SIFIRLA"
@@ -2267,13 +2266,13 @@ msgid "SCREENSHOT"
 msgstr "EKRAN GÖRÜNTÜSÜ"
 
 msgid "TITLE SCREENSHOT"
-msgstr "BAŞLIK EKRAN GÖRÜNTÜSÜ"
+msgstr "EKRAN GÖRÜNTÜSÜ BAŞLIĞI"
 
 msgid "MIX V1"
-msgstr "MIX V1"
+msgstr "KARIŞIK V1"
 
 msgid "MIX V2"
-msgstr "MIX V2"
+msgstr "KARIŞIK V2"
 
 msgid "BOX 2D"
 msgstr "2D KUTU"
@@ -2289,6 +2288,9 @@ msgstr "KUTU KAYNAĞI"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO KAYNAĞI"
+
+msgid "HD WHEEL"
+msgstr "HD DİREKSİYON"
 
 msgid "WHEEL"
 msgstr "DİREKSİYON"
@@ -2336,7 +2338,7 @@ msgid "MANUAL"
 msgstr "KILAVUZ"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "PADTOKEY AYARLARI"
+msgstr "KOL İLE TUŞ AYARLARI"
 
 msgid "ACCOUNT"
 msgstr "HESAP"
@@ -2363,13 +2365,13 @@ msgid "ENTER NAME"
 msgstr "İSİM GİRİN"
 
 msgid "CREATE FROM THEME"
-msgstr "TEMA OLUŞTURUN"
+msgstr "TEMADAN OLUŞTUR"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "DÜZENLENEBİLİR YENİ KOLEKSİYON OLUŞTUR"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "YENİ DİNAMİK KOLEKSİYON OLUŞTUR"
+msgstr "DİNAMİK YENİ KOLEKSİYON OLUŞTUR"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "KOLEKSİYON VE SİSTEMLERİ SIRALA"
@@ -2381,7 +2383,7 @@ msgid "BY MANUFACTURER"
 msgstr "ÜRETİCİYE GÖRE"
 
 msgid "BY HARDWARE TYPE"
-msgstr "DONANIMA GÖRE"
+msgstr "DONANIM TÜRÜNE GÖRE"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "ÜRETİCİYE VE TÜRE GÖRE"
@@ -2465,7 +2467,7 @@ msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "KALDIRMA KUYRUĞA EKLENDİ"
 
 msgid "SAVESTATE MANAGER"
-msgstr "DURUM KAYDI YÖNETİCİSİ"
+msgstr "DURUM KAYIT YÖNETİCİSİ"
 
 msgid "START NEW GAME"
 msgstr "YENİ OYUN BAŞLAT"
@@ -2592,7 +2594,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLAR"
 
 msgid "NO GAMES FOUND"
-msgstr "HİÇBİR OYUN BULUNAMADI"
+msgstr "OYUN BULUNAMADI"
 
 msgid "JOIN GAME"
 msgstr "OYUNA KATIL"
@@ -2604,7 +2606,7 @@ msgid "CONTROLLER SETTINGS"
 msgstr "KONTROLCÜ AYARLARI"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KONTROLCÜ VE BLUETOOTH AYARLARI"
+msgstr "KONTROLCÜ & BLUETOOTH AYARLARI"
 
 msgid "CONTROLLERS PRIORITY"
 msgstr "ÖNCELİKLİ KONTROLCÜ"
@@ -2662,7 +2664,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLCÜ ETKİNLİKLERİNİ GÖSTER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "KONTROLCÜ PİL DÜZEYİNİ GÖSTER"
+msgstr "KONTROLCÜ PİL SEVİYESİNİ GÖSTER"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "SİLAH NİŞANINI ÇİZ"
@@ -2815,7 +2817,7 @@ msgid "random video"
 msgstr "rasgele video"
 
 msgid "slideshow"
-msgstr "slayt şov"
+msgstr "slayt gösterisi"
 
 msgid "suspend"
 msgstr "askıya al"
@@ -2860,7 +2862,7 @@ msgid "TIME FORMAT"
 msgstr "ZAMAN BİÇİMİ"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "OYUN BİLGİSİ OLARAK KAYAN YAZI KULLAN"
+msgstr "OYUN BİLGİSİNDE KAYAN YAZI KULLAN"
 
 msgid "DECORATION SET USED"
 msgstr "KULLANILAN DEKORASYON SETİ"
@@ -2914,8 +2916,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Geçerli bir hesap gerekli. Lütfen hesap oluşturmak için https://"
-"retroachievements.org adresini ziyaret ediniz"
+"Geçerli bir hesap gerekli. Lütfen bu adresten hesap oluşturun https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Tam"
@@ -2927,7 +2929,7 @@ msgid "Kid"
 msgstr "Çocuk"
 
 msgid "Basic"
-msgstr "Temel"
+msgstr "Basit"
 
 msgid "Games similar to"
 msgstr "Benzeşen oyunlar"
@@ -2949,7 +2951,7 @@ msgstr "RASGELE"
 
 #, c-format
 msgid "Back to %s"
-msgstr "%s Geri Dön"
+msgstr "%s Geri dön"
 
 msgid "No Entries Found"
 msgstr "Girdi Bulunamadı"
@@ -3074,7 +3076,7 @@ msgid "VERTICAL"
 msgstr "DİKEY"
 
 msgid "LIGHTGUN"
-msgstr "LIGHTGUN"
+msgstr "HAFİF SİLAH"
 
 msgid "STEERING WHEEL"
 msgstr "DİREKSİYON"
@@ -3083,7 +3085,7 @@ msgid "TRACKBALL"
 msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr "SPINNER"
+msgstr "ÇARK"
 
 msgid "HAVING MEDIAS"
 msgstr "MEDYALARINIZ"
@@ -3101,7 +3103,7 @@ msgid "SCRAPE FAILED"
 msgstr "BİLGİLER GETİRİLEMEDİ"
 
 msgid "SCRAPING FINISHED"
-msgstr "BİLGİ GETİRME TAMAMLANDI"
+msgstr "BİLGİLER GETİRİLDİ"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "DEĞİŞİKLİKLERİ UYGULAMAK İÇİN OYUN LİSTELERİNİ GÜNCELLE."
@@ -3113,19 +3115,19 @@ msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "ÜST VERİ KAYDEDİLİYOR. LÜTFEN BEKLEYİN..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "EMULATÖRDEN BEKLENMEDİK ŞEKİLDE ÇIKILDI"
+msgstr "EMÜLATÖRDEN BEKLENMEDİK ŞEKİLDE ÇIKILDI"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "HATALI KOMUT SATIRI DEĞİŞKENLERİ"
 
 msgid "INVALID CONFIGURATION"
-msgstr "GEÇERSİZ AYAR"
+msgstr "GEÇERSİZ YAPILANDIRMA"
 
 msgid "UNKNOWN EMULATOR"
-msgstr "BİLİNMEYEN EMULATOR"
+msgstr "BİLİNMEYEN EMÜLATÖR"
 
 msgid "EMULATOR IS MISSING"
-msgstr "EMULATOR BULUNAMADI"
+msgstr "EMÜLATÖR BULUNAMADI"
 
 msgid "CORE IS MISSING"
 msgstr "ÇEKİRDEK BULUNAMADI"
@@ -3152,7 +3154,7 @@ msgid "4 players"
 msgstr "4 oyuncu"
 
 msgid "never played"
-msgstr "daha once oynanmadı"
+msgstr "hiç oynanmadı"
 
 msgid "retroachievements"
 msgstr "retrobaşarımlar"
@@ -3161,19 +3163,19 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr "düşey arcade"
+msgstr "dikey arcade"
 
 msgid "lightgun games"
 msgstr "silah oyunları"
 
 msgid "wheel games"
-msgstr "çark oyunları"
+msgstr "direksiyon oyunları"
 
 msgid "trackball games"
 msgstr "trackball oyunları"
 
 msgid "spinner games"
-msgstr "spinner oyunları"
+msgstr "çark oyunları"
 
 msgid "collections"
 msgstr "koleksiyonlar"
@@ -3203,7 +3205,7 @@ msgid "SEARCHING NETPLAY GAMES"
 msgstr "NETPLAY OYUNLARI ARANIYOR"
 
 msgid "INDEXING COMPLETED"
-msgstr "ENDEKSLEME TAMAMLANDI"
+msgstr "DİZİNLEME TAMAMLANDI"
 
 msgid "FILENAME, ASCENDING"
 msgstr "DOSYA ADI, ARTAN"

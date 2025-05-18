@@ -559,7 +559,9 @@ msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR DE RELAY"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Os jogos de servidor de relay têm uma maior probabilidade de entrada bem-sucedida."
+msgstr ""
+"Os jogos de servidor de relay têm uma maior probabilidade de entrada bem-"
+"sucedida."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOGOS INDISPONÍVEIS"
@@ -2291,6 +2293,9 @@ msgstr "FONTE DA MEDIA DA CAIXA"
 
 msgid "LOGO SOURCE"
 msgstr "FONTE DA MEDIA DO LOGOTIPO"
+
+msgid "HD WHEEL"
+msgstr "LOGOTIPO HD"
 
 msgid "WHEEL"
 msgstr "LOGOTIPO"

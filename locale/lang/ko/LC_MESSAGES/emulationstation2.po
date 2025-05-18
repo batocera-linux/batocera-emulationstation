@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-04-02 22:44+0900\n"
+"PO-Revision-Date: 2025-05-06 22:00+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -2270,6 +2270,9 @@ msgstr "박스 출처"
 
 msgid "LOGO SOURCE"
 msgstr "로고 출처"
+
+msgid "HD WHEEL"
+msgstr "HD 휠"
 
 msgid "WHEEL"
 msgstr "휠"

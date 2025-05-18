@@ -21,6 +21,8 @@
 #include "TimeUtil.h"
 #include "math/Misc.h"
 #include "LocaleES.h"
+#include "utils/HtmlColor.h"
+#include "Settings.h"
 
 namespace Utils
 {
@@ -81,8 +83,12 @@ namespace Utils
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%m")); } },
 		{ { "day", 1 },           [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%d")); } },
-		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true)); 
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::getElapsedSinceString(time)); } },
+		{ { "date", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true));
+														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, Utils::Time::getSystemDateFormat())); } },															 
+		{ { "time", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true));
+														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, Settings::ClockMode12() ? "%I:%M %p" : "%H:%M")); } },
 		{ { "expandseconds", 1 }, [](const Args& args) { auto seconds = Utils::String::toInteger(removeStringQuotes(args[0])); 
 														 return addStringQuotes(seconds == 0 ? "" : Utils::Time::secondsToString(seconds)); } },
 		{ { "formatseconds", 1 }, [](const Args& args) { auto seconds = Utils::String::toInteger(removeStringQuotes(args[0]));
@@ -588,6 +594,30 @@ namespace Utils
 		return string;
 	}
 
+	int iscolor(char const* _String, char** _EndPtr) 
+	{
+		static std::set<char> xplimiter = { '\0', ' ', (char) 160, '&', '|', '>', '<', '=', '!', '+', '-', '*', '^', '!', '/', '?', ':', '{', '}', '(', ')', '$', '.', '\'', '\"' };
+
+		int endDelimiter = 0;
+		while (true)
+		{			
+			if (xplimiter.find(_String[endDelimiter]) != xplimiter.cend())
+				break;
+
+			endDelimiter++;
+		}
+
+		if (endDelimiter == 0)
+			return false;
+
+		*_EndPtr = (char*) (_String + endDelimiter);
+		const char* colorEndPos = strstr(_String, *_EndPtr);
+		if (colorEndPos == nullptr)
+			return false;
+
+		return Utils::HtmlColor::isHtmlColor(colorEndPos);		
+	}
+
 	MathExpr::ValuePtrQueue MathExpr::toRPN(const char* expr, ValueMap* vars)
 	{
 		ValuePtrQueue rpnQueue; std::stack<std::string> operatorStack;
@@ -599,7 +629,16 @@ namespace Utils
 
 		while (*expr)
 		{
-			if (isdigit(*expr))
+			char* colorEnd;
+			if (iscolor(expr, &colorEnd))
+			{
+				const char* colorEndPos = strstr(expr, colorEnd);
+				int color = (int) Utils::HtmlColor::parse(colorEndPos);
+				rpnQueue.push(new Value(color));
+				expr = colorEnd;
+				lastTokenWasOp = false;
+			}
+			else if (isdigit(*expr))
 			{
 				// If the token is a number, add it to the output queue.
 				char* nextChar = 0;

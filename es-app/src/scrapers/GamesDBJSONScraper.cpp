@@ -391,7 +391,7 @@ namespace
 			return { "titlescreen" };
 		if (imageSource == "box-2D" || imageSource == "box-3D")
 			return { "boxart" };
-		if (imageSource == "wheel" || imageSource == "marquee")
+		if (imageSource == "wheel" || imageSource == "marquee" || imageSource == "wheel-hd")
 			return { "clearlogo" };
 
 		return{ imageSource };

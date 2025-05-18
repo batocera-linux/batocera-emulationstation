@@ -10,6 +10,7 @@ namespace Utils
 	namespace HtmlColor
 	{
 		unsigned int parse(const std::string& str);
+		bool isHtmlColor(const std::string& str);
 		unsigned int applyColorOpacity(unsigned int color, unsigned char opacity);
 	}
 }

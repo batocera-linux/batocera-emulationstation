@@ -2295,6 +2295,9 @@ msgstr "ŹRÓDŁO PUDEŁKA"
 msgid "LOGO SOURCE"
 msgstr "ŹRÓDŁO LOGA"
 
+msgid "HD WHEEL"
+msgstr "KIEROWNICA HD"
+
 msgid "WHEEL"
 msgstr "KOŁO"
 

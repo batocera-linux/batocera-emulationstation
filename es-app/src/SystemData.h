@@ -53,7 +53,7 @@ struct SystemEnvironmentData
 	std::string mStartPath;
 	std::set<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
-	std::vector<PlatformIds::PlatformId> mPlatformIds;
+	std::set<PlatformIds::PlatformId> mPlatformIds;
 	std::string mGroup;
 
 	inline bool isValidExtension(const std::string& extension)
@@ -95,8 +95,8 @@ public:
 	inline const std::set<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
 	inline const std::string& getThemeFolder() const { return mMetadata.themeFolder; }
 	inline SystemEnvironmentData* getSystemEnvData() const { return mEnvData; }
-	inline const std::vector<PlatformIds::PlatformId>& getPlatformIds() const { return mEnvData->mPlatformIds; }
-	inline bool hasPlatformId(PlatformIds::PlatformId id) { if (!mEnvData) return false; return std::find(mEnvData->mPlatformIds.cbegin(), mEnvData->mPlatformIds.cend(), id) != mEnvData->mPlatformIds.cend(); }
+	inline const std::set<PlatformIds::PlatformId>& getPlatformIds() const { return mEnvData->mPlatformIds; }
+	inline bool hasPlatformId(PlatformIds::PlatformId id) { if (!mEnvData) return false; return mEnvData->mPlatformIds.find(id) != mEnvData->mPlatformIds.cend(); }
 	inline const SystemMetadata& getSystemMetadata() const { return mMetadata; }
 
 	inline const std::shared_ptr<ThemeData>& getTheme() const { return mTheme; }

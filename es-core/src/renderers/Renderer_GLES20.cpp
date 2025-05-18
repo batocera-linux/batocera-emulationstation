@@ -45,6 +45,7 @@ namespace Renderer
 	static std::map<unsigned int, TextureInfo*> _textures;
 
 	static unsigned int		boundTexture = 0;
+	static unsigned int		mShaderTexture = 0;	
 
 	extern std::string SHADER_VERSION_STRING;
 
@@ -628,6 +629,12 @@ namespace Renderer
 
 		_customShaders.clear();
 
+		if (mShaderTexture != 0)
+		{
+			destroyTexture(mShaderTexture);
+			mShaderTexture = 0;
+		}
+
 		if (mFrameBuffer != -1)
 		{
 			GL_CHECK_ERROR(glDeleteFramebuffers(1, &mFrameBuffer));
@@ -686,15 +693,7 @@ namespace Renderer
 
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
 			delete[] la_data;
-		}
-		else if (_data == nullptr)
-		{
-			// Seems required with some video cards or the texture bytes aren't blank
-			uint8_t* la_data = new uint8_t[_width * _height * 4];
-			memset(la_data, 0, _width * _height * 4);
-			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
-			delete[] la_data;
-		}
+		}		
 		else
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
 
@@ -1197,7 +1196,33 @@ namespace Renderer
 		int tw = w / textureScale;
 		int th = h / textureScale;
 
-		auto nTextureID = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+		unsigned int nTextureID = 0;
+		
+		if (data != nullptr && (shaderBatch->size() - 1) % 2 == 1)
+		{
+			// It's the texture that will be returned into *data, so we can't cache it and we need to create a new one
+			nTextureID = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+		}
+		else
+		{
+			if (mShaderTexture == 0)
+				mShaderTexture = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+			else
+			{
+				auto it = _textures.find(mShaderTexture);
+				if (it == _textures.cend() || it->second->size.x() != tw || it->second->size.y() != th)
+				{
+					if (it != _textures.cend())
+						it->second->size = Vector2f(tw, th);
+
+					bindTexture(mShaderTexture);
+					glTexImage2D(GL_TEXTURE_2D, 0, convertTextureType(Renderer::Texture::RGBA), tw, th, 0, convertTextureType(Renderer::Texture::RGBA), GL_UNSIGNED_BYTE, nullptr);
+				}				
+			}
+
+			nTextureID = mShaderTexture;
+		}		
+
 		if (nTextureID > 0)
 		{
 			int width = getScreenWidth();
@@ -1265,9 +1290,9 @@ namespace Renderer
 					GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0));
 
 					if (getScreenRotate() == 2)
-						GL_CHECK_ERROR(glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR));
+						GL_CHECK_ERROR(glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_NEAREST));
 					else
-						GL_CHECK_ERROR(glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR));
+						GL_CHECK_ERROR(glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_NEAREST));
 
 					if (shaderBatch->size() == 1 && data == nullptr)
 						GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
@@ -1338,7 +1363,9 @@ namespace Renderer
 
 				bool takeFirst = (shaderBatch->size() - 1) % 2 == 1;
 				*data = takeFirst ? nTextureID : nTexture2;
-				destroyTexture(takeFirst ? nTexture2 : nTextureID);
+				
+				if (takeFirst || nTextureID != mShaderTexture)
+					destroyTexture(takeFirst ? nTexture2 : nTextureID);
 			}
 			else
 			{
@@ -1349,7 +1376,8 @@ namespace Renderer
 				if (oldCissors)
 					GL_CHECK_ERROR(glEnable(GL_SCISSOR_TEST));
 
-				destroyTexture(nTextureID);
+				if (nTextureID != mShaderTexture)
+					destroyTexture(nTextureID);
 
 				if (nTexture2 != -1)
 					destroyTexture(nTexture2);

@@ -106,6 +106,7 @@ class BindingManager
 {
 public:
 	static void          updateBindings(GuiComponent* comp, IBindable* system, bool recursive = true);
+	static std::string   evaluateBindableExpression(const std::string& xp, IBindable* bindable);
 
 private:
 	static void          bindValues(IBindable* current, std::string& xp, bool showDefaultText, std::string& evaluableExpression);

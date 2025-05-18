@@ -2254,6 +2254,9 @@ msgstr "СТИЛЬ ОБГОРТКИ"
 msgid "LOGO SOURCE"
 msgstr "СТИЛЬ ЛОГО"
 
+msgid "HD WHEEL"
+msgstr ""
+
 msgid "WHEEL"
 msgstr "КОЛЕСО"
 
