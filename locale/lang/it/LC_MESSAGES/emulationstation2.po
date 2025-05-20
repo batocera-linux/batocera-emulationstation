@@ -2287,7 +2287,7 @@ msgid "LOGO SOURCE"
 msgstr "SORGENTE LOGO"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "VOLANTE HD"
 
 msgid "WHEEL"
 msgstr "TARGHETTA"

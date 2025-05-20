@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-06 18:25+0300\n"
+"PO-Revision-Date: 2025-05-10 07:48+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -1863,8 +1863,9 @@ msgstr "DİREKSİYON SİMGESİNİ GÖSTER"
 msgid "SHOW TRACKBALL ICON"
 msgstr "TRACKBALL SİMGESİNİ GÖSTER"
 
+# SPINNER bir cihaz adı, çevirmeyin lütfen.
 msgid "SHOW SPINNER ICON"
-msgstr "ÇARK SİMGESİNİ GÖSTER"
+msgstr "SPINNER SİMGESİNİ GÖSTER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "DOSYA İSİMLERİNİ GÖSTER"
@@ -2533,7 +2534,7 @@ msgid "refresh"
 msgstr "yenile"
 
 msgid "NO MISSING BIOS"
-msgstr "EKSİK BIOS YOK"
+msgstr "EKSİK BİOS YOK"
 
 msgid "ZOOM OUT"
 msgstr "UZAKLAŞ"
@@ -2679,7 +2680,7 @@ msgid "default"
 msgstr "varsayılan"
 
 msgid "BORDER SIZE"
-msgstr "ÇERÇEVE BOYUTU"
+msgstr "KENAR BOYUTU"
 
 msgid "THIN"
 msgstr "İNCE"
@@ -2691,7 +2692,7 @@ msgid "BIG"
 msgstr "BÜYÜK"
 
 msgid "BORDER MODE"
-msgstr "ÇERÇEVE MODU"
+msgstr "KENAR MODU"
 
 msgid "NORMAL"
 msgstr "NORMAL"
@@ -2703,7 +2704,7 @@ msgid "HIDDEN"
 msgstr "GİZLİ"
 
 msgid "BORDER COLOR"
-msgstr "ÇERÇEVE RENGİ"
+msgstr "KENAR RENGİ"
 
 msgid "WHITE"
 msgstr "BEYAZ"
@@ -3084,8 +3085,9 @@ msgstr "DİREKSİYON"
 msgid "TRACKBALL"
 msgstr "TRACKBALL"
 
+# SPINNER bir cihaz adı, çevirmeyin lütfen.
 msgid "SPINNER"
-msgstr "ÇARK"
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "MEDYALARINIZ"
@@ -3130,7 +3132,7 @@ msgid "EMULATOR IS MISSING"
 msgstr "EMÜLATÖR BULUNAMADI"
 
 msgid "CORE IS MISSING"
-msgstr "ÇEKİRDEK BULUNAMADI"
+msgstr "ÇEKİRDEK EKSİK"
 
 msgid "UKNOWN ERROR"
 msgstr "BİLİNMEYEN HATA"
@@ -3174,8 +3176,9 @@ msgstr "direksiyon oyunları"
 msgid "trackball games"
 msgstr "trackball oyunları"
 
+# SPINNER bir cihaz adı, çevirmeyin lütfen.
 msgid "spinner games"
-msgstr "çark oyunları"
+msgstr "spiner oyunları"
 
 msgid "collections"
 msgstr "koleksiyonlar"
