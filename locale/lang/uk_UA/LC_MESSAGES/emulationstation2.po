@@ -1977,6 +1977,15 @@ msgstr ""
 msgid "NOW PLAYING"
 msgstr ""
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ЗБЕРЕГТИ ПОТОЧНУ ПІСНЮ ДО СПИСКУ УЛЮБЛЕНИХ"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "ВИДАЛИТИ ПОТОЧНУ ПІСНЮ ІЗ СПИСКУ УЛЮБЛЕНИХ"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ВІДТВОРЮВАТИ ЛИШЕ ПІСНІ ІЗ ВАШОГО СПИСКУ УЛЮБЛЕНИХ"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
 
