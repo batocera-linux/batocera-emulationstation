@@ -2319,3 +2319,8 @@ bool ApiSystem::isServiceEnabled(std::string name)
 	auto splits = Utils::String::split(sline, ';', true);
 	return splits.size() == 2 && splits[1] == "*";
 }
+
+bool ApiSystem::writeZaparooCard(std::string name)
+{
+	return executeScript("/userdata/system/zaparoo -write " + name);
+}

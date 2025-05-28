@@ -47,6 +47,30 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Loco-Parser: loco_parse_po\n"
 
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "البحث عن إنجازات ريترو"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "البحث عن ألعاب النت"
+
+msgid "INDEXING COMPLETED"
+msgstr "تمت الفهرسة"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "قم بتحديث قائمة الألعاب لتطبيق التغييرات."
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "تجزئة اللعبة تعمل حالياً. هل تريد ايقافها ؟"
+
+msgid "YES"
+msgstr "نعم"
+
+msgid "NO"
+msgstr "لا"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "لا توجد ألعاب تناسب هذه المعايير."
+
 msgid "SCANNING BLUETOOTH"
 msgstr "بحث بلوتوث"
 
@@ -68,245 +92,65 @@ msgstr "يلزم إعادة التشغيل لإكمال العملية"
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "تم تهيئة الجهاز بالفعل."
 
-msgid "Name"
-msgstr "الاسم"
+msgid "all games"
+msgstr "كل الألعاب"
 
-msgid "this game's name"
-msgstr "اسم اللعبة"
+msgid "last played"
+msgstr "لعب مؤخرا"
 
-msgid "Description"
-msgstr "الوصف"
+msgid "favorites"
+msgstr "المفضلات"
 
-msgid "this game's description"
-msgstr "تفاصيل اللعبة"
+msgid "2 players"
+msgstr "٢ لاعبَين"
 
-msgid "Emulator"
-msgstr "المحاكي"
+msgid "4 players"
+msgstr "٤ لاعبِين"
 
-msgid "emulator"
-msgstr "المحاكي"
+msgid "never played"
+msgstr "لم يتم اللعب"
 
-msgid "Core"
-msgstr "النواة"
+msgid "retroachievements"
+msgstr "إنجازات الريترو"
 
-msgid "core"
-msgstr "النواة"
+msgid "arcade"
+msgstr "أركيد"
 
-msgid "Image"
-msgstr "الصورة"
+msgid "vertical arcade"
+msgstr "أركيد عمودية"
 
-msgid "enter path to image"
-msgstr "أدخل مسار الصورة"
+msgid "lightgun games"
+msgstr "ألعاب المسدس الضوئي"
 
-msgid "Video"
-msgstr "فيديو المعاينة"
+msgid "wheel games"
+msgstr "العاب سيارات"
 
-msgid "enter path to video"
-msgstr "أدخل مسار فيديو المعاينة"
+msgid "trackball games"
+msgstr "كرة تتبع الألعاب"
 
-msgid "Logo"
-msgstr "الشعار"
+msgid "spinner games"
+msgstr "دوارة الألعاب"
 
-msgid "enter path to logo"
-msgstr "أدخل مسار الشعار"
+msgid "collections"
+msgstr "مجموعات"
 
-msgid "Box"
-msgstr "الغلاف"
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "تم إضافة '%s' إلى '%s' ."
 
-msgid "enter path to box"
-msgstr "أدخل مسار الغلاف"
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "تم إزالة '%s' من '%s' ."
 
-msgid "Fan art"
-msgstr "تصاميم هواة"
+msgid "This collection is empty."
+msgstr "هذه المجموعة فارغة."
 
-msgid "enter path to fanart"
-msgstr "أدخل مسار تصاميم الهواة"
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "بدون"
 
-msgid "Title shot"
-msgstr "لقطة العنوان"
-
-msgid "enter path to title shot"
-msgstr "ادخل المسار للقطة العنوان"
-
-msgid "Manual"
-msgstr "دليل الإستخدام"
-
-msgid "enter path to manual"
-msgstr "أدخل مسار دليل الإستخدام"
-
-msgid "Magazine"
-msgstr "المجلة"
-
-msgid "enter path to magazine"
-msgstr "أدخل مسار المجلة"
-
-msgid "Map"
-msgstr "الخريطة"
-
-msgid "enter path to map"
-msgstr "أدخل مسار الخريطة"
-
-msgid "Bezel (16:9)"
-msgstr "الإطار المحيط (16:9)"
-
-msgid "enter path to bezel (16:9)"
-msgstr "أدخل مسار الاطار المحيط (16:9)"
-
-msgid "Cartridge"
-msgstr "خرطوشة"
-
-msgid "enter path to cartridge"
-msgstr "أدخل مسار الخرطوشة"
-
-msgid "Alt BoxArt"
-msgstr "الغلاف البديل"
-
-msgid "enter path to alt boxart"
-msgstr "أدخل مسار الغلاف البديل"
-
-msgid "Box backside"
-msgstr "الغلاف الخلفي"
-
-msgid "enter path to box background"
-msgstr "أدخل مسار الغلاف الخلفي"
-
-msgid "Wheel"
-msgstr "عجلة"
-
-msgid "enter path to wheel"
-msgstr "أدخل مسار العجلة"
-
-msgid "Mix"
-msgstr "دمج"
-
-msgid "enter path to mix"
-msgstr "ادخل المسار للدمج"
-
-msgid "Rating"
-msgstr "التقييم"
-
-msgid "enter rating"
-msgstr "أدخل التقييم"
-
-msgid "Release date"
-msgstr "تاريخ الإصدار"
-
-msgid "enter release date"
-msgstr "أدخل تاريخ الإصدار"
-
-msgid "Developer"
-msgstr "المطوِّر"
-
-msgid "this game's developer"
-msgstr "مطور اللعبة"
-
-msgid "Publisher"
-msgstr "الناشر"
-
-msgid "this game's publisher"
-msgstr "ناشر اللعبة"
-
-msgid "Genre"
-msgstr "النوع"
-
-msgid "enter game genre"
-msgstr "أدخل نوع اللعبة"
-
-msgid "Game family"
-msgstr "لعبة العائلة"
-
-msgid "this game's game family"
-msgstr "لعبة العائلة"
-
-msgid "Genres"
-msgstr "الأنواع"
-
-msgid "enter game genres"
-msgstr "أدخل أنواع اللعبة"
-
-msgid "Arcade system"
-msgstr "نظام الأركيد"
-
-msgid "this game's arcade system"
-msgstr "نظام الأركيد"
-
-msgid "Players"
-msgstr "اللاعبين"
-
-msgid "this game's number of players"
-msgstr "عدد اللاعبين"
-
-msgid "Favorite"
-msgstr "المفضلة"
-
-msgid "enter favorite"
-msgstr "أدخل المفضلة"
-
-msgid "Hidden"
-msgstr "المخفية"
-
-msgid "enter hidden"
-msgstr "ادخل المخفي"
-
-msgid "Kidgame"
-msgstr "ألعاب أطفال"
-
-msgid "enter kidgame"
-msgstr "ادخل ألعاب الأطفال"
-
-msgid "Play count"
-msgstr "مرات اللعب"
-
-msgid "enter number of times played"
-msgstr "ادخل عدد مرات اللعب"
-
-msgid "Last played"
-msgstr "آخر ما لعب"
-
-msgid "enter last played date"
-msgstr "ادخل تاريخ آخر مرة لعب"
-
-msgid "Crc32"
-msgstr "Crc32"
-
-msgid "Crc32 checksum"
-msgstr "Crc32 checksum"
-
-msgid "Md5"
-msgstr "Md5"
-
-msgid "Md5 checksum"
-msgstr "Md5 checksum"
-
-msgid "Game time"
-msgstr "وقت اللعب"
-
-msgid "how long the game has been played in total (seconds)"
-msgstr "مجموع مدة اللعب (ثوانِ)"
-
-msgid "Languages"
-msgstr "اللغات"
-
-msgid "this game's languages"
-msgstr "اللغة"
-
-msgid "Region"
-msgstr "المنطقة"
-
-msgid "this game's region"
-msgstr "المنطقة"
-
-msgid "Cheevos Hash"
-msgstr "تهشير تشيفوس"
-
-msgid "Cheevos checksum"
-msgstr "تحقيق مجموع تشيفوس"
-
-msgid "Cheevos Game ID"
-msgstr "ر.ت اللعبة في تشيفوس"
-
-msgid "Screenscraper Game ID"
-msgstr "ر.ت لعبة جالِب الشاشة"
+msgid "Various"
+msgstr "العديد"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -318,14 +162,71 @@ msgstr[3] "تحتوي المجموعة على %i ألعاب:%s"
 msgstr[4] "تحتوي المجموعة على %i ألعاب:%s"
 msgstr[5] "تحتوي المجموعة على %i ألعاب:%s"
 
+msgid "FAVORITES"
+msgstr "المفضلة"
+
+msgid "GENRE"
+msgstr "النوع"
+
+msgid "FAMILY"
+msgstr "العائلة"
+
+msgid "PLAYERS"
+msgstr "اللاعبين"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "الناشر/المطور"
+
+msgid "RATING"
+msgstr "التقييم"
+
+msgid "YEAR"
+msgstr "السنة"
+
+msgid "LANGUAGE"
+msgstr "اللغة"
+
+msgid "REGION"
+msgstr "المنطقة"
+
+msgid "KIDGAME"
+msgstr "لعبة أطفال"
+
+msgid "ALREADY PLAYED"
+msgstr "لُعِبَت سابقا"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "لديه إنجازات"
+
+msgid "VERTICAL"
+msgstr "عمودية"
+
+msgid "LIGHTGUN"
+msgstr "المسدس"
+
+msgid "STEERING WHEEL"
+msgstr "عجلة القيادة"
+
+msgid "TRACKBALL"
+msgstr "كرة التتبع"
+
+msgid "SPINNER"
+msgstr "دوارة"
+
+msgid "HAVING MEDIAS"
+msgstr "الوسائط الموجودة"
+
+msgid "MISSING MEDIAS"
+msgstr "الوسائط المفقودة"
+
+msgid "SEARCH"
+msgstr "بحث"
+
 msgid "Collections"
 msgstr "المجموعات"
 
 msgid "Unknown"
 msgstr "غير معروف"
-
-msgid "Extracting"
-msgstr "استخراج"
 
 msgid "DOWNLOADING"
 msgstr "جارِ التنزيل"
@@ -351,313 +252,83 @@ msgstr "تم تثبيت الحزمة بنجاح"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "تم حذف الحزمة بنجاح"
 
-msgid "Searching"
-msgstr "يبحث"
-
-msgid "Released"
-msgstr "تاريخ الإصدار"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "لم يتم العثور على اللعبة - حاوِل استعمال زر إدخال"
-
-msgid "RETRY"
-msgstr "إعادة المحاولة"
-
-msgid "SKIP"
-msgstr "تخطي"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "اقتران جهاز بلوتوث"
 
 msgid "CANCEL"
 msgstr "إلغاء"
 
-msgid "Downloading"
-msgstr "تنزيل"
+msgid "PLEASE WAIT"
+msgstr "المرجو الإنتظار"
 
-msgid "SEARCH FOR"
-msgstr "البحث عن"
+msgid "PAIR"
+msgstr "اقتران"
 
-msgid "ACCEPT RESULT"
-msgstr "قبول النتيجة"
+msgid "FILE BROWSER"
+msgstr "مستعرض الملفات"
 
-msgid "THEMES DOWNLOADER"
-msgstr "تنزيل السمات"
-
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "اختر السمات المراد تثبيتها/إزالتها"
-
-msgid "All"
-msgstr "الكل"
-
-msgid "Installed"
-msgstr "المثبتة"
-
-msgid "Available"
-msgstr "المتوفرة"
+msgid "RESET"
+msgstr "إعادة التشغيل"
 
 msgid "BACK"
 msgstr "رجوع"
 
-msgid "No items"
-msgstr "لاشيء"
-
-msgid "PLEASE WAIT"
-msgstr "المرجو الإنتظار"
-
-msgid "UPDATE"
-msgstr "تحديث"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' تمت اضافته لقائمة الانتظار"
-
-msgid "REMOVE"
-msgstr "حذف"
-
-msgid "INSTALL"
-msgstr "تثبيت"
-
 msgid "CLOSE"
 msgstr "إغلاق"
 
-msgid "CURRENT THEME"
-msgstr "السمة الحالية"
+msgid "PARENT FOLDER"
+msgstr "المجلد الأصل"
 
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "في انتظار اكتمال التنزيل"
+msgid "SCREENSHOTS FOLDER"
+msgstr "مجلد لقطات الشاشة"
 
-msgid "FINISHED"
-msgstr "تم الانتهاء"
+msgid "SELECT"
+msgstr "حدد"
+
+msgid "go back"
+msgstr "الرجوع"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "لست متصلا بأي شبكة"
 
 msgid "OK"
 msgstr "موافق"
 
-msgid "REFRESH"
-msgstr "تحديث"
+msgid "INDEX GAMES"
+msgstr "فهرسة الألعاب"
 
-msgid "INPUT MANUALLY"
-msgstr "الإدخال اليدوي"
+msgid "GAMES TO INDEX"
+msgstr "الألعاب التي هي بحاجة إلى فهرسة"
 
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "لم يتم العثور على شبكة وايفاي"
+msgid "ALL"
+msgstr "الكل"
 
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "جارِ البحث عن شبكة WIFI"
+msgid "ONLY MISSING"
+msgstr "المفقودة فقط"
 
-msgid "DEVICE OPTIONS"
-msgstr "إعدادات الجهاز"
+msgid "SYSTEMS INCLUDED"
+msgstr "الأنظمة المعنية"
 
-msgid "DISCONNECT"
-msgstr "قطع الاتصال"
+msgid "START"
+msgstr "ابدأ"
 
-msgid "CONNECT"
-msgstr "اتصال"
-
-msgid "FORGET"
-msgstr "نسيان"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "هل أنت متأكد أنك تريد أن تنسى '%s' ؟"
-
-msgid "YES"
-msgstr "نعم"
-
-msgid "NO"
-msgstr "لا"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr "هل أنت متأكد أنك تريد الاتصال بـ '%s'؟"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr "هل أنت متأكد أنك تريد فصل '%s'؟"
-
-msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "إعدادات لوحة تحكم إلى لوحة مفاتيح"
-
-msgid "SELECT ACTIONS TO CHANGE"
-msgstr "اختر للتغيير"
-
-msgid "SAVE"
-msgstr "حفظ"
-
-msgid "DELETE"
-msgstr "حذف"
-
-msgid "PLAYER 1"
-msgstr "لاعب 1"
-
-msgid "PLAYER 2"
-msgstr "لاعب 2"
-
-msgid "PLAYER 3"
-msgstr "لاعب 3"
-
-msgid "PLAYER 4"
-msgstr "لاعب 4"
-
-msgid "COMBINATIONS"
-msgstr "الأمزِجة"
-
-msgid "MOUSE CURSOR"
-msgstr "مؤشر الفأرة"
-
-msgid "EMULATE MOUSE CURSOR"
-msgstr "محاكاة مؤشر الفأرة"
-
-msgid "LEFT ANALOG STICK"
-msgstr "عصا الأنالوج اليسرى"
-
-msgid "RIGHT ANALOG STICK"
-msgstr "عصا الأنالوج اليمنى"
-
-msgid "EDIT DESCRIPTION"
-msgstr "تعديل التفاصيل"
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "أمتأكد أنك ترغب في حذف هذا العنصر ؟"
-
-msgid "DELETE MAPPING"
-msgstr "إزالة ضبط الأزرار"
-
-msgid "SAVE CHANGES?"
-msgstr "حفظ التغييرات؟"
-
-msgid "ARE YOU SURE?"
-msgstr "هل أنت متأكد ؟"
-
-msgid "INFORMATION"
-msgstr "المعلومات"
-
-msgid "VERSION"
-msgstr "الإصدار"
-
-msgid "USER DISK USAGE"
-msgstr "حجم التخزين المستعمل"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "حجم تخزين النظام"
-
-msgid "SYSTEM"
-msgstr "النظام"
-
-msgid "VIDEO DRIVER"
-msgstr "برامج تشغيل الرّسوميَّات"
-
-msgid "NETPLAY SETTINGS"
-msgstr "إعدادات لعب نت"
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "خصائص إنجازات ريترو"
 
 msgid "SETTINGS"
 msgstr "إعدادات"
 
-msgid "ENABLE NETPLAY"
-msgstr "تفعيل لعبة نت"
-
-msgid "NICKNAME"
-msgstr "المعرّف"
-
-msgid "OPTIONS"
-msgstr "خيارات"
-
-msgid "PORT"
-msgstr "المنفذ"
-
-msgid "USE RELAY SERVER"
-msgstr "استخدم خادم حقيقي"
-
-msgid "NONE"
-msgstr "لاشيء"
-
-msgid "NEW YORK"
-msgstr "نيو يورك"
-
-msgid "MADRID"
-msgstr "مدريد"
-
-msgid "MONTREAL"
-msgstr "مونريال"
-
-msgid "SAO PAULO"
-msgstr "ساو باولو"
-
-msgid "CUSTOM"
-msgstr "مخصص"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "خادم التتابع المخصص"
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "عرض ألعاب خادم التتابع فقط"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "تتمتع ألعاب خادم التتابع بفرصة أعلى للدخول الناجح."
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "عرض الألعاب الغير موجودة"
-
-msgid "Show rooms for games not present on this machine."
-msgstr "عرض الغرف للألعاب الغير موجودة على هذا الجهاز."
-
-msgid "GAME INDEXES"
-msgstr "فهرسة الألعاب"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "فهرسة الألعاب الجديدة عند البداية"
-
-msgid "INDEX GAMES"
-msgstr "فهرسة الألعاب"
-
-msgid "INPUT"
-msgstr "إدخال"
-
-msgid "SEARCH"
-msgstr "بحث"
-
-#, c-format
-msgid "%d of %d softcore points"
-msgstr "%d من %d نقاط سوفت كور"
-
-#, c-format
-msgid "%d of %d hardcore points"
-msgstr "%d من %d نقاط وحدة التخزين كور"
-
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d من %d)"
-
 msgid "RETROACHIEVEMENTS"
 msgstr "إنجازات الريترو"
-
-msgid "Softcore points"
-msgstr "نقاط سوفتكور"
-
-msgid "Points (hardcore)"
-msgstr "النقاط (هاردكور)"
-
-msgid "Rank"
-msgstr "الرتبة"
-
-msgid "VIEW DETAILS"
-msgstr "عرض التفاصيل"
-
-msgid "LAUNCH"
-msgstr "تشغيل"
-
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "خصائص إنجازات ريترو"
 
 msgid "USERNAME"
 msgstr "اسم المستخدم"
 
 msgid "PASSWORD"
 msgstr "كلمة المرور"
+
+msgid "OPTIONS"
+msgstr "خيارات"
 
 msgid "HARDCORE MODE"
 msgstr "وضع هارد كور"
@@ -715,33 +386,951 @@ msgstr "عرض خِيار إنجازات الريترو في القائمة ال
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "عرض إحصائيات إنجازاتك للريترو من القائمة الأساسية!"
 
+msgid "GAME INDEXES"
+msgstr "فهرسة الألعاب"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "فهرسة الألعاب الجديدة عند البداية"
+
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "تعثر تفعيل انجازات الريترو:"
 
-msgid "BLUETOOTH DEVICE LIST"
-msgstr "قائمة أجهزة البلوتوث"
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr "إعدادات لوحة تحكم إلى لوحة مفاتيح"
 
-msgid "REMOVE ALL"
-msgstr "إزالة الكل"
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr "اختر للتغيير"
 
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "لا توجد أي أجهزة بلوتوث"
+msgid "SAVE"
+msgstr "حفظ"
 
-msgid " (Connected)"
-msgstr "(متصل)"
+msgid "DELETE"
+msgstr "حذف"
 
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "تمت إزالة أجهزة البلوتوث."
+msgid "PLAYER 1"
+msgstr "لاعب 1"
 
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "أترغب حقا في إزالة '%s' ؟"
+msgid "PLAYER 2"
+msgstr "لاعب 2"
+
+msgid "PLAYER 3"
+msgstr "لاعب 3"
+
+msgid "PLAYER 4"
+msgstr "لاعب 4"
+
+msgid "COMBINATIONS"
+msgstr "الأمزِجة"
+
+msgid "MOUSE CURSOR"
+msgstr "مؤشر الفأرة"
+
+msgid "EMULATE MOUSE CURSOR"
+msgstr "محاكاة مؤشر الفأرة"
+
+msgid "LEFT ANALOG STICK"
+msgstr "عصا الأنالوج اليسرى"
+
+msgid "RIGHT ANALOG STICK"
+msgstr "عصا الأنالوج اليمنى"
+
+msgid "EDIT DESCRIPTION"
+msgstr "تعديل التفاصيل"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "أمتأكد أنك ترغب في حذف هذا العنصر ؟"
+
+msgid "DELETE MAPPING"
+msgstr "إزالة ضبط الأزرار"
+
+msgid "SAVE CHANGES?"
+msgstr "حفظ التغييرات؟"
+
+msgid "ARE YOU SURE?"
+msgstr "هل أنت متأكد ؟"
 
 msgid "THE BEZEL PROJECT"
 msgstr "مشروع حواف الشاشة"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr "اختر الحواف لتثبيتها/إزالتها"
+
+msgid "UPDATE"
+msgstr "تحديث"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' تمت اضافته لقائمة الانتظار"
+
+msgid "REMOVE"
+msgstr "حذف"
+
+msgid "INSTALL"
+msgstr "تثبيت"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "في انتظار اكتمال التنزيل"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "تنزيل محتويات"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "اختر المحتوى لتثبيته/إزالته"
+
+msgid "REFRESH"
+msgstr "تحديث"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "تحديث المحتوى المثبت"
+
+msgid "No items"
+msgstr "لاشيء"
+
+msgid "MISC"
+msgstr "متفرقات"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "تمت إضافة إزالة التثبيت لطابور الانتظار"
+
+msgid "EDIT METADATA"
+msgstr "تعديل بيانات التعريف"
+
+msgid "Emulator"
+msgstr "المحاكي"
+
+msgid "Core"
+msgstr "النواة"
+
+msgid "AUTO"
+msgstr "تلقائي"
+
+msgid "GENRES"
+msgstr "الأنواع"
+
+msgid "SCRAPE"
+msgstr "جلب"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
+"هل أنت متأكد؟"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+"بعض الملفات التي ربطتها صارت خارج مسار قائمة الألعاب.\n"
+"أترغب في استعمال نسخة من هذه الملفات مرتبطة بقائمة الألعاب ؟"
+
+msgid "FINISHED"
+msgstr "تم الانتهاء"
+
+msgid "ADD COMBINATION KEY"
+msgstr "أضف زر مزيج"
+
+msgid "dim"
+msgstr "تعتيم"
+
+msgid "black"
+msgstr "أسود"
+
+msgid "random video"
+msgstr "فيديو عشوائي"
+
+msgid "slideshow"
+msgstr "عرض الشرائح"
+
+msgid "suspend"
+msgstr "تعليق"
+
+msgid "always"
+msgstr "دائماً"
+
+msgid "start & end"
+msgstr "البداية والنهاية"
+
+msgid "never"
+msgstr "أبدا"
+
+msgid "systems"
+msgstr "النظام"
+
+msgid "random"
+msgstr "عشوائي"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "إعدادات شاشة التوقف"
+
+msgid "START SCREENSAVER AFTER"
+msgstr "تشغيل شاشة التوقف بعد كم من الدقائق"
+
+msgid "SCREENSAVER TYPE"
+msgstr "سلوك شاشة التوقف"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "إيقاف الموسيقى في أثناء بدئ شاشة التوقف"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "إعدادات شاشة توقف الفيديو العشوائي"
+
+msgid "VIDEO DURATION (SECS)"
+msgstr "مدة الفيديو (ثواني)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "استخدم مشغل OMX لشاشة التوقف"
+
+msgid "SHOW GAME INFO"
+msgstr "عرض معلومات اللعبة"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "استخدم الشاشة الأسمية  كمعلومات للعبة"
+
+msgid "DECORATION SET USED"
+msgstr "مجموعة التزيين المستعملة"
+
+msgid "STRETCH VIDEOS"
+msgstr "تمديد الفيديوهات"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "صوت الفيديو صامت"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "التحكم بشاشة التوقف"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "استخدام فيديوهات مخصصة"
+
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr "مكان الفيديوهات المخصصة"
+
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "استعمال الفيديوهات الموجودة بالمجلدات الفرعية للمجلد المخصص"
+
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr "امتدادات ملف الفيديو المخصصة"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "إعدادات شاشة توقف عرض الشرائح"
+
+msgid "IMAGE DURATION (SECS)"
+msgstr "قم بتبديل الصورة بعد (ثوانِ)"
+
+msgid "STRETCH IMAGES"
+msgstr "تمديد الصور"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "استخدام صور مخصصة"
+
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr "دليل الصورة المخصصة"
+
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "استعمال الصور الموجودة بالمجلدات الفرعية للمجلد المخصص"
+
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr "امتداد مِلف الصورة المخصصة"
+
+msgid "SCRAPER"
+msgstr "الجالِب"
+
+msgid "SCRAPING DATABASE"
+msgstr "جلب قاعدة البيانات"
+
+msgid "SOURCE"
+msgstr "المصدر"
+
+msgid "SCRAPE FROM"
+msgstr "جلب مِن"
+
+msgid "SCRAPER SETTINGS"
+msgstr "إعدادات الجالِب"
+
+msgid "FILTERS"
+msgstr "تعديل فرز مجموعة ديناميكية"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr "الألعاب المُراد الجلب لها"
+
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "الألعاب التي تنقصها أي وسائط"
+
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "الألعاب التي تنقصها كل الوسائط"
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr "تجاهل الألعاب المجلوب لها حديثًا"
+
+msgid "LAST DAY"
+msgstr "آخر يوم"
+
+msgid "LAST WEEK"
+msgstr "آخر أسبوع"
+
+msgid "LAST 15 DAYS"
+msgstr "آخر 15 يوما"
+
+msgid "LAST MONTH"
+msgstr "آخر شهر"
+
+msgid "LAST 3 MONTHS"
+msgstr "آخر 3 أشهر"
+
+msgid "LAST YEAR"
+msgstr "آخر سنة"
+
+msgid "SCRAPE NOW"
+msgstr "جلب الآن"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد تكون "
+"مختلفة من نظام لآخر!\n"
+"أترغب في المواصلة؟"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "الجلب يشتغل حاليا.أترغب في إيقافه؟"
+
+msgid "INSTALL ON A NEW DISK"
+msgstr "تثبيت على قرص جديد"
+
+msgid "TARGET DEVICE"
+msgstr "حدد الجهاز"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "حدد المعمارية"
+
+msgid "NETWORK REQUIRED"
+msgstr "مطلوب الاتصال بالشبكة"
+
+msgid "INVALID PARAMETERS"
+msgstr "معلمات غير صالحة"
+
+msgid "INPUT MANUALLY"
+msgstr "الإدخال اليدوي"
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "لم يتم العثور على شبكة وايفاي"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "جارِ البحث عن شبكة WIFI"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "خصائص وحدة التحكم"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "إعدادات وحدات التحكم"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "اولوية وحدات التحكم"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "مهام اللاعب"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "وحدة التحكم #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "وحدة تحكم اللاعب %i"
+
+msgid "CONTROLLER MAPPING"
+msgstr "ضبط أزرار وحدة التحكم"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"ستقوم بتعديل لوحة التحكم. تلك التعديلات تعتمد على مكان الزر، ليس الاسم "
+"المكتوب عليه. إن لم يكن لديك زر خاص بالزر الساخن، استعمل الزر (SELECT). "
+"لتخطي (الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط "
+"على زر الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "إعدادات مسدس سِينْدِن"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "إعدادات مسدس ويموت"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "جهاز ستيم/إعدادات المسدس"
+
+msgid "BLUETOOTH"
+msgstr "بلوتوث"
+
+msgid "ENABLE BLUETOOTH"
+msgstr "تمكين البلوتوث"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "اقتران البلوتوث بذراع التحكم تِلقائيا"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "اقتران بلوتوث يدوي"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr "قائمة أجهزة البلوتوث"
+
+msgid "DISPLAY OPTIONS"
+msgstr "خيارات العرض"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr "عرض إشعارات وحدة التحكم"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "عرض نشاط وحدة التحكم"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "عرض نسبة بطارية وحدة التحكم"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "رسم تصويب البندقية"
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "default"
+msgstr "افتراضي"
+
+msgid "NOT CONNECTED"
+msgstr "غير متصل"
+
+msgid "BORDER SIZE"
+msgstr "حجم الإطار"
+
+msgid "THIN"
+msgstr "رقيق"
+
+msgid "MEDIUM"
+msgstr "متوسط"
+
+msgid "BIG"
+msgstr "كبير"
+
+msgid "BORDER MODE"
+msgstr "نمط الإطار"
+
+msgid "NORMAL"
+msgstr "عادي"
+
+msgid "IN GAME ONLY"
+msgstr "أثناء اللعب فقط"
+
+msgid "HIDDEN"
+msgstr "مخفي"
+
+msgid "BORDER COLOR"
+msgstr "لون الإطار"
+
+msgid "WHITE"
+msgstr "أبيض"
+
+msgid "RED"
+msgstr "أحمر"
+
+msgid "GREEN"
+msgstr "أخضر"
+
+msgid "BLUE"
+msgstr "أزرق"
+
+msgid "BORDER RATIO"
+msgstr "نسبة الحدود"
+
+msgid "CAMERA CONTRAST"
+msgstr "تباين الكاميرا"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "النّهار/سطوع (40)"
+
+msgid "Default (50)"
+msgstr "الإفتراضي (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "تعتيم الشاشة/المساء (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "سطوع الكاميرا"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "النّهار/سطوع (80)"
+
+msgid "Default (100)"
+msgstr "افتراضي (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "تعتيم الشاشة/المساء (1)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "تعرض الكاميرا للضوء"
+
+msgid "Projector/CRT (-5)"
+msgstr "جهاز العرض/تلفاز قديم (5-)"
+
+msgid "Projector/CRT (-6)"
+msgstr "جهاز العرض/تلفاز قديم (6-)"
+
+msgid "Default (-7)"
+msgstr "افتراضي (7-)"
+
+msgid "Other (-8)"
+msgstr "أخرى (8-)"
+
+msgid "Other (-9)"
+msgstr "أخرى (9-)"
+
+msgid "RECOIL"
+msgstr "ارتداد"
+
+msgid "DISABLED"
+msgstr "معطل"
+
+msgid "GUN"
+msgstr "مسدس"
+
+msgid "MACHINE GUN"
+msgstr "رشاشة"
+
+msgid "QUIET GUN"
+msgstr "مسدس صامت"
+
+msgid "QUIET MACHINE GUN"
+msgstr "رشاشة صامتة"
+
+msgid "MODE"
+msgstr "النمط"
+
+msgid "JOYSTICK"
+msgstr "ذراع التحكم"
+
+msgid "MOUSE ONLY"
+msgstr "الفأرة فقط"
+
+msgid "HAND"
+msgstr "اليد"
+
+msgid "LEFT"
+msgstr "يسار"
+
+msgid "RIGHT"
+msgstr "يمين"
+
+msgid "SAVESTATE MANAGER"
+msgstr "مدير حالات الحفظ"
+
+msgid "START NEW GAME"
+msgstr "بدئ لُعبة جديدة"
+
+msgid "START NEW AUTO SAVE"
+msgstr "بدئ حفظ تلقائي جديد"
+
+msgid "AUTO SAVE"
+msgstr "الحفظ التلقائي"
+
+msgid "SLOT"
+msgstr "فُتحة"
+
+msgid "LAUNCH"
+msgstr "تشغيل"
+
+msgid "COPY TO FREE SLOT"
+msgstr "نسخ إلى فُتحة فارغة"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr "%d من %d نقاط سوفت كور"
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr "%d من %d نقاط وحدة التخزين كور"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d من %d)"
+
+msgid "Softcore points"
+msgstr "نقاط سوفتكور"
+
+msgid "Points (hardcore)"
+msgstr "النقاط (هاردكور)"
+
+msgid "Rank"
+msgstr "الرتبة"
+
+msgid "VIEW DETAILS"
+msgstr "عرض التفاصيل"
+
+msgid "DEVICE OPTIONS"
+msgstr "إعدادات الجهاز"
+
+msgid "DISCONNECT"
+msgstr "قطع الاتصال"
+
+msgid "CONNECT"
+msgstr "اتصال"
+
+msgid "FORGET"
+msgstr "نسيان"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "هل أنت متأكد أنك تريد أن تنسى '%s' ؟"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr "هل أنت متأكد أنك تريد الاتصال بـ '%s'؟"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr "هل أنت متأكد أنك تريد فصل '%s'؟"
+
+msgid "NETPLAY SETTINGS"
+msgstr "إعدادات لعب نت"
+
+msgid "ENABLE NETPLAY"
+msgstr "تفعيل لعبة نت"
+
+msgid "NICKNAME"
+msgstr "المعرّف"
+
+msgid "PORT"
+msgstr "المنفذ"
+
+msgid "USE RELAY SERVER"
+msgstr "استخدم خادم حقيقي"
+
+msgid "NONE"
+msgstr "لاشيء"
+
+msgid "NEW YORK"
+msgstr "نيو يورك"
+
+msgid "MADRID"
+msgstr "مدريد"
+
+msgid "MONTREAL"
+msgstr "مونريال"
+
+msgid "SAO PAULO"
+msgstr "ساو باولو"
+
+msgid "CUSTOM"
+msgstr "مخصص"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "خادم التتابع المخصص"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "عرض ألعاب خادم التتابع فقط"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "تتمتع ألعاب خادم التتابع بفرصة أعلى للدخول الناجح."
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "عرض الألعاب الغير موجودة"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "عرض الغرف للألعاب الغير موجودة على هذا الجهاز."
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "إعدادات مجموعة الألعاب"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "مجموعات للعرض"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "الأنظمة المعروضة"
+
+msgid "GROUPED SYSTEMS"
+msgstr "أنظمة مجمّعة"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "إنشاء مجموعة مخصصه"
+
+msgid "New Collection Name"
+msgstr "اسم جديد للمجموعة"
+
+msgid "ENTER NAME"
+msgstr "أدخل الاسم"
+
+msgid "CREATE FROM THEME"
+msgstr "إنشاء من الموضوع"
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "إنشاء مجموعة جديدة قابلة للتعديل"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "إنشاء مجموعة مرنة جديدة"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "ترتيب المجموعات والانظمة"
+
+msgid "ALPHABETICALLY"
+msgstr "أبجدياً"
+
+msgid "BY MANUFACTURER"
+msgstr "حسب المطور"
+
+msgid "BY HARDWARE TYPE"
+msgstr "حسب الجهاز"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr "حسب المطور والنوع"
+
+msgid "BY RELEASE YEAR"
+msgstr "حسب سنة الصدور"
+
+msgid "SORT SYSTEMS"
+msgstr "ترتيب الانظمة"
+
+msgid "START ON SYSTEM"
+msgstr "النظام المحدد في أثناء البداية"
+
+msgid "RESTORE LAST SELECTED"
+msgstr "آخر نظام تم تحديده"
+
+msgid "START ON GAMELIST"
+msgstr "بدء مع قائمة الألعاب"
+
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr "مجموعات مخصصة للمجموعة"
+
+msgid "UNTHEMED"
+msgstr "بدون عنوان"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "عرض اسم النظام في المجموعات"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "عرض ألعاب الأنظمة المخفية، في المجموعات"
+
+msgid "SHOW EMPTY SYSTEMS"
+msgstr "عرض الأنظمة الفارغة (بدون ألعاب)"
+
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr "لا تعرض المجموعات التي تستخدم نظامًا واحدًا فقط"
+
+msgid "UPDATE GAMELISTS"
+msgstr "تحديث قائمة الألعاب"
+
+msgid "Loading..."
+msgstr "جارِ التنزيل..."
+
+msgid "SELECT COLLECTIONS"
+msgstr "اختيار المجموعات"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr "مجموعات تلقائية"
+
+msgid "PER GENRE"
+msgstr "حسب النوع"
+
+msgid "ARCADE SYSTEMS"
+msgstr "نظام الأركيد"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "مجموعات ألعاب تلقائية"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "مجموعات قابله للتعديل"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "مجموعات مرنة"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "مجموعات ألعاب مخصصه"
+
+msgid "NO MISSING BIOS FILES"
+msgstr "لا يوجد أي ملف بايوس مفقود"
+
+msgid "MISSING BIOS CHECK"
+msgstr "البايوس المفقودة"
+
+msgid "Installed systems"
+msgstr "الأنظمة المثبتة"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "refresh"
+msgstr "تحديث"
+
+msgid "NO MISSING BIOS"
+msgstr "لا يوجد BIOS مفقود"
+
+msgid "GAME MEDIA"
+msgstr "وسائط اللعبة"
+
+msgid "VIEW GAME MANUAL"
+msgstr "قراءة دليل اللعبة"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "عرض مجلة اللعبة"
+
+msgid "VIEW GAME MAP"
+msgstr "مشاهدة خريطة اللعبة"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "فيديو ملئ الشاشة"
+
+msgid "VIEW GAME MEDIA"
+msgstr "عرض وسائط اللعبة"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "النواة الحالية غير متوافقة"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "النواة/الأنوية المتوافقة"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "عرض إنجازات اللعبة"
+
+msgid "GAME"
+msgstr "اللعبة"
+
+msgid "SAVE STATES"
+msgstr "حالات الحفظ"
+
+msgid "OPEN"
+msgstr "فتح"
+
+msgid "START A NETPLAY GAME"
+msgstr "ابدأ اللعب عبر النت"
+
+msgid "NETPLAY"
+msgstr "لعب نت"
+
+msgid "START GAME"
+msgstr "بدئ اللعبة"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "استضف اللعب عبر النت"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "الإعلان عن اللعبة للجماهير"
+
+msgid "PLAYER PASSWORD"
+msgstr "كلمة سر اللاعب"
+
+msgid "VIEWER PASSWORD"
+msgstr "كلمة سر المتفرج"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "أوجد ألعاب مماثلة..."
+
+msgid "DELETE ITEM"
+msgstr "حذف العنصر"
+
+msgid "DELETE GAME"
+msgstr "حذف اللعبة"
+
+msgid "COLLECTIONS"
+msgstr "مجموعات"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "إزالة من %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "إضافة إلى %s"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "إضافة إلى المجموعة المخصصة..."
+
+msgid "DELETE COLLECTION"
+msgstr "حذف المجموعة"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "تعديل الملف الشخصي لوحدة التحكم إلى لوحة المفاتيح"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "إنشاء ملف شخصي لوحدة التحكم إلى لوحة المفاتيح"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "خيارات اللعبة المتقدمة"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "تعديل مجلد البيانات الوصفية"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "تعديل البيانات الوصفية لهذه اللعبة"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "عرض معلومات وحدة التحكم إلى لوحة المفاتيح"
+
+msgid "WRITE GAME ON NFC TAG"
+msgstr ""
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "الوظيفة معطلة حينما يكون الجالِب شغّالا"
+
+msgid "INFORMATION"
+msgstr "المعلومات"
+
+msgid "VERSION"
+msgstr "الإصدار"
+
+msgid "USER DISK USAGE"
+msgstr "حجم التخزين المستعمل"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "حجم تخزين النظام"
+
+msgid "SYSTEM"
+msgstr "النظام"
+
+msgid "VIDEO DRIVER"
+msgstr "برامج تشغيل الرّسوميَّات"
+
+msgid "BACKUP USER DATA"
+msgstr "نسخ احتياطي لبيانات المستخدم"
+
+msgid "NO DEVICE FOUND"
+msgstr "لم يُعثر على أي جهاز"
+
+msgid "INPUT"
+msgstr "إدخال"
+
+msgid "FILTER GAMELIST BY"
+msgstr "فرز قائمة الألعاب حسب"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "تعديل مرشحات المجموعة المرنة"
+
+msgid "RESET ALL FILTERS"
+msgstr "الكل"
+
+msgid "FIND GAMES"
+msgstr "البحث عن لعبة"
+
+msgid "SYSTEMS"
+msgstr "النظام"
 
 #, c-format
 msgid "UPDATING %s"
@@ -780,101 +1369,235 @@ msgstr "بحاجة الى الاتصال بالشبكة"
 msgid "NO UPDATE AVAILABLE"
 msgstr "لا توجد تحديثات"
 
-msgid "SCRAPER"
-msgstr "الجالِب"
+msgid "THEMES DOWNLOADER"
+msgstr "تنزيل السمات"
 
-msgid "SCRAPING DATABASE"
-msgstr "جلب قاعدة البيانات"
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "اختر السمات المراد تثبيتها/إزالتها"
 
-msgid "SOURCE"
-msgstr "المصدر"
+msgid "Installed"
+msgstr "المثبتة"
 
-msgid "SCRAPE FROM"
-msgstr "جلب مِن"
+msgid "Available"
+msgstr "المتوفرة"
 
-msgid "SCRAPER SETTINGS"
-msgstr "إعدادات الجالِب"
+msgid "CURRENT THEME"
+msgstr "السمة الحالية"
 
-msgid "FILTERS"
-msgstr "تعديل فرز مجموعة ديناميكية"
+msgid "VIEW OPTIONS"
+msgstr "عرض الخيارات"
 
-msgid "GAMES TO SCRAPE FOR"
-msgstr "الألعاب المُراد الجلب لها"
+msgid "NAVIGATION"
+msgstr "تنقل"
 
-msgid "ALL"
-msgstr "الكل"
+msgid "OTHER FILTERS"
+msgstr "تصفيات أخرى"
 
-msgid "GAMES MISSING ANY MEDIA"
-msgstr "الألعاب التي تنقصها أي وسائط"
+msgid "SELECT RANDOM GAME"
+msgstr "اختيار لُعبة عشوائيا"
 
-msgid "GAMES MISSING ALL MEDIA"
-msgstr "الألعاب التي تنقصها كل الوسائط"
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "التنقل إلى اللعبة التي تبدأ بالحرف"
 
-msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "تجاهل الألعاب المجلوب لها حديثًا"
+msgid "SORT GAMES BY"
+msgstr "ترتيب الألعاب حسب"
 
-msgid "LAST DAY"
-msgstr "آخر يوم"
+msgid "DYNAMIC COLLECTION"
+msgstr "مجموعة مرنة"
 
-msgid "LAST WEEK"
-msgstr "آخر أسبوع"
+msgid "CUSTOM COLLECTION"
+msgstr "إنشاء مجموعة مخصصه"
 
-msgid "LAST 15 DAYS"
-msgstr "آخر 15 يوما"
+msgid "COLLECTION"
+msgstr "مجموعة"
 
-msgid "LAST MONTH"
-msgstr "آخر شهر"
+msgid "GAMELIST VIEW STYLE"
+msgstr "نمط عرض قائمة الألعاب"
 
-msgid "LAST 3 MONTHS"
-msgstr "آخر 3 أشهر"
+msgid "automatic"
+msgstr "تلقائي"
 
-msgid "LAST YEAR"
-msgstr "آخر سنة"
+msgid "VIEW CUSTOMIZATION"
+msgstr "عرض الخصائص"
 
-msgid "SYSTEMS INCLUDED"
-msgstr "الأنظمة المعنية"
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "خيارات النظام المتقدمة"
 
-msgid "SCRAPE NOW"
-msgstr "جلب الآن"
+msgid "RESET FILTERS"
+msgstr "الغاء التصنيفات"
 
-msgid "START"
-msgstr "ابدأ"
+msgid "FILTER GAMES BY TEXT"
+msgstr "فرز الألعاب حسب"
 
-msgid "go back"
-msgstr "الرجوع"
+msgid "CONNECT TO NETPLAY"
+msgstr "الإتصال بـ لعبة نت"
 
-msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE FOR DIFFERENT SYSTEMS!\n"
-"CONTINUE ANYWAY?"
+msgid "Select a game lobby to join"
+msgstr "اختر حُجرَة اللعبة للانضمام"
+
+msgid "FAILED"
+msgstr "فشل"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "نسخة مِلف اللعبة (روم) غير معروفة"
+
+msgid "DIFFERENT ROM"
+msgstr "روم متخلفة"
+
+msgid "SAME ROM"
+msgstr "نفس الروم"
+
+msgid "UNAVAILABLE CORE"
+msgstr "النواة غير متوفرة"
+
+msgid "LAN GAMES"
 msgstr ""
-"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد تكون "
-"مختلفة من نظام لآخر!\n"
-"أترغب في المواصلة؟"
 
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "الجلب يشتغل حاليا.أترغب في إيقافه؟"
+msgid "ONLINE GAMES"
+msgstr ""
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "لا توجد ألعاب تناسب هذه المعايير."
+msgid "AVAILABLE GAMES"
+msgstr "ألعاب متوفرة"
 
-msgid "INSTALL ON A NEW DISK"
-msgstr "تثبيت على قرص جديد"
+msgid "UNAVAILABLE GAMES"
+msgstr "ألعاب غير متوفرة"
 
-msgid "TARGET DEVICE"
-msgstr "حدد الجهاز"
+msgid "NO GAMES FOUND"
+msgstr "لا توجد ألعاب"
 
-msgid "SELECT"
-msgstr "حدد"
+msgid "JOIN GAME"
+msgstr "الانضمام إلى لُعبة"
 
-msgid "TARGET ARCHITECTURE"
-msgstr "حدد المعمارية"
+msgid "WATCH GAME"
+msgstr "مشاهدة اللعبة"
 
-msgid "NETWORK REQUIRED"
-msgstr "مطلوب الاتصال بالشبكة"
+msgid "IMAGE SOURCE"
+msgstr "مصدر الصورة"
 
-msgid "INVALID PARAMETERS"
-msgstr "معلمات غير صالحة"
+msgid "SCREENSHOT"
+msgstr "لقطة شاشة"
+
+msgid "TITLE SCREENSHOT"
+msgstr "عنوان لقطة شاشة"
+
+msgid "MIX V1"
+msgstr "مكس 1"
+
+msgid "MIX V2"
+msgstr "مكس 2"
+
+msgid "BOX 2D"
+msgstr "صندوق ثنائي البعد"
+
+msgid "BOX 3D"
+msgstr "صندوق ثلاثي البعد"
+
+msgid "FAN ART"
+msgstr "غلاف الجماهير"
+
+msgid "BOX SOURCE"
+msgstr "مصدر الصندوق"
+
+msgid "LOGO SOURCE"
+msgstr "مصدر الشعار"
+
+msgid "WHEEL"
+msgstr "عجلة"
+
+msgid "MARQUEE"
+msgstr "شاشة أسمية"
+
+msgid "PREFERED REGION"
+msgstr "المنطقة المفضلة"
+
+msgid "OVERWRITE NAMES"
+msgstr "استبدال الأسماء"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "الكتابة فوق الأوصاف"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "الكتابة فوق الوسائط"
+
+msgid "SCRAPE FOR"
+msgstr "جلب لـِ"
+
+msgid "SHORT NAME"
+msgstr "الاسم القصير"
+
+msgid "COMMUNITY RATING"
+msgstr "تقييم الجماهير"
+
+msgid "VIDEO"
+msgstr "فيديو"
+
+msgid "FANART"
+msgstr "تصاميم الهواة"
+
+msgid "BEZEL (16:9)"
+msgstr "الإطار المحيط (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "الغلاف من الخلف"
+
+msgid "MAP"
+msgstr "خريطة"
+
+msgid "MANUAL"
+msgstr "الكتيب"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "إعدادات وحدة التحكم إلى لوحة المفاتيح"
+
+msgid "ACCOUNT"
+msgstr "حساب"
+
+msgid "REMOVE ALL"
+msgstr "إزالة الكل"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "لا توجد أي أجهزة بلوتوث"
+
+msgid " (Connected)"
+msgstr "(متصل)"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "تمت إزالة أجهزة البلوتوث."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "أترغب حقا في إزالة '%s' ؟"
+
+msgid "ZOOM OUT"
+msgstr "تصغير"
+
+msgid "ZOOM IN"
+msgstr "تكبير"
+
+msgid "MOVE"
+msgstr "تحريك"
+
+msgid "ZOOM"
+msgstr "تكبيير"
+
+msgid "Points"
+msgstr "النقاط"
+
+msgid "Unlocked on"
+msgstr "التفكيك مفعل"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "هذه اللعبة ليست لديها أي إنجازات بعد"
+
+msgid "Achievements (softcore)"
+msgstr "الإنجازات (النواة اﻷساسية)"
+
+msgid "Achievements (hardcore)"
+msgstr "الإنجازات (النواة الصلبة)"
+
+#, c-format
+msgid "%d%% complete"
+msgstr "%d%% تم"
 
 msgid "fade"
 msgstr "تلاشي"
@@ -1025,9 +1748,6 @@ msgstr "إعدادات الألعاب"
 msgid "USER INTERFACE SETTINGS"
 msgstr "إعدادات واجهة المستخدم"
 
-msgid "GAME COLLECTION SETTINGS"
-msgstr "إعدادات مجموعة الألعاب"
-
 msgid "SOUND SETTINGS"
 msgstr "إعدادات الصوت"
 
@@ -1055,9 +1775,6 @@ msgstr "خروج"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "أمتأكد أنك ترغب في تهيئة الإدخال؟"
 
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "الوظيفة معطلة حينما يكون الجالِب شغّالا"
-
 msgid "CHOOSE"
 msgstr "اختار"
 
@@ -1076,9 +1793,6 @@ msgstr "دي ام دي"
 msgid "SERVER"
 msgstr "الخادم"
 
-msgid "DISABLED"
-msgstr "معطل"
-
 msgid "DMDSERVER (for real dmd)"
 msgstr "خادم دي ام دي (لـ دي ام دي الحقيقي)"
 
@@ -1090,9 +1804,6 @@ msgstr "خادم دي ام دي"
 
 msgid "FORMAT"
 msgstr "تهيئة (مسح)"
-
-msgid "AUTO"
-msgstr "تلقائي"
 
 msgid "dmd matrix size"
 msgstr "حجم مصفوفة دي ام دي"
@@ -1384,9 +2095,6 @@ msgstr "يرجى إعادة تشغيل النظام لتطبيق الإعداد�
 msgid "DOWNLOADS"
 msgstr "تنزيل"
 
-msgid "CONTENT DOWNLOADER"
-msgstr "تنزيل محتويات"
-
 msgid "THEMES"
 msgstr "سِمات"
 
@@ -1407,12 +2115,6 @@ msgstr "بدء التحديث"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "التحديث شغال مسبقا"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "لست متصلا بأي شبكة"
-
-msgid "LANGUAGE"
-msgstr "اللغة"
 
 msgid "LANGUAGE (REGION)"
 msgstr "اللغة (المنطقة)"
@@ -1502,9 +2204,6 @@ msgstr "صورة إقلاع باتْسِيرا"
 msgid "SPLASH SETTING"
 msgstr "خصائص شاشة الافتتاحية"
 
-msgid "MISSING BIOS CHECK"
-msgstr "البايوس المفقودة"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "تفقد ملفات البايوس قبل تشغيل لعبة"
 
@@ -1559,15 +2258,6 @@ msgstr "كسر السرعة"
 msgid "LED HARDWARE"
 msgstr "أجهزة LED"
 
-msgid "RED"
-msgstr "أحمر"
-
-msgid "GREEN"
-msgstr "أخضر"
-
-msgid "BLUE"
-msgstr "أزرق"
-
 msgid "LED BRIGHTNESS"
 msgstr "سطوع LED"
 
@@ -1576,9 +2266,6 @@ msgstr "التخزين"
 
 msgid "STORAGE DEVICE"
 msgstr "جهاز التخزين"
-
-msgid "BACKUP USER DATA"
-msgstr "نسخ احتياطي لبيانات المستخدم"
 
 msgid "ADVANCED"
 msgstr "متقدم"
@@ -1638,9 +2325,6 @@ msgstr "اختيار التزيين"
 
 msgid "Current setting"
 msgstr "الإعدادات الحالية"
-
-msgid "UPDATE GAMELISTS"
-msgstr "تحديث قائمة الألعاب"
 
 msgid "ACCOUNTS"
 msgstr "حسابات"
@@ -1787,9 +2471,6 @@ msgstr "إعدادات متقدمة لكل نظام"
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "الجالِب يشتغل.أترغب في إيقافه؟"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "تجزئة اللعبة تعمل حالياً. هل تريد ايقافها ؟"
-
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "أترغب حقا في تحديث قائمة الألعاب؟"
 
@@ -1799,17 +2480,8 @@ msgstr "عليك باستعمال السمة قبل تعديل خصائصها"
 msgid "THEME CONFIGURATION"
 msgstr "خصائص السمة"
 
-msgid "VIEW CUSTOMIZATION"
-msgstr "عرض الخصائص"
-
 msgid "GAMELIST STYLE"
 msgstr "نمط قائمة الألعاب"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "نمط عرض قائمة الألعاب"
-
-msgid "automatic"
-msgstr "تلقائي"
 
 msgid "basic"
 msgstr "أساسي"
@@ -1840,12 +2512,6 @@ msgstr "عرض الملفات المخفية"
 
 msgid "SHOW FOLDERS"
 msgstr "عرض المجلدات"
-
-msgid "always"
-msgstr "دائماً"
-
-msgid "never"
-msgstr "أبدا"
 
 msgid "having multiple games"
 msgstr "تمتلك عدة ألعاب"
@@ -1903,12 +2569,6 @@ msgstr "الفيديو"
 
 msgid "grid"
 msgstr "الشبكة"
-
-msgid "DISPLAY OPTIONS"
-msgstr "خيارات العرض"
-
-msgid "SCREENSAVER SETTINGS"
-msgstr "إعدادات شاشة التوقف"
 
 msgid "LIST TRANSITION"
 msgstr "انتقال القائمة"
@@ -1993,9 +2653,6 @@ msgstr "عنوان بروتوكول الإنترنت"
 
 msgid "CONNECTED"
 msgstr "متصل"
-
-msgid "NOT CONNECTED"
-msgstr "غير متصل"
 
 msgid "INTERNET STATUS"
 msgstr "حالة الإنترنت"
@@ -2108,12 +2765,6 @@ msgstr "جنبا إلى جنب"
 msgid "INTERNAL RESOLUTION"
 msgstr "دقة الشاشة الداخلية"
 
-msgid "EDIT PADTOKEY PROFILE"
-msgstr "تعديل الملف الشخصي لوحدة التحكم إلى لوحة المفاتيح"
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr "إنشاء ملف شخصي لوحدة التحكم إلى لوحة المفاتيح"
-
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "تشغيل هذه اللعبة عند بداية التشغيل"
 
@@ -2135,1103 +2786,8 @@ msgstr "الخيارات المحددة غير صالحة"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "هل أنت متأكد أنك تريد تهيئة هذا القرص؟"
 
-msgid "Points"
-msgstr "النقاط"
-
-msgid "Unlocked on"
-msgstr "التفكيك مفعل"
-
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "هذه اللعبة ليست لديها أي إنجازات بعد"
-
-msgid "Achievements (softcore)"
-msgstr "الإنجازات (النواة اﻷساسية)"
-
-msgid "Achievements (hardcore)"
-msgstr "الإنجازات (النواة الصلبة)"
-
-#, c-format
-msgid "%d%% complete"
-msgstr "%d%% تم"
-
-msgid "GAME MEDIA"
-msgstr "وسائط اللعبة"
-
-msgid "VIEW GAME MANUAL"
-msgstr "قراءة دليل اللعبة"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr "عرض مجلة اللعبة"
-
-msgid "VIEW GAME MAP"
-msgstr "مشاهدة خريطة اللعبة"
-
-msgid "VIEW FULLSCREEN VIDEO"
-msgstr "فيديو ملئ الشاشة"
-
-msgid "VIEW GAME MEDIA"
-msgstr "عرض وسائط اللعبة"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "النواة الحالية غير متوافقة"
-
-msgid "COMPATIBLE CORE(S)"
-msgstr "النواة/الأنوية المتوافقة"
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "عرض إنجازات اللعبة"
-
-msgid "GAME"
-msgstr "اللعبة"
-
-msgid "SAVE STATES"
-msgstr "حالات الحفظ"
-
-msgid "OPEN"
-msgstr "فتح"
-
-msgid "START A NETPLAY GAME"
-msgstr "ابدأ اللعب عبر النت"
-
-msgid "NETPLAY"
-msgstr "لعب نت"
-
-msgid "START GAME"
-msgstr "بدئ اللعبة"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "استضف اللعب عبر النت"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "الإعلان عن اللعبة للجماهير"
-
-msgid "PLAYER PASSWORD"
-msgstr "كلمة سر اللاعب"
-
-msgid "VIEWER PASSWORD"
-msgstr "كلمة سر المتفرج"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "أوجد ألعاب مماثلة..."
-
-msgid "DELETE ITEM"
-msgstr "حذف العنصر"
-
-msgid "DELETE GAME"
-msgstr "حذف اللعبة"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
-"هل أنت متأكد؟"
-
-msgid "COLLECTIONS"
-msgstr "مجموعات"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "إزالة من %s"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "إضافة إلى %s"
-
-msgid "FAVORITES"
-msgstr "المفضلة"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "إضافة إلى المجموعة المخصصة..."
-
-msgid "DELETE COLLECTION"
-msgstr "حذف المجموعة"
-
-msgid "SCRAPE"
-msgstr "جلب"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "خيارات اللعبة المتقدمة"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "تعديل مجلد البيانات الوصفية"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "تعديل البيانات الوصفية لهذه اللعبة"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "عرض معلومات وحدة التحكم إلى لوحة المفاتيح"
-
-msgid "RESET"
-msgstr "إعادة التشغيل"
-
-msgid "ADD COMBINATION KEY"
-msgstr "أضف زر مزيج"
-
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "اقتران جهاز بلوتوث"
-
-msgid "PAIR"
-msgstr "اقتران"
-
-msgid "IMAGE SOURCE"
-msgstr "مصدر الصورة"
-
-msgid "SCREENSHOT"
-msgstr "لقطة شاشة"
-
-msgid "TITLE SCREENSHOT"
-msgstr "عنوان لقطة شاشة"
-
-msgid "MIX V1"
-msgstr "مكس 1"
-
-msgid "MIX V2"
-msgstr "مكس 2"
-
-msgid "BOX 2D"
-msgstr "صندوق ثنائي البعد"
-
-msgid "BOX 3D"
-msgstr "صندوق ثلاثي البعد"
-
-msgid "FAN ART"
-msgstr "غلاف الجماهير"
-
-msgid "BOX SOURCE"
-msgstr "مصدر الصندوق"
-
-msgid "LOGO SOURCE"
-msgstr "مصدر الشعار"
-
-msgid "WHEEL"
-msgstr "عجلة"
-
-msgid "MARQUEE"
-msgstr "شاشة أسمية"
-
-msgid "PREFERED REGION"
-msgstr "المنطقة المفضلة"
-
-msgid "OVERWRITE NAMES"
-msgstr "استبدال الأسماء"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "الكتابة فوق الأوصاف"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "الكتابة فوق الوسائط"
-
-msgid "SCRAPE FOR"
-msgstr "جلب لـِ"
-
-msgid "SHORT NAME"
-msgstr "الاسم القصير"
-
-msgid "COMMUNITY RATING"
-msgstr "تقييم الجماهير"
-
-msgid "VIDEO"
-msgstr "فيديو"
-
-msgid "FANART"
-msgstr "تصاميم الهواة"
-
-msgid "BEZEL (16:9)"
-msgstr "الإطار المحيط (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "الغلاف من الخلف"
-
-msgid "MAP"
-msgstr "خريطة"
-
-msgid "MANUAL"
-msgstr "الكتيب"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "إعدادات وحدة التحكم إلى لوحة المفاتيح"
-
-msgid "ACCOUNT"
-msgstr "حساب"
-
-msgid "NO DEVICE FOUND"
-msgstr "لم يُعثر على أي جهاز"
-
-msgid "COLLECTIONS TO DISPLAY"
-msgstr "مجموعات للعرض"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "الأنظمة المعروضة"
-
-msgid "GROUPED SYSTEMS"
-msgstr "أنظمة مجمّعة"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr "إنشاء مجموعة مخصصه"
-
-msgid "New Collection Name"
-msgstr "اسم جديد للمجموعة"
-
-msgid "ENTER NAME"
-msgstr "أدخل الاسم"
-
-msgid "CREATE FROM THEME"
-msgstr "إنشاء من الموضوع"
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "إنشاء مجموعة جديدة قابلة للتعديل"
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "إنشاء مجموعة مرنة جديدة"
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr "ترتيب المجموعات والانظمة"
-
-msgid "ALPHABETICALLY"
-msgstr "أبجدياً"
-
-msgid "BY MANUFACTURER"
-msgstr "حسب المطور"
-
-msgid "BY HARDWARE TYPE"
-msgstr "حسب الجهاز"
-
-msgid "BY MANUFACTURER AND TYPE"
-msgstr "حسب المطور والنوع"
-
-msgid "BY RELEASE YEAR"
-msgstr "حسب سنة الصدور"
-
-msgid "SORT SYSTEMS"
-msgstr "ترتيب الانظمة"
-
-msgid "START ON SYSTEM"
-msgstr "النظام المحدد في أثناء البداية"
-
-msgid "RESTORE LAST SELECTED"
-msgstr "آخر نظام تم تحديده"
-
-msgid "START ON GAMELIST"
-msgstr "بدء مع قائمة الألعاب"
-
-msgid "GROUP CUSTOM COLLECTIONS"
-msgstr "مجموعات مخصصة للمجموعة"
-
-msgid "UNTHEMED"
-msgstr "بدون عنوان"
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "عرض اسم النظام في المجموعات"
-
-msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr "عرض ألعاب الأنظمة المخفية، في المجموعات"
-
-msgid "SHOW EMPTY SYSTEMS"
-msgstr "عرض الأنظمة الفارغة (بدون ألعاب)"
-
-msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr "لا تعرض المجموعات التي تستخدم نظامًا واحدًا فقط"
-
-msgid "Loading..."
-msgstr "جارِ التنزيل..."
-
-msgid "SELECT COLLECTIONS"
-msgstr "اختيار المجموعات"
-
-msgid "AUTOMATIC COLLECTIONS"
-msgstr "مجموعات تلقائية"
-
-msgid "PER GENRE"
-msgstr "حسب النوع"
-
-msgid "ARCADE SYSTEMS"
-msgstr "نظام الأركيد"
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "مجموعات ألعاب تلقائية"
-
-msgid "EDITABLE COLLECTIONS"
-msgstr "مجموعات قابله للتعديل"
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr "مجموعات مرنة"
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "مجموعات ألعاب مخصصه"
-
-msgid "GAMES TO INDEX"
-msgstr "الألعاب التي هي بحاجة إلى فهرسة"
-
-msgid "ONLY MISSING"
-msgstr "المفقودة فقط"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "اختر المحتوى لتثبيته/إزالته"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "تحديث المحتوى المثبت"
-
-msgid "MISC"
-msgstr "متفرقات"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "تمت إضافة إزالة التثبيت لطابور الانتظار"
-
-msgid "SAVESTATE MANAGER"
-msgstr "مدير حالات الحفظ"
-
-msgid "START NEW GAME"
-msgstr "بدئ لُعبة جديدة"
-
-msgid "START NEW AUTO SAVE"
-msgstr "بدئ حفظ تلقائي جديد"
-
-msgid "AUTO SAVE"
-msgstr "الحفظ التلقائي"
-
-msgid "SLOT"
-msgstr "فُتحة"
-
-msgid "COPY TO FREE SLOT"
-msgstr "نسخ إلى فُتحة فارغة"
-
-msgid "VIEW OPTIONS"
-msgstr "عرض الخيارات"
-
-msgid "NAVIGATION"
-msgstr "تنقل"
-
-msgid "OTHER FILTERS"
-msgstr "تصفيات أخرى"
-
-msgid "SELECT RANDOM GAME"
-msgstr "اختيار لُعبة عشوائيا"
-
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "التنقل إلى اللعبة التي تبدأ بالحرف"
-
-msgid "SORT GAMES BY"
-msgstr "ترتيب الألعاب حسب"
-
-msgid "DYNAMIC COLLECTION"
-msgstr "مجموعة مرنة"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "تعديل مرشحات المجموعة المرنة"
-
-msgid "CUSTOM COLLECTION"
-msgstr "إنشاء مجموعة مخصصه"
-
-msgid "COLLECTION"
-msgstr "مجموعة"
-
-msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "خيارات النظام المتقدمة"
-
-msgid "RESET FILTERS"
-msgstr "الغاء التصنيفات"
-
-msgid "FILTER GAMES BY TEXT"
-msgstr "فرز الألعاب حسب"
-
-msgid "NO MISSING BIOS FILES"
-msgstr "لا يوجد أي ملف بايوس مفقود"
-
-msgid "Installed systems"
-msgstr "الأنظمة المثبتة"
-
-msgid "refresh"
-msgstr "تحديث"
-
-msgid "NO MISSING BIOS"
-msgstr "لا يوجد BIOS مفقود"
-
-msgid "ZOOM OUT"
-msgstr "تصغير"
-
-msgid "ZOOM IN"
-msgstr "تكبير"
-
-msgid "MOVE"
-msgstr "تحريك"
-
-msgid "ZOOM"
-msgstr "تكبيير"
-
-msgid "EDIT METADATA"
-msgstr "تعديل بيانات التعريف"
-
-msgid "GENRES"
-msgstr "الأنواع"
-
-msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
-"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
-msgstr ""
-"بعض الملفات التي ربطتها صارت خارج مسار قائمة الألعاب.\n"
-"أترغب في استعمال نسخة من هذه الملفات مرتبطة بقائمة الألعاب ؟"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "الإتصال بـ لعبة نت"
-
-msgid "Select a game lobby to join"
-msgstr "اختر حُجرَة اللعبة للانضمام"
-
-msgid "FAILED"
-msgstr "فشل"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "نسخة مِلف اللعبة (روم) غير معروفة"
-
-msgid "DIFFERENT ROM"
-msgstr "روم متخلفة"
-
-msgid "SAME ROM"
-msgstr "نفس الروم"
-
-msgid "UNAVAILABLE CORE"
-msgstr "النواة غير متوفرة"
-
-msgid "LAN GAMES"
-msgstr ""
-
-msgid "ONLINE GAMES"
-msgstr ""
-
-msgid "AVAILABLE GAMES"
-msgstr "ألعاب متوفرة"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "ألعاب غير متوفرة"
-
-msgid "NO GAMES FOUND"
-msgstr "لا توجد ألعاب"
-
-msgid "JOIN GAME"
-msgstr "الانضمام إلى لُعبة"
-
-msgid "WATCH GAME"
-msgstr "مشاهدة اللعبة"
-
-msgid "CONTROLLER SETTINGS"
-msgstr "خصائص وحدة التحكم"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "إعدادات وحدات التحكم"
-
-msgid "CONTROLLERS PRIORITY"
-msgstr "اولوية وحدات التحكم"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "مهام اللاعب"
-
-#, c-format
-msgid "CONTROLLER #%i"
-msgstr "وحدة التحكم #%i"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "وحدة تحكم اللاعب %i"
-
-msgid "CONTROLLER MAPPING"
-msgstr "ضبط أزرار وحدة التحكم"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"ستقوم بتعديل لوحة التحكم. تلك التعديلات تعتمد على مكان الزر، ليس الاسم "
-"المكتوب عليه. إن لم يكن لديك زر خاص بالزر الساخن، استعمل الزر (SELECT). "
-"لتخطي (الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط "
-"على زر الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "إعدادات مسدس سِينْدِن"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "إعدادات مسدس ويموت"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "جهاز ستيم/إعدادات المسدس"
-
-msgid "BLUETOOTH"
-msgstr "بلوتوث"
-
-msgid "ENABLE BLUETOOTH"
-msgstr "تمكين البلوتوث"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "اقتران البلوتوث بذراع التحكم تِلقائيا"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "اقتران بلوتوث يدوي"
-
-msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr "عرض إشعارات وحدة التحكم"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "عرض نشاط وحدة التحكم"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "عرض نسبة بطارية وحدة التحكم"
-
-msgid "DRAW GUN CROSSHAIR"
-msgstr "رسم تصويب البندقية"
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
-
-msgid "default"
-msgstr "افتراضي"
-
-msgid "BORDER SIZE"
-msgstr "حجم الإطار"
-
-msgid "THIN"
-msgstr "رقيق"
-
-msgid "MEDIUM"
-msgstr "متوسط"
-
-msgid "BIG"
-msgstr "كبير"
-
-msgid "BORDER MODE"
-msgstr "نمط الإطار"
-
-msgid "NORMAL"
-msgstr "عادي"
-
-msgid "IN GAME ONLY"
-msgstr "أثناء اللعب فقط"
-
-msgid "HIDDEN"
-msgstr "مخفي"
-
-msgid "BORDER COLOR"
-msgstr "لون الإطار"
-
-msgid "WHITE"
-msgstr "أبيض"
-
-msgid "BORDER RATIO"
-msgstr "نسبة الحدود"
-
-msgid "CAMERA CONTRAST"
-msgstr "تباين الكاميرا"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "النّهار/سطوع (40)"
-
-msgid "Default (50)"
-msgstr "الإفتراضي (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "تعتيم الشاشة/المساء (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "سطوع الكاميرا"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "النّهار/سطوع (80)"
-
-msgid "Default (100)"
-msgstr "افتراضي (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "تعتيم الشاشة/المساء (1)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "تعرض الكاميرا للضوء"
-
-msgid "Projector/CRT (-5)"
-msgstr "جهاز العرض/تلفاز قديم (5-)"
-
-msgid "Projector/CRT (-6)"
-msgstr "جهاز العرض/تلفاز قديم (6-)"
-
-msgid "Default (-7)"
-msgstr "افتراضي (7-)"
-
-msgid "Other (-8)"
-msgstr "أخرى (8-)"
-
-msgid "Other (-9)"
-msgstr "أخرى (9-)"
-
-msgid "RECOIL"
-msgstr "ارتداد"
-
-msgid "GUN"
-msgstr "مسدس"
-
-msgid "MACHINE GUN"
-msgstr "رشاشة"
-
-msgid "QUIET GUN"
-msgstr "مسدس صامت"
-
-msgid "QUIET MACHINE GUN"
-msgstr "رشاشة صامتة"
-
-msgid "MODE"
-msgstr "النمط"
-
-msgid "JOYSTICK"
-msgstr "ذراع التحكم"
-
-msgid "MOUSE ONLY"
-msgstr "الفأرة فقط"
-
-msgid "HAND"
-msgstr "اليد"
-
-msgid "LEFT"
-msgstr "يسار"
-
-msgid "RIGHT"
-msgstr "يمين"
-
-msgid "FILTER GAMELIST BY"
-msgstr "فرز قائمة الألعاب حسب"
-
-msgid "RESET ALL FILTERS"
-msgstr "الكل"
-
-msgid "FIND GAMES"
-msgstr "البحث عن لعبة"
-
-msgid "SYSTEMS"
-msgstr "النظام"
-
-msgid "FILE BROWSER"
-msgstr "مستعرض الملفات"
-
-msgid "PARENT FOLDER"
-msgstr "المجلد الأصل"
-
-msgid "SCREENSHOTS FOLDER"
-msgstr "مجلد لقطات الشاشة"
-
-msgid "dim"
-msgstr "تعتيم"
-
-msgid "black"
-msgstr "أسود"
-
-msgid "random video"
-msgstr "فيديو عشوائي"
-
-msgid "slideshow"
-msgstr "عرض الشرائح"
-
-msgid "suspend"
-msgstr "تعليق"
-
-msgid "start & end"
-msgstr "البداية والنهاية"
-
-msgid "systems"
-msgstr "النظام"
-
-msgid "random"
-msgstr "عشوائي"
-
-msgid "START SCREENSAVER AFTER"
-msgstr "تشغيل شاشة التوقف بعد كم من الدقائق"
-
-msgid "SCREENSAVER TYPE"
-msgstr "سلوك شاشة التوقف"
-
-msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "إيقاف الموسيقى في أثناء بدئ شاشة التوقف"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "إعدادات شاشة توقف الفيديو العشوائي"
-
-msgid "VIDEO DURATION (SECS)"
-msgstr "مدة الفيديو (ثواني)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "استخدم مشغل OMX لشاشة التوقف"
-
-msgid "SHOW GAME INFO"
-msgstr "عرض معلومات اللعبة"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
-
-msgid "USE MARQUEE AS GAME INFO"
-msgstr "استخدم الشاشة الأسمية  كمعلومات للعبة"
-
-msgid "DECORATION SET USED"
-msgstr "مجموعة التزيين المستعملة"
-
-msgid "STRETCH VIDEOS"
-msgstr "تمديد الفيديوهات"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "صوت الفيديو صامت"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "التحكم بشاشة التوقف"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "استخدام فيديوهات مخصصة"
-
-msgid "CUSTOM VIDEO DIRECTORY"
-msgstr "مكان الفيديوهات المخصصة"
-
-msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "استعمال الفيديوهات الموجودة بالمجلدات الفرعية للمجلد المخصص"
-
-msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr "امتدادات ملف الفيديو المخصصة"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "إعدادات شاشة توقف عرض الشرائح"
-
-msgid "IMAGE DURATION (SECS)"
-msgstr "قم بتبديل الصورة بعد (ثوانِ)"
-
-msgid "STRETCH IMAGES"
-msgstr "تمديد الصور"
-
-msgid "USE CUSTOM IMAGES"
-msgstr "استخدام صور مخصصة"
-
-msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "دليل الصورة المخصصة"
-
-msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "استعمال الصور الموجودة بالمجلدات الفرعية للمجلد المخصص"
-
-msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr "امتداد مِلف الصورة المخصصة"
-
-msgid "INVALID CONTENT"
-msgstr "محتوى غير صالح"
-
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr ""
-"مطلوب حساب فعال، من فضلك قم بتسجيل حساب على https://retroachievements.org"
-
-msgid "Full"
-msgstr "كامل"
-
-msgid "Kiosk"
-msgstr "كشك"
-
-msgid "Kid"
-msgstr "أطفال"
-
-msgid "Basic"
-msgstr "أساسي"
-
-msgid "Games similar to"
-msgstr "ألعاب متشابهة مع"
-
-msgid "SAVE STATES (HOLD)"
-msgstr "حالات الحفظ (ابقى ضاغطا)"
-
-msgid "GAME OPTIONS (HOLD)"
-msgstr "خيارات اللعبة (ابقى ضاغطا)"
-
-msgid "GAME OPTIONS"
-msgstr "خيارات الألعاب"
-
-msgid "FAVORITE"
-msgstr "المفضلة"
-
-msgid "RANDOM"
-msgstr "عشوائي"
-
-#, c-format
-msgid "Back to %s"
-msgstr "ارجع إلى %s"
-
-msgid "No Entries Found"
-msgstr "لم يتم العثور على مدخلات"
-
-msgid "Times played"
-msgstr "مرات اللعب"
-
-#, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
-msgstr[1] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
-msgstr[2] "يحتوي هذا الملف على لعبتين %i ، بما في ذلك :%s"
-msgstr[3] "يحتوي هذا الملف على %i ألعاب، بما في ذلك :%s"
-msgstr[4] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
-msgstr[5] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
-
-msgid "SYSTEM INFO"
-msgstr "معلومات النظام"
-
-msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "خطأ: كل الأنظمة مخفية, قم بإعادة عرضها كلها الآن"
-
-msgid "QUICK SEARCH"
-msgstr "البحث السريع"
-
-msgid "GO TO LETTER"
-msgstr "اذهب الى الرسالة"
-
-msgid "GO TO MANUFACTURER"
-msgstr "إذهب الى المصنّع"
-
-msgid "GO TO HARDWARE"
-msgstr "اذهب الى الجهاز"
-
-msgid "GO TO DECADE"
-msgstr "اذهب إلى الحِقبة"
-
-msgid "CONFIGURATION"
-msgstr "إعدادات السمة"
-
-#, c-format
-msgid "%i COLLECTION"
-msgid_plural "%i COLLECTIONS"
-msgstr[0] "%i مجموعة"
-msgstr[1] "%i مجموعة"
-msgstr[2] "%i مجموعتين"
-msgstr[3] "%i مجموعات"
-msgstr[4] "%i مجموعة"
-msgstr[5] "%i مجموعة"
-
-#, c-format
-msgid "%i ITEM"
-msgid_plural "%i ITEMS"
-msgstr[0] "‫%i عنصر"
-msgstr[1] "‫%i عنصر"
-msgstr[2] "‫%i عنصرين"
-msgstr[3] "‫%i عناصر"
-msgstr[4] "‫%i عنصرًا"
-msgstr[5] "‫%i عنصر"
-
-#, c-format
-msgid "%i GAME"
-msgid_plural "%i GAMES"
-msgstr[0] "%i لعبة"
-msgstr[1] "%i لعبة"
-msgstr[2] "%i لعبتين"
-msgstr[3] "%i ألعاب"
-msgstr[4] "%i لعبة"
-msgstr[5] "%i لعبة"
-
-msgid "NAVIGATION BAR"
-msgstr "شريط التنقل"
-
-msgid "FILES"
-msgstr "ملفات"
-
-msgid ""
-"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
-"FORMAT.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-"انتباه: المحاكي/النواة المفعل حاليا لا يدعم صيغة ملف اللعبة\n"
-"‫‫أتريد تشغيل اللعبة رغم ذلك؟"
-
-msgid ""
-"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
-"CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-"انتباه:النظام يفتقر ملفات بايوس واللعبة قد لا تعمل بشكل صحيح‬\\‬\n"
-"أتريد تشغيل اللعبة رغم ذلك؟"
-
-msgid "Preloading UI"
-msgstr "تحضير واجهة المستخدم"
-
-msgid "Loading theme"
-msgstr "تحميل السِّمَة"
-
-msgid "Loading gamelists"
-msgstr "تحميل قائمة الألعاب"
-
-msgid "MENU"
-msgstr "القائمة"
-
-msgid "GENRE"
-msgstr "النوع"
-
-msgid "FAMILY"
-msgstr "العائلة"
-
-msgid "PLAYERS"
-msgstr "اللاعبين"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr "الناشر/المطور"
-
-msgid "RATING"
-msgstr "التقييم"
-
-msgid "YEAR"
-msgstr "السنة"
-
-msgid "REGION"
-msgstr "المنطقة"
-
-msgid "KIDGAME"
-msgstr "لعبة أطفال"
-
-msgid "ALREADY PLAYED"
-msgstr "لُعِبَت سابقا"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "لديه إنجازات"
-
-msgid "VERTICAL"
-msgstr "عمودية"
-
-msgid "LIGHTGUN"
-msgstr "المسدس"
-
-msgid "STEERING WHEEL"
-msgstr "عجلة القيادة"
-
-msgid "TRACKBALL"
-msgstr "كرة التتبع"
-
-msgid "SPINNER"
-msgstr "دوارة"
-
-msgid "HAVING MEDIAS"
-msgstr "الوسائط الموجودة"
-
-msgid "MISSING MEDIAS"
-msgstr "الوسائط المفقودة"
-
-msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "أترغب في تبديل الشاشة ؟"
-
-msgid "SCRAPING"
-msgstr "جلب"
-
-msgid "SCRAPE FAILED"
-msgstr "فشل الجلب"
-
-msgid "SCRAPING FINISHED"
-msgstr "اكتملَ الجلب"
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "قم بتحديث قائمة الألعاب لتطبيق التغييرات."
-
-msgid "Loading system config..."
-msgstr "جار تحميل إعدادات النظام..."
-
-msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "حفظ البيانات الوصفية. الرجاء الانتظار..."
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "المحاكي أقفِلَ بشكل غير متوقع"
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr "وسيطات خاطئة لسطر الأوامر"
-
-msgid "INVALID CONFIGURATION"
-msgstr "إعدادات غير صالحة"
-
-msgid "UNKNOWN EMULATOR"
-msgstr "محاكي مجهول"
-
-msgid "EMULATOR IS MISSING"
-msgstr "المحاكي مفقود"
-
-msgid "CORE IS MISSING"
-msgstr "النواة مفقودة"
-
-msgid "UKNOWN ERROR"
-msgstr "خطأ مجهول"
-
-msgid "Interlaced"
-msgstr ""
-
-msgid "all games"
-msgstr "كل الألعاب"
-
-msgid "last played"
-msgstr "لعب مؤخرا"
-
-msgid "favorites"
-msgstr "المفضلات"
-
-msgid "2 players"
-msgstr "٢ لاعبَين"
-
-msgid "4 players"
-msgstr "٤ لاعبِين"
-
-msgid "never played"
-msgstr "لم يتم اللعب"
-
-msgid "retroachievements"
-msgstr "إنجازات الريترو"
-
-msgid "arcade"
-msgstr "أركيد"
-
-msgid "vertical arcade"
-msgstr "أركيد عمودية"
-
-msgid "lightgun games"
-msgstr "ألعاب المسدس الضوئي"
-
-msgid "wheel games"
-msgstr "العاب سيارات"
-
-msgid "trackball games"
-msgstr "كرة تتبع الألعاب"
-
-msgid "spinner games"
-msgstr "دوارة الألعاب"
-
-msgid "collections"
-msgstr "مجموعات"
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "تم إضافة '%s' إلى '%s' ."
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "تم إزالة '%s' من '%s' ."
-
-msgid "This collection is empty."
-msgstr "هذه المجموعة فارغة."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "بدون"
-
-msgid "Various"
-msgstr "العديد"
-
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "البحث عن إنجازات ريترو"
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "البحث عن ألعاب النت"
-
-msgid "INDEXING COMPLETED"
-msgstr "تمت الفهرسة"
+msgid "UPDATE AVAILABLE"
+msgstr "يوجد تحديث متوفر"
 
 msgid "FILENAME, ASCENDING"
 msgstr "إسم الملف، تصاعدي"
@@ -3320,8 +2876,455 @@ msgstr "سنة الإصدار، النظام، تنازلي"
 msgid "A,AN,THE"
 msgstr "A,AN,THE"
 
-msgid "UPDATE AVAILABLE"
-msgstr "يوجد تحديث متوفر"
+msgid "INVALID CONTENT"
+msgstr "محتوى غير صالح"
+
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"مطلوب حساب فعال، من فضلك قم بتسجيل حساب على https://retroachievements.org"
+
+msgid "Searching"
+msgstr "يبحث"
+
+msgid "Publisher"
+msgstr "الناشر"
+
+msgid "Developer"
+msgstr "المطوِّر"
+
+msgid "Genre"
+msgstr "النوع"
+
+msgid "Players"
+msgstr "اللاعبين"
+
+msgid "Released"
+msgstr "تاريخ الإصدار"
+
+msgid "Rating"
+msgstr "التقييم"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "لم يتم العثور على اللعبة - حاوِل استعمال زر إدخال"
+
+msgid "RETRY"
+msgstr "إعادة المحاولة"
+
+msgid "SKIP"
+msgstr "تخطي"
+
+msgid "Downloading"
+msgstr "تنزيل"
+
+msgid "SEARCH FOR"
+msgstr "البحث عن"
+
+msgid "ACCEPT RESULT"
+msgstr "قبول النتيجة"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "المحاكي أقفِلَ بشكل غير متوقع"
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "وسيطات خاطئة لسطر الأوامر"
+
+msgid "INVALID CONFIGURATION"
+msgstr "إعدادات غير صالحة"
+
+msgid "UNKNOWN EMULATOR"
+msgstr "محاكي مجهول"
+
+msgid "EMULATOR IS MISSING"
+msgstr "المحاكي مفقود"
+
+msgid "CORE IS MISSING"
+msgstr "النواة مفقودة"
+
+msgid "UKNOWN ERROR"
+msgstr "خطأ مجهول"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "this game's name"
+msgstr "اسم اللعبة"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "this game's description"
+msgstr "تفاصيل اللعبة"
+
+msgid "emulator"
+msgstr "المحاكي"
+
+msgid "core"
+msgstr "النواة"
+
+msgid "Image"
+msgstr "الصورة"
+
+msgid "enter path to image"
+msgstr "أدخل مسار الصورة"
+
+msgid "Video"
+msgstr "فيديو المعاينة"
+
+msgid "enter path to video"
+msgstr "أدخل مسار فيديو المعاينة"
+
+msgid "Logo"
+msgstr "الشعار"
+
+msgid "enter path to logo"
+msgstr "أدخل مسار الشعار"
+
+msgid "Box"
+msgstr "الغلاف"
+
+msgid "enter path to box"
+msgstr "أدخل مسار الغلاف"
+
+msgid "Fan art"
+msgstr "تصاميم هواة"
+
+msgid "enter path to fanart"
+msgstr "أدخل مسار تصاميم الهواة"
+
+msgid "Title shot"
+msgstr "لقطة العنوان"
+
+msgid "enter path to title shot"
+msgstr "ادخل المسار للقطة العنوان"
+
+msgid "Manual"
+msgstr "دليل الإستخدام"
+
+msgid "enter path to manual"
+msgstr "أدخل مسار دليل الإستخدام"
+
+msgid "Magazine"
+msgstr "المجلة"
+
+msgid "enter path to magazine"
+msgstr "أدخل مسار المجلة"
+
+msgid "Map"
+msgstr "الخريطة"
+
+msgid "enter path to map"
+msgstr "أدخل مسار الخريطة"
+
+msgid "Bezel (16:9)"
+msgstr "الإطار المحيط (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "أدخل مسار الاطار المحيط (16:9)"
+
+msgid "Cartridge"
+msgstr "خرطوشة"
+
+msgid "enter path to cartridge"
+msgstr "أدخل مسار الخرطوشة"
+
+msgid "Alt BoxArt"
+msgstr "الغلاف البديل"
+
+msgid "enter path to alt boxart"
+msgstr "أدخل مسار الغلاف البديل"
+
+msgid "Box backside"
+msgstr "الغلاف الخلفي"
+
+msgid "enter path to box background"
+msgstr "أدخل مسار الغلاف الخلفي"
+
+msgid "Wheel"
+msgstr "عجلة"
+
+msgid "enter path to wheel"
+msgstr "أدخل مسار العجلة"
+
+msgid "Mix"
+msgstr "دمج"
+
+msgid "enter path to mix"
+msgstr "ادخل المسار للدمج"
+
+msgid "enter rating"
+msgstr "أدخل التقييم"
+
+msgid "Release date"
+msgstr "تاريخ الإصدار"
+
+msgid "enter release date"
+msgstr "أدخل تاريخ الإصدار"
+
+msgid "this game's developer"
+msgstr "مطور اللعبة"
+
+msgid "this game's publisher"
+msgstr "ناشر اللعبة"
+
+msgid "enter game genre"
+msgstr "أدخل نوع اللعبة"
+
+msgid "Game family"
+msgstr "لعبة العائلة"
+
+msgid "this game's game family"
+msgstr "لعبة العائلة"
+
+msgid "Genres"
+msgstr "الأنواع"
+
+msgid "enter game genres"
+msgstr "أدخل أنواع اللعبة"
+
+msgid "Arcade system"
+msgstr "نظام الأركيد"
+
+msgid "this game's arcade system"
+msgstr "نظام الأركيد"
+
+msgid "this game's number of players"
+msgstr "عدد اللاعبين"
+
+msgid "Favorite"
+msgstr "المفضلة"
+
+msgid "enter favorite"
+msgstr "أدخل المفضلة"
+
+msgid "Hidden"
+msgstr "المخفية"
+
+msgid "enter hidden"
+msgstr "ادخل المخفي"
+
+msgid "Kidgame"
+msgstr "ألعاب أطفال"
+
+msgid "enter kidgame"
+msgstr "ادخل ألعاب الأطفال"
+
+msgid "Play count"
+msgstr "مرات اللعب"
+
+msgid "enter number of times played"
+msgstr "ادخل عدد مرات اللعب"
+
+msgid "Last played"
+msgstr "آخر ما لعب"
+
+msgid "enter last played date"
+msgstr "ادخل تاريخ آخر مرة لعب"
+
+msgid "Crc32"
+msgstr "Crc32"
+
+msgid "Crc32 checksum"
+msgstr "Crc32 checksum"
+
+msgid "Md5"
+msgstr "Md5"
+
+msgid "Md5 checksum"
+msgstr "Md5 checksum"
+
+msgid "Game time"
+msgstr "وقت اللعب"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "مجموع مدة اللعب (ثوانِ)"
+
+msgid "Languages"
+msgstr "اللغات"
+
+msgid "this game's languages"
+msgstr "اللغة"
+
+msgid "Region"
+msgstr "المنطقة"
+
+msgid "this game's region"
+msgstr "المنطقة"
+
+msgid "Cheevos Hash"
+msgstr "تهشير تشيفوس"
+
+msgid "Cheevos checksum"
+msgstr "تحقيق مجموع تشيفوس"
+
+msgid "Cheevos Game ID"
+msgstr "ر.ت اللعبة في تشيفوس"
+
+msgid "Screenscraper Game ID"
+msgstr "ر.ت لعبة جالِب الشاشة"
+
+msgid "SCRAPING"
+msgstr "جلب"
+
+msgid "SCRAPE FAILED"
+msgstr "فشل الجلب"
+
+msgid "SCRAPING FINISHED"
+msgstr "اكتملَ الجلب"
+
+msgid "Extracting"
+msgstr "استخراج"
+
+msgid "SYSTEM INFO"
+msgstr "معلومات النظام"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr "خطأ: كل الأنظمة مخفية, قم بإعادة عرضها كلها الآن"
+
+msgid "QUICK SEARCH"
+msgstr "البحث السريع"
+
+msgid "GO TO LETTER"
+msgstr "اذهب الى الرسالة"
+
+msgid "GO TO MANUFACTURER"
+msgstr "إذهب الى المصنّع"
+
+msgid "GO TO HARDWARE"
+msgstr "اذهب الى الجهاز"
+
+msgid "GO TO DECADE"
+msgstr "اذهب إلى الحِقبة"
+
+msgid "CONFIGURATION"
+msgstr "إعدادات السمة"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i مجموعة"
+msgstr[1] "%i مجموعة"
+msgstr[2] "%i مجموعتين"
+msgstr[3] "%i مجموعات"
+msgstr[4] "%i مجموعة"
+msgstr[5] "%i مجموعة"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "‫%i عنصر"
+msgstr[1] "‫%i عنصر"
+msgstr[2] "‫%i عنصرين"
+msgstr[3] "‫%i عناصر"
+msgstr[4] "‫%i عنصرًا"
+msgstr[5] "‫%i عنصر"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i لعبة"
+msgstr[1] "%i لعبة"
+msgstr[2] "%i لعبتين"
+msgstr[3] "%i ألعاب"
+msgstr[4] "%i لعبة"
+msgstr[5] "%i لعبة"
+
+msgid "RANDOM"
+msgstr "عشوائي"
+
+msgid "NAVIGATION BAR"
+msgstr "شريط التنقل"
+
+msgid "FILES"
+msgstr "ملفات"
+
+msgid "Times played"
+msgstr "مرات اللعب"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
+msgstr[1] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
+msgstr[2] "يحتوي هذا الملف على لعبتين %i ، بما في ذلك :%s"
+msgstr[3] "يحتوي هذا الملف على %i ألعاب، بما في ذلك :%s"
+msgstr[4] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
+msgstr[5] "يحتوي هذا الملف على %i لعبة، بما في ذلك :%s"
+
+msgid "Games similar to"
+msgstr "ألعاب متشابهة مع"
+
+msgid "SAVE STATES (HOLD)"
+msgstr "حالات الحفظ (ابقى ضاغطا)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "خيارات اللعبة (ابقى ضاغطا)"
+
+msgid "GAME OPTIONS"
+msgstr "خيارات الألعاب"
+
+msgid "FAVORITE"
+msgstr "المفضلة"
+
+#, c-format
+msgid "Back to %s"
+msgstr "ارجع إلى %s"
+
+msgid "No Entries Found"
+msgstr "لم يتم العثور على مدخلات"
+
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"انتباه: المحاكي/النواة المفعل حاليا لا يدعم صيغة ملف اللعبة\n"
+"‫‫أتريد تشغيل اللعبة رغم ذلك؟"
+
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"انتباه:النظام يفتقر ملفات بايوس واللعبة قد لا تعمل بشكل صحيح‬\\‬\n"
+"أتريد تشغيل اللعبة رغم ذلك؟"
+
+msgid "Preloading UI"
+msgstr "تحضير واجهة المستخدم"
+
+msgid "Loading theme"
+msgstr "تحميل السِّمَة"
+
+msgid "Loading gamelists"
+msgstr "تحميل قائمة الألعاب"
+
+msgid "MENU"
+msgstr "القائمة"
+
+msgid "Full"
+msgstr "كامل"
+
+msgid "Kiosk"
+msgstr "كشك"
+
+msgid "Kid"
+msgstr "أطفال"
+
+msgid "Basic"
+msgstr "أساسي"
+
+msgid "Loading system config..."
+msgstr "جار تحميل إعدادات النظام..."
+
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "حفظ البيانات الوصفية. الرجاء الانتظار..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "أترغب في تبديل الشاشة ؟"
+
+msgid "Interlaced"
+msgstr ""
 
 #, c-format
 msgid "%s connected"
@@ -3331,142 +3334,8 @@ msgstr "%s متصل"
 msgid "%s disconnected"
 msgstr "%s غير متصل"
 
-#, c-format
-msgid "%d d"
-msgstr "%d ي"
-
-#, c-format
-msgid "%d h"
-msgstr "%d س"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d د"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d ث"
-
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "‫%d منذ سنة"
-msgstr[1] "سنة %d مضت"
-msgstr[2] "سنتين %d مَاضِيَتيْن"
-msgstr[3] "‫%d سنين مضت"
-msgstr[4] "‫%d سنين مضت"
-msgstr[5] "‫%d سنين مضت"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "‫%d منذ يوم"
-msgstr[1] "يوم %d مضى"
-msgstr[2] "يومين %d مَاضِيَيْن"
-msgstr[3] "‫%d أيام مضت"
-msgstr[4] "‫%d يومًا مضى"
-msgstr[5] "‫%d يوم مضت"
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "منذ %d ساعةٍ"
-msgstr[1] "‫%d منذ ساعة"
-msgstr[2] "منذ %d ساعتين"
-msgstr[3] "منذ %d ساعات"
-msgstr[4] "منذ %d ساعةً"
-msgstr[5] "منذ %d ساعة"
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "منذ %d دقيقة"
-msgstr[1] "منذ %d دقيقة"
-msgstr[2] "منذ %d دقيقتين"
-msgstr[3] "منذ %d دقائق"
-msgstr[4] "منذ %d دقيقة"
-msgstr[5] "منذ %d دقيقة"
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "منذ %d ثانية"
-msgstr[1] "منذ %d ثانية"
-msgstr[2] "منذ %d ثانيتين"
-msgstr[3] "منذ %d ثوانٍ"
-msgstr[4] "منذ %d ثانية"
-msgstr[5] "منذ %d ثانية"
-
-msgid "MOVE CURSOR"
-msgstr "تحريك المؤشر"
-
-msgid "EDIT"
-msgstr "تعديل"
-
-msgid "CHANGE"
-msgstr "تغيير"
-
-msgid "WORKING..."
-msgstr "جار التحقق من التحديثات..."
-
-msgid "up/down"
-msgstr "أعلى/أسفل"
-
-msgid "accept"
-msgstr "قبول"
-
-msgid "SELECT ALL"
-msgstr "تحديد الكل"
-
-msgid "select all"
-msgstr "تحديد الكل"
-
-msgid "SELECT NONE"
-msgstr "تحديد لاشيء"
-
-msgid "select none"
-msgstr "تحديد لا شيء"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "تم تحديد %i"
-msgstr[1] "%i تم تحديده"
-msgstr[2] "%i تم تحديدهما"
-msgstr[3] "%i تم تحديدهم"
-msgstr[4] "%i تم تحديدهم"
-msgstr[5] "%i تم تحديده"
-
-msgid "ENABLED"
-msgstr "مفعّل"
-
 msgid "DISCARD CHANGES"
 msgstr "تجاهل التغييرات"
-
-msgid "WELCOME"
-msgstr "مرحباً"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "‫%i تم اكتشاف يد تحكم"
-msgstr[1] "تم اكتشاف يد تحكم ‫%i"
-msgstr[2] "تم اكتشاف يدا تحكم ‫%i"
-msgstr[3] "‫%i أيادي تحكم تم اكتشافها"
-msgstr[4] "‫%i يد تحكم تم اكتشافها"
-msgstr[5] "‫%i يد تحكم تم اكتشافها"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "لم يتم اكتشاف أي يد تحكم"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "اختر زر من لوحة المفاتيح أو ذراع التحكم وابقى ضاغطا عليه للتعديل."
-
-msgid "PRESS ESC TO CANCEL."
-msgstr "اضغط على (ESC) خروج للإلغاء."
-
-msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "اضغط على (ESC) خروج أو مفتاح الاختصار للإلغاء."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "تبديل لـ عالي، منخفض وخاص"
@@ -3628,11 +3497,30 @@ msgstr "اضغط أي مفتاح"
 msgid "ALREADY TAKEN"
 msgstr "تم تكوينه مسبقا"
 
-msgid "SCREEN READER ENABLED"
-msgstr "قارئ الشاشة مفعل"
+msgid "WELCOME"
+msgstr "مرحباً"
 
-msgid "SCREEN READER DISABLED"
-msgstr "قارئ الشاشة معطل"
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "‫%i تم اكتشاف يد تحكم"
+msgstr[1] "تم اكتشاف يد تحكم ‫%i"
+msgstr[2] "تم اكتشاف يدا تحكم ‫%i"
+msgstr[3] "‫%i أيادي تحكم تم اكتشافها"
+msgstr[4] "‫%i يد تحكم تم اكتشافها"
+msgstr[5] "‫%i يد تحكم تم اكتشافها"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "لم يتم اكتشاف أي يد تحكم"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "اختر زر من لوحة المفاتيح أو ذراع التحكم وابقى ضاغطا عليه للتعديل."
+
+msgid "PRESS ESC TO CANCEL."
+msgstr "اضغط على (ESC) خروج للإلغاء."
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "اضغط على (ESC) خروج أو مفتاح الاختصار للإلغاء."
 
 msgid ""
 "CALIBRATING GUN\n"
@@ -3640,6 +3528,121 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#, c-format
+msgid "%d d"
+msgstr "%d ي"
+
+#, c-format
+msgid "%d h"
+msgstr "%d س"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d د"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d ث"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "‫%d منذ سنة"
+msgstr[1] "سنة %d مضت"
+msgstr[2] "سنتين %d مَاضِيَتيْن"
+msgstr[3] "‫%d سنين مضت"
+msgstr[4] "‫%d سنين مضت"
+msgstr[5] "‫%d سنين مضت"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "‫%d منذ يوم"
+msgstr[1] "يوم %d مضى"
+msgstr[2] "يومين %d مَاضِيَيْن"
+msgstr[3] "‫%d أيام مضت"
+msgstr[4] "‫%d يومًا مضى"
+msgstr[5] "‫%d يوم مضت"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "منذ %d ساعةٍ"
+msgstr[1] "‫%d منذ ساعة"
+msgstr[2] "منذ %d ساعتين"
+msgstr[3] "منذ %d ساعات"
+msgstr[4] "منذ %d ساعةً"
+msgstr[5] "منذ %d ساعة"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "منذ %d دقيقة"
+msgstr[1] "منذ %d دقيقة"
+msgstr[2] "منذ %d دقيقتين"
+msgstr[3] "منذ %d دقائق"
+msgstr[4] "منذ %d دقيقة"
+msgstr[5] "منذ %d دقيقة"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "منذ %d ثانية"
+msgstr[1] "منذ %d ثانية"
+msgstr[2] "منذ %d ثانيتين"
+msgstr[3] "منذ %d ثوانٍ"
+msgstr[4] "منذ %d ثانية"
+msgstr[5] "منذ %d ثانية"
+
+msgid "CHANGE"
+msgstr "تغيير"
+
+msgid "up/down"
+msgstr "أعلى/أسفل"
+
+msgid "accept"
+msgstr "قبول"
+
+msgid "SELECT ALL"
+msgstr "تحديد الكل"
+
+msgid "select all"
+msgstr "تحديد الكل"
+
+msgid "SELECT NONE"
+msgstr "تحديد لاشيء"
+
+msgid "select none"
+msgstr "تحديد لا شيء"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "تم تحديد %i"
+msgstr[1] "%i تم تحديده"
+msgstr[2] "%i تم تحديدهما"
+msgstr[3] "%i تم تحديدهم"
+msgstr[4] "%i تم تحديدهم"
+msgstr[5] "%i تم تحديده"
+
+msgid "MOVE CURSOR"
+msgstr "تحريك المؤشر"
+
+msgid "EDIT"
+msgstr "تعديل"
+
+msgid "WORKING..."
+msgstr "جار التحقق من التحديثات..."
+
+msgid "ENABLED"
+msgstr "مفعّل"
+
+msgid "SCREEN READER ENABLED"
+msgstr "قارئ الشاشة مفعل"
+
+msgid "SCREEN READER DISABLED"
+msgstr "قارئ الشاشة معطل"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "إظهار خيارات نت بلاي عند تشغيل اللعبة"
