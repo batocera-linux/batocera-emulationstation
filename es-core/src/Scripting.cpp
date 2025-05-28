@@ -81,7 +81,7 @@ namespace Scripting
 #endif
     }
 
-    static void executeScript(const std::string& script, const std::string& eventName, const std::string& arg1, const std::string& arg2, const std::string& arg3)
+    static void executeScript(const std::string& script, const std::string& eventName, const std::string& arg1, const std::string& arg2, const std::string& arg3, bool allowAsync = true)
     {
         std::string command = script;
 
@@ -100,7 +100,7 @@ namespace Scripting
         if (Utils::FileSystem::getExtension(script) == ".ps1")
             command = "powershell " + command;
 
-        if (eventName == "quit")
+        if (eventName == "quit" || !allowAsync)
         {
             LOG(LogDebug) << "  executing: " << command;
 
@@ -157,7 +157,7 @@ namespace Scripting
                 if (_supportedExtensions.find(ext) == _supportedExtensions.cend())
                     continue;
 #endif
-                executeScript(script, "", arg1, arg2, arg3);
+                executeScript(script, "", arg1, arg2, arg3, eventName != "quit");
             }
         }
 

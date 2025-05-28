@@ -94,6 +94,7 @@ protected:
 	void resetThemedExtras();
 
 	std::string     mPerGameExtrasPath;
+	bool			mIsPerGameExtrasPathBinding;
 
 	ImageComponent* mImage;
 	ImageComponent* mThumbnail;

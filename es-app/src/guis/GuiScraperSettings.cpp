@@ -95,13 +95,16 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 		});
 	}
 
-	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel) || scrap->isMediaSupported(Scraper::ScraperMediaSource::WheelHD))
 	{
 		// Logo source : <marquee> tag
 		std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
 
 		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
 		logoSource->add(_("NONE"), "", logoSourceName.empty());
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
+			logoSource->add(_("HD WHEEL"), "wheel-hd", logoSourceName == "wheel-hd");
 
 		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
 			logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
