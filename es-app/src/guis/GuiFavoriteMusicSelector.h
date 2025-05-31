@@ -1,24 +1,29 @@
 #pragma once
 
+#include "GuiComponent.h"
+#include <vector>
 #include <memory>
 #include <string>
-#include <vector>
-#include <utility>
-#include <set>
 
-class Window;
 class SwitchComponent;
+class MenuComponent;
+class Window;
+class InputConfig;
+struct Input;
 
-class GuiFavoriteMusicSelector
+class GuiFavoriteMusicSelector : public GuiComponent
 {
 public:
-
-    static void openSelectFavoriteSongs(Window *window, bool browseMusicMode, bool animate, 
-                                      const std::string& customPath = "");
-    static void openFavoritesSongs(Window *window, bool animate);
+    GuiFavoriteMusicSelector(Window* window);
+    ~GuiFavoriteMusicSelector();
     
+    static void openSelectFavoriteSongs(Window* window, bool = false, bool = false);
+    bool input(InputConfig* config, Input input) override;
+
 private:
-
-    GuiFavoriteMusicSelector() {}
-
+    void save();
+    
+    MenuComponent* mMenu;
+    std::vector<std::pair<std::string, std::string>> mFiles;
+    std::vector<std::shared_ptr<SwitchComponent>> mSwitches;
 };
