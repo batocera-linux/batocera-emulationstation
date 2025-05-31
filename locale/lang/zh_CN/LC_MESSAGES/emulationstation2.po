@@ -1989,6 +1989,12 @@ msgstr "从收藏播放列表中移除当前歌曲"
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
 msgstr "仅播放您的收藏播放列表中的歌曲"
 
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "收藏歌曲选择"
+
+msgid "FAVORITE SONGS"
+msgstr "收藏歌曲"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 

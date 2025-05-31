@@ -2002,6 +2002,12 @@ msgstr "ΑΦΑΙΡΕΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΑΠΟ ΤΗ Λ�
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
 msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΝΟ ΤΡΑΓΟΥΔΙΩΝ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
 
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ΕΠΙΛΟΓΗ ΑΓΑΠΗΜΕΝΩΝ ΤΡΑΓΟΥΔΙΩΝ"
+
+msgid "FAVORITE SONGS"
+msgstr "ΑΓΑΠΗΜΕΝΑ ΤΡΑΓΟΥΔΙΑ"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
 

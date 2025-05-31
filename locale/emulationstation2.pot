@@ -1983,6 +1983,12 @@ msgstr ""
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
 msgstr ""
 
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
+msgid "FAVORITE SONGS"
+msgstr ""
+
 msgid "LAUNCH SCREENSAVER"
 msgstr ""
 

@@ -1986,6 +1986,12 @@ msgstr "ВИДАЛИТИ ПОТОЧНУ ПІСНЮ ІЗ СПИСКУ УЛЮБЛ�
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
 msgstr "ВІДТВОРЮВАТИ ЛИШЕ ПІСНІ ІЗ ВАШОГО СПИСКУ УЛЮБЛЕНИХ"
 
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ВИБІР УЛЮБЛЕНИХ ПІСЕНЬ"
+
+msgid "FAVORITE SONGS"
+msgstr "УЛЮБЛЕНІ ПІСНІ"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
 

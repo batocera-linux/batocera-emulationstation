@@ -2003,6 +2003,12 @@ msgstr "현재 곡을 즐겨찾기 재생 목록에서 제거"
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
 msgstr "즐겨찾기 재생 목록의 곡만 재생"
 
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "즐겨찾기 곡 선택"
+
+msgid "FAVORITE SONGS"
+msgstr "즐겨찾기 곡"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면 보호기 실행"
 

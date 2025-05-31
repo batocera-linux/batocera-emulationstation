@@ -1982,6 +1982,12 @@ msgstr "הסר את השיר הנוכחי מרשימת המועדפים"
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
 msgstr "נגן רק שירים מרשימת המועדפים שלך"
 
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "בחירת שירים מועדפים"
+
+msgid "FAVORITE SONGS"
+msgstr "שירים מועדפים"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
 
