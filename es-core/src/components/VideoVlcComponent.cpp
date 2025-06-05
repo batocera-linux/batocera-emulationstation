@@ -740,6 +740,12 @@ void VideoVlcComponent::startVideo()
 	if (mIsPlaying)
 		return;
 
+	if (!Utils::FileSystem::exists(mVideoPath))
+	{
+		stopVideo();
+		return;
+	}
+
 	if (hasStoryBoard("", true) && mConfig.startDelay > 0)
 		startStoryboard();
 
