@@ -2019,7 +2019,7 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return finalValue == "1" || finalValue == "true";
 	case MetaDataType::MD_TIME:
 	case MetaDataType::MD_DATE:
-		return finalValue.empty() ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), Utils::Time::getSystemDateFormat(type == MetaDataType::MD_TIME));
+		return finalValue.empty() || finalValue == "0" ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), type == MetaDataType::MD_TIME ? "%Y%m%dT%H%M%S" : "%Y%m%d");
 	}
 
 	return finalValue;
