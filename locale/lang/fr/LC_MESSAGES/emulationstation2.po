@@ -2295,7 +2295,7 @@ msgid "LOGO SOURCE"
 msgstr "LOGO SOURCE"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "ROUE HD"
 
 msgid "WHEEL"
 msgstr "LOGO"
