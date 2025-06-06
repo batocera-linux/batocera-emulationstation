@@ -510,6 +510,9 @@ msgstr "システム"
 msgid "VIDEO DRIVER"
 msgstr "ビデオ ドライバ"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
 
@@ -527,30 +530,6 @@ msgstr "設定"
 
 msgid "PORT"
 msgstr "ポート"
-
-msgid "USE RELAY SERVER"
-msgstr "リレーサーバーを使用"
-
-msgid "NONE"
-msgstr "無し"
-
-msgid "NEW YORK"
-msgstr "ニューヨーク"
-
-msgid "MADRID"
-msgstr "マドリッド"
-
-msgid "MONTREAL"
-msgstr "モントリオール"
-
-msgid "SAO PAULO"
-msgstr "サンパウロ"
-
-msgid "CUSTOM"
-msgstr "カスタム"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "カスタムリレーサーバー"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "ロビーを自動的に作成"
@@ -578,6 +557,30 @@ msgstr "起動時に新規ゲームにインデックスを付ける"
 
 msgid "INDEX GAMES"
 msgstr "ゲームにインデックスを付ける"
+
+msgid "USE RELAY SERVER"
+msgstr "リレーサーバーを使用"
+
+msgid "NONE"
+msgstr "無し"
+
+msgid "NEW YORK"
+msgstr "ニューヨーク"
+
+msgid "MADRID"
+msgstr "マドリッド"
+
+msgid "MONTREAL"
+msgstr "モントリオール"
+
+msgid "SAO PAULO"
+msgstr "サンパウロ"
+
+msgid "CUSTOM"
+msgstr "カスタム"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "カスタムリレーサーバー"
 
 msgid "INPUT"
 msgstr "入力"

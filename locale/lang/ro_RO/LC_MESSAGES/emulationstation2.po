@@ -509,6 +509,9 @@ msgstr "SISTEM"
 msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "SETĂRI NETPLAY"
 
@@ -526,30 +529,6 @@ msgstr "OPȚIUNI"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "FOLOSEȘTE SERVER RETRANSLAȚIE"
-
-msgid "NONE"
-msgstr "FĂRĂ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALIZAT"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CREEAZĂ O SALĂ AUTOMAT"
@@ -579,6 +558,30 @@ msgstr "INDEXEAZĂ NOILE JOCURI LA PORNIRE"
 
 msgid "INDEX GAMES"
 msgstr "INDEXEAZĂ JOCURILE"
+
+msgid "USE RELAY SERVER"
+msgstr "FOLOSEȘTE SERVER RETRANSLAȚIE"
+
+msgid "NONE"
+msgstr "FĂRĂ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "PERSONALIZAT"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "INPUT"
 msgstr "INTRARE"

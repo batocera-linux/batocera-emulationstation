@@ -512,6 +512,9 @@ msgstr "Systém"
 msgid "VIDEO DRIVER"
 msgstr "Video ovládač"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "Nastavenia netplay"
 
@@ -529,30 +532,6 @@ msgstr "Voľby"
 
 msgid "PORT"
 msgstr "Port"
-
-msgid "USE RELAY SERVER"
-msgstr "Použiť Relay server"
-
-msgid "NONE"
-msgstr "Žiadne"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "Vlastné"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "Vlastný relay server"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -580,6 +559,30 @@ msgstr "Indexovať nové hry pri spustení"
 
 msgid "INDEX GAMES"
 msgstr "Indexovať hry"
+
+msgid "USE RELAY SERVER"
+msgstr "Použiť Relay server"
+
+msgid "NONE"
+msgstr "Žiadne"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "Vlastné"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "Vlastný relay server"
 
 msgid "INPUT"
 msgstr "Vstup"

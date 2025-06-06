@@ -508,6 +508,9 @@ msgstr "시스템"
 msgid "VIDEO DRIVER"
 msgstr "비디오 드라이버"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
 
@@ -525,30 +528,6 @@ msgstr "옵션"
 
 msgid "PORT"
 msgstr "포트"
-
-msgid "USE RELAY SERVER"
-msgstr "중계 서버 사용"
-
-msgid "NONE"
-msgstr "없음"
-
-msgid "NEW YORK"
-msgstr "뉴욕"
-
-msgid "MADRID"
-msgstr "마드리드"
-
-msgid "MONTREAL"
-msgstr "몬트리올"
-
-msgid "SAO PAULO"
-msgstr "상파울루"
-
-msgid "CUSTOM"
-msgstr "커스텀"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "커스텀 중계 서버"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "게임 시작 시 자동 방 생성"
@@ -576,6 +555,30 @@ msgstr "시작 시 새로운 게임 색인"
 
 msgid "INDEX GAMES"
 msgstr "색인 게임"
+
+msgid "USE RELAY SERVER"
+msgstr "중계 서버 사용"
+
+msgid "NONE"
+msgstr "없음"
+
+msgid "NEW YORK"
+msgstr "뉴욕"
+
+msgid "MADRID"
+msgstr "마드리드"
+
+msgid "MONTREAL"
+msgstr "몬트리올"
+
+msgid "SAO PAULO"
+msgstr "상파울루"
+
+msgid "CUSTOM"
+msgstr "커스텀"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "커스텀 중계 서버"
 
 msgid "INPUT"
 msgstr "입력"

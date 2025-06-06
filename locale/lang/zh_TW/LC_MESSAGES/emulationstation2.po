@@ -508,6 +508,9 @@ msgstr "系統"
 msgid "VIDEO DRIVER"
 msgstr "影像驅動程式"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "多人遊戲設定"
 
@@ -525,30 +528,6 @@ msgstr "選項"
 
 msgid "PORT"
 msgstr "連接埠"
-
-msgid "USE RELAY SERVER"
-msgstr "使用中繼伺服器"
-
-msgid "NONE"
-msgstr "無"
-
-msgid "NEW YORK"
-msgstr "紐約"
-
-msgid "MADRID"
-msgstr "馬德里"
-
-msgid "MONTREAL"
-msgstr "蒙特婁"
-
-msgid "SAO PAULO"
-msgstr "聖保羅"
-
-msgid "CUSTOM"
-msgstr "自訂"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "自訂中繼伺服器"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "自動建立大廳"
@@ -576,6 +555,30 @@ msgstr "於啟動期間索引新遊戲"
 
 msgid "INDEX GAMES"
 msgstr "索引遊戲"
+
+msgid "USE RELAY SERVER"
+msgstr "使用中繼伺服器"
+
+msgid "NONE"
+msgstr "無"
+
+msgid "NEW YORK"
+msgstr "紐約"
+
+msgid "MADRID"
+msgstr "馬德里"
+
+msgid "MONTREAL"
+msgstr "蒙特婁"
+
+msgid "SAO PAULO"
+msgstr "聖保羅"
+
+msgid "CUSTOM"
+msgstr "自訂"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "自訂中繼伺服器"
 
 msgid "INPUT"
 msgstr "輸入"

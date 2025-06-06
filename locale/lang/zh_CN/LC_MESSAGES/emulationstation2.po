@@ -506,6 +506,9 @@ msgstr "系统"
 msgid "VIDEO DRIVER"
 msgstr "显卡驱动"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "联网游戏设置"
 
@@ -523,30 +526,6 @@ msgstr "选项"
 
 msgid "PORT"
 msgstr "端口"
-
-msgid "USE RELAY SERVER"
-msgstr "使用中继服务"
-
-msgid "NONE"
-msgstr "无"
-
-msgid "NEW YORK"
-msgstr "纽约"
-
-msgid "MADRID"
-msgstr "马德里"
-
-msgid "MONTREAL"
-msgstr "蒙特利尔"
-
-msgid "SAO PAULO"
-msgstr "圣保罗"
-
-msgid "CUSTOM"
-msgstr "定制"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "定制中继服务器"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "自动创建大厅"
@@ -574,6 +553,30 @@ msgstr "在启动时索引新游戏"
 
 msgid "INDEX GAMES"
 msgstr "游戏索引"
+
+msgid "USE RELAY SERVER"
+msgstr "使用中继服务"
+
+msgid "NONE"
+msgstr "无"
+
+msgid "NEW YORK"
+msgstr "纽约"
+
+msgid "MADRID"
+msgstr "马德里"
+
+msgid "MONTREAL"
+msgstr "蒙特利尔"
+
+msgid "SAO PAULO"
+msgstr "圣保罗"
+
+msgid "CUSTOM"
+msgstr "定制"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "定制中继服务器"
 
 msgid "INPUT"
 msgstr "名称编辑"

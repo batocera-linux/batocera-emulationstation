@@ -508,6 +508,9 @@ msgstr "SISTEM"
 msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "PENGATURAN NETPLAY"
 
@@ -525,30 +528,6 @@ msgstr "PILIHAN"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "GUNAKAN SERVER RELAY"
-
-msgid "NONE"
-msgstr "TIDAK ADA"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "KUSTOM"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "KUSTOM SERVER RELAY"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -577,6 +556,30 @@ msgstr "INDEKS GAME BARU - SAAT MEMULAI"
 
 msgid "INDEX GAMES"
 msgstr "INDEK GAME"
+
+msgid "USE RELAY SERVER"
+msgstr "GUNAKAN SERVER RELAY"
+
+msgid "NONE"
+msgstr "TIDAK ADA"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "KUSTOM"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "KUSTOM SERVER RELAY"
 
 msgid "INPUT"
 msgstr "MASUKAN"

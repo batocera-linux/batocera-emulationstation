@@ -507,6 +507,9 @@ msgstr "RENDSZER"
 msgid "VIDEO DRIVER"
 msgstr "VIDEÓ ILLESZTŐPROGRAM"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY BEÁLLÍTÁSOK"
 
@@ -524,30 +527,6 @@ msgstr "BEÁLLÍTÁSOK"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "RELAY SZERVER HASZNÁLATA"
-
-msgid "NONE"
-msgstr "NINCS"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "EGYEDI"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "EGYÉNI RELAY SZERVER"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "AUTOMATIKUSAN LÉTREHOZZA A LOBBIT"
@@ -575,6 +554,30 @@ msgstr "ÚJ JÁTÉKOK INDEXELÉSE INDÍTÁSKOR"
 
 msgid "INDEX GAMES"
 msgstr "INDEX JÁTÉKOK"
+
+msgid "USE RELAY SERVER"
+msgstr "RELAY SZERVER HASZNÁLATA"
+
+msgid "NONE"
+msgstr "NINCS"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "EGYEDI"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "EGYÉNI RELAY SZERVER"
 
 msgid "INPUT"
 msgstr "BEMENET"

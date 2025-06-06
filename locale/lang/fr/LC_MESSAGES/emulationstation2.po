@@ -507,6 +507,9 @@ msgstr "SYSTÈME"
 msgid "VIDEO DRIVER"
 msgstr "PILOTE VIDÉO"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "PARAMÈTRES DES PARTIES EN RÉSEAU"
 
@@ -524,30 +527,6 @@ msgstr "OPTIONS"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "UTILISER UN SERVEUR RELAIS"
-
-msgid "NONE"
-msgstr "AUCUN"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTRÉAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONNALISÉ"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "SERVEUR RELAI PERSONNALISÉ"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CRÉER AUTOMATIQUEMENT UN LOBBY"
@@ -576,6 +555,30 @@ msgstr "INDEXER AUTOMATIQUEMENT AU DÉMARRAGE"
 
 msgid "INDEX GAMES"
 msgstr "INDEXER LES JEUX"
+
+msgid "USE RELAY SERVER"
+msgstr "UTILISER UN SERVEUR RELAIS"
+
+msgid "NONE"
+msgstr "AUCUN"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTRÉAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "PERSONNALISÉ"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "SERVEUR RELAI PERSONNALISÉ"
 
 msgid "INPUT"
 msgstr "ÉDITER"

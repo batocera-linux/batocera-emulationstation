@@ -509,6 +509,9 @@ msgstr "SYSTEM"
 msgid "VIDEO DRIVER"
 msgstr "STEROWNIK WIDEO"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "USTAWIENIA NETPLAY"
 
@@ -526,30 +529,6 @@ msgstr "OPCJE"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "UŻYWAĆ SERWERA POŚREDNICZĄCEGO"
-
-msgid "NONE"
-msgstr "BRAK"
-
-msgid "NEW YORK"
-msgstr "NOWY JORK"
-
-msgid "MADRID"
-msgstr "MADRYT"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAN PAULO"
-
-msgid "CUSTOM"
-msgstr "WŁASNY"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "WŁASNY SERWER POŚREDNICZĄCY"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "AUTOMATYCZNIE UTWÓRZ LOBBY"
@@ -577,6 +556,30 @@ msgstr "INDEKSUJ NOWE GRY PODCZAS URUCHAMIANIA"
 
 msgid "INDEX GAMES"
 msgstr "INDEKSUJ GRY"
+
+msgid "USE RELAY SERVER"
+msgstr "UŻYWAĆ SERWERA POŚREDNICZĄCEGO"
+
+msgid "NONE"
+msgstr "BRAK"
+
+msgid "NEW YORK"
+msgstr "NOWY JORK"
+
+msgid "MADRID"
+msgstr "MADRYT"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAN PAULO"
+
+msgid "CUSTOM"
+msgstr "WŁASNY"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "WŁASNY SERWER POŚREDNICZĄCY"
 
 msgid "INPUT"
 msgstr "WEJŚCIE"

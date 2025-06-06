@@ -512,6 +512,9 @@ msgstr "HỆ THỐNG"
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "CÀI ĐẶT NETPLAY"
 
@@ -529,30 +532,6 @@ msgstr "TÙY CHỌN"
 
 msgid "PORT"
 msgstr "CỔNG"
-
-msgid "USE RELAY SERVER"
-msgstr "DÙNG MÁY CHỦ CHUYỂN TIẾP"
-
-msgid "NONE"
-msgstr "KHÔNG CÓ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "TÙY CHỈNH"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -580,6 +559,30 @@ msgstr "INDEX NEW GAMES AT STARTUP"
 
 msgid "INDEX GAMES"
 msgstr "INDEX GAMES"
+
+msgid "USE RELAY SERVER"
+msgstr "DÙNG MÁY CHỦ CHUYỂN TIẾP"
+
+msgid "NONE"
+msgstr "KHÔNG CÓ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "TÙY CHỈNH"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
 
 msgid "INPUT"
 msgstr "NHẬP"

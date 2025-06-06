@@ -545,6 +545,9 @@ msgstr "النظام"
 msgid "VIDEO DRIVER"
 msgstr "برامج تشغيل الرّسوميَّات"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "إعدادات لعب نت"
 
@@ -562,30 +565,6 @@ msgstr "خيارات"
 
 msgid "PORT"
 msgstr "المنفذ"
-
-msgid "USE RELAY SERVER"
-msgstr "استخدم خادم حقيقي"
-
-msgid "NONE"
-msgstr "لاشيء"
-
-msgid "NEW YORK"
-msgstr "نيو يورك"
-
-msgid "MADRID"
-msgstr "مدريد"
-
-msgid "MONTREAL"
-msgstr "مونريال"
-
-msgid "SAO PAULO"
-msgstr "ساو باولو"
-
-msgid "CUSTOM"
-msgstr "مخصص"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "خادم التتابع المخصص"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -613,6 +592,30 @@ msgstr "فهرسة الألعاب الجديدة عند البداية"
 
 msgid "INDEX GAMES"
 msgstr "فهرسة الألعاب"
+
+msgid "USE RELAY SERVER"
+msgstr "استخدم خادم حقيقي"
+
+msgid "NONE"
+msgstr "لاشيء"
+
+msgid "NEW YORK"
+msgstr "نيو يورك"
+
+msgid "MADRID"
+msgstr "مدريد"
+
+msgid "MONTREAL"
+msgstr "مونريال"
+
+msgid "SAO PAULO"
+msgstr "ساو باولو"
+
+msgid "CUSTOM"
+msgstr "مخصص"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "خادم التتابع المخصص"
 
 msgid "INPUT"
 msgstr "إدخال"

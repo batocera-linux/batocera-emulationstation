@@ -504,6 +504,9 @@ msgstr "SISTEMA"
 msgid "VIDEO DRIVER"
 msgstr "BIDEO DRIVER-A"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "SARE JOKO KONFIGURAZIOA"
 
@@ -521,30 +524,6 @@ msgstr "AUKERAK"
 
 msgid "PORT"
 msgstr "PORTUA"
-
-msgid "USE RELAY SERVER"
-msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
-
-msgid "NONE"
-msgstr "BAT ERE EZ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -572,6 +551,30 @@ msgstr "INDEXATU JOKO BERRIAK ABIARAZTEAN"
 
 msgid "INDEX GAMES"
 msgstr "INDEXATU JOKOAK"
+
+msgid "USE RELAY SERVER"
+msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
+
+msgid "NONE"
+msgstr "BAT ERE EZ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
 
 msgid "INPUT"
 msgstr "EDITATU"

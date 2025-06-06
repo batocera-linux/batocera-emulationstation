@@ -507,6 +507,9 @@ msgstr "SİSTEM"
 msgid "VIDEO DRIVER"
 msgstr "VİDEO SÜRÜCÜSÜ"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY AYARLARI"
 
@@ -524,30 +527,6 @@ msgstr "SEÇENEKLER"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "ARA SUNUCU KULLAN"
-
-msgid "NONE"
-msgstr "YOK"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRİD"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "ÖZEL"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "ÖZEL ARA SUNUCU"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "OTOMATİK LOBİ OLUŞTUR"
@@ -575,6 +554,30 @@ msgstr "YENİ OYUNLARI AÇILIŞTA DİZİNLE"
 
 msgid "INDEX GAMES"
 msgstr "OYUNLARI DİZİNLE"
+
+msgid "USE RELAY SERVER"
+msgstr "ARA SUNUCU KULLAN"
+
+msgid "NONE"
+msgstr "YOK"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRİD"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "ÖZEL"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "ÖZEL ARA SUNUCU"
 
 msgid "INPUT"
 msgstr "GİRDİ"
