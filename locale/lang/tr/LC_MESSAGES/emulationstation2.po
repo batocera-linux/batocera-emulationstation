@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-10 07:48+0300\n"
+"PO-Revision-Date: 2025-06-06 20:30+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -137,10 +137,10 @@ msgid "enter path to box background"
 msgstr "kutu arkasının yolunu girin"
 
 msgid "Wheel"
-msgstr "Tekerlek"
+msgstr "Direksiyon"
 
 msgid "enter path to wheel"
-msgstr "tekerlek yolunu girin"
+msgstr "direksiyon yolunu girin"
 
 msgid "Mix"
 msgstr "Karışık"
@@ -508,7 +508,7 @@ msgid "VIDEO DRIVER"
 msgstr "VİDEO SÜRÜCÜSÜ"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY AYARLARI"
@@ -692,7 +692,7 @@ msgid "BLUETOOTH DEVICE LIST"
 msgstr "BLUETOOTH CİHAZ LİSTESİ"
 
 msgid "REMOVE ALL"
-msgstr "TÜMÜNÜ SİL"
+msgstr "TÜMÜNÜ KALDIR"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BLUETOOTH CİHAZI BULUNAMADI"
@@ -1535,7 +1535,7 @@ msgid "on"
 msgstr "açık"
 
 msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
+msgstr "HIZ AŞIMI"
 
 msgid "LED HARDWARE"
 msgstr "LED DONANIM"
@@ -1753,7 +1753,7 @@ msgid "AI GAME TRANSLATION"
 msgstr "YAPAY ZEKA OYUN ÇEVİRİSİ"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "YAPAY ZEKA OYUN ÇEVİRİ SERVİSİNİ AÇ"
+msgstr "YAPAY ZEKA ÇEVİRİ SERVİSİNİ ETKİNLEŞTİR"
 
 msgid "TARGET LANGUAGE"
 msgstr "HEDEF DİL"
@@ -2021,10 +2021,10 @@ msgid "VIEW USER MANUAL"
 msgstr "KULLANICI KILAVUZUNU GÖR"
 
 msgid "DISABLE PLANE MODE"
-msgstr "UÇAK MODU KAPALI"
+msgstr "UÇAK MODUNU KAPAT"
 
 msgid "ENABLE PLANE MODE"
-msgstr "UÇAK MODU AÇIK"
+msgstr "UÇAK MODUNU AÇ"
 
 msgid "RESTART SYSTEM"
 msgstr "SİSTEMİ YENİDEN BAŞLAT"
@@ -2221,11 +2221,11 @@ msgstr "KOLEKSİYONLAR"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr "%s BURADAN SİL"
+msgstr "%s BURADAN KALDIR"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr "%s BURAYA EKLE"
+msgstr "%s BÖLÜMÜNE EKLE"
 
 msgid "FAVORITES"
 msgstr "FAVORİLER"
@@ -2565,7 +2565,7 @@ msgstr ""
 "OYUN LİSTESİNE GÖRE BU DOSYALARIN BİR KOPYASINI KULLANMAK İSTER MİSİNİZ?"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "NETPLAY'E BAĞLAN"
+msgstr "NETPLAY BAĞLAN"
 
 msgid "Select a game lobby to join"
 msgstr "Katılmak için oyun lobisi seç"
@@ -2671,7 +2671,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROLCÜ PİL SEVİYESİNİ GÖSTER"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr "SİLAH NİŞANINI ÇİZ"
+msgstr "SİLAH NİŞANGAHINI ÇİZ"
 
 msgid "BEHAVIOR"
 msgstr "DAVRANIŞ"
@@ -3085,6 +3085,7 @@ msgstr "HAFİF SİLAH"
 msgid "STEERING WHEEL"
 msgstr "DİREKSİYON"
 
+# Bu donanımı adlandırmayın lütfen, olduğu gibi kalması gerekiyor.
 msgid "TRACKBALL"
 msgstr "TRACKBALL"
 
@@ -3141,7 +3142,7 @@ msgid "UKNOWN ERROR"
 msgstr "BİLİNMEYEN HATA"
 
 msgid "Interlaced"
-msgstr "Taramalı"
+msgstr "İç içe geçmiş"
 
 msgid "all games"
 msgstr "tüm oyunlar"

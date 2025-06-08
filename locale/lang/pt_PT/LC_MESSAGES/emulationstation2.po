@@ -508,7 +508,7 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER DE VÍDEO"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "DEFINIÇÕES DE JOGOS EM REDE"

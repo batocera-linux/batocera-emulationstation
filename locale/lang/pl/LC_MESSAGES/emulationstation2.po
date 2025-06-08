@@ -510,7 +510,7 @@ msgid "VIDEO DRIVER"
 msgstr "STEROWNIK WIDEO"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "USTAWIENIA NETPLAY"
