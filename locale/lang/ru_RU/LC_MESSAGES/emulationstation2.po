@@ -2008,6 +2008,21 @@ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "СОХРАНИТЬ ТЕКУЩУЮ ПЕСНЮ В ПЛЕЙЛИСТ ИЗБРАННОГО"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "УДАЛИТЬ ТЕКУЩУЮ ПЕСНЮ ИЗ ПЛЕЙЛИСТА ИЗБРАННОГО"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ВОСПРОИЗВОДИТЬ ТОЛЬКО ПЕСНИ ИЗ ВАШЕГО ПЛЕЙЛИСТА ИЗБРАННОГО"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ВЫБОР ИЗБРАННЫХ ПЕСЕН"
+
+msgid "FAVORITE SONGS"
+msgstr "ИЗБРАННЫЕ ПЕСНИ"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 

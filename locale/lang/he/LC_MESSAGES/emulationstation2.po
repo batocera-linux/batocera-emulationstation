@@ -1976,6 +1976,21 @@ msgstr "דילוג על השיר הבא"
 msgid "NOW PLAYING"
 msgstr "מנגן"
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "שמור את השיר הנוכחי לרשימת המועדפים"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "הסר את השיר הנוכחי מרשימת המועדפים"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "נגן רק שירים מרשימת המועדפים שלך"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "בחירת שירים מועדפים"
+
+msgid "FAVORITE SONGS"
+msgstr "שירים מועדפים"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
 

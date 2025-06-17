@@ -1984,6 +1984,21 @@ msgstr "跳至下一首歌"
 msgid "NOW PLAYING"
 msgstr "正在播放"
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "將目前的歌曲儲存到最愛播放清單"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "從最愛播放清單中移除目前的歌曲"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "僅播放您最愛播放清單中的歌曲"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "選取最愛歌曲"
+
+msgid "FAVORITE SONGS"
+msgstr "最愛歌曲"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
 

@@ -2009,6 +2009,21 @@ msgstr "次の曲にスキップ"
 msgid "NOW PLAYING"
 msgstr "現在再生中の曲名"
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "現在の曲をお気に入りプレイリストに保存する"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "現在の曲をお気に入りプレイリストから削除する"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "お気に入りプレイリストの曲のみを再生する"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "お気に入りの曲の選択"
+
+msgid "FAVORITE SONGS"
+msgstr "お気に入りの曲"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
 
