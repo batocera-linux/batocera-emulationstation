@@ -291,10 +291,12 @@ public:
 
 	virtual std::vector<Service> getServices();
 	virtual bool enableService(std::string name, bool enable);
+    virtual bool isServiceEnabled(std::string name);
 
 	virtual std::vector<std::string> backglassThemes();
 	virtual void restartBackglass();
 
+	virtual bool writeZaparooCard(std::string name);
 protected:
 	ApiSystem();
 
