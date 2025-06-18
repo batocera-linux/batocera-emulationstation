@@ -694,6 +694,13 @@ namespace Renderer
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
 			delete[] la_data;
 		}		
+		else if (type == GL_ALPHA && _data == nullptr)
+		{
+			uint8_t* la_data = new uint8_t[_width * _height];
+			memset(la_data, 0, _width * _height);
+			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
+			delete[] la_data;
+		}
 		else
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
 
