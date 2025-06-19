@@ -125,10 +125,8 @@ void ViewController::goToStart(bool forceImmediate)
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderSplashScreen(_("Loading..."));
-	ViewController::get()->reloadAll();
+	ViewController::reloadAllGames(mWindow, true);
 	ViewController::get()->goToStart(true);
-	mWindow->closeSplashScreen();
 }
 
 int ViewController::getSystemId(SystemData* system)
