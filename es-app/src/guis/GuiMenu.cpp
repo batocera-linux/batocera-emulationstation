@@ -375,17 +375,10 @@ class ExitKidModeMsgBox : public GuiSettings
 
 	bool input(InputConfig* config, Input input) override
 	{
+		Window* window = mWindow;
 		if (UIModeController::getInstance()->listen(config, input))
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("THE USER INTERFACE MODE IS NOW UNLOCKED"),
-				_("OK"), [this] 
-				{
-					Window* window = mWindow;
-					while (window->peekGui() && window->peekGui() != ViewController::get())
-						delete window->peekGui();
-				}));
-
-
+			// window->pushGui(new GuiMsgBox(window, _("THE USER INTERFACE MODE IS NOW UNLOCKED"), _("OK")));
 			return true;
 		}
 
@@ -396,13 +389,7 @@ class ExitKidModeMsgBox : public GuiSettings
 void GuiMenu::exitKidMode()
 {
 	if (Settings::getInstance()->getString("UIMode") == "Basic")
-	{
 		Settings::getInstance()->setString("UIMode", "Full");
-
-		Window* window = mWindow;
-		while (window->peekGui() && window->peekGui() != ViewController::get())
-			delete window->peekGui();
-	}
 	else
 		mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK USER INTERFACE MODE"), _("ENTER THE CODE NOW TO UNLOCK")));
 }
