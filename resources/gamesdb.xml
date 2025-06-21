@@ -2584,6 +2584,9 @@
     <game id="marble5">
       <trackball/>
     </game>
+    <game id="marbvice" name="Marbella Vice">
+      <gun/>
+    </game>
     <game id="marinedt">
       <trackball/>
     </game>
@@ -4964,6 +4967,9 @@
       <gun/>
     </game>
     <game id="wsjr">
+      <gun/>
+    </game>
+    <game id="wsjr-hd" name="Who Shot Johnny Rock?">
       <gun/>
     </game>
     <game id="WSJR_HD" name="Who Shot Johnny Rock?">
