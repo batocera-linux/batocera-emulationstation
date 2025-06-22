@@ -1034,9 +1034,6 @@ msgstr "CHỨC NĂNG NÀY BỊ VÔ HIỆU HÓA TRONG KHI TRÌNH LẤY DỮ LIỆ
 msgid "CHOOSE"
 msgstr "CHỌN"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "ĐÃ MỞ KHÓA GIAO DIỆN NGƯỜI DÙNG"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "NHẬP MÃ ĐỂ MỞ KHÓA"
 
@@ -1968,6 +1965,12 @@ msgstr "PHÁT NHẠC HỆ THỐNG CỤ THỂ"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "NHẠC NHỎ HƠN KHI PHÁT VIDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "CHỈ PHÁT CÁC BÀI HÁT TỪ DANH SÁCH PHÁT YÊU THÍCH CỦA BẠN"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "CHỌN CÁC BÀI HÁT YÊU THÍCH"
+
 msgid "SOUNDS"
 msgstr "ÂM THANH"
 
@@ -2016,20 +2019,11 @@ msgstr "CHUYỂN ĐẾN BÀI TIẾP THEO"
 msgid "NOW PLAYING"
 msgstr "ĐANG PHÁT"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "LƯU BÀI HÁT HIỆN TẠI VÀO DANH SÁCH PHÁT YÊU THÍCH"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "XÓA BÀI HÁT HIỆN TẠI KHỎI DANH SÁCH PHÁT YÊU THÍCH"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "CHỈ PHÁT CÁC BÀI HÁT TỪ DANH SÁCH PHÁT YÊU THÍCH CỦA BẠN"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "CHỌN CÁC BÀI HÁT YÊU THÍCH"
-
-msgid "FAVORITE SONGS"
-msgstr "CÁC BÀI HÁT YÊU THÍCH"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "LƯU BÀI HÁT HIỆN TẠI VÀO DANH SÁCH PHÁT YÊU THÍCH"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "KHỞI ĐỘNG BẢO VỆ MÀN HÌNH"
@@ -2581,6 +2575,9 @@ msgstr ""
 "MỘT SỐ TỆP BẠN LIÊN KẾT NẰM BÊN NGOÀI ĐƯỜNG DẪN DANH SÁCH TRÒ CHƠI.\n"
 "BẠN CÓ MUỐN SỬ DỤNG BẢN SAO CỦA CÁC TỆP NÀY LIÊN QUAN ĐẾN DANH SÁCH TRÒ CHƠI "
 "KHÔNG?"
+
+msgid "FAVORITE SONGS"
+msgstr "CÁC BÀI HÁT YÊU THÍCH"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "KẾT NỐI ĐẾN NETPLAY"
@@ -3593,6 +3590,9 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "ĐÃ MỞ KHÓA GIAO DIỆN NGƯỜI DÙNG"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "HIỂN THỊ TUỲ CHỌN NETPLAY KHI KHỞI CHẠY TRÒ CHƠI"

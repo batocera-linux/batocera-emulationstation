@@ -1021,9 +1021,6 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "בחירה"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "הזן את הקוד בכדי לשחרר את הנעילה"
 
@@ -1928,6 +1925,12 @@ msgstr ""
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "הנמכת מוזיקה בעת ניגון וידאו"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "נגן רק שירים מרשימת המועדפים שלך"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "בחירת שירים מועדפים"
+
 msgid "SOUNDS"
 msgstr "צלילים"
 
@@ -1976,20 +1979,11 @@ msgstr "דילוג על השיר הבא"
 msgid "NOW PLAYING"
 msgstr "מנגן"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "שמור את השיר הנוכחי לרשימת המועדפים"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "הסר את השיר הנוכחי מרשימת המועדפים"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "נגן רק שירים מרשימת המועדפים שלך"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "בחירת שירים מועדפים"
-
-msgid "FAVORITE SONGS"
-msgstr "שירים מועדפים"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "שמור את השיר הנוכחי לרשימת המועדפים"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
@@ -2534,6 +2528,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+
+msgid "FAVORITE SONGS"
+msgstr "שירים מועדפים"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "התחברות לרשת NETPLAY"

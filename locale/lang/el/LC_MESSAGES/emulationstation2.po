@@ -1030,9 +1030,6 @@ msgstr "ΑΥΤΗ Η ΕΠΙΛΟΓΗ ΕΙΝΑΙ ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΗ �
 msgid "CHOOSE"
 msgstr "ΕΠΙΛΟΓΗ"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "Η ΔΙΕΠΑΦΗ ΧΡΗΣΤΗ ΕΙΝΑΙ ΤΩΡΑ ΞΕΚΛΕΙΔΩΜΕΝΗ"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ΠΛΗΚΤΡΟΛΟΓΗΣΤΕ ΚΩΔΙΚΟ ΓΙΑ ΞΕΚΛΕΙΔΩΜΑ"
 
@@ -1948,6 +1945,12 @@ msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΥΣΙΚΩΝ ΘΕΜΑΤΟΣ"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "ΜΕΙΩΣΗ ΕΝΤΑΣΗΣ ΜΟΥΣΙΚΗΣ ΟΤΑΝ ΑΝΑΠΑΡΑΓΕΤΑΙ ΒΙΝΤΕΟ"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΝΟ ΤΡΑΓΟΥΔΙΩΝ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ΕΠΙΛΟΓΗ ΑΓΑΠΗΜΕΝΩΝ ΤΡΑΓΟΥΔΙΩΝ"
+
 msgid "SOUNDS"
 msgstr "ΗΧΟΙ"
 
@@ -1996,20 +1999,11 @@ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"
 msgid "NOW PLAYING"
 msgstr "ΤΩΡΑ ΠΑΙΖΕΙ"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "ΑΠΟΘΗΚΕΥΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΣΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "ΑΦΑΙΡΕΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΝΟ ΤΡΑΓΟΥΔΙΩΝ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "ΕΠΙΛΟΓΗ ΑΓΑΠΗΜΕΝΩΝ ΤΡΑΓΟΥΔΙΩΝ"
-
-msgid "FAVORITE SONGS"
-msgstr "ΑΓΑΠΗΜΕΝΑ ΤΡΑΓΟΥΔΙΑ"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ΑΠΟΘΗΚΕΥΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΣΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
@@ -2559,6 +2553,9 @@ msgstr ""
 "ΟΡΙΣΜΕΝΑ ΑΡΧΕΙΑ ΠΟΥ ΕΙΣΑΓΑΤΕ ΒΡΙΣΚΟΝΤΑΙ ΕΚΤΟΣ ΔΙΑΔΡΟΜΗΣ ΛΙΣΤΑΣ ΠΑΙΧΝΙΔΙΟΥ.\n"
 "ΘΕΛΕΤΕ ΝΑ ΧΡΗΣΙΜΟΠΟΙΗΣΕΤΕ ΣΧΕΤΙΚΑ ΜΕ ΤΗΝ ΛΙΣΤΑ ΠΑΙΧΝΙΔΙΟΥ ΑΝΤΙΓΡΑΦΑ ΑΥΤΩΝ "
 "ΤΩΝ ΑΡΧΕΙΩΝ ;"
+
+msgid "FAVORITE SONGS"
+msgstr "ΑΓΑΠΗΜΕΝΑ ΤΡΑΓΟΥΔΙΑ"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ΣΥΝΔΕΣΗ ΣΤΟ NETPLAY"
@@ -3580,6 +3577,9 @@ msgid ""
 msgstr ""
 "ΒΑΘΜΟΝΟΜΗΣΗ ΟΠΛΟΥ\n"
 "Πυροβοληστε σε στοχο για βαθμονομηση"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "Η ΔΙΕΠΑΦΗ ΧΡΗΣΤΗ ΕΙΝΑΙ ΤΩΡΑ ΞΕΚΛΕΙΔΩΜΕΝΗ"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."

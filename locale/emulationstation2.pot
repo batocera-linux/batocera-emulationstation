@@ -1022,9 +1022,6 @@ msgstr ""
 msgid "CHOOSE"
 msgstr ""
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
@@ -1929,6 +1926,12 @@ msgstr ""
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr ""
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr ""
 
@@ -1977,19 +1980,10 @@ msgstr ""
 msgid "NOW PLAYING"
 msgstr ""
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr ""
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr ""
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr ""
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr ""
-
-msgid "FAVORITE SONGS"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
 msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
@@ -2534,6 +2528,9 @@ msgstr ""
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+
+msgid "FAVORITE SONGS"
 msgstr ""
 
 msgid "CONNECT TO NETPLAY"

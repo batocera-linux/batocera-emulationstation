@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-09 12:45+0200\n"
+"PO-Revision-Date: 2025-06-17 20:48+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -508,7 +508,7 @@ msgid "VIDEO DRIVER"
 msgstr "GRAFIKDRIVRUTIN"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEOUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR NETPLAY"
@@ -1028,9 +1028,6 @@ msgstr "DENNA FUNKTION ÄR INAKTIVERAD MEDAN SKRAPNING PÅGÅR"
 
 msgid "CHOOSE"
 msgstr "NAVIGERA"
-
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "ANVÄNDARGRÄNSNITTSLÄGET ÄR NU OLÅST"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SKRIV IN KODEN FÖR ATT LÅSA UPP"
@@ -1960,6 +1957,12 @@ msgstr "SPELA SYSTEMSPECIFIK MUSIK"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "SÄNK MUSIKEN MEDAN VIDEO SPELAS"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr "LJUD"
 
@@ -2008,20 +2011,11 @@ msgstr "HOPPA TILL NÄSTA LÅT"
 msgid "NOW PLAYING"
 msgstr "SPELAS NU"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "SPARA NUVARANDE LÅT TILL FAVORITSPELLISTAN"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "TA BORT NUVARANDE LÅT FRÅN FAVORITSPELLISTAN"
+msgstr ""
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "SPELA ENDAST LÅTAR FRÅN DIN FAVORITSPELLISTA"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "URVAL AV FAVORITLÅTAR"
-
-msgid "FAVORITE SONGS"
-msgstr "FAVORITLÅTAR"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
@@ -2571,6 +2565,9 @@ msgid ""
 msgstr ""
 "VISSA FILER SOM DU HAR LÄNKAT FINNS UTANFÖR SPELLISTANS SÖKVÄG.\n"
 "VILL DU ANVÄNDA EN KOPIA AV DESSA FILER RELATIVT TILL SPELLISTAN?"
+
+msgid "FAVORITE SONGS"
+msgstr ""
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ANSLUT TILL NETPLAY"
@@ -3595,6 +3592,9 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "ANVÄNDARGRÄNSNITTSLÄGET ÄR NU OLÅST"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRIS"

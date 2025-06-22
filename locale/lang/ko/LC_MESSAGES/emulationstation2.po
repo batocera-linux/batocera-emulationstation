@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-05-06 22:00+0900\n"
+"PO-Revision-Date: 2025-06-10 23:58+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -509,7 +509,7 @@ msgid "VIDEO DRIVER"
 msgstr "비디오 드라이버"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "서울"
 
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
@@ -1027,9 +1027,6 @@ msgstr "스크레퍼가 실행되는 동안에는 이 기능이 비활성화됩�
 
 msgid "CHOOSE"
 msgstr "이동"
-
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "사용자 인터페이스 모드가 사용 해제됨"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "지금 코드를 입력하여 잠금 해제"
@@ -1949,6 +1946,12 @@ msgstr "테마 음악 재생"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "비디오 재생 시 음악 볼륨 줄임"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr "사운드"
 
@@ -1997,20 +2000,11 @@ msgstr "다음 노래로 건너뜀"
 msgid "NOW PLAYING"
 msgstr "지금 재생 중"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "현재 곡을 즐겨찾기 재생 목록에 저장"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "현재 곡을 즐겨찾기 재생 목록에서 제거"
+msgstr ""
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "즐겨찾기 재생 목록의 곡만 재생"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "즐겨찾기 곡 선택"
-
-msgid "FAVORITE SONGS"
-msgstr "즐겨찾기 곡"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면 보호기 실행"
@@ -2559,6 +2553,9 @@ msgid ""
 msgstr ""
 "링크한 일부 파일은 게임목록 경로 밖에 있습니다.\n"
 "게임목록과 관련하여 이 파일의 사본을 사용할까요?"
+
+msgid "FAVORITE SONGS"
+msgstr ""
 
 msgid "CONNECT TO NETPLAY"
 msgstr "넷플레이에 연결"
@@ -3569,3 +3566,6 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "사용자 인터페이스 모드가 사용 해제됨"

@@ -1031,9 +1031,6 @@ msgstr "Táto funkcia je nedostupná počas behu vyhľadávača"
 msgid "CHOOSE"
 msgstr "Vybrať"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "Režim používateľského rozhrania je teraz odomknutý"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "Zadajte teraz kód na odomknutie"
 
@@ -1960,6 +1957,12 @@ msgstr "Hrať hudbu špecifickú k systému"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "Stíšiť hudbu pri prehrávaní videa"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "PREHRÁVAŤ IBA PESNIČKY Z TVOJHO ZOZNAMU OBĽÚBENÝCH"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "VÝBER OBĽÚBENÝCH PESNIČIEK"
+
 msgid "SOUNDS"
 msgstr "Zvuky"
 
@@ -2008,20 +2011,11 @@ msgstr "Preskočiť na ďalšiu skladbu"
 msgid "NOW PLAYING"
 msgstr "Teraz hrá"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "ULOŽIŤ AKTUÁLNU PESNIČKU DO ZOZNAMU OBĽÚBENÝCH"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "ODSTRÁNIŤ AKTUÁLNU PESNIČKU ZO ZOZNAMU OBĽÚBENÝCH"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "PREHRÁVAŤ IBA PESNIČKY Z TVOJHO ZOZNAMU OBĽÚBENÝCH"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "VÝBER OBĽÚBENÝCH PESNIČIEK"
-
-msgid "FAVORITE SONGS"
-msgstr "OBĽÚBENÉ PESNIČKY"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ULOŽIŤ AKTUÁLNU PESNIČKU DO ZOZNAMU OBĽÚBENÝCH"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "Spustiť šetrič obrazovky"
@@ -2572,6 +2566,9 @@ msgstr ""
 "Niektoré súbory, ktoré ste prepojili, sa nachádzajú mimo cesty zoznamu "
 "hier.\n"
 "Chcete použiť kópiu týchto súborov relatívnú k zoznamu hier?"
+
+msgid "FAVORITE SONGS"
+msgstr "OBĽÚBENÉ PESNIČKY"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "Pripojiť k sieťovej hre"
@@ -3606,6 +3603,9 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "Režim používateľského rozhrania je teraz odomknutý"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "Zobraziť voľby sieťovej hry pri spustení hry"

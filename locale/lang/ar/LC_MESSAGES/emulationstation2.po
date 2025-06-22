@@ -1064,9 +1064,6 @@ msgstr "الوظيفة معطلة حينما يكون الجالِب شغّال�
 msgid "CHOOSE"
 msgstr "اختار"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "تم فك نمط واجهة المستخدم"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "أدخل الكود الآن لكي تكسب"
 
@@ -1982,6 +1979,12 @@ msgstr "تشغيل موسيقى السمة"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "قم بخفض صوت الموسيقى عند تشغيل الفيديو"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "تشغيل أغنيات المفضلات فقط"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "مختارات الأغنيات المفضلة"
+
 msgid "SOUNDS"
 msgstr "أصوات"
 
@@ -2030,20 +2033,11 @@ msgstr "الموسيقى التالية"
 msgid "NOW PLAYING"
 msgstr "تشتغل حاليا"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "احفظ الأغنية الحالية في قائمة المفضلات"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "أزل الأغنية الحالية من قائمة المفضلات"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "تشغيل أغنيات المفضلات فقط"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "مختارات الأغنيات المفضلة"
-
-msgid "FAVORITE SONGS"
-msgstr "الأغنيات المفضلة"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "احفظ الأغنية الحالية في قائمة المفضلات"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "بدء شاشة التوقف"
@@ -2592,6 +2586,9 @@ msgid ""
 msgstr ""
 "بعض الملفات التي ربطتها صارت خارج مسار قائمة الألعاب.\n"
 "أترغب في استعمال نسخة من هذه الملفات مرتبطة بقائمة الألعاب ؟"
+
+msgid "FAVORITE SONGS"
+msgstr "الأغنيات المفضلة"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "الإتصال بـ لعبة نت"
@@ -3661,6 +3658,9 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "تم فك نمط واجهة المستخدم"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "إظهار خيارات نت بلاي عند تشغيل اللعبة"

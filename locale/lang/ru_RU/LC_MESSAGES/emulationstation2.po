@@ -1032,9 +1032,6 @@ msgstr "ЭТА ФУНКЦИЯ ОТКЛЮЧЕНА ВО ВРЕМЯ СКАНИРО�
 msgid "CHOOSE"
 msgstr "ВЫБРАТЬ"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ВВЕДИТЕ КОД ДЛЯ РАЗБЛОКИРОВКИ"
 
@@ -1960,6 +1957,12 @@ msgstr "МУЗЫКА ИЗ ТЕМЫ"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "УМЕНЬШИТЬ ГР. МУЗЫКИ ПРИ ВОСПР. ВИДЕО"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ВОСПРОИЗВОДИТЬ ТОЛЬКО ПЕСНИ ИЗ ВАШЕГО ПЛЕЙЛИСТА ИЗБРАННОГО"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ВЫБОР ИЗБРАННЫХ ПЕСЕН"
+
 msgid "SOUNDS"
 msgstr "ЗВУКИ"
 
@@ -2008,20 +2011,11 @@ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "СОХРАНИТЬ ТЕКУЩУЮ ПЕСНЮ В ПЛЕЙЛИСТ ИЗБРАННОГО"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "УДАЛИТЬ ТЕКУЩУЮ ПЕСНЮ ИЗ ПЛЕЙЛИСТА ИЗБРАННОГО"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "ВОСПРОИЗВОДИТЬ ТОЛЬКО ПЕСНИ ИЗ ВАШЕГО ПЛЕЙЛИСТА ИЗБРАННОГО"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "ВЫБОР ИЗБРАННЫХ ПЕСЕН"
-
-msgid "FAVORITE SONGS"
-msgstr "ИЗБРАННЫЕ ПЕСНИ"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "СОХРАНИТЬ ТЕКУЩУЮ ПЕСНЮ В ПЛЕЙЛИСТ ИЗБРАННОГО"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
@@ -2572,6 +2566,9 @@ msgid ""
 msgstr ""
 "НЕКОТОРЫЕ ФАЙЛЫ, РАСПОЛОЖЕНЫ ВНЕ ПАПКИ СО СПИСКОМ ИГР.\n"
 "ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР?"
+
+msgid "FAVORITE SONGS"
+msgstr "ИЗБРАННЫЕ ПЕСНИ"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
@@ -3606,6 +3603,9 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "ПОКАЗЫВАТЬ NETPLAY ОПЦИИ ПРИ ЗАПУСКЕ ИГРЫ"

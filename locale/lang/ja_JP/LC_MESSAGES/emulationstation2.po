@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v42b(2025/05/07)\n"
+"Project-Id-Version: batocera-es v42b(2025/06/16)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-07 21:15+0900\n"
+"PO-Revision-Date: 2025-06-15 22:12+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -511,7 +511,7 @@ msgid "VIDEO DRIVER"
 msgstr "ビデオ ドライバ"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "ソウル"
 
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
@@ -1032,9 +1032,6 @@ msgstr "この機能は、スクレイプ実行中は無効になります"
 
 msgid "CHOOSE"
 msgstr "移動選択"
-
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "ユーザーインターフェイスモードのロックを解除しました"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ロック解除(ボタンを順に押す)"
@@ -1961,6 +1958,12 @@ msgstr "システム固有のBGMを再生"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "動画再生時は音量を下げる"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr "音響"
 
@@ -2009,20 +2012,11 @@ msgstr "次の曲にスキップ"
 msgid "NOW PLAYING"
 msgstr "現在再生中の曲名"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "現在の曲をお気に入りプレイリストに保存する"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "現在の曲をお気に入りプレイリストから削除する"
+msgstr ""
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "お気に入りプレイリストの曲のみを再生する"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "お気に入りの曲の選択"
-
-msgid "FAVORITE SONGS"
-msgstr "お気に入りの曲"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
@@ -2572,6 +2566,9 @@ msgstr ""
 "ゲームリストのフォルダ外のファイルを選択しています\n"
 "関連ファイルを指定フォルダ（rom/[system]/images等）に\n"
 "コピーしますか？(いいえ、はコピーせずパス指定のみ)"
+
+msgid "FAVORITE SONGS"
+msgstr ""
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ネットプレイの接続"
@@ -3585,6 +3582,9 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "ユーザーインターフェイスモードのロックを解除しました"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "ゲーム起動時にネットプレイ オプションを表示"

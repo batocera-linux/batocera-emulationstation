@@ -1026,9 +1026,6 @@ msgstr "這項功能在搜刮器執行時是停用的"
 msgid "CHOOSE"
 msgstr "瀏覽"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "使用者介面模式已經解鎖"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "現在輸入代碼來解鎖"
 
@@ -1936,6 +1933,12 @@ msgstr "播放佈景主題音樂"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "播放影片時降低音樂音量"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "僅播放您最愛播放清單中的歌曲"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "選取最愛歌曲"
+
 msgid "SOUNDS"
 msgstr "音效"
 
@@ -1984,20 +1987,11 @@ msgstr "跳至下一首歌"
 msgid "NOW PLAYING"
 msgstr "正在播放"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "將目前的歌曲儲存到最愛播放清單"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "從最愛播放清單中移除目前的歌曲"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "僅播放您最愛播放清單中的歌曲"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "選取最愛歌曲"
-
-msgid "FAVORITE SONGS"
-msgstr "最愛歌曲"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "將目前的歌曲儲存到最愛播放清單"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
@@ -2546,6 +2540,9 @@ msgid ""
 msgstr ""
 "您連結的部分檔案是放在遊戲清單路徑以外的地方。\n"
 "您是否想要使用與遊戲清單相關的這些檔案的副本？"
+
+msgid "FAVORITE SONGS"
+msgstr "最愛歌曲"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "連線到多人遊戲"
@@ -3553,6 +3550,9 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "使用者介面模式已經解鎖"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "正在儲存中繼資料。請稍後..."

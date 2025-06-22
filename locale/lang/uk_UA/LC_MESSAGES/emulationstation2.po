@@ -1025,9 +1025,6 @@ msgstr "ЦЯ ФУНКЦІЯ ВИМКНЕНА ДОКИ ПРАЦЮЄ СКРАПЕ�
 msgid "CHOOSE"
 msgstr "ВИБЕРІТЬ"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "РЕЖИМ КОРИСТУВАЧА РОЗБЛОКОВАНО"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ВВЕДІТЬ КОД ЩОБ РОЗБЛОКУВАТИ"
 
@@ -1932,6 +1929,12 @@ msgstr "МУЗИКА З ТЕМИ"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "ЗМЕНШИТИ ГУЧНІТЬ МУЗИКИ КОЛИ ГРАЄ ВІДЕО"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ВІДТВОРЮВАТИ ЛИШЕ ПІСНІ ІЗ ВАШОГО СПИСКУ УЛЮБЛЕНИХ"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ВИБІР УЛЮБЛЕНИХ ПІСЕНЬ"
+
 msgid "SOUNDS"
 msgstr "ЗВУКИ"
 
@@ -1980,20 +1983,11 @@ msgstr ""
 msgid "NOW PLAYING"
 msgstr ""
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "ЗБЕРЕГТИ ПОТОЧНУ ПІСНЮ ДО СПИСКУ УЛЮБЛЕНИХ"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
 msgstr "ВИДАЛИТИ ПОТОЧНУ ПІСНЮ ІЗ СПИСКУ УЛЮБЛЕНИХ"
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "ВІДТВОРЮВАТИ ЛИШЕ ПІСНІ ІЗ ВАШОГО СПИСКУ УЛЮБЛЕНИХ"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "ВИБІР УЛЮБЛЕНИХ ПІСЕНЬ"
-
-msgid "FAVORITE SONGS"
-msgstr "УЛЮБЛЕНІ ПІСНІ"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ЗБЕРЕГТИ ПОТОЧНУ ПІСНЮ ДО СПИСКУ УЛЮБЛЕНИХ"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
@@ -2540,6 +2534,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+
+msgid "FAVORITE SONGS"
+msgstr "УЛЮБЛЕНІ ПІСНІ"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ПІД'ЄДНАТИСЬ ДО NETPLAY"
@@ -3560,6 +3557,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "РЕЖИМ КОРИСТУВАЧА РОЗБЛОКОВАНО"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."

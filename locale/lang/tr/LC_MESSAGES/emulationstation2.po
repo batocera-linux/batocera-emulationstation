@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-06-06 20:30+0300\n"
+"PO-Revision-Date: 2025-06-08 10:40+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -191,7 +191,7 @@ msgid "enter game genres"
 msgstr "oyun türlerine giriş"
 
 msgid "Arcade system"
-msgstr "Oyun makinesi sistemi"
+msgstr "Arcade sistem"
 
 msgid "this game's arcade system"
 msgstr "bu oyunun oyun makinesi sistemi"
@@ -775,7 +775,7 @@ msgid "ALL"
 msgstr "TÜMÜ"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr "EKSİK MEDYALI OYUNLAR"
+msgstr "MEDYASI EKSİK OYUNLAR"
 
 msgid "GAMES MISSING ALL MEDIA"
 msgstr "MEDYASI OLMAYAN OYUNLAR"
@@ -877,7 +877,7 @@ msgid "Temperature"
 msgstr "Sıcaklık"
 
 msgid "Available memory"
-msgstr "Kullanılabilir hafıza"
+msgstr "Kullanılabilir bellek"
 
 msgid "Battery"
 msgstr "Pil"
@@ -1030,9 +1030,6 @@ msgstr "BİLGİ GETİRİCİ ÇALIŞIRKEN BU ÖZELLİK DEVRE DIŞIDIR"
 
 msgid "CHOOSE"
 msgstr "SEÇ"
-
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "KULLANICI ARAYÜZÜ MODU KİLİDİ AÇILDI"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "KİLİDİ AÇMAK İÇİN KODU GİRİN"
@@ -1306,7 +1303,7 @@ msgstr ""
 "tuşuna uzun basın"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "EMULATIONSTATION SADECE İLK KUMANDA İLE YÖNETİLSİN"
+msgstr "EMULATIONSTATION BİRİNCİL KONTOLCÜ İLE YÖNETİLSİN"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "SİLAH HAREKET TÖLERANSI"
@@ -1349,7 +1346,7 @@ msgid "THREADED LOADING"
 msgstr "İŞ PARÇACIKLARI YÜKLENİYOR"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "EŞ ZAMANSIZ RESİMLER YÜKLENİYOR"
+msgstr "RESİMLER EŞ ZAMANSIZ YÜKLENİYOR"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "RESİM VRAM KULLANIMINI İYİLEŞTİR"
@@ -1487,7 +1484,7 @@ msgid "MISSING BIOS CHECK"
 msgstr "EKSİK BİOS DENETİMİ"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "OYUN ÇALIŞTIRMADAN ÖNCE BİOS DENETİMİ"
+msgstr "OYUNU ÇALIŞTIRMADAN ÖNCE BİOS DENETLE"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTİMEDYA TUŞLARI"
@@ -1828,7 +1825,7 @@ msgid "SHOW FOLDERS"
 msgstr "KLASÖRLERİ GÖSTER"
 
 msgid "always"
-msgstr "sürekli"
+msgstr "her zaman"
 
 msgid "never"
 msgstr "asla"
@@ -1966,6 +1963,12 @@ msgstr "SİSTEME ÖZGÜ MÜZİK OYNAT"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "VİDEO OYNATIRKEN MÜZİĞİ KIS"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr "SESLER"
 
@@ -2014,20 +2017,11 @@ msgstr "SONRAKİ ŞARKIYA GEÇ"
 msgid "NOW PLAYING"
 msgstr "ŞİMDİ OYNATILIYOR"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "GEÇERLİ ŞARKIYI FAVORİLER ÇALMA LİSTESİNE KAYDET"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "GEÇERLİ ŞARKIYI FAVORİLER ÇALMA LİSTESİNDEN KALDIR"
+msgstr ""
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "SADECE FAVORİLER ÇALMA LİSTENDEN ŞARKILARI ÇAL"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "FAVORİ ŞARKILARIN SEÇİMİ"
-
-msgid "FAVORITE SONGS"
-msgstr "FAVORİ ŞARKILAR"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
@@ -2075,7 +2069,7 @@ msgid "REALLY QUIT?"
 msgstr "ÇIKILSIN MI?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "OTOMATİK KAYDET/YÜKLE"
+msgstr "OYUN BAŞLATILDIĞINDA OTOMATİK KAYDET/YÜKLE"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
@@ -2204,7 +2198,7 @@ msgid "START GAME"
 msgstr "OYUNU BAŞLAT"
 
 msgid "HOST A NETPLAY GAME"
-msgstr "NETPLAY OYUNUNA EVSAHİBİ OL"
+msgstr "NETPLAY OYUNUNA EV SAHİBİ OL"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OYUNU YAYINLAMAYI AÇ"
@@ -2453,7 +2447,7 @@ msgid "PER GENRE"
 msgstr "TÜRE GÖRE"
 
 msgid "ARCADE SYSTEMS"
-msgstr "ARCADE SİSTEMLERİ"
+msgstr "ARCADE SİSTEMLER"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "OTOMATİK OYUN KOLEKSİYONLARI"
@@ -2579,6 +2573,9 @@ msgstr ""
 "BAĞLADIĞINIZ BAZI DOSYALAR OYUN LİSTESİ YOLUNUN DIŞINDA BULUNMAKTADIR.\n"
 "OYUN LİSTESİNE GÖRE BU DOSYALARIN BİR KOPYASINI KULLANMAK İSTER MİSİNİZ?"
 
+msgid "FAVORITE SONGS"
+msgstr ""
+
 msgid "CONNECT TO NETPLAY"
 msgstr "NETPLAY BAĞLAN"
 
@@ -2686,7 +2683,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROLCÜ PİL SEVİYESİNİ GÖSTER"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr "SİLAH NİŞANGAHINI ÇİZ"
+msgstr "SİLAH NİŞANGAHINI GÖSTER"
 
 msgid "BEHAVIOR"
 msgstr "DAVRANIŞ"
@@ -3416,7 +3413,7 @@ msgid "DISCARD CHANGES"
 msgstr "DEĞİŞİKLİKLERİ YOKSAY"
 
 msgid "WELCOME"
-msgstr "HOŞGELDİNİZ"
+msgstr "HOŞ GELDİNİZ"
 
 #, c-format
 msgid "%i GAMEPAD DETECTED"
@@ -3578,7 +3575,7 @@ msgid "SET SELECT AS HOTKEY"
 msgstr "KISAYOL TUŞU ATA"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "KISAYOL TUŞU ATAMA"
+msgstr "KISAYOL TUŞU ATANMASIN"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -3604,3 +3601,6 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "KULLANICI ARAYÜZÜ MODU KİLİDİ AÇILDI"

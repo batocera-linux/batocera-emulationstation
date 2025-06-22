@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-08 11:18+0800\n"
+"PO-Revision-Date: 2025-06-09 21:28+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -507,7 +507,7 @@ msgid "VIDEO DRIVER"
 msgstr "显卡驱动"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "首尔"
 
 msgid "NETPLAY SETTINGS"
 msgstr "联网游戏设置"
@@ -1023,9 +1023,6 @@ msgstr "抓取器运行时此功能被禁用"
 
 msgid "CHOOSE"
 msgstr "浏览"
-
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "用户界面模式现已解锁"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "请输入解锁密码"
@@ -1935,6 +1932,12 @@ msgstr "播放特定于系统的音乐"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "播放视频时降低音乐音量"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr "声音"
 
@@ -1983,20 +1986,11 @@ msgstr "下一首音乐"
 msgid "NOW PLAYING"
 msgstr "正在播放音乐"
 
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "将当前歌曲保存到收藏播放列表"
-
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "从收藏播放列表中移除当前歌曲"
+msgstr ""
 
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "仅播放您的收藏播放列表中的歌曲"
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "收藏歌曲选择"
-
-msgid "FAVORITE SONGS"
-msgstr "收藏歌曲"
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
@@ -2545,6 +2539,9 @@ msgid ""
 msgstr ""
 "你链接的一些文件位于游戏列表路径之外。\n"
 "是否要使用这些文件相对于游戏列表的副本？"
+
+msgid "FAVORITE SONGS"
+msgstr ""
 
 msgid "CONNECT TO NETPLAY"
 msgstr "进行联网游戏"
@@ -3553,6 +3550,9 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "用户界面模式现已解锁"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "启动游戏时显示网络游戏选项"
