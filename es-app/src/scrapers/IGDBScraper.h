@@ -1,19 +1,17 @@
 #pragma once
 
-#ifndef ES_APP_SCRAPERS_HFSDB_SCRAPER_H
-#define ES_APP_SCRAPERS_HFSDB_SCRAPER_H
-
-#ifdef HFS_DEV_LOGIN
+#ifndef ES_APP_SCRAPERS_IGDBDB_SCRAPER_H
+#define ES_APP_SCRAPERS_IGDBDB_SCRAPER_H
 
 #include "scrapers/Scraper.h"
 #include "utils/TimeUtil.h"
 
 namespace pugi
 {
-class xml_document;
+	class xml_document;
 }
 
-class HfsDBScraper : public Scraper
+class IGDBScraper : public Scraper
 {
 public:
 	void generateRequests(const ScraperSearchParams& params,
@@ -31,28 +29,28 @@ private:
 	Utils::Time::DateTime mTokenDate;
 };
 
-class HfsDBRequest : public ScraperHttpRequest
+class IGDBRequest : public ScraperHttpRequest
 {
-  public:
+public:
 	// ctor for a GetGameList request
-	HfsDBRequest(std::queue<std::unique_ptr<ScraperRequest>>& requestsWrite, std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options, bool isArcade, bool isManualScrape)
+	IGDBRequest(std::queue<std::unique_ptr<ScraperRequest>>& requestsWrite, std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options, bool isArcade, bool isManualScrape)
 		: ScraperHttpRequest(resultsWrite, url, options), mRequestQueue(&requestsWrite)
 	{
-		  mIsManualScrape = isManualScrape;
-		  mIsArcade = isArcade;
+		mIsManualScrape = isManualScrape;
+		mIsArcade = isArcade;
 	}
 
 	// ctor for a GetGame request
-	HfsDBRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options, bool isArcade, bool isManualScrape)
+	IGDBRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options, bool isArcade, bool isManualScrape)
 		: ScraperHttpRequest(resultsWrite, url, options), mRequestQueue(nullptr)
-	{		
-		  mIsManualScrape = isManualScrape;
-		  mIsArcade = isArcade;
+	{
+		mIsManualScrape = isManualScrape;
+		mIsArcade = isArcade;
 	}
 
 	virtual bool retryOn249() { return !mIsManualScrape; }
 
-  protected:
+protected:
 	bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) override;
 	bool isGameRequest() { return !mRequestQueue; }
 
@@ -61,6 +59,4 @@ class HfsDBRequest : public ScraperHttpRequest
 	std::queue<std::unique_ptr<ScraperRequest>>* mRequestQueue;
 };
 
-#endif
-
-#endif // ES_APP_SCRAPERS_HFSDB_SCRAPER_H
+#endif // ES_APP_SCRAPERS_IGDBDB_SCRAPER_H

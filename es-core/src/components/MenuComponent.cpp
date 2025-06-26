@@ -10,10 +10,25 @@
 
 MenuComponent::MenuComponent(Window* window, 
 	const std::string& title, const std::shared_ptr<Font>& titleFont,
-	const std::string& subTitle) 
+	const std::string& subTitle, bool tabbedUI) 
 	: GuiComponent(window),
-	mBackground(window), mGrid(window, Vector2i(1, 3))
+	mBackground(window), mGrid(window, Vector2i(1, 4)), mTabIndex(0)
 {
+	if (tabbedUI)
+	{
+		// Tabs
+		mTabs = std::make_shared<ComponentTab>(mWindow);
+		mTabs->setCursorChangedCallback([&](const CursorState& /*state*/)
+			{
+				int idx = mTabs->getCursorIndex();
+				if (mTabIndex != idx)
+				{
+					mTabIndex = idx;
+					OnTabChanged(idx);					
+				}
+			});
+	}
+
 	mMaxHeight = 0;
 
 	auto theme = ThemeData::getMenuTheme();
@@ -74,7 +89,11 @@ MenuComponent::MenuComponent(Window* window,
 
 	// set up list which will never change (externally, anyway)
 	mList = std::make_shared<ComponentList>(mWindow);
-	mGrid.setEntry(mList, Vector2i(0, 1), true);
+
+	if (mTabs != nullptr)
+		mGrid.setEntry(mTabs, Vector2i(0, 1), false, true);
+
+	mGrid.setEntry(mList, Vector2i(0, 2), true);
 
 	updateGrid();
 	updateSize();
@@ -82,6 +101,22 @@ MenuComponent::MenuComponent(Window* window,
 	mGrid.resetCursor();
 }
 
+bool MenuComponent::input(InputConfig* config, Input input)
+{	
+	if (mTabs != nullptr && mTabs->size() && mGrid.getSelectedComponent() != mButtonGrid && (config->isMappedLike("left", input) || config->isMappedLike("right", input)))
+		return mTabs->input(config, input);
+
+	if (GuiComponent::input(config, input))
+		return true;
+
+	return false;
+}
+
+void MenuComponent::addTab(const std::string label, const std::string value, bool setCursorHere)
+{
+	if (mTabs != nullptr)
+		mTabs->addTab(label, value, setCursorHere);
+}
 
 void MenuComponent::addMenuIcon(Window* window, ComponentListRow& row, const std::string& iconName)
 {
@@ -343,6 +378,9 @@ void MenuComponent::updateSize()
 	const float maxHeight = mMaxHeight <= 0 ? Renderer::getScreenHeight() * 0.75f : mMaxHeight;
 
 	float height = TITLE_HEIGHT + mList->getTotalRowHeight() + getButtonGridHeight() + 2;
+	if (mTabs != nullptr && mTabs->size())
+		height += mTabs->getSize().y();
+
 	if(height > maxHeight)
 	{
 		height = TITLE_HEIGHT + getButtonGridHeight();
@@ -383,7 +421,15 @@ void MenuComponent::onSizeChanged()
 
 	// update grid row/col sizes
 	mGrid.setRowHeight(0, TITLE_HEIGHT, false);
-	mGrid.setRowHeight(2, getButtonGridHeight(), false);
+	mGrid.setRowHeight(3, getButtonGridHeight(), false);
+
+	if (mTabs == nullptr || mTabs->size() == 0)
+		mGrid.setRowHeight(1, 0.00001f);
+	else
+	{
+		const float titleHeight = mTitle->getFont()->getLetterHeight();
+		mGrid.setRowHeight(1, titleHeight * 2);
+	}
 
 	mGrid.setSize(mSize);
 
@@ -417,10 +463,10 @@ void MenuComponent::updateGrid()
 
 	mButtonGrid.reset();
 
-	if(mButtons.size())
+	if (mButtons.size())
 	{
 		mButtonGrid = makeButtonGrid(mWindow, mButtons);
-		mGrid.setEntry(mButtonGrid, Vector2i(0, 2), true, false);
+		mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false);
 	}
 }
 

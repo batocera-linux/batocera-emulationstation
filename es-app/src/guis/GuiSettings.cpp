@@ -12,13 +12,19 @@
 #include "components/SwitchComponent.h"
 #include "components/OptionListComponent.h"
 
+GuiSettings::GuiSettings(Window* window, const std::string& title, bool tabbedUI) : GuiSettings(window, title, "", nullptr, false, tabbedUI) { }
+
 GuiSettings::GuiSettings(Window* window, 
-	const std::string title,
-	const std::string customButton,
+	const std::string& title,
+	const std::string& customButton,
 	const std::function<void(GuiSettings*)>& func,
-	bool animate) : GuiComponent(window), mMenu(window, title)
+	bool animate,
+	bool tabbedUI) : GuiComponent(window), mMenu(window, title, Font::get(FONT_SIZE_LARGE), "", tabbedUI)
 {
 	addChild(&mMenu);
+
+	if (tabbedUI)
+		mMenu.setOnTabIndexChanged([this] { OnTabChanged(mMenu.getTabIndex()); });
 
 	mCloseButton = "start";
 
@@ -46,6 +52,16 @@ GuiSettings::GuiSettings(Window* window,
 		else
 			mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 	}	
+}
+
+void GuiSettings::setOnTabIndexChanged(const std::function<void()>& callback)
+{
+	mMenu.setOnTabIndexChanged(callback);
+}
+
+int GuiSettings::getTabIndex()
+{
+	return mMenu.getTabIndex();
 }
 
 GuiSettings::~GuiSettings()

@@ -12,18 +12,26 @@ class GuiSettings : public GuiComponent
 {
 public:
 	GuiSettings(Window* window, 
-		const std::string title,
-		const std::string customButton = "",
+		const std::string& title,
+		const std::string& customButton = "",
 		const std::function<void(GuiSettings*)>& func = nullptr,
-		bool animate = false);
+		bool animate = false,
+		bool tabbedUI = false);
+	GuiSettings(Window* window, const std::string& title, bool tabbedUI);
+
 	virtual ~GuiSettings(); // just calls save();
 
 	void save();
 	void close();
 
 	inline void setUpdateType(ComponentListFlags::UpdateType updateType) 
-	{ 
+	{ 		
 		mMenu.setUpdateType(updateType); 
+	}
+
+	inline void clear()
+	{
+		mMenu.clear();
 	}
 
 	inline void addRow(const ComponentListRow& row) 
@@ -110,8 +118,17 @@ public:
 	bool checkNetwork();
 
 	virtual bool onMouseClick(int button, bool pressed, int x, int y);
+	
+	// Tabs
+	void addTab(const std::string label, const std::string value = "", bool setCursorHere = false) { mMenu.addTab(label, value, setCursorHere); }
+	void setOnTabIndexChanged(const std::function<void()>& callback);
+	int getTabIndex();
 
-protected:
+	void clearSaveFuncs() { mSaveFuncs.clear(); }
+
+protected:		
+	virtual void OnTabChanged(int newIndex) { };
+
 	MenuComponent mMenu;
 
 private:

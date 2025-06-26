@@ -19,7 +19,6 @@
 #include "guis/GuiNetPlaySettings.h"
 #include "guis/GuiRetroAchievementsSettings.h"
 #include "guis/GuiSystemInformation.h"
-#include "guis/GuiScraperSettings.h"
 #include "guis/GuiControllersSettings.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
