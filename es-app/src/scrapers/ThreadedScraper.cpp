@@ -17,11 +17,15 @@ ThreadedScraper::ThreadedScraper(Window* window, const std::queue<ScraperSearchP
 {
 	mExitCode = ASYNC_IN_PROGRESS;
 	mTotal = (int) mSearchQueue.size();
+	mThreadCount = threadCount;
+}
 
+void ThreadedScraper::Process()
+{
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(GUIICON + _("SCRAPING"));
 
-	for (int i = 0; i < threadCount; i++)
+	for (int i = 0; i < mThreadCount; i++)
 	{
 		if (mSearchQueue.size() == 0)
 			break;
@@ -29,9 +33,9 @@ ThreadedScraper::ThreadedScraper(Window* window, const std::queue<ScraperSearchP
 		ScraperThread* thread = new ScraperThread(i);
 		mScraperThreads.push_back(thread);
 		ProcessNextGame(thread);
-	}	
+	}
 
-	mHandle = new std::thread(&ThreadedScraper::run, this);	
+	mHandle = new std::thread(&ThreadedScraper::run, this);
 }
 
 void ThreadedScraper::ProcessNextGame(ScraperThread* thread)
@@ -273,6 +277,17 @@ void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams
 		threadCount = 1;
 
 	ThreadedScraper::mInstance = new ThreadedScraper(window, searches, threadCount);
+
+	try
+	{
+		ThreadedScraper::mInstance->Process();
+	}
+	catch (const std::exception& e)
+	{
+		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURRED") + std::string(" :\r\n") + e.what()));
+		delete ThreadedScraper::mInstance;
+		ThreadedScraper::mInstance = nullptr;
+	}
 }
 
 void ThreadedScraper::stop()

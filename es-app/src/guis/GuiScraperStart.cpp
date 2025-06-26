@@ -8,11 +8,51 @@
 #include "scrapers/ThreadedScraper.h"
 #include "LocaleES.h"
 #include "GuiLoading.h"
-#include "GuiScraperSettings.h"
 #include "views/gamelist/IGameListView.h"
 
 GuiScraperStart::GuiScraperStart(Window* window)
-	: GuiSettings(window, _("SCRAPER"))
+	: GuiSettings(window, _("SCRAPER"), true)
+{
+	addTab(_("SCRAPE"));
+	addTab(_("OPTIONS"));
+	addTab(_("ACCOUNTS"));
+	setOnTabIndexChanged([&] { loadActivePage(); });
+
+	loadActivePage();
+
+	onFinalize([] { Settings::getInstance()->saveFile(); });
+
+	if (Renderer::ScreenSettings::fullScreenMenus())
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	else
+		mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+}
+
+void GuiScraperStart::loadActivePage()
+{	
+	save();
+	clearSaveFuncs();
+
+	mMenu.clear();
+	mMenu.clearButtons();
+
+	switch (this->getTabIndex())
+	{
+	case 0:
+		loadScrapPage();
+		break;
+	case 1:
+		loadSettingsPage();
+		break;
+	case 2:
+		loadAccountsPage();
+		break;
+	}
+
+	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
+}
+
+void GuiScraperStart::loadScrapPage() 
 {
 	mOverwriteMedias = true;
 
@@ -25,6 +65,7 @@ GuiScraperStart::GuiScraperStart(Window* window)
 	for (auto engine : Scraper::getScraperList())
 		scraper_list->add(engine, engine, engine == scraperName);
 
+
 	addGroup(_("SOURCE"));
 	addWithLabel(_("SCRAPE FROM"), scraper_list);
 
@@ -32,9 +73,7 @@ GuiScraperStart::GuiScraperStart(Window* window)
 	{
 		scraper_list->selectFirstItem();
 		scraperName = scraper_list->getSelected();
-	}
-
-	addEntry(_("SCRAPER SETTINGS"), true, std::bind(&GuiScraperStart::onShowScraperSettings, this));
+	}	
 
 	addGroup(_("FILTERS"));
 
@@ -58,8 +97,6 @@ GuiScraperStart::GuiScraperStart(Window* window)
 		return date->getTime() <= (now - (days * 86400));
 	};
 
-//	int idx = Settings::RecentlyScrappedFilter();
-//	if (idx < 0 || idx > 6)		
 	int idx = 3;
 
 	mDateFilters = std::make_shared< OptionListComponent<FilterFunc> >(mWindow, _("IGNORE RECENTLY SCRAPED GAMES"), false);
@@ -100,38 +137,191 @@ GuiScraperStart::GuiScraperStart(Window* window)
 
 	addWithLabel(_("SYSTEMS INCLUDED"), mSystems);
 
-	// mApproveResults = std::make_shared<SwitchComponent>(mWindow);
-	// mApproveResults->setState(false);
-	// addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
-
 	mMenu.clearButtons();
 	mMenu.addButton(_("SCRAPE NOW"), _("START"), std::bind(&GuiScraperStart::pressedStart, this));
-	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
-	/*
-	addSaveFunc([this, scraper_list] 
-	{ 	
-		int filterIndex = mDateFilters->getSelectedIndex();
-		if (filterIndex >= 0)
-			Settings::setRecentlyScrappedFilter(filterIndex);
-		
-		Settings::getInstance()->setString("Scraper", scraper_list->getSelected()); 
-	});
-	*/
 
-	scraper_list->setSelectedChangedCallback([this, scraperName, scraper_list](std::string value)
-	{
-		Settings::getInstance()->setString("Scraper", value);
-	});
-
-	if (Renderer::ScreenSettings::fullScreenMenus())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
-	else
-		mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
+	scraper_list->setSelectedChangedCallback([this, scraperName, scraper_list](std::string value) { Settings::getInstance()->setString("Scraper", value); });
 }
 
-void GuiScraperStart::onShowScraperSettings()
+void GuiScraperStart::loadSettingsPage() 
 {
-	mWindow->pushGui(new GuiScraperSettings(mWindow));
+	auto scrap = Scraper::getScraper();
+	if (scrap == nullptr)
+		return;
+
+	addGroup(_("SETTINGS"));
+
+	std::string scraper = Scraper::getScraperName(scrap);
+
+	std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
+	auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Screenshot) ||
+		scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d) ||
+		scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d) ||
+		scrap->isMediaSupported(Scraper::ScraperMediaSource::Mix) ||
+		scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt) ||
+		scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
+	{
+		// Image source : <image> tag
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Screenshot))
+			imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
+			imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Mix))
+		{
+			imageSource->add(_("MIX V1"), "mixrbv1", imageSourceName == "mixrbv1");
+			imageSource->add(_("MIX V2"), "mixrbv2", imageSourceName == "mixrbv2");
+		}
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
+			imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
+			imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
+			imageSource->add(_("FAN ART"), "fanart", imageSourceName == "fanart");
+
+		imageSource->add(_("NONE"), "", imageSourceName.empty());
+
+		if (!imageSource->hasSelection())
+			imageSource->selectFirstItem();
+
+		addWithLabel(_("IMAGE SOURCE"), imageSource);
+		addSaveFunc([imageSource] { Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected()); });
+	}
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
+	{
+		// Box source : <thumbnail> tag
+		std::string thumbSourceName = Settings::getInstance()->getString("ScrapperThumbSrc");
+		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
+		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
+			thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))//if (scraper == "HfsDB")
+			thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
+
+		if (!thumbSource->hasSelection())
+			thumbSource->selectFirstItem();
+
+		addWithLabel(_("BOX SOURCE"), thumbSource);
+		addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
+
+		imageSource->setSelectedChangedCallback([this, scrap, thumbSource](std::string value)
+			{
+				if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
+				{
+					if (value == "box-2D")
+						thumbSource->remove(_("BOX 2D"));
+					else
+						thumbSource->add(_("BOX 2D"), "box-2D", false);
+				}
+
+				if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
+				{
+					if (value == "box-3D")
+						thumbSource->remove(_("BOX 3D"));
+					else
+						thumbSource->add(_("BOX 3D"), "box-3D", false);
+				}
+			});
+	}
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel) || scrap->isMediaSupported(Scraper::ScraperMediaSource::WheelHD))
+	{
+		// Logo source : <marquee> tag
+		std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
+
+		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
+		logoSource->add(_("NONE"), "", logoSourceName.empty());
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
+			logoSource->add(_("HD WHEEL"), "wheel-hd", logoSourceName == "wheel-hd");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
+			logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee)) // if (scraper == "HfsDB")
+			logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
+
+		if (!logoSource->hasSelection())
+			logoSource->selectFirstItem();
+
+		addWithLabel(_("LOGO SOURCE"), logoSource);
+		addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
+	}
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Region))
+	{
+		std::string region = Settings::getInstance()->getString("ScraperRegion");
+		auto regionCtrl = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED REGION"), false);
+		regionCtrl->addRange({ { _("AUTO"), "" }, { "EUROPE", "eu" },  { "USA", "us" }, { "JAPAN", "jp" } , { "WORLD", "wor" } }, region);
+
+		if (!regionCtrl->hasSelection())
+			regionCtrl->selectFirstItem();
+
+		addWithLabel(_("PREFERED REGION"), regionCtrl);
+		addSaveFunc([regionCtrl] { Settings::getInstance()->setString("ScraperRegion", regionCtrl->getSelected()); });
+	}
+
+	addSwitch(_("OVERWRITE NAMES"), "ScrapeNames", true);
+	addSwitch(_("OVERWRITE DESCRIPTIONS"), "ScrapeDescription", true);
+	addSwitch(_("OVERWRITE MEDIAS"), "ScrapeOverWrite", true);
+
+	addGroup(_("SCRAPE FOR"));
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::ShortTitle))
+		addSwitch(_("SHORT NAME"), "ScrapeShortTitle", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Ratings))
+		addSwitch(_("COMMUNITY RATING"), "ScrapeRatings", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Video))
+		addSwitch(_("VIDEO"), "ScrapeVideos", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
+		addSwitch(_("FANART"), "ScrapeFanart", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Bezel_16_9))
+		addSwitch(_("BEZEL (16:9)"), "ScrapeBezel", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::BoxBack))
+		addSwitch(_("BOX BACKSIDE"), "ScrapeBoxBack", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Map))
+		addSwitch(_("MAP"), "ScrapeMap", true);
+
+	/*
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
+	addSwitch(_("SCRAPE TITLESHOT"), "ScrapeTitleShot", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Cartridge))
+	addSwitch(_("SCRAPE CARTRIDGE"), "ScrapeCartridge", true);
+	*/
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Manual))
+		addSwitch(_("MANUAL"), "ScrapeManual", true);
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::PadToKey))
+		addSwitch(_("PADTOKEY SETTINGS"), "ScrapePadToKey", true);
+}
+
+void GuiScraperStart::loadAccountsPage() 
+{
+	addGroup(_("SCREENSCRAPER"));
+	addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
+	addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
+
+	addGroup(_("IGDB"));
+	addInputTextRow(_("CLIENT ID"), "IGDBClientID", false, true);
+	addInputTextRow(_("CLIENT SECRET"), "IGDBSecret", true, true);
 }
 
 void GuiScraperStart::pressedStart()

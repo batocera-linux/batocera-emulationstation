@@ -1626,7 +1626,7 @@ msgid "UPDATE GAMELISTS"
 msgstr "METTRE À JOUR LES LISTES DE JEUX"
 
 msgid "ACCOUNTS"
-msgstr "COMPTE"
+msgstr "COMPTES"
 
 msgid "BIOS SETTINGS"
 msgstr "RÉGLAGES DU BIOS"
