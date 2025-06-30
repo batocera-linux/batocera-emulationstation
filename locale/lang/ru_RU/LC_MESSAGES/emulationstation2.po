@@ -510,7 +510,7 @@ msgid "VIDEO DRIVER"
 msgstr "ВИДЕО ДРАЙВЕР"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEOUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "НАСТРОЙКИ NETPLAY"
@@ -2297,7 +2297,7 @@ msgid "LOGO SOURCE"
 msgstr "СТИЛЬ ЛОГОТИПА"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "HD WHEEL"
 
 msgid "WHEEL"
 msgstr "КОЛЕСО"
@@ -2633,7 +2633,7 @@ msgid "P%i'S CONTROLLER"
 msgstr "P%i КОНТРОЛЛЕР"
 
 msgid "CONTROLLER MAPPING"
-msgstr "НАСТРОЙКА КОНТРОЛЛЕРА"
+msgstr "НАСТРОЙКА КОНТРОЛЛЕРОВ"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
