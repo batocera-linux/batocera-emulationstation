@@ -750,6 +750,15 @@ msgstr "사용 가능한 업데이트 없음"
 msgid "SCRAPER"
 msgstr "스크랩"
 
+msgid "SCRAPE"
+msgstr "스크랩"
+
+msgid "ACCOUNTS"
+msgstr "계정"
+
+msgid "go back"
+msgstr "돌아가기"
+
 msgid "SCRAPING DATABASE"
 msgstr "데이터베이스 스크랩핑"
 
@@ -758,9 +767,6 @@ msgstr "출처"
 
 msgid "SCRAPE FROM"
 msgstr "스크랩 출처"
-
-msgid "SCRAPER SETTINGS"
-msgstr "스크랩 설정"
 
 msgid "FILTERS"
 msgstr "필터"
@@ -807,8 +813,101 @@ msgstr "스크랩 시작"
 msgid "START"
 msgstr "시작"
 
-msgid "go back"
-msgstr "돌아가기"
+msgid "IMAGE SOURCE"
+msgstr "이미지 출처"
+
+msgid "SCREENSHOT"
+msgstr "스크린샷"
+
+msgid "TITLE SCREENSHOT"
+msgstr "타이틀 스크린샷"
+
+msgid "MIX V1"
+msgstr "혼합 V1"
+
+msgid "MIX V2"
+msgstr "혼합 V2"
+
+msgid "BOX 2D"
+msgstr "박스 2D"
+
+msgid "BOX 3D"
+msgstr "박스 3D"
+
+msgid "FAN ART"
+msgstr "팬아트"
+
+msgid "BOX SOURCE"
+msgstr "박스 출처"
+
+msgid "LOGO SOURCE"
+msgstr "로고 출처"
+
+msgid "HD WHEEL"
+msgstr "HD 휠"
+
+msgid "WHEEL"
+msgstr "휠"
+
+msgid "MARQUEE"
+msgstr "마퀴"
+
+msgid "PREFERED REGION"
+msgstr "선호 지역"
+
+msgid "AUTO"
+msgstr "자동"
+
+msgid "OVERWRITE NAMES"
+msgstr "이름 덮어쓰기"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "설명 덮어쓰기"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "미디어 덮어쓰기"
+
+msgid "SCRAPE FOR"
+msgstr "스크랩"
+
+msgid "SHORT NAME"
+msgstr "단축 이름"
+
+msgid "COMMUNITY RATING"
+msgstr "사용자 평가"
+
+msgid "VIDEO"
+msgstr "비디오"
+
+msgid "FANART"
+msgstr "팬아트"
+
+msgid "BEZEL (16:9)"
+msgstr "베젤 (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "박스 뒷면"
+
+msgid "MAP"
+msgstr "맵"
+
+msgid "MANUAL"
+msgstr "매뉴얼"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "패드-키 설정"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1054,9 +1153,6 @@ msgstr "dmd 서버"
 
 msgid "FORMAT"
 msgstr "포맷"
-
-msgid "AUTO"
-msgstr "자동"
 
 msgid "dmd matrix size"
 msgstr "dmd 매트릭스 크기"
@@ -1606,9 +1702,6 @@ msgstr "현재 설정"
 
 msgid "UPDATE GAMELISTS"
 msgstr "게임목록 업데이트"
-
-msgid "ACCOUNTS"
-msgstr "계정"
 
 msgid "BIOS SETTINGS"
 msgstr "바이오스 설정"
@@ -2226,9 +2319,6 @@ msgstr "커스텀 컬렉션에 추가..."
 msgid "DELETE COLLECTION"
 msgstr "컬렉션 삭제"
 
-msgid "SCRAPE"
-msgstr "스크랩"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "고급 게임 옵션"
 
@@ -2252,90 +2342,6 @@ msgstr "블루투스 장치 페어링"
 
 msgid "PAIR"
 msgstr "패어링"
-
-msgid "IMAGE SOURCE"
-msgstr "이미지 출처"
-
-msgid "SCREENSHOT"
-msgstr "스크린샷"
-
-msgid "TITLE SCREENSHOT"
-msgstr "타이틀 스크린샷"
-
-msgid "MIX V1"
-msgstr "혼합 V1"
-
-msgid "MIX V2"
-msgstr "혼합 V2"
-
-msgid "BOX 2D"
-msgstr "박스 2D"
-
-msgid "BOX 3D"
-msgstr "박스 3D"
-
-msgid "FAN ART"
-msgstr "팬아트"
-
-msgid "BOX SOURCE"
-msgstr "박스 출처"
-
-msgid "LOGO SOURCE"
-msgstr "로고 출처"
-
-msgid "HD WHEEL"
-msgstr "HD 휠"
-
-msgid "WHEEL"
-msgstr "휠"
-
-msgid "MARQUEE"
-msgstr "마퀴"
-
-msgid "PREFERED REGION"
-msgstr "선호 지역"
-
-msgid "OVERWRITE NAMES"
-msgstr "이름 덮어쓰기"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "설명 덮어쓰기"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "미디어 덮어쓰기"
-
-msgid "SCRAPE FOR"
-msgstr "스크랩"
-
-msgid "SHORT NAME"
-msgstr "단축 이름"
-
-msgid "COMMUNITY RATING"
-msgstr "사용자 평가"
-
-msgid "VIDEO"
-msgstr "비디오"
-
-msgid "FANART"
-msgstr "팬아트"
-
-msgid "BEZEL (16:9)"
-msgstr "베젤 (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "박스 뒷면"
-
-msgid "MAP"
-msgstr "맵"
-
-msgid "MANUAL"
-msgstr "매뉴얼"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "패드-키 설정"
-
-msgid "ACCOUNT"
-msgstr "계정"
 
 msgid "NO DEVICE FOUND"
 msgstr "장치를 찾을 수 없음"
@@ -3088,6 +3094,9 @@ msgstr "미디어 누락"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "스크린 전환을 원하나요?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "스크랩 중"
 
@@ -3566,6 +3575,12 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "스크랩 설정"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "계정"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "사용자 인터페이스 모드가 사용 해제됨"

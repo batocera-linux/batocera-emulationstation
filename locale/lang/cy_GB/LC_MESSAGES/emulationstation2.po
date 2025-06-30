@@ -748,6 +748,15 @@ msgstr "DIM DIWEDDARIAD AR GAEL"
 msgid "SCRAPER"
 msgstr "CRAFWR"
 
+msgid "SCRAPE"
+msgstr "CRAFU"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "mynd yn ôl"
+
 msgid "SCRAPING DATABASE"
 msgstr ""
 
@@ -756,9 +765,6 @@ msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "CRAFU O"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
 
 msgid "FILTERS"
 msgstr ""
@@ -805,8 +811,101 @@ msgstr "CRAFU NAWR"
 msgid "START"
 msgstr "DECHRAU"
 
-msgid "go back"
-msgstr "mynd yn ôl"
+msgid "IMAGE SOURCE"
+msgstr "FFYNHONNELL DELWEDD"
+
+msgid "SCREENSHOT"
+msgstr "SGRINLUN"
+
+msgid "TITLE SCREENSHOT"
+msgstr "SGRINLUN TEITL"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOCS 2D"
+
+msgid "BOX 3D"
+msgstr "BOCS 3D"
+
+msgid "FAN ART"
+msgstr "CELF FFAN"
+
+msgid "BOX SOURCE"
+msgstr "FFYNHONNELL BOCS"
+
+msgid "LOGO SOURCE"
+msgstr "FFYNHONNELL LOGO"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "OLWYN"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AWTO"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr ""
+
+msgid "COMMUNITY RATING"
+msgstr ""
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1049,9 +1148,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AWTO"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1588,9 +1684,6 @@ msgid "Current setting"
 msgstr ""
 
 msgid "UPDATE GAMELISTS"
-msgstr ""
-
-msgid "ACCOUNTS"
 msgstr ""
 
 msgid "BIOS SETTINGS"
@@ -2207,9 +2300,6 @@ msgstr ""
 msgid "DELETE COLLECTION"
 msgstr "DILEU CASGLIAD"
 
-msgid "SCRAPE"
-msgstr "CRAFU"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPSIYNAU GÊM UWCH"
 
@@ -2232,90 +2322,6 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "PAIR"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "FFYNHONNELL DELWEDD"
-
-msgid "SCREENSHOT"
-msgstr "SGRINLUN"
-
-msgid "TITLE SCREENSHOT"
-msgstr "SGRINLUN TEITL"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "BOCS 2D"
-
-msgid "BOX 3D"
-msgstr "BOCS 3D"
-
-msgid "FAN ART"
-msgstr "CELF FFAN"
-
-msgid "BOX SOURCE"
-msgstr "FFYNHONNELL BOCS"
-
-msgid "LOGO SOURCE"
-msgstr "FFYNHONNELL LOGO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "OLWYN"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr ""
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr ""
-
-msgid "COMMUNITY RATING"
-msgstr ""
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr ""
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
 msgstr ""
 
 msgid "NO DEVICE FOUND"
@@ -3076,6 +3082,9 @@ msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
+msgid "INVALID CREDENTIALS"
 msgstr ""
 
 msgid "SCRAPING"

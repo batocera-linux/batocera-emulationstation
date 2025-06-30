@@ -754,6 +754,15 @@ msgstr "ОБНОВЛЕНИЙ НЕТ"
 msgid "SCRAPER"
 msgstr "СКРАПЕР"
 
+msgid "SCRAPE"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
+
+msgid "ACCOUNTS"
+msgstr "АККАУНТЫ"
+
+msgid "go back"
+msgstr "назад"
+
 msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
 
@@ -762,9 +771,6 @@ msgstr "ИСТОЧНИК"
 
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
-
-msgid "SCRAPER SETTINGS"
-msgstr "НАСТРОЙКИ СКРАПЕРА"
 
 msgid "FILTERS"
 msgstr "ФИЛЬТРЫ"
@@ -811,8 +817,101 @@ msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 msgid "START"
 msgstr "НАЧАТЬ"
 
-msgid "go back"
-msgstr "назад"
+msgid "IMAGE SOURCE"
+msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
+
+msgid "SCREENSHOT"
+msgstr "СКРИНШОТ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "СКРИНШОТ ГЛАВНОГО МЕНЮ"
+
+msgid "MIX V1"
+msgstr "МИКС V1"
+
+msgid "MIX V2"
+msgstr "МИКС V2"
+
+msgid "BOX 2D"
+msgstr "ОБЛОЖКИ 2D"
+
+msgid "BOX 3D"
+msgstr "ОБЛОЖКИ 3D"
+
+msgid "FAN ART"
+msgstr "ФАН-АРТ"
+
+msgid "BOX SOURCE"
+msgstr "СТИЛЬ ОБЛОЖКИ"
+
+msgid "LOGO SOURCE"
+msgstr "СТИЛЬ ЛОГОТИПА"
+
+msgid "HD WHEEL"
+msgstr "HD WHEEL"
+
+msgid "WHEEL"
+msgstr "КОЛЕСО"
+
+msgid "MARQUEE"
+msgstr "БАНЕР"
+
+msgid "PREFERED REGION"
+msgstr "ПРЕДПОЧИТАЕМЫЙ РЕГИОН"
+
+msgid "AUTO"
+msgstr "АВТО"
+
+msgid "OVERWRITE NAMES"
+msgstr "ПЕРЕЗАПИСЫВАТЬ НАЗВАНИЯ"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "ПЕРЕЗАПИСЫВАТЬ ОПИСАНИЯ"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "ПЕРЕЗАПИСЫВАТЬ МЕДИА"
+
+msgid "SCRAPE FOR"
+msgstr "ЗАГРУЗКА ДЛЯ"
+
+msgid "SHORT NAME"
+msgstr "КОРОТКОЕ НАЗВАНИЕ"
+
+msgid "COMMUNITY RATING"
+msgstr "РЕЙТИНГ СООБЩЕСТВА"
+
+msgid "VIDEO"
+msgstr "ВИДЕО"
+
+msgid "FANART"
+msgstr "ФАН-АРТ"
+
+msgid "BEZEL (16:9)"
+msgstr "РАМКИ (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "ЗАДНИК ОБЛОЖКИ"
+
+msgid "MAP"
+msgstr "КАРТА"
+
+msgid "MANUAL"
+msgstr "РУКОВОДСТВО"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "НАСТРОЙКИ PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1058,9 +1157,6 @@ msgstr "dmd сервер"
 
 msgid "FORMAT"
 msgstr "ФОРМАТ"
-
-msgid "AUTO"
-msgstr "АВТО"
 
 msgid "dmd matrix size"
 msgstr "dmd размер матрицы"
@@ -1616,9 +1712,6 @@ msgstr "Текущая настройка"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ОБНОВИТЬ СПИСОК ИГР"
-
-msgid "ACCOUNTS"
-msgstr "АККАУНТЫ"
 
 msgid "BIOS SETTINGS"
 msgstr "НАСТРОЙКИ BIOS"
@@ -2239,9 +2332,6 @@ msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ..."
 msgid "DELETE COLLECTION"
 msgstr "УДАЛИТЬ КОЛЛЕКЦИЮ"
 
-msgid "SCRAPE"
-msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
 
@@ -2265,90 +2355,6 @@ msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "PAIR"
 msgstr "CОПРЯЖЕНИЕ"
-
-msgid "IMAGE SOURCE"
-msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
-
-msgid "SCREENSHOT"
-msgstr "СКРИНШОТ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "СКРИНШОТ ГЛАВНОГО МЕНЮ"
-
-msgid "MIX V1"
-msgstr "МИКС V1"
-
-msgid "MIX V2"
-msgstr "МИКС V2"
-
-msgid "BOX 2D"
-msgstr "ОБЛОЖКИ 2D"
-
-msgid "BOX 3D"
-msgstr "ОБЛОЖКИ 3D"
-
-msgid "FAN ART"
-msgstr "ФАН-АРТ"
-
-msgid "BOX SOURCE"
-msgstr "СТИЛЬ ОБЛОЖКИ"
-
-msgid "LOGO SOURCE"
-msgstr "СТИЛЬ ЛОГОТИПА"
-
-msgid "HD WHEEL"
-msgstr "HD WHEEL"
-
-msgid "WHEEL"
-msgstr "КОЛЕСО"
-
-msgid "MARQUEE"
-msgstr "БАНЕР"
-
-msgid "PREFERED REGION"
-msgstr "ПРЕДПОЧИТАЕМЫЙ РЕГИОН"
-
-msgid "OVERWRITE NAMES"
-msgstr "ПЕРЕЗАПИСЫВАТЬ НАЗВАНИЯ"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "ПЕРЕЗАПИСЫВАТЬ ОПИСАНИЯ"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "ПЕРЕЗАПИСЫВАТЬ МЕДИА"
-
-msgid "SCRAPE FOR"
-msgstr "ЗАГРУЗКА ДЛЯ"
-
-msgid "SHORT NAME"
-msgstr "КОРОТКОЕ НАЗВАНИЕ"
-
-msgid "COMMUNITY RATING"
-msgstr "РЕЙТИНГ СООБЩЕСТВА"
-
-msgid "VIDEO"
-msgstr "ВИДЕО"
-
-msgid "FANART"
-msgstr "ФАН-АРТ"
-
-msgid "BEZEL (16:9)"
-msgstr "РАМКИ (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "ЗАДНИК ОБЛОЖКИ"
-
-msgid "MAP"
-msgstr "КАРТА"
-
-msgid "MANUAL"
-msgstr "РУКОВОДСТВО"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "НАСТРОЙКИ PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "АККАУНТ"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -3109,6 +3115,9 @@ msgstr "ОТСУТСТВУЮЩИЕ МЕДИА"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"
 
@@ -3603,6 +3612,12 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "НАСТРОЙКИ СКРАПЕРА"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "АККАУНТ"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"

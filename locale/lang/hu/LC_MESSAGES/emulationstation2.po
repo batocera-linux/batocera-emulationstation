@@ -753,6 +753,15 @@ msgstr "NINCS FRISSÍTÉS"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "LEKÉRÉS"
+
+msgid "ACCOUNTS"
+msgstr "FIÓKOK"
+
+msgid "go back"
+msgstr "vissza"
+
 msgid "SCRAPING DATABASE"
 msgstr "LEKÉRŐ ADATBÁZIS"
 
@@ -761,9 +770,6 @@ msgstr "FORRÁS"
 
 msgid "SCRAPE FROM"
 msgstr "LEKÉRÉS INNEN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "LEKÉRDEZÉS BEÁLLTÁS"
 
 msgid "FILTERS"
 msgstr "SZŰRŐK"
@@ -810,8 +816,101 @@ msgstr "LEKÉRÉS INDÍTÁSA"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "vissza"
+msgid "IMAGE SOURCE"
+msgstr "KÉP FORRÁSA"
+
+msgid "SCREENSHOT"
+msgstr "KÉPERNYŐKÉP"
+
+msgid "TITLE SCREENSHOT"
+msgstr "KEZDŐKÉPERNYŐ KÉP"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "DOBOZ 2D"
+
+msgid "BOX 3D"
+msgstr "DOBOZ 3D"
+
+msgid "FAN ART"
+msgstr "RAJONGÓI KÉP"
+
+msgid "BOX SOURCE"
+msgstr "DOBOZ FORRÁSA"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO FORRÁSA"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "KERÉK"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "ELŐNYBEN RÉSZESÍTETT RÉGIÓ"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "NEVEK FELÜLÍRÁSA"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "A LEÍRÁSOK FELÜLÍRÁSA"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "MÉDIÁK FELÜLÍRÁSA"
+
+msgid "SCRAPE FOR"
+msgstr "LEKÉRÉS"
+
+msgid "SHORT NAME"
+msgstr "RÖVID NÉV"
+
+msgid "COMMUNITY RATING"
+msgstr "KÖZÖSSÉGI ÉRTÉKELÉS"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "RAJONGÓI ALKOTÁS"
+
+msgid "BEZEL (16:9)"
+msgstr "KERET (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "DOBOZ HÁTOLDAL"
+
+msgid "MAP"
+msgstr "TÉRKÉP"
+
+msgid "MANUAL"
+msgstr "KÉZIKÖNYV"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "PADTOKEY BEÁLLÍTÁSOK"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1057,9 +1156,6 @@ msgstr "dmd szerver"
 
 msgid "FORMAT"
 msgstr "FORMÁTUM"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd mátrix méret"
@@ -1629,9 +1725,6 @@ msgstr "Aktuális beállítás"
 
 msgid "UPDATE GAMELISTS"
 msgstr "JÁTÉKLISTÁK FRISSÍTÉSE"
-
-msgid "ACCOUNTS"
-msgstr "FIÓKOK"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS BEÁLLÍTÁSOK"
@@ -2256,9 +2349,6 @@ msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ..."
 msgid "DELETE COLLECTION"
 msgstr "GYŰJTEMÉNY TÖRLÉSE"
 
-msgid "SCRAPE"
-msgstr "LEKÉRÉS"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "HALADÓ JÁTÉK BEÁLLÍTÁSOK"
 
@@ -2282,90 +2372,6 @@ msgstr "BLUETOOTH-ESZKÖZ PÁROSÍTÁSA"
 
 msgid "PAIR"
 msgstr "PÁR"
-
-msgid "IMAGE SOURCE"
-msgstr "KÉP FORRÁSA"
-
-msgid "SCREENSHOT"
-msgstr "KÉPERNYŐKÉP"
-
-msgid "TITLE SCREENSHOT"
-msgstr "KEZDŐKÉPERNYŐ KÉP"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "DOBOZ 2D"
-
-msgid "BOX 3D"
-msgstr "DOBOZ 3D"
-
-msgid "FAN ART"
-msgstr "RAJONGÓI KÉP"
-
-msgid "BOX SOURCE"
-msgstr "DOBOZ FORRÁSA"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO FORRÁSA"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "KERÉK"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "ELŐNYBEN RÉSZESÍTETT RÉGIÓ"
-
-msgid "OVERWRITE NAMES"
-msgstr "NEVEK FELÜLÍRÁSA"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "A LEÍRÁSOK FELÜLÍRÁSA"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "MÉDIÁK FELÜLÍRÁSA"
-
-msgid "SCRAPE FOR"
-msgstr "LEKÉRÉS"
-
-msgid "SHORT NAME"
-msgstr "RÖVID NÉV"
-
-msgid "COMMUNITY RATING"
-msgstr "KÖZÖSSÉGI ÉRTÉKELÉS"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "RAJONGÓI ALKOTÁS"
-
-msgid "BEZEL (16:9)"
-msgstr "KERET (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "DOBOZ HÁTOLDAL"
-
-msgid "MAP"
-msgstr "TÉRKÉP"
-
-msgid "MANUAL"
-msgstr "KÉZIKÖNYV"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "PADTOKEY BEÁLLÍTÁSOK"
-
-msgid "ACCOUNT"
-msgstr "FIÓK"
 
 msgid "NO DEVICE FOUND"
 msgstr "ESZKÖZ NEM TALÁLHATÓ"
@@ -3126,6 +3132,9 @@ msgstr "HIÁNYZÓ MÉDIÁK"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "SZERETNÉ VÁLTANI A KÉPERNYŐT?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "LEKÉRDEZÉS"
 
@@ -3613,6 +3622,12 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "LEKÉRDEZÉS BEÁLLTÁS"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "FIÓK"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "A FELHASZNÁLÓI FELÜLET MÓD MOST MÁR FEL VAN OLDVA"

@@ -759,6 +759,15 @@ msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
 msgid "SCRAPER"
 msgstr "PROCURAR MÍDIAS DE JOGO"
 
+msgid "SCRAPE"
+msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
+
+msgid "ACCOUNTS"
+msgstr "CONTAS"
+
+msgid "go back"
+msgstr "voltar"
+
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DADOS DAS MÍDIAS DE JOGO"
 
@@ -767,9 +776,6 @@ msgstr "FONTE"
 
 msgid "SCRAPE FROM"
 msgstr "OBTER MÍDIAS DE"
-
-msgid "SCRAPER SETTINGS"
-msgstr "AJUSTES DO SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTROS"
@@ -816,8 +822,101 @@ msgstr "BAIXAR AGORA"
 msgid "START"
 msgstr "INICIAR"
 
-msgid "go back"
-msgstr "voltar"
+msgid "IMAGE SOURCE"
+msgstr "FONTE DA MÍDIA DE IMAGEM"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURA DE TELA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "IMAGEM DO TÍTULO"
+
+msgid "MIX V1"
+msgstr "COMBINAÇÃO 1"
+
+msgid "MIX V2"
+msgstr "COMBINAÇÃO 2"
+
+msgid "BOX 2D"
+msgstr "CAIXA 2D"
+
+msgid "BOX 3D"
+msgstr "CAIXA 3D"
+
+msgid "FAN ART"
+msgstr "ARTE DE FÃ"
+
+msgid "BOX SOURCE"
+msgstr "FONTE DA MÍDIA DA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "FONTE DA MÍDIA DO LOGOTIPO"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "LOGOTIPO"
+
+msgid "MARQUEE"
+msgstr "LETREIRO"
+
+msgid "PREFERED REGION"
+msgstr "PRIORIZAR REGIÃO"
+
+msgid "AUTO"
+msgstr "AUTOMÁTICO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SOBRESCREVER NOMES"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOBRESCREVER DESCRIÇÕES"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOBRESCREVER MÍDIAS"
+
+msgid "SCRAPE FOR"
+msgstr "OBTER MÍDIAS PARA"
+
+msgid "SHORT NAME"
+msgstr "NOME ABREVIADO"
+
+msgid "COMMUNITY RATING"
+msgstr "AVALIAÇÃO DA COMUNIDADE"
+
+msgid "VIDEO"
+msgstr "VÍDEO"
+
+msgid "FANART"
+msgstr "FÃ-ARTE"
+
+msgid "BEZEL (16:9)"
+msgstr "MOLDURA (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "PARTE DE TRÁS DA CAIXA"
+
+msgid "MAP"
+msgstr "MAPA DO JOGO"
+
+msgid "MANUAL"
+msgstr "MANUAL DE INSTRUÇÕES"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1063,9 +1162,6 @@ msgstr "servidor dmd"
 
 msgid "FORMAT"
 msgstr "FORMATAR"
-
-msgid "AUTO"
-msgstr "AUTOMÁTICO"
 
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
@@ -1633,9 +1729,6 @@ msgstr "Ajuste atual"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ATUALIZAR A LISTA DE JOGOS"
-
-msgid "ACCOUNTS"
-msgstr "CONTAS"
 
 msgid "BIOS SETTINGS"
 msgstr "AJUSTES DA BIOS"
@@ -2257,9 +2350,6 @@ msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 msgid "DELETE COLLECTION"
 msgstr "APAGAR COLEÇÃO"
 
-msgid "SCRAPE"
-msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
@@ -2283,90 +2373,6 @@ msgstr "PAREAR DISPOSITIVO BLUETOOTH"
 
 msgid "PAIR"
 msgstr "EMPARELHAR"
-
-msgid "IMAGE SOURCE"
-msgstr "FONTE DA MÍDIA DE IMAGEM"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURA DE TELA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "IMAGEM DO TÍTULO"
-
-msgid "MIX V1"
-msgstr "COMBINAÇÃO 1"
-
-msgid "MIX V2"
-msgstr "COMBINAÇÃO 2"
-
-msgid "BOX 2D"
-msgstr "CAIXA 2D"
-
-msgid "BOX 3D"
-msgstr "CAIXA 3D"
-
-msgid "FAN ART"
-msgstr "ARTE DE FÃ"
-
-msgid "BOX SOURCE"
-msgstr "FONTE DA MÍDIA DA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "FONTE DA MÍDIA DO LOGOTIPO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "LOGOTIPO"
-
-msgid "MARQUEE"
-msgstr "LETREIRO"
-
-msgid "PREFERED REGION"
-msgstr "PRIORIZAR REGIÃO"
-
-msgid "OVERWRITE NAMES"
-msgstr "SOBRESCREVER NOMES"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SOBRESCREVER DESCRIÇÕES"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SOBRESCREVER MÍDIAS"
-
-msgid "SCRAPE FOR"
-msgstr "OBTER MÍDIAS PARA"
-
-msgid "SHORT NAME"
-msgstr "NOME ABREVIADO"
-
-msgid "COMMUNITY RATING"
-msgstr "AVALIAÇÃO DA COMUNIDADE"
-
-msgid "VIDEO"
-msgstr "VÍDEO"
-
-msgid "FANART"
-msgstr "FÃ-ARTE"
-
-msgid "BEZEL (16:9)"
-msgstr "MOLDURA (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "PARTE DE TRÁS DA CAIXA"
-
-msgid "MAP"
-msgstr "MAPA DO JOGO"
-
-msgid "MANUAL"
-msgstr "MANUAL DE INSTRUÇÕES"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
-
-msgid "ACCOUNT"
-msgstr "CONTA"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
@@ -3128,6 +3134,9 @@ msgstr "MÍDIAS AUSENTES"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOCÊ QUER TROCAR DE TELA?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "PROCURANDO MÍDIAS"
 
@@ -3615,6 +3624,12 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "AJUSTES DO SCRAPER"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "CONTA"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "O MODO INTERFACE DO USUÁRIO ESTÁ AGORA DESBLOQUEADO"

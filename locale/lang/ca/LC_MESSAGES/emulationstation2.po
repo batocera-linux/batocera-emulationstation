@@ -757,6 +757,15 @@ msgstr "NO S'HA TROBAT CAP ACTUALITZACIÓ"
 msgid "SCRAPER"
 msgstr "RASPADOR"
 
+msgid "SCRAPE"
+msgstr "OBTENIR CONTINGUTS DEL JOC"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "anar enrere"
+
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DADES DE CONTINGUTS DE JOC"
 
@@ -765,9 +774,6 @@ msgstr "ORIGEN"
 
 msgid "SCRAPE FROM"
 msgstr "OBTENIR CONTINGUTS DE"
-
-msgid "SCRAPER SETTINGS"
-msgstr "CONFIGURACIONS DEL RASPADOR"
 
 msgid "FILTERS"
 msgstr "FILTRES"
@@ -814,8 +820,101 @@ msgstr "INICIAR L’OBTENCIÓ DE DADES"
 msgid "START"
 msgstr "COMENÇA"
 
-msgid "go back"
-msgstr "anar enrere"
+msgid "IMAGE SOURCE"
+msgstr "ORIGEN DE LA IMATGE"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "CAPTURA DEL TÍTOL"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "CAPSA 2D"
+
+msgid "BOX 3D"
+msgstr "CAPSA 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "ORIGEN DE LA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "ORIGEN DEL LOGO"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "RODA"
+
+msgid "MARQUEE"
+msgstr "MARQUESINA"
+
+msgid "PREFERED REGION"
+msgstr "REGIÓ PREFERENT"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOBREESCRIURE DESCRIPCIONS"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOBREESCRIURE ELS MITJANS"
+
+msgid "SCRAPE FOR"
+msgstr "OBTENIR MULTIMÈDIA DE"
+
+msgid "SHORT NAME"
+msgstr "NOM CURT"
+
+msgid "COMMUNITY RATING"
+msgstr "PUNTUACIÓ DE LA COMUNITAT"
+
+msgid "VIDEO"
+msgstr "VÍDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "MOTLLURA (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "CONTRACOBERTA DE LA CAIXA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "AJUSTOS PAD-A-TECLA"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1061,9 +1160,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1630,9 +1726,6 @@ msgstr "Ajust actual"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ACTUALITZAR GAMELISTS"
-
-msgid "ACCOUNTS"
-msgstr ""
 
 msgid "BIOS SETTINGS"
 msgstr ""
@@ -2255,9 +2348,6 @@ msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA …"
 msgid "DELETE COLLECTION"
 msgstr "ELIMINAR COL·LECCIÓ"
 
-msgid "SCRAPE"
-msgstr "OBTENIR CONTINGUTS DEL JOC"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIONS AVANÇADES DEL JOC"
 
@@ -2281,90 +2371,6 @@ msgstr "APARELLAR UN DISPOSITIU BLUETOOTH"
 
 msgid "PAIR"
 msgstr "ENLLAÇAR"
-
-msgid "IMAGE SOURCE"
-msgstr "ORIGEN DE LA IMATGE"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "CAPTURA DEL TÍTOL"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "CAPSA 2D"
-
-msgid "BOX 3D"
-msgstr "CAPSA 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "ORIGEN DE LA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "ORIGEN DEL LOGO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "RODA"
-
-msgid "MARQUEE"
-msgstr "MARQUESINA"
-
-msgid "PREFERED REGION"
-msgstr "REGIÓ PREFERENT"
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SOBREESCRIURE DESCRIPCIONS"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SOBREESCRIURE ELS MITJANS"
-
-msgid "SCRAPE FOR"
-msgstr "OBTENIR MULTIMÈDIA DE"
-
-msgid "SHORT NAME"
-msgstr "NOM CURT"
-
-msgid "COMMUNITY RATING"
-msgstr "PUNTUACIÓ DE LA COMUNITAT"
-
-msgid "VIDEO"
-msgstr "VÍDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "MOTLLURA (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "CONTRACOBERTA DE LA CAIXA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTOS PAD-A-TECLA"
-
-msgid "ACCOUNT"
-msgstr "COMPTE"
 
 msgid "NO DEVICE FOUND"
 msgstr "DISPOSITIU NO TROBAT"
@@ -3124,6 +3130,9 @@ msgstr ""
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOL ALTERNAR LA PANTALLA?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "OBTENINT CONTINGUTS"
 
@@ -3611,6 +3620,12 @@ msgid ""
 msgstr ""
 "CALIBRANT PISTOLA\n"
 "Dispari als objectius per a calibrar"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "CONFIGURACIONS DEL RASPADOR"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "COMPTE"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "EL MODE D'INTERFÍCIE D'USUARI JA ESTÀ DESBLOQUEJAT"

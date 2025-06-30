@@ -761,6 +761,15 @@ msgstr "SEN ACTUALIZACIÓN DISPOÑÍBEL"
 msgid "SCRAPER"
 msgstr "AUDITADOR"
 
+msgid "SCRAPE"
+msgstr "AUDITAR"
+
+msgid "ACCOUNTS"
+msgstr "CONTAS"
+
+msgid "go back"
+msgstr "retroceder"
+
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DATOS ONDE AUDITAR"
 
@@ -769,9 +778,6 @@ msgstr "ORIXE"
 
 msgid "SCRAPE FROM"
 msgstr "AUDITAR DENDE"
-
-msgid "SCRAPER SETTINGS"
-msgstr "AXUSTES DO AUDITADOR"
 
 msgid "FILTERS"
 msgstr "FILTROS"
@@ -818,8 +824,101 @@ msgstr "AUDITAR AGORA"
 msgid "START"
 msgstr "COMEZAR"
 
-msgid "go back"
-msgstr "retroceder"
+msgid "IMAGE SOURCE"
+msgstr "ORIXE DA IMAXE"
+
+msgid "SCREENSHOT"
+msgstr "INSTANTÁNEA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "INSTANTÁNEA DO TÍTULO"
+
+msgid "MIX V1"
+msgstr "MESTURA V1"
+
+msgid "MIX V2"
+msgstr "MESTURA V2"
+
+msgid "BOX 2D"
+msgstr "CAIXA 2D"
+
+msgid "BOX 3D"
+msgstr "CAIXA 3D"
+
+msgid "FAN ART"
+msgstr "DESEÑO NON OFICIAL"
+
+msgid "BOX SOURCE"
+msgstr "ORIXE DA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "ORIXE DO LOGO"
+
+msgid "HD WHEEL"
+msgstr "RODA HD"
+
+msgid "WHEEL"
+msgstr "CARRUSEL"
+
+msgid "MARQUEE"
+msgstr "MARQUESIÑA"
+
+msgid "PREFERED REGION"
+msgstr "REXIÓN PREFERIDA"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SOBREESCRIBIR NOMES"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOBREESCRIBIR DESCRICIÓNS"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOBREESCRIBIR MEDIOS"
+
+msgid "SCRAPE FOR"
+msgstr "AUDITAR PARA"
+
+msgid "SHORT NAME"
+msgstr "NOME CURTO"
+
+msgid "COMMUNITY RATING"
+msgstr "VALORACIÓN DA COMUNIDADE"
+
+msgid "VIDEO"
+msgstr "VÍDEO"
+
+msgid "FANART"
+msgstr "DESEÑO NON OFICIAL"
+
+msgid "BEZEL (16:9)"
+msgstr "BISEL (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "CAIXA TRASEIRA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "AXUSTES MANDO A TECLA"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1065,9 +1164,6 @@ msgstr "servidor dmd"
 
 msgid "FORMAT"
 msgstr "FORMATO"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "tamaño da matriz dmd"
@@ -1634,9 +1730,6 @@ msgstr "Axuste actual"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ACTUALIZAR LISTAS DE XOGOS"
-
-msgid "ACCOUNTS"
-msgstr "CONTAS"
 
 msgid "BIOS SETTINGS"
 msgstr "AXUSTES DE BIOS"
@@ -2257,9 +2350,6 @@ msgstr "ENGADIR A COLECCIÓN PERSONALIZADA..."
 msgid "DELETE COLLECTION"
 msgstr "BORRAR COLECCIÓN"
 
-msgid "SCRAPE"
-msgstr "AUDITAR"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIÓNS AVANZADAS DO XOGO"
 
@@ -2283,90 +2373,6 @@ msgstr "EMPARELLAR DISPOSITIVO BLUETOOTH"
 
 msgid "PAIR"
 msgstr "EMPARELLAR"
-
-msgid "IMAGE SOURCE"
-msgstr "ORIXE DA IMAXE"
-
-msgid "SCREENSHOT"
-msgstr "INSTANTÁNEA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "INSTANTÁNEA DO TÍTULO"
-
-msgid "MIX V1"
-msgstr "MESTURA V1"
-
-msgid "MIX V2"
-msgstr "MESTURA V2"
-
-msgid "BOX 2D"
-msgstr "CAIXA 2D"
-
-msgid "BOX 3D"
-msgstr "CAIXA 3D"
-
-msgid "FAN ART"
-msgstr "DESEÑO NON OFICIAL"
-
-msgid "BOX SOURCE"
-msgstr "ORIXE DA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "ORIXE DO LOGO"
-
-msgid "HD WHEEL"
-msgstr "RODA HD"
-
-msgid "WHEEL"
-msgstr "CARRUSEL"
-
-msgid "MARQUEE"
-msgstr "MARQUESIÑA"
-
-msgid "PREFERED REGION"
-msgstr "REXIÓN PREFERIDA"
-
-msgid "OVERWRITE NAMES"
-msgstr "SOBREESCRIBIR NOMES"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SOBREESCRIBIR DESCRICIÓNS"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SOBREESCRIBIR MEDIOS"
-
-msgid "SCRAPE FOR"
-msgstr "AUDITAR PARA"
-
-msgid "SHORT NAME"
-msgstr "NOME CURTO"
-
-msgid "COMMUNITY RATING"
-msgstr "VALORACIÓN DA COMUNIDADE"
-
-msgid "VIDEO"
-msgstr "VÍDEO"
-
-msgid "FANART"
-msgstr "DESEÑO NON OFICIAL"
-
-msgid "BEZEL (16:9)"
-msgstr "BISEL (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "CAIXA TRASEIRA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "AXUSTES MANDO A TECLA"
-
-msgid "ACCOUNT"
-msgstr "CONTA"
 
 msgid "NO DEVICE FOUND"
 msgstr "NON SE ATOPA DISPOSITIVO"
@@ -3125,6 +3131,9 @@ msgstr "FALTAN MEDIOS"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "QUERES CAMBIAR A PANTALLA ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "AUDITANDO"
 
@@ -3611,6 +3620,12 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "AXUSTES DO AUDITADOR"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "CONTA"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "O MODO DE INTERFACE DE USUARIO ESTÁ DESBLOQUEADO"

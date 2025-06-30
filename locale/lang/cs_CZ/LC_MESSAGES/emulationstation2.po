@@ -750,6 +750,15 @@ msgstr "NENÍ K DISPOZICI ŽÁDNÁ AKTUALIZACE"
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
 
+msgid "SCRAPE"
+msgstr "VYHLEDÁVAČ"
+
+msgid "ACCOUNTS"
+msgstr "ÚČTY"
+
+msgid "go back"
+msgstr "vrátit se zpět"
+
 msgid "SCRAPING DATABASE"
 msgstr "VYHLEDAT DATABÁZI"
 
@@ -758,9 +767,6 @@ msgstr "ZDROJ"
 
 msgid "SCRAPE FROM"
 msgstr "VYHLEDÁVÁNÍ Z"
-
-msgid "SCRAPER SETTINGS"
-msgstr "NASTAVENÍ VYHLEDÁVAČE"
 
 msgid "FILTERS"
 msgstr "FILTRY"
@@ -807,8 +813,101 @@ msgstr "VYHLEDAT"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "vrátit se zpět"
+msgid "IMAGE SOURCE"
+msgstr "ZDROJ OBRÁZKU"
+
+msgid "SCREENSHOT"
+msgstr "SNÍMEK OBRAZOVKY"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITULNÍ SNÍMEK OBRAZOVKY"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "OBAL 2D"
+
+msgid "BOX 3D"
+msgstr "OBAL 3D"
+
+msgid "FAN ART"
+msgstr "OBRÁZEK FANOUŠKŮ"
+
+msgid "BOX SOURCE"
+msgstr "ZDROJ OBALU"
+
+msgid "LOGO SOURCE"
+msgstr "ZDROJ LOGA"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "KOLO"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "PREFEROVANÁ OBLAST"
+
+msgid "AUTO"
+msgstr "AUTOMATICKY"
+
+msgid "OVERWRITE NAMES"
+msgstr "PŘEPSAT JMÉNA"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "PŘEPSAT POPISY"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "PŘEPSAT MÉDIA"
+
+msgid "SCRAPE FOR"
+msgstr "VYHLEDAT PRO"
+
+msgid "SHORT NAME"
+msgstr "KRÁTKÝ NÁZEV"
+
+msgid "COMMUNITY RATING"
+msgstr "HODNOCENÍ SPOLKU"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "UMĚNÍ FANOUŠKŮ"
+
+msgid "BEZEL (16:9)"
+msgstr "RÁMEČEK (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "BOX ZADNÍ STRANA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUÁL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "NASTAVENÍ KLÁVES OVLADAČE"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1054,9 +1153,6 @@ msgstr "server dmd"
 
 msgid "FORMAT"
 msgstr "FORMÁT"
-
-msgid "AUTO"
-msgstr "AUTOMATICKY"
 
 msgid "dmd matrix size"
 msgstr "velikost dmd matrix"
@@ -1616,9 +1712,6 @@ msgstr "Aktuální nastavení"
 
 msgid "UPDATE GAMELISTS"
 msgstr "AKTUALIZOVAT SEZNAMY HER"
-
-msgid "ACCOUNTS"
-msgstr "ÚČTY"
 
 msgid "BIOS SETTINGS"
 msgstr "NASTAVENÍ BIOSU"
@@ -2238,9 +2331,6 @@ msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
 msgid "DELETE COLLECTION"
 msgstr "SMAZAT SBÍRKU"
 
-msgid "SCRAPE"
-msgstr "VYHLEDÁVAČ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "POKROČILÉ HERNÍ NASTAVENÍ"
 
@@ -2264,90 +2354,6 @@ msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
 
 msgid "PAIR"
 msgstr "PÁROVÁNÍ"
-
-msgid "IMAGE SOURCE"
-msgstr "ZDROJ OBRÁZKU"
-
-msgid "SCREENSHOT"
-msgstr "SNÍMEK OBRAZOVKY"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITULNÍ SNÍMEK OBRAZOVKY"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "OBAL 2D"
-
-msgid "BOX 3D"
-msgstr "OBAL 3D"
-
-msgid "FAN ART"
-msgstr "OBRÁZEK FANOUŠKŮ"
-
-msgid "BOX SOURCE"
-msgstr "ZDROJ OBALU"
-
-msgid "LOGO SOURCE"
-msgstr "ZDROJ LOGA"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "KOLO"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "PREFEROVANÁ OBLAST"
-
-msgid "OVERWRITE NAMES"
-msgstr "PŘEPSAT JMÉNA"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "PŘEPSAT POPISY"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "PŘEPSAT MÉDIA"
-
-msgid "SCRAPE FOR"
-msgstr "VYHLEDAT PRO"
-
-msgid "SHORT NAME"
-msgstr "KRÁTKÝ NÁZEV"
-
-msgid "COMMUNITY RATING"
-msgstr "HODNOCENÍ SPOLKU"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "UMĚNÍ FANOUŠKŮ"
-
-msgid "BEZEL (16:9)"
-msgstr "RÁMEČEK (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "BOX ZADNÍ STRANA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "MANUÁL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "NASTAVENÍ KLÁVES OVLADAČE"
-
-msgid "ACCOUNT"
-msgstr "ÚČET"
 
 msgid "NO DEVICE FOUND"
 msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ"
@@ -3111,6 +3117,9 @@ msgstr "CHYBĚJÍCÍ MÉDIA"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "CHCETE PŘEPNOUT OBRAZOVKU ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
 
@@ -3605,6 +3614,12 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "NASTAVENÍ VYHLEDÁVAČE"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "ÚČET"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "REŽIM UŽIVATELSKÉHO ROZHRANÍ JE NYNÍ ODEMČENÝ"

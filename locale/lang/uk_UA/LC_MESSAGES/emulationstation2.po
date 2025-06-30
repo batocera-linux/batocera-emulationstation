@@ -750,6 +750,15 @@ msgstr "НЕМАЄ ОНОВЛЕНЬ"
 msgid "SCRAPER"
 msgstr "СКРАПЕР"
 
+msgid "SCRAPE"
+msgstr "ЗАВАНТАЖИТИ ДАННІ"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "назад"
+
 msgid "SCRAPING DATABASE"
 msgstr "БАЗА ДАНИХ ДЛЯ СКРАПЕРА"
 
@@ -758,9 +767,6 @@ msgstr "ДЖЕРЕЛО"
 
 msgid "SCRAPE FROM"
 msgstr "ЗАВАНТАЖЕННЯ З"
-
-msgid "SCRAPER SETTINGS"
-msgstr "НАЛАШТУВАННЯ СКРАПЕРА"
 
 msgid "FILTERS"
 msgstr "ФІЛЬТРИ"
@@ -807,8 +813,101 @@ msgstr "ЗАВАНТАЖИТИ ДАНІ"
 msgid "START"
 msgstr "ПОЧАТИ"
 
-msgid "go back"
-msgstr "назад"
+msgid "IMAGE SOURCE"
+msgstr "СТИЛЬ ЗОБРАЖЕННЯ"
+
+msgid "SCREENSHOT"
+msgstr "СКРІНШОТ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "СКРІНШОТ ГОЛОВНОГО МЕНЮ"
+
+msgid "MIX V1"
+msgstr "ЗМІШАНИЙ 1"
+
+msgid "MIX V2"
+msgstr "ЗМІШАНИЙ 2"
+
+msgid "BOX 2D"
+msgstr "ОБГОРТКИ 2D"
+
+msgid "BOX 3D"
+msgstr "ОБГОРТКИ 3D"
+
+msgid "FAN ART"
+msgstr "ФАН АРТ"
+
+msgid "BOX SOURCE"
+msgstr "СТИЛЬ ОБГОРТКИ"
+
+msgid "LOGO SOURCE"
+msgstr "СТИЛЬ ЛОГО"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "КОЛЕСО"
+
+msgid "MARQUEE"
+msgstr "БАНЕР"
+
+msgid "PREFERED REGION"
+msgstr "БАЖАНИЙ РЕГІОН"
+
+msgid "AUTO"
+msgstr "АВТО"
+
+msgid "OVERWRITE NAMES"
+msgstr "ПЕРЕЗАПИСАТИ НАЗВИ"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "ПЕРЕЗАПИСАТИ ОПИСИ"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "ПЕРЕЗАПИСАТИ МЕДІА"
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr ""
+
+msgid "COMMUNITY RATING"
+msgstr ""
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1051,9 +1150,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "АВТО"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1591,9 +1687,6 @@ msgstr ""
 
 msgid "UPDATE GAMELISTS"
 msgstr "ОНОВИТИ СПИСКИ ІГР"
-
-msgid "ACCOUNTS"
-msgstr ""
 
 msgid "BIOS SETTINGS"
 msgstr ""
@@ -2209,9 +2302,6 @@ msgstr ""
 msgid "DELETE COLLECTION"
 msgstr "ВИДАЛИТИ КОЛЕКЦІЮ"
 
-msgid "SCRAPE"
-msgstr "ЗАВАНТАЖИТИ ДАННІ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
 
@@ -2235,90 +2325,6 @@ msgstr "СТВОРИТИ ПАРУ З BLUETOOTH ПРИСТРОЄМ"
 
 msgid "PAIR"
 msgstr "СТВОРИТИ ПАРУ"
-
-msgid "IMAGE SOURCE"
-msgstr "СТИЛЬ ЗОБРАЖЕННЯ"
-
-msgid "SCREENSHOT"
-msgstr "СКРІНШОТ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "СКРІНШОТ ГОЛОВНОГО МЕНЮ"
-
-msgid "MIX V1"
-msgstr "ЗМІШАНИЙ 1"
-
-msgid "MIX V2"
-msgstr "ЗМІШАНИЙ 2"
-
-msgid "BOX 2D"
-msgstr "ОБГОРТКИ 2D"
-
-msgid "BOX 3D"
-msgstr "ОБГОРТКИ 3D"
-
-msgid "FAN ART"
-msgstr "ФАН АРТ"
-
-msgid "BOX SOURCE"
-msgstr "СТИЛЬ ОБГОРТКИ"
-
-msgid "LOGO SOURCE"
-msgstr "СТИЛЬ ЛОГО"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "КОЛЕСО"
-
-msgid "MARQUEE"
-msgstr "БАНЕР"
-
-msgid "PREFERED REGION"
-msgstr "БАЖАНИЙ РЕГІОН"
-
-msgid "OVERWRITE NAMES"
-msgstr "ПЕРЕЗАПИСАТИ НАЗВИ"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "ПЕРЕЗАПИСАТИ ОПИСИ"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "ПЕРЕЗАПИСАТИ МЕДІА"
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr ""
-
-msgid "COMMUNITY RATING"
-msgstr ""
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr ""
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
-msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
@@ -3067,6 +3073,9 @@ msgstr ""
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -3557,6 +3566,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "НАЛАШТУВАННЯ СКРАПЕРА"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "РЕЖИМ КОРИСТУВАЧА РОЗБЛОКОВАНО"

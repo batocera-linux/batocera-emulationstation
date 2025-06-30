@@ -751,6 +751,15 @@ msgstr "INGEN UPPDATERING TILLGÄNGLIG"
 msgid "SCRAPER"
 msgstr "SKRAPNING"
 
+msgid "SCRAPE"
+msgstr "SKRAPNING"
+
+msgid "ACCOUNTS"
+msgstr "KONTON"
+
+msgid "go back"
+msgstr "gå tillbaka"
+
 msgid "SCRAPING DATABASE"
 msgstr "SKRAPNINGSDATABAS"
 
@@ -759,9 +768,6 @@ msgstr "KÄLLA"
 
 msgid "SCRAPE FROM"
 msgstr "SKRAPA FRÅN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "SKRAPNINGSINSTÄLLNINGAR"
 
 msgid "FILTERS"
 msgstr "FILTER"
@@ -808,8 +814,101 @@ msgstr "SKRAPA NU"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "gå tillbaka"
+msgid "IMAGE SOURCE"
+msgstr "BILDKÄLLA"
+
+msgid "SCREENSHOT"
+msgstr "SKÄRMDUMP"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITELSKÄRMDUMP"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "2D-BOX"
+
+msgid "BOX 3D"
+msgstr "3D-BOX"
+
+msgid "FAN ART"
+msgstr "ENTHUSIASTKONST"
+
+msgid "BOX SOURCE"
+msgstr "BOXKÄLLA"
+
+msgid "LOGO SOURCE"
+msgstr "LOGOTYPKÄLLA"
+
+msgid "HD WHEEL"
+msgstr "HD WHEEL"
+
+msgid "WHEEL"
+msgstr "HJUL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "FÖREDRAGEN REGION"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SKRIVA ÖVER NAMN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SKRIV ÖVER BESKRIVNINGAR"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SKRIV ÖVER MEDIER"
+
+msgid "SCRAPE FOR"
+msgstr "SKRAPA EFTER"
+
+msgid "SHORT NAME"
+msgstr "KORT NAMN"
+
+msgid "COMMUNITY RATING"
+msgstr "ANVÄNDARBETYG"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "INFATTNING (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "FODRALBAKSIDA"
+
+msgid "MAP"
+msgstr "KARTA"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "PADTOKEYINSTÄLLNINGAR"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1055,9 +1154,6 @@ msgstr "dmd-server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd-matris storlek"
@@ -1615,9 +1711,6 @@ msgstr "Nuvarande inställning"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPPDATERA SPELLISTAN"
-
-msgid "ACCOUNTS"
-msgstr "KONTON"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS-INSTÄLLNINGAR"
@@ -2238,9 +2331,6 @@ msgstr "LÄGG TILL I ANPASSAD SAMLING..."
 msgid "DELETE COLLECTION"
 msgstr "RADERA SAMLING"
 
-msgid "SCRAPE"
-msgstr "SKRAPNING"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "AVANCERADE ALTERNATIV PER SPEL"
 
@@ -2264,90 +2354,6 @@ msgstr "PARA EN BLUETOOTH-ENHET"
 
 msgid "PAIR"
 msgstr "PARA"
-
-msgid "IMAGE SOURCE"
-msgstr "BILDKÄLLA"
-
-msgid "SCREENSHOT"
-msgstr "SKÄRMDUMP"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITELSKÄRMDUMP"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "2D-BOX"
-
-msgid "BOX 3D"
-msgstr "3D-BOX"
-
-msgid "FAN ART"
-msgstr "ENTHUSIASTKONST"
-
-msgid "BOX SOURCE"
-msgstr "BOXKÄLLA"
-
-msgid "LOGO SOURCE"
-msgstr "LOGOTYPKÄLLA"
-
-msgid "HD WHEEL"
-msgstr "HD WHEEL"
-
-msgid "WHEEL"
-msgstr "HJUL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "FÖREDRAGEN REGION"
-
-msgid "OVERWRITE NAMES"
-msgstr "SKRIVA ÖVER NAMN"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SKRIV ÖVER BESKRIVNINGAR"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SKRIV ÖVER MEDIER"
-
-msgid "SCRAPE FOR"
-msgstr "SKRAPA EFTER"
-
-msgid "SHORT NAME"
-msgstr "KORT NAMN"
-
-msgid "COMMUNITY RATING"
-msgstr "ANVÄNDARBETYG"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "INFATTNING (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "FODRALBAKSIDA"
-
-msgid "MAP"
-msgstr "KARTA"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "PADTOKEYINSTÄLLNINGAR"
-
-msgid "ACCOUNT"
-msgstr "KONTO"
 
 msgid "NO DEVICE FOUND"
 msgstr "INGEN ENHET HITTADES"
@@ -2925,8 +2931,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3105,6 +3111,9 @@ msgstr "SAKNAR MEDIER"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VILL DU BYTA SKÄRM?"
+
+msgid "INVALID CREDENTIALS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SKRAPAR"
@@ -3592,6 +3601,12 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "SKRAPNINGSINSTÄLLNINGAR"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "KONTO"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "ANVÄNDARGRÄNSNITTSLÄGET ÄR NU OLÅST"

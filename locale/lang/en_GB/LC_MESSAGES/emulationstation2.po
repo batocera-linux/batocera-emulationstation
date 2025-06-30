@@ -750,6 +750,15 @@ msgstr "NO UPDATE AVAILABLE"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPE"
+
+msgid "ACCOUNTS"
+msgstr "ACCOUNTS"
+
+msgid "go back"
+msgstr "go back"
+
 msgid "SCRAPING DATABASE"
 msgstr "SCRAPING DATABASE"
 
@@ -758,9 +767,6 @@ msgstr "SOURCE"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPE FROM"
-
-msgid "SCRAPER SETTINGS"
-msgstr "SCRAPER SETTINGS"
 
 msgid "FILTERS"
 msgstr "FILTERS"
@@ -807,8 +813,101 @@ msgstr "SCRAPE NOW"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "go back"
+msgid "IMAGE SOURCE"
+msgstr "IMAGE SOURCE"
+
+msgid "SCREENSHOT"
+msgstr "SCREENSHOT"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITLE SCREENSHOT"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOX 2D"
+
+msgid "BOX 3D"
+msgstr "BOX 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "BOX SOURCE"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO SOURCE"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "WHEEL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "PREFERED REGION"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "OVERWRITE NAMES"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "OVERWRITE DESCRIPTIONS"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "OVERWRITE MEDIAS"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPE FOR"
+
+msgid "SHORT NAME"
+msgstr "SHORT NAME"
+
+msgid "COMMUNITY RATING"
+msgstr "COMMUNITY RATING"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "BEZEL (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "BOX BACKSIDE"
+
+msgid "MAP"
+msgstr "MAP"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "PADTOKEY SETTINGS"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1054,9 +1153,6 @@ msgstr "dmd server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd matrix size"
@@ -1609,9 +1705,6 @@ msgstr "Current setting"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPDATE GAMELISTS"
-
-msgid "ACCOUNTS"
-msgstr "ACCOUNTS"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS SETTINGS"
@@ -2229,9 +2322,6 @@ msgstr "ADD TO CUSTOM COLLECTION..."
 msgid "DELETE COLLECTION"
 msgstr "DELETE COLLECTION"
 
-msgid "SCRAPE"
-msgstr "SCRAPE"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ADVANCED GAME OPTIONS"
 
@@ -2255,90 +2345,6 @@ msgstr "PAIR A BLUETOOTH DEVICE"
 
 msgid "PAIR"
 msgstr "PAIR"
-
-msgid "IMAGE SOURCE"
-msgstr "IMAGE SOURCE"
-
-msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITLE SCREENSHOT"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "BOX 2D"
-
-msgid "BOX 3D"
-msgstr "BOX 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "BOX SOURCE"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO SOURCE"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "WHEEL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "PREFERED REGION"
-
-msgid "OVERWRITE NAMES"
-msgstr "OVERWRITE NAMES"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "OVERWRITE DESCRIPTIONS"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "OVERWRITE MEDIAS"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPE FOR"
-
-msgid "SHORT NAME"
-msgstr "SHORT NAME"
-
-msgid "COMMUNITY RATING"
-msgstr "COMMUNITY RATING"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "BEZEL (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "BOX BACKSIDE"
-
-msgid "MAP"
-msgstr "MAP"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "PADTOKEY SETTINGS"
-
-msgid "ACCOUNT"
-msgstr "ACCOUNT"
 
 msgid "NO DEVICE FOUND"
 msgstr "NO DEVICE FOUND"
@@ -3097,6 +3103,9 @@ msgstr "MISSING MEDIAS"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "DO YOU WANT TO SWITCH THE SCREEN?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -3583,6 +3592,12 @@ msgid ""
 msgstr ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "SCRAPER SETTINGS"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "ACCOUNT"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "THE USER INTERFACE MODE IS NOW UNLOCKED"

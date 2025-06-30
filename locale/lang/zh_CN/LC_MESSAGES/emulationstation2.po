@@ -747,6 +747,15 @@ msgstr "暂无可用更新"
 msgid "SCRAPER"
 msgstr "抓取元数据"
 
+msgid "SCRAPE"
+msgstr "抓取封面元数据"
+
+msgid "ACCOUNTS"
+msgstr "账户"
+
+msgid "go back"
+msgstr "返回"
+
 msgid "SCRAPING DATABASE"
 msgstr "抓取数据库"
 
@@ -755,9 +764,6 @@ msgstr "来源"
 
 msgid "SCRAPE FROM"
 msgstr "游戏数据来源网站"
-
-msgid "SCRAPER SETTINGS"
-msgstr "抓取设置"
 
 msgid "FILTERS"
 msgstr "筛选器"
@@ -804,8 +810,101 @@ msgstr "开始抓取"
 msgid "START"
 msgstr "开始"
 
-msgid "go back"
-msgstr "返回"
+msgid "IMAGE SOURCE"
+msgstr "图片数据"
+
+msgid "SCREENSHOT"
+msgstr "截图"
+
+msgid "TITLE SCREENSHOT"
+msgstr "标题画面截图"
+
+msgid "MIX V1"
+msgstr "V1 MIX"
+
+msgid "MIX V2"
+msgstr "V2 MIX"
+
+msgid "BOX 2D"
+msgstr "2D 盒子"
+
+msgid "BOX 3D"
+msgstr "3D 盒子"
+
+msgid "FAN ART"
+msgstr "同人作品"
+
+msgid "BOX SOURCE"
+msgstr "盒子封面数据"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO数据"
+
+msgid "HD WHEEL"
+msgstr "HD车轮"
+
+msgid "WHEEL"
+msgstr "方向盘"
+
+msgid "MARQUEE"
+msgstr "广告牌（marquee）"
+
+msgid "PREFERED REGION"
+msgstr "首选区域"
+
+msgid "AUTO"
+msgstr "自动"
+
+msgid "OVERWRITE NAMES"
+msgstr "覆盖名称"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "覆盖描述"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "覆盖媒体"
+
+msgid "SCRAPE FOR"
+msgstr "抓取数据"
+
+msgid "SHORT NAME"
+msgstr "短名称"
+
+msgid "COMMUNITY RATING"
+msgstr "社区评级"
+
+msgid "VIDEO"
+msgstr "视频"
+
+msgid "FANART"
+msgstr "同人"
+
+msgid "BEZEL (16:9)"
+msgstr "遮罩（16:9）"
+
+msgid "BOX BACKSIDE"
+msgstr "盒子背面"
+
+msgid "MAP"
+msgstr "地图"
+
+msgid "MANUAL"
+msgstr "手册"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "按键设置"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1050,9 +1149,6 @@ msgstr "DMD服务器"
 
 msgid "FORMAT"
 msgstr "格式"
-
-msgid "AUTO"
-msgstr "自动"
 
 msgid "dmd matrix size"
 msgstr "dmd矩阵大小"
@@ -1594,9 +1690,6 @@ msgstr "当前设置"
 
 msgid "UPDATE GAMELISTS"
 msgstr "更新游戏列表"
-
-msgid "ACCOUNTS"
-msgstr "账户"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS设置"
@@ -2212,9 +2305,6 @@ msgstr "添加到自定义合辑..."
 msgid "DELETE COLLECTION"
 msgstr "删除合辑"
 
-msgid "SCRAPE"
-msgstr "抓取封面元数据"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏设置选项"
 
@@ -2238,90 +2328,6 @@ msgstr "配对蓝牙手柄"
 
 msgid "PAIR"
 msgstr "配对"
-
-msgid "IMAGE SOURCE"
-msgstr "图片数据"
-
-msgid "SCREENSHOT"
-msgstr "截图"
-
-msgid "TITLE SCREENSHOT"
-msgstr "标题画面截图"
-
-msgid "MIX V1"
-msgstr "V1 MIX"
-
-msgid "MIX V2"
-msgstr "V2 MIX"
-
-msgid "BOX 2D"
-msgstr "2D 盒子"
-
-msgid "BOX 3D"
-msgstr "3D 盒子"
-
-msgid "FAN ART"
-msgstr "同人作品"
-
-msgid "BOX SOURCE"
-msgstr "盒子封面数据"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO数据"
-
-msgid "HD WHEEL"
-msgstr "HD车轮"
-
-msgid "WHEEL"
-msgstr "方向盘"
-
-msgid "MARQUEE"
-msgstr "广告牌（marquee）"
-
-msgid "PREFERED REGION"
-msgstr "首选区域"
-
-msgid "OVERWRITE NAMES"
-msgstr "覆盖名称"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "覆盖描述"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "覆盖媒体"
-
-msgid "SCRAPE FOR"
-msgstr "抓取数据"
-
-msgid "SHORT NAME"
-msgstr "短名称"
-
-msgid "COMMUNITY RATING"
-msgstr "社区评级"
-
-msgid "VIDEO"
-msgstr "视频"
-
-msgid "FANART"
-msgstr "同人"
-
-msgid "BEZEL (16:9)"
-msgstr "遮罩（16:9）"
-
-msgid "BOX BACKSIDE"
-msgstr "盒子背面"
-
-msgid "MAP"
-msgstr "地图"
-
-msgid "MANUAL"
-msgstr "手册"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "按键设置"
-
-msgid "ACCOUNT"
-msgstr "帐户"
 
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
@@ -3072,6 +3078,9 @@ msgstr "缺少媒体"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "你想切换屏幕吗？"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "抓取"
 
@@ -3550,6 +3559,12 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "抓取设置"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "帐户"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "用户界面模式现已解锁"

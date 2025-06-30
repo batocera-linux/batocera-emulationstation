@@ -753,6 +753,15 @@ msgstr "YENİ GÜNCELLEME YOK"
 msgid "SCRAPER"
 msgstr "OYUN BİLGİLERİ"
 
+msgid "SCRAPE"
+msgstr "BİLGİ GETİRİCİ"
+
+msgid "ACCOUNTS"
+msgstr "HESAPLAR"
+
+msgid "go back"
+msgstr "geri git"
+
 msgid "SCRAPING DATABASE"
 msgstr "OYUN BİLGİLERİ VERİTABANI"
 
@@ -761,9 +770,6 @@ msgstr "KAYNAK"
 
 msgid "SCRAPE FROM"
 msgstr "OYUN BİLGİLERİNİ ŞURADAN AL"
-
-msgid "SCRAPER SETTINGS"
-msgstr "OYUN BİLGİ AYARLARI"
 
 msgid "FILTERS"
 msgstr "FİLTRELER"
@@ -810,8 +816,101 @@ msgstr "BİLGİLERİ ŞİMDİ GETİR"
 msgid "START"
 msgstr "BAŞLAT"
 
-msgid "go back"
-msgstr "geri git"
+msgid "IMAGE SOURCE"
+msgstr "RESİM KAYNAĞI"
+
+msgid "SCREENSHOT"
+msgstr "EKRAN GÖRÜNTÜSÜ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "EKRAN GÖRÜNTÜSÜ BAŞLIĞI"
+
+msgid "MIX V1"
+msgstr "KARIŞIK V1"
+
+msgid "MIX V2"
+msgstr "KARIŞIK V2"
+
+msgid "BOX 2D"
+msgstr "2D KUTU"
+
+msgid "BOX 3D"
+msgstr "3D KUTU"
+
+msgid "FAN ART"
+msgstr "FAN GÖRSELİ"
+
+msgid "BOX SOURCE"
+msgstr "KUTU KAYNAĞI"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO KAYNAĞI"
+
+msgid "HD WHEEL"
+msgstr "HD DİREKSİYON"
+
+msgid "WHEEL"
+msgstr "DİREKSİYON"
+
+msgid "MARQUEE"
+msgstr "KAYAN YAZI"
+
+msgid "PREFERED REGION"
+msgstr "TERCİH EDİLEN BÖLGE"
+
+msgid "AUTO"
+msgstr "OTOMATİK"
+
+msgid "OVERWRITE NAMES"
+msgstr "İSİMLERİ ÜZERİNE YAZ"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "AÇIKLAMALARI ÜZERİNE YAZ"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "MEDYALARI ÜZERİNE YAZ"
+
+msgid "SCRAPE FOR"
+msgstr "BİLGİSİNİ GETİR"
+
+msgid "SHORT NAME"
+msgstr "KISA İSİM"
+
+msgid "COMMUNITY RATING"
+msgstr "TOPLULUK DEĞERLENDİRMESİ"
+
+msgid "VIDEO"
+msgstr "VİDEO"
+
+msgid "FANART"
+msgstr "FANGÖRSELİ"
+
+msgid "BEZEL (16:9)"
+msgstr "ÇERÇEVE (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "KUTU ARKASI"
+
+msgid "MAP"
+msgstr "HARİTA"
+
+msgid "MANUAL"
+msgstr "KILAVUZ"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "KOL İLE TUŞ AYARLARI"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1057,9 +1156,6 @@ msgstr "dmd sunucu"
 
 msgid "FORMAT"
 msgstr "BİÇİM"
-
-msgid "AUTO"
-msgstr "OTOMATİK"
 
 msgid "dmd matrix size"
 msgstr "dmd matris boyutu"
@@ -1620,9 +1716,6 @@ msgstr "Mevcut ayarlar"
 
 msgid "UPDATE GAMELISTS"
 msgstr "OYUN LİSTELERİNİ GÜNCELLE"
-
-msgid "ACCOUNTS"
-msgstr "HESAPLAR"
 
 msgid "BIOS SETTINGS"
 msgstr "BİOS AYARLARI"
@@ -2245,9 +2338,6 @@ msgstr "ÖZEL KOLEKSİYONA EKLE..."
 msgid "DELETE COLLECTION"
 msgstr "KOLEKSİYONU SİL"
 
-msgid "SCRAPE"
-msgstr "BİLGİ GETİRİCİ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "GELİŞMİŞ OYUN SEÇENEKLERİ"
 
@@ -2271,90 +2361,6 @@ msgstr "BİR BLUETOOTH CİHAZI EŞLE"
 
 msgid "PAIR"
 msgstr "EŞLE"
-
-msgid "IMAGE SOURCE"
-msgstr "RESİM KAYNAĞI"
-
-msgid "SCREENSHOT"
-msgstr "EKRAN GÖRÜNTÜSÜ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "EKRAN GÖRÜNTÜSÜ BAŞLIĞI"
-
-msgid "MIX V1"
-msgstr "KARIŞIK V1"
-
-msgid "MIX V2"
-msgstr "KARIŞIK V2"
-
-msgid "BOX 2D"
-msgstr "2D KUTU"
-
-msgid "BOX 3D"
-msgstr "3D KUTU"
-
-msgid "FAN ART"
-msgstr "FAN GÖRSELİ"
-
-msgid "BOX SOURCE"
-msgstr "KUTU KAYNAĞI"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO KAYNAĞI"
-
-msgid "HD WHEEL"
-msgstr "HD DİREKSİYON"
-
-msgid "WHEEL"
-msgstr "DİREKSİYON"
-
-msgid "MARQUEE"
-msgstr "KAYAN YAZI"
-
-msgid "PREFERED REGION"
-msgstr "TERCİH EDİLEN BÖLGE"
-
-msgid "OVERWRITE NAMES"
-msgstr "İSİMLERİ ÜZERİNE YAZ"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "AÇIKLAMALARI ÜZERİNE YAZ"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "MEDYALARI ÜZERİNE YAZ"
-
-msgid "SCRAPE FOR"
-msgstr "BİLGİSİNİ GETİR"
-
-msgid "SHORT NAME"
-msgstr "KISA İSİM"
-
-msgid "COMMUNITY RATING"
-msgstr "TOPLULUK DEĞERLENDİRMESİ"
-
-msgid "VIDEO"
-msgstr "VİDEO"
-
-msgid "FANART"
-msgstr "FANGÖRSELİ"
-
-msgid "BEZEL (16:9)"
-msgstr "ÇERÇEVE (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "KUTU ARKASI"
-
-msgid "MAP"
-msgstr "HARİTA"
-
-msgid "MANUAL"
-msgstr "KILAVUZ"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "KOL İLE TUŞ AYARLARI"
-
-msgid "ACCOUNT"
-msgstr "HESAP"
 
 msgid "NO DEVICE FOUND"
 msgstr "CİHAZ BULUNAMADI"
@@ -3114,6 +3120,9 @@ msgstr "KAYIP MEDYALAR"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "EKRANI DEĞİŞTİRMEK İSTİYOR MUSUN ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "BİLGİLER GETİRİLİYOR"
 
@@ -3601,3 +3610,9 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "OYUN BİLGİ AYARLARI"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "HESAP"

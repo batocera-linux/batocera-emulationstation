@@ -751,6 +751,15 @@ msgstr "SYSTEMET ER OPPDATERT"
 msgid "SCRAPER"
 msgstr "INFODATABASE"
 
+msgid "SCRAPE"
+msgstr "SØK"
+
+msgid "ACCOUNTS"
+msgstr "KONTOER"
+
+msgid "go back"
+msgstr "gå tilbake"
+
 msgid "SCRAPING DATABASE"
 msgstr "SKRAPER DATABASE"
 
@@ -759,9 +768,6 @@ msgstr "KILDE"
 
 msgid "SCRAPE FROM"
 msgstr "SØK I"
-
-msgid "SCRAPER SETTINGS"
-msgstr "SKRAPEINNSTILLINGER"
 
 msgid "FILTERS"
 msgstr "FILTRE"
@@ -808,8 +814,101 @@ msgstr "SØK NÅ"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "gå tilbake"
+msgid "IMAGE SOURCE"
+msgstr "BILDEKILDE"
+
+msgid "SCREENSHOT"
+msgstr "SKJERMBILDE"
+
+msgid "TITLE SCREENSHOT"
+msgstr "Tittel skjermbilde"
+
+msgid "MIX V1"
+msgstr "MIKS V1"
+
+msgid "MIX V2"
+msgstr "MIKS V2"
+
+msgid "BOX 2D"
+msgstr "BOKS 2D"
+
+msgid "BOX 3D"
+msgstr "BOKS 3D"
+
+msgid "FAN ART"
+msgstr "FAN KUNST"
+
+msgid "BOX SOURCE"
+msgstr "BOKS KILDE"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO KILDE"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "HJUL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "FORTRUKKET REGION"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SKRIV OVER NAVN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SKRIV OVER BESKRIVELSER"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SKRIV OVER MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "SKRAP ETTER"
+
+msgid "SHORT NAME"
+msgstr "KORT NAVN"
+
+msgid "COMMUNITY RATING"
+msgstr "FELLESSKAPS VURDERING"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FAN KUNST"
+
+msgid "BEZEL (16:9)"
+msgstr "RAMME (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "BOKS BAKSIDE"
+
+msgid "MAP"
+msgstr "KART"
+
+msgid "MANUAL"
+msgstr "MANUELT"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "PADTOKEY INNSTILLINGER"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1055,9 +1154,6 @@ msgstr "dmd server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd matrise størrelse"
@@ -1612,9 +1708,6 @@ msgstr "Nåværende innstilling"
 
 msgid "UPDATE GAMELISTS"
 msgstr "OPPDATER SPILLLISTE"
-
-msgid "ACCOUNTS"
-msgstr "KONTOER"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS INNSTILLINGER"
@@ -2237,9 +2330,6 @@ msgstr "LAGT TIL EGENDEFINERT SAMLING."
 msgid "DELETE COLLECTION"
 msgstr "SLETT SAMLING"
 
-msgid "SCRAPE"
-msgstr "SØK"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "AVANSERTE SPILLVALG"
 
@@ -2263,90 +2353,6 @@ msgstr "PAR EN BLUETOOTH ENHET"
 
 msgid "PAIR"
 msgstr "PAR"
-
-msgid "IMAGE SOURCE"
-msgstr "BILDEKILDE"
-
-msgid "SCREENSHOT"
-msgstr "SKJERMBILDE"
-
-msgid "TITLE SCREENSHOT"
-msgstr "Tittel skjermbilde"
-
-msgid "MIX V1"
-msgstr "MIKS V1"
-
-msgid "MIX V2"
-msgstr "MIKS V2"
-
-msgid "BOX 2D"
-msgstr "BOKS 2D"
-
-msgid "BOX 3D"
-msgstr "BOKS 3D"
-
-msgid "FAN ART"
-msgstr "FAN KUNST"
-
-msgid "BOX SOURCE"
-msgstr "BOKS KILDE"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO KILDE"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "HJUL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "FORTRUKKET REGION"
-
-msgid "OVERWRITE NAMES"
-msgstr "SKRIV OVER NAVN"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SKRIV OVER BESKRIVELSER"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SKRIV OVER MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "SKRAP ETTER"
-
-msgid "SHORT NAME"
-msgstr "KORT NAVN"
-
-msgid "COMMUNITY RATING"
-msgstr "FELLESSKAPS VURDERING"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FAN KUNST"
-
-msgid "BEZEL (16:9)"
-msgstr "RAMME (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "BOKS BAKSIDE"
-
-msgid "MAP"
-msgstr "KART"
-
-msgid "MANUAL"
-msgstr "MANUELT"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "PADTOKEY INNSTILLINGER"
-
-msgid "ACCOUNT"
-msgstr "KONTO"
 
 msgid "NO DEVICE FOUND"
 msgstr "INGEN ENHETER FUNNET"
@@ -3105,6 +3111,9 @@ msgstr "MANGLENDE MEDIA"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VIL DU BYTTE SKJERM?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SKRAPER"
 
@@ -3591,6 +3600,12 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "SKRAPEINNSTILLINGER"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "KONTO"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "BRUKERGRENSESNITTSMODUS ER NÅ LÅST OPP"

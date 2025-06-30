@@ -755,6 +755,15 @@ msgstr "BRAK NOWYCH AKTUALIZACJI"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPE'UJ"
+
+msgid "ACCOUNTS"
+msgstr "KONTA"
+
+msgid "go back"
+msgstr "wstecz"
+
 msgid "SCRAPING DATABASE"
 msgstr "BAZA DANYCH SCRAPE'A"
 
@@ -763,9 +772,6 @@ msgstr "ŹRÓDŁO"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
-
-msgid "SCRAPER SETTINGS"
-msgstr "USTAWIENIA SCRAPE'A"
 
 msgid "FILTERS"
 msgstr "FILTRY"
@@ -812,8 +818,101 @@ msgstr "SCRAPE'UJ"
 msgid "START"
 msgstr "URUCHOM"
 
-msgid "go back"
-msgstr "wstecz"
+msgid "IMAGE SOURCE"
+msgstr "ŹRÓDŁO OBRAZU"
+
+msgid "SCREENSHOT"
+msgstr "ZRZUT EKRANU"
+
+msgid "TITLE SCREENSHOT"
+msgstr "ZRZUT EKRANU TYTUŁU"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "PUDEŁKO 2D"
+
+msgid "BOX 3D"
+msgstr "PUDEŁKO 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "ŹRÓDŁO PUDEŁKA"
+
+msgid "LOGO SOURCE"
+msgstr "ŹRÓDŁO LOGA"
+
+msgid "HD WHEEL"
+msgstr "KIEROWNICA HD"
+
+msgid "WHEEL"
+msgstr "KOŁO"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "PREFEROWANY REGION"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "ZASTĄP NAZWY"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "ZASTĄP OPISY"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "ZASTĄP MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPE'UJ DLA"
+
+msgid "SHORT NAME"
+msgstr "NAZWA KRÓTKA"
+
+msgid "COMMUNITY RATING"
+msgstr "OCENA SPOŁECZNOŚCI"
+
+msgid "VIDEO"
+msgstr "WIDEO"
+
+msgid "FANART"
+msgstr "FAN ART"
+
+msgid "BEZEL (16:9)"
+msgstr "RAMKA (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "TYŁ PUDEŁKA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "PODRĘCZNIK"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "USTAWIENIA PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1059,9 +1158,6 @@ msgstr "serwer dmd"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "rozmiar matrycy dmd"
@@ -1625,9 +1721,6 @@ msgstr "Aktualne ustawienie"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ZAKTUALIZUJ LISTY GIER"
-
-msgid "ACCOUNTS"
-msgstr "KONTA"
 
 msgid "BIOS SETTINGS"
 msgstr "USTAWIENIA BIOSU"
@@ -2250,9 +2343,6 @@ msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ..."
 msgid "DELETE COLLECTION"
 msgstr "USUŃ KOLEKCJĘ"
 
-msgid "SCRAPE"
-msgstr "SCRAPE'UJ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ZAAWANSOWANE OPCJE GRY"
 
@@ -2276,90 +2366,6 @@ msgstr "PODŁĄCZ URZĄDZENIE BLUETOOTH"
 
 msgid "PAIR"
 msgstr "PARUJ"
-
-msgid "IMAGE SOURCE"
-msgstr "ŹRÓDŁO OBRAZU"
-
-msgid "SCREENSHOT"
-msgstr "ZRZUT EKRANU"
-
-msgid "TITLE SCREENSHOT"
-msgstr "ZRZUT EKRANU TYTUŁU"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "PUDEŁKO 2D"
-
-msgid "BOX 3D"
-msgstr "PUDEŁKO 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "ŹRÓDŁO PUDEŁKA"
-
-msgid "LOGO SOURCE"
-msgstr "ŹRÓDŁO LOGA"
-
-msgid "HD WHEEL"
-msgstr "KIEROWNICA HD"
-
-msgid "WHEEL"
-msgstr "KOŁO"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "PREFEROWANY REGION"
-
-msgid "OVERWRITE NAMES"
-msgstr "ZASTĄP NAZWY"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "ZASTĄP OPISY"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "ZASTĄP MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPE'UJ DLA"
-
-msgid "SHORT NAME"
-msgstr "NAZWA KRÓTKA"
-
-msgid "COMMUNITY RATING"
-msgstr "OCENA SPOŁECZNOŚCI"
-
-msgid "VIDEO"
-msgstr "WIDEO"
-
-msgid "FANART"
-msgstr "FAN ART"
-
-msgid "BEZEL (16:9)"
-msgstr "RAMKA (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "TYŁ PUDEŁKA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "PODRĘCZNIK"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "USTAWIENIA PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "KONTO"
 
 msgid "NO DEVICE FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
@@ -3120,6 +3126,9 @@ msgstr "BRAK MEDIÓW"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "CHCESZ PRZEŁĄCZYĆ EKRAN?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPE'OWANIE"
 
@@ -3614,6 +3623,12 @@ msgid ""
 msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "USTAWIENIA SCRAPE'A"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "KONTO"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "TRYB INTERFEJSU UŻYTKOWNIKA JEST TERAZ ODBLOKOWANY"

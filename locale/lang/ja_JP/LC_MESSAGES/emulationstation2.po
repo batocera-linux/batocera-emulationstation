@@ -755,6 +755,15 @@ msgstr "更新はありません"
 msgid "SCRAPER"
 msgstr "スクレイプ"
 
+msgid "SCRAPE"
+msgstr "スクレイプ"
+
+msgid "ACCOUNTS"
+msgstr "アカウント"
+
+msgid "go back"
+msgstr "戻る"
+
 msgid "SCRAPING DATABASE"
 msgstr "スクレイプ データベース選択"
 
@@ -763,9 +772,6 @@ msgstr "ソース元"
 
 msgid "SCRAPE FROM"
 msgstr "スクレイプ元"
-
-msgid "SCRAPER SETTINGS"
-msgstr "スクレイプ 設定"
 
 msgid "FILTERS"
 msgstr "フィルター"
@@ -812,8 +818,101 @@ msgstr "取得開始"
 msgid "START"
 msgstr "スタート"
 
-msgid "go back"
-msgstr "戻る"
+msgid "IMAGE SOURCE"
+msgstr "イメージ ソース元"
+
+msgid "SCREENSHOT"
+msgstr "スクリーンショット<image>"
+
+msgid "TITLE SCREENSHOT"
+msgstr "タイトルスクリーンショット<image>"
+
+msgid "MIX V1"
+msgstr "MIX V1<image>"
+
+msgid "MIX V2"
+msgstr "MIX V2<image>"
+
+msgid "BOX 2D"
+msgstr "2D ボックス<thumbnail>"
+
+msgid "BOX 3D"
+msgstr "3D ボックス<thumbnail>"
+
+msgid "FAN ART"
+msgstr "ファンアート<fanart>"
+
+msgid "BOX SOURCE"
+msgstr "ボックス ソース元"
+
+msgid "LOGO SOURCE"
+msgstr "ロゴ(マーキー) ソース元"
+
+msgid "HD WHEEL"
+msgstr "HD ホイール"
+
+msgid "WHEEL"
+msgstr "ホイール<marquee>"
+
+msgid "MARQUEE"
+msgstr "マーキー<marquee>"
+
+msgid "PREFERED REGION"
+msgstr "ゲーム優先リージョン<region>"
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "OVERWRITE NAMES"
+msgstr "名前を上書き"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "説明を上書き"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "メディアを上書き"
+
+msgid "SCRAPE FOR"
+msgstr "スクレイプ <gamelist項目>"
+
+msgid "SHORT NAME"
+msgstr "短名"
+
+msgid "COMMUNITY RATING"
+msgstr "コミュニティの評価<rating>"
+
+msgid "VIDEO"
+msgstr "デモ動画<video>"
+
+msgid "FANART"
+msgstr "ファンアート画像<fanart>"
+
+msgid "BEZEL (16:9)"
+msgstr "ベゼル(16:9)<bezel>(decorationsフォルダにコピー)"
+
+msgid "BOX BACKSIDE"
+msgstr "ボックス背景<boxback>"
+
+msgid "MAP"
+msgstr "マップ<map>"
+
+msgid "MANUAL"
+msgstr "マニュアル<manual>"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "パッドキー設定"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1059,9 +1158,6 @@ msgstr "DMDサーバー"
 
 msgid "FORMAT"
 msgstr "DMD 形式"
-
-msgid "AUTO"
-msgstr "自動"
 
 msgid "dmd matrix size"
 msgstr "DMDマトリクスサイズ"
@@ -1618,9 +1714,6 @@ msgstr "現在の設定"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ゲームリストを更新"
-
-msgid "ACCOUNTS"
-msgstr "アカウント"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS 設定"
@@ -2238,9 +2331,6 @@ msgstr "コレクションに追加..."
 msgid "DELETE COLLECTION"
 msgstr "コレクションを削除"
 
-msgid "SCRAPE"
-msgstr "スクレイプ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "このゲームの詳細設定"
 
@@ -2264,90 +2354,6 @@ msgstr "BLUETOOTH デバイスのペアリング"
 
 msgid "PAIR"
 msgstr "ペアリング中"
-
-msgid "IMAGE SOURCE"
-msgstr "イメージ ソース元"
-
-msgid "SCREENSHOT"
-msgstr "スクリーンショット<image>"
-
-msgid "TITLE SCREENSHOT"
-msgstr "タイトルスクリーンショット<image>"
-
-msgid "MIX V1"
-msgstr "MIX V1<image>"
-
-msgid "MIX V2"
-msgstr "MIX V2<image>"
-
-msgid "BOX 2D"
-msgstr "2D ボックス<thumbnail>"
-
-msgid "BOX 3D"
-msgstr "3D ボックス<thumbnail>"
-
-msgid "FAN ART"
-msgstr "ファンアート<fanart>"
-
-msgid "BOX SOURCE"
-msgstr "ボックス ソース元"
-
-msgid "LOGO SOURCE"
-msgstr "ロゴ(マーキー) ソース元"
-
-msgid "HD WHEEL"
-msgstr "HD ホイール"
-
-msgid "WHEEL"
-msgstr "ホイール<marquee>"
-
-msgid "MARQUEE"
-msgstr "マーキー<marquee>"
-
-msgid "PREFERED REGION"
-msgstr "ゲーム優先リージョン<region>"
-
-msgid "OVERWRITE NAMES"
-msgstr "名前を上書き"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "説明を上書き"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "メディアを上書き"
-
-msgid "SCRAPE FOR"
-msgstr "スクレイプ <gamelist項目>"
-
-msgid "SHORT NAME"
-msgstr "短名"
-
-msgid "COMMUNITY RATING"
-msgstr "コミュニティの評価<rating>"
-
-msgid "VIDEO"
-msgstr "デモ動画<video>"
-
-msgid "FANART"
-msgstr "ファンアート画像<fanart>"
-
-msgid "BEZEL (16:9)"
-msgstr "ベゼル(16:9)<bezel>(decorationsフォルダにコピー)"
-
-msgid "BOX BACKSIDE"
-msgstr "ボックス背景<boxback>"
-
-msgid "MAP"
-msgstr "マップ<map>"
-
-msgid "MANUAL"
-msgstr "マニュアル<manual>"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "パッドキー設定"
-
-msgid "ACCOUNT"
-msgstr "アカウント(SCREENSCRAPER)"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
@@ -3104,6 +3110,9 @@ msgstr "メディア無し"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "画面を切り替えますか？"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "情報を取得中"
 
@@ -3582,6 +3591,12 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "スクレイプ 設定"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "アカウント(SCREENSCRAPER)"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "ユーザーインターフェイスモードのロックを解除しました"

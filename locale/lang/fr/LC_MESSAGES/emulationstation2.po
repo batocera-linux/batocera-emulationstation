@@ -757,6 +757,15 @@ msgstr "PAS DE MISE À JOUR DISPONIBLE"
 msgid "SCRAPER"
 msgstr "SCRAPEUR"
 
+msgid "SCRAPE"
+msgstr "SCRAPER"
+
+msgid "ACCOUNTS"
+msgstr "COMPTES"
+
+msgid "go back"
+msgstr "aller en arrière"
+
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DONNÉES DE SCRAPE"
 
@@ -765,9 +774,6 @@ msgstr "SOURCE"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPER DEPUIS"
-
-msgid "SCRAPER SETTINGS"
-msgstr "OPTIONS DU SCRAPEUR"
 
 msgid "FILTERS"
 msgstr "FILTRES"
@@ -814,8 +820,101 @@ msgstr "SCRAPER MAINTENANT"
 msgid "START"
 msgstr "DÉMARRER"
 
-msgid "go back"
-msgstr "aller en arrière"
+msgid "IMAGE SOURCE"
+msgstr "IMAGE SOURCE"
+
+msgid "SCREENSHOT"
+msgstr "IMAGE EN JEU"
+
+msgid "TITLE SCREENSHOT"
+msgstr "IMAGE TITRE"
+
+msgid "MIX V1"
+msgstr "MIX D'IMAGES V1"
+
+msgid "MIX V2"
+msgstr "MIX D'IMAGES V2"
+
+msgid "BOX 2D"
+msgstr "BOÎTE 2D"
+
+msgid "BOX 3D"
+msgstr "BOÎTE 3D"
+
+msgid "FAN ART"
+msgstr "FANART"
+
+msgid "BOX SOURCE"
+msgstr "BOÎTE SOURCE"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO SOURCE"
+
+msgid "HD WHEEL"
+msgstr "ROUE HD"
+
+msgid "WHEEL"
+msgstr "LOGO"
+
+msgid "MARQUEE"
+msgstr "BANNIÈRE"
+
+msgid "PREFERED REGION"
+msgstr "RÉGION PRÉFÉRÉE"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "ÉCRASER LES NOMS"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "ÉCRASER LES DESCRIPTIONS"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "ÉCRASER LES MÉDIAS"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPER"
+
+msgid "SHORT NAME"
+msgstr "NOM COURT"
+
+msgid "COMMUNITY RATING"
+msgstr "NOTES"
+
+msgid "VIDEO"
+msgstr "VIDÉO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "DÉCORATION (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "ARRIÈRE DES BOÎTES"
+
+msgid "MAP"
+msgstr "CARTE"
+
+msgid "MANUAL"
+msgstr "MANUEL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "PARAMÈTRES PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1061,9 +1160,6 @@ msgstr "serveur dmd"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "taille de la matrice dmd"
@@ -1624,9 +1720,6 @@ msgstr "Paramètre actuel"
 
 msgid "UPDATE GAMELISTS"
 msgstr "METTRE À JOUR LES LISTES DE JEUX"
-
-msgid "ACCOUNTS"
-msgstr "COMPTES"
 
 msgid "BIOS SETTINGS"
 msgstr "RÉGLAGES DU BIOS"
@@ -2249,9 +2342,6 @@ msgstr "AJOUTER À UNE COLLECTION..."
 msgid "DELETE COLLECTION"
 msgstr "SUPPRIMER LA COLLECTION"
 
-msgid "SCRAPE"
-msgstr "SCRAPER"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
 
@@ -2275,90 +2365,6 @@ msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH"
 
 msgid "PAIR"
 msgstr "ASSOCIER"
-
-msgid "IMAGE SOURCE"
-msgstr "IMAGE SOURCE"
-
-msgid "SCREENSHOT"
-msgstr "IMAGE EN JEU"
-
-msgid "TITLE SCREENSHOT"
-msgstr "IMAGE TITRE"
-
-msgid "MIX V1"
-msgstr "MIX D'IMAGES V1"
-
-msgid "MIX V2"
-msgstr "MIX D'IMAGES V2"
-
-msgid "BOX 2D"
-msgstr "BOÎTE 2D"
-
-msgid "BOX 3D"
-msgstr "BOÎTE 3D"
-
-msgid "FAN ART"
-msgstr "FANART"
-
-msgid "BOX SOURCE"
-msgstr "BOÎTE SOURCE"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO SOURCE"
-
-msgid "HD WHEEL"
-msgstr "ROUE HD"
-
-msgid "WHEEL"
-msgstr "LOGO"
-
-msgid "MARQUEE"
-msgstr "BANNIÈRE"
-
-msgid "PREFERED REGION"
-msgstr "RÉGION PRÉFÉRÉE"
-
-msgid "OVERWRITE NAMES"
-msgstr "ÉCRASER LES NOMS"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "ÉCRASER LES DESCRIPTIONS"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "ÉCRASER LES MÉDIAS"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPER"
-
-msgid "SHORT NAME"
-msgstr "NOM COURT"
-
-msgid "COMMUNITY RATING"
-msgstr "NOTES"
-
-msgid "VIDEO"
-msgstr "VIDÉO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "DÉCORATION (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "ARRIÈRE DES BOÎTES"
-
-msgid "MAP"
-msgstr "CARTE"
-
-msgid "MANUAL"
-msgstr "MANUEL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "PARAMÈTRES PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "COMPTE"
 
 msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
@@ -3119,6 +3125,9 @@ msgstr "MEDIAS MANQUANTS"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPE"
 
@@ -3605,6 +3614,12 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "OPTIONS DU SCRAPEUR"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "COMPTE"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "L'INTERFACE A ETE DEVERROUILLÉE"

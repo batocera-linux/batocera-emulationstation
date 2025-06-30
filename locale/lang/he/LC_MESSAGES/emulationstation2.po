@@ -746,6 +746,15 @@ msgstr "אין עדכון זמין"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPE"
+
+msgid "ACCOUNTS"
+msgstr "חשבונות"
+
+msgid "go back"
+msgstr "חזרה"
+
 msgid "SCRAPING DATABASE"
 msgstr ""
 
@@ -754,9 +763,6 @@ msgstr "מקור"
 
 msgid "SCRAPE FROM"
 msgstr "SCARPE מתוך יעד"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
 
 msgid "FILTERS"
 msgstr "סינון"
@@ -803,8 +809,101 @@ msgstr "הפעל SCRAPE"
 msgid "START"
 msgstr "התחלה"
 
-msgid "go back"
-msgstr "חזרה"
+msgid "IMAGE SOURCE"
+msgstr "מקור תמונה"
+
+msgid "SCREENSHOT"
+msgstr "צילום מסך"
+
+msgid "TITLE SCREENSHOT"
+msgstr "צילום מסך מנצח"
+
+msgid "MIX V1"
+msgstr "עירבול 1"
+
+msgid "MIX V2"
+msgstr "עירבול 2"
+
+msgid "BOX 2D"
+msgstr "קופסה דו מימדית"
+
+msgid "BOX 3D"
+msgstr "קופסה תלת מימדית"
+
+msgid "FAN ART"
+msgstr "אומנות מעריצים"
+
+msgid "BOX SOURCE"
+msgstr "מקור קופסה"
+
+msgid "LOGO SOURCE"
+msgstr "מקור סמל"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "גלגל"
+
+msgid "MARQUEE"
+msgstr "דגל"
+
+msgid "PREFERED REGION"
+msgstr "איזור מועדף"
+
+msgid "AUTO"
+msgstr "אוטומטי"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr "שם מקוצר"
+
+msgid "COMMUNITY RATING"
+msgstr "דירוג קהילה"
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr "ידני"
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1047,9 +1146,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "אוטומטי"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1587,9 +1683,6 @@ msgstr "הגדרות נוכחיות"
 
 msgid "UPDATE GAMELISTS"
 msgstr "עדכן רשימת משחקים"
-
-msgid "ACCOUNTS"
-msgstr "חשבונות"
 
 msgid "BIOS SETTINGS"
 msgstr "הגדרות BIOS"
@@ -2203,9 +2296,6 @@ msgstr "הוסף לאוסף מותאם אישית..."
 msgid "DELETE COLLECTION"
 msgstr "מחיקת אוסף"
 
-msgid "SCRAPE"
-msgstr "SCRAPE"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "אפשרויות משחק מתקדמות"
 
@@ -2229,90 +2319,6 @@ msgstr "הצמדת בתקן בלו-טות'"
 
 msgid "PAIR"
 msgstr "חבר"
-
-msgid "IMAGE SOURCE"
-msgstr "מקור תמונה"
-
-msgid "SCREENSHOT"
-msgstr "צילום מסך"
-
-msgid "TITLE SCREENSHOT"
-msgstr "צילום מסך מנצח"
-
-msgid "MIX V1"
-msgstr "עירבול 1"
-
-msgid "MIX V2"
-msgstr "עירבול 2"
-
-msgid "BOX 2D"
-msgstr "קופסה דו מימדית"
-
-msgid "BOX 3D"
-msgstr "קופסה תלת מימדית"
-
-msgid "FAN ART"
-msgstr "אומנות מעריצים"
-
-msgid "BOX SOURCE"
-msgstr "מקור קופסה"
-
-msgid "LOGO SOURCE"
-msgstr "מקור סמל"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "גלגל"
-
-msgid "MARQUEE"
-msgstr "דגל"
-
-msgid "PREFERED REGION"
-msgstr "איזור מועדף"
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr "שם מקוצר"
-
-msgid "COMMUNITY RATING"
-msgstr "דירוג קהילה"
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr "ידני"
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
-msgstr "חשבון"
 
 msgid "NO DEVICE FOUND"
 msgstr "לא נמצאו התקנים"
@@ -3065,6 +3071,9 @@ msgstr ""
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr ""
 
@@ -3563,6 +3572,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "ACCOUNT"
+#~ msgstr "חשבון"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "שכח התקן בלו-טות'"

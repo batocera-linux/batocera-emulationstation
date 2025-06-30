@@ -756,6 +756,15 @@ msgstr "ER IS GEEN UPDATE BESCHIKBAAR"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPEN"
+
+msgid "ACCOUNTS"
+msgstr "ACCOUNTS"
+
+msgid "go back"
+msgstr "ga terug"
+
 msgid "SCRAPING DATABASE"
 msgstr "SCRAPE DATABASE"
 
@@ -764,9 +773,6 @@ msgstr "BRON"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VAN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "INSTELLINGEN SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTERS"
@@ -813,8 +819,101 @@ msgstr "NU SCRAPEN"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "ga terug"
+msgid "IMAGE SOURCE"
+msgstr "AFBEELDINGSBRON"
+
+msgid "SCREENSHOT"
+msgstr "SCREENSHOT"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITEL SCREENSHOT"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "DOOS 2D"
+
+msgid "BOX 3D"
+msgstr "DOOS 3D"
+
+msgid "FAN ART"
+msgstr "FANART"
+
+msgid "BOX SOURCE"
+msgstr "DOOS BRON"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO BRON"
+
+msgid "HD WHEEL"
+msgstr "HD WIEL"
+
+msgid "WHEEL"
+msgstr "STUURWIEL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "VOORKEURSREGIO"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "OVERSCHRIJF NAMEN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "OVERSCHRIJF MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPEN NAAR"
+
+msgid "SHORT NAME"
+msgstr "KORTE NAAM"
+
+msgid "COMMUNITY RATING"
+msgstr "COMMUNITY BEOORDELING"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "Schermrand (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "DOOS ACHTERKANT"
+
+msgid "MAP"
+msgstr "MAP"
+
+msgid "MANUAL"
+msgstr "HANDLEIDING"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "INSTELLINGEN PAD-TO-KEY"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1060,9 +1159,6 @@ msgstr "dmd server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd matrix grootte"
@@ -1635,9 +1731,6 @@ msgstr "Huidige instelling"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPDATE DE SPELLIJSTEN"
-
-msgid "ACCOUNTS"
-msgstr "ACCOUNTS"
 
 msgid "BIOS SETTINGS"
 msgstr "INSTELLINGEN BIOS"
@@ -2259,9 +2352,6 @@ msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
 msgid "DELETE COLLECTION"
 msgstr "VERWIJDER COLLECTIE"
 
-msgid "SCRAPE"
-msgstr "SCRAPEN"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "GEAVANCEERDE SPELOPTIES"
 
@@ -2285,90 +2375,6 @@ msgstr "EEN BLUETOOTH APPARAAT KOPPELEN"
 
 msgid "PAIR"
 msgstr "KOPPELEN"
-
-msgid "IMAGE SOURCE"
-msgstr "AFBEELDINGSBRON"
-
-msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITEL SCREENSHOT"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "DOOS 2D"
-
-msgid "BOX 3D"
-msgstr "DOOS 3D"
-
-msgid "FAN ART"
-msgstr "FANART"
-
-msgid "BOX SOURCE"
-msgstr "DOOS BRON"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO BRON"
-
-msgid "HD WHEEL"
-msgstr "HD WIEL"
-
-msgid "WHEEL"
-msgstr "STUURWIEL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "VOORKEURSREGIO"
-
-msgid "OVERWRITE NAMES"
-msgstr "OVERSCHRIJF NAMEN"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "OVERSCHRIJF MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPEN NAAR"
-
-msgid "SHORT NAME"
-msgstr "KORTE NAAM"
-
-msgid "COMMUNITY RATING"
-msgstr "COMMUNITY BEOORDELING"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "Schermrand (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "DOOS ACHTERKANT"
-
-msgid "MAP"
-msgstr "MAP"
-
-msgid "MANUAL"
-msgstr "HANDLEIDING"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "INSTELLINGEN PAD-TO-KEY"
-
-msgid "ACCOUNT"
-msgstr "ACCOUNT"
 
 msgid "NO DEVICE FOUND"
 msgstr "GEEN APPARAAT GEVONDEN"
@@ -3128,6 +3134,9 @@ msgstr "ONTBREKENDE MEDIA"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "WILT U VAN SCHERM VERANDEREN?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPEN"
 
@@ -3614,6 +3623,12 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "INSTELLINGEN SCRAPER"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "ACCOUNT"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "DE UI MODUS IS NU ONTGRENDELD"

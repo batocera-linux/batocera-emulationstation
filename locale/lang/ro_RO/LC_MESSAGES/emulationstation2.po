@@ -759,6 +759,15 @@ msgstr "NICIO ACTUALIZARE DISPONIBILĂ"
 msgid "SCRAPER"
 msgstr "PRELUARE INFORMAȚII"
 
+msgid "SCRAPE"
+msgstr "PREIA DATE"
+
+msgid "ACCOUNTS"
+msgstr "CONTURI"
+
+msgid "go back"
+msgstr "mergi înapoi"
+
 msgid "SCRAPING DATABASE"
 msgstr "BAZA DE DATE PENTRU INFORMAȚII"
 
@@ -767,9 +776,6 @@ msgstr "SURSĂ"
 
 msgid "SCRAPE FROM"
 msgstr "PREIA INFORMAȚIILE DIN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "SETĂRI PRELUARE INFORMAȚII"
 
 msgid "FILTERS"
 msgstr "FILTRE"
@@ -816,8 +822,101 @@ msgstr "PREIA ACUM"
 msgid "START"
 msgstr "ÎNCEPE"
 
-msgid "go back"
-msgstr "mergi înapoi"
+msgid "IMAGE SOURCE"
+msgstr "SURSĂ IMAGINE"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURĂ DE ECRAN"
+
+msgid "TITLE SCREENSHOT"
+msgstr "CAPTURĂ ECRAN TITLU"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "CUTIE 2D"
+
+msgid "BOX 3D"
+msgstr "CUTIE 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "SURSĂ CUTIE"
+
+msgid "LOGO SOURCE"
+msgstr "SURSĂ LOGO"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "ROATĂ"
+
+msgid "MARQUEE"
+msgstr "BANNER"
+
+msgid "PREFERED REGION"
+msgstr "REGIUNEA PREFERATĂ"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SUPRASCRIE NUMELE"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SUPRASCRIE DESCRIERILE"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SUPRASCRIE FIȘIERELE MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "PREIA DATE PENTRU"
+
+msgid "SHORT NAME"
+msgstr "NUME SCURT"
+
+msgid "COMMUNITY RATING"
+msgstr "SCORUL COMUNITĂȚII"
+
+msgid "VIDEO"
+msgstr "VIDEOCLIP"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "RAMĂ (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "SPATELE CUTIEI"
+
+msgid "MAP"
+msgstr "HARTĂ"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "SETĂRI PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1063,9 +1162,6 @@ msgstr "server dmd"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "mărime matrice dmd"
@@ -1632,9 +1728,6 @@ msgstr "Setare curentă"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI"
-
-msgid "ACCOUNTS"
-msgstr "CONTURI"
 
 msgid "BIOS SETTINGS"
 msgstr "SETĂRI BIOS"
@@ -2257,9 +2350,6 @@ msgstr "ADAUGĂ LA O COLECȚIE PERSONALIZATĂ..."
 msgid "DELETE COLLECTION"
 msgstr "ȘTERGE COLECȚIA"
 
-msgid "SCRAPE"
-msgstr "PREIA DATE"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPȚIUNI AVANSATE JOC"
 
@@ -2283,90 +2373,6 @@ msgstr "CONECTEAZĂ UN DISPOZITIV BLUETOOTH"
 
 msgid "PAIR"
 msgstr "CONECTEAZĂ"
-
-msgid "IMAGE SOURCE"
-msgstr "SURSĂ IMAGINE"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURĂ DE ECRAN"
-
-msgid "TITLE SCREENSHOT"
-msgstr "CAPTURĂ ECRAN TITLU"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "CUTIE 2D"
-
-msgid "BOX 3D"
-msgstr "CUTIE 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "SURSĂ CUTIE"
-
-msgid "LOGO SOURCE"
-msgstr "SURSĂ LOGO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "ROATĂ"
-
-msgid "MARQUEE"
-msgstr "BANNER"
-
-msgid "PREFERED REGION"
-msgstr "REGIUNEA PREFERATĂ"
-
-msgid "OVERWRITE NAMES"
-msgstr "SUPRASCRIE NUMELE"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SUPRASCRIE DESCRIERILE"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SUPRASCRIE FIȘIERELE MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "PREIA DATE PENTRU"
-
-msgid "SHORT NAME"
-msgstr "NUME SCURT"
-
-msgid "COMMUNITY RATING"
-msgstr "SCORUL COMUNITĂȚII"
-
-msgid "VIDEO"
-msgstr "VIDEOCLIP"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "RAMĂ (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "SPATELE CUTIEI"
-
-msgid "MAP"
-msgstr "HARTĂ"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "SETĂRI PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "CONT"
 
 msgid "NO DEVICE FOUND"
 msgstr "NICIUN DISPOZITIV GĂSIT"
@@ -3130,6 +3136,9 @@ msgstr "FIȘIERE MEDIA LIPSĂ"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "DOREȘTI SĂ COMUȚI ECRANUL?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "PRELUARE DATE"
 
@@ -3625,6 +3634,12 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "SETĂRI PRELUARE INFORMAȚII"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "CONT"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "INTERFAȚA ESTE ACUM DEBLOCATĂ"
