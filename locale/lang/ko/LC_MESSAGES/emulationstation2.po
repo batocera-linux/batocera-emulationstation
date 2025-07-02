@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-06-24 22:19+0900\n"
+"PO-Revision-Date: 2025-06-30 22:16+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -898,16 +898,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "패드-키 설정"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "스크린스크래퍼"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB (인터넷 게임 데이터베이스)"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "클라이언트 ID"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "클라이언트 비밀ㅋ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3095,7 +3095,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "스크린 전환을 원하나요?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "잘못된 자격 증명"
 
 msgid "SCRAPING"
 msgstr "스크랩 중"

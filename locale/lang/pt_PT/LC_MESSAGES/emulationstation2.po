@@ -905,16 +905,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE COMANDO PARA TECLADO (PAD2KEY)"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "INFORMAÇÃO DOS JOGOS"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID DO CLIENTE"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "SEGREDO DO CLIENTE"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3123,7 +3123,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "DESEJA TROCAR DE ECRÃ ?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "CREDENCIAIS INVÁLIDAS"
 
 msgid "SCRAPING"
 msgstr "A PROCURAR"
@@ -3612,14 +3612,7 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
-#~ msgid "SCRAPER SETTINGS"
-#~ msgstr "AJUSTES DO OBTER DE CAPAS"
 
-#~ msgid "ACCOUNT"
-#~ msgstr "CONTA"
-
-#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-#~ msgstr "O MODO INTERFACE DO UTILIZADOR ESTÁ AGORA DESBLOQUEADO"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
