@@ -1346,7 +1346,7 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
 		addFrameBufferOptions(mWindow, dangerZone, "ee_es", "ES", "");
 		addFrameBufferOptions(mWindow, dangerZone, "", "EMU", "");
 
-    dangerZone->addEntry(_("CLOUD BACKUP SETTINGS AND GAME SAVES"), true, [mWindow] { 
+    dangerZone->addEntry(_("CLOUD BACKUP SETTINGS AND GAME SAVES"), true, [mWindow] {
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nThis will backup your game saves, savestates and emuelec configs to the cloud service configured on rclone.conf\n\nBACKUP TO CLOUD AND RESTART?"), _("YES"),
 				[] { 
 				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils ee_cloud_backup backup").run();
@@ -1366,6 +1366,44 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
 				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils ee_backup backup").run();
 				}, _("NO"), nullptr));
      });
+
+#ifdef _ENABLEEMUELEC
+		dangerZone->addEntry(_("ADD EMUSTATION ARGUMENTS"), true, [mWindow] {
+			std::string argsFilename = "/emuelec/configs/ES_ARGS";
+			auto updateVal = [argsFilename](const std::string& newVal)
+			{
+				if (Utils::FileSystem::exists(argsFilename))
+					Utils::FileSystem::removeFile(argsFilename);
+
+				if (!newVal.empty())
+					Utils::FileSystem::writeAllText(argsFilename, newVal);
+			};
+
+			std::string fileText = Utils::FileSystem::readAllText(argsFilename);
+			if (Settings::getInstance()->getBool("UseOSK"))
+				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("ADD EMUSTATION ARGUMENTS"), fileText, updateVal, false));
+			else
+				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("ADD EMUSTATION ARGUMENTS"), fileText, updateVal, false));
+		 });
+
+		dangerZone->addEntry(_("ADD RETROARCH ARGUMENTS"), true, [mWindow] {
+			std::string argsFilename = "/emuelec/configs/RA_ARGS";
+			auto updateVal = [argsFilename](const std::string& newVal)
+			{
+				if (Utils::FileSystem::exists(argsFilename))
+					Utils::FileSystem::removeFile(argsFilename);
+
+				if (!newVal.empty())
+					Utils::FileSystem::writeAllText(argsFilename, newVal);
+			};
+
+			std::string fileText = Utils::FileSystem::readAllText(argsFilename);
+			if (Settings::getInstance()->getBool("UseOSK"))
+				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("ADD RETROARCH ARGUMENTS"), fileText, updateVal, false));
+			else
+				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("ADD RETROARCH ARGUMENTS"), fileText, updateVal, false));
+		 });
+#endif
 
     dangerZone->addEntry(_("RESET EMUELEC SCRIPTS AND BINARIES TO DEFAULT"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: SYSTEM WILL RESET SCRIPTS AND BINARIES !\nUPDATE, DOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nRESET SCRIPTS AND BINARIES TO DEFAULT AND RESTART?"), _("YES"),
