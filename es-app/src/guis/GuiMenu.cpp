@@ -32,7 +32,9 @@
 #include <algorithm>
 #include "utils/Platform.h"
 
-
+#ifdef _ENABLEEMUELEC
+	#include "utils/StringUtil.h"
+#endif
 #include "SystemConf.h"
 #include "ApiSystem.h"
 #include "InputManager.h"
@@ -4957,10 +4959,6 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 				Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 			}, _("NO"), nullptr));
 		}, "iconControllers");
-		
-		s->addEntry(_("KILL LIBRESPOT"), false, [] {
-            system("/emuelec/scripts/librekill.sh");
-        }, "iconLibrekill");
 
 		
 		s->addEntry(_("REBOOT FROM NAND"), false, [window] {
@@ -4974,6 +4972,25 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			}, _("NO"), nullptr));
 		}, "iconAdvanced");
 	}
+
+	// AUTO SHUTDOWN TIMEOUT
+	auto shutdownSlider = std::make_shared<SliderComponent>(window, 0.0f, 1440.0f, 10.0f, "min");
+
+	int timeout = 0;
+	try {
+		timeout = std::stoi(SystemConf::getInstance()->get("ee_auto_shutdown_timeout"));
+	} catch (...) {
+		timeout = 0;
+	}
+	shutdownSlider->setValue((float)timeout);
+	s->addWithLabel(_("AUTOMATIC SHUTDOWN AFTER INACTIVITY"), shutdownSlider);
+
+	s->addSaveFunc([shutdownSlider] {
+		int value = (int)shutdownSlider->getValue();
+		SystemConf::getInstance()->set("ee_auto_shutdown_timeout", std::to_string(value));
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
 #endif
 
 	if (quickAccessMenu)

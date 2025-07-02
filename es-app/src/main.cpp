@@ -649,6 +649,28 @@ int main(int argc, char* argv[])
 		timeLimit = 0;
 #endif
 
+#ifdef _ENABLEEMUELEC
+	// load auto-shutdown configuration from emuelec.conf
+	int autoShutdownTimeoutMin = 0;
+	std::string confTimeoutStr = SystemConf::getInstance()->get("ee_auto_shutdown_timeout");
+	if (!confTimeoutStr.empty())
+	{
+		try {
+			autoShutdownTimeoutMin = std::stoi(confTimeoutStr);
+			if (autoShutdownTimeoutMin < 0) autoShutdownTimeoutMin = 0;
+		} catch (...) {
+			LOG(LogError) << "[AutoShutdown] Invalid value in ee_auto_shutdown_timeout: " << confTimeoutStr;
+			autoShutdownTimeoutMin = 0;
+		}
+
+		if (autoShutdownTimeoutMin > 0) {
+			LOG(LogInfo) << "[AutoShutdown] auto-shutdown activated: " << autoShutdownTimeoutMin << " minutes of inactivity";
+		}
+	}
+	unsigned long lastInputTime = (unsigned long)time(nullptr);
+	unsigned int lastShutdownCheck = SDL_GetTicks();
+#endif
+
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
 
@@ -662,6 +684,65 @@ int main(int argc, char* argv[])
 
 		SDL_Event event;
 
+#ifdef _ENABLEEMUELEC
+		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
+		if (ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
+		{
+			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
+			// Reset this event's state
+			TRYCATCH("resetRefreshEvent", PowerSaver::resetRefreshEvent());
+
+			do
+			{
+				TRYCATCH("InputManager::parseEvent", InputManager::getInstance()->parseEvent(event, &window));
+
+				if (event.type == SDL_KEYDOWN ||
+					event.type == SDL_CONTROLLERBUTTONDOWN ||
+					event.type == SDL_JOYBUTTONDOWN ||
+					event.type == SDL_MOUSEBUTTONDOWN ||
+					event.type == SDL_MOUSEMOTION)
+				{
+					lastInputTime = (unsigned long)time(nullptr);
+				}
+
+				if (event.type == SDL_QUIT)
+					running = false;
+
+			} while(SDL_PollEvent(&event));
+
+			// check guns
+			InputManager::getInstance()->updateGuns(&window);
+
+			// triggered if exiting from SDL_WaitEvent due to event
+			if (ps_standby)
+				lastTime = SDL_GetTicks();
+
+			// reset counter
+			ps_time = SDL_GetTicks();
+		}
+		else if (!ps_standby)
+		{
+			// check guns
+			InputManager::getInstance()->updateGuns(&window);
+		}
+
+
+			static bool wasSleeping = false;
+
+		if (window.isSleeping())
+		{
+			wasSleeping = true;
+			lastTime = SDL_GetTicks();
+			SDL_Delay(1);
+			continue;
+		}
+		else if (wasSleeping)
+		{
+			// user has exited the emulator
+			lastInputTime = (unsigned long)time(nullptr);
+			wasSleeping = false;
+		}
+#else
 		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
 		if(ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
 		{
@@ -706,6 +787,8 @@ int main(int argc, char* argv[])
 			continue;
 		}
 
+#endif
+
 		int curTime = SDL_GetTicks();
 		int deltaTime = curTime - lastTime;
 		lastTime = curTime;
@@ -713,6 +796,58 @@ int main(int argc, char* argv[])
 		// cap deltaTime if it ever goes negative
 		if(deltaTime < 0)
 			deltaTime = 1000;
+
+#ifdef _ENABLEEMUELEC
+		// Check for return-from-game signal from emuelecRunEmu.sh
+		if (Utils::FileSystem::exists("/tmp/es_return_from_game"))
+		{
+				lastInputTime = (unsigned long)time(nullptr);
+				Utils::FileSystem::removeFile("/tmp/es_return_from_game");
+		}
+
+		// Auto-Shutdown Check (every 10 seconds)
+		if ((curTime - lastShutdownCheck) >= 10000) // 10 seconds
+		{
+				lastShutdownCheck = curTime;
+
+					// Dynamically reload the timeout value from emuelec.conf
+				int autoShutdownTimeoutMin = 0;
+				std::string confTimeoutStr = SystemConf::getInstance()->get("ee_auto_shutdown_timeout");
+				if (!confTimeoutStr.empty())
+				{
+					try {
+						autoShutdownTimeoutMin = std::stoi(confTimeoutStr);
+						if (autoShutdownTimeoutMin < 0)
+							autoShutdownTimeoutMin = 0;
+					} catch (...) {
+						LOG(LogError) << "[AutoShutdown] Invalid value in ee_auto_shutdown_timeout: " << confTimeoutStr;
+						autoShutdownTimeoutMin = 0;
+					}
+				}
+
+				if (autoShutdownTimeoutMin > 0)
+				{
+					unsigned long now = (unsigned long)time(nullptr);
+					unsigned long timeoutSec = autoShutdownTimeoutMin * 60;
+					unsigned long inactiveTime = now - lastInputTime;
+
+					if (inactiveTime >= timeoutSec)
+					{
+						LOG(LogInfo) << "[AutoShutdown] Inactivity timeout reached ("
+									<< autoShutdownTimeoutMin << " min, "
+									<< (inactiveTime / 60) << " min inactive). Shutting down system...";
+						Utils::Platform::quitES(Utils::Platform::QuitMode::SHUTDOWN);
+						running = false;
+					}
+					else if ((timeoutSec - inactiveTime) <= 60)
+					{
+						unsigned long remainingTime = (timeoutSec - inactiveTime);
+						LOG(LogInfo) << "[AutoShutdown] Warning: System will shut down in "
+									<< remainingTime << " seconds due to inactivity.";
+					}
+				}
+		}
+#endif
 
 		TRYCATCH("Window.update" ,window.update(deltaTime))	
 		TRYCATCH("Window.render", window.render())
