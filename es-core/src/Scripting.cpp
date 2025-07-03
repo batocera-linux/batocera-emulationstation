@@ -100,7 +100,7 @@ namespace Scripting
         if (Utils::FileSystem::getExtension(script) == ".ps1")
             command = "powershell " + command;
 
-        if (eventName == "quit" || !allowAsync)
+        if (eventName == "start" || eventName == "quit" || !allowAsync)
         {
             LOG(LogDebug) << "  executing: " << command;
 
