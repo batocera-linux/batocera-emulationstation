@@ -100,7 +100,14 @@ namespace Scripting
         if (Utils::FileSystem::getExtension(script) == ".ps1")
             command = "powershell " + command;
 
-        if (eventName == "start" || eventName == "quit" || !allowAsync)
+        if (Utils::String::startsWith(eventName, "-selected") && allowAsync) // Only run *-selected events in async mode
+        {            
+            LOG(LogDebug) << "  queuing: " << command;
+
+            // Start using a thread to avoid lags
+            pushCommand(command);
+        }
+        else
         {
             LOG(LogDebug) << "  executing: " << command;
 
@@ -110,13 +117,7 @@ namespace Scripting
             psi.showWindow = false;
             psi.run();
         }
-        else
-        {
-            LOG(LogDebug) << "  queuing: " << command;
-
-            // Start using a thread to avoid lags
-            pushCommand(command);
-        }
+       
 #else            
         LOG(LogDebug) << "  executing: " << script;
 
