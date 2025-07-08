@@ -649,15 +649,15 @@ static std::string getScriptPath(const std::string& name)
 
 	for (auto path : paths)
 	{
-		std::string esUpdatePath = Utils::FileSystem::combine(path, name + ".cmd");
+		std::string esUpdatePath = Utils::FileSystem::combine(path, name + ".exe");
+		if (Utils::FileSystem::exists(esUpdatePath))
+			return Utils::FileSystem::getPreferredPath(esUpdatePath);
+
+		esUpdatePath = Utils::FileSystem::combine(path, name + ".cmd");
 		if (Utils::FileSystem::exists(esUpdatePath))
 			return Utils::FileSystem::getPreferredPath(esUpdatePath);
 
 		esUpdatePath = Utils::FileSystem::combine(path, name + ".bat");
-		if (Utils::FileSystem::exists(esUpdatePath))
-			return Utils::FileSystem::getPreferredPath(esUpdatePath);
-
-		esUpdatePath = Utils::FileSystem::combine(path, name + ".exe");
 		if (Utils::FileSystem::exists(esUpdatePath))
 			return Utils::FileSystem::getPreferredPath(esUpdatePath);
 	}
