@@ -35,6 +35,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	addSwitch(_("ENCORE MODE"), _("Unlocked achievements can be earned again."), "global.retroachievements.encore", false, nullptr);
 	addSwitch(_("AUTOMATIC SCREENSHOT"), _("Automatically take a screenshot when an achievement is earned."), "global.retroachievements.screenshot", false, nullptr);
 	addSwitch(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), "global.retroachievements.challenge_indicators", false, nullptr);
+	addSwitch(_("UNOFFICIAL ACHIEVEMENTS"), _("Enable unlocking of unofficial achievements."), "global.retroachievements.unofficial", false, nullptr);
 
 	// Unlock sound
 	auto installedRSounds = ApiSystem::getInstance()->getRetroachievementsSoundsList();
