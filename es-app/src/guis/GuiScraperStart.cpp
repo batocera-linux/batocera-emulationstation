@@ -409,7 +409,7 @@ std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemD
 
 bool GuiScraperStart::input(InputConfig* config, Input input)
 {
-	bool consumed = GuiComponent::input(config, input);
+	bool consumed = GuiSettings::input(config, input);
 	if (consumed)
 		return true;
 

@@ -104,7 +104,14 @@ MenuComponent::MenuComponent(Window* window,
 bool MenuComponent::input(InputConfig* config, Input input)
 {	
 	if (mTabs != nullptr && mTabs->size() && mGrid.getSelectedComponent() != mButtonGrid && (config->isMappedLike("left", input) || config->isMappedLike("right", input)))
-		return mTabs->input(config, input);
+	{
+		bool ret = mTabs->input(config, input);
+
+		if (input.type != TYPE_HAT || input.value != 0) 
+			return ret;
+
+		// continue processing if the HAT value was reset to 0
+	}
 
 	if (GuiComponent::input(config, input))
 		return true;
