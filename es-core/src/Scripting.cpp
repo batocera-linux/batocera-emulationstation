@@ -81,6 +81,10 @@ namespace Scripting
 #endif
     }
 
+    static std::set<std::string> _asyncEvents = { "game-start", "game-end", "game-selected", "system-selected", "screensaver-start", "screensaver-stop", "sleep", "wake" };
+
+    static inline bool isAsyncEvent(const std::string& eventName) { return _asyncEvents.find(eventName) != _asyncEvents.cend(); }
+
     static void executeScript(const std::string& script, const std::string& eventName, const std::string& arg1, const std::string& arg2, const std::string& arg3, bool allowAsync = true)
     {
         std::string command = script;
@@ -100,7 +104,7 @@ namespace Scripting
         if (Utils::FileSystem::getExtension(script) == ".ps1")
             command = "powershell " + command;
 
-        if (Utils::String::startsWith(eventName, "-selected") && allowAsync) // Only run *-selected events in async mode
+        if (allowAsync)
         {            
             LOG(LogDebug) << "  queuing: " << command;
 
@@ -116,8 +120,7 @@ namespace Scripting
             psi.waitForExit = true;
             psi.showWindow = false;
             psi.run();
-        }
-       
+        }       
 #else            
         LOG(LogDebug) << "  executing: " << script;
 
@@ -158,7 +161,7 @@ namespace Scripting
                 if (_supportedExtensions.find(ext) == _supportedExtensions.cend())
                     continue;
 #endif
-                executeScript(script, "", arg1, arg2, arg3, eventName != "quit");
+                executeScript(script, "", arg1, arg2, arg3, isAsyncEvent(eventName));
             }
         }
 
@@ -186,7 +189,7 @@ namespace Scripting
                 if (_supportedExtensions.find(ext) == _supportedExtensions.cend())
                     continue;
 
-                executeScript(script.path, eventName, arg1, arg2, arg3);
+                executeScript(script.path, eventName, arg1, arg2, arg3, isAsyncEvent(eventName));
             }
         }
     }
