@@ -510,7 +510,7 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEOUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "OPZIONI NETPLAY"
@@ -900,16 +900,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "IMPOSTAZIONI PADTOKEY"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID CLIENT"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "CLIENT SEGRETO"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3116,7 +3116,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VUOI DAVVERO CAMBIARE SCHERMO ?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "CREDENZIALI INVALIDE"
 
 msgid "SCRAPING"
 msgstr "SCRAPING"

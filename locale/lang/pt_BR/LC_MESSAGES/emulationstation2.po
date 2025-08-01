@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -479,7 +479,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "EDITAR DESCRIÇÃO"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "TEM CERTEZA QUE DESEJA EXCLUIR ESTE ITEM ?"
+msgstr "TEM CERTEZA QUE DESEJA EXCLUIR ESTE ITEM?"
 
 msgid "DELETE MAPPING"
 msgstr "APAGAR MAPEAMENTO"
@@ -509,7 +509,7 @@ msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "AJUSTES DOS JOGOS EM REDE"
@@ -533,7 +533,8 @@ msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CRIAR LOBBY AUTOMATICAMENTE"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr "Automaticamente cria um lobby Netplay quando estiver começando um jogo"
+msgstr ""
+"Automaticamente cria um lobby Netplay quando estiver começando um jogo."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
@@ -853,7 +854,7 @@ msgid "LOGO SOURCE"
 msgstr "FONTE DA MÍDIA DO LOGOTIPO"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "LOGOTIPO HD"
 
 msgid "WHEEL"
 msgstr "LOGOTIPO"
@@ -907,16 +908,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "INFORMAÇÃO DOS JOGOS"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID DO CLIENTE"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "SEGREDO DO CLIENTE"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3135,7 +3136,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOCÊ QUER TROCAR DE TELA?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "CREDENCIAIS INVÁLIDAS"
 
 msgid "SCRAPING"
 msgstr "PROCURANDO MÍDIAS"

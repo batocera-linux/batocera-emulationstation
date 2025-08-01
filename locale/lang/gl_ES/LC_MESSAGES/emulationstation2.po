@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-06-26 09:36+0200\n"
+"PO-Revision-Date: 2025-07-29 12:16+0200\n"
 "Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -278,7 +278,7 @@ msgid "Cheevos Game ID"
 msgstr "Cheevos ID do xogo"
 
 msgid "Screenscraper Game ID"
-msgstr "Screenscraper ID do xogo"
+msgstr "Identificador do xogo no raspador de cubertas"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -909,16 +909,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AXUSTES MANDO A TECLA"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "RASPADOR DE CUBERTAS"
 
 msgid "IGDB"
-msgstr ""
+msgstr "BDXR"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID do cliente"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "CLAVE SECRETA DO CLIENTE"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3132,7 +3132,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "QUERES CAMBIAR A PANTALLA ?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "CREDENCIAIS NON VÁLIDAS"
 
 msgid "SCRAPING"
 msgstr "AUDITANDO"

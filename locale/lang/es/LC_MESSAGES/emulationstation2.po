@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2025-06-18 00:00+0100\n"
+"PO-Revision-Date: 2025-07-4 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -906,16 +906,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE MANDO A TECLAS (PADTOKEY)"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID CLIENTE"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "ID SECRETA"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3140,7 +3140,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "¿QUIERES CAMBIAR LA PANTALLA?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "CREDENCIALES NO VÁLIDAS"
 
 msgid "SCRAPING"
 msgstr "ESCRAPEANDO"

@@ -902,16 +902,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "НАСТРОЙКИ PADTOKEY"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "CLIENT ID"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "CLIENT SECRET"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3116,7 +3116,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "НЕВЕРНЫЕ ЛОГИН/ПАРОЛЬ"
 
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"

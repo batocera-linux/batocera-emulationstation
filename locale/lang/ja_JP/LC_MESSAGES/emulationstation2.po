@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v42b(2025/06/16)\n"
+"Project-Id-Version: batocera-es v42b(2025/07/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-06-15 22:12+0900\n"
+"PO-Revision-Date: 2025-07-05 12:52+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -903,16 +903,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "スクリーンスクレーパー"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "クライアントID"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "隠しクライアント"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -2052,10 +2052,10 @@ msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "動画再生時は音量を下げる"
 
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr ""
+msgstr "お気に入りプレイリストの曲だけを再生する"
 
 msgid "SELECTION OF FAVORITE SONGS"
-msgstr ""
+msgstr "お気に入りの曲の選択"
 
 msgid "SOUNDS"
 msgstr "音響"
@@ -2106,10 +2106,10 @@ msgid "NOW PLAYING"
 msgstr "現在再生中の曲名"
 
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr ""
+msgstr "お気に入りプレイリストから現在の曲を削除"
 
 msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr ""
+msgstr "現在の曲をお気に入りプレイリストに保存"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
@@ -2574,7 +2574,7 @@ msgstr ""
 "コピーしますか？(いいえ、はコピーせずパス指定のみ)"
 
 msgid "FAVORITE SONGS"
-msgstr ""
+msgstr "お気に入りの曲"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ネットプレイの接続"
@@ -3111,7 +3111,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "画面を切り替えますか？"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "無効な資格情報"
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
