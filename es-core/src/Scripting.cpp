@@ -59,7 +59,7 @@ namespace Scripting
     {
         std::unique_lock<std::mutex> lock(mScriptQueueLock);
 
-        if (command == _lastCommand)
+        if (command == _lastCommand && _lastCommand.find("-selected") != std::string::npos)
             return;
 
         _lastCommand = command;
@@ -97,14 +97,24 @@ namespace Scripting
             if (arg.empty())
                 break;
 
-            command += " \"" + arg + "\"";
+            std::string data = arg;
+            if (Utils::String::startsWith(data, "\"") && Utils::String::startsWith(data, "\""))
+                data = Utils::String::replace(data.substr(1, data.size() - 2), "\"", "");
+
+            data = Utils::String::replace(data, "\"", "");
+
+            if (data.find(" ") != std::string::npos)
+                command += " \"" + data + "\"";
+            else
+                command += " " + data;
         }
 
 #if WIN32
         if (Utils::FileSystem::getExtension(script) == ".ps1")
             command = "powershell " + command;
 
-        if (allowAsync)
+        std::string stem = Utils::FileSystem::getStem(script);       
+        if ((allowAsync && !Utils::String::endsWith(stem, "-wait")) || Utils::String::endsWith(stem, "-nowait"))
         {            
             LOG(LogDebug) << "  queuing: " << command;
 
