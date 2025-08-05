@@ -413,7 +413,7 @@ bool TextureData::loadFromCbz()
 		size_t size = files[0].file_size;
 		unsigned char* buffer = new unsigned char[size];
 
-		Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n)
+		Utils::Zip::zip_callback func = [](void *pOpaque, uint64_t ofs, const void *pBuf, size_t n)
 		{
 			unsigned char* pSource = (unsigned char*)pBuf;
 			unsigned char* pDest = (unsigned char*)pOpaque;
