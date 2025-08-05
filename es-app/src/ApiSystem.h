@@ -168,19 +168,18 @@ public:
 
 	virtual std::string getIpAddress();
 
-	bool enableBluetooth();
-	bool disableBluetooth();
-	void startBluetoothLiveDevices(const std::function<void(const std::string)>& func);
-	void stopBluetoothLiveDevices();
-	bool pairBluetoothDevice(const std::string& deviceName);
-	bool connectBluetoothDevice(const std::string& deviceName);
-	bool disconnectBluetoothDevice(const std::string& deviceName);
-	bool removeBluetoothDevice(const std::string& deviceName);
-
-	std::vector<std::string> getPairedBluetoothDeviceList();
-
-	// Obsolete
-    bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr);
+	// BlueTooth methods
+	virtual bool enableBluetooth();
+	virtual bool disableBluetooth();
+	virtual void startBluetoothLiveDevices(const std::function<void(const std::string)>& func);
+	virtual void stopBluetoothLiveDevices();
+	virtual bool pairBluetoothDevice(const std::string& deviceName);
+	virtual bool connectBluetoothDevice(const std::string& deviceName);
+	virtual bool disconnectBluetoothDevice(const std::string& deviceName);
+	virtual bool removeBluetoothDevice(const std::string& deviceName);
+	virtual bool forgetBluetoothControllers();
+	virtual std::vector<std::string> getPairedBluetoothDeviceList();	
+    virtual bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr); // Obsolete
 
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getAvailableInstallDevices();
@@ -201,9 +200,7 @@ public:
 
 	bool setButtonColorGameForce(std::string basic_string);
 
-	bool setPowerLedGameForce(std::string basic_string);
-
-    bool forgetBluetoothControllers();
+	bool setPowerLedGameForce(std::string basic_string);    
 
     /* audio card */
     bool setAudioOutputDevice(std::string device);
