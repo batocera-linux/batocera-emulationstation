@@ -1166,7 +1166,10 @@ bool Win32ApiSystem::setPlaneMode(bool enable)
 	return false;
 }
 
-
+bool Win32ApiSystem::forgetBluetoothControllers()
+{
+	return executeScript("batocera-bluetooth forgetBT");
+}
 
 #endif
 
