@@ -577,7 +577,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		transition_style = "instant";
 
 	if(transition_style == "auto")
-		transition_style = "slide";
+		transition_style = "fast slide";
 
 	if (Settings::PowerSaverMode() == "instant")
 		transition_style = "instant";
