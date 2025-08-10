@@ -204,6 +204,45 @@
     <game id="arkangc2">
       <spinner/>
     </game>
+    <game id="arknoid">
+      <spinner/>
+    </game>
+    <game id="arknoid2">
+      <spinner/>
+    </game>
+    <game id="arknoid2b">
+      <spinner/>
+    </game>
+    <game id="arknoid2j">
+      <spinner/>
+    </game>
+    <game id="arknoid2u">
+      <spinner/>
+    </game>
+    <game id="arknoidj">
+      <spinner/>
+    </game>
+    <game id="arknoidja">
+      <spinner/>
+    </game>
+    <game id="arknoidjb">
+      <spinner/>
+    </game>
+    <game id="arknoidjbl">
+      <spinner/>
+    </game>
+    <game id="arknoidjbl2">
+      <spinner/>
+    </game>
+    <game id="arknoidpe">
+      <spinner/>
+    </game>
+    <game id="arknoidu">
+      <spinner/>
+    </game>
+    <game id="arknoiduo">
+      <spinner/>
+    </game>
     <game id="arkanoid">
       <spinner/>
     </game>
