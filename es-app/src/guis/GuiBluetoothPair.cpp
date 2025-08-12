@@ -33,7 +33,7 @@ GuiBluetoothPair::GuiBluetoothPair(Window* window)
 		setSize(getSize().x(), Renderer::getScreenHeight() * 0.60f);
 	}
 
-	mBusyAnim.setText(_("PLEASE WAIT"));
+	mBusyAnim.setText(_("SCANNING BLUETOOTH"));
 	mBusyAnim.setSize(getSize());
 
 	Instance = this;
