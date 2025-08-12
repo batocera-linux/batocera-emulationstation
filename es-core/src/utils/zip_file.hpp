@@ -4458,7 +4458,26 @@ extern "C"
 static FILE *mz_fopen(const char *pFilename, const char *pMode)
 {
     FILE *pFile = NULL;
+
+#if WIN32
+    std::string filename = pFilename;
+    std::string mode = pMode;
+
+    std::wstring wFilename;
+    int numBytes = MultiByteToWideChar(CP_UTF8, 0, filename.c_str(), (int)filename.length(), nullptr, 0);
+    wFilename.resize(numBytes);
+    MultiByteToWideChar(CP_UTF8, 0, filename.c_str(), (int)filename.length(), (WCHAR*)wFilename.c_str(), numBytes);
+
+    std::wstring wMode;
+    numBytes = MultiByteToWideChar(CP_UTF8, 0, mode.c_str(), (int)mode.length(), nullptr, 0);
+    wMode.resize(numBytes);
+    MultiByteToWideChar(CP_UTF8, 0, mode.c_str(), (int)mode.length(), (WCHAR*)wMode.c_str(), numBytes);
+
+    _wfopen_s(&pFile, wFilename.c_str(), wMode.c_str());
+#else		
     fopen_s(&pFile, pFilename, pMode);
+#endif
+
     return pFile;
 }
 static FILE *mz_freopen(const char *pPath, const char *pMode, FILE *pStream)
