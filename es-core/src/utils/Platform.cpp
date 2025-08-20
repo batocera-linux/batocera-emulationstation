@@ -31,8 +31,8 @@ namespace Utils
 	namespace Platform
 	{
 		ProcessStartInfo::ProcessStartInfo()
-		{ 			
-			window = nullptr; 
+		{
+			window = nullptr;
 			waitForExit = true;
 			showWindow = true;
 #ifndef WIN32
@@ -42,9 +42,9 @@ namespace Utils
 		}
 
 		ProcessStartInfo::ProcessStartInfo(const std::string& cmd)
-		{ 
+		{
 			command = cmd;
-			window = nullptr; 
+			window = nullptr;
 			waitForExit = true;
 			showWindow = true;
 #ifndef WIN32
@@ -94,9 +94,9 @@ namespace Utils
 			lpExecInfo.hwnd = NULL;
 			lpExecInfo.lpVerb = L"open"; // to open  program
 			lpExecInfo.lpDirectory = NULL;
-			lpExecInfo.nShow = showWindow ? SW_SHOW : SW_HIDE;  // show command prompt with normal window size 
+			lpExecInfo.nShow = showWindow ? SW_SHOW : SW_HIDE;  // show command prompt with normal window size
 			lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;   //WINSHELLAPI BOOL WINAPI result;
-			lpExecInfo.lpParameters = wargs.c_str(); //  file name as an argument	
+			lpExecInfo.lpParameters = wargs.c_str(); //  file name as an argument
 
 			std::wstring wpath;
 
@@ -157,7 +157,7 @@ namespace Utils
 
 			// fork the current process
 			pid_t ret = fork();
-			if (ret == 0) 
+			if (ret == 0)
 			{
 				ret = fork();
 				if (ret == 0)
@@ -184,16 +184,16 @@ namespace Utils
 		{
 #ifdef WIN32 // windows
 			return system("shutdown -s -t 0");
-#else // osx / linux	
+#else // osx / linux
 			return system("shutdown -h now");
 #endif
 		}
 
 		int runRestartCommand()
 		{
-#ifdef WIN32 // windows	
+#ifdef WIN32 // windows
 			return system("shutdown -r -t 0");
-#else // osx / linux	
+#else // osx / linux
 			return system("shutdown -r now");
 #endif
 		}
@@ -233,7 +233,7 @@ namespace Utils
 				close(fd);
 
 			// system(("touch " + filename).c_str());
-#endif	
+#endif
 		}
 
 		void processQuitMode()
@@ -343,6 +343,10 @@ namespace Utils
 						tmpAddrPtr = &((struct sockaddr_in6*)ifa->ifa_addr)->sin6_addr;
 						char addressBuffer[INET6_ADDRSTRLEN];
 						inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
+
+						// Skip IPv6 link-local address
+						if (strncmp(addressBuffer, "fe80:", 5) == 0)
+							continue;
 
 						std::string ifName = ifa->ifa_name;
 						if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("mlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos || ifName.find("usb") != std::string::npos)
