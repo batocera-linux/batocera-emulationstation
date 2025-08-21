@@ -30,7 +30,7 @@
     <game id="2Spicy" name="2 Spicy">
       <gun/>
     </game>
-    <game id="38ambushalley">
+    <game id="38ambushalley" name=".38 Ambush Alley">
       <gun/>
     </game>
     <game id="500gp">
@@ -495,7 +495,7 @@
     <game id="BlockKing">
       <gun/>
     </game>
-    <game id="bluethunder">
+    <game id="bluethunder" name="Blue Thunder">
       <gun/>
     </game>
     <game id="blstroid">
@@ -2150,7 +2150,7 @@
     <game id="hummerextreme">
       <wheel/>
     </game>
-    <game id="hydrosub2021">
+    <game id="hydrosub2021" name="Hydrosub: 2021">
       <gun/>
     </game>
     <game id="ID4Exp">
@@ -3165,7 +3165,7 @@
     <game id="policetr13b">
       <gun/>
     </game>
-    <game id="popsghostly">
+    <game id="popsghostly" name="The Rescue of Pops Ghostly">
       <gun/>
     </game>
     <game id="pong">
@@ -3969,7 +3969,7 @@
     <game id="sonicp">
       <trackball/>
     </game>
-    <game id="sonicfury">
+    <game id="sonicfury" name="Sonic Fury">
       <gun/>
     </game>
     <game id="spacegun">
@@ -4452,7 +4452,7 @@
     <game id="tickee">
       <gun/>
     </game>
-    <game id="tierras">
+    <game id="tierras" name="Tierras Salvajes">
       <gun/>
     </game>
     <game id="timecris">
