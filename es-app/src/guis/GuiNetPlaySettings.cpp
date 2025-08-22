@@ -134,7 +134,8 @@ void GuiNetPlaySettings::addRelayServerOptions(int selectItem)
 	for (auto& kv : communityRelayServers)
 	{
 		std::string serverName = kv.first;
-		relayServer->add(Utils::String::toUpper(serverName.c_str()), serverName, selectedRelayServer == serverName);
+		std::string upperName = Utils::String::toUpper(serverName.c_str());
+		relayServer->add(_(upperName.c_str()), serverName, selectedRelayServer == serverName);
 	}
 
 	// Custom relay server
