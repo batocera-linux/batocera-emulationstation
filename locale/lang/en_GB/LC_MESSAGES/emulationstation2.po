@@ -667,6 +667,12 @@ msgstr ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT UNLOCK SOUND"
 

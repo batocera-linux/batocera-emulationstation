@@ -676,6 +676,12 @@ msgid ""
 msgstr ""
 "Amosa iconas no recuncho inferior dereito cando se poidan acadar fazañas."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SON DE DESBLOQUEO DE RETROACHIEVEMENT"
 

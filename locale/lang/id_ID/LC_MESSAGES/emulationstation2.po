@@ -669,6 +669,12 @@ msgid ""
 "earned."
 msgstr "Menampilkan ikon di pojok kanan bawah saat pencapaian memenuhi syarat."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "MEMBUKA PERINGKAT SUARA RETRO"
 

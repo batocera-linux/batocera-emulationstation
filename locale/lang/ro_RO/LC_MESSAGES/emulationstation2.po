@@ -676,6 +676,12 @@ msgstr ""
 "Afișează pictograme in colțul din dreapta jos când realizări eligibile pot "
 "fi dobândite."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUNET DEBLOCARE RETROREALIZARE"
 

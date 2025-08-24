@@ -676,6 +676,12 @@ msgstr ""
 "Mostra os ícones no canto inferior direito quando as conquistas elegíveis "
 "podem ser obtidas."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR NOVAS CONQUISTAS"
 

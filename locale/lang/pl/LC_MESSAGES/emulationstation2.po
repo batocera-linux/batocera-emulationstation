@@ -671,6 +671,12 @@ msgid ""
 msgstr ""
 "Pokaż ikony w prawym dolnym rogu, kiedy można zdobyć osiągnięcia w grze."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENT"
 

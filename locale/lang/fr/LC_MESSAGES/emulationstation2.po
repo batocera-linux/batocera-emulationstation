@@ -674,6 +674,12 @@ msgstr ""
 "Afficher les icônes dans le coin inférieur droit lorsque des succès rétro "
 "peuvent être obtenus."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SON DE DÉVERROUILLAGE DES SUCCÈS RÉTRO"
 

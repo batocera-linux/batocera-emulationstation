@@ -669,6 +669,12 @@ msgid ""
 "earned."
 msgstr "対象となるアチーブメントを獲得できる場合、右下隅にアイコンを表示します"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTロック解除効果音"
 

@@ -672,6 +672,12 @@ msgstr ""
 "Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
 "podem ser ganhas."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
 
@@ -3611,8 +3617,6 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
-
-
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

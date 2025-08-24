@@ -674,6 +674,12 @@ msgstr ""
 "Muestra indicadores en la esquina inferior derecha de la pantalla en los "
 "momentos que se pueden obtener trofeos durante la partida."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE TROFEO"
 

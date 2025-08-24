@@ -674,6 +674,12 @@ msgstr ""
 "Muestra iconos en la esquina inferior derecha en los momentos en que se "
 "pueden obtener logros durante la partida."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE LOGROS"
 

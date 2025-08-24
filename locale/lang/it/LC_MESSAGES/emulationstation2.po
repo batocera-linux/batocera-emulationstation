@@ -669,6 +669,12 @@ msgid ""
 "earned."
 msgstr "Mostra le icone delle sfide per i trofei in basso a destra"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
 

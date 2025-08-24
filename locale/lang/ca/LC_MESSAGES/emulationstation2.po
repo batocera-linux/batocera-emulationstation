@@ -672,6 +672,12 @@ msgid ""
 msgstr ""
 "Mostra icones a la cantonada inferior dreta al guanyar trofeus elegibles."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SO D’ASSOLIMENT D’UN RETROACHIEVEMENT"
 

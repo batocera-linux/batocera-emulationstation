@@ -670,6 +670,12 @@ msgid ""
 msgstr ""
 "Ikonok jelennek meg a jobb alsó sarokban, amikor eredményeket lehet szerezni."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT FELOLDÁS HANG"
 

@@ -669,6 +669,12 @@ msgstr ""
 "Προβολη εικονιδιων στην κατω αριστερη γωνια οταν επιλεξιμα επιτευγματα "
 "μπορουν να κερδηθουν."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 

@@ -668,6 +668,12 @@ msgid ""
 msgstr ""
 "Viser ikoner i nedre høyre hjørne når kvalifiserte prestasjoner kan oppnås."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT LÅS-OPP-LYD"
 

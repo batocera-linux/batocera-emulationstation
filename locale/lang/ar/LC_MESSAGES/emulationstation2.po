@@ -705,6 +705,12 @@ msgid ""
 "earned."
 msgstr ".عرض أيقونة في الزاوية اليمنى أسفل الشاشة إن كانت هنالك إنجازات لكسبها"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "صوت فتح إنجاز من إنجازات الريترو"
 
@@ -760,6 +766,12 @@ msgstr "أعد التشغيل للتطبيق"
 
 msgid "REALLY UPDATE?"
 msgstr "هل فعلا تريد التحديث ؟"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 #, c-format
 msgid ""
@@ -944,8 +956,8 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد تكون "
-"!مختلفة من نظام لآخر\n"
+"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد "
+"تكون !مختلفة من نظام لآخر\n"
 "أترغب في المواصلة؟"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -1049,6 +1061,12 @@ msgstr "المساحة المتاحة في قسم البيانات على الق
 
 msgid "Network IP Address"
 msgstr "(IP) عنوان الشبكة"
+
+msgid "UEFI Boot"
+msgstr ""
+
+msgid "Secure Boot"
+msgstr ""
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -3618,8 +3636,8 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"لم يتم تعيين مفتاح اختصار. هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة التحكم. "
-"أترغب في استعمال سيليكت كمفتاح الاختصار الخاص بك؟"
+"لم يتم تعيين مفتاح اختصار. هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة "
+"التحكم. أترغب في استعمال سيليكت كمفتاح الاختصار الخاص بك؟"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "تعيين سيليكت كمفتاح اختصار"

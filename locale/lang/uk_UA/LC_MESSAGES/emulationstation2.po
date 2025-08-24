@@ -667,6 +667,12 @@ msgid ""
 "earned."
 msgstr ""
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ЗВУК РОЗБЛОКУВАННЯ РЕТРОДОСЯГНЕНЬ"
 

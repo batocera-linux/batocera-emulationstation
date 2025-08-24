@@ -667,6 +667,12 @@ msgid ""
 msgstr ""
 "적합한 도전과제를 얻을 수 있을 때 오른쪽 하단 모서리에 아이콘을 표시합니다."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "레트로도전과제 잠금 해제 사운드"
 

@@ -674,6 +674,12 @@ msgid ""
 msgstr ""
 "Hiển thị biểu tượng ở góc dưới bên phải khi có thành tựu có thể đạt được."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "MỞ KHÓA ÂM THANH RETROACHIEVEMENT"
 

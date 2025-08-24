@@ -666,6 +666,12 @@ msgid ""
 "earned."
 msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT 解鎖音效"
 

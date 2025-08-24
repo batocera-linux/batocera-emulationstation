@@ -668,6 +668,12 @@ msgstr ""
 "Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan "
 "tjänas in."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "UPPLÅSNINGSLJUD FÖR RETROACHIEVEMENT"
 
@@ -2931,8 +2937,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"

@@ -670,6 +670,12 @@ msgid ""
 "earned."
 msgstr "Uygun başarımlar kazanılabildiğine sağ alt köşede simgeleri gösterir."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROBAŞARIM KİLİT AÇILMA SESİ"
 

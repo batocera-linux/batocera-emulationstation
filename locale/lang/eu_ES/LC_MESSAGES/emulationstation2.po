@@ -667,6 +667,12 @@ msgstr ""
 "Erakutsi ikonoak eskuin beheko iskinan aukeratu daitezkeen lorpenak irabazi "
 "daitezkeenean"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT SOINUA DESBLOKEATU"
 

@@ -670,6 +670,12 @@ msgid ""
 "earned."
 msgstr "Zobrazí ikony v pravom dolnom rohu, ak sa dajú získať vhodné úspechy."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RetroAchievement odomknúť zvuk"
 
