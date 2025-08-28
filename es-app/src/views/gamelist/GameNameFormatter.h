@@ -16,6 +16,7 @@ private:
 	unsigned int mSortId;
 	bool mShowCheevosIcon;
 	bool mShowFavoriteIcon;	
+	bool mShowFinishedIcon;
 
 	bool mShowSystemName;
 	bool mShowYear;

@@ -69,6 +69,9 @@ namespace FileSorts
 		mSortTypes.push_back(SortType(SYSTEM_RELEASEDATE_DESCENDING, &compareSystemReleaseYear, false, _("SYSTEM, RELEASE YEAR, DESCENDING"), _U("\uF161 ")));
 		mSortTypes.push_back(SortType(RELEASEDATE_SYSTEM_ASCENDING, &compareReleaseYearSystem, true, _("RELEASE YEAR, SYSTEM, ASCENDING"), _U("\uF160 ")));
 		mSortTypes.push_back(SortType(RELEASEDATE_SYSTEM_DESCENDING, &compareReleaseYearSystem, false, _("RELEASE YEAR, SYSTEM, DESCENDING"), _U("\uF161 ")));
+
+		mSortTypes.push_back(SortType(FINISHEDDATE_ASCENDING, &compareFinishedDate, true, _("FINISHED DATE, ASCENDING"), _U("\uF160 ")));
+		mSortTypes.push_back(SortType(FINISHEDDATE_DESCENDING, &compareFinishedDate, false, _("FINISHED DATE, DESCENDING"), _U("\uF161 ")));
 	}
 
 	//returns if file1 should come before file2
@@ -186,6 +189,13 @@ namespace FileSorts
 		// since it's stored as an ISO string (YYYYMMDDTHHMMSS), we can compare as a string
 		// as it's a lot faster than the time casts and then time comparisons
 		return (file1)->getMetadata().get(MetaDataId::ReleaseDate) < (file2)->getMetadata().get(MetaDataId::ReleaseDate);
+	}
+
+	bool compareFinishedDate(const FileData* file1, const FileData* file2)
+	{
+		// since it's stored as an ISO string (YYYYMMDDTHHMMSS), we can compare as a string
+		// as it's a lot faster than the time casts and then time comparisons
+		return (file1)->getMetadata().get(MetaDataId::FinishedDate) < (file2)->getMetadata().get(MetaDataId::FinishedDate);
 	}
 
 	bool compareFileCreationDate(const FileData* file1, const FileData* file2)

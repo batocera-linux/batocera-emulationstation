@@ -57,6 +57,8 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "genre",			    [](FileData* file) { return file->getGenre(); } },
 	{ "hasKeyboardMapping", [](FileData* file) { return file->hasKeyboardMapping(); } },	
 	{ "systemName",			[](FileData* file) { return file->getSourceFileData()->getSystem()->getFullName(); } },
+	{ "finished",			[](FileData* file) { return file->getFinished(); } },
+	{ "finishedDate",		[](FileData* file) { return file->getFinishedDate(); } },
 };
 
 FileData* FileData::mRunningGame = nullptr;
@@ -243,6 +245,18 @@ const bool FileData::getKidGame() const
 {
 	auto data = getMetadata(MetaDataId::KidGame);
 	return data != "false" && !data.empty();
+}
+
+const bool FileData::getFinished() const
+{
+	auto data = getMetadata(MetaDataId::Finished);
+	return data != "false" && !data.empty();
+}
+
+const std::string FileData::getFinishedDate() const
+{
+	auto data = getMetadata(MetaDataId::FinishedDate);
+	return data;
 }
 
 const bool FileData::hasCheevos()

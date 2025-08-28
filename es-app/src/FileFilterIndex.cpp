@@ -20,7 +20,8 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
-	, filterByLightGun(false), filterByWheel(false), filterByTrackball(false), filterBySpinner(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
+	, filterByLightGun(false), filterByWheel(false), filterByTrackball(false), filterBySpinner(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false)
+	, filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false), filterByFinished(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -44,7 +45,8 @@ FileFilterIndex::FileFilterIndex()
 		{ TRACKBALL_FILTER, 	&trackballIndexAllKeys,     &filterByTrackball,	    &trackballIndexFilteredKeys,    "trackball",		false,				"",				_("TRACKBALL") },
 		{ SPINNER_FILTER, 	&spinnerIndexAllKeys,     &filterBySpinner,	    &spinnerIndexFilteredKeys,    "spinner",		false,				"",				_("SPINNER") },
 		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAVING MEDIAS") },
-		{ MISSING_MEDIA_FILTER, &missingMediasIndexAllKeys, &filterByMissingMedia, &missingMediaIndexFilteredKeys, "missingMedia",		false,				"",				_("MISSING MEDIAS") }
+		{ MISSING_MEDIA_FILTER, &missingMediasIndexAllKeys, &filterByMissingMedia, &missingMediaIndexFilteredKeys, "missingMedia",		false,				"",				_("MISSING MEDIAS") },
+		{ FINISHED_FILTER, &finishedIndexAllKeys, &filterByFinished, &finishedIndexFilteredKeys, "finished",		false,				"",				_("FINISHED") }
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -170,6 +172,8 @@ void FileFilterIndex::resetIndex()
 	clearIndex(hasMediasIndexAllKeys);
 	clearIndex(missingMediasIndexAllKeys);
 
+	clearIndex(finishedIndexAllKeys);
+
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
 
@@ -236,6 +240,9 @@ void FileFilterIndex::resetIndex()
 	manageIndexEntry(&ratingsIndexAllKeys, "3 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "4 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "5 STARS", false);
+
+	manageIndexEntry(&finishedIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&finishedIndexAllKeys, "TRUE", false);
 }
 
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
@@ -426,6 +433,15 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->isVerticalArcadeGame() ? "TRUE" : "FALSE";		
+	}
+
+	case FINISHED_FILTER:
+	{
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		key = game->getMetadata(MetaDataId::Finished);
+		break;
 	}
 	}
 
@@ -1204,6 +1220,8 @@ bool CollectionFilter::load(const std::string file)
 			hasMediaIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "missingMedia")
 			missingMediaIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "finished")
+			finishedIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -1287,6 +1305,9 @@ bool CollectionFilter::save()
 		
 	for (auto key : missingMediaIndexFilteredKeys)
 		root.append_child("missingMedia").text().set(key.c_str());
+
+	for (auto key : finishedIndexFilteredKeys)
+		root.append_child("finished").text().set(key.c_str());
 
 	if (!doc.save_file(WINSTRINGW(mPath).c_str()))
 	{
