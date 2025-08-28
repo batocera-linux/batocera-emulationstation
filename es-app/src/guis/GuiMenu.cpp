@@ -3438,6 +3438,21 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
+		// Show Finished
+		auto defFI = Settings::getInstance()->getBool("ShowFinished") ? _("YES") : _("NO");
+		auto curFI = Settings::getInstance()->getString(system->getName() + ".ShowFinished");
+		auto showFinished = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW FINISHED ICON"), false);
+		showSaveStates->add(_("AUTO"), "", curFI == "" || curFI == "auto");
+		showSaveStates->add(_("YES"), "1", curFI == "1");
+		showSaveStates->add(_("NO"), "0", curFI == "0");
+		themeconfig->addWithDescription(_("SHOW FINISHED ICON"), _("DEFAULT VALUE") + " : " + defFI, showFinished);
+		themeconfig->addSaveFunc([themeconfig, showFinished, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".ShowFinished", showFinished->getSelected()))
+				themeconfig->setVariable("reloadAll", true);
+		});
+
+
 		// Show Manual
 		auto defMM = Settings::getInstance()->getBool("ShowManualIcon") ? _("YES") : _("NO");
 		auto curMM = Settings::getInstance()->getString(system->getName() + ".ShowManualIcon");
@@ -3858,6 +3873,7 @@ void GuiMenu::openUISettings()
 	s->addSwitch(_("SHOW '..' PARENT FOLDER"), "ShowParentFolder", true, [s] { s->setVariable("reloadAll", true); });
 	s->addOptionList(_("SHOW REGION FLAG"), { { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, "ShowFlags", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW SAVESTATE ICON"), "ShowSaveStates", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW FINISHED ICON"), "ShowFinished", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW MANUAL ICON"), "ShowManualIcon", true, [s] { s->setVariable("reloadAll", true); });	
 	s->addSwitch(_("SHOW RETROACHIEVEMENTS ICON"), "ShowCheevosIcon", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW GUN ICON"), "ShowGunIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
