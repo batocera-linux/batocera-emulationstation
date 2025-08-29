@@ -167,6 +167,7 @@ public:
     bool disableWifi();
 
 	virtual std::string getIpAddress();
+	virtual bool isWifiAPModeSupported();
 
 	// BlueTooth methods
 	virtual bool enableBluetooth();
@@ -255,6 +256,8 @@ public:
 	void setLEDBrightness(int value);
 
 	std::vector<std::string> getWifiNetworks(bool scan = false);
+	void scanWifiNetworks();
+	std::string getWifiRoute();
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
 	

@@ -38,6 +38,7 @@
 #endif
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
+#define NETPLAY_LOBBY_FAIL_GRACE_MS	(100)
 
 // http://lobby.libretro.com/list/
 // Core list :
@@ -163,6 +164,7 @@ static std::map<std::string, std::string> coreList =
 
 GuiNetPlay::GuiNetPlay(Window* window)
 	: GuiComponent(window), 
+	mFindingHotspot(false),
 	mBusyAnim(window),
 	mBackground(window, ":/frame.png"),
 	mGrid(window, Vector2i(1, 3)),
@@ -198,7 +200,13 @@ GuiNetPlay::GuiNetPlay(Window* window)
 
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this] { startRequest(); }));
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("REFRESH"), _("REFRESH"), [this]
+	{
+		if (ApiSystem::getInstance()->getIpAddress() != "NOT CONNECTED")
+			startRequest();
+		else if (SystemConf::getInstance()->getBool("wifi.enabled") && SystemConf::getInstance()->getBool("global.netplay.hotspot"))
+			findHotspot();
+	}));
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CLOSE"), _("CLOSE"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
@@ -231,8 +239,11 @@ GuiNetPlay::GuiNetPlay(Window* window)
 
 	// Loading
     mBusyAnim.setSize(Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()));
-	mBusyAnim.setText(_("PLEASE WAIT"));
-	startRequest();
+
+	if (ApiSystem::getInstance()->getIpAddress() != "NOT CONNECTED")
+		startRequest();
+	else if (SystemConf::getInstance()->getBool("wifi.enabled") && SystemConf::getInstance()->getBool("global.netplay.hotspot"))
+		findHotspot();
 }
 
 GuiNetPlay::~GuiNetPlay()
@@ -276,6 +287,8 @@ void GuiNetPlay::startRequest()
 	if (mLobbyRequest != nullptr)
 		return;
 
+	mBusyAnim.setText(_("PLEASE WAIT"));
+
 	mList->clear();
 	mLobbyEntries.clear();
 	mLanEntries.clear();
@@ -287,11 +300,31 @@ void GuiNetPlay::startRequest()
 		netPlayLobby = "http://lobby.libretro.com/list/";
 
 	mLobbyRequest = std::unique_ptr<HttpReq>(new HttpReq(netPlayLobby));
+	mLobbyGracePeriodElapsed = 0;
+}
+
+void GuiNetPlay::findHotspot()
+{
+	mBusyAnim.setText(_("SEARCHING FOR HOTSPOTS"));
+
+	ApiSystem::getInstance()->scanWifiNetworks();
+	mFindingHotspot = true;
 }
 
 void GuiNetPlay::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	if (mFindingHotspot)
+	{
+		mBusyAnim.update(deltaTime);
+
+		if (ApiSystem::getInstance()->getWifiRoute() == "NOT CONNECTED")
+			return;
+
+		mFindingHotspot = false;
+		startRequest();
+	}
 		
 	if (mLanLobbySocketTimeout < 20000) // allow receiving answers from the LAN for 20 seconds
 	{
@@ -300,6 +333,10 @@ void GuiNetPlay::update(int deltaTime)
 	}
 
 	if (!mLobbyRequest)
+		return;
+
+	mLobbyGracePeriodElapsed += deltaTime;
+	if (mLobbyGracePeriodElapsed < NETPLAY_LOBBY_FAIL_GRACE_MS)
 		return;
 
 	auto status = mLobbyRequest->status();
@@ -312,7 +349,7 @@ void GuiNetPlay::update(int deltaTime)
 	if (status == HttpReq::REQ_SUCCESS)
 		populateFromJson(mLobbyRequest->getContent());
 
-	if (status != HttpReq::REQ_SUCCESS)
+	if (status != HttpReq::REQ_SUCCESS && mList->size() == 0)
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("FAILED") + std::string(" : ") + mLobbyRequest->getErrorMsg()));
 
 	if (mList->size() != 0)
@@ -966,7 +1003,10 @@ bool GuiNetPlay::populateFromLan()
 		game.coreExists = coreExists(file, game.core_name);
 
 		if (!std::any_of(mLanEntries.cbegin(), mLanEntries.cend(), [game](const LobbyAppEntry& entry) { return entry.country == "lan" && entry.ip == game.ip && entry.port == game.port && entry.username == game.username && entry.game_crc == game.game_crc; }))
+		{
 			mLanEntries.push_back(std::move(game));
+			changed = true;
+		}
 	}
 
 	if (changed)
@@ -979,7 +1019,7 @@ void GuiNetPlay::render(const Transform4x4f &parentTrans)
 {
 	GuiComponent::render(parentTrans);
 
-	if (mLobbyRequest)
+	if (mLobbyRequest || mFindingHotspot)
 		mBusyAnim.render(parentTrans);
 }
 
