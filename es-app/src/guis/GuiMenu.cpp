@@ -764,6 +764,18 @@ void GuiMenu::openDeveloperSettings()
 	}
 #endif
 
+#ifdef _ENABLE_FILEMANAGER_
+		// FILEMANAGER
+		if (UIModeController::getInstance()->isUIModeFull()) {
+			s->addEntry(_("LAUNCH FILEMANAGER"), false, [this, s]
+			{
+				ApiSystem::getInstance()->launchFileManager(mWindow);
+				ViewController::reloadAllGames(mWindow, false);
+			});
+		}
+		
+#endif
+
 	// WEB ACCESS
 	auto hostName = Utils::String::toLower(ApiSystem::getInstance()->getHostsName());
 
