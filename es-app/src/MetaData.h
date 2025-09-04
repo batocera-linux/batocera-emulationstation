@@ -75,7 +75,9 @@ enum MetaDataId
 	Magazine = 38,
 	GenreIds = 39,
 	Family = 40,
-	Bezel = 41
+	Bezel = 41,
+	Finished = 42,
+	FinishedDate = 43,
 };
 
 namespace MetaDataImportType
