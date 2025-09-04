@@ -20,12 +20,14 @@ GuiSystemInformation::GuiSystemInformation(Window* window) : GuiSettings(window,
 	addWithLabel(_("USER DISK USAGE"), std::make_shared<TextComponent>(window, ApiSystem::getInstance()->getFreeSpaceUserInfo(), font, warning ? 0xFF0000FF : color));
 	addWithLabel(_("SYSTEM DISK USAGE"), std::make_shared<TextComponent>(window, ApiSystem::getInstance()->getFreeSpaceSystemInfo(), font, color));
 
-	std::string path = "/media";
-    for (const auto & entry : Utils::FileSystem::getDirContent(path)) {
-		if (entry != "/media/SHARE" && entry != "/media/BATOCERA") {
-			addWithLabel(_("DISK USAGE") + " " + entry, std::make_shared<TextComponent>(window, ApiSystem::getInstance()->getFreeSpaceInfo(entry), font, warning ? 0xFF0000FF : color));
+	#ifndef WIN32
+		std::string path = "/media";
+		for (const auto & entry : Utils::FileSystem::getDirContent(path)) {
+			if (entry != "/media/SHARE" && entry != "/media/BATOCERA") {
+				addWithLabel(_("DISK USAGE") + " " + entry, std::make_shared<TextComponent>(window, ApiSystem::getInstance()->getFreeSpaceInfo(entry), font, warning ? 0xFF0000FF : color));
+			}
 		}
-  	}
+	#endif
 
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
 	if (infos.size() > 0)
