@@ -6,6 +6,8 @@
 #include "GuiHashStart.h"
 #include <unordered_map>
 
+#define fake_gettext_paris _("PARIS")
+#define fake_gettext_osaka _("OSAKA")
 #define fake_gettext_seoul _("SEOUL")
 
 static std::vector<std::pair<std::string, std::string>> communityRelayServers;
