@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v42b(2025/07/06)\n"
+"Project-Id-Version: batocera-es v42b(2025/08/27)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-07-05 12:52+0900\n"
+"PO-Revision-Date: 2025-08-27 19:47+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -670,10 +670,10 @@ msgid ""
 msgstr "対象となるアチーブメントを獲得できる場合、右下隅にアイコンを表示します"
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "非公式 アチーブメント(実績)"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "非公式アチーブメントのロック解除を有効にします"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTロック解除効果音"
@@ -2580,7 +2580,7 @@ msgstr ""
 "コピーしますか？(いいえ、はコピーせずパス指定のみ)"
 
 msgid "FAVORITE SONGS"
-msgstr "お気に入りの曲"
+msgstr "再生するお気に入りの曲"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ネットプレイの接続"

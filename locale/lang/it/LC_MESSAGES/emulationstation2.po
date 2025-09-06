@@ -670,10 +670,10 @@ msgid ""
 msgstr "Mostra le icone delle sfide per i trofei in basso a destra"
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "SUCCESSI NON-UFFICIALI"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Abilita e sblocca i successi non-ufficiali"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
