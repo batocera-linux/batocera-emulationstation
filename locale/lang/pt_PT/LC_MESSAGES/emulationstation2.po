@@ -673,10 +673,10 @@ msgstr ""
 "podem ser ganhas."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "CONQUISTAS NÃO OFICIAIS"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Ativar o desbloqueio de conquistas não oficiais."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
