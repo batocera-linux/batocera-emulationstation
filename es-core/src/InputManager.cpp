@@ -627,8 +627,11 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 			}
 #endif
 #endif
+#if WIN32
+			rebuildAllJoysticks(false);
+#else
 			rebuildAllJoysticks();
-
+#endif
 			if (Settings::getInstance()->getBool("ShowControllerNotifications") && !addedDeviceName.empty()) {
 			  if(isWheel) {
 			    window->displayNotificationMessage(_U("\uF1B9 ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
