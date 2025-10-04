@@ -1,4 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <community_relay_servers>
+  <server id="paris" address="158.178.213.50" author_email="bulzipke@naver.com" />
+  <server id="osaka" address="150.230.59.239" author_email="bulzipke@naver.com" />
   <server id="seoul" address="138.2.119.137" author_email="bulzipke@naver.com" />
 </community_relay_servers>
