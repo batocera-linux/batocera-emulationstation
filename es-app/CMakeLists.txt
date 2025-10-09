@@ -1,5 +1,33 @@
 project("emulationstation")
 
+if(WIN32)
+
+	option(INJECT_VERSION "Inject Version" OFF)
+
+	if(INJECT_VERSION)
+	
+		# Main version number
+		set(VERSION_MAJOR 42)
+	
+		# Create version.h at configure/build time
+		string(TIMESTAMP BUILD_YEAR   "%Y")
+		string(TIMESTAMP BUILD_MONTH  "%m")
+		string(TIMESTAMP BUILD_DAY    "%d")
+		string(TIMESTAMP BUILD_HOUR   "%H")
+		string(TIMESTAMP BUILD_MINUTE "%M")
+
+		# Format into your desired scheme		
+		set(VERSION_DATE   "${BUILD_MONTH}${BUILD_DAY}") # e.g. 1004
+		set(VERSION_TIME   "${BUILD_HOUR}${BUILD_MINUTE}") # e.g. 2041
+
+		configure_file(
+			${CMAKE_CURRENT_SOURCE_DIR}/EmulationStation.h.in
+			${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.h
+			@ONLY
+		)
+	endif()
+endif()
+
 set(ES_HEADERS	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.h
