@@ -936,7 +936,9 @@ void FileData::deleteGameFiles()
 		if (mMetadata.getType(mdd.id) != MetaDataType::MD_PATH)
 			continue;
 
-		Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
+		std::string path = mMetadata.get(mdd.id);
+		if (Utils::FileSystem::exists(path) && !Utils::FileSystem::isDirectory(path))
+			Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
 	}
 
 	if (Utils::FileSystem::isDirectory(getPath()))
