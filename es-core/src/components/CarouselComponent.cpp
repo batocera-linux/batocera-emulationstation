@@ -203,6 +203,14 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 	cancelAnimation(1);
 	cancelAnimation(2);
 
+	if (mLastCursor == mCursor)
+	{
+		if (state == CURSOR_STOPPED && mCursorChangedCallback)
+			mCursorChangedCallback(state);
+
+		return;
+	}
+
 	std::string transition_style = Settings::TransitionStyle();
 	if (transition_style == "auto")
 	{
@@ -211,13 +219,6 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		else
 			transition_style = "slide";
 	}
-
-	// no need to animate transition, we're not going anywhere (probably mEntries.size() == 1)
-	//if(endPos == mCamOffset)
-		//return;
-
-	if (mLastCursor == mCursor)
-		return;
 
 	if (!mScrollSound.empty())
 		Sound::get(mScrollSound)->play();

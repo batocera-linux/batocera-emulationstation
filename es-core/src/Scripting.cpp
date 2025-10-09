@@ -114,7 +114,7 @@ namespace Scripting
             command = "powershell " + command;
 
         std::string stem = Utils::FileSystem::getStem(script);       
-        if ((allowAsync && !Utils::String::endsWith(stem, "-wait")) || Utils::String::endsWith(stem, "-nowait"))
+        if ((allowAsync && !Utils::String::endsWith(stem, "-wait")) || (eventName != "quit" && Utils::String::endsWith(stem, "-nowait")))
         {            
             LOG(LogDebug) << "  queuing: " << command;
 

@@ -9,6 +9,7 @@
 #include "ThemeData.h"
 #include "Settings.h"
 #include <vector>
+#include "Log.h"
 
 enum CursorState
 {
@@ -411,6 +412,8 @@ protected:
 			onScroll(absAmt);
 
 		mCursor = cursor;
+
+		LOG(LogDebug) << "onCursorChanged >> " << mScrollTier;
 
 		if (Settings::ScrollLoadMedias())
 			onCursorChanged(CURSOR_STOPPED);
