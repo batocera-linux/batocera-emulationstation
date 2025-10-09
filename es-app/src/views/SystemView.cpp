@@ -761,15 +761,15 @@ void SystemView::onCursorChanged(const CursorState& state)
 	if (endPos == mCamOffset && endPos == mExtrasCamOffset)
 		return;
 
-	if (mLastCursor == mCursor)
-		return;
-
 	// tts
 	if (state == CURSOR_STOPPED)
 	{
 		TextToSpeech::getInstance()->say(getSelected()->getFullName());
 		Scripting::fireEvent("system-selected", getSelected()->getName());
 	}
+
+	if (mLastCursor == mCursor)
+		return;
 
 	int oldCursor = mLastCursor;
 	mLastCursor = mCursor;
