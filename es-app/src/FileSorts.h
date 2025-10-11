@@ -37,7 +37,10 @@ namespace FileSorts
 		SYSTEM_RELEASEDATE_ASCENDING = 24,
 		SYSTEM_RELEASEDATE_DESCENDING = 25,
 		RELEASEDATE_SYSTEM_ASCENDING = 26,
-		RELEASEDATE_SYSTEM_DESCENDING = 27
+		RELEASEDATE_SYSTEM_DESCENDING = 27,
+
+		FINISHEDDATE_ASCENDING = 28,
+		FINISHEDDATE_DESCENDING = 29,
 	};
 
 	typedef bool ComparisonFunction(const FileData* a, const FileData* b);
@@ -81,6 +84,8 @@ namespace FileSorts
 
 	bool compareSystemReleaseYear(const FileData* file1, const FileData* file2);
 	bool compareReleaseYearSystem(const FileData* file1, const FileData* file2);
+
+	bool compareFinishedDate(const FileData* file1, const FileData* file2);
 
 	std::string stripLeadingArticle(const std::string &string, const std::vector<std::string> &articles);
 };
