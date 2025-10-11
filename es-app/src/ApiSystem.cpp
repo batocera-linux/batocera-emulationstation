@@ -1382,7 +1382,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 
         for (const auto& directory : directories)
         {
-            if (directory.find("multicolor") != std::string::npos)
+            if (directory.find("multicolor") != std::string::npos || directory.find(":rgb:joystick_rings") != std::string::npos)
             {
 				std::string ledColourPath = directory + "/multi_intensity";
 				
@@ -1492,7 +1492,7 @@ bool ApiSystem::getLEDBrightness(int& value)
 
         for (const auto& directory : directories)
         {
-            if (directory.find("multicolor") != std::string::npos)
+            if (directory.find("multicolor") != std::string::npos || directory.find(":rgb:joystick_rings") != std::string::npos)
             {
                 std::string ledBrightnessPath = directory + "/brightness";
                 std::string ledMaxBrightnessPath = directory + "/max_brightness";
@@ -1549,6 +1549,53 @@ void ApiSystem::setLEDBrightness(int value) {
 	int brightnessValue = static_cast<int>(percent * max + 0.5f);
     std::string content = std::to_string(brightnessValue) + "\n";
     Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, content);
+}
+
+bool ApiSystem::isLEDEnabled()
+{
+#if WIN32
+	return false; // The LED feature is not available on Windows
+#else
+	// Check batocera.conf for "led.enabled" setting, default to "1" (true) if not found
+	return SystemConf::getInstance()->get("led.enabled") != "0";
+#endif
+}
+
+void ApiSystem::setLEDEnabled(bool enabled)
+{
+#if WIN32
+    return;
+#else
+	SystemConf::getInstance()->set("led.enabled", enabled ? "1" : "0");
+
+	if (!enabled)
+	{
+		int r, g, b;
+		getLEDColours(r, g, b);
+
+		if (r != 0 || g != 0 || b != 0)
+		{
+			std::string lastColor = std::to_string(r) + " " + std::to_string(g) + " " + std::to_string(b);
+			SystemConf::getInstance()->set("led.lastcolor", lastColor);
+		}
+
+		setLEDColours(0, 0, 0);
+	}
+	else
+	{
+		std::string lastColorStr = SystemConf::getInstance()->get("led.lastcolor");
+		if (lastColorStr.empty())
+			lastColorStr = "255 0 165";
+
+		std::stringstream ss(lastColorStr);
+		int r, g, b;
+		ss >> r >> g >> b;
+
+		setLEDColours(r, g, b);
+	}
+
+	SystemConf::getInstance()->saveSystemConf();
+#endif
 }
 
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)

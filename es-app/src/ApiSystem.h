@@ -250,6 +250,10 @@ public:
 	void getLEDColours(int& red, int& green, int& blue);
 	void setLEDColours(int red, int green, int blue);
 
+	// LED Enabled?
+	bool isLEDEnabled();
+	void setLEDEnabled(bool enabled);
+
 	// LED Brightness
 	bool getLEDBrightness(int& value);
 	void setLEDBrightness(int value);
