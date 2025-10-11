@@ -91,6 +91,12 @@ struct Service
 class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
+	enum LED_TYPE {
+		LED_TYPE_NONE,
+		LED_TYPE_UNIFIED,
+		LED_TYPE_ADDRESSABLE
+	};
+
 	enum ScriptId : unsigned int
 	{
 		WIFI = 0,
@@ -312,7 +318,9 @@ protected:
 
     void launchExternalWindow_before(Window *window);
     void launchExternalWindow_after(Window *window);
+
+private:
+	static LED_TYPE mSystemLedType;
 };
 
 #endif
-

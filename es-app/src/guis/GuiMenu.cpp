@@ -1823,7 +1823,6 @@ void GuiMenu::openSystemSettings()
 #endif
 
 #ifdef BATOCERA
-#ifdef X86_64
 	int red, green, blue;
 	bool ledSupported = ApiSystem::getInstance()->getLED(red, green, blue);
 
@@ -1901,7 +1900,6 @@ void GuiMenu::openSystemSettings()
 
 		s->addWithLabel(_("LED BRIGHTNESS"), ledBrightnessComponent);
 	}
-#endif
 #endif
 
 #ifdef BATOCERA
