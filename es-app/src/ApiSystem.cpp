@@ -2281,7 +2281,7 @@ bool ApiSystem::emuKill()
 void ApiSystem::suspend()
 {
 	LOG(LogDebug) << "ApiSystem::suspend";
-	executeScript("/usr/bin/batocera-shutdown 1");
+	executeScript("/usr/bin/batocera-shutdown gui");
 }
 
 void ApiSystem::replugControllers_sindenguns()
