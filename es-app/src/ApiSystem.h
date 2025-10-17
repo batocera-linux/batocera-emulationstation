@@ -88,6 +88,13 @@ struct Service
   bool enabled;
 };
 
+struct Hotkey
+{
+  std::string button;
+  std::string action;
+  std::string default_action;
+};
+
 class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
@@ -288,6 +295,10 @@ public:
 
 	virtual std::vector<Service> getServices();
 	virtual bool enableService(std::string name, bool enable);
+
+  	virtual std::vector<Hotkey> getHotkeys();
+        virtual std::vector<std::string> getHotkeysValues();
+        virtual void setHotkeys(const std::vector<Hotkey>& hotkeys);
 
 	virtual std::vector<std::string> backglassThemes();
 	virtual void restartBackglass();
