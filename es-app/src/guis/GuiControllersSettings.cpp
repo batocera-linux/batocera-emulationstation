@@ -188,6 +188,9 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 
 #ifdef BATOCERA
 	addGroup(_("BEHAVIOR"));
+
+	addEntry(_("JOYSTICKS HOTKEYS"), true, [this] { openControllersHotkeys(); });
+
 	auto restrictHotkeys = std::make_shared<SwitchComponent>(window);
 	restrictHotkeys->setState(SystemConf::getInstance()->getBool("global.exithotkeyonly"));
 	addWithLabel(_("RESTRICT HOTKEYS TO EXIT"), restrictHotkeys);
@@ -371,6 +374,113 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 		InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
 	});
 }
+
+#ifdef BATOCERA
+void GuiControllersSettings::openControllersHotkeys() {
+  GuiSettings* s = new GuiSettings(mWindow, _("JOYSTICKS HOTKEYS"));
+  std::vector<hotkeyInputDefinition> keys_labels = {
+    { "b",        _("SOUTH") },
+    { "a",        _("EAST") },
+    { "x",        _("NORTH") },
+    { "y",        _("WEST") },
+    { "start",    _("START") },
+    { "select",   _("SELECT") },
+    { "up",       _("D-PAD UP") },
+    { "down",     _("D-PAD DOWN") },
+    { "left",     _("D-PAD LEFT") },
+    { "right",    _("D-PAD RIGHT") },
+    { "pageup",   _("LEFT SHOULDER") },
+    { "pagedown", _("RIGHT SHOULDER") },
+    { "l2",       _("LEFT TRIGGER") },
+    { "r2",       _("RIGHT TRIGGER") },
+    { "l3",       _("LEFT STICK PRESS") },
+    { "r3",       _("RIGHT STICK PRESS") }
+  };
+
+  std::vector<hotkeyTargetDefinition> targets_labels = {
+    { "bezels",           _("OVERLAYS") },
+    { "brightness-cycle", _("BRIGHTNESS CYCLE") },
+    { "coin",             _("COIN") },
+    { "exit",             _("EXIT") },
+    { "fastforward",      _("FAST FORWARD") },
+    { "menu",             _("MENU") },
+    { "next_disk",        _("NEXT DISK") },
+    { "next_slot",        _("NEXT SLOT") },
+    { "pause",            _("PAUSE") },
+    { "previous_slot",    _("PREVIOUS SLOT") },
+    { "reset",            _("RESET") },
+    { "restore_state",    _("RESTORE STATE") },
+    { "rewind",           _("REWIND") },
+    { "save_state",       _("SAVE STATE") },
+    { "screen_layout",    _("SCREEN LAYOUT") },
+    { "screenshot",       _("SCREENSHOT") },
+    { "swap_screen",      _("SWAP SCREEN") },
+    { "translation",      _("TRANSLATION") },
+    { "volumedown",       _("VOLUME DOWN") },
+    { "volumemute",       _("VOLUME MUTE") },
+    { "volumeup",         _("VOLUME UP") }
+  };
+
+  std::vector<Hotkey> hotkeys = ApiSystem::getInstance()->getHotkeys();
+  std::vector<std::string> hotkeys_values = ApiSystem::getInstance()->getHotkeysValues();
+  std::vector<std::shared_ptr<OptionListComponent<std::string>>> btns_elts;
+
+  for(unsigned int i = 0; i < hotkeys.size(); i++) {
+    // find the label
+    std::string label = _("HOTKEY") + " + " + hotkeys[i].button;
+    for(unsigned int x = 0; x < keys_labels.size(); x++) {
+      if(keys_labels[x].code == hotkeys[i].button) {
+	label = _("HOTKEY") + " + " + keys_labels[x].name;
+	break;
+      }
+    }
+    auto btn = std::make_shared< OptionListComponent<std::string> >(mWindow, label, false);
+
+    // build the default label
+    std::string default_label = hotkeys[i].default_action;
+    for(unsigned int x = 0; x < targets_labels.size(); x++) {
+      if(targets_labels[x].code == hotkeys[i].default_action) {
+	default_label = targets_labels[x].name;
+	break;
+      }
+    }
+    if(hotkeys[i].default_action == "") {
+      default_label = _("NONE");
+    }
+      
+    btn->add(_("DEFAULT") + " (" + default_label + ")", "default", hotkeys[i].default_action == hotkeys[i].action);
+    btn->add(_("NONE"),    "none", hotkeys[i].default_action != "" && hotkeys[i].action == "");
+
+    // add known hotkeys
+    for(unsigned int v = 0; v < hotkeys_values.size(); v++) {
+      // find the label
+      std::string xlabel = hotkeys_values[v];
+      for(unsigned int x = 0; x < targets_labels.size(); x++) {
+      	if(targets_labels[x].code == hotkeys_values[v]) {
+	  xlabel = targets_labels[x].name;
+	  break;
+      	}
+      }
+      btn->add(xlabel, hotkeys_values[v], hotkeys[i].default_action != "" && hotkeys[i].default_action != hotkeys[i].action && hotkeys[i].action == hotkeys_values[v]);
+    }
+    s->addWithLabel(label, btn);
+    btns_elts.push_back(btn);
+  }
+
+  s->addSaveFunc([hotkeys, btns_elts] {
+    std::vector<Hotkey> vals;
+    for(unsigned int h = 0; h < hotkeys.size(); h++) {
+      Hotkey k;
+      k.button = hotkeys[h].button;
+      k.action = btns_elts[h]->getSelected();
+      vals.push_back(k);
+    }
+    ApiSystem::getInstance()->setHotkeys(vals);
+  });
+  
+  mWindow->pushGui(s);
+}
+#endif
 
 void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 {
