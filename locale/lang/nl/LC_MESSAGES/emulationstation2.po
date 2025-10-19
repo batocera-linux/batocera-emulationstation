@@ -7,13 +7,13 @@ msgstr ""
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: nl_NL\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH WORDT GESCAND"
@@ -503,11 +503,20 @@ msgstr "GEBRUIK SCHIJFRUIMTE VAN USER"
 msgid "SYSTEM DISK USAGE"
 msgstr "GEBRUIK SCHIJFRUIMTE VAN SYSTEEM"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "SYSTEEM"
 
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "SEOUL"
@@ -1538,8 +1547,8 @@ msgstr "GEBRUIKERSINTERFACE MODUS"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
-"Vergrendel bepaalde configuratiemenu's voor gebruik door "
-"gastgebruikers/kinderen."
+"Vergrendel bepaalde configuratiemenu's voor gebruik door gastgebruikers/"
+"kinderen."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1653,6 +1662,9 @@ msgstr "OVERCLOCK"
 msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "ROOD"
 
@@ -1714,8 +1726,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Verlaagt automatisch de framevertraging tijdelijk om framedrops te voorkomen."
-" Kan stotteren introduceren."
+"Verlaagt automatisch de framevertraging tijdelijk om framedrops te "
+"voorkomen. Kan stotteren introduceren."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "VARIABELE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -1726,8 +1738,8 @@ msgstr "VARIABELE REFRESH RATE"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI 2."
-"1 VRR."
+"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI "
+"2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DECORATIESET"
@@ -2116,6 +2128,9 @@ msgstr "WIFI SSID"
 
 msgid "WIFI KEY"
 msgstr "WIFI KEY"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WIFI IS INGESCHAKELD"
@@ -2670,8 +2685,8 @@ msgstr "CONTROLLER MAPPING"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "JE GAAT EEN CONTROLLER MAPPEN. MAP IS GEBASEERD OP DE POSITIE VAN DE KNOP, "
 "NIET OP HET FYSIEKE LABEL. ALS U GEEN SPECIALE KNOP VOOR HOTKEY HEBT, "
@@ -2715,11 +2730,113 @@ msgstr "TEKEN PISTOOL KRUIS"
 msgid "BEHAVIOR"
 msgstr "GEDRAG"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "BEPERK SNELTOETSEN OM AF TE SLUITEN"
 
 msgid "default"
 msgstr "standaard"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "RAND MAAT"
@@ -2956,11 +3073,11 @@ msgid "INVALID CONTENT"
 msgstr "ONGELDIGE INHOUD"
 
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
-"Een geldig account is vereist. Gelieve een account te registreren op https:"
-"//retroachievements.org"
+"Een geldig account is vereist. Gelieve een account te registreren op https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Volledig"
@@ -3082,9 +3199,6 @@ msgstr "Thema wordt geladen"
 
 msgid "Loading gamelists"
 msgstr "Spellijsten worden geladen"
-
-msgid "MENU"
-msgstr "MENU"
 
 msgid "GENRE"
 msgstr "GENRE"

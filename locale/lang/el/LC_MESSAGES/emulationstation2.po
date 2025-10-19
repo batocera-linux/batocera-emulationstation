@@ -501,11 +501,20 @@ msgstr "ΧΡΗΣΗ ΔΙΣΚΟΥ (ΑΠΟ) ΧΡΗΣΤΗ"
 msgid "SYSTEM DISK USAGE"
 msgstr "ΧΡΗΣΗ ΔΙΣΚΟΥ (ΑΠΟ) ΣΥΣΤΗΜΑ"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "ΣΥΣΤΗΜΑ"
 
 msgid "VIDEO DRIVER"
 msgstr "ΟΔΗΓΟΣ ΒΙΝΤΕΟ"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr ""
@@ -1627,6 +1636,9 @@ msgstr "ΥΠΕΡΧΡΟΝΙΣΜΟΣ"
 msgid "LED HARDWARE"
 msgstr ""
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "ΚΟΚΚΙΝΟ"
 
@@ -2082,6 +2094,9 @@ msgstr "SSID ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
 
 msgid "WIFI KEY"
 msgstr "ΚΛΕΙΔΙ ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ"
@@ -2677,11 +2692,113 @@ msgstr ""
 msgid "BEHAVIOR"
 msgstr ""
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
 msgstr "προεπιλεγμενο"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "ΜΕΝΟΥ"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "ΠΛΗΚΤΡΟ ΚΛΕΙΔΙ"
 
 msgid "BORDER SIZE"
 msgstr "ΜΕΓΕΘΟΣ ΠΕΡΙΓΡΑΜΜΑΤΟΣ"
@@ -3044,9 +3161,6 @@ msgstr "Φορτωση θεματος"
 
 msgid "Loading gamelists"
 msgstr "Φορτωση λιστων παιχνιδιων"
-
-msgid "MENU"
-msgstr "ΜΕΝΟΥ"
 
 msgid "GENRE"
 msgstr "ΕΙΔΟΣ"
@@ -3742,9 +3856,6 @@ msgstr ""
 
 #~ msgid "RIGHT ANALOG RIGHT"
 #~ msgstr "ΔΕΞΙ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
-
-#~ msgid "HOTKEY"
-#~ msgstr "ΠΛΗΚΤΡΟ ΚΛΕΙΔΙ"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"

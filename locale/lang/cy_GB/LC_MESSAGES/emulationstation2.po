@@ -506,10 +506,19 @@ msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEM DISG A DEFNYDDIWYD"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "SYSTEM"
 
 msgid "VIDEO DRIVER"
+msgstr ""
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
 msgstr ""
 
 msgid "SEOUL"
@@ -1611,6 +1620,9 @@ msgstr "TROSGLOCIO"
 msgid "LED HARDWARE"
 msgstr ""
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr ""
 
@@ -2064,6 +2076,9 @@ msgstr "SSID WIFI"
 
 msgid "WIFI KEY"
 msgstr "ALLWEDD WIFI"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "GALLUOGI WIFI"
@@ -2656,11 +2671,113 @@ msgstr ""
 msgid "BEHAVIOR"
 msgstr ""
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
 msgstr "rhagosodiad"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "DEWISLEN"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "BYSELL FRYS"
 
 msgid "BORDER SIZE"
 msgstr ""
@@ -3032,9 +3149,6 @@ msgstr "Llwytho thema"
 
 msgid "Loading gamelists"
 msgstr "Llwytho rhestr gemau"
-
-msgid "MENU"
-msgstr "DEWISLEN"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -3765,9 +3879,6 @@ msgstr ""
 
 #~ msgid "RIGHT ANALOG RIGHT"
 #~ msgstr "ANALOG DDE DDE"
-
-#~ msgid "HOTKEY"
-#~ msgstr "BYSELL FRYS"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "SGIPIO I'R GÂN NESAF"

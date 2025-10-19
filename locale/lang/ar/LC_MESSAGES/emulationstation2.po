@@ -541,11 +541,20 @@ msgstr "حجم التخزين المستعمل"
 msgid "SYSTEM DISK USAGE"
 msgstr "حجم تخزين النظام"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "النظام"
 
 msgid "VIDEO DRIVER"
 msgstr "برامج تشغيل الرّسوميَّات"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "سول-كوريا"
@@ -703,9 +712,13 @@ msgstr "إشارات المنافسة"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
+msgstr "عرض أيقونة في الزاوية اليمنى أسفل الشاشة.إن كانت هنالك إنجازات لكسبها"
+
+msgid "UNOFFICIAL ACHIEVEMENTS"
 msgstr ""
-"عرض أيقونة في الزاوية اليمنى أسفل الشاشة"
-".إن كانت هنالك إنجازات لكسبها"
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "صوت فتح إنجاز من إنجازات الريترو"
@@ -762,6 +775,12 @@ msgstr "أعد التشغيل للتطبيق"
 
 msgid "REALLY UPDATE?"
 msgstr "هل فعلا تريد التحديث ؟"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 #, c-format
 msgid ""
@@ -946,8 +965,8 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد تكون "
-"!مختلفة من نظام لآخر\n"
+"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد "
+"تكون !مختلفة من نظام لآخر\n"
 "أترغب في المواصلة؟"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -1051,6 +1070,12 @@ msgstr "المساحة المتاحة في قسم البيانات على الق
 
 msgid "Network IP Address"
 msgstr "(IP) عنوان الشبكة"
+
+msgid "UEFI Boot"
+msgstr ""
+
+msgid "Secure Boot"
+msgstr ""
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -1354,8 +1379,7 @@ msgstr "تفعيل التصفية للعبة"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr ""
-"يقوم بإظهار أو إخفاء خاصية التصفية أو الفرز."
+msgstr "يقوم بإظهار أو إخفاء خاصية التصفية أو الفرز."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "حفظ البيانات الوصفية عند الخروج"
@@ -1364,7 +1388,8 @@ msgid "PARSE GAMELISTS ONLY"
 msgstr "توليد قائمة الألعاب فقط"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "!أداة تنقيح: عدم فحص ملفات اللعبة (روم) إن كانت موجودة.قد يتسبب هذا في مشكل"
+msgstr ""
+"!أداة تنقيح: عدم فحص ملفات اللعبة (روم) إن كانت موجودة.قد يتسبب هذا في مشكل"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "البحث عن فن داخلي"
@@ -1372,9 +1397,7 @@ msgstr "البحث عن فن داخلي"
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
-msgstr ""
-",إن لم تكن هناك صورة في قائمة الألعاب"
-".جرب إيجادها بنفس اسم اللعبة"
+msgstr ",إن لم تكن هناك صورة في قائمة الألعاب.جرب إيجادها بنفس اسم اللعبة"
 
 msgid "USER INTERFACE"
 msgstr "واجهة المستخدم"
@@ -1452,8 +1475,7 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-",تخفيض التباطؤ خلال التمرير بين الألعاب المجلوب محتواها"
-"يزيد مدة الإقلاع"
+",تخفيض التباطؤ خلال التمرير بين الألعاب المجلوب محتواهايزيد مدة الإقلاع"
 
 msgid "THREADED LOADING"
 msgstr "تحميل مترابط"
@@ -1546,7 +1568,8 @@ msgid ""
 msgstr ""
 "سوف تقوم بتغيير واجهة المستخدم الى الوضع المقيّد:\n"
 "وهذا سوف يؤدي الى إخفاء أغلب خيارات القائمة لحماية النظام من التغيير.\n"
-":للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة التحكم"
+":للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة "
+"التحكم"
 
 msgid "Do you want to proceed?"
 msgstr "هل تريد المتابعة ؟"
@@ -1647,6 +1670,9 @@ msgstr "كسر السرعة"
 msgid "LED HARDWARE"
 msgstr "أجهزة LED"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "أحمر"
 
@@ -1719,9 +1745,7 @@ msgstr "إنعاش المعدل متغير"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
-"لا تحيد عن التوقيت المتطلب من النواة.G-Sync، FreeSync، HDMI 2.1 VRR."
-
+msgstr "لا تحيد عن التوقيت المتطلب من النواة.G-Sync، FreeSync، HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "اختيار التزيين"
@@ -1788,8 +1812,7 @@ msgstr "إرغام اللعبة على الإشتغال بنسبة ارتفاع 
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
-"تغيير دقة الشاشة.لن يؤثر على دقة شاشة التَّصيِيِر."
+msgstr "تغيير دقة الشاشة.لن يؤثر على دقة شاشة التَّصيِيِر."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "الألعاب السلسة (التصفية الخطية الثنائية)"
@@ -2105,6 +2128,9 @@ msgstr "اسم الشبكة"
 
 msgid "WIFI KEY"
 msgstr "كلمة سر الوايفاي"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "تم تفعيل الوايفاي"
@@ -2703,11 +2729,113 @@ msgstr "رسم تصويب البندقية"
 msgid "BEHAVIOR"
 msgstr "سلوك"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "تقييد زر الاختصار للخروج"
 
 msgid "default"
 msgstr "افتراضي"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "القائمة"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "حجم الإطار"
@@ -2947,8 +3075,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"مطلوب حساب فعال، من فضلك قم بتسجيل حساب على"
-"https://retroachievements.org"
+"مطلوب حساب فعال، من فضلك قم بتسجيل حساب علىhttps://retroachievements.org"
 
 msgid "Full"
 msgstr "كامل"
@@ -3065,8 +3192,7 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"انتباه: المحاكي/النواة المفعل حاليا لا يدعم"
-"صيغة ملف اللعبة\n"
+"انتباه: المحاكي/النواة المفعل حاليا لا يدعمصيغة ملف اللعبة\n"
 "‫‫أتريد تشغيل اللعبة رغم ذلك؟"
 
 msgid ""
@@ -3075,9 +3201,7 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "انتباه:النظام يفتقر ملفات بايوس واللعبة \\‬\n"
-"قد لا تعمل بشكل صحيح‬"
-"أتريد تشغيل اللعبة رغم ذلك؟"
-
+"قد لا تعمل بشكل صحيح‬أتريد تشغيل اللعبة رغم ذلك؟"
 
 msgid "Preloading UI"
 msgstr "تحضير واجهة المستخدم"
@@ -3087,9 +3211,6 @@ msgstr "تحميل السِّمَة"
 
 msgid "Loading gamelists"
 msgstr "تحميل قائمة الألعاب"
-
-msgid "MENU"
-msgstr "القائمة"
 
 msgid "GENRE"
 msgstr "النوع"
@@ -3629,8 +3750,8 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"لم يتم تعيين مفتاح اختصار. هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة التحكم. "
-"أترغب في استعمال سيليكت كمفتاح الاختصار الخاص بك؟"
+"لم يتم تعيين مفتاح اختصار. هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة "
+"التحكم. أترغب في استعمال سيليكت كمفتاح الاختصار الخاص بك؟"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "تعيين سيليكت كمفتاح اختصار"

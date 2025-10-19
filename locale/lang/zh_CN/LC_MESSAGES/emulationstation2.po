@@ -500,11 +500,20 @@ msgstr "用户磁盘使用"
 msgid "SYSTEM DISK USAGE"
 msgstr "系统磁盘使用"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "系统"
 
 msgid "VIDEO DRIVER"
 msgstr "显卡驱动"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "首尔"
@@ -1615,6 +1624,9 @@ msgstr "超频"
 msgid "LED HARDWARE"
 msgstr "LED硬件"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "红色"
 
@@ -2069,6 +2081,9 @@ msgstr "WiFi 名称"
 
 msgid "WIFI KEY"
 msgstr "WiFi 密码"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WiFi 已启用"
@@ -2666,11 +2681,113 @@ msgstr "绘制枪的准星"
 msgid "BEHAVIOR"
 msgstr "行为"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "限制热键退出"
 
 msgid "default"
 msgstr "默认"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "菜单"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "边框大小"
@@ -3026,9 +3143,6 @@ msgstr "正在加载主题"
 
 msgid "Loading gamelists"
 msgstr "正在加载游戏列表"
-
-msgid "MENU"
-msgstr "菜单"
 
 msgid "GENRE"
 msgstr "类型"

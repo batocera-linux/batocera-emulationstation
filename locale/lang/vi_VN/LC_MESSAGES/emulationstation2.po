@@ -506,11 +506,20 @@ msgstr "LƯỢNG SỬ DỤNG Ổ ĐĨA CỦA NGƯỜI DÙNG"
 msgid "SYSTEM DISK USAGE"
 msgstr "LƯỢNG SỬ DỤNG Ổ ĐĨA CỦA HỆ THỐNG"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "HỆ THỐNG"
 
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr ""
@@ -1640,6 +1649,9 @@ msgstr "ÉP XUNG"
 msgid "LED HARDWARE"
 msgstr "PHẦN CỨNG LED"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "ĐỎ"
 
@@ -2102,6 +2114,9 @@ msgstr "WIFI SSID"
 
 msgid "WIFI KEY"
 msgstr "WIFI KEY"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "ĐÃ KÍCH HOẠT WIFI"
@@ -2703,11 +2718,113 @@ msgstr "Hiện tâm súng"
 msgid "BEHAVIOR"
 msgstr ""
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
 msgstr "mặc định"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "KÍCH CỠ VIỀN"
@@ -3066,9 +3183,6 @@ msgstr "Đang nạp chủ đề"
 
 msgid "Loading gamelists"
 msgstr "Đang nạp danh sách trò chơi"
-
-msgid "MENU"
-msgstr "MENU"
 
 msgid "GENRE"
 msgstr "THỂ LOẠI"

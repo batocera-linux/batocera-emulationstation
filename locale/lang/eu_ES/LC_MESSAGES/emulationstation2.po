@@ -498,11 +498,20 @@ msgstr "ERABILTZAILE DISKO ERABILERA"
 msgid "SYSTEM DISK USAGE"
 msgstr "SISTEMAREN DISKO ERABILERA"
 
+msgid "DISK USAGE"
+msgstr "DISKO ERABILERA"
+
 msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
 msgstr "BIDEO DRIVER-A"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr ""
@@ -1635,6 +1644,9 @@ msgstr "OVERCLOCK"
 msgid "LED HARDWARE"
 msgstr ""
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "GORRIA"
 
@@ -2098,6 +2110,9 @@ msgstr "WIFI SSID-a"
 
 msgid "WIFI KEY"
 msgstr "WIFI GAKOA"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WIFI-a AKTIBATUTA"
@@ -2700,11 +2715,113 @@ msgstr ""
 msgid "BEHAVIOR"
 msgstr ""
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
 msgstr "defektuz"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENUA"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "HOTKEY"
 
 msgid "BORDER SIZE"
 msgstr "ERTZ TAMAINA"
@@ -3067,9 +3184,6 @@ msgstr "Gaia kargatzen"
 
 msgid "Loading gamelists"
 msgstr "Joko listak kargatzen"
-
-msgid "MENU"
-msgstr "MENUA"
 
 msgid "GENRE"
 msgstr "GENEROA"
@@ -3696,9 +3810,6 @@ msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
 #~ msgid "DOWN"
 #~ msgstr "BEHERA"
 
-#~ msgid "HOTKEY"
-#~ msgstr "HOTKEY"
-
 #~ msgid "All Games"
 #~ msgstr "Joko guztiak"
 
@@ -3832,9 +3943,6 @@ msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
 
 #~ msgid "STOP EDITING"
 #~ msgstr "GELDITU EDIZIOA"
-
-#~ msgid "DISK USAGE"
-#~ msgstr "DISKO ERABILERA"
 
 #~ msgid "%i GAME AVAILABLE"
 #~ msgid_plural "%i GAMES AVAILABLE"

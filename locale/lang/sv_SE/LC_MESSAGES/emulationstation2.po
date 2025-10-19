@@ -501,11 +501,20 @@ msgstr "DISKANVÄNDNING (ANVÄNDARE)"
 msgid "SYSTEM DISK USAGE"
 msgstr "DISKANVÄNDNING (SYSTEM)"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "SYSTEM"
 
 msgid "VIDEO DRIVER"
 msgstr "GRAFIKDRIVRUTIN"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "SEOUL"
@@ -1634,6 +1643,9 @@ msgstr "ÖVERKLOCKNING"
 msgid "LED HARDWARE"
 msgstr "LED-HÅRDVARA"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "RÖD"
 
@@ -2094,6 +2106,9 @@ msgstr "WIFI-SSID"
 
 msgid "WIFI KEY"
 msgstr "WIFI-NYCKEL"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WIFI AKTIVERAT"
@@ -2693,11 +2708,113 @@ msgstr "RITA UT PISTOLENS HÅRKORS"
 msgid "BEHAVIOR"
 msgstr "BETEENDE"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"
 
 msgid "default"
 msgstr "standard"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENY"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "HOTKEY"
 
 msgid "BORDER SIZE"
 msgstr "RAMSTORLEK"
@@ -2937,8 +3054,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3060,9 +3177,6 @@ msgstr "Läser in tema"
 
 msgid "Loading gamelists"
 msgstr "Läser in spellistor"
-
-msgid "MENU"
-msgstr "MENY"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -3898,9 +4012,6 @@ msgstr ""
 
 #~ msgid "RIGHT ANALOG RIGHT"
 #~ msgstr "HÖGER ANALOG HÖGER"
-
-#~ msgid "HOTKEY"
-#~ msgstr "HOTKEY"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "STORLEKSÄNDRA TATUERINGSBREDD"

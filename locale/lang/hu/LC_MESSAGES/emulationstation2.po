@@ -501,11 +501,20 @@ msgstr "FELHASZNÁLÓI TÁRHELY HASZNÁLAT"
 msgid "SYSTEM DISK USAGE"
 msgstr "RENDSZER TÁRHELY HASZNÁLAT"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "RENDSZER"
 
 msgid "VIDEO DRIVER"
 msgstr "VIDEÓ ILLESZTŐPROGRAM"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "Szöul"
@@ -1648,6 +1657,9 @@ msgstr "OVERCLOCK"
 msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "PIROS"
 
@@ -2111,6 +2123,9 @@ msgstr "WIFI SSID"
 
 msgid "WIFI KEY"
 msgstr "WIFI JELSZÓ"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ENGEDÉLYEZVE"
@@ -2713,11 +2728,113 @@ msgstr "PISZTOLY CÉLKERESZTET RAJZOLÁS"
 msgid "BEHAVIOR"
 msgstr "VISELKEDÉS"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "A KILÉPÉSHEZ SZÜKSÉGES GYORSBILLENTYŰK KORLÁTOZÁSA"
 
 msgid "default"
 msgstr "alap"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENÜ"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "SZEGÉLY MÉRETE"
@@ -2957,8 +3074,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztráció szükséges! Kérlek készíts egyet itt: https://"
-"retroachievements.org"
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Teljes"
@@ -3080,9 +3197,6 @@ msgstr "Téma betöltése"
 
 msgid "Loading gamelists"
 msgstr "Játéklista betöltése"
-
-msgid "MENU"
-msgstr "MENÜ"
 
 msgid "GENRE"
 msgstr "MŰFAJ"

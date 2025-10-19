@@ -502,11 +502,20 @@ msgstr "사용자 디스크 사용량"
 msgid "SYSTEM DISK USAGE"
 msgstr "시스템 디스크 사용량"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "시스템"
 
 msgid "VIDEO DRIVER"
 msgstr "비디오 드라이버"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "서울"
@@ -1626,6 +1635,9 @@ msgstr "오버클럭"
 msgid "LED HARDWARE"
 msgstr "LED 하드웨어"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "빨간색"
 
@@ -2083,6 +2095,9 @@ msgstr "WIFI SSID"
 
 msgid "WIFI KEY"
 msgstr "WIFI 비밀번호"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WIFI 활성화됨"
@@ -2681,11 +2696,113 @@ msgstr "건 십자선 그리기"
 msgid "BEHAVIOR"
 msgstr "동작"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "나가기 위한 단축키 제한"
 
 msgid "default"
 msgstr "기본"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "메뉴"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "테두리 크기"
@@ -3042,9 +3159,6 @@ msgstr "테마 불러오는 중"
 
 msgid "Loading gamelists"
 msgstr "게임목록 불러오는 중"
-
-msgid "MENU"
-msgstr "메뉴"
 
 msgid "GENRE"
 msgstr "장르"

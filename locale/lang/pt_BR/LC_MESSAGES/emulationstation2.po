@@ -7,15 +7,15 @@ msgstr ""
 "Last-Translator: Leonardo Colman <dev@leonardo.colman.com.br>\n"
 "Language-Team: Brazilian Portuguese\n"
 "Language: pt-BR\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: pt_BR\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "ESCANEANDO BLUETOOTH"
@@ -505,11 +505,20 @@ msgstr "USO DO DISCO DO USUÁRIO"
 msgid "SYSTEM DISK USAGE"
 msgstr "USO DO DISCO DO SISTEMA"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
 
 msgid "SEOUL"
 msgstr "SEUL"
@@ -642,8 +651,8 @@ msgstr "PLACAR"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
-"Competir em rankings de maior pontuação e melhor tempo (requer modo hardcore)"
-"."
+"Competir em rankings de maior pontuação e melhor tempo (requer modo "
+"hardcore)."
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
@@ -680,8 +689,7 @@ msgstr ""
 "podem ser obtidas."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
-"Conquistas não oficias"
+msgstr "Conquistas não oficias"
 
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Ativar conquistas não oficias"
@@ -1543,8 +1551,8 @@ msgstr "MODO DE INTERFACE DO USUÁRIO"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
-"Bloqueia determinados menus de configuração para uso com usuários "
-"convidados/crianças."
+"Bloqueia determinados menus de configuração para uso com usuários convidados/"
+"crianças."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1552,8 +1560,8 @@ msgid ""
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
 "Você está alterando a interface do usuário para um modo restrito:\n"
-"Isso ocultará a maioria das opções de menu para evitar alterações no sistema."
-"\n"
+"Isso ocultará a maioria das opções de menu para evitar alterações no "
+"sistema.\n"
 "Para desbloquear e retornar à interface completa do usuário, digite este "
 "código:"
 
@@ -1656,6 +1664,9 @@ msgstr "FORÇAR O PROCESSADOR"
 msgid "LED HARDWARE"
 msgstr "HARDWARE LED"
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr "VERMELHO"
 
@@ -1729,8 +1740,8 @@ msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Não sair da sincronização principal solicitada pelo núcleo. G-Sync, FreeSync,"
-" HDMI 2.1 VRR."
+"Não sair da sincronização principal solicitada pelo núcleo. G-Sync, "
+"FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -2117,6 +2128,9 @@ msgstr "NOME DA REDE WIFI (SSID)"
 
 msgid "WIFI KEY"
 msgstr "SENHA DO WIFI"
+
+msgid "WIFI COUNTRY"
+msgstr ""
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ATIVO"
@@ -2674,8 +2688,8 @@ msgstr "MAPEAMENTO DO CONTROLE"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "VOCÊ ESTÁ PRESTES A MAPEAR UM CONTROLE. O MAPEAMENTO É BASEADO NA POSIÇÃO "
 "DOS BOTÕES, NÃO EM SEU RÓTULO FÍSICO. SE VOCÊ NÃO TEM UMA TECLA ESPECIAL "
@@ -2720,11 +2734,113 @@ msgstr "DESENHAR A MIRA DA ARMA"
 msgid "BEHAVIOR"
 msgstr "COMPORTAMENTO"
 
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "RESTRINGIR ATALHOS PARA SAIR"
 
 msgid "default"
 msgstr "padrão"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "TAMANHO DA BORDA"
@@ -2961,11 +3077,11 @@ msgid "INVALID CONTENT"
 msgstr "CONTEÚDO INVÁLIDO"
 
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
-"É necessário uma conta válida. Registre uma conta em https:"
-"//retroachievements.org"
+"É necessário uma conta válida. Registre uma conta em https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Completo"
@@ -3087,9 +3203,6 @@ msgstr "Carregando tema"
 
 msgid "Loading gamelists"
 msgstr "Carregando lista de jogos"
-
-msgid "MENU"
-msgstr "MENU"
 
 msgid "GENRE"
 msgstr "GÊNERO"
