@@ -3,16 +3,19 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2025-09-20 22:35+0000\n"
 "Last-Translator: Leonardo Colman <dev@leonardo.colman.com.br>\n"
-"Language-Team: Killer, LeoColman\n"
-"Language: pt_BR\n"
+"Language-Team: Brazilian Portuguese\n"
+"Language: pt-BR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Loco-Source-Locale: pt_BR\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "ESCANEANDO BLUETOOTH"
@@ -639,8 +642,8 @@ msgstr "PLACAR"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
-"Competir em rankings de maior pontuação e melhor tempo (requer modo "
-"hardcore)."
+"Competir em rankings de maior pontuação e melhor tempo (requer modo hardcore)"
+"."
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
@@ -678,9 +681,10 @@ msgstr ""
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
 msgstr ""
+"Conquistas não oficias"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Ativar conquistas não oficias"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR NOVAS CONQUISTAS"
@@ -1539,8 +1543,8 @@ msgstr "MODO DE INTERFACE DO USUÁRIO"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
-"Bloqueia determinados menus de configuração para uso com usuários convidados/"
-"crianças."
+"Bloqueia determinados menus de configuração para uso com usuários "
+"convidados/crianças."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1548,8 +1552,8 @@ msgid ""
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
 "Você está alterando a interface do usuário para um modo restrito:\n"
-"Isso ocultará a maioria das opções de menu para evitar alterações no "
-"sistema.\n"
+"Isso ocultará a maioria das opções de menu para evitar alterações no sistema."
+"\n"
 "Para desbloquear e retornar à interface completa do usuário, digite este "
 "código:"
 
@@ -1725,8 +1729,8 @@ msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Não sair da sincronização principal solicitada pelo núcleo. G-Sync, "
-"FreeSync, HDMI 2.1 VRR."
+"Não sair da sincronização principal solicitada pelo núcleo. G-Sync, FreeSync,"
+" HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -2670,8 +2674,8 @@ msgstr "MAPEAMENTO DO CONTROLE"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "VOCÊ ESTÁ PRESTES A MAPEAR UM CONTROLE. O MAPEAMENTO É BASEADO NA POSIÇÃO "
 "DOS BOTÕES, NÃO EM SEU RÓTULO FÍSICO. SE VOCÊ NÃO TEM UMA TECLA ESPECIAL "
@@ -2957,11 +2961,11 @@ msgid "INVALID CONTENT"
 msgstr "CONTEÚDO INVÁLIDO"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"É necessário uma conta válida. Registre uma conta em https://"
-"retroachievements.org"
+"É necessário uma conta válida. Registre uma conta em https:"
+"//retroachievements.org"
 
 msgid "Full"
 msgstr "Completo"
@@ -3631,275 +3635,3 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
-
-#~ msgid "SCRAPER SETTINGS"
-#~ msgstr "AJUSTES DO SCRAPER"
-
-#~ msgid "ACCOUNT"
-#~ msgstr "CONTA"
-
-#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-#~ msgstr "O MODO INTERFACE DO USUÁRIO ESTÁ AGORA DESBLOQUEADO"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Selecione uma sala de jogo para criar ou entrar"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "JOGAR ONLINE COMO HOST"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "JOGAR OFFLINE"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "ENTRAR NUM JOGO EXISTENTE"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIZ"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "ordem dmd rgb"
-
-#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-#~ msgstr ""
-#~ "Reestabelecer os valores das informações sobre: Tempo de Jogo, Número de "
-#~ "Partidas, e Últma Vez Jogado."
-
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "SALVANDO INFORMAÇÕES. POR FAVOR, AGUARDE..."
-
-#~ msgid ""
-#~ "YOU ARE CURRENTLY USING VERSION %s\n"
-#~ " DO YOU WANT TO UPDATE TO VERSION %s?"
-#~ msgstr ""
-#~ "ATUALMENTE VOCÊ ESTÁ UTILIZANDO A VERSÃO %s\n"
-#~ " GOSTARIA DE ATUALIZAR PARA A VERSÃO %s?"
-
-#~ msgid ""
-#~ "UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
-#~ " UPGRADING COULD BREAK YOUR SYSTEM.\n"
-#~ " DO YOU WANT TO UPDATE TO VERSION %s?"
-#~ msgstr ""
-#~ "MODIFICAÇÕES NÃO OFICIAIS DO SISTEMA DETECTADAS.\n"
-#~ " ATUALIZAR PODE QUEBRAR SEU SISTEMA.\n"
-#~ " VOCÊ QUER ATUALIZAR PARA A VERSÃO %s?"
-
-#~ msgid ""
-#~ "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
-#~ "RESULTS MAY BE FOR DIFFERENT SYSTEMS!\n"
-#~ " CONTINUE ANYWAY?"
-#~ msgstr ""
-#~ "ALERTA: ALGUNS DOS SISTEMAS SELECIONADOS NÃO POSSUEM PLATAFORMA. OS "
-#~ "\"RESULTADOS PODEM SER DE DIFERENTES SISTEMAS!\n"
-#~ " CONTINUAR MESMO ASSIM?"
-
-#~ msgid "FORGET A BLUETOOTH DEVICE"
-#~ msgstr "REMOVER UM DISPOSITIVO BLUETOOTH"
-
-#~ msgid "Achievements won"
-#~ msgstr "Conquistas alcançadas"
-
-#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-#~ msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA DO TEMA"
-
-#~ msgid "SELECT THEME FOLDER"
-#~ msgstr "SELECIONAR PASTA DO TEMA"
-
-#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-#~ msgstr "AGRUPAR COLEÇÕES PERSONALIZADAS"
-
-#~ msgid "HAS MEDIAS"
-#~ msgstr "POSSUI MÍDIAS"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "CIMA"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "BAIXO"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "ESQUERDA"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "DIREITA"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "VOCÊ ESTÁ PRESTES A MAPEAR UM CONTROLE. O MAPEAMENTO É BASEADO NA POSIÇÃO "
-#~ "DOS BOTÕES EM RELAÇÃO AO SEU EQUIVALENTE EM UM CONTROLE DE VIDEOGAME "
-#~ "CLÁSSICO, NÃO EM SEU RÓTULO FÍSICO. SE VOCÊ NÃO TEM UMA TECLA ESPECIAL "
-#~ "PARA A TECLA DE ACESSO (HOTKEY), USE O BOTÃO DE SELEÇÃO. PARA IGNORAR "
-#~ "TODOS OS BOTÕES / ANALÒGICOS / MANCHES QUE VOCÊ NÃO POSSUI PRESSIONE E "
-#~ "SEGURE QUALQUER TECLA. PRESSIONE O BOTÃO SUL PARA CONFIRMAR QUANDO "
-#~ "CONCLUÍDO."
-
-#~ msgid "SINDEN GUNS"
-#~ msgstr "ARMAS SINDEN"
-
-#~ msgid "GUNS BORDER SIZE"
-#~ msgstr "TAMANHO DA BORDA DAS ARMAS"
-
-#~ msgid "Force the emulator to run at this resolution."
-#~ msgstr "Force o emulador a ser executado nesta resolução."
-
-#~ msgid "Disable loading states (as well as auto-load) for more points."
-#~ msgstr ""
-#~ "Desativa os estados de carregamento (assim como o carregamento "
-#~ "automático) para obter mais pontos."
-
-#~ msgid "SAVE STATE MANAGER"
-#~ msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
-
-#~ msgid "0 DEGREES (AUTO)"
-#~ msgstr "0 GRAUS (AUTOMÁTICO)"
-
-#~ msgid "SHOW SAVE STATE MANAGER"
-#~ msgstr "EXIBIR GERENCIADOR"
-
-#~ msgid "Display save state manager before launching a game."
-#~ msgstr ""
-#~ "Exiba o gerenciador de estado de salvamento antes de iniciar um jogo."
-
-#~ msgid "Reset achievements to be able to earn them again."
-#~ msgstr "Conquistas retrô desbloqueadas podem ser conquistadas novamente."
-
-#~ msgid "%d m"
-#~ msgstr "%d m"
-
-#~ msgid "%d s"
-#~ msgstr "%d s"
-
-#~ msgid "RANDOM (HOLD)"
-#~ msgstr "ALEATÓRIO (SEGURE)"
-
-#~ msgid "SCRAPE SHORT NAME"
-#~ msgstr "OBTER DADOS DO NOME ABREVIADO"
-
-#~ msgid "SCRAPE RATINGS"
-#~ msgstr "OBTER DADOS DAS AVALIAÇÕES"
-
-#~ msgid "SCRAPE VIDEOS"
-#~ msgstr "OBTER MÍDIAS DOS VÍDEOS"
-
-#~ msgid "SCRAPE FANART"
-#~ msgstr "OBTER MÍDIAS DE FÃ-ARTE"
-
-#~ msgid "SCRAPE BEZEL (16:9)"
-#~ msgstr "OBTER MÍDIAS DE MOLDURA (16:9)"
-
-#~ msgid "SCRAPE BOX BACKSIDE"
-#~ msgstr "OBTER MÍDIAS DA PARTE DE TRÁS DA CAIXA"
-
-#~ msgid "SCRAPE MAP"
-#~ msgstr "OBTER ARQUIVOS DE MAPA"
-
-#~ msgid "SCRAPE MANUAL"
-#~ msgstr "OBTER ARQUIVOS DO MANUAL"
-
-#~ msgid "SCRAPE PADTOKEY SETTINGS"
-#~ msgstr "OBTER AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
-
-#~ msgid "UI SETTINGS"
-#~ msgstr "AJUSTES DE INTERFACE"
-
-#~ msgid "UNLOCK UI MODE"
-#~ msgstr "DESBLOQUEAR MODO DE INTERFACE"
-
-#~ msgid "THE UI MODE IS NOW UNLOCKED"
-#~ msgstr "O MODO INTERFACE ESTÁ DESBLOQUEADO AGORA"
-
-#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-#~ msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "DESENVOLVEDOR"
-
-#~ msgid "ENABLE PUBLIC WEB ACCESS"
-#~ msgstr "ATIVAR ACESSO PÚBLICO À WEB"
-
-#~ msgid "CREATE A SUPPORT FILE?"
-#~ msgstr "CRIAR UM ARQUIVO DE SUPORTE ?"
-
-#~ msgid "ENABLE FILTERS"
-#~ msgstr "ATIVAR FILTROS"
-
-#~ msgid "PARSE GAMESLISTS ONLY"
-#~ msgstr "ANALISAR APENAS A LISTA DE JOGOS"
-
-#~ msgid "UI"
-#~ msgstr "INTERFACE DO USUÁRIO (UI)"
-
-#~ msgid "POWER SAVER MODES"
-#~ msgstr "MODO DE ECONOMIA DE ENERGIA"
-
-#~ msgid "UI MODE"
-#~ msgstr "MODO DA INTERFACE"
-
-#~ msgid ""
-#~ "You are changing the UI to a restricted mode:\n"
-#~ "This will hide most menu options to prevent changes to the system.\n"
-#~ "To unlock and return to the full UI, enter this code:"
-#~ msgstr ""
-#~ "Você está alterando a interface para um modo restrito:\n"
-#~ "Isso ocultará a maioria das opções do menu para evitar alterações no "
-#~ "sistema.\n"
-#~ "Para desbloquear e retornar à interface completa, digite este código:"
-
-#~ msgid "NEW GAME CREATES NEW SLOT"
-#~ msgstr "NOVO JOGO CRIA NOVO ESPAÇO"
-
-#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
-#~ msgstr "NOVO JOGO SOBRESCREVE NOVO ESPAÇO"
-
-#~ msgid "LIST TRANSITION STYLE"
-#~ msgstr "ESTILO DE TRANSIÇÃO DA LISTA DE JOGOS"
-
-#~ msgid "VIEW USER'S MANUAL"
-#~ msgstr "VISUALIZAR MANUAL DO USUÁRIO"
-
-#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-#~ msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
-
-#~ msgid "UPDATING BATOCERA"
-#~ msgstr "ATUALIZANDO O BATOCERA"
-
-#~ msgid "INSTALL BATOCERA"
-#~ msgstr "INSTALAR SISTEMA BATOCERA"
-
-#~ msgid "GAMES MISSING MEDIAS"
-#~ msgstr "COM MÍDIAS FALTANDO"
-
-#~ msgid "GAMES WITHOUT ANY MEDIA"
-#~ msgstr "SEM QUALQUER MÍDIA"
-
-#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-#~ msgstr "AUTOCONFIGURAR CONTROLES NOS EMULADORES"
-
-#~ msgid "INSTALL BATOCERA ON A NEW DISK"
-#~ msgstr "INSTALAR BATOCERA EM UM NOVO DISCO"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER"
-#~ msgstr "EXIBIR GERENCIADOR"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-#~ msgstr "EXIBIR GERENCIADOR DE ESTADOS DE SALVAMENTO ANTES DE INICIAR O JOGO"
-
-#~ msgid "VIEW BATOCERA MANUAL"
-#~ msgstr "VISUALIZAR MANUAL DO BATOCERA"

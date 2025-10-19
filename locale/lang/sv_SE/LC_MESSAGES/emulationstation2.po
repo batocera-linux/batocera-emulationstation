@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-07-11 10:58+0200\n"
+"PO-Revision-Date: 2025-09-16 11:17+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -11,10 +11,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 msgid "SCANNING BLUETOOTH"
-msgstr "SKANNAR BLUETOOTH"
+msgstr "SÖKER PÅ BLUETOOTH"
 
 msgid "Searching for devices..."
 msgstr "Söker efter enheter..."
@@ -32,7 +32,7 @@ msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "EN OMSTART KRÄVS FÖR ATT SLUTFÖRA OPERATIONEN"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "EN DISK FORMATERAS REDAN."
+msgstr "EN ENHET FORMATERAS REDAN."
 
 msgid "Name"
 msgstr "Namn"
@@ -472,7 +472,7 @@ msgid "LEFT ANALOG STICK"
 msgstr "VÄNSTRA ANALOGA SPAKEN"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "HÖGRA ANALOGA SPAKEN"
+msgstr "HÖGER ANALOG SPAK"
 
 msgid "EDIT DESCRIPTION"
 msgstr "REDIGERA BESKRIVNING"
@@ -669,10 +669,10 @@ msgstr ""
 "tjänas in."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "INOFFICIELLA PRESTATIONER"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Aktivera upplåsning av inofficiella prestationer."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "UPPLÅSNINGSLJUD FÖR RETROACHIEVEMENT"
@@ -1039,7 +1039,7 @@ msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr "SKANLINJER"
 
 msgctxt "game_options"
 msgid "RETRO"
@@ -1292,7 +1292,7 @@ msgid "Reset customized file extensions filters to default."
 msgstr "Nollställ anpassade sökfilter för filändelser till standard."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ÅTERUPPTÄCK SPRÅK/REGION FÖR ALLA SPEL"
+msgstr "IDENTIFIERA SPRÅK/REGION FÖR ALLA SPEL IGEN"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "HITTA ALLA SPEL MED NETPLAY/PRESTATIONER"
@@ -1384,7 +1384,7 @@ msgid "RETROARCH MENU DRIVER"
 msgstr "DRIVRUTINER FÖR RETROARCH-MENY"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "VÄXLA BEKRÄFTA- & AVBRYTKNAPPARNA I EMULATIONSTATION"
+msgstr "VÄXLA KNAPPARNA BEKRÄFTA & AVBRYT I EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
 msgstr "Växlar funktionaliteten för den södra och östra knappen"
@@ -1396,8 +1396,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Växlar till att korttrycka på Norr för Save States & långtrycka på Söder för "
-"Spelalternativ"
+"Växlar till att korttrycka på Norr för sparade tillstånd & långtrycka på "
+"Söder för spelalternativ"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROLLERA EMULATIONSTATION ENDAST MED FÖRSTA JOYSTICK"
@@ -1473,7 +1473,7 @@ msgid "UPDATE TYPE"
 msgstr "UPPDATERINGSTYP"
 
 msgid "APPLY UPDATE"
-msgstr "VERKSTÄLL UPPDATERING"
+msgstr "TILLÄMPA UPPDATERING"
 
 msgid "START UPDATE"
 msgstr "STARTA UPPDATERING"
@@ -1572,7 +1572,7 @@ msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr "TYST VIDEO/ANVÄNDARE STÄLLER IN UPPSTARTSBILD"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA UPPSTARTSBILD"
+msgstr "UPPSTARTSBILD FÖR BATOCERA"
 
 msgid "SPLASH SETTING"
 msgstr "INSTÄLLNINGAR FÖR UPPSTARTSBILD"
@@ -1584,7 +1584,7 @@ msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "KONTROLLERA BIOS-FILER INNAN ETT SPEL KÖRS"
 
 msgid "MULTIMEDIA KEYS"
-msgstr "MULTIMEDIANYCKLAR"
+msgstr "MULTIMEDIATANGENTER"
 
 msgid "ON"
 msgstr "PÅ"
@@ -1713,7 +1713,7 @@ msgid "DECORATION SET"
 msgstr "DEKORATIONSUPPSÄTTNING"
 
 msgid "Current setting"
-msgstr "Nuvarande inställning"
+msgstr "Aktuell inställning"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPPDATERA SPELLISTAN"
@@ -1722,7 +1722,7 @@ msgid "BIOS SETTINGS"
 msgstr "BIOS-INSTÄLLNINGAR"
 
 msgid "SAVESTATES"
-msgstr "SAVESTATES"
+msgstr "SPARADE TILLSTÅND"
 
 msgid "AUTO SAVE/LOAD"
 msgstr "SPARA/LÄS IN AUTOMATISKT"
@@ -1732,7 +1732,7 @@ msgstr ""
 "Läs in senaste sparläge vid spelstart och sparläge när du avslutar spelet."
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "INKREMENTELLA SAVE STATES"
+msgstr "INKREMENTELLA SPARADE TILLSTÅND"
 
 msgid "INCREMENT PER SAVE"
 msgstr "ÖKA FÖR VARJE GÅNG DU SPARAR"
@@ -1850,7 +1850,7 @@ msgid "TARGET LANGUAGE"
 msgstr "MÅLSPRÅK"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "AI-ÖVERSÄTTNINGSTJÄNSTENS WEBBADRESS"
+msgstr "AI-ÖVERSÄTTNINGSTJÄNSTENS URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA PÅ ÖVERSATT SKÄRM"
@@ -1940,7 +1940,7 @@ msgid "SHOW REGION FLAG"
 msgstr "VISA REGIONSFLAGGA"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "VISA IKON FÖR SAVE STATE"
+msgstr "VISA IKON FÖR SPARADE TILLSTÅND"
 
 msgid "SHOW MANUAL ICON"
 msgstr "VISA IKON FÖR MANUAL"
@@ -2380,7 +2380,7 @@ msgid "New Collection Name"
 msgstr "Namn på ny samling"
 
 msgid "ENTER NAME"
-msgstr "SKRIV IN NAMN"
+msgstr "ANGE IN NAMN"
 
 msgid "CREATE FROM THEME"
 msgstr "SKAPA FRÅN TEMA"
@@ -2485,7 +2485,7 @@ msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "AVINSTALLATION HAR LAGTS TILL I KÖN"
 
 msgid "SAVESTATE MANAGER"
-msgstr "SPARLÄGESHANTERARE"
+msgstr "HANTERARE FÖR SPARADE TILLSTÅND"
 
 msgid "START NEW GAME"
 msgstr "STARTA NYTT SPEL"
@@ -2754,7 +2754,7 @@ msgid "Default (100)"
 msgstr "Standard (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr "Dämpa display/kväll (120)"
+msgstr "Dämpa skärm/kväll (120)"
 
 msgid "CAMERA EXPOSURE"
 msgstr "KAMERAEXPONERING"
@@ -2841,7 +2841,7 @@ msgid "slideshow"
 msgstr "bildspel"
 
 msgid "suspend"
-msgstr "avbryt"
+msgstr "vänteläge"
 
 msgid "start & end"
 msgstr "början & slut"
@@ -2937,8 +2937,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
-"org"
+"Ett giltigt konto krävs. Registrera ett konto på https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -2956,7 +2956,7 @@ msgid "Games similar to"
 msgstr "Spel som liknar"
 
 msgid "SAVE STATES (HOLD)"
-msgstr "SPARLÄGEN (HÅLL INNE)"
+msgstr "SPARADE TILLSTÅND (HÅLL INNE)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "SPELALTERNATIV (HÅLL INNE)"

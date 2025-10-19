@@ -508,7 +508,7 @@ msgid "VIDEO DRIVER"
 msgstr "PILOTE VIDÉO"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SÉOUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "PARAMÈTRES DES PARTIES EN RÉSEAU"
@@ -675,10 +675,10 @@ msgstr ""
 "peuvent être obtenus."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "SUCCÈS NON OFFICIELS"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Activer le déverrouillage des succès non officiels."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SON DE DÉVERROUILLAGE DES SUCCÈS RÉTRO"
@@ -911,16 +911,16 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PARAMÈTRES PADTOKEY"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID CLIENT"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "SECRET CLIENT"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -3132,7 +3132,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "IDENTIFIANTS INVALIDES"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
