@@ -2351,6 +2351,67 @@ std::vector<Service> ApiSystem::getServices()
 	return services;
 }
 
+std::vector<Hotkey> ApiSystem::getHotkeys() {
+  std::vector<Hotkey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getHotkeys";
+
+  auto res = executeEnumerationScript("batocera-hotkeys");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("hotkeys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <hotkeys> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node hotkey = root.child("hotkey"); hotkey; hotkey = hotkey.next_sibling("hotkey"))
+    {
+      Hotkey hk;
+
+      if (hotkey.attribute("button"))
+	hk.button = hotkey.attribute("button").as_string();
+      
+      if (hotkey.attribute("action"))
+	hk.action = hotkey.attribute("action").as_string();
+
+      if (hotkey.attribute("default"))
+	hk.default_action = hotkey.attribute("default").as_string();
+
+      hotkeys.push_back(hk);
+    }
+  return hotkeys;
+}
+
+std::vector<std::string> ApiSystem::getHotkeysValues() {
+  return executeEnumerationScript("batocera-hotkeys --values");
+}
+
+void ApiSystem::setHotkeys(const std::vector<Hotkey>& hotkeys) {
+  LOG(LogDebug) << "ApiSystem::setHotkeys";
+
+  std::string params;
+  for(unsigned int h = 0; h < hotkeys.size(); h++) {
+    params = params + " --" + hotkeys[h].button + " " + hotkeys[h].action;
+  }
+  executeScript("batocera-hotkeys " + params);
+}
+
 std::vector<std::string> ApiSystem::backglassThemes() {
   std::vector<std::string> themes;
 

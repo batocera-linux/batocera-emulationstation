@@ -20,6 +20,19 @@ public:
 	std::string path;
 };
 
+#ifdef BATOCERA
+struct hotkeyInputDefinition
+{
+	std::string code;
+	std::string name;
+};
+struct hotkeyTargetDefinition
+{
+	std::string code;
+	std::string name;
+};
+#endif
+
 class GuiControllersSettings : public GuiSettings
 {
 public:
@@ -33,7 +46,9 @@ private:
 	void openControllersSpecificSettings_sindengun();
 	void openControllersSpecificSettings_wiigun();
 	void openControllersSpecificSettings_steamdeckgun();
-
+#ifdef BATOCERA
+	void openControllersHotkeys();
+#endif
 	std::vector<InputConfigInfo*> mLoadedInput;
 	void clearLoadedInput();
 };
