@@ -407,7 +407,7 @@ void SystemData::createGroupedSystems()
 		// Don't group if system count is only 1 		
 		if (item.second.size() == 1 && Settings::getInstance()->HideUniqueGroups())
 		{
-			item.second[0]->getSystemEnvData()->mGroup = "";
+			item.second[0]->getSystemEnvData()->mAutoUngroup = true;
 			continue;
 		}
 		
@@ -1724,8 +1724,12 @@ bool SystemData::isNetplayActivated()
 bool SystemData::isGroupChildSystem() 
 { 
 	if (mEnvData != nullptr && !mEnvData->mGroup.empty())
-		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup") && 
-			   !Settings::getInstance()->getBool(getName() + ".ungroup");
+	{
+		if (mEnvData->mAutoUngroup)
+			return false;
+
+		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup") && !Settings::getInstance()->getBool(getName() + ".ungroup");
+	}
 
 	return false;
 }
@@ -1768,7 +1772,7 @@ SystemData* SystemData::getParentGroupSystem()
 		return this;
 
 	for (auto sys : SystemData::sSystemVector)
-		if (sys->isGroupSystem() && sys->getName() == mEnvData->mGroup)
+		if (sys->isGroupSystem() && sys->getName() == mEnvData->mGroup && !mEnvData->mAutoUngroup)
 			return sys;
 
 	return this;
