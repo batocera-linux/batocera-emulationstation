@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-08-24 16:56+0300\n"
+"PO-Revision-Date: 2025-10-20 17:52+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SE SCANEAZĂ BLUETOOTH"
@@ -504,7 +504,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "OCUPAREA DISCULUI SISTEM"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "UTILIZARE DISC"
 
 msgid "SYSTEM"
 msgstr "SISTEM"
@@ -513,10 +513,10 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEOUL"
@@ -1661,7 +1661,7 @@ msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "ACTIVEAZĂ LED"
 
 msgid "RED"
 msgstr "ROȘU"
@@ -2126,7 +2126,7 @@ msgid "WIFI KEY"
 msgstr "CHEIE WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "ȚARĂ WIFI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ACTIVAT"
@@ -2729,7 +2729,7 @@ msgid "BEHAVIOR"
 msgstr "COMPORTAMENT"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "TASTE RAPIDE JOYSTICK"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "LIMITEAZĂ TASTELE RAPIDE DE IEȘIRE"
@@ -2738,103 +2738,103 @@ msgid "default"
 msgstr "implicit"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SUD"
 
 msgid "EAST"
-msgstr ""
+msgstr "EST"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORD"
 
 msgid "WEST"
-msgstr ""
+msgstr "VEST"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD SUS"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD JOS"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD STÂNGA"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD DREAPTA"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "UMĂR STÂNG"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "UMĂR DREPT"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "TRĂGACI STÂNG"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "TRĂGACI DREPT"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "APĂSARE JOYSTICK STÂNG"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "APĂSARE JOYSTICK DREPT"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "OVERLAY-URI"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CICLARE LUMINOZITATE"
 
 msgid "COIN"
-msgstr ""
+msgstr "MONEDĂ"
 
 msgid "EXIT"
-msgstr ""
+msgstr "IEȘIRE"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "REPEDE ÎNAINTE"
 
 msgid "MENU"
 msgstr "MENIU"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "DISCUL URMĂTOR"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "SLOTUL URMĂTOR"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUZĂ"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "SLOTUL ANTERIOR"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "RESTAUREAZĂ STAREA"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "SALVEAZĂ STAREA"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "DISPUNERE ECRAN"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "INTERSCHIMBĂ ECRANELE"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TRADUCERE"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "REDUCERE VOLUM"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "OPRIRE VOLUM"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "CREȘTERE VOLUM"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "TASTĂ RAPIDĂ"
 
 msgid "BORDER SIZE"
 msgstr "MĂRIME CHENAR"
