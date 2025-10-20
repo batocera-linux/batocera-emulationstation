@@ -50,11 +50,14 @@ struct SystemMetadata
 
 struct SystemEnvironmentData
 {
+	SystemEnvironmentData() { mAutoUngroup = false; }
+
 	std::string mStartPath;
 	std::set<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
 	std::set<PlatformIds::PlatformId> mPlatformIds;
 	std::string mGroup;
+	bool mAutoUngroup;
 
 	inline bool isValidExtension(const std::string& extension)
 	{
