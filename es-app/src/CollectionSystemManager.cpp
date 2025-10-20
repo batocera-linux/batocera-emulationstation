@@ -43,6 +43,7 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_AT4PLAYERS,			"4players",			_("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, 
 		{ AUTO_NEVER_PLAYED,		"neverplayed",		_("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, 
 		{ AUTO_RETROACHIEVEMENTS,	"retroachievements",_("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
+		{ AUTO_FINISHED,			"finished",			_("finished"),			FileSorts::FILENAME_ASCENDING,    "auto-finished",        false,       true }, 
 
 		// Arcade meta 
 		{ AUTO_ARCADE,				 "arcade",			_("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, 
@@ -856,6 +857,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	rootFolder->setMetadata(MetaDataId::KidGame, "false");
 	rootFolder->setMetadata(MetaDataId::Hidden, "false");
 	rootFolder->setMetadata(MetaDataId::Favorite, "false");
+	rootFolder->setMetadata(MetaDataId::Finished, "false");
 
 	auto theme = sys->getTheme();
 	if (theme)
@@ -1046,6 +1048,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 				}
 			}
 			break;
+			case AUTO_FINISHED:
+				include = game->getFinished();
+				break;
 
 			default:
 				if (!sysDecl.isCustom && !sysDecl.displayIfEmpty)
