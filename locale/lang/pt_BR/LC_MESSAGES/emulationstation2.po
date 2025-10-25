@@ -506,7 +506,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "USO DO DISCO DO SISTEMA"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -515,10 +515,10 @@ msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEUL"
@@ -1665,7 +1665,7 @@ msgid "LED HARDWARE"
 msgstr "HARDWARE LED"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "HABILITAR LED"
 
 msgid "RED"
 msgstr "VERMELHO"
@@ -2130,7 +2130,7 @@ msgid "WIFI KEY"
 msgstr "SENHA DO WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "PAÍS DO WIFI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ATIVO"
@@ -2735,7 +2735,7 @@ msgid "BEHAVIOR"
 msgstr "COMPORTAMENTO"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "TECLAS DE ATALHO DO CONTROLE"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "RESTRINGIR ATALHOS PARA SAIR"
@@ -2744,103 +2744,103 @@ msgid "default"
 msgstr "padrão"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SUL"
 
 msgid "EAST"
-msgstr ""
+msgstr "LESTE"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORTE"
 
 msgid "WEST"
-msgstr ""
+msgstr "OESTE"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "DIRECIONAL CIMA"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "DIRECIONAL PARA CIMA"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "DIRECIONAL PARA BAIXO"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "DIRECIONAL PARA DIREITA"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "SUPERIOR ESQUERDO"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "SUPERIOR DIREITO"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "GATILHO ESQUERDO"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "GATILHO DIREITO"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PRESSIONAR ALAVANCA ESQUERDA"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PRESSIONAR ALAVANCA DIREITA"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "INDICADORES"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CICLO DE BRILHO"
 
 msgid "COIN"
-msgstr ""
+msgstr "MOEDA"
 
 msgid "EXIT"
-msgstr ""
+msgstr "SAIR"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "AVANÇO RÁPIDO"
 
 msgid "MENU"
 msgstr "MENU"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "PRÓXIMO DISCO"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "PRÓXIMO ESPAÇO"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSAR"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "ESPAÇO ANTERIOR"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "CARREGAR ESTADO"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "ESTADO DE SALVAMENTO"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "DISPOSIÇÃO DE TELA"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "ALTERNAR TELA"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TRADUÇÃO"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "DIMINUIR VOLUME"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "SILENCIAR VOLUME"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "AUMENTAR VOLUME"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "TECLA DE ATALHO"
 
 msgid "BORDER SIZE"
 msgstr "TAMANHO DA BORDA"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-08-25 13:19+0200\n"
+"PO-Revision-Date: 2025-10-21 22:39+0200\n"
 "Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BUSCANDO BLUETOOTH"
@@ -508,7 +508,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "USO DE DISCO DO SISTEMA"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -517,10 +517,10 @@ msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARÍS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSACA"
 
 msgid "SEOUL"
 msgstr "SEÚL"
@@ -1662,7 +1662,7 @@ msgid "LED HARDWARE"
 msgstr "LED DE HARDWARE"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "ACTIVAR LED"
 
 msgid "RED"
 msgstr "VERMELLO"
@@ -2127,7 +2127,7 @@ msgid "WIFI KEY"
 msgstr "CLAVE DA WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "PAÍS DA WIFI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ACTIVADO"
@@ -2728,7 +2728,7 @@ msgid "BEHAVIOR"
 msgstr "COMPORTAMENTO"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "ATALLOS DAS PANCAS DE MANDOS"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "RESTRINXIR OS ATALLOS PARA SAÍR"
@@ -2737,103 +2737,103 @@ msgid "default"
 msgstr "por defecto"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SUR"
 
 msgid "EAST"
-msgstr ""
+msgstr "LESTE"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORTE"
 
 msgid "WEST"
-msgstr ""
+msgstr "OESTE"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "CRUCETA ARRIBA"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "CRUCETA ABAIXO"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "CRUCETA ESQUERDA"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "CRUCETA DEREITA"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "OMBRO ESQUERDO"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "OMBRO DEREITO"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "GATILLO ESQUERDO"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "GATILLO DEREITO"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PAU ESQUERDO PREMER"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PAU DEREITO PREMER"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "SUPERPOSICIÓNS"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CICLO DE BRILLO"
 
 msgid "COIN"
-msgstr ""
+msgstr "MOEDA"
 
 msgid "EXIT"
-msgstr ""
+msgstr "SAÍR"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "AVANCE RÁPIDO"
 
 msgid "MENU"
 msgstr "MENÚ"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "SEGUINTE DISCO"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "SEGUINTE RAÑURA"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSA"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "RAÑURA ANTERIOR"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "RESTAURAR ESTADO"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "GARDAR ESTADO"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "DISTRIBUCIÓN DA PANTALLA"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "TROCAR PANTALLA"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TRADUCIÓN"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "BAIXAR VOLUME"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "SILENCIAR VOLUME"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "SUBIR VOLUME"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "ATALLO"
 
 msgid "BORDER SIZE"
 msgstr "TAMAÑO DO BORDO"

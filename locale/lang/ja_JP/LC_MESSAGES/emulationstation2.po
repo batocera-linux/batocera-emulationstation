@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v42b(2025/08/27)\n"
+"Project-Id-Version: batocera-es v42(2025/10/21)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-08-27 19:47+0900\n"
+"PO-Revision-Date: 2025-10-21 05:26+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH 検出中"
@@ -505,7 +505,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "システムデータ使用量/容量"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "データ使用量/容量"
 
 msgid "SYSTEM"
 msgstr "システム"
@@ -514,10 +514,10 @@ msgid "VIDEO DRIVER"
 msgstr "ビデオ ドライバ"
 
 msgid "PARIS"
-msgstr ""
+msgstr "パリ"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "大阪"
 
 msgid "SEOUL"
 msgstr "ソウル"
@@ -679,10 +679,10 @@ msgid ""
 msgstr "対象となるアチーブメントを獲得できる場合、右下隅にアイコンを表示します"
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr "非公式 アチーブメント(実績)"
+msgstr "非公式アチーブメント"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr "非公式アチーブメントのロック解除を有効にします"
+msgstr "非公式アチーブメントのロック解除を有効"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTロック解除効果音"
@@ -1648,7 +1648,7 @@ msgid "LED HARDWARE"
 msgstr "LED ハードウェア"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr " LED 有効"
 
 msgid "RED"
 msgstr "赤"
@@ -2109,7 +2109,7 @@ msgid "WIFI KEY"
 msgstr "WIFI キー"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WIFI 使用国"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI が有効になりました"
@@ -2595,7 +2595,7 @@ msgstr ""
 "コピーしますか？(いいえ、はコピーせずパス指定のみ)"
 
 msgid "FAVORITE SONGS"
-msgstr "再生するお気に入りの曲"
+msgstr "お気に入りの曲"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ネットプレイの接続"
@@ -2711,7 +2711,7 @@ msgid "BEHAVIOR"
 msgstr "動作"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "ジョイスティックホットキー"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "ホットキーの機能を制限(終了以外)"
@@ -2720,103 +2720,103 @@ msgid "default"
 msgstr "標準"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "S ボタン / 下位置"
 
 msgid "EAST"
-msgstr ""
+msgstr "E ボタン / 右位置"
 
 msgid "NORTH"
-msgstr ""
+msgstr "N ボタン / 上位置"
 
 msgid "WEST"
-msgstr ""
+msgstr "W ボタン / 左位置"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "十字キー上"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "十字キー下"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "十字キー左"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "十字キー右"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "左 ショルダー(L1)"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "右 ショルダー(R1)"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "左 トリガー(L2)"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "右 トリガー(R2)"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "左 アナログST押(L3)"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "右 アナログST押(R3)"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "オーバーレイ"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "輝度サイクル"
 
 msgid "COIN"
-msgstr ""
+msgstr "コイン投入"
 
 msgid "EXIT"
-msgstr ""
+msgstr "終了"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "高速早送り"
 
 msgid "MENU"
 msgstr "メニュー"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "次のディスク"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "次のスロット"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "一時停止"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "前のスロット"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "ステート復元"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "ステートセーブ"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "スクリーンレイアウト"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "画面入れ替え"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "AIゲーム翻訳"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "音量 下"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "音声ミュート"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "音量 上"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "ホットキー"
 
 msgid "BORDER SIZE"
 msgstr "境界サイズ"

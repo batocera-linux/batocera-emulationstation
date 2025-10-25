@@ -502,7 +502,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISQUE SYSTÈME"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "UTILISATION DU DISQUE"
 
 msgid "SYSTEM"
 msgstr "SYSTÈME"
@@ -511,10 +511,10 @@ msgid "VIDEO DRIVER"
 msgstr "PILOTE VIDÉO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SÉOUL"
@@ -1652,7 +1652,7 @@ msgid "LED HARDWARE"
 msgstr "LEDS"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "ACTIVE DEL"
 
 msgid "RED"
 msgstr "ROUGE"
@@ -2119,7 +2119,7 @@ msgid "WIFI KEY"
 msgstr "CLÉ WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WIFI PAYS"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ACTIVÉ"
@@ -2721,7 +2721,7 @@ msgid "BEHAVIOR"
 msgstr "COMPORTEMENT"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "RACCOURCIS MANETTE"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "RESTREINDRE LES HOTKEYS À EXIT"
@@ -2730,103 +2730,103 @@ msgid "default"
 msgstr "par défaut"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SUD"
 
 msgid "EAST"
-msgstr ""
+msgstr "EST"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORD"
 
 msgid "WEST"
-msgstr ""
+msgstr "OUEST"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "PAD DIRECTIONNEL HAUT"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "PAD DIRECTIONNEL BAS"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "PAD DIRECTIONNEL GAUCHE"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "PAD DIRECTIONNEL DROITE"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "L1"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "R1"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "L2"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "R2"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PRESSION MANETTE GAUCHE"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PRESSION MANETTE DROITE"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "DÉCORATIONS"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CYCLE DE LUMINOSITÉ"
 
 msgid "COIN"
-msgstr ""
+msgstr "PIÈCE"
 
 msgid "EXIT"
-msgstr ""
+msgstr "SORTIE"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "AVANCE RAPIDE"
 
 msgid "MENU"
 msgstr "MENU"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "DISQUE SUIVANT"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "EMPLACEMENT SUIVANT"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSE"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "EMPLACEMENT PRÉCÉDENT"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "RESTAURE ÉTAT"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "ENREGISTRER ÉTAT"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "DISPOSITION DE L'ÉCRAN"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "CHANGER D'ÉCRAN"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TRADUCTION"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "VOLUME BAS"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "SOURDINE"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "VOLUME HAUT"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "TOUCHE DE RACCOURCI"
 
 msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-08-24 19:58+0900\n"
+"PO-Revision-Date: 2025-10-21 23:33+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Loco-Source-Locale: ko_KR\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 "X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -503,7 +503,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "시스템 디스크 사용량"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "디스크 사용량"
 
 msgid "SYSTEM"
 msgstr "시스템"
@@ -512,10 +512,10 @@ msgid "VIDEO DRIVER"
 msgstr "비디오 드라이버"
 
 msgid "PARIS"
-msgstr ""
+msgstr "파리"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "오사카"
 
 msgid "SEOUL"
 msgstr "서울"
@@ -542,13 +542,13 @@ msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "게임 시작 시 자동 방 생성"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr "지원하는 코어에서 호스트 모드로 게임을 시작합니다"
+msgstr "지원하는 코어에서 호스트 모드로 게임을 시작합니다."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "중계 서버 게임만 표시"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "성공적으로 게임이 시작될 확률이 높습니다"
+msgstr "성공적으로 게임이 시작될 확률이 높습니다."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임 표시"
@@ -1636,7 +1636,7 @@ msgid "LED HARDWARE"
 msgstr "LED 하드웨어"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "LED 활성화"
 
 msgid "RED"
 msgstr "빨간색"
@@ -2097,7 +2097,7 @@ msgid "WIFI KEY"
 msgstr "WIFI 비밀번호"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WIFI 국가"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI 활성화됨"
@@ -2697,7 +2697,7 @@ msgid "BEHAVIOR"
 msgstr "동작"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "조이스틱 단축키"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "나가기 위한 단축키 제한"
@@ -2706,103 +2706,103 @@ msgid "default"
 msgstr "기본"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "↓"
 
 msgid "EAST"
-msgstr ""
+msgstr "→"
 
 msgid "NORTH"
-msgstr ""
+msgstr "↑"
 
 msgid "WEST"
-msgstr ""
+msgstr "←"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "십자 패드 위"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "십자 패드 아래"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "십자 패드 왼쪽"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "십자 패드 오른쪽"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "왼쪽 숄더"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "오른쪽 숄더"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "왼쪽 트리거"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "오른쪽 트리거"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "왼쪽 스틱 누르기"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "오른쪽 스틱 누르기"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "오버레이"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "밝기 사이클"
 
 msgid "COIN"
-msgstr ""
+msgstr "동전"
 
 msgid "EXIT"
-msgstr ""
+msgstr "나가기"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "빨리 감기"
 
 msgid "MENU"
 msgstr "메뉴"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "다음 디스크"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "다음 슬롯"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "일시 정지"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "이전 슬롯"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "상태 복원"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "상태 저장"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "화면 레이아웃"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "화면 교체"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "번역"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "볼륨 낮추기"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "볼륨 음소거"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "볼륨 높이기"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "단축키"
 
 msgid "BORDER SIZE"
 msgstr "테두리 크기"

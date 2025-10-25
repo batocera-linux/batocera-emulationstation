@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-08-24 17:07+0000\n"
+"PO-Revision-Date: 2025-10-23 12:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: de_DE\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCANNE BLUETOOTH"
@@ -504,7 +504,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEMLAUFWERK VERBRAUCH"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "FESTPLATTENNUTZUNG"
 
 msgid "SYSTEM"
 msgstr "SYSTEM"
@@ -513,10 +513,10 @@ msgid "VIDEO DRIVER"
 msgstr "VIDEOTREIBER"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEOUL"
@@ -1450,8 +1450,8 @@ msgstr "UI-ELEMENTE BEIM BOOTEN VORLADEN"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-"
-"Menü, verlängert Boot-Zeit"
+"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-Menü,"
+" verlängert Boot-Zeit"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "MEDIEN-METADATEN BEIM BOOTEN VORLADEN"
@@ -1659,7 +1659,7 @@ msgid "LED HARDWARE"
 msgstr "LED-HARDWARE"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "LED AKTIVIEREN"
 
 msgid "RED"
 msgstr "ROT"
@@ -2129,7 +2129,7 @@ msgid "WIFI KEY"
 msgstr "WLAN PASSWORT"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WLAN-LAND"
 
 msgid "WIFI ENABLED"
 msgstr "WLAN AKTIVIERT"
@@ -2687,8 +2687,8 @@ msgstr "CONTROLLER TASTENBELEGUNG"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
 "TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
@@ -2734,7 +2734,7 @@ msgid "BEHAVIOR"
 msgstr "VERHALTEN"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "JOYSTICK-HOTKEYS"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "HOTKEYS ZUM BEENDEN EINSCHRÄNKEN"
@@ -2743,103 +2743,103 @@ msgid "default"
 msgstr "Standard"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SÜD"
 
 msgid "EAST"
-msgstr ""
+msgstr "OST"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORD"
 
 msgid "WEST"
-msgstr ""
+msgstr "WEST"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD HOCH"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD RUNTER"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD LINKS"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD RECHTS"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "LINKE SCHULTERTASTE"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "RECHTE SCHULTERTASTE"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "LINKER TRIGGER"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "RECHTER TRIGGER"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "LINKER STICK (DRÜCKEN)"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "RECHTER STICK (DRÜCKEN)"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "OVERLAYS"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "HELLIGKEIT UMSCHALTEN"
 
 msgid "COIN"
-msgstr ""
+msgstr "COIN"
 
 msgid "EXIT"
-msgstr ""
+msgstr "BEENDEN"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "VORSPULEN"
 
 msgid "MENU"
 msgstr "MENÜ"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "NÄCHSTE DISK"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "NÄCHSTER SLOT"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSE"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "VORHERIGER SLOT"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "SPEICHERSTAND LADEN"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "SPEICHERSTAND SPEICHERN"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "BILDSCHIRMLAYOUT"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "BILDSCHIRM WECHSELN"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "ÜBERSETZUNG"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "LAUTSTÄRKE LEISER"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "LAUTSTÄRKE STUMM"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "LAUTSTÄRKE LAUTER"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "BORDER SIZE"
 msgstr "RAHMENGRÖSSE"
@@ -3076,11 +3076,11 @@ msgid "INVALID CONTENT"
 msgstr "UNGÜLTIGER INHALT"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https://"
-"retroachievements.org"
+"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https:"
+"//retroachievements.org"
 
 msgid "Full"
 msgstr "Vollständig"

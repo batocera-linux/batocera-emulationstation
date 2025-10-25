@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-09-16 11:17+0200\n"
+"PO-Revision-Date: 2025-10-21 20:28+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SÖKER PÅ BLUETOOTH"
@@ -502,7 +502,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISKANVÄNDNING (SYSTEM)"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "DISKANVÄNDNING"
 
 msgid "SYSTEM"
 msgstr "SYSTEM"
@@ -511,10 +511,10 @@ msgid "VIDEO DRIVER"
 msgstr "GRAFIKDRIVRUTIN"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEOUL"
@@ -1644,7 +1644,7 @@ msgid "LED HARDWARE"
 msgstr "LED-HÅRDVARA"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "AKTIVERA LED"
 
 msgid "RED"
 msgstr "RÖD"
@@ -2108,7 +2108,7 @@ msgid "WIFI KEY"
 msgstr "WIFI-NYCKEL"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WIFI-LAND"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI AKTIVERAT"
@@ -2709,7 +2709,7 @@ msgid "BEHAVIOR"
 msgstr "BETEENDE"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "SNABBTANGENTER FÖR STYRSPAK"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"
@@ -2718,100 +2718,100 @@ msgid "default"
 msgstr "standard"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SÖDER"
 
 msgid "EAST"
-msgstr ""
+msgstr "ÖST"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORR"
 
 msgid "WEST"
-msgstr ""
+msgstr "VÄST"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "RIKTNINGSKNAPP UPP"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "RIKTNINGSKNAPP NER"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "RIKTNINGSKNAPP VÄNSTER"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "RIKTNINGSKNAPP HÖGER"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "VÄNSTER AXEL"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "HÖGER AXEL"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "VÄNSTER AVTRYCKARE"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "HÖGER AVTRYCKARE"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "TRYCK PÅ VÄNSTER SPAK"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "TRYCK PÅ HÖGER SPAK"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "ÖVERLAGRINGAR"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "LJUSHETSVÄXLING"
 
 msgid "COIN"
-msgstr ""
+msgstr "MYNT"
 
 msgid "EXIT"
-msgstr ""
+msgstr "AVSLUTA"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "SNABBT FRAMÅT"
 
 msgid "MENU"
 msgstr "MENY"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "NÄSTA DISK"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "NÄSTA PLATS"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSA"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "FÖREGÅENDE PLATS"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "ÅTERSTÄLL TILLSTÅND"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "SPARA TILLSTÅND"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "SKÄRMLAYOUT"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "VÄXLA SKÄRM"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "ÖVERSÄTTNING"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "VOLYM NER"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "VOLYM TYST"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "VOLYM UPP"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -3054,8 +3054,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
-"org"
+"Ett giltigt konto krävs. Registrera ett konto på https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Fullständig"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-08-24 23:50+0300\n"
+"PO-Revision-Date: 2025-10-21 15:37+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -502,7 +502,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "SİSTEM DİSK KULLANIMI"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "DİSK KULLANIMI"
 
 msgid "SYSTEM"
 msgstr "SİSTEM"
@@ -511,10 +511,10 @@ msgid "VIDEO DRIVER"
 msgstr "VİDEO SÜRÜCÜSÜ"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARİS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEUL"
@@ -1649,7 +1649,7 @@ msgid "LED HARDWARE"
 msgstr "LED DONANIM"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "LEDİ ETKİNLEŞTİR"
 
 msgid "RED"
 msgstr "KIRMIZI"
@@ -2119,7 +2119,7 @@ msgid "WIFI KEY"
 msgstr "WİFİ ANAHTARI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WİFİ ÜLKESİ"
 
 msgid "WIFI ENABLED"
 msgstr "WİFİ ETKİN"
@@ -2721,7 +2721,7 @@ msgid "BEHAVIOR"
 msgstr "DAVRANIŞ"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "JOYSTICK KISAYOL TUŞU"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "ÇIKIŞ İÇİN KISAYOL TUŞLARINI SINIRLA"
@@ -2730,103 +2730,103 @@ msgid "default"
 msgstr "varsayılan"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "GÜNEY"
 
 msgid "EAST"
-msgstr ""
+msgstr "DOĞU"
 
 msgid "NORTH"
-msgstr ""
+msgstr "KUZEY"
 
 msgid "WEST"
-msgstr ""
+msgstr "BATI"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD YUKARI"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD AŞAĞI"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD SOL"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD SAĞ"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "SOL OMUZ"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "SAĞ OMUZ"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "SOL TETİK"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "SAĞ TETİK"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "SOL ÇUBUK BASINCI"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "SAĞ ÇUBUK BASINCI"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "KAPLAMALAR"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "PARLAKLIK DÖNGÜSÜ"
 
 msgid "COIN"
-msgstr ""
+msgstr "JETON"
 
 msgid "EXIT"
-msgstr ""
+msgstr "ÇIKIŞ"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "HIZLI İLERİ SAR"
 
 msgid "MENU"
 msgstr "MENÜ"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "SONRAKİ DİSK"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "SONRAKİ YUVA"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "DURAKLAT"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "ÖNCEKİ YUVA"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "DURUMU GERİ YÜKLE"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "DURUM KAYIT"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "EKRAN DÜZENİ"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "EKRANI DEĞİŞTİR"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "ÇEVİRİ"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "SES AZALT"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "SES SUSTUR"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "SES YÜKSELT"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "KISAYOL TUŞU"
 
 msgid "BORDER SIZE"
 msgstr "KENAR BOYUTU"

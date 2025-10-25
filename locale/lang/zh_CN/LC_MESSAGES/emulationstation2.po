@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-08-26 22:59+0800\n"
+"PO-Revision-Date: 2025-10-22 09:49+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -501,7 +501,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "系统磁盘使用"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "磁盘使用情况"
 
 msgid "SYSTEM"
 msgstr "系统"
@@ -510,10 +510,10 @@ msgid "VIDEO DRIVER"
 msgstr "显卡驱动"
 
 msgid "PARIS"
-msgstr ""
+msgstr "巴黎"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "大阪"
 
 msgid "SEOUL"
 msgstr "首尔"
@@ -1625,7 +1625,7 @@ msgid "LED HARDWARE"
 msgstr "LED硬件"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "启用LED"
 
 msgid "RED"
 msgstr "红色"
@@ -2083,7 +2083,7 @@ msgid "WIFI KEY"
 msgstr "WiFi 密码"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WIFI国家代码"
 
 msgid "WIFI ENABLED"
 msgstr "WiFi 已启用"
@@ -2682,7 +2682,7 @@ msgid "BEHAVIOR"
 msgstr "行为"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "操纵杆快捷键"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "限制热键退出"
@@ -2691,103 +2691,103 @@ msgid "default"
 msgstr "默认"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "南"
 
 msgid "EAST"
-msgstr ""
+msgstr "东"
 
 msgid "NORTH"
-msgstr ""
+msgstr "北"
 
 msgid "WEST"
-msgstr ""
+msgstr "西"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "方向键上"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "方向键下"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "方向键左"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "方向键右"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "左肩键"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "右肩键"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "左扳机"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "右扳机"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "左摇杆按下"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "右摇杆按下"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "叠加层"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "亮度循环"
 
 msgid "COIN"
-msgstr ""
+msgstr "投币"
 
 msgid "EXIT"
-msgstr ""
+msgstr "退出"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "快进"
 
 msgid "MENU"
 msgstr "菜单"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "下一张磁盘"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "下一个槽位"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "暂停"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "上一个槽位"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "恢复状态"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "保存状态"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "屏幕布局"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "交换屏幕"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "翻译"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "减小音量"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "静音音量"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "增大音量"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "热键"
 
 msgid "BORDER SIZE"
 msgstr "边框大小"
