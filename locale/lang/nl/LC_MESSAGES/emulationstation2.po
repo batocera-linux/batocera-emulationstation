@@ -2733,8 +2733,11 @@ msgstr "GEDRAG"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "JOYSTICKS SNELTOETSEN"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "BEPERK SNELTOETSEN OM AF TE SLUITEN"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "standaard"
@@ -2837,6 +2840,21 @@ msgstr "VOLUME OMHOOG"
 
 msgid "HOTKEY"
 msgstr "SNELTOETS"
+
+msgid "FILES"
+msgstr "BESTANDEN"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "RAND MAAT"
@@ -3169,9 +3187,6 @@ msgstr[1] "%i SPELLEN"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATIEBALK"
-
-msgid "FILES"
-msgstr "BESTANDEN"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3743,3 +3758,6 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "BEPERK SNELTOETSEN OM AF TE SLUITEN"

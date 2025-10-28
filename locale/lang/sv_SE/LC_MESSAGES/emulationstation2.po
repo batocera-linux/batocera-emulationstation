@@ -2711,8 +2711,11 @@ msgstr "BETEENDE"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "SNABBTANGENTER FÖR STYRSPAK"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "standard"
@@ -2815,6 +2818,21 @@ msgstr "VOLYM UPP"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
+
+msgid "FILES"
+msgstr "FILER"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "RAMSTORLEK"
@@ -3054,8 +3072,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3147,9 +3165,6 @@ msgstr[1] "%i SPEL"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGERINGSFÄLT"
-
-msgid "FILES"
-msgstr "FILER"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3721,6 +3736,9 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "SKRAPNINGSINSTÄLLNINGAR"

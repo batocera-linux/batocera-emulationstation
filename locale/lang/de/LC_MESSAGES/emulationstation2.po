@@ -2736,8 +2736,11 @@ msgstr "VERHALTEN"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "JOYSTICK-HOTKEYS"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "HOTKEYS ZUM BEENDEN EINSCHRÄNKEN"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "Standard"
@@ -2840,6 +2843,21 @@ msgstr "LAUTSTÄRKE LAUTER"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
+
+msgid "FILES"
+msgstr "DATEIEN"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "RAHMENGRÖSSE"
@@ -3172,9 +3190,6 @@ msgstr[1] "%i SPIELE"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATIONSLEISTE"
-
-msgid "FILES"
-msgstr "DATEIEN"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3748,3 +3763,6 @@ msgid ""
 msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "HOTKEYS ZUM BEENDEN EINSCHRÄNKEN"

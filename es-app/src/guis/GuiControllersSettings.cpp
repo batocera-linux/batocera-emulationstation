@@ -9,6 +9,7 @@
 #include "guis/GuiBluetoothDevices.h"
 
 #include "guis/GuiMsgBox.h"
+#include "GuiLoading.h"
 #include "InputManager.h"
 #include "SystemConf.h"
 
@@ -193,8 +194,10 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 
 	auto restrictHotkeys = std::make_shared<SwitchComponent>(window);
 	restrictHotkeys->setState(SystemConf::getInstance()->getBool("global.exithotkeyonly"));
-	addWithLabel(_("RESTRICT HOTKEYS TO EXIT"), restrictHotkeys);
+	addWithLabel(_("RESTRICT JOYSTICKS HOTKEYS TO EXIT"), restrictHotkeys);
 	addSaveFunc([restrictHotkeys] { SystemConf::getInstance()->setBool("global.exithotkeyonly", restrictHotkeys->getState()); });
+
+	addEntry(_("GLOBAL HOTKEYS"), true, [this] { openGlobalHotkeys(); });
 #endif
 
 	addGroup(controllers_group_label);
@@ -421,8 +424,8 @@ void GuiControllersSettings::openControllersHotkeys() {
     { "volumeup",         _("VOLUME UP") }
   };
 
-  std::vector<Hotkey> hotkeys = ApiSystem::getInstance()->getHotkeys();
-  std::vector<std::string> hotkeys_values = ApiSystem::getInstance()->getHotkeysValues();
+  std::vector<Hotkey> hotkeys = ApiSystem::getInstance()->getJoysticksHotkeys();
+  std::vector<std::string> hotkeys_values = ApiSystem::getInstance()->getJoysticksHotkeysValues();
   std::vector<std::shared_ptr<OptionListComponent<std::string>>> btns_elts;
 
   for(unsigned int i = 0; i < hotkeys.size(); i++) {
@@ -475,11 +478,121 @@ void GuiControllersSettings::openControllersHotkeys() {
       k.action = btns_elts[h]->getSelected();
       vals.push_back(k);
     }
-    ApiSystem::getInstance()->setHotkeys(vals);
+    ApiSystem::getInstance()->setJoysticksHotkeys(vals);
   });
   
   mWindow->pushGui(s);
 }
+
+void GuiControllersSettings::openGlobalHotkeys() {
+  GuiSettings* s = new GuiSettings(mWindow, _("GLOBAL HOTKEYS"));
+  initializeGlobalHotkeys(mWindow, s);
+
+  mWindow->pushGui(s);
+}
+
+void GuiControllersSettings::initializeGlobalHotkeys(Window* window, GuiSettings* s) {
+  std::vector<std::shared_ptr<OptionListComponent<std::string>>> elts;
+
+  std::vector<hotkeyTargetDefinition> targets_labels = {
+    { "bezels",           _("OVERLAYS") },
+    { "brightness-cycle", _("BRIGHTNESS CYCLE") },
+    { "coin",             _("COIN") },
+    { "exit",             _("EXIT") },
+    { "fastforward",      _("FAST FORWARD") },
+    { "menu",             _("MENU") },
+    { "files",            _("FILES") },
+    { "next_disk",        _("NEXT DISK") },
+    { "next_slot",        _("NEXT SLOT") },
+    { "pause",            _("PAUSE") },
+    { "previous_slot",    _("PREVIOUS SLOT") },
+    { "reset",            _("RESET") },
+    { "restore_state",    _("RESTORE STATE") },
+    { "rewind",           _("REWIND") },
+    { "save_state",       _("SAVE STATE") },
+    { "screen_layout",    _("SCREEN LAYOUT") },
+    { "screenshot",       _("SCREENSHOT") },
+    { "swap_screen",      _("SWAP SCREEN") },
+    { "translation",      _("TRANSLATION") },
+    { "volumedown",       _("VOLUME DOWN") },
+    { "volumemute",       _("VOLUME MUTE") },
+    { "volumeup",         _("VOLUME UP") }
+  };
+
+  s->save(); // save the current step to avoid loosing information, will do nothing the first time while there is no save function
+  s->clear();
+  s->addEntry(_("DECLARE A NEW GLOBAL HOTKEY"), false, [this, window, s] { declareGlobalHotkey(window, s); });
+
+  std::vector<GlobalHotkey> hotkeys = ApiSystem::getInstance()->getGlobalHotkeys();
+  std::vector<std::string> global_hotkeys_values = ApiSystem::getInstance()->getGlobalHotkeysValues();
+  std::string current_device = "";
+
+  for(unsigned int i = 0; i < hotkeys.size(); i++) {
+    if(current_device != hotkeys[i].device_fancy_name) {
+      current_device = hotkeys[i].device_fancy_name;
+      s->addGroup(current_device);
+    }
+    auto elt = std::make_shared< OptionListComponent<std::string> >(mWindow, hotkeys[i].key, false);
+    s->addWithLabel(hotkeys[i].key, elt);
+    elts.push_back(elt);
+
+    elt->add(_("NONE"), "none", hotkeys[i].action == "");
+
+    // add known hotkeys
+    for(unsigned int v = 0; v < global_hotkeys_values.size(); v++) {
+      // find the label
+      std::string xlabel = global_hotkeys_values[v];
+      for(unsigned int x = 0; x < targets_labels.size(); x++) {
+      	if(targets_labels[x].code == global_hotkeys_values[v]) {
+      	  xlabel = targets_labels[x].name;
+      	  break;
+      	}
+      }
+      elt->add(xlabel, global_hotkeys_values[v], hotkeys[i].action == global_hotkeys_values[v]);
+    }
+  }
+
+  // reset the save function
+  s->clearSaveFuncs();
+  s->addSaveFunc([hotkeys, elts] {
+    for(unsigned int h = 0; h < hotkeys.size(); h++) {
+      if(elts[h]->getSelected() == "none") {
+	// save save time, we do cleaning of none values
+	ApiSystem::getInstance()->removeGlobalHotkey(hotkeys[h].device_config, hotkeys[h].key);
+      } else {
+	if(elts[h]->changed()) {
+	  ApiSystem::getInstance()->setGlobalHotkey(hotkeys[h].device_config, hotkeys[h].key, elts[h]->getSelected());
+	}
+      }
+    }
+  });
+
+}
+
+void GuiControllersSettings::declareGlobalHotkey(Window* window, GuiSettings* s)
+{
+  window->pushGui(new GuiLoading<int>(window, _("YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"), [this, window](auto gui)
+  {
+    std::vector<GlobalHotkey> res = ApiSystem::getInstance()->detectGlobalHotkeys();
+    if(res.size() == 1) {
+      ApiSystem::getInstance()->setGlobalHotkey(res[0].device_config, res[0].key, "none");
+    }
+    return res.size();
+  }, [this, window, s](int ret)
+  {
+    if(ret == 1) {
+      initializeGlobalHotkeys(window, s);
+    } else {
+      if(ret == 0) {
+    	window->pushGui(new GuiMsgBox(window, _("NO GLOBAL HOTKEY DETECTED")));
+      }
+      if(ret > 1) {
+    	window->pushGui(new GuiMsgBox(window, _("MORE THAN ONE GLOBAL HOTKEY DETECTED")));
+      }
+    }
+  }));
+}
+
 #endif
 
 void GuiControllersSettings::openControllersSpecificSettings_sindengun()

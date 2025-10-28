@@ -2731,8 +2731,11 @@ msgstr "COMPORTAMENT"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "TASTE RAPIDE JOYSTICK"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "LIMITEAZĂ TASTELE RAPIDE DE IEȘIRE"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "implicit"
@@ -2835,6 +2838,21 @@ msgstr "CREȘTERE VOLUM"
 
 msgid "HOTKEY"
 msgstr "TASTĂ RAPIDĂ"
+
+msgid "FILES"
+msgstr "FIȘIERE"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "MĂRIME CHENAR"
@@ -3171,9 +3189,6 @@ msgstr[2] "%i DE JOCURI"
 
 msgid "NAVIGATION BAR"
 msgstr "BARĂ DE NAVIGAȚIE"
-
-msgid "FILES"
-msgstr "FIȘIERE"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3754,6 +3769,9 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "LIMITEAZĂ TASTELE RAPIDE DE IEȘIRE"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "SETĂRI PRELUARE INFORMAȚII"

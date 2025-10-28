@@ -2723,8 +2723,11 @@ msgstr "COMPORTAMENTO"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINGIR TECLAS DE ATALHO PARA SAIR"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "predefinição"
@@ -2826,6 +2829,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "FICHEIROS"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3157,9 +3175,6 @@ msgstr[1] "%i JOGOS"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGAÇÃO"
-
-msgid "FILES"
-msgstr "FICHEIROS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3731,6 +3746,9 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "RESTRINGIR TECLAS DE ATALHO PARA SAIR"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

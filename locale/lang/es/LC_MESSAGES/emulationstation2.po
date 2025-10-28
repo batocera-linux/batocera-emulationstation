@@ -2738,8 +2738,11 @@ msgstr "COMPORTAMIENTO"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "defecto"
@@ -2841,6 +2844,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "ARCHIVOS"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3174,9 +3192,6 @@ msgstr[1] "%i JUEGOS"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
-
-msgid "FILES"
-msgstr "ARCHIVOS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3748,6 +3763,9 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "AJUSTES DE ESCRAPEO"

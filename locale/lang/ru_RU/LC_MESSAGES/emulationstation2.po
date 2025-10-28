@@ -2712,8 +2712,11 @@ msgstr "ПОВЕДЕНИЕ"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЛЯ ВЫХОДА"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "по умолчанию"
@@ -2816,6 +2819,21 @@ msgstr ""
 
 msgid "HOTKEY"
 msgstr "ГОРЯЧАЯ КНОПКА"
+
+msgid "FILES"
+msgstr "ФАЙЛЫ"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "РАЗМЕР РАМКИ"
@@ -3152,9 +3170,6 @@ msgstr[2] "%i ИГР"
 
 msgid "NAVIGATION BAR"
 msgstr "ПАНЕЛЬ НАВИГАЦИИ"
-
-msgid "FILES"
-msgstr "ФАЙЛЫ"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3732,6 +3747,9 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЛЯ ВЫХОДА"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "НАСТРОЙКИ СКРАПЕРА"
