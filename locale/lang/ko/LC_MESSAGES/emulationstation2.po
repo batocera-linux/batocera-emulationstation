@@ -2699,8 +2699,11 @@ msgstr "동작"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "조이스틱 단축키"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "나가기 위한 단축키 제한"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "기본"
@@ -2803,6 +2806,21 @@ msgstr "볼륨 높이기"
 
 msgid "HOTKEY"
 msgstr "단축키"
+
+msgid "FILES"
+msgstr "파일"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "테두리 크기"
@@ -3129,9 +3147,6 @@ msgstr[0] "%i 개의 게임"
 
 msgid "NAVIGATION BAR"
 msgstr "탐색 바"
-
-msgid "FILES"
-msgstr "파일"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3695,6 +3710,9 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "나가기 위한 단축키 제한"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "스크랩 설정"

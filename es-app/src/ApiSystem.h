@@ -95,6 +95,14 @@ struct Hotkey
   std::string default_action;
 };
 
+struct GlobalHotkey
+{
+  std::string device_fancy_name;
+  std::string device_config;
+  std::string key;
+  std::string action;
+};
+
 class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
@@ -310,9 +318,15 @@ public:
 	virtual std::vector<Service> getServices();
 	virtual bool enableService(std::string name, bool enable);
 
-  	virtual std::vector<Hotkey> getHotkeys();
-        virtual std::vector<std::string> getHotkeysValues();
-        virtual void setHotkeys(const std::vector<Hotkey>& hotkeys);
+  	virtual std::vector<Hotkey> getJoysticksHotkeys();
+        virtual std::vector<std::string> getJoysticksHotkeysValues();
+        virtual void setJoysticksHotkeys(const std::vector<Hotkey>& hotkeys);
+
+      	virtual std::vector<GlobalHotkey> detectGlobalHotkeys();
+      	virtual std::vector<std::string> getGlobalHotkeysValues();
+    	virtual std::vector<GlobalHotkey> getGlobalHotkeys();
+      	virtual void removeGlobalHotkey(const std::string& config, const std::string& key);
+    	virtual void setGlobalHotkey(const std::string& config, const std::string& key, const std::string& action);
 
 	virtual std::vector<std::string> backglassThemes();
 	virtual void restartBackglass();

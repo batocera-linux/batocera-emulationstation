@@ -48,6 +48,9 @@ private:
 	void openControllersSpecificSettings_steamdeckgun();
 #ifdef BATOCERA
 	void openControllersHotkeys();
+  	void openGlobalHotkeys();
+  	void initializeGlobalHotkeys(Window* window, GuiSettings* s);
+  	void declareGlobalHotkey(Window* window, GuiSettings* s);
 #endif
 	std::vector<InputConfigInfo*> mLoadedInput;
 	void clearLoadedInput();

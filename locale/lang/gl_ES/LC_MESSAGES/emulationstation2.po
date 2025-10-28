@@ -2730,8 +2730,11 @@ msgstr "COMPORTAMENTO"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "ATALLOS DAS PANCAS DE MANDOS"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINXIR OS ATALLOS PARA SAÍR"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "por defecto"
@@ -2834,6 +2837,21 @@ msgstr "SUBIR VOLUME"
 
 msgid "HOTKEY"
 msgstr "ATALLO"
+
+msgid "FILES"
+msgstr "FICHEIROS"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "TAMAÑO DO BORDO"
@@ -3166,9 +3184,6 @@ msgstr[1] "%i XOGOS"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
-
-msgid "FILES"
-msgstr "FICHEIROS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3740,6 +3755,9 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "RESTRINXIR OS ATALLOS PARA SAÍR"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "AXUSTES DO AUDITADOR"

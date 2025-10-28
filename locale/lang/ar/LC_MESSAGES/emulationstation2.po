@@ -2732,8 +2732,11 @@ msgstr "سلوك"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "تقييد زر الاختصار للخروج"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "افتراضي"
@@ -2835,6 +2838,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "ملفات"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3183,9 +3201,6 @@ msgstr[5] "%i لعبة"
 
 msgid "NAVIGATION BAR"
 msgstr "شريط التنقل"
-
-msgid "FILES"
-msgstr "ملفات"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3787,3 +3802,6 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "تقييد زر الاختصار للخروج"

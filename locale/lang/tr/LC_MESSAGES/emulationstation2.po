@@ -2723,8 +2723,11 @@ msgstr "DAVRANIŞ"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "JOYSTICK KISAYOL TUŞU"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "ÇIKIŞ İÇİN KISAYOL TUŞLARINI SINIRLA"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "varsayılan"
@@ -2827,6 +2830,21 @@ msgstr "SES YÜKSELT"
 
 msgid "HOTKEY"
 msgstr "KISAYOL TUŞU"
+
+msgid "FILES"
+msgstr "DOSYALAR"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "KENAR BOYUTU"
@@ -3162,9 +3180,6 @@ msgstr[1] "%i OYUN"
 
 msgid "NAVIGATION BAR"
 msgstr "GEZİNTİ ÇUBUĞU"
-
-msgid "FILES"
-msgstr "DOSYALAR"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3746,6 +3761,9 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "ÇIKIŞ İÇİN KISAYOL TUŞLARINI SINIRLA"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"

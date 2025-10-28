@@ -2713,8 +2713,11 @@ msgstr "BEHAVIOR"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "OMEZIT HORKÉ KLÁVESY PRO UKONČENÍ"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "výchozí"
@@ -2816,6 +2819,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "SOUBORY"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3153,9 +3171,6 @@ msgstr[2] "%i HER"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGAČNÍ LIŠTA"
-
-msgid "FILES"
-msgstr "SOUBORY"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3734,6 +3749,9 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "OMEZIT HORKÉ KLÁVESY PRO UKONČENÍ"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "NASTAVENÍ VYHLEDÁVAČE"

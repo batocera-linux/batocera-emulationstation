@@ -2731,8 +2731,11 @@ msgstr "VISELKEDÉS"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "A KILÉPÉSHEZ SZÜKSÉGES GYORSBILLENTYŰK KORLÁTOZÁSA"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "alap"
@@ -2834,6 +2837,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "FÁJLOK"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3167,9 +3185,6 @@ msgstr[1] "%i JÁTÉK"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGÁCIÓS SÁV"
-
-msgid "FILES"
-msgstr "FÁJLOK"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3742,6 +3757,9 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "A KILÉPÉSHEZ SZÜKSÉGES GYORSBILLENTYŰK KORLÁTOZÁSA"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "LEKÉRDEZÉS BEÁLLTÁS"

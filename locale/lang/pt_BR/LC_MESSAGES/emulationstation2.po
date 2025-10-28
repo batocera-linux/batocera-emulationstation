@@ -2737,8 +2737,11 @@ msgstr "COMPORTAMENTO"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "TECLAS DE ATALHO DO CONTROLE"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINGIR ATALHOS PARA SAIR"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "padrão"
@@ -2841,6 +2844,21 @@ msgstr "AUMENTAR VOLUME"
 
 msgid "HOTKEY"
 msgstr "TECLA DE ATALHO"
+
+msgid "FILES"
+msgstr "ARQUIVOS"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "TAMANHO DA BORDA"
@@ -3173,9 +3191,6 @@ msgstr[1] "%i JOGOS"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGAÇÃO"
-
-msgid "FILES"
-msgstr "ARQUIVOS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3748,3 +3763,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "RESTRINGIR ATALHOS PARA SAIR"

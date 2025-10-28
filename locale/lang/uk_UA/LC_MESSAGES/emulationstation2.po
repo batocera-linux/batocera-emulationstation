@@ -2676,7 +2676,10 @@ msgstr ""
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
 msgstr ""
 
 msgid "default"
@@ -2780,6 +2783,21 @@ msgstr ""
 
 msgid "HOTKEY"
 msgstr "ГАРЯЧА КНОПКА"
+
+msgid "FILES"
+msgstr "ФАЙЛИ"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "РОЗМІР РАМКИ"
@@ -3114,9 +3132,6 @@ msgstr[2] ""
 
 msgid "NAVIGATION BAR"
 msgstr ""
-
-msgid "FILES"
-msgstr "ФАЙЛИ"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "

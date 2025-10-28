@@ -2685,8 +2685,11 @@ msgstr "行為"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "限制熱鍵退出"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "預設值"
@@ -2788,6 +2791,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "檔案"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3115,9 +3133,6 @@ msgstr[0] "%i 個遊戲"
 
 msgid "NAVIGATION BAR"
 msgstr "導航列"
-
-msgid "FILES"
-msgstr "檔案"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3679,6 +3694,9 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "限制熱鍵退出"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "搜刮器設定"

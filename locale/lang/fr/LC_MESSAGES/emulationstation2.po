@@ -2723,8 +2723,11 @@ msgstr "COMPORTEMENT"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "RACCOURCIS MANETTE"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTREINDRE LES HOTKEYS À EXIT"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "par défaut"
@@ -2827,6 +2830,21 @@ msgstr "VOLUME HAUT"
 
 msgid "HOTKEY"
 msgstr "TOUCHE DE RACCOURCI"
+
+msgid "FILES"
+msgstr "FICHIERS"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"
@@ -3160,9 +3178,6 @@ msgstr[1] "%i JEUX"
 
 msgid "NAVIGATION BAR"
 msgstr "VOLET NAVIGATION"
-
-msgid "FILES"
-msgstr "FICHIERS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3734,6 +3749,9 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "RESTREINDRE LES HOTKEYS À EXIT"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OPTIONS DU SCRAPEUR"

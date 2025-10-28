@@ -2710,8 +2710,11 @@ msgstr "PERILAKU"
 msgid "JOYSTICKS HOTKEYS"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "BATASI HOTKEY UNTUK KELUAR"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "standar"
@@ -2813,6 +2816,21 @@ msgid "VOLUME UP"
 msgstr ""
 
 msgid "HOTKEY"
+msgstr ""
+
+msgid "FILES"
+msgstr "FILE"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
 msgid "BORDER SIZE"
@@ -3142,9 +3160,6 @@ msgstr[0] "GAME %i"
 
 msgid "NAVIGATION BAR"
 msgstr "BAR NAVIGASI"
-
-msgid "FILES"
-msgstr "FILE"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3707,6 +3722,9 @@ msgid ""
 msgstr ""
 "KALIBRASI GUN\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "BATASI HOTKEY UNTUK KELUAR"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "PENGATURAN SCRAPER"

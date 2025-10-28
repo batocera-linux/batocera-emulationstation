@@ -2684,8 +2684,11 @@ msgstr "行为"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "操纵杆快捷键"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "限制热键退出"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "默认"
@@ -2788,6 +2791,21 @@ msgstr "增大音量"
 
 msgid "HOTKEY"
 msgstr "热键"
+
+msgid "FILES"
+msgstr "文件"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "边框大小"
@@ -3115,9 +3133,6 @@ msgstr[0] "%i 个游戏"
 
 msgid "NAVIGATION BAR"
 msgstr "导航栏"
-
-msgid "FILES"
-msgstr "文件"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3679,6 +3694,9 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "限制热键退出"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "抓取设置"

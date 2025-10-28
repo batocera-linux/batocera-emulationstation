@@ -2351,12 +2351,12 @@ std::vector<Service> ApiSystem::getServices()
 	return services;
 }
 
-std::vector<Hotkey> ApiSystem::getHotkeys() {
+std::vector<Hotkey> ApiSystem::getJoysticksHotkeys() {
   std::vector<Hotkey> hotkeys;
 
-  LOG(LogDebug) << "ApiSystem::getHotkeys";
+  LOG(LogDebug) << "ApiSystem::getJoysticksHotkeys";
 
-  auto res = executeEnumerationScript("batocera-hotkeys");
+  auto res = executeEnumerationScript("batocera-joysticks-hotkeys");
 
   std::string data = Utils::String::join(res, "\n");
   if (data.empty())
@@ -2398,18 +2398,132 @@ std::vector<Hotkey> ApiSystem::getHotkeys() {
   return hotkeys;
 }
 
-std::vector<std::string> ApiSystem::getHotkeysValues() {
+std::vector<std::string> ApiSystem::getJoysticksHotkeysValues() {
+  return executeEnumerationScript("batocera-joystick-hotkeys --values");
+}
+
+std::vector<std::string> ApiSystem::getGlobalHotkeysValues() {
   return executeEnumerationScript("batocera-hotkeys --values");
 }
 
-void ApiSystem::setHotkeys(const std::vector<Hotkey>& hotkeys) {
-  LOG(LogDebug) << "ApiSystem::setHotkeys";
+void ApiSystem::setJoysticksHotkeys(const std::vector<Hotkey>& hotkeys) {
+  LOG(LogDebug) << "ApiSystem::setJoysticksHotkeys";
 
   std::string params;
   for(unsigned int h = 0; h < hotkeys.size(); h++) {
     params = params + " --" + hotkeys[h].button + " " + hotkeys[h].action;
   }
-  executeScript("batocera-hotkeys " + params);
+  executeScript("batocera-joystick-hotkeys " + params);
+}
+
+std::vector<GlobalHotkey> ApiSystem::detectGlobalHotkeys() {
+  std::vector<GlobalHotkey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::detectGlobalHotkey";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --detect");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("keys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keys> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+      GlobalHotkey hk;
+
+      if (key.attribute("key"))
+	hk.key = key.attribute("key").as_string();
+      
+      if (key.attribute("config"))
+	hk.device_config = key.attribute("config").as_string();
+
+      hotkeys.push_back(hk);
+    }
+  return hotkeys;
+}
+
+std::vector<GlobalHotkey> ApiSystem::getGlobalHotkeys() {
+  std::vector<GlobalHotkey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getGlobalHotkeys";
+
+  auto res = executeEnumerationScript("batocera-hotkeys");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("hotkeys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <hotkeys> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node device = root.child("device"); device; device = device.next_sibling("device"))
+    {
+
+      for (pugi::xml_node hotkey = device.child("hotkey"); hotkey; hotkey = hotkey.next_sibling("hotkey"))
+	{
+      
+	  GlobalHotkey hk;
+
+	  if (device.attribute("fancy_name"))
+	  	hk.device_fancy_name = device.attribute("fancy_name").as_string();
+
+	  if (device.attribute("config"))
+	  	hk.device_config = device.attribute("config").as_string();
+
+	  if (hotkey.attribute("key"))
+	  	hk.key = hotkey.attribute("key").as_string();
+
+	  if (hotkey.attribute("action"))
+	  	hk.action = hotkey.attribute("action").as_string();
+
+	  hotkeys.push_back(hk);
+	}
+    }
+
+  return hotkeys;
+}
+
+void ApiSystem::setGlobalHotkey(const std::string& config, const std::string& key, const std::string& action) {
+  LOG(LogDebug) << "ApiSystem::setGlobalHotkey";
+  executeScript("batocera-hotkeys --set --config " + config + " --key " + key + " --action " + action);
+}
+
+void ApiSystem::removeGlobalHotkey(const std::string& config, const std::string& key) {
+  LOG(LogDebug) << "ApiSystem::removeGlobalHotkey";
+  executeScript("batocera-hotkeys --remove --config " + config + " --key " + key);
 }
 
 std::vector<std::string> ApiSystem::backglassThemes() {

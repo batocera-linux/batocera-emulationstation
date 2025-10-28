@@ -2713,8 +2713,11 @@ msgstr "動作"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "ジョイスティックホットキー"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "ホットキーの機能を制限(終了以外)"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "標準"
@@ -2817,6 +2820,21 @@ msgstr "音量 上"
 
 msgid "HOTKEY"
 msgstr "ホットキー"
+
+msgid "FILES"
+msgstr "ファイル"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "境界サイズ"
@@ -3147,9 +3165,6 @@ msgstr[0] "ゲーム数 :%i"
 
 msgid "NAVIGATION BAR"
 msgstr "操作バー"
-
-msgid "FILES"
-msgstr "ファイル"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3711,6 +3726,9 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "ホットキーの機能を制限(終了以外)"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "スクレイプ 設定"
