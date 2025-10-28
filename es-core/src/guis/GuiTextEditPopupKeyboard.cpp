@@ -60,8 +60,8 @@ std::vector<std::vector<const char*>> kbFr {
 
 	{ "<", "w", "x", "c", "v", "b", "n", ",", ";", ":", "=", "ALT", "-colspan-" },
 	{ ">", "W", "X", "C", "V", "B", "N", "?", ".", "/", "+", "ALT", "-colspan-" },
-	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
-	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
+	{ "€", "[", "]", "{", "}", "", "", "", "", "", "", "ALT", "-colspan-" },
+	{ "€", "[", "]", "{", "}", "", "", "", "", "", "", "ALT", "-colspan-" },
 
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
