@@ -33,6 +33,7 @@ enum FilterIndexType
 	MISSING_MEDIA_FILTER = 18,
 	TRACKBALL_FILTER = 19,
 	SPINNER_FILTER = 20,
+	FINISHED_FILTER=21,
 };
 
 struct FilterDataDecl
@@ -68,7 +69,7 @@ public:
 	
 	virtual int showFile(FileData* game);
 	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByFamily
-		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos || filterByVertical || filterByLightGun || filterByWheel || filterByTrackball || filterBySpinner || filterByHasMedia || filterByMissingMedia); };
+		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos || filterByVertical || filterByLightGun || filterByWheel || filterByTrackball || filterBySpinner || filterByHasMedia || filterByMissingMedia || filterByFinished); };
 
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl> getFilterDataDecls();
@@ -119,10 +120,11 @@ protected:
 	bool filterByVertical;
 	bool filterByLightGun;
   	bool filterByWheel;
-    	bool filterByTrackball;
-      	bool filterBySpinner;
+    bool filterByTrackball;
+    bool filterBySpinner;
 	bool filterByHasMedia;
 	bool filterByMissingMedia;
+	bool filterByFinished;
 
 	std::map<std::string, int> genreIndexAllKeys;
 	std::map<std::string, int> familyIndexAllKeys;
@@ -143,6 +145,7 @@ protected:
       	std::map<std::string, int> spinnerIndexAllKeys;
 	std::map<std::string, int> hasMediasIndexAllKeys;
 	std::map<std::string, int> missingMediasIndexAllKeys;
+	std::map<std::string, int> finishedIndexAllKeys;
 
 	std::unordered_set<std::string> genreIndexFilteredKeys;
 	std::unordered_set<std::string> familyIndexFilteredKeys;
@@ -163,6 +166,7 @@ protected:
     	std::unordered_set<std::string> spinnerIndexFilteredKeys;
 	std::unordered_set<std::string> hasMediaIndexFilteredKeys;
 	std::unordered_set<std::string> missingMediaIndexFilteredKeys;
+	std::unordered_set<std::string> finishedIndexFilteredKeys;
 
 	std::string mTextFilter;
 	bool		mUseRelevency;
