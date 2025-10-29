@@ -2399,7 +2399,7 @@ std::vector<Hotkey> ApiSystem::getJoysticksHotkeys() {
 }
 
 std::vector<std::string> ApiSystem::getJoysticksHotkeysValues() {
-  return executeEnumerationScript("batocera-joystick-hotkeys --values");
+  return executeEnumerationScript("batocera-joysticks-hotkeys --values");
 }
 
 std::vector<std::string> ApiSystem::getGlobalHotkeysValues() {
@@ -2413,7 +2413,7 @@ void ApiSystem::setJoysticksHotkeys(const std::vector<Hotkey>& hotkeys) {
   for(unsigned int h = 0; h < hotkeys.size(); h++) {
     params = params + " --" + hotkeys[h].button + " " + hotkeys[h].action;
   }
-  executeScript("batocera-joystick-hotkeys " + params);
+  executeScript("batocera-joysticks-hotkeys " + params);
 }
 
 std::vector<GlobalHotkey> ApiSystem::detectGlobalHotkeys() {
