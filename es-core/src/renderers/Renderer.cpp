@@ -224,11 +224,17 @@ namespace Renderer
 		windowFlags |= SDL_WINDOW_ALLOW_HIGHDPI;
 #endif
 
+		if (Settings::getInstance()->getBool("Windowed"))
+			windowFlags |= SDL_WINDOW_RESIZABLE;
+
 		if((sdlWindow = SDL_CreateWindow("EmulationStation", sdlWindowPosition.x(), sdlWindowPosition.y(), windowWidth, windowHeight, windowFlags)) == nullptr)
 		{
 			LOG(LogError) << "Error creating SDL window!\n\t" << SDL_GetError();
 			return false;
 		}
+
+		if (Settings::getInstance()->getBool("Windowed"))
+			SDL_SetWindowMinimumSize(sdlWindow, 320, 200);
 
 		createContext();
 		setIcon();
@@ -626,7 +632,7 @@ namespace Renderer
 
 	bool isVisibleOnScreen(float x, float y, float w, float h)
 	{
-		static Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
 		if (w > 0 && x + w <= 0)
 			return false;
@@ -969,6 +975,16 @@ namespace Renderer
 	size_t getTotalMemUsage()
 	{
 		return Instance()->getTotalMemUsage();
+	}
+
+	void OnScreenSizeChanged(int width, int height)
+	{
+		windowWidth = screenWidth = width;
+		windowHeight = screenHeight = height;
+
+		resetCache();
+		updateProjection();
+		swapBuffers();
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

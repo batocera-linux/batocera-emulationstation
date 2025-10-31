@@ -1254,6 +1254,8 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	if(mState.viewing == GAME_LIST)
 	{
 		mCurrentView = getGameListView(mState.getSystem());
+		if (mCurrentView != nullptr)
+			goToGameList(mState.getSystem(), true);
 	}
 	else if(mState.viewing == SYSTEM_SELECT && system != nullptr)
 	{
