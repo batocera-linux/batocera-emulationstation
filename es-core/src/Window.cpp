@@ -1260,7 +1260,10 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	std::stable_sort(mScreenExtras.begin(), mScreenExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
 
 	if (mBackgroundOverlay)
+	{
 		mBackgroundOverlay->setImage(ThemeData::getMenuTheme()->Background.fadePath);
+		mBackgroundOverlay->setResize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	}
 
 	if (mClock)
 	{
