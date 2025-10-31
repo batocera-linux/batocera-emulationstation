@@ -102,14 +102,17 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 			std::sort(systemNames.begin(), systemNames.end());
 
-			int count = 0;
-			for (auto systemName : systemNames)
-				if (systemName != groupName)
-					count++;
-	
-			// Don't group if system count is only 1
-			if (count == 1 && Settings::getInstance()->HideUniqueGroups())
-				continue;
+			// Don't group if system count is only 1 ?
+			if (Settings::getInstance()->HideUniqueGroups())
+			{
+				int count = std::count_if(systemNames.cbegin(), systemNames.cend(), [&groupName](const std::string& name) { return name != groupName; });
+				if (count == 1)
+				{
+					auto groupSys = SystemData::getSystem(groupName);
+					if (groupSys == nullptr)
+						continue;
+				}
+			}
 
 			SystemData* pSystem = SystemData::getSystem(groupName);
 			if (pSystem != nullptr)
