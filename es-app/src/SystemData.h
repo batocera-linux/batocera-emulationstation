@@ -88,7 +88,7 @@ public:
     SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false, bool withTheme = true, bool loadThemeOnlyIfElements = false);
 	~SystemData();
 
-	static SystemData* getSystem(const std::string name);
+	static SystemData* getSystem(const std::string& name);
 	static SystemData* getFirstVisibleSystem();
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
@@ -188,7 +188,7 @@ public:
 	SystemData* getParentGroupSystem();
 
 	static std::unordered_set<std::string> getAllGroupNames();
-	static std::unordered_set<std::string> getGroupChildSystemNames(const std::string groupName);
+	static std::unordered_set<std::string> getGroupChildSystemNames(const std::string& groupName);
 
 	std::string getEmulator(bool resolveDefault = true);
 	std::string getCore(bool resolveDefault = true);

@@ -407,8 +407,12 @@ void SystemData::createGroupedSystems()
 		// Don't group if system count is only 1 		
 		if (item.second.size() == 1 && Settings::getInstance()->HideUniqueGroups())
 		{
-			item.second[0]->getSystemEnvData()->mAutoUngroup = true;
-			continue;
+			auto groupSys = SystemData::getSystem(item.first);
+			if (groupSys == nullptr)
+			{
+				item.second[0]->getSystemEnvData()->mAutoUngroup = true;
+				continue;
+			}
 		}
 		
 		SystemData* system = nullptr;
@@ -1755,7 +1759,7 @@ std::unordered_set<std::string> SystemData::getAllGroupNames()
 	return names;
 }
 
-std::unordered_set<std::string> SystemData::getGroupChildSystemNames(const std::string groupName)
+std::unordered_set<std::string> SystemData::getGroupChildSystemNames(const std::string& groupName)
 {
 	std::unordered_set<std::string> names;
 
@@ -1914,7 +1918,7 @@ bool SystemData::hasEmulatorSelection()
 	return ec > 1 || cc > 1;
 }
 
-SystemData* SystemData::getSystem(const std::string name)
+SystemData* SystemData::getSystem(const std::string& name)
 {	
 	for (auto sys : SystemData::sSystemVector)
 		if (Utils::String::compareIgnoreCase(sys->getName(), name) == 0)
