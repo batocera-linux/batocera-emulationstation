@@ -174,7 +174,8 @@ namespace Renderer
 	std::string getAspectRatio();
 	bool		isVerticalScreen();
 
-	void		OnScreenSizeChanged(int width, int height);
+	void		setWindowResizable(bool resizable);
+	bool		onScreenSizeChanged(int width, int height);
 
 	Vector2i    physicalScreenToRotatedScreen(int x, int y);
 
