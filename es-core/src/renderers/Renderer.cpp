@@ -225,7 +225,15 @@ namespace Renderer
 #endif
 
 		if (Settings::getInstance()->getBool("Windowed"))
+		{
 			windowFlags |= SDL_WINDOW_RESIZABLE;
+
+			if (Settings::getInstance()->getInt("WindowWidth") == 0)
+			{
+				windowWidth = 1280; windowHeight = 720;
+				windowFlags |= SDL_WINDOW_MAXIMIZED;
+			}
+		}
 
 		if((sdlWindow = SDL_CreateWindow("EmulationStation", sdlWindowPosition.x(), sdlWindowPosition.y(), windowWidth, windowHeight, windowFlags)) == nullptr)
 		{
@@ -235,6 +243,18 @@ namespace Renderer
 
 		if (Settings::getInstance()->getBool("Windowed"))
 			SDL_SetWindowMinimumSize(sdlWindow, 320, 200);
+
+		if (windowFlags & SDL_WINDOW_MAXIMIZED)
+		{
+			int width, height;
+			SDL_GetWindowSize(sdlWindow, &width, &height);
+
+			windowWidth = screenWidth = width;
+			windowHeight = screenHeight = height;
+
+			SDL_Event event;
+			while (SDL_PollEvent(&event));
+		}
 
 		createContext();
 		setIcon();
@@ -979,14 +999,26 @@ namespace Renderer
 		return Instance()->getTotalMemUsage();
 	}
 
-	void OnScreenSizeChanged(int width, int height)
+	void setWindowResizable(bool resizable)
 	{
+		if (sdlWindow == nullptr || !Settings::getInstance()->getBool("Windowed"))
+			return;
+
+		SDL_SetWindowResizable(sdlWindow, resizable ? SDL_bool::SDL_TRUE : SDL_bool::SDL_FALSE);
+	}
+
+	bool onScreenSizeChanged(int width, int height)
+	{
+		if (screenWidth == width && screenHeight == height)
+			return false;
+
 		windowWidth = screenWidth = width;
 		windowHeight = screenHeight = height;
 
 		resetCache();
 		updateProjection();
 		swapBuffers();
+		return true;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

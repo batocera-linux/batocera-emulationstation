@@ -23,6 +23,7 @@
 #include "Paths.h"
 #include <fstream>
 #include <string>
+#include "renderers/Renderer.h"
 
 // #define DEVTEST
 
@@ -107,6 +108,9 @@ namespace Utils
 				lpExecInfo.lpDirectory = wpath.c_str();
 			}
 
+			if (waitForExit)
+				Renderer::setWindowResizable(false);
+
 			ShellExecuteExW(&lpExecInfo);
 
 			if (lpExecInfo.hProcess != NULL)
@@ -118,6 +122,8 @@ namespace Utils
 					WaitForSingleObject(lpExecInfo.hProcess, INFINITE);
 				else
 				{
+				
+
 					while (WaitForSingleObject(lpExecInfo.hProcess, 50) == 0x00000102L)
 					{
 						bool polled = false;
@@ -128,19 +134,23 @@ namespace Utils
 
 						if (window != nullptr && polled)
 							window->renderSplashScreen();
-					}
+					}				
 				}
 
 				DWORD dwExitCode;
-				if (GetExitCodeProcess(lpExecInfo.hProcess, &dwExitCode))
-				{
-					CloseHandle(lpExecInfo.hProcess);
-					return dwExitCode;
-				}
+				if (!GetExitCodeProcess(lpExecInfo.hProcess, &dwExitCode))
+					dwExitCode = 0;
 
-				CloseHandle(lpExecInfo.hProcess);
-				return 0;
+				CloseHandle(lpExecInfo.hProcess); 
+				
+				if (waitForExit)
+					Renderer::setWindowResizable(true);
+
+				return dwExitCode;
 			}
+
+			if (waitForExit)
+				Renderer::setWindowResizable(true);
 
 			return 1;
 #else

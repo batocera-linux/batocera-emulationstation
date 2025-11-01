@@ -545,6 +545,7 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
+	Renderer::setWindowResizable(false);
 	PowerSaver::init();
 
 	bool splashScreen = Settings::getInstance()->getBool("SplashScreen");
@@ -655,6 +656,8 @@ int main(int argc, char* argv[])
 		timeLimit = 0;
 #endif
 
+	Renderer::setWindowResizable(true);
+
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
 
@@ -681,18 +684,20 @@ int main(int argc, char* argv[])
 
 				if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED && Settings::getInstance()->getBool("Windowed"))
 				{
-					int newWidth = event.window.data1;
-					int newHeight = event.window.data2;
+					if (Renderer::onScreenSizeChanged(event.window.data1, event.window.data2))
+					{
+						Renderer::setWindowResizable(false);
 
-					Renderer::OnScreenSizeChanged(newWidth, newHeight);
-					
-					window.closeSplashScreen();
+						window.closeSplashScreen();
 
-					while (window.peekGui() && window.peekGui() != ViewController::get())
-						delete window.peekGui();
+						while (window.peekGui() && window.peekGui() != ViewController::get())
+							delete window.peekGui();
 
-					ViewController::get()->reloadAll(&window);
-					window.closeSplashScreen();					
+						ViewController::get()->reloadAll(&window);
+						window.closeSplashScreen();
+
+						Renderer::setWindowResizable(true);
+					}
 				}				
 
 				if (event.type == SDL_QUIT)
