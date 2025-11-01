@@ -315,7 +315,9 @@ namespace Renderer
 
 	void activateWindow()
 	{
-		SDL_RestoreWindow(sdlWindow);
+		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
+			SDL_RestoreWindow(sdlWindow);
+
 		SDL_RaiseWindow(sdlWindow);
 
 		if (Settings::getInstance()->getBool("Windowed"))
