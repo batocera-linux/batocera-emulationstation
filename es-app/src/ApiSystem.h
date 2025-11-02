@@ -42,6 +42,12 @@ struct BatoceraTheme
 	bool isInstalled;
 };
 
+struct BrightnessDevice {
+  std::string path;
+  std::string pathmax;
+  int value;
+};
+
 struct PacmanPackage
 {
 	PacmanPackage()
@@ -267,8 +273,8 @@ public:
 
 	void callBatoceraPreGameListsHook();
 
-	bool	getBrightness(int& value);
-	void	setBrightness(int value);
+	bool	getBrightness(std::vector<BrightnessDevice>& value);
+	void	setBrightness(BrightnessDevice value);
 
 	// LED RGB sliders
 	bool getLED(int& red, int& green, int& blue);

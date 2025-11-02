@@ -1295,80 +1295,60 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	return ret;
 }
 
-static std::string BACKLIGHT_BRIGHTNESS_NAME;
-static std::string BACKLIGHT_BRIGHTNESS_MAX_NAME;
-
-bool ApiSystem::getBrightness(int& value)
+bool ApiSystem::getBrightness(std::vector<BrightnessDevice>& values)
 {	
 	#if WIN32
 	return false;
 	#endif
 
-	if (BACKLIGHT_BRIGHTNESS_NAME == "notfound")
-		return false;
+	auto files = Utils::FileSystem::getDirContent("/sys/class/backlight");
 
-	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
-	{
-		for (auto file : Utils::FileSystem::getDirContent("/sys/class/backlight"))
-		{				
-			std::string brightnessPath = file + "/brightness";
-			std::string maxBrightnessPath = file + "/max_brightness";
+	// sort to have a chance to keep always the same values
+	files.sort();
 
-			if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
-			{
-				BACKLIGHT_BRIGHTNESS_NAME = brightnessPath;
-				BACKLIGHT_BRIGHTNESS_MAX_NAME = maxBrightnessPath;
+	for (auto file : files)
+	  {				
+	    std::string brightnessPath = file + "/brightness";
+	    std::string maxBrightnessPath = file + "/max_brightness";
 
-				LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << file;
-				break;
-			}
+	    if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
+	      {
+		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << file;
+		
+		BrightnessDevice b;
+		b.path = brightnessPath;
+		b.pathmax = maxBrightnessPath;
+
+		int max = Utils::String::toInteger(Utils::FileSystem::readAllText(maxBrightnessPath));
+		if (max != 0) {
+		  int value = Utils::String::toInteger(Utils::FileSystem::readAllText(brightnessPath));
+		  b.value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
+		  values.push_back(b);
 		}
-	}
-
-	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
-	{
-		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path is not resolved";
-
-		BACKLIGHT_BRIGHTNESS_NAME = "notfound";
-		return false;
-	}
-
-	value = 0;
-
-	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_MAX_NAME));
-	if (max == 0)
-		return false;
-
-	if (Utils::FileSystem::exists(BACKLIGHT_BRIGHTNESS_NAME))
-		value = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_NAME));
-
-	value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
-	return true;
+	      }
+	  }
+	return values.size() > 0;
 }
 
-void ApiSystem::setBrightness(int value)
+void ApiSystem::setBrightness(BrightnessDevice bd)
 {
 #if WIN32	
 	return;
 #endif 
+	if (bd.value < 1)
+		bd.value = 1;
 
-	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_NAME == "notfound")
-		return;
+	if (bd.value > 100)
+		bd.value = 100;
 
-	if (value < 1)
-		value = 1;
-
-	if (value > 100)
-		value = 100;
-
-	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_MAX_NAME));
+	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(bd.pathmax));
 	if (max == 0)
-		return;
+	  return;
 
-	float percent = (value / 100.0f * (float)max) + 0.5f;
+	float percent = (bd.value / 100.0f * (float)max) + 0.5f;
 		
 	std::string content = std::to_string((uint32_t) percent) + "\n";
-	Utils::FileSystem::writeAllText(BACKLIGHT_BRIGHTNESS_NAME, content);
+	Utils::FileSystem::writeAllText(bd.path, content);
 }
 
 static std::string LED_COLOUR_NAME;
