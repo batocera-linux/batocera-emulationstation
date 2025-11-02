@@ -224,6 +224,8 @@ public:
 
 	std::map<std::string, ThemeStoryboard*>& getStoryBoards() { return mStoryBoards; };
 
+	virtual bool isAnimating() const;
+
 protected:
 	void			beginCustomClipRect();
 	void			endCustomClipRect();

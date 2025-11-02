@@ -31,7 +31,8 @@
 #endif
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr), mMenuBackgroundShaderTextureCache(-1)
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0),
+  mMouseCapture(nullptr), mMenuBackgroundShaderTextureCache(-1), mNeedsRender(true)
 {			
 	mTransitionOffset = 0;
 
@@ -74,6 +75,8 @@ void Window::pushGui(GuiComponent* gui)
 	gui->onShow();
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
+
+	setNeedsRender();
 }
 
 void Window::removeGui(GuiComponent* gui)
@@ -95,13 +98,14 @@ void Window::removeGui(GuiComponent* gui)
 				mGuiStack.back()->updateHelpPrompts();
 				mGuiStack.back()->topWindow(true);
 			}
-
+			
+			setNeedsRender();
 			return;
 		}
 	}
 }
 
-GuiComponent* Window::peekGui()
+GuiComponent* Window::peekGui() const
 {
 	if(mGuiStack.size() == 0)
 		return NULL;
@@ -206,6 +210,8 @@ void Window::textInput(const char* text)
 {
 	if(peekGui())
 		peekGui()->textInput(text);
+	
+	setNeedsRender();
 }
 
 void Window::input(InputConfig* config, Input input)
@@ -255,6 +261,8 @@ void Window::input(InputConfig* config, Input input)
 	if (cancelScreenSaver())
 		return;
 
+	mTimeSinceLastInput = 0;
+
 	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle debug grid with Ctrl-G
@@ -282,7 +290,42 @@ void Window::input(InputConfig* config, Input input)
 
 		if (peekGui())
 			peekGui()->input(config, input); // this is where the majority of inputs will be consumed: the GuiComponent Stack
+
+		setNeedsRender();
 	}
+}
+
+int Window::getIdealTimeout() const
+{
+	GuiComponent* currentGui = peekGui();
+	if (currentGui != nullptr && currentGui->isAnimating())
+	{
+		// An animation is active, so we need a high refresh rate.
+		return 33; // ~30 FPS
+	}
+
+	if (!mNotificationPopups.empty() || !mAsyncNotificationComponent.empty())
+	{
+		// A notification is fading in or out, so we need a high refresh rate.
+		return 33; // ~30 FPS
+	}
+
+	if (Settings::DrawClock() && mClock)
+	{
+		auto now = std::chrono::system_clock::now();
+		auto seconds = std::chrono::time_point_cast<std::chrono::seconds>(now);
+		auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now - seconds);
+		
+		time_t tt = std::chrono::system_clock::to_time_t(now);
+		struct tm timeinfo = *localtime(&tt);
+
+		int ms_until_next_minute = (60 - timeinfo.tm_sec - 1) * 1000 + (1000 - ms.count());
+		if (ms_until_next_minute <= 0) ms_until_next_minute = 1000;
+
+		return ms_until_next_minute;
+	}
+
+	return 2000; // 2 seconds
 }
 
 // Notification messages
@@ -369,6 +412,8 @@ void Window::updateNotificationPopups(int deltaTime)
 			PowerSaver::resume();
 		else
 			layoutNotificationPopups();
+
+		setNeedsRender();
 	}
 }
 
@@ -505,6 +550,7 @@ void Window::update(int deltaTime)
 					clockBuf = Utils::Time::timeToString(clockNow, "%H:%M");
 
 				mClock->setText(clockBuf);
+				setNeedsRender();
 			}
 
 			mClockElapsed = 1000; // next update in 1000ms
@@ -514,11 +560,17 @@ void Window::update(int deltaTime)
 	mTimeSinceLastInput += deltaTime;
 
 	if (peekGui())
+	{
 		peekGui()->update(deltaTime);
+	    setNeedsRender();
+	}
 
 	// Update the screensaver
 	if (mScreenSaver)
+	{
 		mScreenSaver->update(deltaTime);
+	    setNeedsRender();
+	}
 
 	// update pads 
 	if (mControllerActivity)

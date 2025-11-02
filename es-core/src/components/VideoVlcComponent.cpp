@@ -1077,3 +1077,13 @@ void VideoVlcComponent::setSaturation(float saturation)
 {
 	mSaturation = saturation;
 }
+
+bool VideoVlcComponent::isAnimating() const
+{
+	if (this->isPlaying())
+	{
+		return true;
+	}
+
+	return GuiComponent::isAnimating();
+}

@@ -637,7 +637,7 @@ int main(int argc, char* argv[])
 	else
 		AudioManager::getInstance()->playRandomMusic();
 
-
+// This entire block may now be redundant and can be safely removed.
 #ifdef WIN32	
 	DWORD displayFrequency = 60;
 
@@ -659,24 +659,28 @@ int main(int argc, char* argv[])
 	Renderer::setWindowResizable(true);
 
 	int lastTime = SDL_GetTicks();
-	int ps_time = SDL_GetTicks();
-
 	bool running = true;
 
 	while(running)
 	{
-#ifdef WIN32	
-		int processStart = SDL_GetTicks();
-#endif
-
 		SDL_Event event;
+		bool event_found;
 
-		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
-		if(ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
+		// If input was received in the last 250ms, stay in "Active Mode" (SDL_PollEvent).
+		// Otherwise, switch to "Idle Mode" to save power (SDL_WaitEventTimeout).
+		if (window.getTimeSinceLastInput() < 250)
 		{
-			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
-			// Reset this event's state
-			TRYCATCH("resetRefreshEvent", PowerSaver::resetRefreshEvent());
+			event_found = SDL_PollEvent(&event);
+		}
+		else
+		{
+			event_found = SDL_WaitEventTimeout(&event, window.getIdealTimeout());
+		}
+
+		if(event_found)
+		{
+			// An event woke us up. It could be input, a window event, or a custom event.
+			PowerSaver::resetRefreshEvent();
 
 			do
 			{
@@ -700,32 +704,19 @@ int main(int argc, char* argv[])
 					}
 				}				
 
-				if (event.type == SDL_QUIT)
-					running = false;
+				if (Utils::Platform::ExitRequest::user == 1) {
+				  running = false;
+				}
 			} 
 			while(SDL_PollEvent(&event));
 
-			// check guns
-			InputManager::getInstance()->updateGuns(&window);
-
-			// triggered if exiting from SDL_WaitEvent due to event
-			if (ps_standby)
-				// show as if continuing from last event
-				lastTime = SDL_GetTicks();
-
-			// reset counter
-			ps_time = SDL_GetTicks();
+			// An event has occurred, so we must redraw the screen.
+			window.setNeedsRender(true);
 		}
-		else if (ps_standby == false)
-		{
-		  // check guns
-		  InputManager::getInstance()->updateGuns(&window);
-
-		  // If exitting SDL_WaitEventTimeout due to timeout. Trail considering
-		  // timeout as an event
-		  //	ps_time = SDL_GetTicks();
-		}
-
+		
+		// check guns
+		InputManager::getInstance()->updateGuns(&window);
+		
 		if (window.isSleeping())
 		{
 			lastTime = SDL_GetTicks();
@@ -741,22 +732,15 @@ int main(int argc, char* argv[])
 		if(deltaTime < 0)
 			deltaTime = 1000;
 
-		TRYCATCH("Window.update" ,window.update(deltaTime))	
-		TRYCATCH("Window.render", window.render())
+		TRYCATCH("Window.update" ,window.update(deltaTime));
 
-/*
-#ifdef WIN32		
-		int processDuration = SDL_GetTicks() - processStart;
-		if (processDuration < timeLimit)
+		if (window.needsRender())
 		{
-			int timeToWait = timeLimit - processDuration;
-			if (timeToWait > 0 && timeToWait < 25 && Settings::VSync())
-				Sleep(timeToWait);
-		}
-#endif
-*/
+			TRYCATCH("Window.render", window.render());
+			Renderer::swapBuffers();
 
-		Renderer::swapBuffers();
+			window.setNeedsRender(false);
+		}
 
 		Log::flush();
 	}

@@ -6,6 +6,8 @@
 #include "GuiComponent.h"
 #include "components/ImageComponent.h"
 #include "utils/Platform.h"
+#include "Window.h"
+#include "PowerSaver.h"
 #include "watchers/WatchersManager.h"
 
 class Window;
@@ -23,16 +25,18 @@ public:
 
 	void OnWatcherChanged(IWatcher* component) override;
 
+	void onSizeChanged() override;
+
 private:
 	Utils::Platform::BatteryInformation mBatteryInfo;
 	bool mDirty;
 
-	std::string mIncharge;
-	std::string mFull;
-	std::string mAt75;
-	std::string mAt50;
-	std::string mAt25;
-	std::string mEmpty;
+    std::shared_ptr<TextureResource> mTexIncharge;
+    std::shared_ptr<TextureResource> mTexFull;
+    std::shared_ptr<TextureResource> mTexAt75;
+    std::shared_ptr<TextureResource> mTexAt50;
+    std::shared_ptr<TextureResource> mTexAt25;
+    std::shared_ptr<TextureResource> mTexEmpty;
 };
 
 #endif // ES_CORE_COMPONENTS_NETWORK_COMPONENT_H

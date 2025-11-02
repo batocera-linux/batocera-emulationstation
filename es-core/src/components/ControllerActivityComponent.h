@@ -120,16 +120,14 @@ protected:
 	std::shared_ptr<Font>			 mBatteryFont;
 	std::shared_ptr<TextCache>		 mBatteryText;
 
-	std::string mCurrentBatteryTexture;
-	
 	void updateBatteryInfo();
 
-	std::string mIncharge;
-	std::string mFull;
-	std::string mAt75;
-	std::string mAt50;
-	std::string mAt25;
-	std::string mEmpty;
+	std::shared_ptr<TextureResource> mTexIncharge;
+	std::shared_ptr<TextureResource> mTexFull;
+	std::shared_ptr<TextureResource> mTexAt75;
+	std::shared_ptr<TextureResource> mTexAt50;
+	std::shared_ptr<TextureResource> mTexAt25;
+	std::shared_ptr<TextureResource> mTexEmpty;
 };
 
 #endif // ES_APP_COMPONENTS_RATING_COMPONENT_H

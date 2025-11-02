@@ -1,23 +1,27 @@
 #include "components/BatteryIconComponent.h"
+#include "Window.h"
+#include "PowerSaver.h"
 #include "Settings.h"
 #include "watchers/BatteryLevelWatcher.h"
+#include "resources/TextureResource.h"
 
 BatteryIconComponent::BatteryIconComponent(Window* window) : ImageComponent(window), mDirty(true)
 {	
-	mIncharge = ResourceManager::getInstance()->getResourcePath(":/battery/incharge.svg");
-	mFull = ResourceManager::getInstance()->getResourcePath(":/battery/full.svg");
-	mAt75 = ResourceManager::getInstance()->getResourcePath(":/battery/75.svg");
-	mAt50 = ResourceManager::getInstance()->getResourcePath(":/battery/50.svg");
-	mAt25 = ResourceManager::getInstance()->getResourcePath(":/battery/25.svg");
-	mEmpty = ResourceManager::getInstance()->getResourcePath(":/battery/empty.svg");
+    // Preload the default textures
+    mTexIncharge = TextureResource::get(":/battery/incharge.svg", false, true);
+    mTexFull = TextureResource::get(":/battery/full.svg", false, true);
+    mTexAt75 = TextureResource::get(":/battery/75.svg", false, true);
+    mTexAt50 = TextureResource::get(":/battery/50.svg", false, true);
+    mTexAt25 = TextureResource::get(":/battery/25.svg", false, true);
+    mTexEmpty = TextureResource::get(":/battery/empty.svg", false, true);
 
-	mBatteryInfo = Utils::Platform::BatteryInformation();	
+    mBatteryInfo = Utils::Platform::BatteryInformation();	
 
-	WatchersManager::getInstance()->RegisterNotify(this);
+    WatchersManager::getInstance()->RegisterNotify(this);
 
-	BatteryLevelWatcher* watcher = WatchersManager::GetComponent<BatteryLevelWatcher>();
-	if (watcher != nullptr)
-		mBatteryInfo = watcher->getBatteryInfo();
+    BatteryLevelWatcher* watcher = WatchersManager::GetComponent<BatteryLevelWatcher>();
+    if (watcher != nullptr)
+        mBatteryInfo = watcher->getBatteryInfo();
 }
 
 BatteryIconComponent::~BatteryIconComponent()
@@ -32,70 +36,78 @@ void BatteryIconComponent::OnWatcherChanged(IWatcher* component)
 	{
 		mBatteryInfo = watcher->getBatteryInfo();
 		mDirty = true;
+		PowerSaver::pushRefreshEvent();
 	}
 }
 
 void BatteryIconComponent::update(int deltaTime)
 {
-	ImageComponent::update(deltaTime);
+    ImageComponent::update(deltaTime);
 
-	if (!mDirty)
-		return;
+    if (!mDirty)
+        return;
 
-	if (Settings::getInstance()->getString("ShowBattery").empty())
-		mBatteryInfo.hasBattery = false;
-	else
-		mBatteryInfo = Utils::Platform::queryBatteryInformation();
+    if (Settings::getInstance()->getString("ShowBattery").empty())
+        mBatteryInfo.hasBattery = false;
 
-	setVisible(mBatteryInfo.hasBattery); // Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAddress().empty());
+    setVisible(mBatteryInfo.hasBattery);
 
-	if (mBatteryInfo.hasBattery)
-	{
-		std::string txName = mIncharge;
+    if (mBatteryInfo.hasBattery)
+    {
+        if (mBatteryInfo.isCharging)
+            setImage(mTexIncharge);
+        else if (mBatteryInfo.level > 75)
+            setImage(mTexFull);
+        else if (mBatteryInfo.level > 50)
+            setImage(mTexAt75);
+        else if (mBatteryInfo.level > 25)
+            setImage(mTexAt50);
+        else if (mBatteryInfo.level > 5)
+            setImage(mTexAt25);
+        else
+            setImage(mTexEmpty);
+    }
 
-		if (mBatteryInfo.isCharging && !mIncharge.empty())
-			txName = mIncharge;
-		else if (mBatteryInfo.level > 75 && !mFull.empty())
-			txName = mFull;
-		else if (mBatteryInfo.level > 50 && !mAt75.empty())
-			txName = mAt75;
-		else if (mBatteryInfo.level > 25 && !mAt50.empty())
-			txName = mAt50;
-		else if (mBatteryInfo.level > 5 && !mAt25.empty())
-			txName = mAt25;
-		else
-			txName = mEmpty;
-
-		setImage(txName);
-	}
-
-	mDirty = false;
+    mWindow->setNeedsRender(true);
+    mDirty = false;
 }
 
 void BatteryIconComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
-	ImageComponent::applyTheme(theme, view, element, properties);
+    ImageComponent::applyTheme(theme, view, element, properties);
 
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, getThemeTypeName());
-	if (!elem)
-		return;
+    const ThemeData::ThemeElement* elem = theme->getElement(view, element, getThemeTypeName());
+    if (!elem)
+        return;
 
-	if (elem->has("incharge") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("incharge")))
-		mIncharge = elem->get<std::string>("incharge");
-
-	if (elem->has("full") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("full")))
-		mFull = elem->get<std::string>("full");
-
-	if (elem->has("at75") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at75")))
-		mAt75 = elem->get<std::string>("at75");
-
-	if (elem->has("at50") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at50")))
-		mAt50 = elem->get<std::string>("at50");
-
-	if (elem->has("at25") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at25")))
-		mAt25 = elem->get<std::string>("at25");
-
-	if (elem->has("empty") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("empty")))
-		mEmpty = elem->get<std::string>("empty");
+    if (elem->has("incharge") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("incharge")))
+        mTexIncharge = TextureResource::get(elem->get<std::string>("incharge"), false, true);
+    if (elem->has("full") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("full")))
+        mTexFull = TextureResource::get(elem->get<std::string>("full"), false, true);
+    // ... and so on for at75, at50, at25, empty ...
+    if (elem->has("at75") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at75")))
+        mTexAt75 = TextureResource::get(elem->get<std::string>("at75"), false, true);
+    if (elem->has("at50") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at50")))
+        mTexAt50 = TextureResource::get(elem->get<std::string>("at50"), false, true);
+    if (elem->has("at25") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at25")))
+        mTexAt25 = TextureResource::get(elem->get<std::string>("at25"), false, true);
+    if (elem->has("empty") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("empty")))
+        mTexEmpty = TextureResource::get(elem->get<std::string>("empty"), false, true);
 }
 
+void BatteryIconComponent::onSizeChanged()
+{
+	ImageComponent::onSizeChanged();
+
+	size_t heightPx = (size_t)Math::round(mSize.y());
+
+	if (heightPx == 0)
+		return;
+
+	if (mTexIncharge) mTexIncharge->rasterizeAt(heightPx, heightPx);
+	if (mTexFull) mTexFull->rasterizeAt(heightPx, heightPx);
+	if (mTexAt75) mTexAt75->rasterizeAt(heightPx, heightPx);
+	if (mTexAt50) mTexAt50->rasterizeAt(heightPx, heightPx);
+	if (mTexAt25) mTexAt25->rasterizeAt(heightPx, heightPx);
+	if (mTexEmpty) mTexEmpty->rasterizeAt(heightPx, heightPx);
+}
