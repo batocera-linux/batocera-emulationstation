@@ -1458,21 +1458,36 @@ void GuiMenu::openSystemSettings()
 	s->addGroup(_("HARDWARE"));
 #endif
 
-	// brighness
-	int brighness;
-	if (ApiSystem::getInstance()->getBrightness(brighness))
+	// brightness
+	std::vector<BrightnessDevice> brightnesses;
+	if (ApiSystem::getInstance()->getBrightness(brightnesses))
 	{
-		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 1.f, "%");
-		brightnessComponent->setValue(brighness);
-		brightnessComponent->setOnValueChanged([](const float &newVal)
-		{
-			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
-#if !WIN32
-			SystemConf::getInstance()->set("display.brightness", std::to_string((int)Math::round(newVal)));
-#endif
-		});
+	  int n = 0;
+	  for (auto brightness : brightnesses) {
+	    n++;
+	    auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 1.f, "%");
+	    brightnessComponent->setValue(brightness.value);
+	    brightnessComponent->setOnValueChanged([n, brightness](const float &newVal)
+	    {
+	      BrightnessDevice brightness_new = brightness;
+	      brightness_new.value = (int)Math::round(newVal);
 
-		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
+	      ApiSystem::getInstance()->setBrightness(brightness_new);
+#if !WIN32
+	      std::string nstr = "";
+	      if(n > 1) {
+		nstr = std::to_string(n);
+	      }
+	      SystemConf::getInstance()->set("display.brightness"+nstr, std::to_string((int)Math::round(newVal)));
+#endif
+	    });
+
+	    std::string lnstr = "";
+	    if(n > 1) {
+	      lnstr = " " + std::to_string(n);
+	    }
+	    s->addWithLabel(_("BRIGHTNESS") + lnstr, brightnessComponent);
+	  }
 	}
 
 #ifdef BATOCERA
