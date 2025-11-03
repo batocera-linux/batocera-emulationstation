@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-22 09:49+0800\n"
+"PO-Revision-Date: 2025-10-30 00:34+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -2685,10 +2685,10 @@ msgid "JOYSTICKS HOTKEYS"
 msgstr "操纵杆快捷键"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "禁止使用手柄热键退出"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "全局热键"
 
 msgid "default"
 msgstr "默认"
@@ -2796,16 +2796,16 @@ msgid "FILES"
 msgstr "文件"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "新建全局热键"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "你有4秒钟的时间, 必须准确地按下全局热键两次."
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "未检测到全局热键"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "检测到多个全局热键"
 
 msgid "BORDER SIZE"
 msgstr "边框大小"

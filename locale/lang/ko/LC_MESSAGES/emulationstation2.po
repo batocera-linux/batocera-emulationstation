@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-10-21 23:33+0900\n"
+"PO-Revision-Date: 2025-11-02 11:59+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -2700,10 +2700,10 @@ msgid "JOYSTICKS HOTKEYS"
 msgstr "조이스틱 단축키"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "조이스틱 단축키를 나가기로 제한"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "글로벌 단축키"
 
 msgid "default"
 msgstr "기본"
@@ -2811,16 +2811,16 @@ msgid "FILES"
 msgstr "파일"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "새로운 글로벌 단축키 선언"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "글로벌 단축키를 정확히 2번 누르는 데 4초가 주어짐"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "글로벌 핫키가 감지되지 않았"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "두 개 이상의 글로벌 핫키가 감지되었음"
 
 msgid "BORDER SIZE"
 msgstr "테두리 크기"

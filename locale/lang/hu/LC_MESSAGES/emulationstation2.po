@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-01 20:59+0200\n"
+"PO-Revision-Date: 2025-11-02 23:12+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH KERESÉS"
@@ -502,7 +502,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "RENDSZER TÁRHELY HASZNÁLAT"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "LEMEZ HASZNÁLAT"
 
 msgid "SYSTEM"
 msgstr "RENDSZER"
@@ -511,10 +511,10 @@ msgid "VIDEO DRIVER"
 msgstr "VIDEÓ ILLESZTŐPROGRAM"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PÁRIZS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSZAKA"
 
 msgid "SEOUL"
 msgstr "Szöul"
@@ -1658,7 +1658,7 @@ msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "LED ENGEDÉLYEZÉS"
 
 msgid "RED"
 msgstr "PIROS"
@@ -2125,7 +2125,7 @@ msgid "WIFI KEY"
 msgstr "WIFI JELSZÓ"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "WIFI ORSZÁG"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ENGEDÉLYEZVE"
@@ -2729,130 +2729,131 @@ msgid "BEHAVIOR"
 msgstr "VISELKEDÉS"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "JOYSTICK GYORSBILLENTYŰK"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "KORLÁTOZZA A JOYSTICKOK GYORSBILLENTYŰIT A KILÉPÉSHEZ"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "GLOBÁLIS GYORSBILLENTYŰK"
 
 msgid "default"
 msgstr "alap"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "DÉL"
 
 msgid "EAST"
-msgstr ""
+msgstr "KELET"
 
 msgid "NORTH"
-msgstr ""
+msgstr "ÉSZAK"
 
 msgid "WEST"
-msgstr ""
+msgstr "NYUGAT"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD FEL"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD LE"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD BAL"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD JOBB"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "BAL VÁLL"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "JOBB VÁLL"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "BAL RACASZ"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "JOBB RAVASZ"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "BAL KAR NYOMÁS"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "JOBB BOT NYOMÁSA"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "ÁTFEDÉSEK"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "FÉNYERŐ CIKLUS"
 
 msgid "COIN"
-msgstr ""
+msgstr "ÉRME"
 
 msgid "EXIT"
-msgstr ""
+msgstr "KIJÁRAT"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "GYORS ELŐRE"
 
 msgid "MENU"
 msgstr "MENÜ"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "KÖVETKEZŐ LEMEZ"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "KÖVETKEZŐ SLOT"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "SZÜNET"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "ELŐZŐ HELY"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "ÁLLAPOT VISSZAÁLLÍTÁSA"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "ÁLLAPOT MENTÉSE"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "KÉPERNYŐELRENDEZÉS"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "KÉPERNYŐ CSERE"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "FORDÍTÁS"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "HANGERŐ LE"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "HANGERŐ NÉMÍTÁS"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "HANGERŐ NÖVELÉSE"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "GYORSBILLENTYŰ"
 
 msgid "FILES"
 msgstr "FÁJLOK"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "ÚJ GLOBÁLIS GYORSBILLENTYŰ MEGADÁSA"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
 msgstr ""
+"4 MÁSODPERCED VAN, HOGY PONTOSAN KÉTSZER MEGNYOMD A GLOBÁLIS GYORSBILLENTYŰT"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "NEM ÉRZÉKELHETŐ GLOBÁLIS GYORSBILLENTYŰ"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "TÖBB GLOBÁLIS GYORSBILLENTYŰ ÉRZÉKELVE"
 
 msgid "BORDER SIZE"
 msgstr "SZEGÉLY MÉRETE"
@@ -3092,8 +3093,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
-"org"
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Teljes"

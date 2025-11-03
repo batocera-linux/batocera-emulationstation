@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2025-07-4 00:00+0100\n"
+"PO-Revision-Date: 2025-10-28 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -501,7 +501,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "ESPACIO UTILIZADO POR EL SISTEMA"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "USO DEL DISCO"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -510,10 +510,10 @@ msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEÚL"
@@ -684,10 +684,10 @@ msgstr ""
 "pueden obtener logros durante la partida."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "LOGROS NO OFICIALES"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Activa el desbloqueo de logros no oficiales."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE LOGROS"
@@ -1662,7 +1662,7 @@ msgid "LED HARDWARE"
 msgstr "LEDS"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "ACTIVAR LED"
 
 msgid "RED"
 msgstr "ROJO"
@@ -2131,7 +2131,7 @@ msgid "WIFI KEY"
 msgstr "CLAVE WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "PAÍS WIFI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ACTIVADO"
@@ -2736,130 +2736,112 @@ msgid "BEHAVIOR"
 msgstr "COMPORTAMIENTO"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "TECLA DE ACCESO RÁPIDO DE JOYSTICKS"
 
-msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
-
-msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
 
 msgid "default"
 msgstr "defecto"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SUR"
 
 msgid "EAST"
-msgstr ""
+msgstr "ESTE"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORTE"
 
 msgid "WEST"
-msgstr ""
+msgstr "OESTE"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD ARRIBA"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD ABAJO"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD IZQUIERDA"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD DERECHA"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "L1 (SHOULDER IZQUIERDO"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "R1 (SHOULDER DERECHO"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "L2 (TRIGGER IZQUIERDO)"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "R2 (TRIGGER DERECHO)"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PRESIONAR STICK IZQUIERDO"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PRESIONAR STICK DERECHO"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "SUPERPOSICIONES"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CICLO DE BRILLO"
 
 msgid "COIN"
-msgstr ""
+msgstr "MONEDA"
 
 msgid "EXIT"
-msgstr ""
+msgstr "SALIR"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "AVANCE RÁPIDO"
 
 msgid "MENU"
 msgstr "MENÚ"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "SIGUIENTE DISCO"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "SIGUIENTE RANURA"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSA"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "RANURA ANTERIOR"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "RESTAURAR ESTADO"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "GUARDAR ESTADO"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "DISEÑO DE PANTALLA"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "CAMBIAR PANTALLA"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TRADUCCIÓN"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "BAJAR VOLUMEN"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "SILENCIAR VOLUMEN"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "SUBIR VOLUMEN"
 
 msgid "HOTKEY"
-msgstr ""
-
-msgid "FILES"
-msgstr "ARCHIVOS"
-
-msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
-
-msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
-
-msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
-
-msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "TECLA DE ACCESO RÁPIDO"
 
 msgid "BORDER SIZE"
 msgstr "TAMAÑO DEL BORDE"
@@ -3192,6 +3174,9 @@ msgstr[1] "%i JUEGOS"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
+
+msgid "FILES"
+msgstr "ARCHIVOS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3763,9 +3748,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
-
-#~ msgid "RESTRICT HOTKEYS TO EXIT"
-#~ msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "AJUSTES DE ESCRAPEO"

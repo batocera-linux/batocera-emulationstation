@@ -504,7 +504,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "UŻYCIE DYSKU SYSTEMOWEGO"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "UŻYCIE DYSKU"
 
 msgid "SYSTEM"
 msgstr "SYSTEM"
@@ -513,10 +513,10 @@ msgid "VIDEO DRIVER"
 msgstr "STEROWNIK WIDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARYŻ"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEUL"
@@ -1655,7 +1655,7 @@ msgid "LED HARDWARE"
 msgstr "TWORZYWO DIODY"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "WŁĄCZ LED"
 
 msgid "RED"
 msgstr "CZERWONY"
@@ -2119,7 +2119,7 @@ msgid "WIFI KEY"
 msgstr "HASŁO WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "KRAJ WI-FI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI WŁĄCZONE"
@@ -2722,112 +2722,112 @@ msgid "BEHAVIOR"
 msgstr "ZACHOWANIE"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "HOTKEY JOYSTICKA"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "OGRANICZ HOTKEY JOYSTICKÓW DO WYJŚCIA"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "HOTKEY GLOBALNE"
 
 msgid "default"
 msgstr "domyślnie"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "POŁUDNIE"
 
 msgid "EAST"
-msgstr ""
+msgstr "WSCHÓD"
 
 msgid "NORTH"
-msgstr ""
+msgstr "PÓŁNOC"
 
 msgid "WEST"
-msgstr ""
+msgstr "ZACHÓD"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD W GÓRĘ"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD W DÓŁ"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD W LEWO"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD W PRAWO"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "LEWE RAMIĘ"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "PRAWE RAMIĘ"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "LEWY SPUST"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "PRAWY SPUST"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "NACIŚNIĘCIE LEWEGO ANALOGA"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "NACIŚNIĘCIE PRAWEGO ANALOGA"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "NAKŁADKI"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CYKL JASNOŚCI"
 
 msgid "COIN"
-msgstr ""
+msgstr "MONETA"
 
 msgid "EXIT"
-msgstr ""
+msgstr "WYJDŹ"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "PRZEWIŃ DO PRZODU"
 
 msgid "MENU"
 msgstr "MENU"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "NASTĘPNY DYSK"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "NASTĘPNA POZYCJA"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUZA"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "POPRZEDNIA POZYCJA"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "PRZYWRÓĆ STAN"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "ZAPISZ STAN"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "UKŁAD EKRANU"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "ZAMIEŃ EKRAN"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TŁUMACZENIE"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "ZMNIEJSZ GŁOŚNOŚĆ"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "WYCISZ GŁOŚNOŚĆ"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "ZWIĘKSZ GŁOŚNOŚĆ"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
@@ -2836,16 +2836,16 @@ msgid "FILES"
 msgstr "PLIKI"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "STWÓRZ NOWY GLOBALNY HOTKEY"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "MASZ 4 SEKUNDY, ABY NACISNĄĆ DOKŁADNIE 2 RAZY GLOBALNY HOTKEY"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "NIE WYKRYTO GLOBALNEGO HOTKEY"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "WYKRYTO WIĘCEJ NIŻ JEDEN GLOBALNY HOTKEY"
 
 msgid "BORDER SIZE"
 msgstr "ROZMIAR OBRAMOWANIA"
