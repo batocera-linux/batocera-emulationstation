@@ -464,7 +464,7 @@ void GuiControllersSettings::openControllersHotkeys() {
 	  break;
       	}
       }
-      btn->add(xlabel, hotkeys_values[v], hotkeys[i].default_action != "" && hotkeys[i].default_action != hotkeys[i].action && hotkeys[i].action == hotkeys_values[v]);
+      btn->add(xlabel, hotkeys_values[v], hotkeys[i].action != "" && hotkeys[i].default_action != hotkeys[i].action && hotkeys[i].action == hotkeys_values[v]);
     }
     s->addWithLabel(label, btn);
     btns_elts.push_back(btn);
