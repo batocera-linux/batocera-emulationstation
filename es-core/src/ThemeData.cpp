@@ -732,6 +732,10 @@ pugi::xml_document& ThemeFileCache::getXmlDocument(const std::string& path)
 void ThemeFileCache::clear()
 {
 	std::unique_lock<std::mutex> lock(_lock);
+	
+	for (auto& item : _cache)
+		delete item.second;
+
 	_cache.clear();
 }
 
