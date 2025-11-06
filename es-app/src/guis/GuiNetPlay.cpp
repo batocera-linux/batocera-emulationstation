@@ -578,7 +578,7 @@ public:
 		mText->setLineSpacing(1.5);
 		mText->setVerticalAlignment(ALIGN_TOP);
 
-		std::string userInfo = _U("\uf007  ") + entry.username + _U("  \uf0AC  ") + entry.country + _U("  \uf0E8  ") + entry.ip+ _U("  \uf108  ") + entry.frontend;
+		std::string userInfo = _U("\uf007  ") + entry.username + _U("  \uf0AC  ") + entry.country + _U("  \uf108  ") + entry.frontend; // _U("  \uf0E8  ") + entry.ip +  
 
 		mSubstring = std::make_shared<TextComponent>(mWindow, userInfo.c_str(), theme->TextSmall.font, theme->Text.color);
 		mSubstring->setOpacity(192);
