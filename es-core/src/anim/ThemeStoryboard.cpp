@@ -67,7 +67,7 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 		this->repeatAt = Utils::String::toInteger(sbrepeat);
 	}
 
-	for (pugi::xml_node& node = root.child("animation"); node; node = node.next_sibling("animation"))
+	for (pugi::xml_node node = root.child("animation"); node; node = node.next_sibling("animation"))
 	{
 		std::string prop = node.attribute("property").as_string();
 		if (prop.empty())
