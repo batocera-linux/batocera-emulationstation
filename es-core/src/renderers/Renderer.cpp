@@ -246,14 +246,15 @@ namespace Renderer
 
 		if (windowFlags & SDL_WINDOW_MAXIMIZED)
 		{
+			SDL_Event event;
+			while (SDL_PollEvent(&event));
+
 			int width, height;
 			SDL_GetWindowSize(sdlWindow, &width, &height);
 
 			windowWidth = screenWidth = width;
 			windowHeight = screenHeight = height;
 
-			SDL_Event event;
-			while (SDL_PollEvent(&event));
 		}
 
 		createContext();
