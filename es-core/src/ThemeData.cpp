@@ -1541,19 +1541,18 @@ void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& 
 
 	for (auto& element : baseView.elements)
 	{
+#if WIN32
 		view.elements.insert_or_assign(element.first, element.second);
+#else
+		view.elements.erase(element.first);
+		view.elements.insert(std::pair<std::string, ThemeElement>(element.first, element.second));
+#endif
 
 		if (existingKeys.find(element.first) == existingKeys.cend())
 		{
 			view.orderedKeys.push_back(element.first);
 			existingKeys.insert(element.first);
 		}
-
-		//view.elements.erase(element.first);			
-		//view.elements.insert(std::pair<std::string, ThemeElement>(element.first, element.second));
-
-	//	if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), element.first) == view.orderedKeys.cend())
-	//		view.orderedKeys.push_back(element.first);
 	}	
 }
 
