@@ -26,6 +26,7 @@
 #include "Paths.h"
 #include "utils/HtmlColor.h"
 #include "utils/VectorEx.h"
+#include <unordered_set>
 
 std::set<std::string> ThemeData::sSupportedItemTemplate { "imagegrid", "carousel", "gamecarousel", "textlist" };
 std::set<std::string> ThemeData::sSupportedViews        { "system", "basic", "detailed", "grid", "video", "gamecarousel", "menu", "screen", "splash" };
@@ -706,6 +707,34 @@ ThemeData::ThemeData(bool temporary)
 	mLanguage = Utils::String::toLower(language);
 }
 
+ThemeFileCache* ThemeFileCache::_instance;
+
+pugi::xml_document& ThemeFileCache::getXmlDocument(const std::string& path)
+{
+	std::unique_lock<std::mutex> lock(_lock);
+
+	auto it = _cache.find(path);
+	if (it != _cache.cend())
+		return *it->second;
+	
+	pugi::xml_document* doc = new pugi::xml_document();
+	pugi::xml_parse_result res = doc->load_file(WINSTRINGW(path).c_str());
+	if (!res)
+	{
+		ThemeException error;
+		throw error << "XML parsing error: \n    " << res.description();
+	}
+
+	_cache[path] = doc;
+	return *doc;
+}
+
+void ThemeFileCache::clear()
+{
+	std::unique_lock<std::mutex> lock(_lock);
+	_cache.clear();
+}
+
 void ThemeData::loadFile(const std::string& system, const std::map<std::string, std::string>& sysDataMap, const std::string& path, bool fromFile)
 {
 	mPaths.push_back(path);
@@ -766,9 +795,18 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = fromFile ? doc.load_file(WINSTRINGW(path).c_str()) : doc.load_string(path.c_str());
-	if(!res)
-		throw error << "XML parsing error: \n    " << res.description();
+	
+	if (fromFile)
+	{
+		pugi::xml_document& cached = ThemeFileCache::getInstance().getXmlDocument(path);
+		doc.reset(cached);
+	}
+	else
+	{
+		pugi::xml_parse_result res = fromFile ? doc.load_file(WINSTRINGW(path).c_str()) : doc.load_string(path.c_str());
+		if (!res)
+			throw error << "XML parsing error: \n    " << res.description();
+	}
 
 	pugi::xml_node root = doc.child("theme");
 	if(!root)
@@ -917,7 +955,7 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 
 		bool add = true;
 
-		for (auto sb : mSubsets) {
+		for (const Subset& sb : mSubsets) {
 			if (sb.subset == subsetAttr && sb.name == nameAttr) {
 				add = false; break;
 			}
@@ -925,13 +963,20 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 
 		if (add)
 		{
+			/*
 			Subset subSet(subsetAttr, nameAttr, displayNameAttr, subSetDisplayNameAttr);
 
 			std::string appliesToAttr = resolvePlaceholders(node.attribute("appliesTo").as_string());
 			if (!appliesToAttr.empty())
 				subSet.appliesTo = Utils::String::splitAny(appliesToAttr, ", ", true);
+				*/
+			mSubsets.emplace_back(subsetAttr, nameAttr, displayNameAttr, subSetDisplayNameAttr);
 
-			mSubsets.push_back(subSet);			
+			std::string appliesToAttr = resolvePlaceholders(node.attribute("appliesTo").as_string());
+			if (!appliesToAttr.empty())
+				mSubsets.back().appliesTo = Utils::String::splitAny(appliesToAttr, ", ", true);
+
+	//		mSubsets.push_back(subSet);			
 		}
 	}
 	
@@ -1205,7 +1250,7 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 
 		if (sSupportedViews.find(viewKey) != sSupportedViews.cend())
 		{	
-			ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
+			ThemeView& view = mViews.insert(viewKey, std::move(ThemeView())).first->second;
 			parseView(node, view);
 
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
@@ -1471,7 +1516,7 @@ void ThemeData::parseViews(const pugi::xml_node& root)
 		parseViewElement(node);	
 }
 
-void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass)
+void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, const std::string& baseClass)
 {	
 	auto baseviewit = mViews.find(baseClass);
 	if (baseviewit == mViews.cend())
@@ -1488,13 +1533,23 @@ void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& 
 	if (!baseView.baseType.empty())
 		parseCustomViewBaseClass(root, view, baseView.baseType);
 
+	std::unordered_set<std::string> existingKeys(view.orderedKeys.begin(), view.orderedKeys.end());
+
 	for (auto& element : baseView.elements)
 	{
-		view.elements.erase(element.first);			
-		view.elements.insert(std::pair<std::string, ThemeElement>(element.first, element.second));
+		view.elements.insert_or_assign(element.first, element.second);
 
-		if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), element.first) == view.orderedKeys.cend())
+		if (existingKeys.find(element.first) == existingKeys.cend())
+		{
 			view.orderedKeys.push_back(element.first);
+			existingKeys.insert(element.first);
+		}
+
+		//view.elements.erase(element.first);			
+		//view.elements.insert(std::pair<std::string, ThemeElement>(element.first, element.second));
+
+	//	if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), element.first) == view.orderedKeys.cend())
+	//		view.orderedKeys.push_back(element.first);
 	}	
 }
 
@@ -1516,7 +1571,7 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 			std::string trim = Utils::String::trim(name);
 			if (mViews.find(trim) != mViews.cend())
 			{
-				ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(trim, ThemeView())).first->second;
+				ThemeView& view = mViews.insert(trim, std::move(ThemeView())).first->second;
 
 				if (node.attribute("displayName"))
 					view.displayName = resolvePlaceholders(node.attribute("displayName").as_string());
@@ -1528,7 +1583,7 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 		return;
 	}
 
-	ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
+	ThemeView& view = mViews.insert(viewKey, std::move(ThemeView())).first->second;
 
 	if (node.attribute("displayName"))
 		view.displayName = resolvePlaceholders(node.attribute("displayName").as_string());
@@ -1652,7 +1707,7 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	}
 
 	if (add)
-		mSubsets.push_back(Subset("region", nameAttr, nameAttr, "region"));
+		mSubsets.emplace_back("region", nameAttr, nameAttr, "region");
 
 	const char* delim = " \t\r\n,";
 	
@@ -2660,7 +2715,7 @@ std::shared_ptr<ThemeData> ThemeData::clone(const std::string& viewName)
 	{
 		auto view = mViews.find(viewName);
 		if (view != mViews.cend())
-			theme->mViews.insert(std::pair<std::string, ThemeView>(viewName, view->second));
+			theme->mViews.insert(viewName, view->second);
 	}
 	else
 		theme->mViews = mViews;
@@ -2674,7 +2729,25 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
 
 	pugi::xml_document includeDoc;
-	pugi::xml_parse_result result = includeDoc.load_file(WINSTRINGW(path).c_str());
+
+	try
+	{
+		pugi::xml_document& cached = ThemeFileCache::getInstance().getXmlDocument(path);
+		includeDoc.reset(cached);
+	}
+	catch (ThemeException& e)
+	{
+		mPaths.pop_back();
+
+		if (mPaths.size())
+			mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
+
+		LOG(LogWarning) << "Error parsing file: \"" << path;
+		return false;
+	}
+
+	/*
+	pugi::xml_parse_result result = includeDoc.load_file(WINSTRINGW(path).c_str());	
 	if (!result)
 	{
 		mPaths.pop_back();
@@ -2685,6 +2758,7 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 		LOG(LogWarning) << "Error parsing file: \n    " << result.description() << "    from included file \"" << path << "\":\n    ";
 		return false;
 	}
+	*/
 
 	pugi::xml_node theme = includeDoc.child("theme");
 	if (!theme)
@@ -2751,7 +2825,7 @@ void ThemeData::applySelfTheme(GuiComponent* comp, const ThemeElement& elem)
 {
 	auto theme = std::make_shared<ThemeData>(true);	
 	
-	ThemeView& view = theme->mViews.insert(std::pair<std::string, ThemeView>("default", ThemeView())).first->second;
+	ThemeView& view = theme->mViews.insert("default", std::move(ThemeView())).first->second;
 	auto element = view.elements.insert(std::pair<std::string, ThemeElement>("default", elem));
 
 	comp->applyTheme(theme, "default", "default", ThemeFlags::ALL);

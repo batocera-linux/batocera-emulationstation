@@ -10,6 +10,7 @@
 #include <set>
 #include <unordered_map>
 #include <memory>
+#include <mutex>
 #include <sstream>
 #include <vector>
 #include <pugixml/src/pugixml.hpp>
@@ -94,7 +95,7 @@ struct ThemeSet
 
 struct Subset
 {
-	Subset(const std::string set, const std::string nm, const std::string dn, const std::string ssdn)
+	Subset(const std::string& set, const std::string& nm, const std::string& dn, const std::string& ssdn)
 	{
 		subset = set;
 		name = nm;
@@ -412,7 +413,7 @@ private:
 
 	void processElement(const pugi::xml_node& root, ThemeElement& element, const std::string& name, const std::string& value, ElementPropertyType type);
 
-	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
+	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, const std::string& baseClass);
 	bool findPropertyFromBaseClass(const std::string& typeName, const std::string& propertyName, ElementPropertyType& type);
 
 	static GuiComponent* createExtraComponent(Window* window, const ThemeElement& elem, bool forceLoad = false);
@@ -432,50 +433,94 @@ private:
 	std::string mRegion;
 
 	ThemeVariables mVariables;
-	
-	class UnsortedViewMap : public std::vector<std::pair<std::string, ThemeView>>
+
+	template<typename Key, typename Value>
+	class UnsortedViewMap //: public std::vector<std::pair<std::string, ThemeView>>
 	{
-	public:		
-		UnsortedViewMap() : std::vector<std::pair<std::string, ThemeView>>() {}
-		UnsortedViewMap(std::initializer_list<std::pair<std::string, ThemeView>> initList) : std::vector<std::pair<std::string, ThemeView>>(initList) { }
+	private:
+		std::vector<std::pair<Key, Value>> items;
+		std::unordered_map<Key, size_t> index_map;
 
-		std::vector<std::pair<std::string, ThemeView>>::const_iterator find(std::string view) const
+	public:
+		UnsortedViewMap() = default;
+		UnsortedViewMap(std::initializer_list<std::pair<Key, Value>> initList)
 		{
-			for (std::vector<std::pair<std::string, ThemeView>>::const_iterator it = cbegin(); it != cend(); it++)
-				if (it->first == view)
-					return it;
-
-			return cend();
-		}
-	
-		std::vector<std::pair<std::string, ThemeView>>::iterator find(std::string view)
-		{
-			for (std::vector<std::pair<std::string, ThemeView>>::iterator it = begin(); it != end(); it++)
-				if (it->first == view)
-					return it;
-
-			return end();
+			items.reserve(initList.size());
+			for (const auto& pair : initList)
+				insert(pair.first, pair.second);
 		}
 
-		std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> insert(std::pair<std::string, ThemeView> item)
-		{			
-			std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> ret;
+		void clear()
+		{
+			items.clear();
+			index_map.clear();
+		}
 
-			ret.first = find(item.first);
-			ret.second = ret.first != cend();
+		size_t size() const { return items.size(); }
+		bool empty() const { return items.empty(); }
 
-			if (ret.first == cend())
+		std::pair<typename std::vector<std::pair<Key, Value>>::iterator, bool> insert(const std::pair<Key, Value>& pair) 
+		{
+			return insert(pair.first, pair.second);
+		}
+
+		std::pair<typename std::vector<std::pair<Key, Value>>::iterator, bool> insert(const Key& key, const Value& value) 
+		{
+			auto it = index_map.find(key);
+			if (it != index_map.end()) 
+				return { items.begin() + it->second, false };
+
+			index_map[key] = items.size();
+			items.emplace_back(key, value);
+			return { items.end() - 1, true };			
+		}
+
+		auto begin() { return items.begin(); }
+		auto end() { return items.end(); }
+		auto begin() const { return items.cbegin(); }
+		auto end() const { return items.cend(); }
+		auto cbegin() const { return items.cbegin(); }
+		auto cend() const { return items.cend(); }
+
+		typename std::vector<std::pair<Key, Value>>::iterator find(const Key& key) 
+		{
+			auto it = index_map.find(key);
+			if (it == index_map.end())
+				return items.end();
+		
+			return items.begin() + it->second;
+		}
+
+		typename std::vector<std::pair<Key, Value>>::const_iterator find(const Key& key) const
+		{
+			auto it = index_map.find(key);
+			if (it == index_map.end())
+				return items.end();
+			
+			return items.begin() + it->second;
+		}		
+
+		void erase(const Key& key) 
+		{
+			auto it = index_map.find(key);
+			if (it == index_map.end())
+				return;			
+
+			size_t idx = it->second;
+
+			if (idx != items.size() - 1)
 			{
-				push_back(item);
-				ret.first = find(item.first);
+				std::swap(items[idx], items.back());
+				index_map[items[idx].first] = idx;
 			}
 
-			return ret;			
+			items.pop_back();
+			index_map.erase(it);
 		}
+
 	};
 
-	UnsortedViewMap mViews;
-	//	std::map<std::string, ThemeView> mViews;
+	UnsortedViewMap<std::string, ThemeView> mViews;
 
 	std::vector<Subset> mSubsets;
 
@@ -485,6 +530,28 @@ private:
 	bool mPerGameOverrideTmp;
 
 	Utils::MathExpr::ValueMap mEvaluatorVariables;
+};
+
+class ThemeFileCache
+{
+public:
+	static ThemeFileCache& getInstance()
+	{
+		if (_instance == nullptr)
+			_instance = new ThemeFileCache();
+
+		return *_instance;
+	}
+
+public:
+	pugi::xml_document& getXmlDocument(const std::string& path);
+	void clear();
+
+private:
+	std::map<std::string, pugi::xml_document*> _cache;
+	std::mutex _lock;
+
+	static ThemeFileCache* _instance;
 };
 
 #endif // ES_CORE_THEME_DATA_H

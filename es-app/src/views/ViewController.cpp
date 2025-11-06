@@ -1266,6 +1266,9 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	else
 		goToSystemView(SystemData::getFirstVisibleSystem());
 
+	if (reloadTheme)
+		ThemeFileCache::getInstance().clear();
+
 	if (mCurrentView != nullptr)
 		mCurrentView->onShow();
 

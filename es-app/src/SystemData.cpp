@@ -25,6 +25,7 @@
 #include "SaveStateRepository.h"
 #include "Paths.h"
 #include "SystemRandomPlaylist.h"
+#include "ThemeData.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -958,6 +959,8 @@ bool SystemData::loadConfig(Window* window)
 		if (checkIndex != 0)
 			ThreadedHasher::start(window, (ThreadedHasher::HasherType)checkIndex, false, true);
 	}
+
+	ThemeFileCache::getInstance().clear();
 
 	return true;
 }
