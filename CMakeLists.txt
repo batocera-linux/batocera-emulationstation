@@ -267,10 +267,10 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 
     #set up compiler flags for GCC
 if (CMAKE_BUILD_TYPE MATCHES Debug)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wno-attributes -O0") #support C++14 for std::, optimize
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wno-attributes -O0") #support C++17 for std::, optimize
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -O0")
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wno-attributes -O3") #support C++14 for std::, optimize
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wno-attributes -O3") #support C++17 for std::, optimize
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -O3")  #-s = strip binary
 endif()
 endif()
