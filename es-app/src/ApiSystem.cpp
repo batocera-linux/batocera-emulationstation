@@ -2383,7 +2383,44 @@ std::vector<std::string> ApiSystem::getJoysticksHotkeysValues() {
 }
 
 std::vector<std::string> ApiSystem::getGlobalHotkeysValues() {
-  return executeEnumerationScript("batocera-hotkeys --values");
+  std::vector<std::string> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getGlobalHotkeysValues";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --values");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys values";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("mapping");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <mapping> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+
+      if (key.attribute("name")) {
+	std::string key_name = key.attribute("name").as_string();
+	hotkeys.push_back(key_name);
+      }
+    }
+
+  return hotkeys;
 }
 
 void ApiSystem::setJoysticksHotkeys(const std::vector<Hotkey>& hotkeys) {
@@ -2496,6 +2533,112 @@ std::vector<GlobalHotkey> ApiSystem::getGlobalHotkeys() {
   return hotkeys;
 }
 
+std::vector<Keyboardtopad> ApiSystem::getKeyboardtopads() {
+  std::vector<Keyboardtopad> keyboardtopads;
+
+  LOG(LogDebug) << "ApiSystem::getKeyboardtopads";
+
+  auto res = executeEnumerationScript("keyboardToPads --search");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return keyboardtopads;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse keyboardtopads";
+      return keyboardtopads;
+    }
+
+  pugi::xml_node root = doc.child("keyboardtopads");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keyboardtopads> node";
+      return keyboardtopads;
+    }
+
+  for (pugi::xml_node device = root.child("device"); device; device = device.next_sibling("device"))
+    {
+      Keyboardtopad ktp;
+
+      if (device.attribute("name"))
+	ktp.name = device.attribute("name").as_string();
+
+      if (device.attribute("config"))
+	ktp.config = device.attribute("config").as_string();
+
+      if (device.attribute("device"))
+	ktp.device_path = device.attribute("device").as_string();
+
+      keyboardtopads.push_back(ktp);
+    }
+
+  return keyboardtopads;
+}
+
+std::vector<KeyboardtopadDevice> ApiSystem::getKeyboardtopadDevices(std::string config) {
+  std::vector<KeyboardtopadDevice> devices;
+
+  LOG(LogDebug) << "ApiSystem::getKeyboardtopadDevices";
+
+  auto res = executeEnumerationScript("keyboardToPads --config \""+config+"\" --get-config");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return devices;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse getKeyboardtopadDevices";
+      return devices;
+    }
+
+  pugi::xml_node root = doc.child("keyboardtopad");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keyboardtopad> node";
+      return devices;
+    }
+
+  for (pugi::xml_node device = root.child("device"); device; device = device.next_sibling("device"))
+    {
+      KeyboardtopadDevice dev;
+
+      if (device.attribute("name"))
+	dev.name = device.attribute("name").as_string();
+
+      if (device.attribute("type"))
+	dev.type = device.attribute("type").as_string();
+
+      for (pugi::xml_node key = device.child("key"); key; key = key.next_sibling("key"))
+	{
+	  KeyboardtopadKey k;
+
+	  if (key.attribute("name"))
+	    k.name = key.attribute("name").as_string();
+
+	  if (key.attribute("value"))
+	    k.value = key.attribute("value").as_string();
+
+	  dev.keys.push_back(k);
+	}
+
+      devices.push_back(dev);
+    }
+
+  return devices;
+}
+
 void ApiSystem::setGlobalHotkey(const std::string& config, const std::string& key, const std::string& action) {
   LOG(LogDebug) << "ApiSystem::setGlobalHotkey";
   executeScript("batocera-hotkeys --set --config " + config + " --key " + key + " --action " + action);
@@ -2504,6 +2647,141 @@ void ApiSystem::setGlobalHotkey(const std::string& config, const std::string& ke
 void ApiSystem::removeGlobalHotkey(const std::string& config, const std::string& key) {
   LOG(LogDebug) << "ApiSystem::removeGlobalHotkey";
   executeScript("batocera-hotkeys --remove --config " + config + " --key " + key);
+}
+
+std::vector<KeyboardtopadKey> ApiSystem::getKeyboardtopadKeyValues() {
+  std::vector<KeyboardtopadKey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getKeyboardtopadValues";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --values");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys values";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("mapping");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <mapping> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+      KeyboardtopadKey vkey;
+
+      if (key.attribute("name")) {
+	vkey.name = key.attribute("name").as_string();
+      }
+
+      if (key.attribute("evcode")) {
+	vkey.value = key.attribute("evcode").as_string();
+      }
+
+      hotkeys.push_back(vkey);
+    }
+
+  return hotkeys;
+}
+
+void ApiSystem::saveKeyboardtopads(Keyboardtopad ktp, const std::vector<KeyboardtopadDevice>& ktp_devices) {
+  LOG(LogDebug) << "ApiSystem::saveKeyboardtopads";
+
+  std::string cmd = "keyboardToPads --set --config \"" + ktp.config + "\"";
+  std::string cmd_dev;
+
+  int njoys = 0;
+  int nhotkeys = 0;
+  bool stopjoy = false;
+
+  for(int d=0; d<ktp_devices.size(); d++) {
+    bool enabled = (ktp_devices[d].name != "" || ktp_devices[d].type != "joystick") && ktp_devices[d].keys.size() > 0;
+
+    // don't continue on joysticks if one is disabled
+    if(ktp_devices[d].type == "joystick" && enabled == false && !stopjoy) {
+      stopjoy = true;
+      cmd_dev  = " --device-type "   + ktp_devices[d].type;
+      cmd_dev += " --device-keep " + std::to_string(d);
+      //printf("cmd: %s\n", (cmd + cmd_dev).c_str());
+      executeScript(cmd + cmd_dev);
+    }
+    if(ktp_devices[d].type == "joystick" && enabled && stopjoy) {
+      enabled = false;
+    }
+
+    if(enabled) {
+      int ndev = 0;
+      if(ktp_devices[d].type == "joystick") ndev = njoys;
+      if(ktp_devices[d].type == "hotkeys")  ndev = nhotkeys;
+
+      cmd_dev = "";
+      cmd_dev += " --device-number " +  std::to_string(ndev);
+      cmd_dev += " --device-name \"" + ktp_devices[d].name + "\"";
+      cmd_dev += " --device-type "   + ktp_devices[d].type;
+
+      cmd_dev += " --set-values \"";
+      for(unsigned int k=0; k<ktp_devices[d].keys.size(); k++) {
+	if(k != 0) cmd_dev += ",";
+	cmd_dev += ktp_devices[d].keys[k].value + "=" + ktp_devices[d].keys[k].name;
+      }
+      cmd_dev += "\"";
+
+      //printf("cmd: %s\n", (cmd + cmd_dev).c_str());
+      executeScript(cmd + cmd_dev);
+    }
+    if(ktp_devices[d].type == "joystick") njoys++;
+    if(ktp_devices[d].type == "hotkeys")  nhotkeys++;
+  }
+}
+
+std::string ApiSystem::detectEvKey(const std::string& device_path) {
+  std::string vkey = "";
+
+  LOG(LogDebug) << "ApiSystem::detectEvKey";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --detect --count 1 --nowait --evformat --device " + device_path);
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return vkey;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return vkey;
+    }
+
+  pugi::xml_node root = doc.child("keys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keys> node";
+      return vkey;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+      if (key.attribute("key"))
+	vkey = key.attribute("key").as_string();
+    }
+
+  return vkey;
 }
 
 std::vector<std::string> ApiSystem::backglassThemes() {

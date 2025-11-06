@@ -23,11 +23,11 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window, int selectItem) : GuiSett
 	auto enableNetplay = std::make_shared<SwitchComponent>(mWindow);
 	enableNetplay->setState(SystemConf::getInstance()->getBool("global.netplay"));
 	addWithLabel(_("ENABLE NETPLAY"), enableNetplay);
-	addInputTextRow(_("NICKNAME"), "global.netplay.nickname", false);
+	addInputTextConfigRow(_("NICKNAME"), "global.netplay.nickname", false);
 
 	addGroup(_("OPTIONS"));
 
-	addInputTextRow(_("PORT"), "global.netplay.port", false);
+	addInputTextConfigRow(_("PORT"), "global.netplay.port", false);
 
 	addRelayServerOptions(selectItem);
 
@@ -183,5 +183,5 @@ void GuiNetPlaySettings::addRelayServerOptions(int selectItem)
 	});
 
 	if (selectedRelayServer == "custom" && std::find_if(communityRelayServers.begin(), communityRelayServers.end(), [&](const auto& kv) { return kv.second == customRelayServerAddress; }) == communityRelayServers.end())
-		addInputTextRow(_("CUSTOM RELAY SERVER"), "global.netplay.customserver", false);
+		addInputTextConfigRow(_("CUSTOM RELAY SERVER"), "global.netplay.customserver", false);
 }

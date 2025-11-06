@@ -163,7 +163,7 @@ void GuiSettings::addSubMenu(const std::string& label, const std::function<void(
 	mMenu.addRow(row);
 };
 
-void GuiSettings::addInputTextRow(const std::string& title, const std::string& settingsID, bool password, bool storeInSettings
+void GuiSettings::addInputTextConfigRow(const std::string& title, const std::string& settingsID, bool password, bool storeInSettings
 	, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor)
 {
 	auto theme = ThemeData::getMenuTheme();
@@ -235,6 +235,85 @@ void GuiSettings::addInputTextRow(const std::string& title, const std::string& s
 	{
 		std::string data = localStoreInSettings ? Settings::getInstance()->getString(localSettingsID) : SystemConf::getInstance()->get(localSettingsID);
 
+#ifdef BATOCERA
+		if (password && (SystemConf::getInstance()->get("system.security.enabled") == "1"))
+			data.clear();
+#endif
+		if (customEditor != nullptr)
+			customEditor(mWindow, title, data, updateVal);
+		else if (Settings::getInstance()->getBool("UseOSK"))
+			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, data, updateVal, false));
+		else
+			mWindow->pushGui(new GuiTextEditPopup(mWindow, title, data, updateVal, false));
+	});
+
+	addRow(row);
+}
+
+void GuiSettings::addInputTextRow(const std::string& title, const std::string& value, bool password
+	, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor
+	, const std::function<void(std::string)>& onsave)
+{
+	auto theme = ThemeData::getMenuTheme();
+	std::shared_ptr<Font> font = theme->Text.font;
+	unsigned int color = theme->Text.color;
+
+	// LABEL
+	Window *window = mWindow;
+	ComponentListRow row;
+
+	auto lbl = std::make_shared<TextComponent>(window, title, font, color);
+	if (EsLocale::isRTL())
+		lbl->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
+	row.addElement(lbl, true); // label
+
+	std::string text = ((password && value != "") ? "*********" : value);
+	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(window, text, font, color, ALIGN_RIGHT);
+	if (EsLocale::isRTL())
+		ed->setHorizontalAlignment(Alignment::ALIGN_LEFT);
+		
+	// ed->setRenderBackground(true); ed->setBackgroundColor(0xFFFF00FF); // Debug only
+	
+	ed->setSize(font->sizeText(text+"  ").x(), 0);
+	row.addElement(ed, false);
+
+	auto spacer = std::make_shared<GuiComponent>(mWindow);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(mWindow);
+	bracket->setImage(theme->Icons.arrow);
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+
+	if (EsLocale::isRTL())
+		bracket->setFlipX(true);
+
+	row.addElement(bracket, false);
+
+	auto updateVal = [this, font, ed, password, onsave](const std::string &newVal)
+	{
+		if (!password)
+		{
+			ed->setValue(newVal);
+			ed->setSize(font->sizeText(newVal + "  ").x(), 0);
+
+			mMenu.updateSize();
+		}
+		else
+		{
+			ed->setValue("*********");
+			ed->setSize(font->sizeText("*********  ").x(), 0);
+			mMenu.updateSize();
+		}
+
+		onsave(newVal);
+
+	}; // ok callback (apply new value to ed)
+
+	row.makeAcceptInputHandler([this, title, updateVal, customEditor, value, password]
+	{
+	  std::string data = value;
 #ifdef BATOCERA
 		if (password && (SystemConf::getInstance()->get("system.security.enabled") == "1"))
 			data.clear();

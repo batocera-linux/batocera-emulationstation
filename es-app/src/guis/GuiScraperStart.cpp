@@ -316,12 +316,12 @@ void GuiScraperStart::loadSettingsPage()
 void GuiScraperStart::loadAccountsPage() 
 {
 	addGroup(_("SCREENSCRAPER"));
-	addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
-	addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
+	addInputTextConfigRow(_("USERNAME"), "ScreenScraperUser", false, true);
+	addInputTextConfigRow(_("PASSWORD"), "ScreenScraperPass", true, true);
 
 	addGroup(_("IGDB"));
-	addInputTextRow(_("CLIENT ID"), "IGDBClientID", false, true);
-	addInputTextRow(_("CLIENT SECRET"), "IGDBSecret", true, true);
+	addInputTextConfigRow(_("CLIENT ID"), "IGDBClientID", false, true);
+	addInputTextConfigRow(_("CLIENT SECRET"), "IGDBSecret", true, true);
 }
 
 void GuiScraperStart::pressedStart()
