@@ -32,6 +32,7 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mScreensaverActive = false;
 	mDisable = false;		
 	mLastCursor = 0;
+	mLastCursorState = CursorState::CURSOR_SCROLLING;
 		
 	mPressedPoint = Vector2i(-1, -1);
 	mPressedCursor = -1;
@@ -202,14 +203,17 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 
 	cancelAnimation(1);
 	cancelAnimation(2);
-
+	
 	if (mLastCursor == mCursor)
 	{
-		if (state == CURSOR_STOPPED && mCursorChangedCallback)
+		if (state == CURSOR_STOPPED && mLastCursorState != state && mCursorChangedCallback)
 			mCursorChangedCallback(state);
 
+		mLastCursorState = state;
 		return;
 	}
+	else 
+		mLastCursorState = state;
 
 	std::string transition_style = Settings::TransitionStyle();
 	if (transition_style == "auto")
@@ -219,6 +223,9 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		else
 			transition_style = "slide";
 	}
+	
+	if (mLastCursor == mCursor)
+		return;
 
 	if (!mScrollSound.empty())
 		Sound::get(mScrollSound)->play();
@@ -315,6 +322,7 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		mCursorChangedCallback(state);
 
 	mLastCursor = mCursor;
+	mLastCursorState = state;
 
 	auto curState = state;
 	setAnimation(anim, 0, [this, curState]
@@ -852,6 +860,7 @@ bool CarouselComponent::onMouseClick(int button, bool pressed, int x, int y)
 		if (mCamOffset != mCursor)
 		{
 			mLastCursor = -1;
+			mLastCursorState = CursorState::CURSOR_STOPPED;
 			onCursorChanged(CursorState::CURSOR_STOPPED);
 		}
 
