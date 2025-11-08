@@ -144,6 +144,7 @@ private:
 	std::string					mThemeClass;
 
 	int mLastCursor;	
+	CursorState mLastCursorState;
 
 	CarouselType			mType;
 	CarouselImageSource		mImageSource;
