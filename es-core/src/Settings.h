@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <set>
 #include "utils/Delegate.h"
 
 // Non-cached settings macros
@@ -121,6 +122,8 @@ public:
 
 	static Delegate<ISettingsChangedEvent> settingChanged;
 
+	const std::set<std::string>& getHiddenSystems() { return mHiddenSystems; }
+
 private:
 	static Settings* sInstance;
 
@@ -140,6 +143,8 @@ private:
 	std::map<std::string, int> mDefaultIntMap;
 	std::map<std::string, float> mDefaultFloatMap;
 	std::map<std::string, std::string> mDefaultStringMap;	
+
+	std::set<std::string> mHiddenSystems;
 
 	bool mLoaded;
 	void updateCachedSetting(const std::string& name);

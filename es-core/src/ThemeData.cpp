@@ -1541,12 +1541,8 @@ void ThemeData::parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& 
 
 	for (auto& element : baseView.elements)
 	{
-#if WIN32
-		view.elements.insert_or_assign(element.first, element.second);
-#else
 		view.elements.erase(element.first);
-		view.elements.insert(std::pair<std::string, ThemeElement>(element.first, element.second));
-#endif
+		view.elements.insert(std::move(std::pair<std::string, ThemeElement>(element.first, element.second)));
 
 		if (existingKeys.find(element.first) == existingKeys.cend())
 		{
@@ -2074,7 +2070,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				if (!overwrite && element.properties.find(name) != element.properties.cend())
 					continue;
 
-				element.children.push_back(std::pair<std::string, ThemeElement>("itemTemplate", ThemeElement()));
+				element.children.emplace_back("itemTemplate", std::move(ThemeElement()));
 				std::pair<std::string, ThemeElement>& item = element.children.back();
 				item.second.extra = 99;
 
@@ -2086,7 +2082,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			}
 			else if (name == "shader" || ((name == "menuShader" || name == "fadeShader") && std::string(root.name()) == "menuBackground"))
 			{
-				element.children.push_back(std::pair<std::string, ThemeElement>(name, ThemeElement()));
+				element.children.emplace_back(name, std::move(ThemeElement()));
 				std::pair<std::string, ThemeElement>& item = element.children.back();
 				item.second.extra = 1;
 
@@ -2121,7 +2117,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 				const std::string elemKey = node.attribute("name") ? node.attribute("name").as_string() : name;
 
-				element.children.push_back(std::pair<std::string, ThemeElement>(elemKey, ThemeElement()));
+				element.children.emplace_back(elemKey, std::move(ThemeElement()));
 
 				std::pair<std::string, ThemeElement>& item = element.children.back();
 				item.second.extra = 1;
@@ -2610,7 +2606,7 @@ std::vector<std::pair<std::string, std::string>> ThemeData::getViewsOfTheme()
 		if (it->first == "menu" || it->first == "system" || it->first == "screen" || it->first == "splash")
 			continue;
 
-		ret.push_back(std::pair<std::string, std::string>(it->first, it->second.displayName.empty() ? it->first : it->second.displayName));
+		ret.emplace_back(it->first, it->second.displayName.empty() ? it->first : it->second.displayName);
 	}
 
 	return ret;

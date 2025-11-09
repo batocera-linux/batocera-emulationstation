@@ -1155,9 +1155,9 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	mGameListViews.clear();
 	
 	// If preloaded is disabled
-	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-		if (cursorMap.find((*it)) == cursorMap.end())
-			cursorMap[(*it)] = NULL;
+	for (auto sys : SystemData::sSystemVector)
+		if (cursorMap.find(sys) == cursorMap.end())
+			cursorMap[sys] = NULL;
 	
 	if (reloadTheme && cursorMap.size() > 0)
 	{
@@ -1173,6 +1173,11 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 		for (auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 		{
 			SystemData* pooledSystem = it->first;
+			if (pooledSystem->getTheme() == nullptr) // Ignore hidden systems
+			{
+				processedSystem++;
+				continue;
+			}
 
 			pool.queueWorkItem([pooledSystem, &processedSystem]
 			{ 

@@ -59,6 +59,15 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(ShowFoldersFirst)
 	UPDATE_STATIC_INT_SETTING(ScreenSaverTime)
 
+	if (name == "HiddenSystems")
+	{
+		mHiddenSystems.clear();
+
+		for (auto hiddenSystem : Utils::String::split(mStringMap["HiddenSystems"], ';'))
+			if (mHiddenSystems.find(hiddenSystem) == mHiddenSystems.cend())
+				mHiddenSystems.insert(hiddenSystem);
+	}
+
 	if (mLoaded)
 		settingChanged.invoke([name](ISettingsChangedEvent* c) { c->onSettingChanged(name); });
 }
