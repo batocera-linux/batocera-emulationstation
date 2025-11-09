@@ -238,7 +238,8 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	if (SystemData::IsManufacturerSupported)
 	{
 		sortType->add(_("BY MANUFACTURER"), "manufacturer", sortMode == "manufacturer");
-		sortType->add(_("BY HARDWARE TYPE"), "hardware", sortMode == "hardware");
+		sortType->add(_("BY HARDWARE TYPE THEN ALPHABETICALLY"), "hardware", sortMode == "hardware");
+		sortType->add(_("BY HARDWARE TYPE THEN YEAR"), "hardware-year", sortMode == "hardware-year");
 		sortType->add(_("BY MANUFACTURER AND TYPE"), "subgroup", sortMode == "subgroup");
 		sortType->add(_("BY RELEASE YEAR"), "releaseDate", sortMode == "releaseDate");
 	}

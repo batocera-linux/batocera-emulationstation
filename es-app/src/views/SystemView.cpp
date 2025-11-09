@@ -320,7 +320,8 @@ int SystemView::moveCursorFast(bool forward)
 			_moveCursorInRange(cursor, 1, mEntries.size());
 		}
 	}
-	else if (SystemData::IsManufacturerSupported && Settings::getInstance()->getString("SortSystems") == "hardware" && cursor >= 0 && cursor < mEntries.size())
+	else if (SystemData::IsManufacturerSupported && (Settings::getInstance()->getString("SortSystems") == "hardware"
+			|| Settings::getInstance()->getString("SortSystems") == "hardware-year") && cursor >= 0 && cursor < mEntries.size())
 	{
 		std::string hwt = mEntries[mCursor].object->getSystemMetadata().hardwareType;
 
@@ -543,7 +544,7 @@ bool SystemView::showNavigationBar()
 		showNavigationBar(_("GO TO MANUFACTURER"), [](SystemData* meta) { return meta->getSystemMetadata().manufacturer; });
 		return true;
 	}
-	else if (sortMode == "hardware")
+	else if (sortMode == "hardware" || sortMode == "hardware-year")
 	{
 		showNavigationBar(_("GO TO HARDWARE"), [](SystemData* meta) { return meta->getSystemMetadata().hardwareType; });
 		return true;
