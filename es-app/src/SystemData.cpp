@@ -1524,7 +1524,7 @@ void SystemData::loadTheme()
 		sysData["system.netplay"] = SystemConf::getInstance()->getBool("global.netplay") && isNetplaySupported() ? "true" : "false";
 		sysData["system.savestates"] = isCurrentFeatureSupported(EmulatorFeatures::autosave) ? "true" : "false";
 
-		if (Settings::getInstance()->getString("SortSystems") == "hardware")
+		if (Settings::getInstance()->getString("SortSystems") == "hardware" || Settings::getInstance()->getString("SortSystems") == "hardware-year")
 			sysData["system.sortedBy"] = Utils::String::proper(getSystemMetadata().hardwareType);
 		else
 			sysData["system.sortedBy"] = getSystemMetadata().manufacturer;

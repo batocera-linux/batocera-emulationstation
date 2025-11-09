@@ -291,6 +291,24 @@ static bool systemByHardwareSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
+static bool systemByHardwareYearSort(SystemData* sys1, SystemData* sys2)
+{
+	// Move collection at End
+	if (sys1->isCollection() != sys2->isCollection())
+		return sys2->isCollection();
+
+	// Order by hardware
+	std::string mf1 = Utils::String::toUpper(sys1->getSystemMetadata().hardwareType);
+	std::string mf2 = Utils::String::toUpper(sys2->getSystemMetadata().hardwareType);
+	if (mf1 != mf2)
+		return mf1.compare(mf2) < 0;
+
+	// Then by year
+	int y1 = sys1->getSystemMetadata().releaseYear;
+	int y2 = sys2->getSystemMetadata().releaseYear;
+	return y1 < y2;
+}
+
 CollectionSystemManager* CollectionSystemManager::get()
 {
 	assert(sInstance);
@@ -384,6 +402,7 @@ void CollectionSystemManager::updateSystemsList()
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
 	bool sortByManufacturer = SystemData::IsManufacturerSupported && sortMode == "manufacturer";
 	bool sortByHardware = SystemData::IsManufacturerSupported && sortMode == "hardware";
+	bool sortByHardwareYear = SystemData::IsManufacturerSupported && sortMode == "hardware-year";
 	bool sortByReleaseDate = SystemData::IsManufacturerSupported && sortMode == "releaseDate";
 	bool sortBySubgroup = SystemData::IsManufacturerSupported && sortMode == "subgroup";
 
@@ -396,7 +415,7 @@ void CollectionSystemManager::updateSystemsList()
 	// add custom enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData, &map);
 
-	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware && !sortByReleaseDate && !sortBySubgroup)
+	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware && !sortByHardwareYear && !sortByReleaseDate && !sortBySubgroup)
 		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByAlphaSort);
 
 	// add auto enabled ones
@@ -412,6 +431,8 @@ void CollectionSystemManager::updateSystemsList()
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByManufacurerSort);
 		else if (sortByHardware)
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByHardwareSort);
+		else if (sortByHardwareYear)
+			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByHardwareYearSort);
 		else if (sortByReleaseDate)
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByReleaseDate);
 		else if (sortBySubgroup)
