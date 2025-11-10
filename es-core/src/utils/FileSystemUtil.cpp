@@ -219,7 +219,7 @@ namespace Utils
 			if(isDirectory(path))
 			{
 				// tell filecache we enumerated the folder
-				FileCache::add(path + "/*", FileCache(true, true));
+				FileCache::add(path + "/*", std::move(FileCache(true, true)));
 
 #if defined(_WIN32)
 				WIN32_FIND_DATAW findData;
@@ -241,7 +241,7 @@ namespace Utils
 							continue;
 
 						std::string fullName(getGenericPath(path + "/" + name));
-						FileCache::add(fullName, FileCache((DWORD)findData.dwFileAttributes));
+						FileCache::add(fullName, std::move(FileCache((DWORD)findData.dwFileAttributes)));
 
 						if (!includeHidden && (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN)
 							continue;
@@ -322,7 +322,7 @@ namespace Utils
 			fileList  contentList;
 
 			// tell filecache we enumerated the folder
-			FileCache::add(path + "/*", FileCache(true, true));
+			FileCache::add(path + "/*", std::move(FileCache(true, true)));
 
 			// only parse the directory, if it's a directory
 			// if (isDirectory(path))
@@ -342,7 +342,7 @@ namespace Utils
 							fi.path = std::string(1, drive) + ":";
 							fi.hidden = false;
 							fi.directory = true;
-							contentList.push_back(fi);
+							contentList.push_back(std::move(fi));
 						}
 
 						drive++;
@@ -378,11 +378,11 @@ namespace Utils
 						fi.path = path + "/" + Utils::String::convertFromWideString(findData.cFileName);
 						fi.hidden = (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN;
 						fi.directory = (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY;
-						fi.lastWriteTime = to_time_t(findData.ftLastWriteTime);
+						fi.lastWriteTime = to_time_t(findData.ftLastWriteTime);						
 
-						contentList.push_back(fi);
+						FileCache::add(fi.path, std::move(FileCache((DWORD)findData.dwFileAttributes)));
 
-						FileCache::add(fi.path, FileCache((DWORD)findData.dwFileAttributes));
+						contentList.push_back(std::move(fi));
 					} 
 					while (FindNextFileW(hFind, &findData));
 
@@ -970,7 +970,7 @@ namespace Utils
 				return _waccess_s(Utils::String::convertToWideString(_path).c_str(), 0) == 0;
 
 			DWORD dwAttr = GetFileAttributesW(Utils::String::convertToWideString(_path).c_str());
-			FileCache::add(_path, FileCache(dwAttr));
+			FileCache::add(_path, std::move(FileCache(dwAttr)));
 			if (0xFFFFFFFF == dwAttr)
 				return false;
 
@@ -1025,7 +1025,7 @@ namespace Utils
 #ifdef WIN32
 			// check for symlink attribute
 			DWORD Attributes = GetFileAttributesW(Utils::String::convertToWideString(_path).c_str());
-			FileCache::add(_path, FileCache(Attributes));
+			FileCache::add(_path, std::move(FileCache(Attributes)));
 			return (Attributes != INVALID_FILE_ATTRIBUTES) && (Attributes & FILE_ATTRIBUTE_DIRECTORY);
 #else // _WIN32
 			std::string path = getGenericPath(_path);
@@ -1058,7 +1058,7 @@ namespace Utils
 #ifdef WIN32
 			// check for symlink attribute
 			DWORD Attributes = GetFileAttributes(path.c_str());
-			FileCache::add(_path, FileCache(Attributes));
+			FileCache::add(_path, std::move(FileCache(Attributes)));
 			if((Attributes != INVALID_FILE_ATTRIBUTES) && (Attributes & FILE_ATTRIBUTE_REPARSE_POINT))
 				return true;
 
@@ -1088,7 +1088,7 @@ namespace Utils
 #ifdef WIN32
 			// check for hidden attribute
 			DWORD Attributes = GetFileAttributes(path.c_str());
-			FileCache::add(_path, FileCache(Attributes));
+			FileCache::add(_path, std::move(FileCache(Attributes)));
 			if((Attributes != INVALID_FILE_ATTRIBUTES) && (Attributes & FILE_ATTRIBUTE_HIDDEN))
 				return true;
 #endif // _WIN32

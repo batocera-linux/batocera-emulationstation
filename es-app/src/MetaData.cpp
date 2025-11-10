@@ -190,7 +190,7 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 
 			value = xelement.text().get();
 			if (!value.empty())
-				mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, true));
+				mUnKnownElements.emplace_back(name, value, true);
 
 			continue;
 		}
@@ -235,7 +235,7 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 		{
 			value = xattr.value();
 			if (!value.empty())
-				mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, false));
+				mUnKnownElements.emplace_back(name, value, false);
 
 			continue;
 		}
