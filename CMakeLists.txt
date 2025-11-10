@@ -19,6 +19,10 @@ option(USE_SYSTEM_PUGIXML "Set to ON to use system-wide pugixml library" OFF)
 # Win32 default platform & directory detection
 if(WIN32)
 
+	set(CMAKE_CXX_STANDARD 17)
+	set(CMAKE_CXX_STANDARD_REQUIRED ON)
+	set(CMAKE_CXX_EXTENSIONS OFF) # désactive les extensions (MSVC++)
+
 	if (NOT CMAKE_GENERATOR_PLATFORM)
 		set(CMAKE_GENERATOR_PLATFORM Win32)	    
 	endif()
@@ -478,9 +482,9 @@ if(NOT WIN32)
 endif()
 
 find_program (PYTHON3_EXECUTABLE python3)
-if(PYTHON3_EXECUTABLE)
+if(PYTHON3_EXECUTABLE AND NOT MSVC)
   add_custom_target (checkgamesdb ALL COMMENT "Checking guns and wheels games db.")
-  add_custom_command (TARGET checkgamesdb COMMAND "${PYTHON3_EXECUTABLE}" "resources/checkWheelGunGamesResources.py")
+  add_custom_command (TARGET checkgamesdb COMMAND "${PYTHON3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/resources/checkWheelGunGamesResources.py")
 endif()
 
 #-------------------------------------------------------------------------------
