@@ -1246,7 +1246,7 @@ namespace Utils
 		// koreanTextInput
 
 #if defined(_WIN32)
-		const std::string convertFromWideString(const std::wstring wstring)
+		const std::string convertFromWideString(const std::wstring& wstring)
 		{
 			int numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
 			
@@ -1256,7 +1256,7 @@ namespace Utils
 			return string;
 		}
 
-		const std::wstring convertToWideString(const std::string string)
+		const std::wstring convertToWideString(const std::string& string)
 		{
 			int numBytes = MultiByteToWideChar(CP_UTF8, 0, string.c_str(), (int)string.length(), nullptr, 0);
 

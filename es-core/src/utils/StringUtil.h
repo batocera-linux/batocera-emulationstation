@@ -77,8 +77,8 @@ namespace Utils
 		// end Korean text input
 
 #if defined(_WIN32)
-		const std::string convertFromWideString(const std::wstring wstring);
-		const std::wstring convertToWideString(const std::string string);
+		const std::string convertFromWideString(const std::wstring& wstring);
+		const std::wstring convertToWideString(const std::string& string);
 #endif
 	} // String::
 
