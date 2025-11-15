@@ -947,6 +947,87 @@ msgstr "OBTENCIÓN DE INFORMACIÓN EN CURSO, ¿QUIERES DETENERLO?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "SUPERPOSICIONES"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CICLO DE BRILLO"
+
+msgid "COIN"
+msgstr "MONEDA"
+
+msgid "EXIT"
+msgstr "SALIR"
+
+msgid "FAST FORWARD"
+msgstr "AVANCE RÁPIDO"
+
+msgid "MENU"
+msgstr "MENÚ"
+
+msgid "FILES"
+msgstr "ARCHIVOS"
+
+msgid "NEXT DISK"
+msgstr "SIGUIENTE DISCO"
+
+msgid "NEXT SLOT"
+msgstr "SIGUIENTE RANURA"
+
+msgid "PAUSE"
+msgstr "PAUSA"
+
+msgid "PREVIOUS SLOT"
+msgstr "RANURA ANTERIOR"
+
+msgid "RESET"
+msgstr "RESTABLECER"
+
+msgid "RESTORE STATE"
+msgstr "RESTAURAR ESTADO"
+
+msgid "REWIND"
+msgstr "REBOBINAR"
+
+msgid "SAVE STATE"
+msgstr "GUARDAR ESTADO"
+
+msgid "SCREEN LAYOUT"
+msgstr "DISEÑO DE PANTALLA"
+
+msgid "SWAP SCREEN"
+msgstr "CAMBIAR PANTALLA"
+
+msgid "TRANSLATION"
+msgstr "TRADUCCIÓN"
+
+msgid "VOLUME DOWN"
+msgstr "BAJAR VOLUMEN"
+
+msgid "VOLUME MUTE"
+msgstr "SILENCIAR VOLUMEN"
+
+msgid "VOLUME UP"
+msgstr "SUBIR VOLUMEN"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR EN UN DISCO NUEVO"
 
@@ -1815,9 +1896,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SUAVIZAR JUEGOS (FILTRADO BILINEAL)"
 
-msgid "REWIND"
-msgstr "REBOBINAR"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Almacena estados pasados para rebobinar en tiempo real, si el núcleo lo "
@@ -2387,9 +2465,6 @@ msgstr "EDITAR METADATOS"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VER INFORMACIÓN MANDO A TECLADO"
 
-msgid "RESET"
-msgstr "RESTABLECER"
-
 msgid "ADD COMBINATION KEY"
 msgstr "AÑADIR COMBINACIÓN DE TECLAS"
 
@@ -2438,8 +2513,11 @@ msgstr "ALFABÉTICAMENTE"
 msgid "BY MANUFACTURER"
 msgstr "POR FABRICANTE"
 
-msgid "BY HARDWARE TYPE"
-msgstr "POR HARDWARE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "POR FABRICANTE Y TIPO"
@@ -2738,8 +2816,11 @@ msgstr "COMPORTAMIENTO"
 msgid "JOYSTICKS HOTKEYS"
 msgstr "TECLA DE ACCESO RÁPIDO DE JOYSTICKS"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
 
 msgid "default"
 msgstr "defecto"
@@ -2786,62 +2867,23 @@ msgstr "PRESIONAR STICK IZQUIERDO"
 msgid "RIGHT STICK PRESS"
 msgstr "PRESIONAR STICK DERECHO"
 
-msgid "OVERLAYS"
-msgstr "SUPERPOSICIONES"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CICLO DE BRILLO"
-
-msgid "COIN"
-msgstr "MONEDA"
-
-msgid "EXIT"
-msgstr "SALIR"
-
-msgid "FAST FORWARD"
-msgstr "AVANCE RÁPIDO"
-
-msgid "MENU"
-msgstr "MENÚ"
-
-msgid "NEXT DISK"
-msgstr "SIGUIENTE DISCO"
-
-msgid "NEXT SLOT"
-msgstr "SIGUIENTE RANURA"
-
-msgid "PAUSE"
-msgstr "PAUSA"
-
-msgid "PREVIOUS SLOT"
-msgstr "RANURA ANTERIOR"
-
-msgid "RESTORE STATE"
-msgstr "RESTAURAR ESTADO"
-
-msgid "SAVE STATE"
-msgstr "GUARDAR ESTADO"
-
-msgid "SCREEN LAYOUT"
-msgstr "DISEÑO DE PANTALLA"
-
-msgid "SWAP SCREEN"
-msgstr "CAMBIAR PANTALLA"
-
-msgid "TRANSLATION"
-msgstr "TRADUCCIÓN"
-
-msgid "VOLUME DOWN"
-msgstr "BAJAR VOLUMEN"
-
-msgid "VOLUME MUTE"
-msgstr "SILENCIAR VOLUMEN"
-
-msgid "VOLUME UP"
-msgstr "SUBIR VOLUMEN"
-
 msgid "HOTKEY"
 msgstr "TECLA DE ACCESO RÁPIDO"
+
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr "TAMAÑO DEL BORDE"
@@ -3174,9 +3216,6 @@ msgstr[1] "%i JUEGOS"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
-
-msgid "FILES"
-msgstr "ARCHIVOS"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -3748,6 +3787,12 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "POR HARDWARE"
+
+#~ msgid "RESTRICT HOTKEYS TO EXIT"
+#~ msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "AJUSTES DE ESCRAPEO"

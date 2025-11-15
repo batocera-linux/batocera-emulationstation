@@ -951,6 +951,87 @@ msgstr "A PROCURA POR MÍDIAS DE JOGO ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "INDICADORES"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CICLO DE BRILHO"
+
+msgid "COIN"
+msgstr "MOEDA"
+
+msgid "EXIT"
+msgstr "SAIR"
+
+msgid "FAST FORWARD"
+msgstr "AVANÇO RÁPIDO"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "ARQUIVOS"
+
+msgid "NEXT DISK"
+msgstr "PRÓXIMO DISCO"
+
+msgid "NEXT SLOT"
+msgstr "PRÓXIMO ESPAÇO"
+
+msgid "PAUSE"
+msgstr "PAUSAR"
+
+msgid "PREVIOUS SLOT"
+msgstr "ESPAÇO ANTERIOR"
+
+msgid "RESET"
+msgstr "REINICIAR"
+
+msgid "RESTORE STATE"
+msgstr "CARREGAR ESTADO"
+
+msgid "REWIND"
+msgstr "REBOBINAR"
+
+msgid "SAVE STATE"
+msgstr "ESTADO DE SALVAMENTO"
+
+msgid "SCREEN LAYOUT"
+msgstr "DISPOSIÇÃO DE TELA"
+
+msgid "SWAP SCREEN"
+msgstr "ALTERNAR TELA"
+
+msgid "TRANSLATION"
+msgstr "TRADUÇÃO"
+
+msgid "VOLUME DOWN"
+msgstr "DIMINUIR VOLUME"
+
+msgid "VOLUME MUTE"
+msgstr "SILENCIAR VOLUME"
+
+msgid "VOLUME UP"
+msgstr "AUMENTAR VOLUME"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR EM UM NOVO DISCO"
 
@@ -1814,9 +1895,6 @@ msgstr "Define a resolução do monitor. Não afeta a resolução de renderizaç
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRO BILINEAR)"
 
-msgid "REWIND"
-msgstr "REBOBINAR"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
@@ -2386,9 +2464,6 @@ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VISUALIZAR INFORMAÇÕES DO CONTROLE E TECLADO"
 
-msgid "RESET"
-msgstr "REINICIAR"
-
 msgid "ADD COMBINATION KEY"
 msgstr "ADICIONAR UMA COMBINAÇÃO DE TECLAS"
 
@@ -2437,8 +2512,11 @@ msgstr "POR ORDEM ALFABÉTICA"
 msgid "BY MANUFACTURER"
 msgstr "POR FABRICANTE"
 
-msgid "BY HARDWARE TYPE"
-msgstr "POR TIPO DE HARDWARE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "POR FABRICANTE E TIPO"
@@ -2787,65 +2865,11 @@ msgstr "PRESSIONAR ALAVANCA ESQUERDA"
 msgid "RIGHT STICK PRESS"
 msgstr "PRESSIONAR ALAVANCA DIREITA"
 
-msgid "OVERLAYS"
-msgstr "INDICADORES"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CICLO DE BRILHO"
-
-msgid "COIN"
-msgstr "MOEDA"
-
-msgid "EXIT"
-msgstr "SAIR"
-
-msgid "FAST FORWARD"
-msgstr "AVANÇO RÁPIDO"
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr "PRÓXIMO DISCO"
-
-msgid "NEXT SLOT"
-msgstr "PRÓXIMO ESPAÇO"
-
-msgid "PAUSE"
-msgstr "PAUSAR"
-
-msgid "PREVIOUS SLOT"
-msgstr "ESPAÇO ANTERIOR"
-
-msgid "RESTORE STATE"
-msgstr "CARREGAR ESTADO"
-
-msgid "SAVE STATE"
-msgstr "ESTADO DE SALVAMENTO"
-
-msgid "SCREEN LAYOUT"
-msgstr "DISPOSIÇÃO DE TELA"
-
-msgid "SWAP SCREEN"
-msgstr "ALTERNAR TELA"
-
-msgid "TRANSLATION"
-msgstr "TRADUÇÃO"
-
-msgid "VOLUME DOWN"
-msgstr "DIMINUIR VOLUME"
-
-msgid "VOLUME MUTE"
-msgstr "SILENCIAR VOLUME"
-
-msgid "VOLUME UP"
-msgstr "AUMENTAR VOLUME"
-
 msgid "HOTKEY"
 msgstr "TECLA DE ATALHO"
 
-msgid "FILES"
-msgstr "ARQUIVOS"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UMA NOVA TECLA DE ATALHO GLOBAL"
@@ -3764,6 +3788,9 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "POR TIPO DE HARDWARE"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "RESTRINGIR ATALHOS PARA SAIR"

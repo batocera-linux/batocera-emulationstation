@@ -942,6 +942,87 @@ msgstr "BİLGİLER GETİRİLİYOR. İŞLEM İPTAL EDİLSİN Mİ?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "HİÇBİR OYUN BU KRİTERE UYMUYOR."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "KAPLAMALAR"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "PARLAKLIK DÖNGÜSÜ"
+
+msgid "COIN"
+msgstr "JETON"
+
+msgid "EXIT"
+msgstr "ÇIKIŞ"
+
+msgid "FAST FORWARD"
+msgstr "HIZLI İLERİ SAR"
+
+msgid "MENU"
+msgstr "MENÜ"
+
+msgid "FILES"
+msgstr "DOSYALAR"
+
+msgid "NEXT DISK"
+msgstr "SONRAKİ DİSK"
+
+msgid "NEXT SLOT"
+msgstr "SONRAKİ YUVA"
+
+msgid "PAUSE"
+msgstr "DURAKLAT"
+
+msgid "PREVIOUS SLOT"
+msgstr "ÖNCEKİ YUVA"
+
+msgid "RESET"
+msgstr "SIFIRLA"
+
+msgid "RESTORE STATE"
+msgstr "DURUMU GERİ YÜKLE"
+
+msgid "REWIND"
+msgstr "GERİ SAR"
+
+msgid "SAVE STATE"
+msgstr "DURUM KAYIT"
+
+msgid "SCREEN LAYOUT"
+msgstr "EKRAN DÜZENİ"
+
+msgid "SWAP SCREEN"
+msgstr "EKRANI DEĞİŞTİR"
+
+msgid "TRANSLATION"
+msgstr "ÇEVİRİ"
+
+msgid "VOLUME DOWN"
+msgstr "SES AZALT"
+
+msgid "VOLUME MUTE"
+msgstr "SES SUSTUR"
+
+msgid "VOLUME UP"
+msgstr "SES YÜKSELT"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "YENİ BİR DİSKE KUR"
 
@@ -1798,9 +1879,6 @@ msgstr "Ekranın çözünürlüğünü ayarlar. İşleme çözünürlüğünü e
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "PÜRÜZSÜZ OYUNLAR (ÇİFT DOĞRUSAL FİLTRE)"
 
-msgid "REWIND"
-msgstr "GERİ SAR"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Çekirdek destekliyorsa, gerçek zamanlı olarak geri sarmak için geçmiş "
@@ -2376,9 +2454,6 @@ msgstr "OYUN ÜST VERİLERİNİ DÜZENLE"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "KOL İLE KLAVYE BİLGİLERİNİ GÖRÜNTÜLE"
 
-msgid "RESET"
-msgstr "SIFIRLA"
-
 msgid "ADD COMBINATION KEY"
 msgstr "KOMBİNASYON TUŞU EKLE"
 
@@ -2427,8 +2502,11 @@ msgstr "ALFABETİK"
 msgid "BY MANUFACTURER"
 msgstr "ÜRETİCİYE GÖRE"
 
-msgid "BY HARDWARE TYPE"
-msgstr "DONANIM TÜRÜNE GÖRE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "ÜRETİCİYE VE TÜRE GÖRE"
@@ -2774,65 +2852,11 @@ msgstr "SOL ÇUBUK BASINCI"
 msgid "RIGHT STICK PRESS"
 msgstr "SAĞ ÇUBUK BASINCI"
 
-msgid "OVERLAYS"
-msgstr "KAPLAMALAR"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "PARLAKLIK DÖNGÜSÜ"
-
-msgid "COIN"
-msgstr "JETON"
-
-msgid "EXIT"
-msgstr "ÇIKIŞ"
-
-msgid "FAST FORWARD"
-msgstr "HIZLI İLERİ SAR"
-
-msgid "MENU"
-msgstr "MENÜ"
-
-msgid "NEXT DISK"
-msgstr "SONRAKİ DİSK"
-
-msgid "NEXT SLOT"
-msgstr "SONRAKİ YUVA"
-
-msgid "PAUSE"
-msgstr "DURAKLAT"
-
-msgid "PREVIOUS SLOT"
-msgstr "ÖNCEKİ YUVA"
-
-msgid "RESTORE STATE"
-msgstr "DURUMU GERİ YÜKLE"
-
-msgid "SAVE STATE"
-msgstr "DURUM KAYIT"
-
-msgid "SCREEN LAYOUT"
-msgstr "EKRAN DÜZENİ"
-
-msgid "SWAP SCREEN"
-msgstr "EKRANI DEĞİŞTİR"
-
-msgid "TRANSLATION"
-msgstr "ÇEVİRİ"
-
-msgid "VOLUME DOWN"
-msgstr "SES AZALT"
-
-msgid "VOLUME MUTE"
-msgstr "SES SUSTUR"
-
-msgid "VOLUME UP"
-msgstr "SES YÜKSELT"
-
 msgid "HOTKEY"
 msgstr "KISAYOL TUŞU"
 
-msgid "FILES"
-msgstr "DOSYALAR"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3761,6 +3785,9 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "DONANIM TÜRÜNE GÖRE"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "ÇIKIŞ İÇİN KISAYOL TUŞLARINI SINIRLA"

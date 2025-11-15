@@ -950,6 +950,87 @@ msgstr "ESTASE AUDITANDO. QUERES DETELO PROCESO?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN XOGO COINCIDE CO CRITERIO."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "SUPERPOSICIÓNS"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CICLO DE BRILLO"
+
+msgid "COIN"
+msgstr "MOEDA"
+
+msgid "EXIT"
+msgstr "SAÍR"
+
+msgid "FAST FORWARD"
+msgstr "AVANCE RÁPIDO"
+
+msgid "MENU"
+msgstr "MENÚ"
+
+msgid "FILES"
+msgstr "FICHEIROS"
+
+msgid "NEXT DISK"
+msgstr "SEGUINTE DISCO"
+
+msgid "NEXT SLOT"
+msgstr "SEGUINTE RAÑURA"
+
+msgid "PAUSE"
+msgstr "PAUSA"
+
+msgid "PREVIOUS SLOT"
+msgstr "RAÑURA ANTERIOR"
+
+msgid "RESET"
+msgstr "RESTABELECER"
+
+msgid "RESTORE STATE"
+msgstr "RESTAURAR ESTADO"
+
+msgid "REWIND"
+msgstr "RECUAR"
+
+msgid "SAVE STATE"
+msgstr "GARDAR ESTADO"
+
+msgid "SCREEN LAYOUT"
+msgstr "DISTRIBUCIÓN DA PANTALLA"
+
+msgid "SWAP SCREEN"
+msgstr "TROCAR PANTALLA"
+
+msgid "TRANSLATION"
+msgstr "TRADUCIÓN"
+
+msgid "VOLUME DOWN"
+msgstr "BAIXAR VOLUME"
+
+msgid "VOLUME MUTE"
+msgstr "SILENCIAR VOLUME"
+
+msgid "VOLUME UP"
+msgstr "SUBIR VOLUME"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR NUN NOVO DISCO"
 
@@ -1813,9 +1894,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SUAVIZAR XOGOS (FILTRADO BILINEAL)"
 
-msgid "REWIND"
-msgstr "RECUAR"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Almacena estados pasados ​para recuar en tempo real, se o núcleo o admite."
@@ -2383,9 +2461,6 @@ msgstr "EDITAR OS METADATOS DESTE XOGO"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VER INFORMACIÓN DE MANDO A TECLADO"
 
-msgid "RESET"
-msgstr "RESTABELECER"
-
 msgid "ADD COMBINATION KEY"
 msgstr "ENGADIR COMBINACIÓN DE TECLA"
 
@@ -2434,8 +2509,11 @@ msgstr "ALFABÉTICO"
 msgid "BY MANUFACTURER"
 msgstr "POR FABRICANTE"
 
-msgid "BY HARDWARE TYPE"
-msgstr "POR TIPO DE HARDWARE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "POR FABRICANTE E TIPO"
@@ -2781,65 +2859,11 @@ msgstr "PAU ESQUERDO PREMER"
 msgid "RIGHT STICK PRESS"
 msgstr "PAU DEREITO PREMER"
 
-msgid "OVERLAYS"
-msgstr "SUPERPOSICIÓNS"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CICLO DE BRILLO"
-
-msgid "COIN"
-msgstr "MOEDA"
-
-msgid "EXIT"
-msgstr "SAÍR"
-
-msgid "FAST FORWARD"
-msgstr "AVANCE RÁPIDO"
-
-msgid "MENU"
-msgstr "MENÚ"
-
-msgid "NEXT DISK"
-msgstr "SEGUINTE DISCO"
-
-msgid "NEXT SLOT"
-msgstr "SEGUINTE RAÑURA"
-
-msgid "PAUSE"
-msgstr "PAUSA"
-
-msgid "PREVIOUS SLOT"
-msgstr "RAÑURA ANTERIOR"
-
-msgid "RESTORE STATE"
-msgstr "RESTAURAR ESTADO"
-
-msgid "SAVE STATE"
-msgstr "GARDAR ESTADO"
-
-msgid "SCREEN LAYOUT"
-msgstr "DISTRIBUCIÓN DA PANTALLA"
-
-msgid "SWAP SCREEN"
-msgstr "TROCAR PANTALLA"
-
-msgid "TRANSLATION"
-msgstr "TRADUCIÓN"
-
-msgid "VOLUME DOWN"
-msgstr "BAIXAR VOLUME"
-
-msgid "VOLUME MUTE"
-msgstr "SILENCIAR VOLUME"
-
-msgid "VOLUME UP"
-msgstr "SUBIR VOLUME"
-
 msgid "HOTKEY"
 msgstr "ATALLO"
 
-msgid "FILES"
-msgstr "FICHEIROS"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNHA NOVA TECLA DE ATALLO GOBLAL"
@@ -3755,6 +3779,9 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "POR TIPO DE HARDWARE"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "RESTRINXIR OS ATALLOS PARA SAÍR"

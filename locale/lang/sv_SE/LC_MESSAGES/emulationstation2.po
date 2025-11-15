@@ -940,6 +940,87 @@ msgstr "SKRAPNING PÅGÅR. VILL DU STOPPA DEN?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "ÖVERLAGRINGAR"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "LJUSHETSVÄXLING"
+
+msgid "COIN"
+msgstr "MYNT"
+
+msgid "EXIT"
+msgstr "AVSLUTA"
+
+msgid "FAST FORWARD"
+msgstr "SNABBT FRAMÅT"
+
+msgid "MENU"
+msgstr "MENY"
+
+msgid "FILES"
+msgstr "FILER"
+
+msgid "NEXT DISK"
+msgstr "NÄSTA DISK"
+
+msgid "NEXT SLOT"
+msgstr "NÄSTA PLATS"
+
+msgid "PAUSE"
+msgstr "PAUSA"
+
+msgid "PREVIOUS SLOT"
+msgstr "FÖREGÅENDE PLATS"
+
+msgid "RESET"
+msgstr "ÅTERSTÄLL"
+
+msgid "RESTORE STATE"
+msgstr "ÅTERSTÄLL TILLSTÅND"
+
+msgid "REWIND"
+msgstr "TILLBAKASPOLNING"
+
+msgid "SAVE STATE"
+msgstr "SPARA TILLSTÅND"
+
+msgid "SCREEN LAYOUT"
+msgstr "SKÄRMLAYOUT"
+
+msgid "SWAP SCREEN"
+msgstr "VÄXLA SKÄRM"
+
+msgid "TRANSLATION"
+msgstr "ÖVERSÄTTNING"
+
+msgid "VOLUME DOWN"
+msgstr "VOLYM NER"
+
+msgid "VOLUME MUTE"
+msgstr "VOLYM TYST"
+
+msgid "VOLUME UP"
+msgstr "VOLYM UPP"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALLERA PÅ EN NY DISK"
 
@@ -1793,9 +1874,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "UTJÄMNING I SPEL (BILINJÄR FILTRERING)"
 
-msgid "REWIND"
-msgstr "TILLBAKASPOLNING"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Lagra tidigare tillstånd för att spola tillbaka till i realtid, om kärnan "
@@ -2364,9 +2442,6 @@ msgstr "REDIGERA DETTA SPELETS METADATA"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VISA 'PAD TO KEYBOARD'-INFORMATION"
 
-msgid "RESET"
-msgstr "ÅTERSTÄLL"
-
 msgid "ADD COMBINATION KEY"
 msgstr "LÄGG TILL KOMBINATIONSNYCKEL"
 
@@ -2415,8 +2490,11 @@ msgstr "ALFABETISKT"
 msgid "BY MANUFACTURER"
 msgstr "EFTER TILLVERKARE"
 
-msgid "BY HARDWARE TYPE"
-msgstr "EFTER HÅRDVARUTYP"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "EFTER TILLVERKARE OCH TYP"
@@ -2762,65 +2840,11 @@ msgstr "TRYCK PÅ VÄNSTER SPAK"
 msgid "RIGHT STICK PRESS"
 msgstr "TRYCK PÅ HÖGER SPAK"
 
-msgid "OVERLAYS"
-msgstr "ÖVERLAGRINGAR"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "LJUSHETSVÄXLING"
-
-msgid "COIN"
-msgstr "MYNT"
-
-msgid "EXIT"
-msgstr "AVSLUTA"
-
-msgid "FAST FORWARD"
-msgstr "SNABBT FRAMÅT"
-
-msgid "MENU"
-msgstr "MENY"
-
-msgid "NEXT DISK"
-msgstr "NÄSTA DISK"
-
-msgid "NEXT SLOT"
-msgstr "NÄSTA PLATS"
-
-msgid "PAUSE"
-msgstr "PAUSA"
-
-msgid "PREVIOUS SLOT"
-msgstr "FÖREGÅENDE PLATS"
-
-msgid "RESTORE STATE"
-msgstr "ÅTERSTÄLL TILLSTÅND"
-
-msgid "SAVE STATE"
-msgstr "SPARA TILLSTÅND"
-
-msgid "SCREEN LAYOUT"
-msgstr "SKÄRMLAYOUT"
-
-msgid "SWAP SCREEN"
-msgstr "VÄXLA SKÄRM"
-
-msgid "TRANSLATION"
-msgstr "ÖVERSÄTTNING"
-
-msgid "VOLUME DOWN"
-msgstr "VOLYM NER"
-
-msgid "VOLUME MUTE"
-msgstr "VOLYM TYST"
-
-msgid "VOLUME UP"
-msgstr "VOLYM UPP"
-
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
-msgid "FILES"
-msgstr "FILER"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3736,6 +3760,9 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "EFTER HÅRDVARUTYP"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"

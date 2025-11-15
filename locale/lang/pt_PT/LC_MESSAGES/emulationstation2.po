@@ -946,6 +946,87 @@ msgstr "A PROCURA ESTÁ EM CURSO. DESEJA INTERROMPER?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NENHUM JOGO CORRESPONDE A ESSE CRITÉRIO.."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "SOBREPOSIÇÕES"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CICLO DE BRILHO"
+
+msgid "COIN"
+msgstr "MOEDA"
+
+msgid "EXIT"
+msgstr "SAÍDA"
+
+msgid "FAST FORWARD"
+msgstr "AVANÇAR RÁPIDO"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "FICHEIROS"
+
+msgid "NEXT DISK"
+msgstr "PRÓXIMO DISCO"
+
+msgid "NEXT SLOT"
+msgstr "PRÓXIMO SLOT"
+
+msgid "PAUSE"
+msgstr "PAUSA"
+
+msgid "PREVIOUS SLOT"
+msgstr "POSIÇÃO ANTERIOR"
+
+msgid "RESET"
+msgstr "REINICIAR"
+
+msgid "RESTORE STATE"
+msgstr "RESTAURAR ESTADO"
+
+msgid "REWIND"
+msgstr "REBOBINAR"
+
+msgid "SAVE STATE"
+msgstr "SAVE STATE"
+
+msgid "SCREEN LAYOUT"
+msgstr "LAYOUT DO ECRÃ"
+
+msgid "SWAP SCREEN"
+msgstr "TROCAR ECRÃ"
+
+msgid "TRANSLATION"
+msgstr "TRADUÇÃO"
+
+msgid "VOLUME DOWN"
+msgstr "BAIXAR O VOLUME"
+
+msgid "VOLUME MUTE"
+msgstr "SILENCIAR VOLUME"
+
+msgid "VOLUME UP"
+msgstr "AUMENTAR VOLUME"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR EM NOVO DISCO"
 
@@ -1803,9 +1884,6 @@ msgstr "Define a resolução do monitor. Não afeta a resolução da renderizaç
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
 
-msgid "REWIND"
-msgstr "REBOBINAR"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Armazenar savestates antigos para rebobinar em tempo real, se o núcleo "
@@ -2375,9 +2453,6 @@ msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VISUALIZAR INFORMAÇÕES DO RATO E TECLADO"
 
-msgid "RESET"
-msgstr "REINICIAR"
-
 msgid "ADD COMBINATION KEY"
 msgstr "ADICIONAR UMA COMBINAÇÃO DE TECLAS"
 
@@ -2426,8 +2501,11 @@ msgstr "POR ORDEM ALFABÉTICA"
 msgid "BY MANUFACTURER"
 msgstr "POR FABRICANTE"
 
-msgid "BY HARDWARE TYPE"
-msgstr "POR TIPO DE HARDWARE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "POR FABRICANTE E TIPO"
@@ -2774,65 +2852,11 @@ msgstr "PRESSIONE O ANALÓGICO ESQUERDO"
 msgid "RIGHT STICK PRESS"
 msgstr "PRESSIONE O ANALÓGICO DIREITO"
 
-msgid "OVERLAYS"
-msgstr "SOBREPOSIÇÕES"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CICLO DE BRILHO"
-
-msgid "COIN"
-msgstr "MOEDA"
-
-msgid "EXIT"
-msgstr "SAÍDA"
-
-msgid "FAST FORWARD"
-msgstr "AVANÇAR RÁPIDO"
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr "PRÓXIMO DISCO"
-
-msgid "NEXT SLOT"
-msgstr "PRÓXIMO SLOT"
-
-msgid "PAUSE"
-msgstr "PAUSA"
-
-msgid "PREVIOUS SLOT"
-msgstr "POSIÇÃO ANTERIOR"
-
-msgid "RESTORE STATE"
-msgstr "RESTAURAR ESTADO"
-
-msgid "SAVE STATE"
-msgstr "SAVE STATE"
-
-msgid "SCREEN LAYOUT"
-msgstr "LAYOUT DO ECRÃ"
-
-msgid "SWAP SCREEN"
-msgstr "TROCAR ECRÃ"
-
-msgid "TRANSLATION"
-msgstr "TRADUÇÃO"
-
-msgid "VOLUME DOWN"
-msgstr "BAIXAR O VOLUME"
-
-msgid "VOLUME MUTE"
-msgstr "SILENCIAR VOLUME"
-
-msgid "VOLUME UP"
-msgstr "AUMENTAR VOLUME"
-
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
-msgid "FILES"
-msgstr "FICHEIROS"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DEFINIR UMA NOVA TECLA DE HOTKEY GLOBAL"
@@ -3747,6 +3771,8 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "POR TIPO DE HARDWARE"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

@@ -946,6 +946,87 @@ msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "AUCUN JEU NE CORRESPOND."
 
+msgid "KEYBOARDTOPADS"
+msgstr "CONVERTISSEUR CLAVIER EN PADS"
+
+msgid "HOTKEYS"
+msgstr "HOTKEYS"
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr "TOUCHES DÉFINIES MAIS JOYSTICK NON NOMMÉ"
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr "JOYSTICK NOMMÉ MAIS TOUCHES NON DÉFINIES"
+
+msgid "JOYSTICK NAME"
+msgstr "NOM DU JOYSTICK"
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr "APPUYER SUR UNE TOUCHE OU ATTENDRE 4 SECONDES POUR EFFACER"
+
+msgid "OVERLAYS"
+msgstr "DÉCORATIONS"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CYCLE DE LUMINOSITÉ"
+
+msgid "COIN"
+msgstr "PIÈCE"
+
+msgid "EXIT"
+msgstr "SORTIE"
+
+msgid "FAST FORWARD"
+msgstr "AVANCE RAPIDE"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "FICHIERS"
+
+msgid "NEXT DISK"
+msgstr "DISQUE SUIVANT"
+
+msgid "NEXT SLOT"
+msgstr "EMPLACEMENT SUIVANT"
+
+msgid "PAUSE"
+msgstr "PAUSE"
+
+msgid "PREVIOUS SLOT"
+msgstr "EMPLACEMENT PRÉCÉDENT"
+
+msgid "RESET"
+msgstr "RAZ"
+
+msgid "RESTORE STATE"
+msgstr "RESTAURE ÉTAT"
+
+msgid "REWIND"
+msgstr "REMBOBINAGE"
+
+msgid "SAVE STATE"
+msgstr "ENREGISTRER ÉTAT"
+
+msgid "SCREEN LAYOUT"
+msgstr "DISPOSITION DE L'ÉCRAN"
+
+msgid "SWAP SCREEN"
+msgstr "CHANGER D'ÉCRAN"
+
+msgid "TRANSLATION"
+msgstr "TRADUCTION"
+
+msgid "VOLUME DOWN"
+msgstr "VOLUME BAS"
+
+msgid "VOLUME MUTE"
+msgstr "SOURDINE"
+
+msgid "VOLUME UP"
+msgstr "VOLUME HAUT"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALLATION SUR UN NOUVEAU DISQUE"
 
@@ -1803,9 +1884,6 @@ msgstr "Forcer l'émulateur dans cette résolution."
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "LISSER (FILTRAGE BILINÉAIRE)"
 
-msgid "REWIND"
-msgstr "REMBOBINAGE"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Enregistrer les états pour le rembobinage en temps réel, si le core le "
@@ -2375,9 +2453,6 @@ msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VOIR LE PROFIL MANETTE À CLAVIER"
 
-msgid "RESET"
-msgstr "RAZ"
-
 msgid "ADD COMBINATION KEY"
 msgstr "AJOUTER UNE COMBINAISON DE TOUCHES"
 
@@ -2426,8 +2501,11 @@ msgstr "ALPHABÉTIQUEMENT"
 msgid "BY MANUFACTURER"
 msgstr "PAR CONSTRUCTEUR"
 
-msgid "BY HARDWARE TYPE"
-msgstr "PAR TYPE DE MATÉRIEL"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr "PAR TYPE DE MATÉRIEL PUIS ALPHABÉTIQUEMENT"
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr "PAR TYPE DE MATÉRIEL PUIS PAR ANNÉE"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "PAR CONSTRUCTEUR ET TYPE DE MATÉRIEL"
@@ -2724,10 +2802,10 @@ msgid "JOYSTICKS HOTKEYS"
 msgstr "RACCOURCIS MANETTE"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTREINDRE LES HOTKEYS DES JOYSTICKS À QUITTER"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "HOTKEYS GLOBALES"
 
 msgid "default"
 msgstr "par défaut"
@@ -2774,77 +2852,23 @@ msgstr "PRESSION MANETTE GAUCHE"
 msgid "RIGHT STICK PRESS"
 msgstr "PRESSION MANETTE DROITE"
 
-msgid "OVERLAYS"
-msgstr "DÉCORATIONS"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CYCLE DE LUMINOSITÉ"
-
-msgid "COIN"
-msgstr "PIÈCE"
-
-msgid "EXIT"
-msgstr "SORTIE"
-
-msgid "FAST FORWARD"
-msgstr "AVANCE RAPIDE"
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr "DISQUE SUIVANT"
-
-msgid "NEXT SLOT"
-msgstr "EMPLACEMENT SUIVANT"
-
-msgid "PAUSE"
-msgstr "PAUSE"
-
-msgid "PREVIOUS SLOT"
-msgstr "EMPLACEMENT PRÉCÉDENT"
-
-msgid "RESTORE STATE"
-msgstr "RESTAURE ÉTAT"
-
-msgid "SAVE STATE"
-msgstr "ENREGISTRER ÉTAT"
-
-msgid "SCREEN LAYOUT"
-msgstr "DISPOSITION DE L'ÉCRAN"
-
-msgid "SWAP SCREEN"
-msgstr "CHANGER D'ÉCRAN"
-
-msgid "TRANSLATION"
-msgstr "TRADUCTION"
-
-msgid "VOLUME DOWN"
-msgstr "VOLUME BAS"
-
-msgid "VOLUME MUTE"
-msgstr "SOURDINE"
-
-msgid "VOLUME UP"
-msgstr "VOLUME HAUT"
-
 msgid "HOTKEY"
 msgstr "TOUCHE DE RACCOURCI"
 
-msgid "FILES"
-msgstr "FICHIERS"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr "PÉRIPHÉRIQUE NON TROUVÉ (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "DÉCLARER UNE NOUVELLE HOTKEY GLOBALE"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "VOUS AVEZ 4 SECONDES POUR PRESSER 2X LA HOTKEY GLOBALE"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "PAS DE HOTKEY GLOBALE DÉTECTÉE"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "PLUSIEURS HOTKEYS GLOBALES DÉTECTÉES"
 
 msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"
@@ -3749,6 +3773,9 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "PAR TYPE DE MATÉRIEL"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "RESTREINDRE LES HOTKEYS À EXIT"

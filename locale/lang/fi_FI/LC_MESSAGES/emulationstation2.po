@@ -941,6 +941,87 @@ msgstr "ETSINTÄ KÄYNNISSÄ. HALUATKO PYSÄYTTÄÄ SEN?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "MIKÄÄN PELI EI TÄYTÄ KRITEEREITÄ."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "VALIKKO"
+
+msgid "FILES"
+msgstr "TIEDOSTOT"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "TYHJENNÄ"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "TAKAISIN KELAUS"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "ASENNA UUDELLE LEVYLLE"
 
@@ -1788,9 +1869,6 @@ msgstr "Aseta näytön resoluutio. Ei vaikuta renderöitävään resoluution."
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
-msgid "REWIND"
-msgstr "TAKAISIN KELAUS"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Mikäli ydin sitä tukee, tallentaa pelintilaa, jotta sitä voidaan kelata "
@@ -2360,9 +2438,6 @@ msgstr "MUOKKAA TÄMÄN PELIN METADATAA"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "NÄYTÄ OHJAIMESTA-NÄPPÄIMISTÖÖN TIEDOT"
 
-msgid "RESET"
-msgstr "TYHJENNÄ"
-
 msgid "ADD COMBINATION KEY"
 msgstr ""
 
@@ -2411,8 +2486,11 @@ msgstr "AAKOSJÄRJESTYKSEEN"
 msgid "BY MANUFACTURER"
 msgstr "VALMISTAJAN MUKAAN"
 
-msgid "BY HARDWARE TYPE"
-msgstr "LAITTEISTON MUKAAN"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "VALMISTAJAN JA LAITTEISTON MUKAAN"
@@ -2755,65 +2833,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "VALIKKO"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "TIEDOSTOT"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3724,6 +3748,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "LAITTEISTON MUKAAN"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "TIEDONETSIJÄN ASETUKSET"

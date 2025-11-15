@@ -948,6 +948,87 @@ msgstr "PRELUAREA INFORMAȚIILOR ESTE ÎN CURS. DOREȘTI SĂ O OPREȘTI?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NICIUN JOC NU SE POTRIVEȘTE CU CRITERIUL."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "OVERLAY-URI"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CICLARE LUMINOZITATE"
+
+msgid "COIN"
+msgstr "MONEDĂ"
+
+msgid "EXIT"
+msgstr "IEȘIRE"
+
+msgid "FAST FORWARD"
+msgstr "REPEDE ÎNAINTE"
+
+msgid "MENU"
+msgstr "MENIU"
+
+msgid "FILES"
+msgstr "FIȘIERE"
+
+msgid "NEXT DISK"
+msgstr "DISCUL URMĂTOR"
+
+msgid "NEXT SLOT"
+msgstr "SLOTUL URMĂTOR"
+
+msgid "PAUSE"
+msgstr "PAUZĂ"
+
+msgid "PREVIOUS SLOT"
+msgstr "SLOTUL ANTERIOR"
+
+msgid "RESET"
+msgstr "RESETEAZĂ"
+
+msgid "RESTORE STATE"
+msgstr "RESTAUREAZĂ STAREA"
+
+msgid "REWIND"
+msgstr "REWIND"
+
+msgid "SAVE STATE"
+msgstr "SALVEAZĂ STAREA"
+
+msgid "SCREEN LAYOUT"
+msgstr "DISPUNERE ECRAN"
+
+msgid "SWAP SCREEN"
+msgstr "INTERSCHIMBĂ ECRANELE"
+
+msgid "TRANSLATION"
+msgstr "TRADUCERE"
+
+msgid "VOLUME DOWN"
+msgstr "REDUCERE VOLUM"
+
+msgid "VOLUME MUTE"
+msgstr "OPRIRE VOLUM"
+
+msgid "VOLUME UP"
+msgstr "CREȘTERE VOLUM"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALEAZĂ PE UN DISC NOU"
 
@@ -1811,9 +1892,6 @@ msgstr "Setează rezoluția ecranului. Nu afectează rezoluția de redare."
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "NETEZEȘTE JOCURILE (FILTRARE BILINEARĂ)"
 
-msgid "REWIND"
-msgstr "REWIND"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Stochează stările trecute pentru a te putea întoarce în trecut în timp real, "
@@ -2383,9 +2461,6 @@ msgstr "EDITEAZĂ METADATELE ACESTUI JOC"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VEZI INFORMAȚIA PADTOKEY"
 
-msgid "RESET"
-msgstr "RESETEAZĂ"
-
 msgid "ADD COMBINATION KEY"
 msgstr "ADAUGĂ O TASTĂ DE COMBINAȚIE"
 
@@ -2434,8 +2509,11 @@ msgstr "ALFABETIC"
 msgid "BY MANUFACTURER"
 msgstr "DUPĂ PRODUCĂTOR"
 
-msgid "BY HARDWARE TYPE"
-msgstr "DUPĂ TIPUL DE HARDWARE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "DUPĂ PRODUCĂTOR ȘI TIP"
@@ -2782,65 +2860,11 @@ msgstr "APĂSARE JOYSTICK STÂNG"
 msgid "RIGHT STICK PRESS"
 msgstr "APĂSARE JOYSTICK DREPT"
 
-msgid "OVERLAYS"
-msgstr "OVERLAY-URI"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CICLARE LUMINOZITATE"
-
-msgid "COIN"
-msgstr "MONEDĂ"
-
-msgid "EXIT"
-msgstr "IEȘIRE"
-
-msgid "FAST FORWARD"
-msgstr "REPEDE ÎNAINTE"
-
-msgid "MENU"
-msgstr "MENIU"
-
-msgid "NEXT DISK"
-msgstr "DISCUL URMĂTOR"
-
-msgid "NEXT SLOT"
-msgstr "SLOTUL URMĂTOR"
-
-msgid "PAUSE"
-msgstr "PAUZĂ"
-
-msgid "PREVIOUS SLOT"
-msgstr "SLOTUL ANTERIOR"
-
-msgid "RESTORE STATE"
-msgstr "RESTAUREAZĂ STAREA"
-
-msgid "SAVE STATE"
-msgstr "SALVEAZĂ STAREA"
-
-msgid "SCREEN LAYOUT"
-msgstr "DISPUNERE ECRAN"
-
-msgid "SWAP SCREEN"
-msgstr "INTERSCHIMBĂ ECRANELE"
-
-msgid "TRANSLATION"
-msgstr "TRADUCERE"
-
-msgid "VOLUME DOWN"
-msgstr "REDUCERE VOLUM"
-
-msgid "VOLUME MUTE"
-msgstr "OPRIRE VOLUM"
-
-msgid "VOLUME UP"
-msgstr "CREȘTERE VOLUM"
-
 msgid "HOTKEY"
 msgstr "TASTĂ RAPIDĂ"
 
-msgid "FILES"
-msgstr "FIȘIERE"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3769,6 +3793,9 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "DUPĂ TIPUL DE HARDWARE"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "LIMITEAZĂ TASTELE RAPIDE DE IEȘIRE"

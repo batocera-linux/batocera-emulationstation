@@ -942,6 +942,87 @@ msgstr "LEKÉRÉS FUT. MEG AKAROD ÁLLÍTANI?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINCS A FELTÉTELEKNEK MEGFELELŐ JÁTÉK."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "ÁTFEDÉSEK"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "FÉNYERŐ CIKLUS"
+
+msgid "COIN"
+msgstr "ÉRME"
+
+msgid "EXIT"
+msgstr "KIJÁRAT"
+
+msgid "FAST FORWARD"
+msgstr "GYORS ELŐRE"
+
+msgid "MENU"
+msgstr "MENÜ"
+
+msgid "FILES"
+msgstr "FÁJLOK"
+
+msgid "NEXT DISK"
+msgstr "KÖVETKEZŐ LEMEZ"
+
+msgid "NEXT SLOT"
+msgstr "KÖVETKEZŐ SLOT"
+
+msgid "PAUSE"
+msgstr "SZÜNET"
+
+msgid "PREVIOUS SLOT"
+msgstr "ELŐZŐ HELY"
+
+msgid "RESET"
+msgstr "RESET"
+
+msgid "RESTORE STATE"
+msgstr "ÁLLAPOT VISSZAÁLLÍTÁSA"
+
+msgid "REWIND"
+msgstr "VISSZATEKER"
+
+msgid "SAVE STATE"
+msgstr "ÁLLAPOT MENTÉSE"
+
+msgid "SCREEN LAYOUT"
+msgstr "KÉPERNYŐELRENDEZÉS"
+
+msgid "SWAP SCREEN"
+msgstr "KÉPERNYŐ CSERE"
+
+msgid "TRANSLATION"
+msgstr "FORDÍTÁS"
+
+msgid "VOLUME DOWN"
+msgstr "HANGERŐ LE"
+
+msgid "VOLUME MUTE"
+msgstr "HANGERŐ NÉMÍTÁS"
+
+msgid "VOLUME UP"
+msgstr "HANGERŐ NÖVELÉSE"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "TELEPÍTÉS ÚJ LEMEZRE"
 
@@ -1808,9 +1889,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SIMA JÁTÉKOK (BILINEÁRIS SZŰRÉS)"
 
-msgid "REWIND"
-msgstr "VISSZATEKER"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Tárolja a múltbeli állapotokat a valós idejű visszatekeréshez, ha a mag "
@@ -2382,9 +2460,6 @@ msgstr "JÁTÉK METAADATAINAK SZERKESZTÉSE"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "PAD2KEY INFORMÁCIÓ"
 
-msgid "RESET"
-msgstr "RESET"
-
 msgid "ADD COMBINATION KEY"
 msgstr "KOMBINÁCIÓS BILLENTYŰ MEGADÁSA"
 
@@ -2433,8 +2508,11 @@ msgstr "NÉVSORRENDBEN"
 msgid "BY MANUFACTURER"
 msgstr "GYÁRTÓ SZERINT"
 
-msgid "BY HARDWARE TYPE"
-msgstr "HARDVER TÍPUS SZERINT"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "GYÁRTÓ ÉS TÍPUS SZERINT"
@@ -2782,65 +2860,11 @@ msgstr "BAL KAR NYOMÁS"
 msgid "RIGHT STICK PRESS"
 msgstr "JOBB BOT NYOMÁSA"
 
-msgid "OVERLAYS"
-msgstr "ÁTFEDÉSEK"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "FÉNYERŐ CIKLUS"
-
-msgid "COIN"
-msgstr "ÉRME"
-
-msgid "EXIT"
-msgstr "KIJÁRAT"
-
-msgid "FAST FORWARD"
-msgstr "GYORS ELŐRE"
-
-msgid "MENU"
-msgstr "MENÜ"
-
-msgid "NEXT DISK"
-msgstr "KÖVETKEZŐ LEMEZ"
-
-msgid "NEXT SLOT"
-msgstr "KÖVETKEZŐ SLOT"
-
-msgid "PAUSE"
-msgstr "SZÜNET"
-
-msgid "PREVIOUS SLOT"
-msgstr "ELŐZŐ HELY"
-
-msgid "RESTORE STATE"
-msgstr "ÁLLAPOT VISSZAÁLLÍTÁSA"
-
-msgid "SAVE STATE"
-msgstr "ÁLLAPOT MENTÉSE"
-
-msgid "SCREEN LAYOUT"
-msgstr "KÉPERNYŐELRENDEZÉS"
-
-msgid "SWAP SCREEN"
-msgstr "KÉPERNYŐ CSERE"
-
-msgid "TRANSLATION"
-msgstr "FORDÍTÁS"
-
-msgid "VOLUME DOWN"
-msgstr "HANGERŐ LE"
-
-msgid "VOLUME MUTE"
-msgstr "HANGERŐ NÉMÍTÁS"
-
-msgid "VOLUME UP"
-msgstr "HANGERŐ NÖVELÉSE"
-
 msgid "HOTKEY"
 msgstr "GYORSBILLENTYŰ"
 
-msgid "FILES"
-msgstr "FÁJLOK"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ÚJ GLOBÁLIS GYORSBILLENTYŰ MEGADÁSA"
@@ -3093,8 +3117,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztráció szükséges! Kérlek készíts egyet itt: https://"
-"retroachievements.org"
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Teljes"
@@ -3758,6 +3782,9 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "HARDVER TÍPUS SZERINT"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "A KILÉPÉSHEZ SZÜKSÉGES GYORSBILLENTYŰK KORLÁTOZÁSA"
