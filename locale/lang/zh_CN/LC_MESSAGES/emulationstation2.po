@@ -935,6 +935,87 @@ msgstr "正在进行数据抓取。是否停止？"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "叠加层"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "亮度循环"
+
+msgid "COIN"
+msgstr "投币"
+
+msgid "EXIT"
+msgstr "退出"
+
+msgid "FAST FORWARD"
+msgstr "快进"
+
+msgid "MENU"
+msgstr "菜单"
+
+msgid "FILES"
+msgstr "文件"
+
+msgid "NEXT DISK"
+msgstr "下一张磁盘"
+
+msgid "NEXT SLOT"
+msgstr "下一个槽位"
+
+msgid "PAUSE"
+msgstr "暂停"
+
+msgid "PREVIOUS SLOT"
+msgstr "上一个槽位"
+
+msgid "RESET"
+msgstr "重置"
+
+msgid "RESTORE STATE"
+msgstr "恢复状态"
+
+msgid "REWIND"
+msgstr "倒退功能"
+
+msgid "SAVE STATE"
+msgstr "保存状态"
+
+msgid "SCREEN LAYOUT"
+msgstr "屏幕布局"
+
+msgid "SWAP SCREEN"
+msgstr "交换屏幕"
+
+msgid "TRANSLATION"
+msgstr "翻译"
+
+msgid "VOLUME DOWN"
+msgstr "减小音量"
+
+msgid "VOLUME MUTE"
+msgstr "静音音量"
+
+msgid "VOLUME UP"
+msgstr "增大音量"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "安装到新的磁盘"
 
@@ -1770,9 +1851,6 @@ msgstr "设置显示器的分辨率。不会影响游戏渲染分辨率。"
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑游戏（双线性过滤）"
 
-msgid "REWIND"
-msgstr "倒退功能"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr "如果核心支持，将过去的状态存储起来用于实时倒退。"
 
@@ -2338,9 +2416,6 @@ msgstr "编辑此游戏元数据"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "查看键盘映射信息"
 
-msgid "RESET"
-msgstr "重置"
-
 msgid "ADD COMBINATION KEY"
 msgstr "增加组合键"
 
@@ -2389,8 +2464,11 @@ msgstr "按字母排序"
 msgid "BY MANUFACTURER"
 msgstr "按制造商"
 
-msgid "BY HARDWARE TYPE"
-msgstr "按硬件类型"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "按制造商和类型"
@@ -2735,65 +2813,11 @@ msgstr "左摇杆按下"
 msgid "RIGHT STICK PRESS"
 msgstr "右摇杆按下"
 
-msgid "OVERLAYS"
-msgstr "叠加层"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "亮度循环"
-
-msgid "COIN"
-msgstr "投币"
-
-msgid "EXIT"
-msgstr "退出"
-
-msgid "FAST FORWARD"
-msgstr "快进"
-
-msgid "MENU"
-msgstr "菜单"
-
-msgid "NEXT DISK"
-msgstr "下一张磁盘"
-
-msgid "NEXT SLOT"
-msgstr "下一个槽位"
-
-msgid "PAUSE"
-msgstr "暂停"
-
-msgid "PREVIOUS SLOT"
-msgstr "上一个槽位"
-
-msgid "RESTORE STATE"
-msgstr "恢复状态"
-
-msgid "SAVE STATE"
-msgstr "保存状态"
-
-msgid "SCREEN LAYOUT"
-msgstr "屏幕布局"
-
-msgid "SWAP SCREEN"
-msgstr "交换屏幕"
-
-msgid "TRANSLATION"
-msgstr "翻译"
-
-msgid "VOLUME DOWN"
-msgstr "减小音量"
-
-msgid "VOLUME MUTE"
-msgstr "静音音量"
-
-msgid "VOLUME UP"
-msgstr "增大音量"
-
 msgid "HOTKEY"
 msgstr "热键"
 
-msgid "FILES"
-msgstr "文件"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新建全局热键"
@@ -3694,6 +3718,9 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "按硬件类型"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "限制热键退出"

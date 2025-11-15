@@ -109,6 +109,26 @@ struct GlobalHotkey
   std::string action;
 };
 
+struct Keyboardtopad
+{
+  std::string name;
+  std::string config;
+  std::string device_path;
+};
+
+struct KeyboardtopadKey
+{
+  std::string name;
+  std::string value;
+};
+
+struct KeyboardtopadDevice
+{
+  std::string name;
+  std::string type;
+  std::vector<KeyboardtopadKey> keys;
+};
+
 class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
@@ -333,6 +353,12 @@ public:
     	virtual std::vector<GlobalHotkey> getGlobalHotkeys();
       	virtual void removeGlobalHotkey(const std::string& config, const std::string& key);
     	virtual void setGlobalHotkey(const std::string& config, const std::string& key, const std::string& action);
+
+      	virtual std::vector<Keyboardtopad> getKeyboardtopads();
+      	virtual std::vector<KeyboardtopadDevice> getKeyboardtopadDevices(std::string config);
+      	virtual std::vector<KeyboardtopadKey> getKeyboardtopadKeyValues();
+      	virtual std::string detectEvKey(const std::string& device_path);
+      	virtual void saveKeyboardtopads(Keyboardtopad ktp, const std::vector<KeyboardtopadDevice>& ktp_devices);
 
 	virtual std::vector<std::string> backglassThemes();
 	virtual void restartBackglass();

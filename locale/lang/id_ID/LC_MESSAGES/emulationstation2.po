@@ -941,6 +941,87 @@ msgstr "PENGUMPULAN DATA SEDANG BERJALAN. INGIN BERHENTI?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "TIDAK ADA GAME YANG COCOK DENGAN KRITERIA ITU."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "FILE"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "MENGATUR ULANG"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "MEMUTAR ULANG"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALL PADA DISK BARU"
 
@@ -1794,9 +1875,6 @@ msgstr "Mengatur resolusi tampilan. Tidak memengaruhi resolusi rendering."
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "GAME HALUS (FILTERING BILINEAR)"
 
-msgid "REWIND"
-msgstr "MEMUTAR ULANG"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Simpan status masa lalu untuk mundur secara real time, jika core mendukung."
@@ -2363,9 +2441,6 @@ msgstr "EDIT METADATA GAME INI"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "LIHAT INFORMASI PAD KE KEYBOARD"
 
-msgid "RESET"
-msgstr "MENGATUR ULANG"
-
 msgid "ADD COMBINATION KEY"
 msgstr "TAMBAH KOMBINASI"
 
@@ -2414,8 +2489,11 @@ msgstr "URUT ALFABET"
 msgid "BY MANUFACTURER"
 msgstr "BERDASARKAN PRODUSEN"
 
-msgid "BY HARDWARE TYPE"
-msgstr "BERDASARKAN TIPE HARDWARE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "BERDASARKAN PRODUSEN DAN TIPE"
@@ -2761,65 +2839,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "FILE"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3722,6 +3746,9 @@ msgid ""
 msgstr ""
 "KALIBRASI GUN\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "BERDASARKAN TIPE HARDWARE"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "BATASI HOTKEY UNTUK KELUAR"

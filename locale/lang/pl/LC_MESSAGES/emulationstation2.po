@@ -944,6 +944,87 @@ msgstr "SCRAPE JEST W TRAKCIE DZIAŁANIA. CZY CHCESZ GO ZATRZYMAĆ?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "ŻADNA GRA NIE SPEŁNIA KRYTERIUM."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "NAKŁADKI"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "CYKL JASNOŚCI"
+
+msgid "COIN"
+msgstr "MONETA"
+
+msgid "EXIT"
+msgstr "WYJDŹ"
+
+msgid "FAST FORWARD"
+msgstr "PRZEWIŃ DO PRZODU"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "PLIKI"
+
+msgid "NEXT DISK"
+msgstr "NASTĘPNY DYSK"
+
+msgid "NEXT SLOT"
+msgstr "NASTĘPNA POZYCJA"
+
+msgid "PAUSE"
+msgstr "PAUZA"
+
+msgid "PREVIOUS SLOT"
+msgstr "POPRZEDNIA POZYCJA"
+
+msgid "RESET"
+msgstr "ZRESETUJ"
+
+msgid "RESTORE STATE"
+msgstr "PRZYWRÓĆ STAN"
+
+msgid "REWIND"
+msgstr "PRZEWIJANIE"
+
+msgid "SAVE STATE"
+msgstr "ZAPISZ STAN"
+
+msgid "SCREEN LAYOUT"
+msgstr "UKŁAD EKRANU"
+
+msgid "SWAP SCREEN"
+msgstr "ZAMIEŃ EKRAN"
+
+msgid "TRANSLATION"
+msgstr "TŁUMACZENIE"
+
+msgid "VOLUME DOWN"
+msgstr "ZMNIEJSZ GŁOŚNOŚĆ"
+
+msgid "VOLUME MUTE"
+msgstr "WYCISZ GŁOŚNOŚĆ"
+
+msgid "VOLUME UP"
+msgstr "ZWIĘKSZ GŁOŚNOŚĆ"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "ZAINSTALUJ NA NOWYM DYSKU"
 
@@ -1804,9 +1885,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
 
-msgid "REWIND"
-msgstr "PRZEWIJANIE"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Przechowuj poprzednie stany, aby przewinąć do nich w czasie rzeczywistym, "
@@ -2376,9 +2454,6 @@ msgstr "EDYTUJ METADANE GRY"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "ZOBACZ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"
 
-msgid "RESET"
-msgstr "ZRESETUJ"
-
 msgid "ADD COMBINATION KEY"
 msgstr "DODAJ KLUCZ KOMBINACJI"
 
@@ -2427,8 +2502,11 @@ msgstr "ALFABETYCZNIE"
 msgid "BY MANUFACTURER"
 msgstr "WEDŁUG PRODUCENTA"
 
-msgid "BY HARDWARE TYPE"
-msgstr "WEDŁUG SPRZĘTU"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "WEDŁUG PRODUCENTA I RODZAJU"
@@ -2775,65 +2853,11 @@ msgstr "NACIŚNIĘCIE LEWEGO ANALOGA"
 msgid "RIGHT STICK PRESS"
 msgstr "NACIŚNIĘCIE PRAWEGO ANALOGA"
 
-msgid "OVERLAYS"
-msgstr "NAKŁADKI"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "CYKL JASNOŚCI"
-
-msgid "COIN"
-msgstr "MONETA"
-
-msgid "EXIT"
-msgstr "WYJDŹ"
-
-msgid "FAST FORWARD"
-msgstr "PRZEWIŃ DO PRZODU"
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr "NASTĘPNY DYSK"
-
-msgid "NEXT SLOT"
-msgstr "NASTĘPNA POZYCJA"
-
-msgid "PAUSE"
-msgstr "PAUZA"
-
-msgid "PREVIOUS SLOT"
-msgstr "POPRZEDNIA POZYCJA"
-
-msgid "RESTORE STATE"
-msgstr "PRZYWRÓĆ STAN"
-
-msgid "SAVE STATE"
-msgstr "ZAPISZ STAN"
-
-msgid "SCREEN LAYOUT"
-msgstr "UKŁAD EKRANU"
-
-msgid "SWAP SCREEN"
-msgstr "ZAMIEŃ EKRAN"
-
-msgid "TRANSLATION"
-msgstr "TŁUMACZENIE"
-
-msgid "VOLUME DOWN"
-msgstr "ZMNIEJSZ GŁOŚNOŚĆ"
-
-msgid "VOLUME MUTE"
-msgstr "WYCISZ GŁOŚNOŚĆ"
-
-msgid "VOLUME UP"
-msgstr "ZWIĘKSZ GŁOŚNOŚĆ"
-
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
-msgid "FILES"
-msgstr "PLIKI"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "STWÓRZ NOWY GLOBALNY HOTKEY"
@@ -3758,6 +3782,9 @@ msgid ""
 msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "WEDŁUG SPRZĘTU"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "OGRANICZ SKRÓTY DO WYJŚCIA"

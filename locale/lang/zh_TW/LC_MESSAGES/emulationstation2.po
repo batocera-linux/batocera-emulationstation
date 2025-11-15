@@ -937,6 +937,87 @@ msgstr "搜刮器已在執行中。您要停止它嗎？"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "沒有符合該標準的遊戲。"
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "主選單"
+
+msgid "FILES"
+msgstr "檔案"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "重置"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "倒帶功能"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "安裝至新的磁碟"
 
@@ -1771,9 +1852,6 @@ msgstr "指定顯示裝置的解析度。不會影響渲染解析度。"
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑遊戲畫面（雙線性過濾）"
 
-msgid "REWIND"
-msgstr "倒帶功能"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr "如果模擬器核心支援的話，儲存過去的狀態用以即時倒帶。"
 
@@ -2339,9 +2417,6 @@ msgstr "編輯此遊戲的中繼資料"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "檢視手把轉鍵盤資訊"
 
-msgid "RESET"
-msgstr "重置"
-
 msgid "ADD COMBINATION KEY"
 msgstr "新增組合按鍵"
 
@@ -2390,8 +2465,11 @@ msgstr "依字母順序"
 msgid "BY MANUFACTURER"
 msgstr "依製作廠商"
 
-msgid "BY HARDWARE TYPE"
-msgstr "依硬體類型"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "依製造商以及類型"
@@ -2736,65 +2814,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "主選單"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "檔案"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3694,6 +3718,9 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "依硬體類型"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "限制熱鍵退出"

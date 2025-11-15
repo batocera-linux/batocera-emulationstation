@@ -945,6 +945,87 @@ msgstr "ĐANG LẤY DỮ LIỆU TRÒ CHƠI. BẠN CÓ MUỐN DỪNG LẠI KHÔNG
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "KHÔNG CÓ TRÒ CHƠI PHÙ HỢP VỚI TIÊU CHÍ ĐÓ."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "TỆP"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "ĐẶT LẠI"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "TUA LẠI"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "CÀI ĐẶT TRÊN ĐĨA MỚI"
 
@@ -1801,9 +1882,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "TRÒ CHƠI MƯỢT (LỌC BILINEAR)"
 
-msgid "REWIND"
-msgstr "TUA LẠI"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Lưu trữ các trạng thái trước đây để tua lại trong thời gian thực, nếu lõi hỗ "
@@ -2373,9 +2451,6 @@ msgstr "CHỈNH METADATA CỦA TRÒ CHƠI NÀY"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "XEM THÔNG TIN PAD TO KEYBOARD"
 
-msgid "RESET"
-msgstr "ĐẶT LẠI"
-
 msgid "ADD COMBINATION KEY"
 msgstr "THÊM PHÍM TỔ HỢP"
 
@@ -2424,8 +2499,11 @@ msgstr "THEO THỨ TỰ BẢNG CHỮ CÁI"
 msgid "BY MANUFACTURER"
 msgstr "THEO NHÀ XUẤT BẢN"
 
-msgid "BY HARDWARE TYPE"
-msgstr "THEO LOẠI PHẦN CỨNG"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "THEO NHÀ SẢN XUẤT VÀ LOẠI"
@@ -2772,65 +2850,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "TỆP"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3734,6 +3758,9 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "THEO LOẠI PHẦN CỨNG"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "CÀI ĐẶT LẤY DỮ LIỆU"

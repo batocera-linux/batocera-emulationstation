@@ -39,9 +39,9 @@ public:
 		mMenu.addRow(row); 
 	}
 
-	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false) 
+        inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false, const std::function<void()>& func = nullptr)
 	{ 
-		mMenu.addWithLabel(label, comp, nullptr, "", setCursorHere); 
+		mMenu.addWithLabel(label, comp, func, "", setCursorHere);
 	}
 
 	inline void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false) 
@@ -79,7 +79,8 @@ public:
 		mMenu.updateSize();
 	}
 	
-	void addInputTextRow(const std::string& title, const std::string& settingsID, bool password, bool storeInSettings = false, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr);
+	void addInputTextConfigRow(const std::string& title, const std::string& settingsID, bool password, bool storeInSettings = false, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr);
+  	void addInputTextRow(const std::string& title, const std::string& value, bool password, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr, const std::function<void(std::string)>& onsave = nullptr);
 	void addFileBrowser(const std::string& title, const std::string& settingsID, GuiFileBrowser::FileTypes type, bool storeInSettings = false);
 	
 	std::shared_ptr<SwitchComponent> addSwitch(const std::string& title, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged = nullptr) { return addSwitch(title, "", settingsID, storeInSettings, onChanged); }

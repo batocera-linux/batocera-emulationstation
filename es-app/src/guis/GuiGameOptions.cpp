@@ -192,8 +192,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					msgBox->addSaveFunc([public_announce] { SystemConf::getInstance()->setBool("global.netplay_public_announce", public_announce->getState()); });
 
 					// passwords
-					msgBox->addInputTextRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
-					msgBox->addInputTextRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
+					msgBox->addInputTextConfigRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
+					msgBox->addInputTextConfigRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
 					mWindow->pushGui(msgBox);
 					close();
 				});

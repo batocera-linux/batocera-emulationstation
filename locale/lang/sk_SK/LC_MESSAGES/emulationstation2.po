@@ -942,6 +942,87 @@ msgstr "Beží vyhľadávanie. Chcete ho zastaviť?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "Žiadne hry vyhovujúce kritériu."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "Ponuka"
+
+msgid "FILES"
+msgstr "Súbory"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "Obnoviť"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "Pretočiť"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "Nainštalovať na nový disk"
 
@@ -1794,9 +1875,6 @@ msgstr "Nastaví rozlíšenie obrazovky. Nemá vplyv na renderovacie rozlíšeni
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "Vyhladené hry (bilineárne filtrovanie)"
 
-msgid "REWIND"
-msgstr "Pretočiť"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 "Uložiť minulé stavy na pretočenie v reálnom čase, ak to jadro podporuje."
@@ -2364,9 +2442,6 @@ msgstr "Upraviť metadáta tejto hry"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "Zobraziť informáciu o tlačidle na klávesnicu"
 
-msgid "RESET"
-msgstr "Obnoviť"
-
 msgid "ADD COMBINATION KEY"
 msgstr "Pridať klávesu kombinácie"
 
@@ -2415,8 +2490,11 @@ msgstr "Abecedne"
 msgid "BY MANUFACTURER"
 msgstr "Podľa výrobcu"
 
-msgid "BY HARDWARE TYPE"
-msgstr "Podľa typu hardvéru"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "Podľa výrobcu a typu"
@@ -2763,65 +2841,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "Ponuka"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "Súbory"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3747,6 +3771,9 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "Podľa typu hardvéru"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "Nastavenia vyhľadávača"

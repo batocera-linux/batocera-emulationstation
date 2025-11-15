@@ -939,6 +939,87 @@ msgstr "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO GAMES FIT THAT CRITERIA."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "FILES"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "RESET"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "REWIND"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALL ON A NEW DISK"
 
@@ -1786,9 +1867,6 @@ msgstr ""
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SMOOTH GAMES (BILINEAR FILTERING)"
 
-msgid "REWIND"
-msgstr "REWIND"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr "Store past states to rewind to in realtime, if the core supports it."
 
@@ -2355,9 +2433,6 @@ msgstr "EDIT THIS GAME'S METADATA"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VIEW PAD TO KEYBOARD INFORMATION"
 
-msgid "RESET"
-msgstr "RESET"
-
 msgid "ADD COMBINATION KEY"
 msgstr "ADD COMBINATION KEY"
 
@@ -2406,8 +2481,11 @@ msgstr "ALPHABETICALLY"
 msgid "BY MANUFACTURER"
 msgstr "BY MANUFACTURER"
 
-msgid "BY HARDWARE TYPE"
-msgstr "BY HARDWARE TYPE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "BY MANUFACTURER AND TYPE"
@@ -2753,65 +2831,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "FILES"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3727,6 +3751,9 @@ msgid ""
 msgstr ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "BY HARDWARE TYPE"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "SCRAPER SETTINGS"

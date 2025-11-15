@@ -939,6 +939,87 @@ msgstr "스크랩이 진행 중입니다. 중지할까요?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "오버레이"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "밝기 사이클"
+
+msgid "COIN"
+msgstr "동전"
+
+msgid "EXIT"
+msgstr "나가기"
+
+msgid "FAST FORWARD"
+msgstr "빨리 감기"
+
+msgid "MENU"
+msgstr "메뉴"
+
+msgid "FILES"
+msgstr "파일"
+
+msgid "NEXT DISK"
+msgstr "다음 디스크"
+
+msgid "NEXT SLOT"
+msgstr "다음 슬롯"
+
+msgid "PAUSE"
+msgstr "일시 정지"
+
+msgid "PREVIOUS SLOT"
+msgstr "이전 슬롯"
+
+msgid "RESET"
+msgstr "재설정"
+
+msgid "RESTORE STATE"
+msgstr "상태 복원"
+
+msgid "REWIND"
+msgstr "되감기"
+
+msgid "SAVE STATE"
+msgstr "상태 저장"
+
+msgid "SCREEN LAYOUT"
+msgstr "화면 레이아웃"
+
+msgid "SWAP SCREEN"
+msgstr "화면 교체"
+
+msgid "TRANSLATION"
+msgstr "번역"
+
+msgid "VOLUME DOWN"
+msgstr "볼륨 낮추기"
+
+msgid "VOLUME MUTE"
+msgstr "볼륨 음소거"
+
+msgid "VOLUME UP"
+msgstr "볼륨 높이기"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "새 디스크에 설치"
 
@@ -1784,9 +1865,6 @@ msgstr "화면 해상도를 설정합니다. 렌더링 해상도에는 영향을
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "부드러운 게임 (이중선형 필터링)"
 
-msgid "REWIND"
-msgstr "되감기"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr "코어가 지원하면 실시간 되감기 기능을 위해 지난 상태를 저장합니다."
 
@@ -2352,9 +2430,6 @@ msgstr "게임 메타데이터 편집"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "패드에서 키보드 정보 보기"
 
-msgid "RESET"
-msgstr "재설정"
-
 msgid "ADD COMBINATION KEY"
 msgstr "콤보 키 추가"
 
@@ -2403,8 +2478,11 @@ msgstr "알파벳순"
 msgid "BY MANUFACTURER"
 msgstr "제조사순"
 
-msgid "BY HARDWARE TYPE"
-msgstr "하드웨어 유형순"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "제조사 및 유형별"
@@ -2750,65 +2828,11 @@ msgstr "왼쪽 스틱 누르기"
 msgid "RIGHT STICK PRESS"
 msgstr "오른쪽 스틱 누르기"
 
-msgid "OVERLAYS"
-msgstr "오버레이"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "밝기 사이클"
-
-msgid "COIN"
-msgstr "동전"
-
-msgid "EXIT"
-msgstr "나가기"
-
-msgid "FAST FORWARD"
-msgstr "빨리 감기"
-
-msgid "MENU"
-msgstr "메뉴"
-
-msgid "NEXT DISK"
-msgstr "다음 디스크"
-
-msgid "NEXT SLOT"
-msgstr "다음 슬롯"
-
-msgid "PAUSE"
-msgstr "일시 정지"
-
-msgid "PREVIOUS SLOT"
-msgstr "이전 슬롯"
-
-msgid "RESTORE STATE"
-msgstr "상태 복원"
-
-msgid "SAVE STATE"
-msgstr "상태 저장"
-
-msgid "SCREEN LAYOUT"
-msgstr "화면 레이아웃"
-
-msgid "SWAP SCREEN"
-msgstr "화면 교체"
-
-msgid "TRANSLATION"
-msgstr "번역"
-
-msgid "VOLUME DOWN"
-msgstr "볼륨 낮추기"
-
-msgid "VOLUME MUTE"
-msgstr "볼륨 음소거"
-
-msgid "VOLUME UP"
-msgstr "볼륨 높이기"
-
 msgid "HOTKEY"
 msgstr "단축키"
 
-msgid "FILES"
-msgstr "파일"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "새로운 글로벌 단축키 선언"
@@ -3710,6 +3734,9 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "하드웨어 유형순"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "나가기 위한 단축키 제한"

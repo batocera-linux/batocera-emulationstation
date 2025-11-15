@@ -20,19 +20,6 @@ public:
 	std::string path;
 };
 
-#ifdef BATOCERA
-struct hotkeyInputDefinition
-{
-	std::string code;
-	std::string name;
-};
-struct hotkeyTargetDefinition
-{
-	std::string code;
-	std::string name;
-};
-#endif
-
 class GuiControllersSettings : public GuiSettings
 {
 public:
@@ -49,6 +36,7 @@ private:
 #ifdef BATOCERA
 	void openControllersHotkeys();
   	void openGlobalHotkeys();
+  	void openKeyboardtopads();
   	void initializeGlobalHotkeys(Window* window, GuiSettings* s);
   	void declareGlobalHotkey(Window* window, GuiSettings* s);
 #endif

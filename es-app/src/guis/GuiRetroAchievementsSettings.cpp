@@ -23,8 +23,8 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
 	
 	// retroachievements, username, password
-	addInputTextRow(_("USERNAME"), "global.retroachievements.username", false);
-	addInputTextRow(_("PASSWORD"), "global.retroachievements.password", true);
+	addInputTextConfigRow(_("USERNAME"), "global.retroachievements.username", false);
+	addInputTextConfigRow(_("PASSWORD"), "global.retroachievements.password", true);
 
 	addGroup(_("OPTIONS"));
 

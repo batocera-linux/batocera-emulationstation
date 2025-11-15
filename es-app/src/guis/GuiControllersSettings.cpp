@@ -7,6 +7,7 @@
 #include "guis/GuiBluetoothPair.h"
 #include "ThreadedBluetooth.h"
 #include "guis/GuiBluetoothDevices.h"
+#include "guis/GuiKeyboardtopads.h"
 
 #include "guis/GuiMsgBox.h"
 #include "GuiLoading.h"
@@ -29,6 +30,19 @@
 #else
 #define controllers_settings_label		gettext_controllers_and_bluetooth_settings
 #define controllers_group_label		gettext_controllers_player_assigments
+#endif
+
+#ifdef BATOCERA
+struct hotkeyInputDefinition
+{
+	std::string code;
+	std::string name;
+};
+struct hotkeyTargetDefinition
+{
+	std::string code;
+	std::string name;
+};
 #endif
 
 std::string GuiControllersSettings::getControllersSettingsLabel()
@@ -198,6 +212,7 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	addSaveFunc([restrictHotkeys] { SystemConf::getInstance()->setBool("global.exithotkeyonly", restrictHotkeys->getState()); });
 
 	addEntry(_("GLOBAL HOTKEYS"), true, [this] { openGlobalHotkeys(); });
+	addEntry(_("KEYBOARDTOPADS"), true, [this] { openKeyboardtopads(); });
 #endif
 
 	addGroup(controllers_group_label);
@@ -488,6 +503,23 @@ void GuiControllersSettings::openGlobalHotkeys() {
   GuiSettings* s = new GuiSettings(mWindow, _("GLOBAL HOTKEYS"));
   initializeGlobalHotkeys(mWindow, s);
 
+  mWindow->pushGui(s);
+}
+
+void GuiControllersSettings::openKeyboardtopads() {
+  GuiSettings* s = new GuiSettings(mWindow, _("KEYBOARDTOPADS"), true);
+  Window* window = mWindow;
+
+  std::vector<Keyboardtopad> keyboardtopads = ApiSystem::getInstance()->getKeyboardtopads();
+
+  if(keyboardtopads.size() == 0) {
+    s->addEntry(_("NO DEVICE FOUND (JAMMASD, IPAC, ...)"), false);
+  } else {
+    for(unsigned int i = 0; i < keyboardtopads.size(); i++) {
+      s->addEntry(keyboardtopads[i].name, false, [this, keyboardtopads, i] { mWindow->pushGui(new GuiKeyboardtopads(mWindow, keyboardtopads[i])); });
+    }
+  }
+  
   mWindow->pushGui(s);
 }
 

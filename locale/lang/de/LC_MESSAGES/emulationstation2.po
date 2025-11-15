@@ -7,13 +7,13 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: de_DE\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCANNE BLUETOOTH"
@@ -946,6 +946,87 @@ msgstr "SCRAPING-PROZESS LÄUFT GERADE. MÖCHTEN SIE DAS SCRAPING BEENDEN?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "KEIN SPIEL ERFÜLLT DIE KRITERIEN."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "OVERLAYS"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "HELLIGKEIT UMSCHALTEN"
+
+msgid "COIN"
+msgstr "COIN"
+
+msgid "EXIT"
+msgstr "BEENDEN"
+
+msgid "FAST FORWARD"
+msgstr "VORSPULEN"
+
+msgid "MENU"
+msgstr "MENÜ"
+
+msgid "FILES"
+msgstr "DATEIEN"
+
+msgid "NEXT DISK"
+msgstr "NÄCHSTE DISK"
+
+msgid "NEXT SLOT"
+msgstr "NÄCHSTER SLOT"
+
+msgid "PAUSE"
+msgstr "PAUSE"
+
+msgid "PREVIOUS SLOT"
+msgstr "VORHERIGER SLOT"
+
+msgid "RESET"
+msgstr "ZURÜCKSETZEN"
+
+msgid "RESTORE STATE"
+msgstr "SPEICHERSTAND LADEN"
+
+msgid "REWIND"
+msgstr "RÜCKSPULFUNKTION"
+
+msgid "SAVE STATE"
+msgstr "SPEICHERSTAND SPEICHERN"
+
+msgid "SCREEN LAYOUT"
+msgstr "BILDSCHIRMLAYOUT"
+
+msgid "SWAP SCREEN"
+msgstr "BILDSCHIRM WECHSELN"
+
+msgid "TRANSLATION"
+msgstr "ÜBERSETZUNG"
+
+msgid "VOLUME DOWN"
+msgstr "LAUTSTÄRKE LEISER"
+
+msgid "VOLUME MUTE"
+msgstr "LAUTSTÄRKE STUMM"
+
+msgid "VOLUME UP"
+msgstr "LAUTSTÄRKE LAUTER"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "AUF EINEM NEUEN DATENTRÄGER INSTALLIEREN"
 
@@ -1450,8 +1531,8 @@ msgstr "UI-ELEMENTE BEIM BOOTEN VORLADEN"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-Menü,"
-" verlängert Boot-Zeit"
+"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-"
+"Menü, verlängert Boot-Zeit"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "MEDIEN-METADATEN BEIM BOOTEN VORLADEN"
@@ -1811,9 +1892,6 @@ msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SPIELE GLÄTTEN (BILINEARE FILTERUNG)"
-
-msgid "REWIND"
-msgstr "RÜCKSPULFUNKTION"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
@@ -2386,9 +2464,6 @@ msgstr "METADATEN DIESES SPIELS BEARBEITEN"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "PAD-TO-KEYBOARD INFORMATIONEN ANZEIGEN"
 
-msgid "RESET"
-msgstr "ZURÜCKSETZEN"
-
 msgid "ADD COMBINATION KEY"
 msgstr "KOMBINATIONSTASTE HINZUFÜGEN"
 
@@ -2437,8 +2512,11 @@ msgstr "ALPHABETISCH"
 msgid "BY MANUFACTURER"
 msgstr "NACH HERSTELLER"
 
-msgid "BY HARDWARE TYPE"
-msgstr "NACH HARDWARE-TYP"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "NACH HERSTELLER UND TYP"
@@ -2687,8 +2765,8 @@ msgstr "CONTROLLER TASTENBELEGUNG"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
 "TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
@@ -2787,65 +2865,11 @@ msgstr "LINKER STICK (DRÜCKEN)"
 msgid "RIGHT STICK PRESS"
 msgstr "RECHTER STICK (DRÜCKEN)"
 
-msgid "OVERLAYS"
-msgstr "OVERLAYS"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "HELLIGKEIT UMSCHALTEN"
-
-msgid "COIN"
-msgstr "COIN"
-
-msgid "EXIT"
-msgstr "BEENDEN"
-
-msgid "FAST FORWARD"
-msgstr "VORSPULEN"
-
-msgid "MENU"
-msgstr "MENÜ"
-
-msgid "NEXT DISK"
-msgstr "NÄCHSTE DISK"
-
-msgid "NEXT SLOT"
-msgstr "NÄCHSTER SLOT"
-
-msgid "PAUSE"
-msgstr "PAUSE"
-
-msgid "PREVIOUS SLOT"
-msgstr "VORHERIGER SLOT"
-
-msgid "RESTORE STATE"
-msgstr "SPEICHERSTAND LADEN"
-
-msgid "SAVE STATE"
-msgstr "SPEICHERSTAND SPEICHERN"
-
-msgid "SCREEN LAYOUT"
-msgstr "BILDSCHIRMLAYOUT"
-
-msgid "SWAP SCREEN"
-msgstr "BILDSCHIRM WECHSELN"
-
-msgid "TRANSLATION"
-msgstr "ÜBERSETZUNG"
-
-msgid "VOLUME DOWN"
-msgstr "LAUTSTÄRKE LEISER"
-
-msgid "VOLUME MUTE"
-msgstr "LAUTSTÄRKE STUMM"
-
-msgid "VOLUME UP"
-msgstr "LAUTSTÄRKE LAUTER"
-
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
-msgid "FILES"
-msgstr "DATEIEN"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "NEUEN GLOBALEN HOTKEY FESTLEGEN"
@@ -3094,11 +3118,11 @@ msgid "INVALID CONTENT"
 msgstr "UNGÜLTIGER INHALT"
 
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
-"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https:"
-"//retroachievements.org"
+"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Vollständig"
@@ -3763,3 +3787,6 @@ msgid ""
 msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "NACH HARDWARE-TYP"

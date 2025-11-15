@@ -944,6 +944,87 @@ msgstr "スクレイプが実行されています。中止しますか?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "適合する ゲームが 見つかりませんでした。"
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr "オーバーレイ"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "輝度サイクル"
+
+msgid "COIN"
+msgstr "コイン投入"
+
+msgid "EXIT"
+msgstr "終了"
+
+msgid "FAST FORWARD"
+msgstr "高速早送り"
+
+msgid "MENU"
+msgstr "メニュー"
+
+msgid "FILES"
+msgstr "ファイル"
+
+msgid "NEXT DISK"
+msgstr "次のディスク"
+
+msgid "NEXT SLOT"
+msgstr "次のスロット"
+
+msgid "PAUSE"
+msgstr "一時停止"
+
+msgid "PREVIOUS SLOT"
+msgstr "前のスロット"
+
+msgid "RESET"
+msgstr "リセット"
+
+msgid "RESTORE STATE"
+msgstr "ステート復元"
+
+msgid "REWIND"
+msgstr "巻き戻し"
+
+msgid "SAVE STATE"
+msgstr "ステートセーブ"
+
+msgid "SCREEN LAYOUT"
+msgstr "画面レイアウト"
+
+msgid "SWAP SCREEN"
+msgstr "画面入れ替え"
+
+msgid "TRANSLATION"
+msgstr "AIゲーム翻訳"
+
+msgid "VOLUME DOWN"
+msgstr "音量 下"
+
+msgid "VOLUME MUTE"
+msgstr "音声ミュート"
+
+msgid "VOLUME UP"
+msgstr "音量 上"
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "新規ストレージにインストール"
 
@@ -1796,9 +1877,6 @@ msgstr "ディスプレイの解像度を設定します。レンダリング解
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "スムーズゲーム（バイリニアフィルタリング）"
 
-msgid "REWIND"
-msgstr "巻き戻し"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr "コアが対応している場合は、過去の状態を保存してすぐ巻き戻します"
 
@@ -2364,9 +2442,6 @@ msgstr "このゲームのメタ情報を編集"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "パッドキー設定情報を表示"
 
-msgid "RESET"
-msgstr "リセット"
-
 msgid "ADD COMBINATION KEY"
 msgstr "同時押しキーを追加"
 
@@ -2415,8 +2490,11 @@ msgstr "アルファベット順"
 msgid "BY MANUFACTURER"
 msgstr "メーカー別"
 
-msgid "BY HARDWARE TYPE"
-msgstr "ゲーム機器別"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "メーカーとゲーム機別"
@@ -2764,65 +2842,11 @@ msgstr "左 アナログST押(L3)"
 msgid "RIGHT STICK PRESS"
 msgstr "右 アナログST押(R3)"
 
-msgid "OVERLAYS"
-msgstr "オーバーレイ"
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "輝度サイクル"
-
-msgid "COIN"
-msgstr "コイン投入"
-
-msgid "EXIT"
-msgstr "終了"
-
-msgid "FAST FORWARD"
-msgstr "高速早送り"
-
-msgid "MENU"
-msgstr "メニュー"
-
-msgid "NEXT DISK"
-msgstr "次のディスク"
-
-msgid "NEXT SLOT"
-msgstr "次のスロット"
-
-msgid "PAUSE"
-msgstr "一時停止"
-
-msgid "PREVIOUS SLOT"
-msgstr "前のスロット"
-
-msgid "RESTORE STATE"
-msgstr "ステート復元"
-
-msgid "SAVE STATE"
-msgstr "ステートセーブ"
-
-msgid "SCREEN LAYOUT"
-msgstr "画面レイアウト"
-
-msgid "SWAP SCREEN"
-msgstr "画面入れ替え"
-
-msgid "TRANSLATION"
-msgstr "AIゲーム翻訳"
-
-msgid "VOLUME DOWN"
-msgstr "音量 下"
-
-msgid "VOLUME MUTE"
-msgstr "音声ミュート"
-
-msgid "VOLUME UP"
-msgstr "音量 上"
-
 msgid "HOTKEY"
 msgstr "ホットキー"
 
-msgid "FILES"
-msgstr "ファイル"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新しいグローバルホットキーを設定"
@@ -3726,6 +3750,9 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "ゲーム機器別"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "スクレイプ 設定"

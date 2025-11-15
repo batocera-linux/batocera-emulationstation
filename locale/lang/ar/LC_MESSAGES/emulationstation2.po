@@ -975,6 +975,87 @@ msgstr "الجلب يشتغل حاليا. أترغب في إيقافه؟"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "لا توجد ألعاب تناسب هذه المعايير."
 
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "القائمة"
+
+msgid "FILES"
+msgstr "ملفات"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "إعادة التشغيل"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "الترجيع"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "تثبيت على قرص جديد"
 
@@ -1817,9 +1898,6 @@ msgstr "تغيير دقة الشاشة.لن يؤثر على دقة شاشة ال
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "الألعاب السلسة (التصفية الخطية الثنائية)"
 
-msgid "REWIND"
-msgstr "الترجيع"
-
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr "بحفظ حالات الحفظ السابقة يمكنك الترجيع آنيًا، اذا كانت النواة تدعم ذلك."
 
@@ -2385,9 +2463,6 @@ msgstr "تعديل البيانات الوصفية لهذه اللعبة"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "عرض معلومات وحدة التحكم إلى لوحة المفاتيح"
 
-msgid "RESET"
-msgstr "إعادة التشغيل"
-
 msgid "ADD COMBINATION KEY"
 msgstr "أضف زر مزيج"
 
@@ -2436,8 +2511,11 @@ msgstr "أبجدياً"
 msgid "BY MANUFACTURER"
 msgstr "حسب المطور"
 
-msgid "BY HARDWARE TYPE"
-msgstr "حسب الجهاز"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "حسب المطور والنوع"
@@ -2783,65 +2861,11 @@ msgstr ""
 msgid "RIGHT STICK PRESS"
 msgstr ""
 
-msgid "OVERLAYS"
-msgstr ""
-
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
-
-msgid "COIN"
-msgstr ""
-
-msgid "EXIT"
-msgstr ""
-
-msgid "FAST FORWARD"
-msgstr ""
-
-msgid "MENU"
-msgstr "القائمة"
-
-msgid "NEXT DISK"
-msgstr ""
-
-msgid "NEXT SLOT"
-msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
 msgid "HOTKEY"
 msgstr ""
 
-msgid "FILES"
-msgstr "ملفات"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr ""
@@ -3802,6 +3826,9 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "حسب الجهاز"
 
 #~ msgid "RESTRICT HOTKEYS TO EXIT"
 #~ msgstr "تقييد زر الاختصار للخروج"
