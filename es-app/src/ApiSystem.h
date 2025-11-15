@@ -323,6 +323,7 @@ public:
 
 	virtual std::vector<Service> getServices();
 	virtual bool enableService(std::string name, bool enable);
+    virtual bool isServiceEnabled(std::string name);
 
   	virtual std::vector<Hotkey> getJoysticksHotkeys();
         virtual std::vector<std::string> getJoysticksHotkeysValues();
@@ -337,6 +338,7 @@ public:
 	virtual std::vector<std::string> backglassThemes();
 	virtual void restartBackglass();
 
+	virtual bool writeZaparooCard(std::string name);
 protected:
 	ApiSystem();
 
