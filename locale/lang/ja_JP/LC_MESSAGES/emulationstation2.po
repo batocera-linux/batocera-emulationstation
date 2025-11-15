@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v42(2025/10/21)\n"
+"Project-Id-Version: batocera-es v43b(2025/11/07)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-21 05:26+0900\n"
+"PO-Revision-Date: 2025-11-07 16:09+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -837,10 +837,10 @@ msgid "IMAGE SOURCE"
 msgstr "イメージ ソース元"
 
 msgid "SCREENSHOT"
-msgstr "スクリーンショット<image>"
+msgstr "ＳＳ<image>"
 
 msgid "TITLE SCREENSHOT"
-msgstr "タイトルスクリーンショット<image>"
+msgstr "タイトルＳＳ<image>"
 
 msgid "MIX V1"
 msgstr "MIX V1<image>"
@@ -1702,7 +1702,7 @@ msgid "Can prevent audio skips on button presses."
 msgstr "先読み使用でボタンを押したときの音声の途切れを防ぎます"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "自動フレームディレイ"
+msgstr "自動フレーム遅延"
 
 msgid "AUTO FRAME DELAY"
 msgstr "自動フレーム遅延"
@@ -2711,13 +2711,13 @@ msgid "BEHAVIOR"
 msgstr "動作"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr "ジョイスティックホットキー"
+msgstr "ホットキー動作設定"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "ジョイスティックの終了用のホットキーを制限"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "グローバルホットキー"
 
 msgid "default"
 msgstr "標準"
@@ -2801,7 +2801,7 @@ msgid "SAVE STATE"
 msgstr "ステートセーブ"
 
 msgid "SCREEN LAYOUT"
-msgstr "スクリーンレイアウト"
+msgstr "画面レイアウト"
 
 msgid "SWAP SCREEN"
 msgstr "画面入れ替え"
@@ -2825,16 +2825,16 @@ msgid "FILES"
 msgstr "ファイル"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "新しいグローバルホットキーを設定"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "グローバルホットキーを正確に2回押すのに4秒かかります"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "グローバルホットキーが検出されません"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "重複したグローバルホットキーが検出されました"
 
 msgid "BORDER SIZE"
 msgstr "境界サイズ"
@@ -3726,9 +3726,6 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
-
-#~ msgid "RESTRICT HOTKEYS TO EXIT"
-#~ msgstr "ホットキーの機能を制限(終了以外)"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "スクレイプ 設定"

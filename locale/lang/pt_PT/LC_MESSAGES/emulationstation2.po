@@ -502,7 +502,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "USO DO DISCO"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -511,10 +511,10 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER DE VÍDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEUL"
@@ -1655,7 +1655,7 @@ msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "ATIVAR LED"
 
 msgid "RED"
 msgstr "VERMELHO"
@@ -2118,7 +2118,7 @@ msgid "WIFI KEY"
 msgstr "SENHA DO WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "PAÍS WIFI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI ATIVADO"
@@ -2721,130 +2721,130 @@ msgid "BEHAVIOR"
 msgstr "COMPORTAMENTO"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "JOYSTICKS TECLAS DE ATALHO"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRINGIR TECLAS DE ATALHO DO JOYSTICK PARA SAIR"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "TECLAS DE ATALHO GLOBAIS"
 
 msgid "default"
 msgstr "predefinição"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SUL"
 
 msgid "EAST"
-msgstr ""
+msgstr "ESTE"
 
 msgid "NORTH"
-msgstr ""
+msgstr "NORTE"
 
 msgid "WEST"
-msgstr ""
+msgstr "OESTE"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD PARA CIMA"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD PARA BAIXO"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD ESQUERDO"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD DIREITO"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "OMBRO ESQUERDO"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "OMBRO DIREITO"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "GATILHO ESQUERDO"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "GATILHO DIREITO"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PRESSIONE O ANALÓGICO ESQUERDO"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PRESSIONE O ANALÓGICO DIREITO"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "SOBREPOSIÇÕES"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "CICLO DE BRILHO"
 
 msgid "COIN"
-msgstr ""
+msgstr "MOEDA"
 
 msgid "EXIT"
-msgstr ""
+msgstr "SAÍDA"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "AVANÇAR RÁPIDO"
 
 msgid "MENU"
 msgstr "MENU"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "PRÓXIMO DISCO"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "PRÓXIMO SLOT"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSA"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "POSIÇÃO ANTERIOR"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "RESTAURAR ESTADO"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "SAVE STATE"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "LAYOUT DO ECRÃ"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "TROCAR ECRÃ"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TRADUÇÃO"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "BAIXAR O VOLUME"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "SILENCIAR VOLUME"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "AUMENTAR VOLUME"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "FILES"
 msgstr "FICHEIROS"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "DEFINIR UMA NOVA TECLA DE HOTKEY GLOBAL"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "TÊM 4 SEGUNDOS PARA PREMIR EXATAMENTE 2 VEZES O HOTKEY GLOBAL"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "NENHUMA TECLA DE HOTKEY GLOBAL DETECTADA"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "MAIS DE UMA TECLA DE HOTKEY GLOBAL DETECTADA"
 
 msgid "BORDER SIZE"
 msgstr "TAMANHO DA BORDA"
@@ -3747,8 +3747,6 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
-#~ msgid "RESTRICT HOTKEYS TO EXIT"
-#~ msgstr "RESTRINGIR TECLAS DE ATALHO PARA SAIR"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

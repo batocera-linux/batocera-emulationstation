@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-21 22:39+0200\n"
+"PO-Revision-Date: 2025-11-13 12:11+0100\n"
 "Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -2731,10 +2731,10 @@ msgid "JOYSTICKS HOTKEYS"
 msgstr "ATALLOS DAS PANCAS DE MANDOS"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRINXIR AS TECLAS DE ATALLO DOS MANDOS PARA SAÍR"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "TECLAS DE ATALLOS GLOBAIS"
 
 msgid "default"
 msgstr "por defecto"
@@ -2842,16 +2842,16 @@ msgid "FILES"
 msgstr "FICHEIROS"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "DECLARAR UNHA NOVA TECLA DE ATALLO GOBLAL"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "TES 4 SEGUNDOS PARA PREMER EXACTAMENTE 2 VECES A TECLA DE ATALO GLOBAL"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "NON SE DETECTOU NINGUNHA TECLA DE ATALLO GLOBAL"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "DETECTOUSE MÁIS DUNHA TECLA DE ATALLO GLOBAL"
 
 msgid "BORDER SIZE"
 msgstr "TAMAÑO DO BORDO"
