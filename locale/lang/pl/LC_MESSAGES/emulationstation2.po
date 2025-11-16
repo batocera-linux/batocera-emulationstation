@@ -1028,6 +1028,9 @@ msgstr "ZWIĘKSZ GŁOŚNOŚĆ"
 msgid "CONTROL CENTER"
 msgstr ""
 
+msgid "KEY ASSIGNED TWICE"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "ZAINSTALUJ NA NOWYM DYSKU"
 

@@ -182,7 +182,7 @@ void GuiKeyboardtopads::loadPlayerPage(int n, const std::string& device_path)
 		row.addElement(mapping, true);
 
 		std::string code = GUI_INPUT_CONFIG_LIST[i].code;
-		row.makeAcceptInputHandler([this, window, device_path, device, code, mapping] { declareEvKey(window, device_path, [this, device, code, mapping](std::string key) { mapping->setValue(key); setDeviceValue(device, key, code); }); });
+		row.makeAcceptInputHandler([this, window, device_path, device, code, mapping] { declareEvKey(window, device_path, [this, device, code, mapping, window, device_path](std::string key) { mapping->setValue(key); setDeviceValue(device, key, code, window, device_path); }); });
 		addRow(row);
 	}
 
@@ -197,7 +197,7 @@ void GuiKeyboardtopads::loadPlayerPage(int n, const std::string& device_path)
 	  if(found == false) {
 	    auto text = std::make_shared<TextComponent>(mWindow, device->keys[i].name, theme->Text.font, theme->Text.color);
 	    std::string code = device->keys[i].value;
-	    addWithLabel(device->keys[i].value, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code](std::string key) { text->setValue(key); setDeviceValue(device, key, code); }); });
+	    addWithLabel(device->keys[i].value, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code, window, device_path](std::string key) { text->setValue(key); setDeviceValue(device, key, code, window, device_path); }); });
 	  }
 	}
 }
@@ -265,7 +265,7 @@ void GuiKeyboardtopads::loadHotkeysPage(const std::string& device_path)
 
     auto text = std::make_shared<TextComponent>(mWindow, getNameForInput(device, key_values[i].value), theme->Text.font, theme->Text.color);
     std::string code = key_values[i].value;
-    addWithLabel(xlabel, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code](std::string key) { text->setValue(key); this->updateSize(); setDeviceValue(device, key, code); }); });
+    addWithLabel(xlabel, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code, window, device_path](std::string key) { text->setValue(key); this->updateSize(); setDeviceValue(device, key, code, window, device_path); }); });
   }
 }
 
@@ -277,8 +277,41 @@ std::vector<HelpPrompt> GuiKeyboardtopads::getHelpPrompts()
 	return prompts;
 }
 
-void GuiKeyboardtopads::setDeviceValue(KeyboardtopadDevice* ktp, std::string key, std::string value) {
+void GuiKeyboardtopads::setDeviceValue(KeyboardtopadDevice* ktp, std::string key, std::string value, Window* window, const std::string& device_path) {
+  bool need_to_reload = false;
+  bool already_warn = false;
+
+  // clear the key if already set somewhere
+  if(key != "") {
+    // warn and clear if already used somewhere else
+    for(unsigned int d=0; d<m_devices.size(); d++) {
+      std::vector<int> to_erase;
+      for(unsigned int k=0; k<m_devices[d].keys.size(); k++) {
+	bool same_device = (&(m_devices[d]) == ktp);
+	if((m_devices[d].keys[k].name == key) || (m_devices[d].keys[k].value == value && same_device)) { // if not the same device but the same key, or same device and same values
+	  if(same_device) {
+	    if(m_devices[d].keys[k].value != value) {
+	      need_to_reload = true; // on the device, the key will be erased by the new value
+	    }
+	  } else {
+	    to_erase.push_back(k); // on an other device, remove the key
+	  }
+	}
+      }
+      // remove the duplicated keys
+      for(int i=to_erase.size()-1; i>=0; i--) {
+	int nerase = to_erase[i];
+	m_devices[d].keys.erase(m_devices[d].keys.begin()+nerase);
+	if(already_warn == false) {
+	  already_warn = true;
+	  window->displayNotificationMessage(_U("\uF013  ") + _("KEY ASSIGNED TWICE"), 1000);
+	}
+      }
+    }
+  }
+
   if(key == "") {
+    // remove the key
     int nerase  =-1;
     for(unsigned int i=0; i<ktp->keys.size(); i++) {
       if(ktp->keys[i].value == value) {
@@ -289,16 +322,27 @@ void GuiKeyboardtopads::setDeviceValue(KeyboardtopadDevice* ktp, std::string key
       ktp->keys.erase(ktp->keys.begin()+nerase);
     }
   } else {
+    // set it
+    bool found = false;
     for(unsigned int i=0; i<ktp->keys.size(); i++) {
       if(ktp->keys[i].name == key) {
 	ktp->keys[i].value = value;
-	return;
+	found = true;
       }
     }
+    
     // not found, create a new one
-    KeyboardtopadKey ktpk;
-    ktpk.name = key;
-    ktpk.value = value;
-    ktp->keys.push_back(ktpk);
+    if(found == false) {
+      KeyboardtopadKey ktpk;
+      ktpk.name = key;
+      ktpk.value = value;
+      ktp->keys.push_back(ktpk);
+    }
+
+    // reload the tab
+    if(need_to_reload) {
+      loadActivePage(device_path);
+    }
+
   }
 }
