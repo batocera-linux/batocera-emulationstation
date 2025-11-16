@@ -63,7 +63,9 @@ GuiKeyboardtopads::GuiKeyboardtopads(Window* window, Keyboardtopad ktp)
 		  window->displayNotificationMessage(_U("\uF013  ") + _("JOYSTICK NAMED BUT NO KEYS DEFINED"));
 		}
 	      }
-	      ApiSystem::getInstance()->saveKeyboardtopads(this->m_ktp, this->m_devices); }
+	      ApiSystem::getInstance()->saveKeyboardtopads(this->m_ktp, this->m_devices);
+	      window->displayNotificationMessage(_("UNPLUG AND REPLUG THE DEVICE TO APPLY"));
+	    }
 	});
 }
 

@@ -945,6 +945,9 @@ msgstr ""
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
 msgstr ""
 
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr ""
+
 msgid "JOYSTICK NAME"
 msgstr ""
 
