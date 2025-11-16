@@ -1031,6 +1031,9 @@ msgstr ""
 msgid "CONTROL CENTER"
 msgstr ""
 
+msgid "KEY ASSIGNED TWICE"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR EN UN NUEVO DISCO"
 

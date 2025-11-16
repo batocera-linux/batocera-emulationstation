@@ -24,7 +24,7 @@ private:
   	std::string getNameForInput(KeyboardtopadDevice* device, std::string value);
   	void declareEvKey(Window* window, const std::string& device_path, const std::function<void(std::string)>& func);
 
-  	void setDeviceValue(KeyboardtopadDevice* ktp, std::string key, std::string value);
+  	void setDeviceValue(KeyboardtopadDevice* ktp, std::string key, std::string value, Window* window, const std::string& device_path);
 
 	Keyboardtopad m_ktp;
 	std::vector<KeyboardtopadDevice> m_devices;
