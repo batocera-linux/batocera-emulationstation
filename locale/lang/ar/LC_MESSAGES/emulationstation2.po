@@ -1056,6 +1056,9 @@ msgstr ""
 msgid "VOLUME UP"
 msgstr ""
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "تثبيت على قرص جديد"
 

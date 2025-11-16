@@ -1013,6 +1013,9 @@ msgstr ""
 msgid "VOLUME UP"
 msgstr ""
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "התקנה על כונן חדש"
 

@@ -1029,6 +1029,9 @@ msgstr "OPRIRE VOLUM"
 msgid "VOLUME UP"
 msgstr "CREȘTERE VOLUM"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALEAZĂ PE UN DISC NOU"
 

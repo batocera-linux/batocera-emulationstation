@@ -1021,6 +1021,9 @@ msgstr "VOLYM TYST"
 msgid "VOLUME UP"
 msgstr "VOLYM UPP"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALLERA PÅ EN NY DISK"
 

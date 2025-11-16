@@ -1023,6 +1023,9 @@ msgstr "SES SUSTUR"
 msgid "VOLUME UP"
 msgstr "SES YÜKSELT"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "YENİ BİR DİSKE KUR"
 

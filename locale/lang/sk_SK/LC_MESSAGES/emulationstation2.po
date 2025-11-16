@@ -1023,6 +1023,9 @@ msgstr ""
 msgid "VOLUME UP"
 msgstr ""
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "Nainštalovať na nový disk"
 

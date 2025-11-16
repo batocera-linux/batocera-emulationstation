@@ -1025,6 +1025,9 @@ msgstr "WYCISZ GŁOŚNOŚĆ"
 msgid "VOLUME UP"
 msgstr "ZWIĘKSZ GŁOŚNOŚĆ"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "ZAINSTALUJ NA NOWYM DYSKU"
 

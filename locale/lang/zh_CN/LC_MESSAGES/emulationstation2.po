@@ -1016,6 +1016,9 @@ msgstr "静音音量"
 msgid "VOLUME UP"
 msgstr "增大音量"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "安装到新的磁盘"
 

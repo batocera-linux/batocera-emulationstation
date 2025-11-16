@@ -242,7 +242,8 @@ void GuiKeyboardtopads::loadHotkeysPage(const std::string& device_path)
     { "translation",      _("TRANSLATION") },
     { "volumedown",       _("VOLUME DOWN") },
     { "volumemute",       _("VOLUME MUTE") },
-    { "volumeup",         _("VOLUME UP") }
+    { "volumeup",         _("VOLUME UP") },
+    { "controlcenter",    _("CONTROL CENTER") }
   };
 
   KeyboardtopadDevice* device = getHotkeyDevice();

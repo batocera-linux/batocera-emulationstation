@@ -1023,6 +1023,9 @@ msgstr "HANGERŐ NÉMÍTÁS"
 msgid "VOLUME UP"
 msgstr "HANGERŐ NÖVELÉSE"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "TELEPÍTÉS ÚJ LEMEZRE"
 

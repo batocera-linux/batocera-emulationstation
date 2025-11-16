@@ -1028,6 +1028,9 @@ msgstr "SILENCIAR VOLUMEN"
 msgid "VOLUME UP"
 msgstr "SUBIR VOLUMEN"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR EN UN DISCO NUEVO"
 

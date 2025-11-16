@@ -1020,6 +1020,9 @@ msgstr "볼륨 음소거"
 msgid "VOLUME UP"
 msgstr "볼륨 높이기"
 
+msgid "CONTROL CENTER"
+msgstr ""
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "새 디스크에 설치"
 

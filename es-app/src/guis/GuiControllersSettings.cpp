@@ -436,7 +436,8 @@ void GuiControllersSettings::openControllersHotkeys() {
     { "translation",      _("TRANSLATION") },
     { "volumedown",       _("VOLUME DOWN") },
     { "volumemute",       _("VOLUME MUTE") },
-    { "volumeup",         _("VOLUME UP") }
+    { "volumeup",         _("VOLUME UP") },
+    { "controlcenter",    _("CONTROL CENTER") },
   };
 
   std::vector<Hotkey> hotkeys = ApiSystem::getInstance()->getJoysticksHotkeys();
@@ -548,7 +549,8 @@ void GuiControllersSettings::initializeGlobalHotkeys(Window* window, GuiSettings
     { "translation",      _("TRANSLATION") },
     { "volumedown",       _("VOLUME DOWN") },
     { "volumemute",       _("VOLUME MUTE") },
-    { "volumeup",         _("VOLUME UP") }
+    { "volumeup",         _("VOLUME UP") },
+    { "controlcenter",    _("CONTROL CENTER") },
   };
 
   s->save(); // save the current step to avoid loosing information, will do nothing the first time while there is no save function
