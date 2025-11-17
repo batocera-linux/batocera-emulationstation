@@ -373,6 +373,9 @@ void CarouselComponent::setDefaultBackground(unsigned int color, unsigned int co
 //  Render system carousel
 void CarouselComponent::ensureLogos()
 {
+	if (mEntries.size() == 0)
+		return;
+
 	int center = mCursor;
 	int logoCount = Math::min(mMaxLogoCount, (int)mEntries.size());
 	int bufferLeft = logoBuffersLeft[0];
