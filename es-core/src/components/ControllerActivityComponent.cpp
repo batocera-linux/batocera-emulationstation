@@ -1,4 +1,6 @@
 #include "components/ControllerActivityComponent.h"
+#include "Window.h"
+#include "PowerSaver.h"
 
 #include "resources/TextureResource.h"
 #include "utils/StringUtil.h"
@@ -33,6 +35,7 @@ void ControllerActivityComponent::OnWatcherChanged(IWatcher* component)
 	{
 		mWatchedBatteryInfo = batteryWatcher->getBatteryInfo();
 		mBatteryInfoChanged = true;
+		PowerSaver::pushRefreshEvent();
 	}
 
 	NetworkStateWatcher* networkWatcher = dynamic_cast<NetworkStateWatcher*>(component);
@@ -40,6 +43,7 @@ void ControllerActivityComponent::OnWatcherChanged(IWatcher* component)
 	{
 		mNetworkConnected = networkWatcher->isConnected();
 		mPlanemodeEnabled = networkWatcher->isPlaneMode();
+		PowerSaver::pushRefreshEvent();
 	}
 }
 
@@ -112,27 +116,29 @@ void ControllerActivityComponent::onSizeChanged()
 
 	mBatteryText = nullptr;
 	mBatteryFont = nullptr;
-
 	for (int idx = 0; idx < MAX_PLAYERS; idx++)
 		mPads[idx].batteryText = nullptr;
 
-	if (mSize.y() > 0 && mPadTexture)
-	{
-		size_t heightPx = (size_t)Math::round(mSize.y());
+	size_t heightPx = (size_t)Math::round(mSize.y());
+
+	if (heightPx == 0)
+		return;
+
+	if (mPadTexture)
 		mPadTexture->rasterizeAt(heightPx, heightPx);
-	}	
 
-	if (mSize.y() > 0 && mGunTexture)
-	{
-		size_t heightPx = (size_t)Math::round(mSize.y());
+	if (mGunTexture)
 		mGunTexture->rasterizeAt(heightPx, heightPx);
-	}
 
-	if (mSize.y() > 0 && mWheelTexture)
-	{
-		size_t heightPx = (size_t)Math::round(mSize.y());
+	if (mWheelTexture)
 		mWheelTexture->rasterizeAt(heightPx, heightPx);
-	}
+
+	if (mTexIncharge) mTexIncharge->rasterizeAt(heightPx, heightPx);
+	if (mTexFull) mTexFull->rasterizeAt(heightPx, heightPx);
+	if (mTexAt75) mTexAt75->rasterizeAt(heightPx, heightPx);
+	if (mTexAt50) mTexAt50->rasterizeAt(heightPx, heightPx);
+	if (mTexAt25) mTexAt25->rasterizeAt(heightPx, heightPx);
+	if (mTexEmpty) mTexEmpty->rasterizeAt(heightPx, heightPx);
 }
 
 bool ControllerActivityComponent::input(InputConfig* config, Input input)
@@ -432,27 +438,40 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 				mPlanemodeImage = nullptr;
 		}
 
-		// Battery
+		size_t heightPx = (size_t)Math::round(mSize.y());
+
+		// --- Battery ---
 		if (elem->has("incharge") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("incharge")))
 		{
 			mView |= ActivityView::BATTERY;
-			mIncharge = elem->get<std::string>("incharge");
+			mTexIncharge = TextureResource::get(elem->get<std::string>("incharge"), false, true);
+			if (heightPx > 0) mTexIncharge->rasterizeAt(heightPx, heightPx);
 		}
-
 		if (elem->has("full") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("full")))
-			mFull = elem->get<std::string>("full");
-
+		{
+			mTexFull = TextureResource::get(elem->get<std::string>("full"), false, true);
+			if (heightPx > 0) mTexFull->rasterizeAt(heightPx, heightPx);
+		}
 		if (elem->has("at75") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at75")))
-			mAt75 = elem->get<std::string>("at75");
-
+		{
+			mTexAt75 = TextureResource::get(elem->get<std::string>("at75"), false, true);
+			if (heightPx > 0) mTexAt75->rasterizeAt(heightPx, heightPx);
+		}
 		if (elem->has("at50") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at50")))
-			mAt50 = elem->get<std::string>("at50");
-
+		{
+			mTexAt50 = TextureResource::get(elem->get<std::string>("at50"), false, true);
+			if (heightPx > 0) mTexAt50->rasterizeAt(heightPx, heightPx);
+		}
 		if (elem->has("at25") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("at25")))
-			mAt25 = elem->get<std::string>("at25");
-
+		{
+			mTexAt25 = TextureResource::get(elem->get<std::string>("at25"), false, true);
+			if (heightPx > 0) mTexAt25->rasterizeAt(heightPx, heightPx);
+		}
 		if (elem->has("empty") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("empty")))
-			mEmpty = elem->get<std::string>("empty");
+		{
+			mTexEmpty = TextureResource::get(elem->get<std::string>("empty"), false, true);
+			if (heightPx > 0) mTexEmpty->rasterizeAt(heightPx, heightPx);
+		}
 	}
 
 	if (properties & COLOR)
@@ -493,59 +512,41 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 
 void ControllerActivityComponent::updateBatteryInfo()
 {
-	mBatteryInfoChanged = false;
+    mBatteryInfoChanged = false;
 
-	if ((mView & BATTERY) == 0)
-	{
-		mBatteryInfo.hasBattery = false;
-		return;
-	}
+    if ((mView & BATTERY) == 0)
+    {
+        mBatteryInfo.hasBattery = false;
+        return;
+    }
 
-	auto info = mWatchedBatteryInfo;
-	if (info.hasBattery == mBatteryInfo.hasBattery && info.isCharging == mBatteryInfo.isCharging && info.level == mBatteryInfo.level)
-		return;
+    auto info = mWatchedBatteryInfo;
+    if (info.hasBattery == mBatteryInfo.hasBattery && info.isCharging == mBatteryInfo.isCharging && info.level == mBatteryInfo.level)
+        return;
 
-	if (mBatteryInfo.level != info.level)
-	{
-		mBatteryFont = nullptr;
-		mBatteryText = nullptr;
-	}
+    mBatteryInfo = info;
 
-	if (mBatteryInfo.hasBattery != info.hasBattery || mBatteryInfo.isCharging != info.isCharging)
-	{
-		mBatteryImage = nullptr;
-		mCurrentBatteryTexture = "";
-	}
+    if (mBatteryInfo.hasBattery)
+    {
+        if (mBatteryInfo.isCharging)
+            mBatteryImage = mTexIncharge;
+        else if (mBatteryInfo.level > 75)
+            mBatteryImage = mTexFull;
+        else if (mBatteryInfo.level > 50)
+            mBatteryImage = mTexAt75;
+        else if (mBatteryInfo.level > 25)
+            mBatteryImage = mTexAt50;
+        else if (mBatteryInfo.level > 5)
+            mBatteryImage = mTexAt25;
+        else
+            mBatteryImage = mTexEmpty;
+    }
+    else
+    {
+        mBatteryImage = nullptr;
+    }
 
-	mBatteryInfo = info;
-
-	if (mBatteryInfo.hasBattery)
-	{
-		std::string txName = mIncharge;
-
-		if (mBatteryInfo.isCharging && !mIncharge.empty())
-			txName = mIncharge;
-		else if (mBatteryInfo.level > 75 && !mFull.empty())
-			txName = mFull;
-		else if (mBatteryInfo.level > 50 && !mAt75.empty())
-			txName = mAt75;
-		else if (mBatteryInfo.level > 25 && !mAt50.empty())
-			txName = mAt50;
-		else if (mBatteryInfo.level > 5 && !mAt25.empty())
-			txName = mAt25;
-		else
-			txName = mEmpty;
-
-		if (mCurrentBatteryTexture != txName)
-		{
-			mCurrentBatteryTexture = txName;
-
-			if (mCurrentBatteryTexture.empty())
-				mBatteryImage = nullptr;
-			else
-				mBatteryImage = TextureResource::get(mCurrentBatteryTexture, false, true);
-		}
-	}
+    mWindow->setNeedsRender(true);
 }
 
 Vector2f ControllerActivityComponent::getTextureSize(std::shared_ptr<TextureResource> texture)

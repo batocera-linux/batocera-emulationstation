@@ -100,7 +100,8 @@ public:
 	inline void setMinSize(const Vector2f& size) { setMinSize(size.x(), size.y()); }
 
 	Vector2f getVideoSize() { return Vector2f(mVideoWidth, mVideoHeight); }
-	bool isPlaying() {
+	
+	bool isPlaying() const {
 		return mIsPlaying;
 	}
 

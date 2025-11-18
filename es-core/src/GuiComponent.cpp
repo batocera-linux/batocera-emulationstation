@@ -1534,3 +1534,21 @@ void GuiComponent::recalcLayout()
 	if (mSize != newSize)
 		setSize(newSize.x(), newSize.y());
 }
+
+bool GuiComponent::isAnimating() const
+{
+	if (!mAnimationMap.empty() || (mStoryboardAnimator && mStoryboardAnimator->isRunning()))
+	{
+		return true;
+	}
+
+	for (const auto& child : mChildren)
+	{
+		if (child->isAnimating())
+		{
+			return true;
+		}
+	}
+
+	return false;
+}

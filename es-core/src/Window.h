@@ -53,7 +53,7 @@ public:
 	void pushGui(GuiComponent* gui);
 	void displayNotificationMessage(std::string message, int duration = -1); 
 	void removeGui(GuiComponent* gui);
-	GuiComponent* peekGui();
+	GuiComponent* peekGui() const;
 	inline int getGuiStackSize() { return (int)mGuiStack.size(); }
 
 	void textInput(const char* text);
@@ -69,6 +69,13 @@ public:
 	inline bool isSleeping() const { return mSleeping; }
 	bool getAllowSleep();
 	void setAllowSleep(bool sleep);
+
+	void setNeedsRender(bool render = true) { mNeedsRender = render; }
+	bool needsRender() const { return mNeedsRender; }
+
+	unsigned int getTimeSinceLastInput() const { return mTimeSinceLastInput; }
+	
+	int getIdealTimeout() const;
 	
 	// Splash screen
 	std::string getCustomSplashScreenImage();
@@ -167,6 +174,8 @@ private:
 
 	bool mAllowSleep;
 	bool mSleeping;
+	bool mNeedsRender;
+	
 	unsigned int mTimeSinceLastInput;
 
 	bool mRenderedHelpPrompts;

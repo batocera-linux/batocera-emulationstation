@@ -99,6 +99,8 @@ public:
 	
 	Vector2f getSize() const override;
 
+	virtual bool isAnimating() const override;
+
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
 	// Used internally whenever the resizing parameters or texture change.
