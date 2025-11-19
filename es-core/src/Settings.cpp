@@ -358,6 +358,10 @@ void Settings::setDefaults()
 	mStringMap["INPUT P7NAME"] = "DEFAULT";
 	mStringMap["INPUT P8NAME"] = "DEFAULT";
 
+#ifdef BATOCERA
+	mStringMap["HOTKEY_CONTROLCENTER"] = "a";
+#endif
+
 	// Audio settings
 	mBoolMap["audio.bgmusic"] = Settings::_BackgroundMusic;
 	mBoolMap["audio.persystem"] = false;
