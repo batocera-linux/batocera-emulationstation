@@ -663,6 +663,10 @@ int main(int argc, char* argv[])
 
 	bool running = true;
 
+#ifdef BATOCERA
+	bool hotkeyPressed = false;
+#endif
+
 	while(running)
 	{
 #ifdef WIN32	
@@ -680,6 +684,44 @@ int main(int argc, char* argv[])
 
 			do
 			{
+#ifdef BATOCERA
+			  // global hotkeys
+			  bool eventTaken = false;
+			  if(event.type == SDL_JOYBUTTONDOWN || event.type == SDL_JOYBUTTONUP)
+			    {
+			      InputConfig* config = InputManager::getInstance()->getInputConfigByDevice(event.jbutton.which);
+			      if(config)
+				{
+				  // Find first player controller info
+				  auto playerDevices = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+				  auto playerDevice = playerDevices.find(0);
+				  if (playerDevice != playerDevices.cend())
+				    {
+				      if (config->getDeviceIndex() == playerDevice->second.index)
+					{
+					  Input input = Input(event.jbutton.which, TYPE_BUTTON, event.jbutton.button, event.jbutton.state == SDL_PRESSED, false);
+					  if (config->isMappedTo("hotkey", input))
+					    hotkeyPressed = input.value != 0;
+
+					  if(hotkeyPressed && input.value != 0)
+					    {
+					      std::string hotkey_controlcenter = Settings::getInstance()->getString("HOTKEY_CONTROLCENTER");
+					      if (config->isMappedTo(hotkey_controlcenter, input))
+						{
+						  hotkeyPressed = false;
+						  ApiSystem::getInstance()->launchControlcenter();
+						  eventTaken = true;
+						}
+					    }
+					}
+				    }
+				}
+			    }
+			  //
+			  if(eventTaken)
+			    continue;
+#endif
+
 				TRYCATCH("InputManager::parseEvent", InputManager::getInstance()->parseEvent(event, &window));
 
 				if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED && Settings::getInstance()->getBool("Windowed"))

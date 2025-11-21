@@ -495,6 +495,18 @@ void GuiControllersSettings::openControllersHotkeys() {
       vals.push_back(k);
     }
     ApiSystem::getInstance()->setJoysticksHotkeys(vals);
+
+#ifdef BATOCERA
+    // change the control center key for es too
+    for(unsigned int h = 0; h < hotkeys.size(); h++) {
+      if(btns_elts[h]->getSelected() == "controlcenter") {
+	Settings::getInstance()->setString("HOTKEY_CONTROLCENTER", hotkeys[h].button);
+	Settings::getInstance()->saveFile();
+	break;
+      }
+    }
+    //
+#endif
   });
   
   mWindow->pushGui(s);
