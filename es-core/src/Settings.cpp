@@ -261,6 +261,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowGunIconOnGames"] = true;
 	mBoolMap["ShowTrackballIconOnGames"] = true;
 	mBoolMap["ShowSpinnerIconOnGames"] = true;
+	mBoolMap["ShowFinishedIconOnGames"] = true;
 
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";

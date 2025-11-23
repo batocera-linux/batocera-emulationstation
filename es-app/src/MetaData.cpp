@@ -80,6 +80,8 @@ void MetaDataList::initMetadata()
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite"),			false },
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden"),			true },
 		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame"),			false },
+		{ Finished,         "finished",    MD_BOOL,                "false",            false,      _("Finished"),             _("mark as finished"),		false },
+		{ FinishedDate,     "finisheddate",    MD_DATE,            "not-a-date-time",  false,      _("Finished date"),        _("enter finished date"),		false },
 		{ PlayCount,        "playcount",   MD_INT,                 "0",                true,       _("Play count"),           _("enter number of times played"), false },
 		{ LastPlayed,       "lastplayed",  MD_TIME,                "0",                true,       _("Last played"),          _("enter last played date"), false },
 
