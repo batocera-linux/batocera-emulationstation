@@ -419,6 +419,7 @@ namespace Utils
 			static std::string batteryCapacityPath;
 			static std::string batteryCurrChargePath;
 			static std::string batteryMaxChargePath;
+			static std::string batteryCurrentPath;
 
 			// Find battery path - only at the first call
 			if (batteryStatusPath.empty())
@@ -452,6 +453,7 @@ namespace Utils
 						batteryCurrChargePath = fuelgaugeRootPath + "/charge_now";
 						batteryMaxChargePath = fuelgaugeRootPath + "/charge_full";
 						batteryCapacityPath = ".";
+						batteryCurrentPath = ".";
 						// If there's a fuel gauge without "charge_now" or "charge_full" property, don't poll it
 						if ((!Utils::FileSystem::exists(batteryCurrChargePath)) || (!Utils::FileSystem::exists(batteryMaxChargePath)))
 						{
@@ -468,6 +470,7 @@ namespace Utils
 				{
 					batteryStatusPath = batteryRootPath + "/status";
 					batteryCapacityPath = batteryRootPath + "/capacity";
+					batteryCurrentPath = batteryRootPath + "/current_avg";
 				}
 			}
 
@@ -483,6 +486,14 @@ namespace Utils
 				std::string chargerStatus;
 				chargerStatus = Utils::String::replace(Utils::FileSystem::readAllText(batteryStatusPath), "\n", "");
 				ret.isCharging = ((chargerStatus != "Not charging") && (chargerStatus != "Discharging"));
+
+				if (batteryCurrentPath.length() > 1 && Utils::FileSystem::exists(batteryCurrentPath))
+				{
+					int currentVal = Utils::String::toInteger(Utils::FileSystem::readAllText(batteryCurrentPath));
+					if (currentVal > 0)
+						ret.isCharging = true;
+				}
+
 				// If reading from fuel gauge, we have to calculate remaining charge
 				if (batteryCapacityPath.length() <= 1)
 				{
