@@ -89,6 +89,9 @@ namespace Scripting
     {
         std::string command = script;
 
+        if (script.find(" ") != std::string::npos)
+            command = "\"" + script + "\"";
+
         if (!eventName.empty())
             command += " " + eventName;
 
