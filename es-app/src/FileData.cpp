@@ -1360,19 +1360,26 @@ void FolderData::bulkRemoveChildren(std::vector<FileData*>& mChildren, const std
 
 FileData* FolderData::FindByPath(const std::string& path)
 {
-	std::vector<FileData*> children = getChildren();
+	std::stack<FileData*> stack;	
+	for (FileData* c : mChildren)
+		if (c != nullptr)
+			stack.push(c);
 
-	for (std::vector<FileData*>::const_iterator it = children.cbegin(); it != children.cend(); ++it)
+	while (!stack.empty())
 	{
-		if ((*it)->getPath() == path)
-			return (*it);
+		FileData* item = stack.top();
+		stack.pop();
 
-		if ((*it)->getType() != FOLDER)
-			continue;
-		
-		auto item = ((FolderData*)(*it))->FindByPath(path);
-		if (item != nullptr)
+		if (item->getPath() == path)
 			return item;
+
+		if (item->getType() != FOLDER)
+			continue;
+
+		const auto& sub = static_cast<FolderData*>(item)->mChildren;
+		for (FileData* s : sub)
+			if (s != nullptr)
+				stack.push(s);
 	}
 
 	return nullptr;
