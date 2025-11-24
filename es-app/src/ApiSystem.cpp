@@ -2316,8 +2316,7 @@ bool ApiSystem::isServiceEnabled(std::string name)
 
 	auto slines = executeEnumerationScript("batocera-services status " + serviceName);
 	auto sline = slines[0];
-	auto splits = Utils::String::split(sline, ';', true);
-	return splits.size() == 2 && splits[1] == "*";
+	return sline.compare("started") == 0;
 }
 
 bool ApiSystem::writeZaparooCard(std::string name)

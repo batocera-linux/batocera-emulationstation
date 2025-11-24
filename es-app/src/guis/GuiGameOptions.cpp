@@ -54,7 +54,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasVideo = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Video));
 	bool hasAlternateMedias = game->getSourceFileData()->getFileMedias().size() > 0;
 	bool hasCheevos = game->hasCheevos();
-	bool hasZaparoo = ApiSystem::getInstance()->isServiceEnabled("zaparoo");
+	bool hasZaparoo = ApiSystem::getInstance()->isServiceEnabled("zaparoo_service");
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
 	{
@@ -410,6 +410,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		});
 	}
 	if (hasZaparoo) {
+		mMenu.addGroup("ZAPAROO");
 		mMenu.addEntry(_("WRITE GAME ON NFC TAG"), false, [this, game]
 		{
 			ApiSystem::getInstance()->writeZaparooCard(game->getFullPath());
