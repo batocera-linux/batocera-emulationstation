@@ -514,6 +514,9 @@ msgstr "SISTÈMA"
 msgid "VIDEO DRIVER"
 msgstr ""
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "PARAMÈTRES NETPLAY"
 
@@ -531,30 +534,6 @@ msgstr "OPCIONS"
 
 msgid "PORT"
 msgstr "PÒRT"
-
-msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "NONE"
-msgstr "PAS RES"
-
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -581,6 +560,30 @@ msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
 msgid "INDEX GAMES"
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "NONE"
+msgstr "PAS RES"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
 msgid "INPUT"
@@ -669,6 +672,12 @@ msgid ""
 "earned."
 msgstr ""
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
@@ -747,6 +756,15 @@ msgstr "CAP DE MESA A JORN PAS DISPONIBLA"
 msgid "SCRAPER"
 msgstr "SEGADOIRA d’INFO"
 
+msgid "SCRAPE"
+msgstr "RECUPERAR INFO"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "precedent"
+
 msgid "SCRAPING DATABASE"
 msgstr ""
 
@@ -755,9 +773,6 @@ msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "RECUPERAR DE"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
 
 msgid "FILTERS"
 msgstr ""
@@ -804,8 +819,101 @@ msgstr "RECUPERAR ARA"
 msgid "START"
 msgstr "COMENÇAR"
 
-msgid "go back"
-msgstr "precedent"
+msgid "IMAGE SOURCE"
+msgstr "FONT IMATGE"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURA D'ECRAN"
+
+msgid "TITLE SCREENSHOT"
+msgstr ""
+
+msgid "MIX V1"
+msgstr ""
+
+msgid "MIX V2"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "FAN ART"
+msgstr ""
+
+msgid "BOX SOURCE"
+msgstr ""
+
+msgid "LOGO SOURCE"
+msgstr ""
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "MARQUEE"
+msgstr ""
+
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr ""
+
+msgid "COMMUNITY RATING"
+msgstr ""
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1022,9 +1130,6 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "CAUSIR"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
@@ -1051,9 +1156,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1592,9 +1694,6 @@ msgstr ""
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
-msgid "ACCOUNTS"
-msgstr ""
-
 msgid "BIOS SETTINGS"
 msgstr ""
 
@@ -1929,6 +2028,12 @@ msgstr "JOGAR LAS MUSICAS DE TÈMA"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr ""
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "LEGIR UNICAMENT LAS CANÇONS DE TA LISTA DE FAVORITS"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELECCION DE CANÇONS FAVORITAS"
+
 msgid "SOUNDS"
 msgstr "SONS"
 
@@ -1976,6 +2081,12 @@ msgstr ""
 
 msgid "NOW PLAYING"
 msgstr ""
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "SUPRIMIR LA CANÇON ACTUALA DE LA LISTA DE FAVORITS"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ENREGISTRAR LA CANÇON ACTUALA DINS LA LISTA DE FAVORITS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVIAR L'ESTALVIADOR D'ECRAN"
@@ -2195,9 +2306,6 @@ msgstr ""
 msgid "DELETE COLLECTION"
 msgstr "SUPRIMIR COLLECCION"
 
-msgid "SCRAPE"
-msgstr "RECUPERAR INFO"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
@@ -2220,90 +2328,6 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "PAIR"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "FONT IMATGE"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURA D'ECRAN"
-
-msgid "TITLE SCREENSHOT"
-msgstr ""
-
-msgid "MIX V1"
-msgstr ""
-
-msgid "MIX V2"
-msgstr ""
-
-msgid "BOX 2D"
-msgstr ""
-
-msgid "BOX 3D"
-msgstr ""
-
-msgid "FAN ART"
-msgstr ""
-
-msgid "BOX SOURCE"
-msgstr ""
-
-msgid "LOGO SOURCE"
-msgstr ""
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr ""
-
-msgid "MARQUEE"
-msgstr ""
-
-msgid "PREFERED REGION"
-msgstr ""
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr ""
-
-msgid "COMMUNITY RATING"
-msgstr ""
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr ""
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
 msgstr ""
 
 msgid "NO DEVICE FOUND"
@@ -2520,6 +2544,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+
+msgid "FAVORITE SONGS"
+msgstr "CANÇONS FAVORITAS"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "SE CONNECTAR A NETPLAY"
@@ -3044,6 +3071,9 @@ msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
+msgid "INVALID CREDENTIALS"
 msgstr ""
 
 msgid "SCRAPING"

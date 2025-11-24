@@ -507,6 +507,9 @@ msgstr "ΣΥΣΤΗΜΑ"
 msgid "VIDEO DRIVER"
 msgstr "ΟΔΗΓΟΣ ΒΙΝΤΕΟ"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "ΡΥΘΜΙΣΕΙΣ NETPLAY"
 
@@ -524,30 +527,6 @@ msgstr "ΕΠΙΛΟΓΕΣ"
 
 msgid "PORT"
 msgstr "ΘΥΡΑ"
-
-msgid "USE RELAY SERVER"
-msgstr "ΧΡΗΣΗ RELAY ΣΕΡΒΕΡ"
-
-msgid "NONE"
-msgstr "ΚΑΝΕΝΑ"
-
-msgid "NEW YORK"
-msgstr "ΝΕΑ ΥΟΡΚΗ"
-
-msgid "MADRID"
-msgstr "ΜΑΔΡΙΤΗ"
-
-msgid "MONTREAL"
-msgstr "ΜΟΝΤΡΕΑΛ"
-
-msgid "SAO PAULO"
-msgstr "ΣΑΟ ΠΑΟΛΟ"
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -575,6 +554,30 @@ msgstr "Ευρετηριαση νεων παιχνιδιων στην εναρξ
 
 msgid "INDEX GAMES"
 msgstr "ΕΥΡΕΤΗΡΙΑΣΗ ΠΑΧΝΙΔΙΩΝ"
+
+msgid "USE RELAY SERVER"
+msgstr "ΧΡΗΣΗ RELAY ΣΕΡΒΕΡ"
+
+msgid "NONE"
+msgstr "ΚΑΝΕΝΑ"
+
+msgid "NEW YORK"
+msgstr "ΝΕΑ ΥΟΡΚΗ"
+
+msgid "MADRID"
+msgstr "ΜΑΔΡΙΤΗ"
+
+msgid "MONTREAL"
+msgstr "ΜΟΝΤΡΕΑΛ"
+
+msgid "SAO PAULO"
+msgstr "ΣΑΟ ΠΑΟΛΟ"
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
 
 msgid "INPUT"
 msgstr "ΕΙΣΑΓΩΓΗ"
@@ -666,6 +669,12 @@ msgstr ""
 "Προβολη εικονιδιων στην κατω αριστερη γωνια οταν επιλεξιμα επιτευγματα "
 "μπορουν να κερδηθουν."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
@@ -749,6 +758,15 @@ msgstr "ΔΕΝ ΥΠΑΡΧΕΙ ΔΙΑΘΕΣΙΜΗ ΑΝΑΒΑΘΜΙΣΗ"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPE"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "πηγαινε πισω"
+
 msgid "SCRAPING DATABASE"
 msgstr "Scraping βασης δεδομενων"
 
@@ -757,9 +775,6 @@ msgstr "ΠΗΓΗ"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPE ΑΠΟ"
-
-msgid "SCRAPER SETTINGS"
-msgstr "ΡΥΘΜΙΣΕΙΣ SCRAPER"
 
 msgid "FILTERS"
 msgstr "ΦΛΙΤΡΑ"
@@ -806,8 +821,101 @@ msgstr "SCRAPE ΤΩΡΑ"
 msgid "START"
 msgstr "ΕΚΚΙΝΗΣΗ"
 
-msgid "go back"
-msgstr "πηγαινε πισω"
+msgid "IMAGE SOURCE"
+msgstr "ΠΗΓΗ ΕΙΚΟΝΑΣ"
+
+msgid "SCREENSHOT"
+msgstr "ΣΤΙΓΜΙΟΤΥΠΟ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "ΣΤΙΓΜΙΟΤΥΠΟ ΤΙΤΛΟΥ"
+
+msgid "MIX V1"
+msgstr ""
+
+msgid "MIX V2"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "FAN ART"
+msgstr ""
+
+msgid "BOX SOURCE"
+msgstr "ΠΗΓΗ BOX"
+
+msgid "LOGO SOURCE"
+msgstr "ΠΗΓΗ ΛΟΓΟΤΥΠΟΥ"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "MARQUEE"
+msgstr "ΛΟΓΟΤΥΠΟ"
+
+msgid "PREFERED REGION"
+msgstr "ΠΡΟΤΙΜΩΜΕΝΗ ΠΕΡΙΟΧΗ"
+
+msgid "AUTO"
+msgstr "ΑΥΤΟΜΑΤΟ"
+
+msgid "OVERWRITE NAMES"
+msgstr "ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΟΝΟΜΑΤΩΝ"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΠΕΡΙΓΡΑΦΩΝ"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΜΕΣΩΝ"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPE ΓΙΑ"
+
+msgid "SHORT NAME"
+msgstr "ΜΙΚΡΟ ΟΝΟΜΑ"
+
+msgid "COMMUNITY RATING"
+msgstr "ΑΞΙΟΛΟΓΗΣΗ ΚΟΙΝΟΤΗΤΑΣ"
+
+msgid "VIDEO"
+msgstr "ΒΙΝΤΕΟ"
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr "ΕΓΧΕΙΡΙΔΙΑ"
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1027,9 +1135,6 @@ msgstr "ΑΥΤΗ Η ΕΠΙΛΟΓΗ ΕΙΝΑΙ ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΗ �
 msgid "CHOOSE"
 msgstr "ΕΠΙΛΟΓΗ"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "Η ΔΙΕΠΑΦΗ ΧΡΗΣΤΗ ΕΙΝΑΙ ΤΩΡΑ ΞΕΚΛΕΙΔΩΜΕΝΗ"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ΠΛΗΚΤΡΟΛΟΓΗΣΤΕ ΚΩΔΙΚΟ ΓΙΑ ΞΕΚΛΕΙΔΩΜΑ"
 
@@ -1056,9 +1161,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr "ΔΙΑΜΟΡΦΩΣΗ"
-
-msgid "AUTO"
-msgstr "ΑΥΤΟΜΑΤΟ"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1606,9 +1708,6 @@ msgstr ""
 msgid "UPDATE GAMELISTS"
 msgstr "ΑΝΑΝΕΩΣΗ ΛΙΣΤΑΣ ΠΑΙΧΝΙΔΙΩΝ"
 
-msgid "ACCOUNTS"
-msgstr ""
-
 msgid "BIOS SETTINGS"
 msgstr ""
 
@@ -1945,6 +2044,12 @@ msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΥΣΙΚΩΝ ΘΕΜΑΤΟΣ"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "ΜΕΙΩΣΗ ΕΝΤΑΣΗΣ ΜΟΥΣΙΚΗΣ ΟΤΑΝ ΑΝΑΠΑΡΑΓΕΤΑΙ ΒΙΝΤΕΟ"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΜΟΝΟ ΤΡΑΓΟΥΔΙΩΝ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "ΕΠΙΛΟΓΗ ΑΓΑΠΗΜΕΝΩΝ ΤΡΑΓΟΥΔΙΩΝ"
+
 msgid "SOUNDS"
 msgstr "ΗΧΟΙ"
 
@@ -1992,6 +2097,12 @@ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"
 
 msgid "NOW PLAYING"
 msgstr "ΤΩΡΑ ΠΑΙΖΕΙ"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "ΑΦΑΙΡΕΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΑΠΟ ΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ΑΠΟΘΗΚΕΥΣΗ ΤΡΕΧΟΝΤΟΣ ΤΡΑΓΟΥΔΙΟΥ ΣΤΗ ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
@@ -2213,9 +2324,6 @@ msgstr "ΠΡΟΣΘΗΚΗ ΣΤΗΝ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗ ΣΥΛΛΟΓΗ...
 msgid "DELETE COLLECTION"
 msgstr "ΔΙΑΓΡΑΦΗ ΣΥΛΛΟΓΗΣ"
 
-msgid "SCRAPE"
-msgstr "SCRAPE"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ΣΥΝΘΕΤΕΣ ΡΥΘΜΙΣΕΙΣ ΠΑΙΧΝΙΔΙΟΥ"
 
@@ -2239,90 +2347,6 @@ msgstr "ΖΕΥΞΗ ΣΥΣΚΕΥΗΣ BLUETOOTH"
 
 msgid "PAIR"
 msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "ΠΗΓΗ ΕΙΚΟΝΑΣ"
-
-msgid "SCREENSHOT"
-msgstr "ΣΤΙΓΜΙΟΤΥΠΟ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "ΣΤΙΓΜΙΟΤΥΠΟ ΤΙΤΛΟΥ"
-
-msgid "MIX V1"
-msgstr ""
-
-msgid "MIX V2"
-msgstr ""
-
-msgid "BOX 2D"
-msgstr ""
-
-msgid "BOX 3D"
-msgstr ""
-
-msgid "FAN ART"
-msgstr ""
-
-msgid "BOX SOURCE"
-msgstr "ΠΗΓΗ BOX"
-
-msgid "LOGO SOURCE"
-msgstr "ΠΗΓΗ ΛΟΓΟΤΥΠΟΥ"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr ""
-
-msgid "MARQUEE"
-msgstr "ΛΟΓΟΤΥΠΟ"
-
-msgid "PREFERED REGION"
-msgstr "ΠΡΟΤΙΜΩΜΕΝΗ ΠΕΡΙΟΧΗ"
-
-msgid "OVERWRITE NAMES"
-msgstr "ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΟΝΟΜΑΤΩΝ"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΠΕΡΙΓΡΑΦΩΝ"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΜΕΣΩΝ"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPE ΓΙΑ"
-
-msgid "SHORT NAME"
-msgstr "ΜΙΚΡΟ ΟΝΟΜΑ"
-
-msgid "COMMUNITY RATING"
-msgstr "ΑΞΙΟΛΟΓΗΣΗ ΚΟΙΝΟΤΗΤΑΣ"
-
-msgid "VIDEO"
-msgstr "ΒΙΝΤΕΟ"
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr "ΕΓΧΕΙΡΙΔΙΑ"
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
-msgstr "ΛΟΓΑΡΙΑΣΜΟΣ"
 
 msgid "NO DEVICE FOUND"
 msgstr "ΔΕΝ ΒΡΕΘΗΚΕ ΣΥΣΚΕΥΗ"
@@ -2541,6 +2565,9 @@ msgstr ""
 "ΟΡΙΣΜΕΝΑ ΑΡΧΕΙΑ ΠΟΥ ΕΙΣΑΓΑΤΕ ΒΡΙΣΚΟΝΤΑΙ ΕΚΤΟΣ ΔΙΑΔΡΟΜΗΣ ΛΙΣΤΑΣ ΠΑΙΧΝΙΔΙΟΥ.\n"
 "ΘΕΛΕΤΕ ΝΑ ΧΡΗΣΙΜΟΠΟΙΗΣΕΤΕ ΣΧΕΤΙΚΑ ΜΕ ΤΗΝ ΛΙΣΤΑ ΠΑΙΧΝΙΔΙΟΥ ΑΝΤΙΓΡΑΦΑ ΑΥΤΩΝ "
 "ΤΩΝ ΑΡΧΕΙΩΝ ;"
+
+msgid "FAVORITE SONGS"
+msgstr "ΑΓΑΠΗΜΕΝΑ ΤΡΑΓΟΥΔΙΑ"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ΣΥΝΔΕΣΗ ΣΤΟ NETPLAY"
@@ -3075,6 +3102,9 @@ msgstr "MEDIA ΠΟΥ ΛΕΙΠΟΥΝ"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "ΘΕΛΕΤΕ ΝΑ ΓΥΡΙΣΕΤΕ ΤΗΝ ΟΘΟΝΗ ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -3562,6 +3592,15 @@ msgid ""
 msgstr ""
 "ΒΑΘΜΟΝΟΜΗΣΗ ΟΠΛΟΥ\n"
 "Πυροβοληστε σε στοχο για βαθμονομηση"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "ΡΥΘΜΙΣΕΙΣ SCRAPER"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "ΛΟΓΑΡΙΑΣΜΟΣ"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "Η ΔΙΕΠΑΦΗ ΧΡΗΣΤΗ ΕΙΝΑΙ ΤΩΡΑ ΞΕΚΛΕΙΔΩΜΕΝΗ"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."

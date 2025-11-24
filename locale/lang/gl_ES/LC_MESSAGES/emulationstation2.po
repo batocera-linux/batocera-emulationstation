@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-08 10:17+0200\n"
+"PO-Revision-Date: 2025-08-25 13:19+0200\n"
 "Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BUSCANDO BLUETOOTH"
@@ -278,7 +278,7 @@ msgid "Cheevos Game ID"
 msgstr "Cheevos ID do xogo"
 
 msgid "Screenscraper Game ID"
-msgstr "Screenscraper ID do xogo"
+msgstr "Identificador do xogo no raspador de cubertas"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -513,6 +513,9 @@ msgstr "SISTEMA"
 msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
 
+msgid "SEOUL"
+msgstr "SEÚL"
+
 msgid "NETPLAY SETTINGS"
 msgstr "AXUSTES DE XOGO EN REDE"
 
@@ -530,30 +533,6 @@ msgstr "OPCIÓNS"
 
 msgid "PORT"
 msgstr "PORTO"
-
-msgid "USE RELAY SERVER"
-msgstr "USAR SERVIDOR CENTRAL"
-
-msgid "NONE"
-msgstr "NINGÚN"
-
-msgid "NEW YORK"
-msgstr "NOVA YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SÃO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALIZADO"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "SERVIDOR CENTRAL PERSONALIZADO"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CREAR SALA AUTOMATICAMENTE"
@@ -583,6 +562,30 @@ msgstr "INDEXAR XOGOS NOVOS AO COMEZO"
 msgid "INDEX GAMES"
 msgstr "INDEXAR XOGOS"
 
+msgid "USE RELAY SERVER"
+msgstr "USAR SERVIDOR CENTRAL"
+
+msgid "NONE"
+msgstr "NINGÚN"
+
+msgid "NEW YORK"
+msgstr "NOVA YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SÃO PAULO"
+
+msgid "CUSTOM"
+msgstr "PERSONALIZADO"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "SERVIDOR CENTRAL PERSONALIZADO"
+
 msgid "INPUT"
 msgstr "ENTRADA"
 
@@ -602,7 +605,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "RETROLOGROS"
 
 msgid "Softcore points"
 msgstr "Puntos en moderado"
@@ -620,7 +623,7 @@ msgid "LAUNCH"
 msgstr "INICIAR"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "AXUSTES DE RETROACHIEVEMENTS"
+msgstr "AXUSTES DE RETROLOGROS"
 
 msgid "USERNAME"
 msgstr "NOME DE USUARIO"
@@ -656,7 +659,7 @@ msgid "ENCORE MODE"
 msgstr "MODO REPETICIÓN"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "As fazañas desbloqueadas pódense acadar de novo."
+msgstr "Os logros desbloqueados pódense acadar de novo."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "INSTANTÁNEA AUTOMÁTICA"
@@ -671,7 +674,13 @@ msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
-"Amosa iconas no recuncho inferior dereito cando se poidan acadar fazañas."
+"Amosa iconas no recuncho inferior dereito cando se poidan acadar logros."
+
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr "LOGROS NON OFICIAIS"
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr "Activar o desbloqueo de logros non oficiais."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SON DE DESBLOQUEO DE RETROACHIEVEMENT"
@@ -683,7 +692,7 @@ msgid "UNLOCK SOUND"
 msgstr "SON DE DESBLOQUEO"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "AMOSAR ENTRADA RETROACHIEVEMENTS NO MENÚ PRINCIPAL"
+msgstr "AMOSAR ENTRADA RETROLOGROS NO MENÚ PRINCIPAL"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
@@ -691,7 +700,7 @@ msgstr ""
 "principal!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "NON SE PODE ACTIVAR RETROACHIEVEMENTS:"
+msgstr "NON SE PODE ACTIVAR RETROLOGROS:"
 
 msgid "BLUETOOTH DEVICE LIST"
 msgstr "LISTA DE DISPOSITIVOS BLUETOOTH"
@@ -758,6 +767,15 @@ msgstr "SEN ACTUALIZACIÓN DISPOÑÍBEL"
 msgid "SCRAPER"
 msgstr "AUDITADOR"
 
+msgid "SCRAPE"
+msgstr "AUDITAR"
+
+msgid "ACCOUNTS"
+msgstr "CONTAS"
+
+msgid "go back"
+msgstr "retroceder"
+
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DATOS ONDE AUDITAR"
 
@@ -766,9 +784,6 @@ msgstr "ORIXE"
 
 msgid "SCRAPE FROM"
 msgstr "AUDITAR DENDE"
-
-msgid "SCRAPER SETTINGS"
-msgstr "AXUSTES DO AUDITADOR"
 
 msgid "FILTERS"
 msgstr "FILTROS"
@@ -815,8 +830,101 @@ msgstr "AUDITAR AGORA"
 msgid "START"
 msgstr "COMEZAR"
 
-msgid "go back"
-msgstr "retroceder"
+msgid "IMAGE SOURCE"
+msgstr "ORIXE DA IMAXE"
+
+msgid "SCREENSHOT"
+msgstr "INSTANTÁNEA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "INSTANTÁNEA DO TÍTULO"
+
+msgid "MIX V1"
+msgstr "MESTURA V1"
+
+msgid "MIX V2"
+msgstr "MESTURA V2"
+
+msgid "BOX 2D"
+msgstr "CAIXA 2D"
+
+msgid "BOX 3D"
+msgstr "CAIXA 3D"
+
+msgid "FAN ART"
+msgstr "DESEÑO NON OFICIAL"
+
+msgid "BOX SOURCE"
+msgstr "ORIXE DA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "ORIXE DO LOGO"
+
+msgid "HD WHEEL"
+msgstr "RODA HD"
+
+msgid "WHEEL"
+msgstr "CARRUSEL"
+
+msgid "MARQUEE"
+msgstr "MARQUESIÑA"
+
+msgid "PREFERED REGION"
+msgstr "REXIÓN PREFERIDA"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SOBREESCRIBIR NOMES"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOBREESCRIBIR DESCRICIÓNS"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOBREESCRIBIR MEDIOS"
+
+msgid "SCRAPE FOR"
+msgstr "AUDITAR PARA"
+
+msgid "SHORT NAME"
+msgstr "NOME CURTO"
+
+msgid "COMMUNITY RATING"
+msgstr "VALORACIÓN DA COMUNIDADE"
+
+msgid "VIDEO"
+msgstr "VÍDEO"
+
+msgid "FANART"
+msgstr "DESEÑO NON OFICIAL"
+
+msgid "BEZEL (16:9)"
+msgstr "BISEL (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "CAIXA TRASEIRA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "AXUSTES MANDO A TECLA"
+
+msgid "SCREENSCRAPER"
+msgstr "RASPADOR DE CUBERTAS"
+
+msgid "IGDB"
+msgstr "BDXR"
+
+msgid "CLIENT ID"
+msgstr "ID do cliente"
+
+msgid "CLIENT SECRET"
+msgstr "CLAVE SECRETA DO CLIENTE"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1036,9 +1144,6 @@ msgstr "ESTA FUNCIÓN ESTÁ DESACTIVADA MENTRES SE ESTÁ A AUDITAR"
 msgid "CHOOSE"
 msgstr "ESCOLLER"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "O MODO DE INTERFACE DE USUARIO ESTÁ DESBLOQUEADO"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "INSIRE O CÓDIGO PARA DESBLOQUEAR"
 
@@ -1065,9 +1170,6 @@ msgstr "servidor dmd"
 
 msgid "FORMAT"
 msgstr "FORMATO"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "tamaño da matriz dmd"
@@ -1209,7 +1311,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "VOLVE DETECTAR PAÍS/REXIÓN DE TODOS OS XOGOS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ATOPA TODOS OS XOGOS CON XOGO EN REDE/FAZAÑAS"
+msgstr "ATOPA TODOS OS XOGOS CON XOGO EN REDE/LOGROS"
 
 msgid "CLEAR CACHES"
 msgstr "LIMPAR CACHÉS"
@@ -1315,7 +1417,7 @@ msgstr ""
 "pulsación longa do botón Sur para as opcións do xogo"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "CONTROLAR EMULATIONSTATION SÓ CO JOYSTICK PRINCIPAL"
+msgstr "CONTROLAR EMULATIONSTATION SÓ CA PANCA DE MANDO PRINCIPAL"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCIA O MOVEMENTO DA ARMA"
@@ -1327,7 +1429,7 @@ msgid "Might have negative impact on security."
 msgstr "Pode ter un impacto negativo na seguridade."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr "ACTIVAR CONTROLADORES PARA JOYSTICK HID"
+msgstr "ACTIVAR CONTROLADORES PARA A PANCA DE MANDO HID"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AMOSAR INDICADOR DE REDE"
@@ -1635,9 +1737,6 @@ msgstr "Axuste actual"
 msgid "UPDATE GAMELISTS"
 msgstr "ACTUALIZAR LISTAS DE XOGOS"
 
-msgid "ACCOUNTS"
-msgstr "CONTAS"
-
 msgid "BIOS SETTINGS"
 msgstr "AXUSTES DE BIOS"
 
@@ -1866,7 +1965,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "AMOSAR ICONA DO MANUAL"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "AMOSAR ICONA DE RETROACHIEVEMENTS"
+msgstr "AMOSAR ICONA DE RETROLOGROS"
 
 msgid "SHOW GUN ICON"
 msgstr "AMOSAR ICONA DA ARMA"
@@ -1976,6 +2075,12 @@ msgstr "REPRODUCIR MÚSICA ESPECÍFICA DO SISTEMA"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "BAIXA A MÚSICA AO REPRODUCIR VÍDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "REPRODUCIR SÓ AS CANCIÓNS DA TÚA LISTA DE FAVORITOS"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELECCIÓN DE CANCIÓNS FAVORITAS"
+
 msgid "SOUNDS"
 msgstr "SONS"
 
@@ -2023,6 +2128,12 @@ msgstr "SALTAR Á SEGUINTE CANCIÓN"
 
 msgid "NOW PLAYING"
 msgstr "REPRODUCINDO"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "ELIMINAR A CANCIÓN ACTUAL DA LISTA DE FAVORITOS"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "GARDAR A CANCIÓN ACTUAL NA LISTA DE FAVORITOS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
@@ -2140,13 +2251,13 @@ msgid "Unlocked on"
 msgstr "Desbloqueado o"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "ESTE XOGO AÍNDA NON TEN FAZAÑAS"
+msgstr "ESTE XOGO AÍNDA NON TEN LOGROS"
 
 msgid "Achievements (softcore)"
-msgstr "Fazañas (moderado)"
+msgstr "Logros (moderado)"
 
 msgid "Achievements (hardcore)"
-msgstr "Fazañas (extremo)"
+msgstr "Logros (extremo)"
 
 #, c-format
 msgid "%d%% complete"
@@ -2177,7 +2288,7 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "NÚCLEO(S) COMPATÍBEI(S)"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "VER FAZAÑAS DESTE XOGO"
+msgstr "VER LOGROS DESTE XOGO"
 
 msgid "GAME"
 msgstr "XOGO"
@@ -2245,9 +2356,6 @@ msgstr "ENGADIR A COLECCIÓN PERSONALIZADA..."
 msgid "DELETE COLLECTION"
 msgstr "BORRAR COLECCIÓN"
 
-msgid "SCRAPE"
-msgstr "AUDITAR"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIÓNS AVANZADAS DO XOGO"
 
@@ -2271,90 +2379,6 @@ msgstr "EMPARELLAR DISPOSITIVO BLUETOOTH"
 
 msgid "PAIR"
 msgstr "EMPARELLAR"
-
-msgid "IMAGE SOURCE"
-msgstr "ORIXE DA IMAXE"
-
-msgid "SCREENSHOT"
-msgstr "INSTANTÁNEA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "INSTANTÁNEA DO TÍTULO"
-
-msgid "MIX V1"
-msgstr "MESTURA V1"
-
-msgid "MIX V2"
-msgstr "MESTURA V2"
-
-msgid "BOX 2D"
-msgstr "CAIXA 2D"
-
-msgid "BOX 3D"
-msgstr "CAIXA 3D"
-
-msgid "FAN ART"
-msgstr "DESEÑO NON OFICIAL"
-
-msgid "BOX SOURCE"
-msgstr "ORIXE DA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "ORIXE DO LOGO"
-
-msgid "HD WHEEL"
-msgstr "RODA HD"
-
-msgid "WHEEL"
-msgstr "CARRUSEL"
-
-msgid "MARQUEE"
-msgstr "MARQUESIÑA"
-
-msgid "PREFERED REGION"
-msgstr "REXIÓN PREFERIDA"
-
-msgid "OVERWRITE NAMES"
-msgstr "SOBREESCRIBIR NOMES"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SOBREESCRIBIR DESCRICIÓNS"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SOBREESCRIBIR MEDIOS"
-
-msgid "SCRAPE FOR"
-msgstr "AUDITAR PARA"
-
-msgid "SHORT NAME"
-msgstr "NOME CURTO"
-
-msgid "COMMUNITY RATING"
-msgstr "VALORACIÓN DA COMUNIDADE"
-
-msgid "VIDEO"
-msgstr "VÍDEO"
-
-msgid "FANART"
-msgstr "DESEÑO NON OFICIAL"
-
-msgid "BEZEL (16:9)"
-msgstr "BISEL (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "CAIXA TRASEIRA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "AXUSTES MANDO A TECLA"
-
-msgid "ACCOUNT"
-msgstr "CONTA"
 
 msgid "NO DEVICE FOUND"
 msgstr "NON SE ATOPA DISPOSITIVO"
@@ -2573,6 +2597,9 @@ msgstr ""
 "ALGÚN FICHEIROS LIGADOS LOCALÍZANSE FÓRA DO CAMIÑO Á LISTA DE XOGOS.\n"
 "QUERES USAR UNHA COPIA DESTES FICHEIROS RELATIVOS Á LISTA DE XOGOS?"
 
+msgid "FAVORITE SONGS"
+msgstr "CANCIÓNS FAVORITAS"
+
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTAR A XOGO EN REDE"
 
@@ -2785,7 +2812,7 @@ msgid "MODE"
 msgstr "MODO"
 
 msgid "JOYSTICK"
-msgstr "JOYSTICK"
+msgstr "PANCA DE MANDO"
 
 msgid "MOUSE ONLY"
 msgstr "SÓ RATO"
@@ -3084,7 +3111,7 @@ msgid "ALREADY PLAYED"
 msgstr "XA XOGADO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "TEN FAZAÑAS"
+msgstr "TEN LOGROS"
 
 msgid "VERTICAL"
 msgstr "VERTICAL"
@@ -3109,6 +3136,9 @@ msgstr "FALTAN MEDIOS"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "QUERES CAMBIAR A PANTALLA ?"
+
+msgid "INVALID CREDENTIALS"
+msgstr "CREDENCIAIS NON VÁLIDAS"
 
 msgid "SCRAPING"
 msgstr "AUDITANDO"
@@ -3171,7 +3201,7 @@ msgid "never played"
 msgstr "nunca xogado"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "retrologros"
 
 msgid "arcade"
 msgstr "arcade"
@@ -3213,7 +3243,7 @@ msgid "Various"
 msgstr "Varios"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "BUSCANDO RETROACHIEVEMENTS"
+msgstr "BUSCANDO RETROLOGROS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "BUSCANDO XOGOS EN REDE"
@@ -3596,6 +3626,15 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "AXUSTES DO AUDITADOR"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "CONTA"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "O MODO DE INTERFACE DE USUARIO ESTÁ DESBLOQUEADO"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "AMOSAR OPCIÓNS DO XOGO EN REDE AO INICIAR O XOGO"

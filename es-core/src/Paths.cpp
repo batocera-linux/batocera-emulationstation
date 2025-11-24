@@ -1,5 +1,5 @@
 #include "Paths.h"
-
+#include "Log.h"
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -15,8 +15,18 @@ Paths* Paths::_instance = nullptr;
 #define SETTINGS_FILENAME "emulationstation.ini"
 #endif
 
+
+
+
 Paths::Paths()
 {	
+
+#ifdef BATOCERA
+	LOG(LogInfo) << "BATOCERA is defined";
+#else
+	LOG(LogInfo) << "BATOCERA is NOT defined";
+#endif
+
 	mEmulationStationPath = getExePath();
 	mUserEmulationStationPath = Utils::FileSystem::getCanonicalPath(getHomePath() + "/.emulationstation");
 	mRootPath = Utils::FileSystem::getParent(getHomePath());

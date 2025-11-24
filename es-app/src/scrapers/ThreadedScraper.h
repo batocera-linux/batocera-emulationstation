@@ -62,6 +62,7 @@ private:
 	ThreadedScraper(Window* window, const std::queue<ScraperSearchParams>& searches, int threadCount);
 	~ThreadedScraper();
 
+	void Process();
 	void ProcessNextGame(ScraperThread* thread);
 
 	Window* mWindow;
@@ -83,6 +84,7 @@ private:
 	void updateUI();
 
 	int mTotal;
+	int mThreadCount;
 	int mExitCode;
 
 	static bool mPaused;

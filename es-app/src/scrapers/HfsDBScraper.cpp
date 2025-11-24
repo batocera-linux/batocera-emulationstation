@@ -13,6 +13,7 @@
 #include "Genres.h"
 #include "SystemConf.h"
 #include "ApiSystem.h"
+#include "LocaleES.h"
 
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -166,44 +167,57 @@ const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()
 	return mdds;
 }
 
-void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
+bool HfsDBScraper::ensureToken()
 {
-	if (mToken.empty() || Utils::Time::DateTime::now().elapsedSecondsSince(mTokenDate) > 1800) // make Token expire after 30mn
+	if (!mToken.empty() && Utils::Time::DateTime::now().elapsedSecondsSince(mTokenDate) < 1800) // make Token expire after 30mn
+		return true;
+	
+	mToken = "";
+
+	std::string token;
+
+	HttpReqOptions options;
+
+	std::string login = HFS_DEV_LOGIN;
+
+	auto idx = login.find(":");
+	if (idx == std::string::npos)
+		return false; // Bad format ?
+
+	std::string user = login.substr(0, idx);
+	std::string pass = login.substr(idx + 1);
+
+	std::string basicAuth = httplib::detail::base64_encode(HFS_DEV_LOGIN);
+
+	options.dataToPost = "&username=" + user + "&password=" + pass;
+	options.customHeaders.push_back("Authorization: Basic " + basicAuth);
+
+	HttpReq request("https://db.hfsplay.fr/api/v1/auth/token", &options);
+	if (request.wait())
 	{
-		mToken = "";
+		Document doc;
+		auto json = request.getContent();
+		doc.Parse(json.c_str());
 
-		std::string token;
-
-		HttpReqOptions options;
-
-		std::string login = HFS_DEV_LOGIN;
-		
-		auto idx = login.find(":");
-		if (idx == std::string::npos)
-			return; // Bad format ?
-
-		std::string user = login.substr(0, idx);
-		std::string pass = login.substr(idx+1);
-		
-		std::string basicAuth = httplib::detail::base64_encode(HFS_DEV_LOGIN);
-
-		options.dataToPost = "&username="+ user +"&password=" + pass;
-		options.customHeaders.push_back("Authorization: Basic "+ basicAuth);
-
-		HttpReq request("https://db.hfsplay.fr/api/v1/auth/token", &options);
-		if (request.wait())
+		if (!doc.HasParseError() && doc.HasMember("token"))
 		{
-			Document doc;
-			auto json = request.getContent();
-			doc.Parse(json.c_str());
-
-			if (!doc.HasParseError() && doc.HasMember("token"))
-				mToken = doc["token"].GetString();
+			mToken = doc["token"].GetString();
+			return true;
 		}
 	}
 
-	if (mToken.empty())
+	return false;
+}
+
+void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
+{
+	if (!ensureToken())
+	{
+		if (!params.isManualScrape)
+			throw std::runtime_error(_("INVALID CREDENTIALS"));
+
 		return;
+	}
 
 	mTokenDate = Utils::Time::DateTime::now();
 

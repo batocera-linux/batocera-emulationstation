@@ -30,7 +30,7 @@
     <game id="2Spicy" name="2 Spicy">
       <gun/>
     </game>
-    <game id="38ambushalley">
+    <game id="38ambushalley" name=".38 Ambush Alley">
       <gun/>
     </game>
     <game id="500gp">
@@ -202,6 +202,45 @@
       <spinner/>
     </game>
     <game id="arkangc2">
+      <spinner/>
+    </game>
+    <game id="arknoid">
+      <spinner/>
+    </game>
+    <game id="arknoid2">
+      <spinner/>
+    </game>
+    <game id="arknoid2b">
+      <spinner/>
+    </game>
+    <game id="arknoid2j">
+      <spinner/>
+    </game>
+    <game id="arknoid2u">
+      <spinner/>
+    </game>
+    <game id="arknoidj">
+      <spinner/>
+    </game>
+    <game id="arknoidja">
+      <spinner/>
+    </game>
+    <game id="arknoidjb">
+      <spinner/>
+    </game>
+    <game id="arknoidjbl">
+      <spinner/>
+    </game>
+    <game id="arknoidjbl2">
+      <spinner/>
+    </game>
+    <game id="arknoidpe">
+      <spinner/>
+    </game>
+    <game id="arknoidu">
+      <spinner/>
+    </game>
+    <game id="arknoiduo">
       <spinner/>
     </game>
     <game id="arkanoid">
@@ -456,7 +495,7 @@
     <game id="BlockKing">
       <gun/>
     </game>
-    <game id="bluethunder">
+    <game id="bluethunder" name="Blue Thunder">
       <gun/>
     </game>
     <game id="blstroid">
@@ -2111,7 +2150,7 @@
     <game id="hummerextreme">
       <wheel/>
     </game>
-    <game id="hydrosub2021">
+    <game id="hydrosub2021" name="Hydrosub: 2021">
       <gun/>
     </game>
     <game id="ID4Exp">
@@ -2583,6 +2622,9 @@
     </game>
     <game id="marble5">
       <trackball/>
+    </game>
+    <game id="marbvice" name="Marbella Vice">
+      <gun/>
     </game>
     <game id="marinedt">
       <trackball/>
@@ -3123,7 +3165,7 @@
     <game id="policetr13b">
       <gun/>
     </game>
-    <game id="popsghostly">
+    <game id="popsghostly" name="The Rescue of Pops Ghostly">
       <gun/>
     </game>
     <game id="pong">
@@ -3927,7 +3969,7 @@
     <game id="sonicp">
       <trackball/>
     </game>
-    <game id="sonicfury">
+    <game id="sonicfury" name="Sonic Fury">
       <gun/>
     </game>
     <game id="spacegun">
@@ -4408,6 +4450,9 @@
       <gun/>
     </game>
     <game id="tickee">
+      <gun/>
+    </game>
+    <game id="tierras" name="Tierras Salvajes">
       <gun/>
     </game>
     <game id="timecris">
@@ -4964,6 +5009,9 @@
       <gun/>
     </game>
     <game id="wsjr">
+      <gun/>
+    </game>
+    <game id="wsjr-hd" name="Who Shot Johnny Rock?">
       <gun/>
     </game>
     <game id="WSJR_HD" name="Who Shot Johnny Rock?">
@@ -6216,6 +6264,10 @@
     <game id="extremeg">
       <controller rumble="true"/>
       <wheel wheel="joystick1left" rotation="180" accelerate="z" brake="b" downshift="a"/>
+    </game>
+    <game id="mariokart64ampedup">
+      <video widescreen="true"/>
+      <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="25" midzone="1"/>
     </game>
     <game id="mariokart64">
       <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="25" midzone="1"/>

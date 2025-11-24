@@ -9,7 +9,7 @@ namespace Utils
 {
 	namespace Zip
 	{
-		typedef size_t(*zip_callback)(void *pOpaque, unsigned long long file_ofs, const void *pBuf, size_t n);
+		typedef size_t(*zip_callback)(void *pOpaque, uint64_t file_ofs, const void *pBuf, size_t n);
 		
 		struct ZipInfo
 		{

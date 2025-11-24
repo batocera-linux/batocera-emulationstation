@@ -504,6 +504,9 @@ msgstr "SISTEMA"
 msgid "VIDEO DRIVER"
 msgstr "BIDEO DRIVER-A"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "SARE JOKO KONFIGURAZIOA"
 
@@ -521,30 +524,6 @@ msgstr "AUKERAK"
 
 msgid "PORT"
 msgstr "PORTUA"
-
-msgid "USE RELAY SERVER"
-msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
-
-msgid "NONE"
-msgstr "BAT ERE EZ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -572,6 +551,30 @@ msgstr "INDEXATU JOKO BERRIAK ABIARAZTEAN"
 
 msgid "INDEX GAMES"
 msgstr "INDEXATU JOKOAK"
+
+msgid "USE RELAY SERVER"
+msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
+
+msgid "NONE"
+msgstr "BAT ERE EZ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
 
 msgid "INPUT"
 msgstr "EDITATU"
@@ -664,6 +667,12 @@ msgstr ""
 "Erakutsi ikonoak eskuin beheko iskinan aukeratu daitezkeen lorpenak irabazi "
 "daitezkeenean"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT SOINUA DESBLOKEATU"
 
@@ -747,6 +756,15 @@ msgstr "EZ DAGO EGUNERAKETARIK ERABILGARRI"
 msgid "SCRAPER"
 msgstr "DATU LORTZAILEA"
 
+msgid "SCRAPE"
+msgstr "DATUAK LORTU"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "atzera egin"
+
 msgid "SCRAPING DATABASE"
 msgstr "DATU BASEAREN DATUAK LORTZEN"
 
@@ -755,9 +773,6 @@ msgstr "ITURRIA"
 
 msgid "SCRAPE FROM"
 msgstr "LORTU DATUAK HEMENDIK:"
-
-msgid "SCRAPER SETTINGS"
-msgstr "DATU LORTZE KONFIGURAZIOA"
 
 msgid "FILTERS"
 msgstr "FILTROAK"
@@ -804,8 +819,101 @@ msgstr "DATUAK LORTU"
 msgid "START"
 msgstr "HASI"
 
-msgid "go back"
-msgstr "atzera egin"
+msgid "IMAGE SOURCE"
+msgstr "IRUDI ITURRIA"
+
+msgid "SCREENSHOT"
+msgstr "PANTAILA KAPTURA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "IZENBURU PANTAILA KAPTURA"
+
+msgid "MIX V1"
+msgstr "V1 NAHASKETA"
+
+msgid "MIX V2"
+msgstr "V2 NAHASKETA"
+
+msgid "BOX 2D"
+msgstr "2D KAXA"
+
+msgid "BOX 3D"
+msgstr "3D KAXA"
+
+msgid "FAN ART"
+msgstr "ZALE ARTEA"
+
+msgid "BOX SOURCE"
+msgstr "KAXA ITURRIA"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO ITURRIA"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "GURPILA"
+
+msgid "MARQUEE"
+msgstr "MARKESINA"
+
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr "LOR DATUAK HONENTZAT"
+
+msgid "SHORT NAME"
+msgstr "IZEN MOTZA"
+
+msgid "COMMUNITY RATING"
+msgstr "KOMUNIDADEAREN KALIFIKAZIOA"
+
+msgid "VIDEO"
+msgstr "BIDEOA"
+
+msgid "FANART"
+msgstr "ZALE ARTEA"
+
+msgid "BEZEL (16:9)"
+msgstr "BEZEL-Z (16-9)"
+
+msgid "BOX BACKSIDE"
+msgstr "KAXA ATZEKALDEA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUALA"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "PAD-ETIK TEKLATURAKO KONFIGURAZIOA"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1025,9 +1133,6 @@ msgstr "FUNTIZO HAU DESGAITUTA DAGO SCRAPER-A MARTXAN DAGOEN BITARTENA"
 msgid "CHOOSE"
 msgstr "HAUTATU"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "ERABILTZAILE INTERFAZE MODUA DESBLOKEATUTA DAGO UNE HONETAN"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SARTU DESBLOKEATZEKO KODEA ORAIN"
 
@@ -1054,9 +1159,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1618,9 +1720,6 @@ msgstr "Uneko ezarpena"
 msgid "UPDATE GAMELISTS"
 msgstr "EGUNERATU JOKO LISTAK"
 
-msgid "ACCOUNTS"
-msgstr ""
-
 msgid "BIOS SETTINGS"
 msgstr ""
 
@@ -1961,6 +2060,12 @@ msgstr "SISTEMAREN ESPEZIFIKOAK DIREN MUSIKA KAPRETAK ERREPRODUZITU"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "JAITSI MUSIKAREN BOLUMENA BIDEOA ERREPRODUZITZEAN"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ERREPRODUZITU SOILIK ZURE GOGOKOEN ZERRENDAKO ABESTIAK"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "GOGOKO ABESTIEN HAUTAPENA"
+
 msgid "SOUNDS"
 msgstr "SOINUAK"
 
@@ -2008,6 +2113,12 @@ msgstr "SALTATU HURRENGO ABESTIA"
 
 msgid "NOW PLAYING"
 msgstr "ORAIN ERREPRODUZITZEN"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "KENDU UNEKO ABESTIA GOGOKOEN ZERRENDATIK"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "GORDE UNEKO ABESTIA GOGOKOEN ZERRENDAN"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ABIARAZI PANTAILA BABESLEA"
@@ -2230,9 +2341,6 @@ msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI..."
 msgid "DELETE COLLECTION"
 msgstr "EZABATU KOLEKZIOA"
 
-msgid "SCRAPE"
-msgstr "DATUAK LORTU"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "JOKO AUKERA AURRERATUAK"
 
@@ -2256,90 +2364,6 @@ msgstr "BLUETOOTH GAILUA PAREKATU"
 
 msgid "PAIR"
 msgstr "PAREKATU"
-
-msgid "IMAGE SOURCE"
-msgstr "IRUDI ITURRIA"
-
-msgid "SCREENSHOT"
-msgstr "PANTAILA KAPTURA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "IZENBURU PANTAILA KAPTURA"
-
-msgid "MIX V1"
-msgstr "V1 NAHASKETA"
-
-msgid "MIX V2"
-msgstr "V2 NAHASKETA"
-
-msgid "BOX 2D"
-msgstr "2D KAXA"
-
-msgid "BOX 3D"
-msgstr "3D KAXA"
-
-msgid "FAN ART"
-msgstr "ZALE ARTEA"
-
-msgid "BOX SOURCE"
-msgstr "KAXA ITURRIA"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO ITURRIA"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "GURPILA"
-
-msgid "MARQUEE"
-msgstr "MARKESINA"
-
-msgid "PREFERED REGION"
-msgstr ""
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr "LOR DATUAK HONENTZAT"
-
-msgid "SHORT NAME"
-msgstr "IZEN MOTZA"
-
-msgid "COMMUNITY RATING"
-msgstr "KOMUNIDADEAREN KALIFIKAZIOA"
-
-msgid "VIDEO"
-msgstr "BIDEOA"
-
-msgid "FANART"
-msgstr "ZALE ARTEA"
-
-msgid "BEZEL (16:9)"
-msgstr "BEZEL-Z (16-9)"
-
-msgid "BOX BACKSIDE"
-msgstr "KAXA ATZEKALDEA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "MANUALA"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "PAD-ETIK TEKLATURAKO KONFIGURAZIOA"
-
-msgid "ACCOUNT"
-msgstr ""
 
 msgid "NO DEVICE FOUND"
 msgstr "EZ DA GAILURIK AURKITU"
@@ -2559,6 +2583,9 @@ msgstr ""
 "DAUDE.\n"
 "FITXATEGI HORIEN KOIPA BAT JOKO LISTAREKIKO ERLATIBO BEZELA ERABILI NAHI AL "
 "DUZU?"
+
+msgid "FAVORITE SONGS"
+msgstr "GOGOKO ABESTIAK"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "KONEKTATU SARE JOKORA"
@@ -3098,6 +3125,9 @@ msgstr ""
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "PANTAILA ALDATU NAHI DUZU?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "DATUAK LORTZEN"
 
@@ -3582,6 +3612,12 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "DATU LORTZE KONFIGURAZIOA"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "ERABILTZAILE INTERFAZE MODUA DESBLOKEATUTA DAGO UNE HONETAN"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."

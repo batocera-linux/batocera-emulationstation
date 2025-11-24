@@ -125,10 +125,8 @@ void ViewController::goToStart(bool forceImmediate)
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderSplashScreen(_("Loading..."));
-	ViewController::get()->reloadAll();
+	ViewController::reloadAllGames(mWindow, true);
 	ViewController::get()->goToStart(true);
-	mWindow->closeSplashScreen();
 }
 
 int ViewController::getSystemId(SystemData* system)
@@ -579,7 +577,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		transition_style = "instant";
 
 	if(transition_style == "auto")
-		transition_style = "slide";
+		transition_style = "fast slide";
 
 	if (Settings::PowerSaverMode() == "instant")
 		transition_style = "instant";

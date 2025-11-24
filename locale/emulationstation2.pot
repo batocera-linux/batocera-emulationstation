@@ -511,6 +511,9 @@ msgstr ""
 msgid "VIDEO DRIVER"
 msgstr ""
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr ""
 
@@ -527,30 +530,6 @@ msgid "OPTIONS"
 msgstr ""
 
 msgid "PORT"
-msgstr ""
-
-msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "NONE"
-msgstr ""
-
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
@@ -578,6 +557,30 @@ msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
 msgid "INDEX GAMES"
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "NONE"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
 msgid "INPUT"
@@ -666,6 +669,12 @@ msgid ""
 "earned."
 msgstr ""
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
@@ -744,6 +753,15 @@ msgstr ""
 msgid "SCRAPER"
 msgstr ""
 
+msgid "SCRAPE"
+msgstr ""
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr ""
+
 msgid "SCRAPING DATABASE"
 msgstr ""
 
@@ -751,9 +769,6 @@ msgid "SOURCE"
 msgstr ""
 
 msgid "SCRAPE FROM"
-msgstr ""
-
-msgid "SCRAPER SETTINGS"
 msgstr ""
 
 msgid "FILTERS"
@@ -801,7 +816,100 @@ msgstr ""
 msgid "START"
 msgstr ""
 
-msgid "go back"
+msgid "IMAGE SOURCE"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "TITLE SCREENSHOT"
+msgstr ""
+
+msgid "MIX V1"
+msgstr ""
+
+msgid "MIX V2"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "FAN ART"
+msgstr ""
+
+msgid "BOX SOURCE"
+msgstr ""
+
+msgid "LOGO SOURCE"
+msgstr ""
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "MARQUEE"
+msgstr ""
+
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "AUTO"
+msgstr ""
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr ""
+
+msgid "COMMUNITY RATING"
+msgstr ""
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
 msgstr ""
 
 msgid ""
@@ -1019,9 +1127,6 @@ msgstr ""
 msgid "CHOOSE"
 msgstr ""
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
@@ -1047,9 +1152,6 @@ msgid "dmd server"
 msgstr ""
 
 msgid "FORMAT"
-msgstr ""
-
-msgid "AUTO"
 msgstr ""
 
 msgid "dmd matrix size"
@@ -1589,9 +1691,6 @@ msgstr ""
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
-msgid "ACCOUNTS"
-msgstr ""
-
 msgid "BIOS SETTINGS"
 msgstr ""
 
@@ -1926,6 +2025,12 @@ msgstr ""
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr ""
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr ""
+
 msgid "SOUNDS"
 msgstr ""
 
@@ -1972,6 +2077,12 @@ msgid "SKIP TO THE NEXT SONG"
 msgstr ""
 
 msgid "NOW PLAYING"
+msgstr ""
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
 msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
@@ -2192,9 +2303,6 @@ msgstr ""
 msgid "DELETE COLLECTION"
 msgstr ""
 
-msgid "SCRAPE"
-msgstr ""
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr ""
 
@@ -2217,90 +2325,6 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "PAIR"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr ""
-
-msgid "SCREENSHOT"
-msgstr ""
-
-msgid "TITLE SCREENSHOT"
-msgstr ""
-
-msgid "MIX V1"
-msgstr ""
-
-msgid "MIX V2"
-msgstr ""
-
-msgid "BOX 2D"
-msgstr ""
-
-msgid "BOX 3D"
-msgstr ""
-
-msgid "FAN ART"
-msgstr ""
-
-msgid "BOX SOURCE"
-msgstr ""
-
-msgid "LOGO SOURCE"
-msgstr ""
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr ""
-
-msgid "MARQUEE"
-msgstr ""
-
-msgid "PREFERED REGION"
-msgstr ""
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr ""
-
-msgid "COMMUNITY RATING"
-msgstr ""
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr ""
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
 msgstr ""
 
 msgid "NO DEVICE FOUND"
@@ -2516,6 +2540,9 @@ msgstr ""
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+
+msgid "FAVORITE SONGS"
 msgstr ""
 
 msgid "CONNECT TO NETPLAY"
@@ -3041,6 +3068,9 @@ msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
+msgid "INVALID CREDENTIALS"
 msgstr ""
 
 msgid "SCRAPING"

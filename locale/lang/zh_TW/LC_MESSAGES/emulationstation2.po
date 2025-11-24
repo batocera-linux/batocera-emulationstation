@@ -407,20 +407,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "搜尋 WI-FI 網路"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "裝置選項"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "斷開連線"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "連線"
 
 msgid "FORGET"
-msgstr ""
+msgstr "忘記"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "你確定要忘記「%s」嗎？"
 
 msgid "YES"
 msgstr "是"
@@ -430,11 +430,11 @@ msgstr "否"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "你確定要連線「%s」嗎？"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "你確定要斷開「%s」連線嗎？"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "手把轉鍵盤設定"
@@ -508,6 +508,9 @@ msgstr "系統"
 msgid "VIDEO DRIVER"
 msgstr "影像驅動程式"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "多人遊戲設定"
 
@@ -525,6 +528,33 @@ msgstr "選項"
 
 msgid "PORT"
 msgstr "連接埠"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "自動建立大廳"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "開始遊戲時自動建立 Netplay 大廳"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "僅顯示中繼伺服器遊戲"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "中繼伺服器遊戲有更高的成功進入機會"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "顯示無法使用的遊戲"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "顯示這部機器未提供的遊戲的對戰房。"
+
+msgid "GAME INDEXES"
+msgstr "遊戲索引"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "於啟動期間索引新遊戲"
+
+msgid "INDEX GAMES"
+msgstr "索引遊戲"
 
 msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
@@ -545,37 +575,10 @@ msgid "SAO PAULO"
 msgstr "聖保羅"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "自訂"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "顯示無法使用的遊戲"
-
-msgid "Show rooms for games not present on this machine."
-msgstr "顯示這部機器未提供的遊戲的對戰房。"
-
-msgid "GAME INDEXES"
-msgstr "遊戲索引"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "於啟動期間索引新遊戲"
-
-msgid "INDEX GAMES"
-msgstr "索引遊戲"
+msgstr "自訂中繼伺服器"
 
 msgid "INPUT"
 msgstr "輸入"
@@ -585,11 +588,11 @@ msgstr "搜尋"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d 的 %d 軟派點數"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d 的 %d 硬派點數"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -614,7 +617,7 @@ msgid "LAUNCH"
 msgstr "啟動"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 設定"
+msgstr "RETROACHIEVEMENT 復古成就設定"
 
 msgid "USERNAME"
 msgstr "使用者名稱"
@@ -663,6 +666,12 @@ msgid ""
 "earned."
 msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT 解鎖音效"
 
@@ -682,7 +691,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "無法啟用 RETROACHIEVEMENTS："
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "藍牙裝置列表"
 
 msgid "REMOVE ALL"
 msgstr "移除全部"
@@ -691,7 +700,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "沒有發現藍牙裝置"
 
 msgid " (Connected)"
-msgstr ""
+msgstr "(已連線)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "藍牙裝置已被刪除。"
@@ -746,6 +755,15 @@ msgstr "沒有可用的更新"
 msgid "SCRAPER"
 msgstr "資料搜刮器"
 
+msgid "SCRAPE"
+msgstr "資料搜刮"
+
+msgid "ACCOUNTS"
+msgstr "帳戶"
+
+msgid "go back"
+msgstr "返回"
+
 msgid "SCRAPING DATABASE"
 msgstr "搜刮資料庫"
 
@@ -754,9 +772,6 @@ msgstr "來源"
 
 msgid "SCRAPE FROM"
 msgstr "搜刮資料來源"
-
-msgid "SCRAPER SETTINGS"
-msgstr "搜刮器設定"
 
 msgid "FILTERS"
 msgstr "過濾器"
@@ -803,8 +818,101 @@ msgstr "開始搜刮"
 msgid "START"
 msgstr "開始"
 
-msgid "go back"
-msgstr "返回"
+msgid "IMAGE SOURCE"
+msgstr "圖片來源"
+
+msgid "SCREENSHOT"
+msgstr "螢幕截圖"
+
+msgid "TITLE SCREENSHOT"
+msgstr "標題畫面截圖"
+
+msgid "MIX V1"
+msgstr "混合版 V1"
+
+msgid "MIX V2"
+msgstr "混合版 V2"
+
+msgid "BOX 2D"
+msgstr "2D 包裝盒"
+
+msgid "BOX 3D"
+msgstr "3D 包裝盒"
+
+msgid "FAN ART"
+msgstr "粉絲繪圖"
+
+msgid "BOX SOURCE"
+msgstr "包裝盒來源"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO 來源"
+
+msgid "HD WHEEL"
+msgstr "HD轉輪"
+
+msgid "WHEEL"
+msgstr "商標"
+
+msgid "MARQUEE"
+msgstr "跑馬燈"
+
+msgid "PREFERED REGION"
+msgstr "喜好區域"
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "OVERWRITE NAMES"
+msgstr "覆蓋名稱"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "覆寫描述"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "覆蓋媒體"
+
+msgid "SCRAPE FOR"
+msgstr "搜刮給"
+
+msgid "SHORT NAME"
+msgstr "簡短名稱"
+
+msgid "COMMUNITY RATING"
+msgstr "社群評分"
+
+msgid "VIDEO"
+msgstr "影片"
+
+msgid "FANART"
+msgstr "粉絲繪圖"
+
+msgid "BEZEL (16:9)"
+msgstr "框體 (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "盒子背面"
+
+msgid "MAP"
+msgstr "地圖"
+
+msgid "MANUAL"
+msgstr "使用手冊"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "手把轉鍵盤設定"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -842,13 +950,13 @@ msgid "fade"
 msgstr "淡化"
 
 msgid "fast fade"
-msgstr ""
+msgstr "快速淡化"
 
 msgid "slide"
 msgstr "滑動"
 
 msgid "fast slide"
-msgstr ""
+msgstr "快速滑動"
 
 msgid "fade & slide"
 msgstr "淡出 & 滑動"
@@ -890,37 +998,37 @@ msgid "Cpu feature"
 msgstr "CPU 功能"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "可用記憶體"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "顯示解析度"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "顯示更新率"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "OpenGL 驅動版本"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Vulkan 驅動名稱"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Vulkan 驅動版本"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "資料分割區格式"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "資料分割區可用空間"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "網路 IP 位址"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI 開機"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "安全開機"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -1023,9 +1131,6 @@ msgstr "這項功能在搜刮器執行時是停用的"
 msgid "CHOOSE"
 msgstr "瀏覽"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "使用者介面模式已經解鎖"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "現在輸入代碼來解鎖"
 
@@ -1033,52 +1138,49 @@ msgid "SERVICES"
 msgstr "服務"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "伺服器"
 
 msgid "DISABLED"
 msgstr "停用"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMD 伺服器 (用於實體DMD)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "模擬器（用於 Web DMD）"
 
 msgid "dmd server"
-msgstr ""
+msgstr "DMD 伺服器"
 
 msgid "FORMAT"
-msgstr ""
-
-msgid "AUTO"
-msgstr "自動"
+msgstr "格式"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dmd matrix size"
 
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMD 伺服器停止"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMD 伺服器重啟"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMD 伺服器啟用"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "多螢幕"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "後擋板/資訊螢幕"
 
 msgid "THEME"
-msgstr ""
+msgstr "主題"
 
 msgid "VIDEO OUTPUT"
 msgstr "影像輸出"
@@ -1087,10 +1189,10 @@ msgid "VIDEO MODE"
 msgstr "影像模式"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "設定顯示解析度"
 
 msgid "ROTATION"
-msgstr ""
+msgstr "旋轉"
 
 msgid "0 DEGREES"
 msgstr "0 度"
@@ -1108,7 +1210,7 @@ msgid "SCREEN ROTATION"
 msgstr "螢幕旋轉"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD螢幕"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "前端開發人員選項"
@@ -1169,7 +1271,7 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "清理遊戲清單 & 移除未使用的媒體"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "刪除未使用的條目，並清除遺失媒體的引用"
 
 msgid "Cleaning"
 msgstr "清理中"
@@ -1178,13 +1280,13 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "重設遊戲清單使用記錄"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr ""
+msgstr "重置遊玩時間、遊玩次數和最後遊玩的資料值。"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "重設檔案類型"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "將自訂檔案副檔名篩選器重設為預設值。"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "重新偵測遊戲語言/地區"
@@ -1217,7 +1319,7 @@ msgid "FULL SCREEN MENUS"
 msgstr "全螢幕選單"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "強制小螢幕佈景主題"
 
 msgid "DATA MANAGEMENT"
 msgstr "資料管理"
@@ -1259,7 +1361,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "快速遊戲平台選擇"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "快速跳到特定字母"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "螢幕虛擬鍵盤"
@@ -1294,10 +1396,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "光槍移動容忍度"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "啟用 PS3 控制器支援"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "可能會對安全性產生負面影響"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "啟用 HID 搖桿驅動程式"
@@ -1513,7 +1615,7 @@ msgid "OVERCLOCK"
 msgstr "超頻"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LED硬體"
 
 msgid "RED"
 msgstr "紅色"
@@ -1525,7 +1627,7 @@ msgid "BLUE"
 msgstr "藍色"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LED亮度"
 
 msgid "STORAGE"
 msgstr "儲存"
@@ -1595,9 +1697,6 @@ msgstr "目前設定"
 
 msgid "UPDATE GAMELISTS"
 msgstr "更新遊戲清單"
-
-msgid "ACCOUNTS"
-msgstr "帳戶"
 
 msgid "BIOS SETTINGS"
 msgstr "BIOS 設定"
@@ -1823,19 +1922,19 @@ msgid "SHOW MANUAL ICON"
 msgstr "在清單中顯示手冊圖示"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "顯示RETROACHIEVEMENTS復古成就圖示"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "顯示光槍圖示"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "顯示方向盤圖示"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "顯示軌跡球圖示"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "顯示旋轉盤圖示"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在清單中顯示檔案名稱"
@@ -1892,7 +1991,7 @@ msgid "ICON AND TEXT"
 msgstr "圖示與文字"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "優先顯示資料夾"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序時忽略冠詞"
@@ -1932,6 +2031,12 @@ msgstr "播放佈景主題音樂"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "播放影片時降低音樂音量"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "僅播放您最愛播放清單中的歌曲"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "選取最愛歌曲"
 
 msgid "SOUNDS"
 msgstr "音效"
@@ -1980,6 +2085,12 @@ msgstr "跳至下一首歌"
 
 msgid "NOW PLAYING"
 msgstr "正在播放"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "從最愛播放清單中移除目前的歌曲"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "將目前的歌曲儲存到最愛播放清單"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
@@ -2099,10 +2210,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "這個遊戲還沒有成就"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "達成成就 (軟派)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "達成成就 (硬派)"
 
 #, c-format
 msgid "%d%% complete"
@@ -2201,9 +2312,6 @@ msgstr "新增至自定義合輯..."
 msgid "DELETE COLLECTION"
 msgstr "刪除合輯"
 
-msgid "SCRAPE"
-msgstr "資料搜刮"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "進階遊戲選項"
 
@@ -2228,90 +2336,6 @@ msgstr "配對藍牙裝置"
 msgid "PAIR"
 msgstr "配對"
 
-msgid "IMAGE SOURCE"
-msgstr "圖片來源"
-
-msgid "SCREENSHOT"
-msgstr "螢幕截圖"
-
-msgid "TITLE SCREENSHOT"
-msgstr "標題畫面截圖"
-
-msgid "MIX V1"
-msgstr "混合版 V1"
-
-msgid "MIX V2"
-msgstr "混合版 V2"
-
-msgid "BOX 2D"
-msgstr "2D 包裝盒"
-
-msgid "BOX 3D"
-msgstr "3D 包裝盒"
-
-msgid "FAN ART"
-msgstr "粉絲繪圖"
-
-msgid "BOX SOURCE"
-msgstr "包裝盒來源"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO 來源"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "商標"
-
-msgid "MARQUEE"
-msgstr "跑馬燈"
-
-msgid "PREFERED REGION"
-msgstr ""
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "覆寫描述"
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr "搜刮給"
-
-msgid "SHORT NAME"
-msgstr "簡短名稱"
-
-msgid "COMMUNITY RATING"
-msgstr "社群評分"
-
-msgid "VIDEO"
-msgstr "影片"
-
-msgid "FANART"
-msgstr "粉絲繪圖"
-
-msgid "BEZEL (16:9)"
-msgstr "框體 (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "盒子背面"
-
-msgid "MAP"
-msgstr "地圖"
-
-msgid "MANUAL"
-msgstr "使用手冊"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "手把轉鍵盤設定"
-
-msgid "ACCOUNT"
-msgstr ""
-
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到裝置"
 
@@ -2331,10 +2355,10 @@ msgid "New Collection Name"
 msgstr "新的合輯名稱"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "輸入姓名"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "從主題建立"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "建立新的可編輯合輯"
@@ -2373,10 +2397,10 @@ msgid "START ON GAMELIST"
 msgstr "啟動至遊戲清單"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "群組化自訂合輯"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "無主題"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合輯中顯示遊戲平台名稱"
@@ -2388,7 +2412,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "顯示空的遊戲平台"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "不要顯示只有一個系統的群組"
 
 msgid "Loading..."
 msgstr "載入中..."
@@ -2496,10 +2520,10 @@ msgid "NO MISSING BIOS FILES"
 msgstr "沒有缺少的 BIOS 檔案"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "已安裝的系統"
 
 msgid "refresh"
-msgstr ""
+msgstr "重新整理"
 
 msgid "NO MISSING BIOS"
 msgstr "沒有缺少 BIOS"
@@ -2529,6 +2553,9 @@ msgstr ""
 "您連結的部分檔案是放在遊戲清單路徑以外的地方。\n"
 "您是否想要使用與遊戲清單相關的這些檔案的副本？"
 
+msgid "FAVORITE SONGS"
+msgstr "最愛歌曲"
+
 msgid "CONNECT TO NETPLAY"
 msgstr "連線到多人遊戲"
 
@@ -2551,10 +2578,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "無法使用的核心"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "區網遊戲"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "線上遊戲"
 
 msgid "AVAILABLE GAMES"
 msgstr "可以執行的遊戲"
@@ -2578,14 +2605,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器與藍牙設定"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "控制器優先權"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "玩家分配"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "控制器 #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2617,7 +2644,7 @@ msgid "BLUETOOTH"
 msgstr "藍牙"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "啟用藍牙"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "自動配對藍牙手把"
@@ -2626,7 +2653,7 @@ msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "手動配對藍牙裝置"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "顯示控制器通知"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "顯示控制器活動狀態"
@@ -2635,13 +2662,13 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "顯示光槍準星"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "行為"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "限制熱鍵退出"
 
 msgid "default"
 msgstr "預設值"
@@ -2677,7 +2704,7 @@ msgid "WHITE"
 msgstr "白色"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "邊框比例"
 
 msgid "CAMERA CONTRAST"
 msgstr "相機對比度"
@@ -2821,13 +2848,13 @@ msgid "SHOW GAME INFO"
 msgstr "顯示遊戲資訊"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "顯示日期時間"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "日期格式"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "時間格式"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用跑馬燈作為遊戲資訊"
@@ -2917,7 +2944,7 @@ msgstr "隨機選擇"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "返回 %s"
 
 msgid "No Entries Found"
 msgstr "沒有找到項目"
@@ -3040,22 +3067,25 @@ msgid "LIGHTGUN"
 msgstr "光線槍"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "方向盤"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "軌跡球"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "旋轉盤"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "擁有媒體"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "缺少媒體"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "您想要切換畫面嗎？"
+
+msgid "INVALID CREDENTIALS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "搜刮中"
@@ -3073,7 +3103,7 @@ msgid "Loading system config..."
 msgstr "正在載入系統設定..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "保存中繼資料。請稍等..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "模擬器未預期的退出了"
@@ -3097,7 +3127,7 @@ msgid "UKNOWN ERROR"
 msgstr "未知的錯誤"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "隔行掃描"
 
 msgid "all games"
 msgstr "所有遊戲"
@@ -3118,7 +3148,7 @@ msgid "never played"
 msgstr "從未玩過"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "retroachievements復古成就"
 
 msgid "arcade"
 msgstr "街機"
@@ -3130,13 +3160,13 @@ msgid "lightgun games"
 msgstr "光線槍遊戲"
 
 msgid "wheel games"
-msgstr ""
+msgstr "方向盤遊戲"
 
 msgid "trackball games"
-msgstr ""
+msgstr "軌跡球遊戲"
 
 msgid "spinner games"
-msgstr ""
+msgstr "旋轉盤遊戲"
 
 msgid "collections"
 msgstr "合輯"
@@ -3535,6 +3565,15 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "搜刮器設定"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "帳號"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "使用者介面模式已經解鎖"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "正在儲存中繼資料。請稍後..."

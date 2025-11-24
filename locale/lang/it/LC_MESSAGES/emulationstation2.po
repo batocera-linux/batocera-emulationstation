@@ -509,6 +509,9 @@ msgstr "SISTEMA"
 msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
+msgid "SEOUL"
+msgstr "SEOUL"
+
 msgid "NETPLAY SETTINGS"
 msgstr "OPZIONI NETPLAY"
 
@@ -526,30 +529,6 @@ msgstr "OPZIONI"
 
 msgid "PORT"
 msgstr "PORTA"
-
-msgid "USE RELAY SERVER"
-msgstr "USA RELAY SERVER"
-
-msgid "NONE"
-msgstr "NESSUNO"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALIZZATO"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "RELAY SERVER PERSONALIZZATO"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CREA LOBBY AUTOMATICAMENTE"
@@ -577,6 +556,30 @@ msgstr "INDICIZZA NUOVI GIOCHI ALL'AVVIO"
 
 msgid "INDEX GAMES"
 msgstr "INDICIZZA GIOCHI"
+
+msgid "USE RELAY SERVER"
+msgstr "USA RELAY SERVER"
+
+msgid "NONE"
+msgstr "NESSUNO"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "PERSONALIZZATO"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "RELAY SERVER PERSONALIZZATO"
 
 msgid "INPUT"
 msgstr "INPUT"
@@ -666,6 +669,12 @@ msgid ""
 "earned."
 msgstr "Mostra le icone delle sfide per i trofei in basso a destra"
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr "SUCCESSI NON-UFFICIALI"
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr "Abilita e sblocca i successi non-ufficiali"
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
 
@@ -749,6 +758,15 @@ msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
 msgid "SCRAPER"
 msgstr "SCARICA INFO (SCRAPER)"
 
+msgid "SCRAPE"
+msgstr "SCARICA INFO (SCRAPER)"
+
+msgid "ACCOUNTS"
+msgstr "ACCOUNTS"
+
+msgid "go back"
+msgstr "torna indietro"
+
 msgid "SCRAPING DATABASE"
 msgstr "DATABASE DI RICERCA"
 
@@ -757,9 +775,6 @@ msgstr "SORGENTE"
 
 msgid "SCRAPE FROM"
 msgstr "SCARICA INFO DA"
-
-msgid "SCRAPER SETTINGS"
-msgstr "OPZIONI SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTRI"
@@ -806,8 +821,101 @@ msgstr "SCARICA INFO ORA"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "torna indietro"
+msgid "IMAGE SOURCE"
+msgstr "SORGENTE IMMAGINE"
+
+msgid "SCREENSHOT"
+msgstr "SCREENSHOT"
+
+msgid "TITLE SCREENSHOT"
+msgstr "SCREENSHOT TITOLO"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOX 2D"
+
+msgid "BOX 3D"
+msgstr "BOX 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "SORGENTE BOX"
+
+msgid "LOGO SOURCE"
+msgstr "SORGENTE LOGO"
+
+msgid "HD WHEEL"
+msgstr "VOLANTE HD"
+
+msgid "WHEEL"
+msgstr "TARGHETTA"
+
+msgid "MARQUEE"
+msgstr "BANNER"
+
+msgid "PREFERED REGION"
+msgstr "REGIONE PREFERITA"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SOVRASCRIVI NOMI"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOVRASCRIVI DESCRIZIONI"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOVRASCRIVI MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "SCARICA PER"
+
+msgid "SHORT NAME"
+msgstr "NOME CORTO"
+
+msgid "COMMUNITY RATING"
+msgstr "PUNTEGGIO COMUNITÀ"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "ARTE DEI FAN"
+
+msgid "BEZEL (16:9)"
+msgstr "CORNICE (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "DIETRO SCATOLA"
+
+msgid "MAP"
+msgstr "MAPPA"
+
+msgid "MANUAL"
+msgstr "MANUALE"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "IMPOSTAZIONI PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr "SCREENSCRAPER"
+
+msgid "IGDB"
+msgstr "IGDB"
+
+msgid "CLIENT ID"
+msgstr "ID CLIENT"
+
+msgid "CLIENT SECRET"
+msgstr "CLIENT SEGRETO"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1027,9 +1135,6 @@ msgstr "QUESTA FUNZIONE È DISATTIVATA DURANTE L'ESECUZIONE DELLO SCRAPER"
 msgid "CHOOSE"
 msgstr "SCEGLIERE"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "L'INTERFACCIA UTENTE È SBLOCCATA"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "INSERISCI IL CODICE PER LO SBLOCCO"
 
@@ -1056,9 +1161,6 @@ msgstr "server dmd"
 
 msgid "FORMAT"
 msgstr "FORMATO"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dimensioni matrice dmd"
@@ -1618,9 +1720,6 @@ msgstr "Impostazioni correnti"
 msgid "UPDATE GAMELISTS"
 msgstr "AGGIORNA LISTA DEI GIOCHI"
 
-msgid "ACCOUNTS"
-msgstr "ACCOUNTS"
-
 msgid "BIOS SETTINGS"
 msgstr "IMPOSTAZIONI BIOS"
 
@@ -1960,6 +2059,12 @@ msgstr "RIPRODUCI MUSICHE DEL TEMA"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "MUSICA BASSA DURANTE L'ANTEPRIMA VIDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "RIPRODUCI SOLO LE CANZONI DALLA TUA PLAYLIST DEI PREFERITI"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELEZIONE DI CANZONI PREFERITE"
+
 msgid "SOUNDS"
 msgstr "SUONI"
 
@@ -2007,6 +2112,12 @@ msgstr "PASSA ALLA TRACCIA SUCCESSIVA"
 
 msgid "NOW PLAYING"
 msgstr "IN ASCOLTO"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "RIMUOVI LA CANZONE ATTUALE DALLA PLAYLIST DEI PREFERITI"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "SALVA LA CANZONE ATTUALE NELLA PLAYLIST DEI PREFERITI"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
@@ -2229,9 +2340,6 @@ msgstr "AGGIUNGI "
 msgid "DELETE COLLECTION"
 msgstr "ELIMINA COLLEZIONE"
 
-msgid "SCRAPE"
-msgstr "SCARICA INFO (SCRAPER)"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPZIONI AVANZATE GIOCO"
 
@@ -2255,90 +2363,6 @@ msgstr "ACCOPPIA UN DISPOSITIVO BLUETOOTH"
 
 msgid "PAIR"
 msgstr "ASSOCIA"
-
-msgid "IMAGE SOURCE"
-msgstr "SORGENTE IMMAGINE"
-
-msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
-
-msgid "TITLE SCREENSHOT"
-msgstr "SCREENSHOT TITOLO"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "BOX 2D"
-
-msgid "BOX 3D"
-msgstr "BOX 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "SORGENTE BOX"
-
-msgid "LOGO SOURCE"
-msgstr "SORGENTE LOGO"
-
-msgid "HD WHEEL"
-msgstr "VOLANTE HD"
-
-msgid "WHEEL"
-msgstr "TARGHETTA"
-
-msgid "MARQUEE"
-msgstr "BANNER"
-
-msgid "PREFERED REGION"
-msgstr "REGIONE PREFERITA"
-
-msgid "OVERWRITE NAMES"
-msgstr "SOVRASCRIVI NOMI"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SOVRASCRIVI DESCRIZIONI"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SOVRASCRIVI MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "SCARICA PER"
-
-msgid "SHORT NAME"
-msgstr "NOME CORTO"
-
-msgid "COMMUNITY RATING"
-msgstr "PUNTEGGIO COMUNITÀ"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "ARTE DEI FAN"
-
-msgid "BEZEL (16:9)"
-msgstr "CORNICE (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "DIETRO SCATOLA"
-
-msgid "MAP"
-msgstr "MAPPA"
-
-msgid "MANUAL"
-msgstr "MANUALE"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "IMPOSTAZIONI PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "ACCOUNT"
 
 msgid "NO DEVICE FOUND"
 msgstr "NESSUN DISPOSITIVO TROVATO"
@@ -2556,6 +2580,9 @@ msgid ""
 msgstr ""
 "ALCUNI FILE COLLEGATI SI TROVANO AL DI FUORI DEL PERCORSO DELLA GAMELIST.\n"
 "VUOI UTILIZZARE UNA COPIA DI QUESTI FILE RELATIVI ALLA GAMELIST?"
+
+msgid "FAVORITE SONGS"
+msgstr "CANZONI PREFERITE"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "COLLEGATI SU NETPLAY"
@@ -3094,6 +3121,9 @@ msgstr "MEDIAS ASSENTI"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VUOI DAVVERO CAMBIARE SCHERMO ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr "CREDENZIALI INVALIDE"
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -3581,6 +3611,15 @@ msgid ""
 msgstr ""
 "CALIBRAZIONE PISTOLA\n"
 "Spara sui bersagli per calibrare"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "OPZIONI SCRAPER"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "ACCOUNT"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "L'INTERFACCIA UTENTE È SBLOCCATA"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "MOSTRA OPZIONI NETPLAY QUANDO LANCI IL GIOCO"

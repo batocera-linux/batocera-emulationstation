@@ -77,17 +77,17 @@ namespace Utils
 		// Misc
 		{ { "default", 1 },       [](const Args& args) { auto dataAsString = removeStringQuotes(args[0]);
 														 return addStringQuotes(dataAsString.empty() ? _("Unknown") : dataAsString == "0" ? _("None") : dataAsString); } },
-		{ { "year", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "year", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%Y")); } },
-		{ { "month", 1 },         [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "month", 1 },         [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%m")); } },
-		{ { "day", 1 },           [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "day", 1 },           [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%d")); } },
-		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true)); 
+		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%dT%H%M%S");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::getElapsedSinceString(time)); } },
-		{ { "date", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true));
+		{ { "date", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, Utils::Time::getSystemDateFormat())); } },															 
-		{ { "time", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true));
+		{ { "time", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%dT%H%M%S");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, Settings::ClockMode12() ? "%I:%M %p" : "%H:%M")); } },
 		{ { "expandseconds", 1 }, [](const Args& args) { auto seconds = Utils::String::toInteger(removeStringQuotes(args[0])); 
 														 return addStringQuotes(seconds == 0 ? "" : Utils::Time::secondsToString(seconds)); } },

@@ -512,6 +512,9 @@ msgstr "HỆ THỐNG"
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "CÀI ĐẶT NETPLAY"
 
@@ -529,30 +532,6 @@ msgstr "TÙY CHỌN"
 
 msgid "PORT"
 msgstr "CỔNG"
-
-msgid "USE RELAY SERVER"
-msgstr "DÙNG MÁY CHỦ CHUYỂN TIẾP"
-
-msgid "NONE"
-msgstr "KHÔNG CÓ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "TÙY CHỈNH"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -580,6 +559,30 @@ msgstr "INDEX NEW GAMES AT STARTUP"
 
 msgid "INDEX GAMES"
 msgstr "INDEX GAMES"
+
+msgid "USE RELAY SERVER"
+msgstr "DÙNG MÁY CHỦ CHUYỂN TIẾP"
+
+msgid "NONE"
+msgstr "KHÔNG CÓ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "TÙY CHỈNH"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
 
 msgid "INPUT"
 msgstr "NHẬP"
@@ -671,6 +674,12 @@ msgid ""
 msgstr ""
 "Hiển thị biểu tượng ở góc dưới bên phải khi có thành tựu có thể đạt được."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "MỞ KHÓA ÂM THANH RETROACHIEVEMENT"
 
@@ -754,6 +763,15 @@ msgstr "KHÔNG CÓ BẢN CẬP NHẬP NÀO"
 msgid "SCRAPER"
 msgstr "TRÌNH LẤY DỮ LIỆU TRÒ CHƠI"
 
+msgid "SCRAPE"
+msgstr "LẤY DỮ LIỆU TRÒ CHƠI"
+
+msgid "ACCOUNTS"
+msgstr "TÀI KHOẢN"
+
+msgid "go back"
+msgstr "trở về"
+
 msgid "SCRAPING DATABASE"
 msgstr "ĐANG LẤY DỮ LIỆU"
 
@@ -762,9 +780,6 @@ msgstr "NGUỒN"
 
 msgid "SCRAPE FROM"
 msgstr "LẤY TỪ"
-
-msgid "SCRAPER SETTINGS"
-msgstr "CÀI ĐẶT LẤY DỮ LIỆU"
 
 msgid "FILTERS"
 msgstr "LỌC"
@@ -811,8 +826,101 @@ msgstr "LẤY DỮ LIỆU NGAY BÂY GIỜ"
 msgid "START"
 msgstr "BẮT ĐẦU"
 
-msgid "go back"
-msgstr "trở về"
+msgid "IMAGE SOURCE"
+msgstr "NGUỒN HÌNH ẢNH"
+
+msgid "SCREENSHOT"
+msgstr "ẢNH MÀN HÌNH"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TIÊU ĐỀ ẢNH MÀN HÌNH"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOX 2D"
+
+msgid "BOX 3D"
+msgstr "BOX 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "NGUỒN BOX"
+
+msgid "LOGO SOURCE"
+msgstr "NGUỒN LOGO"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "WHEEL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "KHU VỰC ƯU TIÊN"
+
+msgid "AUTO"
+msgstr "TỰ ĐỘNG"
+
+msgid "OVERWRITE NAMES"
+msgstr "GHI ĐÈ TÊN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "GHI ĐÈ MÔ TẢ"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "GHI ĐÈ MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "LẤY DỮ LIỆU CHO"
+
+msgid "SHORT NAME"
+msgstr "TÊN NGẮN"
+
+msgid "COMMUNITY RATING"
+msgstr "ĐÁNH GIÁ CỘNG ĐỒNG"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "BEZEL (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "MẶT SAU BOX"
+
+msgid "MAP"
+msgstr "BẢN ĐỒ"
+
+msgid "MANUAL"
+msgstr "THỦ CÔNG"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "CÀI ĐẶT PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1031,9 +1139,6 @@ msgstr "CHỨC NĂNG NÀY BỊ VÔ HIỆU HÓA TRONG KHI TRÌNH LẤY DỮ LIỆ
 msgid "CHOOSE"
 msgstr "CHỌN"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "ĐÃ MỞ KHÓA GIAO DIỆN NGƯỜI DÙNG"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "NHẬP MÃ ĐỂ MỞ KHÓA"
 
@@ -1060,9 +1165,6 @@ msgstr "máy chủ dmd"
 
 msgid "FORMAT"
 msgstr "ĐỊNH DẠNG"
-
-msgid "AUTO"
-msgstr "TỰ ĐỘNG"
 
 msgid "dmd matrix size"
 msgstr "kích thước ma trận dmd"
@@ -1623,9 +1725,6 @@ msgstr "Cài đặt hiện tại"
 msgid "UPDATE GAMELISTS"
 msgstr "CẬP NHẬT DANH SÁCH TRÒ CHƠI"
 
-msgid "ACCOUNTS"
-msgstr "TÀI KHOẢN"
-
 msgid "BIOS SETTINGS"
 msgstr "CÀI ĐẶT BIOS"
 
@@ -1965,6 +2064,12 @@ msgstr "PHÁT NHẠC HỆ THỐNG CỤ THỂ"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "NHẠC NHỎ HƠN KHI PHÁT VIDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "CHỈ PHÁT CÁC BÀI HÁT TỪ DANH SÁCH PHÁT YÊU THÍCH CỦA BẠN"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "CHỌN CÁC BÀI HÁT YÊU THÍCH"
+
 msgid "SOUNDS"
 msgstr "ÂM THANH"
 
@@ -2012,6 +2117,12 @@ msgstr "CHUYỂN ĐẾN BÀI TIẾP THEO"
 
 msgid "NOW PLAYING"
 msgstr "ĐANG PHÁT"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "XÓA BÀI HÁT HIỆN TẠI KHỎI DANH SÁCH PHÁT YÊU THÍCH"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "LƯU BÀI HÁT HIỆN TẠI VÀO DANH SÁCH PHÁT YÊU THÍCH"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "KHỞI ĐỘNG BẢO VỆ MÀN HÌNH"
@@ -2235,9 +2346,6 @@ msgstr "THÊM VÀO BỘ SƯU TẬP TÙY CHỈNH..."
 msgid "DELETE COLLECTION"
 msgstr "XÓA BỘ SƯU TẬP"
 
-msgid "SCRAPE"
-msgstr "LẤY DỮ LIỆU TRÒ CHƠI"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "LỰA CHỌN TRÒ CHƠI NÂNG CAO"
 
@@ -2261,90 +2369,6 @@ msgstr "GHÉP NỐI THIẾT BỊ BLUETOOTH"
 
 msgid "PAIR"
 msgstr "GHÉP NỐI"
-
-msgid "IMAGE SOURCE"
-msgstr "NGUỒN HÌNH ẢNH"
-
-msgid "SCREENSHOT"
-msgstr "ẢNH MÀN HÌNH"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TIÊU ĐỀ ẢNH MÀN HÌNH"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "BOX 2D"
-
-msgid "BOX 3D"
-msgstr "BOX 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "NGUỒN BOX"
-
-msgid "LOGO SOURCE"
-msgstr "NGUỒN LOGO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "WHEEL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "KHU VỰC ƯU TIÊN"
-
-msgid "OVERWRITE NAMES"
-msgstr "GHI ĐÈ TÊN"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "GHI ĐÈ MÔ TẢ"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "GHI ĐÈ MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "LẤY DỮ LIỆU CHO"
-
-msgid "SHORT NAME"
-msgstr "TÊN NGẮN"
-
-msgid "COMMUNITY RATING"
-msgstr "ĐÁNH GIÁ CỘNG ĐỒNG"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "BEZEL (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "MẶT SAU BOX"
-
-msgid "MAP"
-msgstr "BẢN ĐỒ"
-
-msgid "MANUAL"
-msgstr "THỦ CÔNG"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "CÀI ĐẶT PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "TÀI KHOẢN"
 
 msgid "NO DEVICE FOUND"
 msgstr "KHÔNG TÌM THẤY THIẾT BỊ"
@@ -2563,6 +2587,9 @@ msgstr ""
 "MỘT SỐ TỆP BẠN LIÊN KẾT NẰM BÊN NGOÀI ĐƯỜNG DẪN DANH SÁCH TRÒ CHƠI.\n"
 "BẠN CÓ MUỐN SỬ DỤNG BẢN SAO CỦA CÁC TỆP NÀY LIÊN QUAN ĐẾN DANH SÁCH TRÒ CHƠI "
 "KHÔNG?"
+
+msgid "FAVORITE SONGS"
+msgstr "CÁC BÀI HÁT YÊU THÍCH"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "KẾT NỐI ĐẾN NETPLAY"
@@ -3097,6 +3124,9 @@ msgstr "THIẾU PHƯƠNG TIỆN"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "BẠN CÓ MUỐN CHUYỂN MÀN HÌNH?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "ĐANG SCRAPE"
 
@@ -3575,6 +3605,15 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "CÀI ĐẶT LẤY DỮ LIỆU"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "TÀI KHOẢN"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "ĐÃ MỞ KHÓA GIAO DIỆN NGƯỜI DÙNG"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "HIỂN THỊ TUỲ CHỌN NETPLAY KHI KHỞI CHẠY TRÒ CHƠI"

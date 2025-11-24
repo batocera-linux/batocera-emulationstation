@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-05-06 22:00+0900\n"
+"PO-Revision-Date: 2025-08-24 19:58+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -508,6 +508,9 @@ msgstr "시스템"
 msgid "VIDEO DRIVER"
 msgstr "비디오 드라이버"
 
+msgid "SEOUL"
+msgstr "서울"
+
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
 
@@ -525,30 +528,6 @@ msgstr "옵션"
 
 msgid "PORT"
 msgstr "포트"
-
-msgid "USE RELAY SERVER"
-msgstr "중계 서버 사용"
-
-msgid "NONE"
-msgstr "없음"
-
-msgid "NEW YORK"
-msgstr "뉴욕"
-
-msgid "MADRID"
-msgstr "마드리드"
-
-msgid "MONTREAL"
-msgstr "몬트리올"
-
-msgid "SAO PAULO"
-msgstr "상파울루"
-
-msgid "CUSTOM"
-msgstr "커스텀"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "커스텀 중계 서버"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "게임 시작 시 자동 방 생성"
@@ -576,6 +555,30 @@ msgstr "시작 시 새로운 게임 색인"
 
 msgid "INDEX GAMES"
 msgstr "색인 게임"
+
+msgid "USE RELAY SERVER"
+msgstr "중계 서버 사용"
+
+msgid "NONE"
+msgstr "없음"
+
+msgid "NEW YORK"
+msgstr "뉴욕"
+
+msgid "MADRID"
+msgstr "마드리드"
+
+msgid "MONTREAL"
+msgstr "몬트리올"
+
+msgid "SAO PAULO"
+msgstr "상파울루"
+
+msgid "CUSTOM"
+msgstr "커스텀"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "커스텀 중계 서버"
 
 msgid "INPUT"
 msgstr "입력"
@@ -664,6 +667,12 @@ msgid ""
 msgstr ""
 "적합한 도전과제를 얻을 수 있을 때 오른쪽 하단 모서리에 아이콘을 표시합니다."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr "비공식 ACHIEVEMENTS"
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr "비공식 achievements를 잠금 해제할 수 있습니다."
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "레트로도전과제 잠금 해제 사운드"
 
@@ -747,6 +756,15 @@ msgstr "사용 가능한 업데이트 없음"
 msgid "SCRAPER"
 msgstr "스크랩"
 
+msgid "SCRAPE"
+msgstr "스크랩"
+
+msgid "ACCOUNTS"
+msgstr "계정"
+
+msgid "go back"
+msgstr "돌아가기"
+
 msgid "SCRAPING DATABASE"
 msgstr "데이터베이스 스크랩핑"
 
@@ -755,9 +773,6 @@ msgstr "출처"
 
 msgid "SCRAPE FROM"
 msgstr "스크랩 출처"
-
-msgid "SCRAPER SETTINGS"
-msgstr "스크랩 설정"
 
 msgid "FILTERS"
 msgstr "필터"
@@ -804,8 +819,101 @@ msgstr "스크랩 시작"
 msgid "START"
 msgstr "시작"
 
-msgid "go back"
-msgstr "돌아가기"
+msgid "IMAGE SOURCE"
+msgstr "이미지 출처"
+
+msgid "SCREENSHOT"
+msgstr "스크린샷"
+
+msgid "TITLE SCREENSHOT"
+msgstr "타이틀 스크린샷"
+
+msgid "MIX V1"
+msgstr "혼합 V1"
+
+msgid "MIX V2"
+msgstr "혼합 V2"
+
+msgid "BOX 2D"
+msgstr "박스 2D"
+
+msgid "BOX 3D"
+msgstr "박스 3D"
+
+msgid "FAN ART"
+msgstr "팬아트"
+
+msgid "BOX SOURCE"
+msgstr "박스 출처"
+
+msgid "LOGO SOURCE"
+msgstr "로고 출처"
+
+msgid "HD WHEEL"
+msgstr "HD 휠"
+
+msgid "WHEEL"
+msgstr "휠"
+
+msgid "MARQUEE"
+msgstr "마퀴"
+
+msgid "PREFERED REGION"
+msgstr "선호 지역"
+
+msgid "AUTO"
+msgstr "자동"
+
+msgid "OVERWRITE NAMES"
+msgstr "이름 덮어쓰기"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "설명 덮어쓰기"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "미디어 덮어쓰기"
+
+msgid "SCRAPE FOR"
+msgstr "스크랩"
+
+msgid "SHORT NAME"
+msgstr "단축 이름"
+
+msgid "COMMUNITY RATING"
+msgstr "사용자 평가"
+
+msgid "VIDEO"
+msgstr "비디오"
+
+msgid "FANART"
+msgstr "팬아트"
+
+msgid "BEZEL (16:9)"
+msgstr "베젤 (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "박스 뒷면"
+
+msgid "MAP"
+msgstr "맵"
+
+msgid "MANUAL"
+msgstr "매뉴얼"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "패드-키 설정"
+
+msgid "SCREENSCRAPER"
+msgstr "스크린스크래퍼"
+
+msgid "IGDB"
+msgstr "IGDB (인터넷 게임 데이터베이스)"
+
+msgid "CLIENT ID"
+msgstr "클라이언트 ID"
+
+msgid "CLIENT SECRET"
+msgstr "클라이언트 비밀ㅋ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1025,9 +1133,6 @@ msgstr "스크레퍼가 실행되는 동안에는 이 기능이 비활성화됩�
 msgid "CHOOSE"
 msgstr "이동"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "사용자 인터페이스 모드가 사용 해제됨"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "지금 코드를 입력하여 잠금 해제"
 
@@ -1054,9 +1159,6 @@ msgstr "dmd 서버"
 
 msgid "FORMAT"
 msgstr "포맷"
-
-msgid "AUTO"
-msgstr "자동"
 
 msgid "dmd matrix size"
 msgstr "dmd 매트릭스 크기"
@@ -1607,9 +1709,6 @@ msgstr "현재 설정"
 msgid "UPDATE GAMELISTS"
 msgstr "게임목록 업데이트"
 
-msgid "ACCOUNTS"
-msgstr "계정"
-
 msgid "BIOS SETTINGS"
 msgstr "바이오스 설정"
 
@@ -1946,6 +2045,12 @@ msgstr "테마 음악 재생"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "비디오 재생 시 음악 볼륨 줄임"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "좋아하는 재생목록의 노래만 재생"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "좋아하는 노래 선택"
+
 msgid "SOUNDS"
 msgstr "사운드"
 
@@ -1993,6 +2098,12 @@ msgstr "다음 노래로 건너뜀"
 
 msgid "NOW PLAYING"
 msgstr "지금 재생 중"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "즐겨찾기 재생목록에서 현재 노래 제거"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "현재 노래를 즐겨찾기 재생목록에 저장"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면 보호기 실행"
@@ -2214,9 +2325,6 @@ msgstr "커스텀 컬렉션에 추가..."
 msgid "DELETE COLLECTION"
 msgstr "컬렉션 삭제"
 
-msgid "SCRAPE"
-msgstr "스크랩"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "고급 게임 옵션"
 
@@ -2240,90 +2348,6 @@ msgstr "블루투스 장치 페어링"
 
 msgid "PAIR"
 msgstr "패어링"
-
-msgid "IMAGE SOURCE"
-msgstr "이미지 출처"
-
-msgid "SCREENSHOT"
-msgstr "스크린샷"
-
-msgid "TITLE SCREENSHOT"
-msgstr "타이틀 스크린샷"
-
-msgid "MIX V1"
-msgstr "혼합 V1"
-
-msgid "MIX V2"
-msgstr "혼합 V2"
-
-msgid "BOX 2D"
-msgstr "박스 2D"
-
-msgid "BOX 3D"
-msgstr "박스 3D"
-
-msgid "FAN ART"
-msgstr "팬아트"
-
-msgid "BOX SOURCE"
-msgstr "박스 출처"
-
-msgid "LOGO SOURCE"
-msgstr "로고 출처"
-
-msgid "HD WHEEL"
-msgstr "HD 휠"
-
-msgid "WHEEL"
-msgstr "휠"
-
-msgid "MARQUEE"
-msgstr "마퀴"
-
-msgid "PREFERED REGION"
-msgstr "선호 지역"
-
-msgid "OVERWRITE NAMES"
-msgstr "이름 덮어쓰기"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "설명 덮어쓰기"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "미디어 덮어쓰기"
-
-msgid "SCRAPE FOR"
-msgstr "스크랩"
-
-msgid "SHORT NAME"
-msgstr "단축 이름"
-
-msgid "COMMUNITY RATING"
-msgstr "사용자 평가"
-
-msgid "VIDEO"
-msgstr "비디오"
-
-msgid "FANART"
-msgstr "팬아트"
-
-msgid "BEZEL (16:9)"
-msgstr "베젤 (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "박스 뒷면"
-
-msgid "MAP"
-msgstr "맵"
-
-msgid "MANUAL"
-msgstr "매뉴얼"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "패드-키 설정"
-
-msgid "ACCOUNT"
-msgstr "계정"
 
 msgid "NO DEVICE FOUND"
 msgstr "장치를 찾을 수 없음"
@@ -2541,6 +2565,9 @@ msgid ""
 msgstr ""
 "링크한 일부 파일은 게임목록 경로 밖에 있습니다.\n"
 "게임목록과 관련하여 이 파일의 사본을 사용할까요?"
+
+msgid "FAVORITE SONGS"
+msgstr "좋아하는 노래"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "넷플레이에 연결"
@@ -3073,6 +3100,9 @@ msgstr "미디어 누락"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "스크린 전환을 원하나요?"
 
+msgid "INVALID CREDENTIALS"
+msgstr "잘못된 자격 증명"
+
 msgid "SCRAPING"
 msgstr "스크랩 중"
 
@@ -3551,3 +3581,12 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "스크랩 설정"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "계정"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "사용자 인터페이스 모드가 사용 해제됨"

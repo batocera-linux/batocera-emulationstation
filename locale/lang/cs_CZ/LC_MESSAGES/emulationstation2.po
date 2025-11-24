@@ -508,6 +508,9 @@ msgstr "SYSTÉM"
 msgid "VIDEO DRIVER"
 msgstr "OVLADAČ VIDEA"
 
+msgid "SEOUL"
+msgstr ""
+
 msgid "NETPLAY SETTINGS"
 msgstr "NASTAVENÍ NETPLAY"
 
@@ -525,30 +528,6 @@ msgstr "VOLBY"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "POUŽÍT PŘENOSOVÝ SERVER"
-
-msgid "NONE"
-msgstr "ŽÁDNÝ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "VLASTNÍ"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "VLASTNÍ RELAY SERVER"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -576,6 +555,30 @@ msgstr "INDEXOVAT NOVÉ HRY PŘI SPUŠTĚNÍ"
 
 msgid "INDEX GAMES"
 msgstr "INDEXOVANÉ HRY"
+
+msgid "USE RELAY SERVER"
+msgstr "POUŽÍT PŘENOSOVÝ SERVER"
+
+msgid "NONE"
+msgstr "ŽÁDNÝ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "VLASTNÍ"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "VLASTNÍ RELAY SERVER"
 
 msgid "INPUT"
 msgstr "ZADAT"
@@ -664,6 +667,12 @@ msgid ""
 "earned."
 msgstr "V pravém dolním rohu se zobrazí ikony, když se získa retroúspěch."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ODEMKNOUT ZVUK RETROÚSPĚCHU"
 
@@ -747,6 +756,15 @@ msgstr "NENÍ K DISPOZICI ŽÁDNÁ AKTUALIZACE"
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
 
+msgid "SCRAPE"
+msgstr "VYHLEDÁVAČ"
+
+msgid "ACCOUNTS"
+msgstr "ÚČTY"
+
+msgid "go back"
+msgstr "vrátit se zpět"
+
 msgid "SCRAPING DATABASE"
 msgstr "VYHLEDAT DATABÁZI"
 
@@ -755,9 +773,6 @@ msgstr "ZDROJ"
 
 msgid "SCRAPE FROM"
 msgstr "VYHLEDÁVÁNÍ Z"
-
-msgid "SCRAPER SETTINGS"
-msgstr "NASTAVENÍ VYHLEDÁVAČE"
 
 msgid "FILTERS"
 msgstr "FILTRY"
@@ -804,8 +819,101 @@ msgstr "VYHLEDAT"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "vrátit se zpět"
+msgid "IMAGE SOURCE"
+msgstr "ZDROJ OBRÁZKU"
+
+msgid "SCREENSHOT"
+msgstr "SNÍMEK OBRAZOVKY"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITULNÍ SNÍMEK OBRAZOVKY"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "OBAL 2D"
+
+msgid "BOX 3D"
+msgstr "OBAL 3D"
+
+msgid "FAN ART"
+msgstr "OBRÁZEK FANOUŠKŮ"
+
+msgid "BOX SOURCE"
+msgstr "ZDROJ OBALU"
+
+msgid "LOGO SOURCE"
+msgstr "ZDROJ LOGA"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "KOLO"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "PREFEROVANÁ OBLAST"
+
+msgid "AUTO"
+msgstr "AUTOMATICKY"
+
+msgid "OVERWRITE NAMES"
+msgstr "PŘEPSAT JMÉNA"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "PŘEPSAT POPISY"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "PŘEPSAT MÉDIA"
+
+msgid "SCRAPE FOR"
+msgstr "VYHLEDAT PRO"
+
+msgid "SHORT NAME"
+msgstr "KRÁTKÝ NÁZEV"
+
+msgid "COMMUNITY RATING"
+msgstr "HODNOCENÍ SPOLKU"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "UMĚNÍ FANOUŠKŮ"
+
+msgid "BEZEL (16:9)"
+msgstr "RÁMEČEK (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "BOX ZADNÍ STRANA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUÁL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "NASTAVENÍ KLÁVES OVLADAČE"
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1025,9 +1133,6 @@ msgstr "TATO FUNKCE JE VYPNUTA, KDYŽ JE SPUŠTĚN VYHLEDÁVAČ"
 msgid "CHOOSE"
 msgstr "POHYB"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "REŽIM UŽIVATELSKÉHO ROZHRANÍ JE NYNÍ ODEMČENÝ"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ZADEJTE KÓD A ODEMKNĚTE"
 
@@ -1054,9 +1159,6 @@ msgstr "server dmd"
 
 msgid "FORMAT"
 msgstr "FORMÁT"
-
-msgid "AUTO"
-msgstr "AUTOMATICKY"
 
 msgid "dmd matrix size"
 msgstr "velikost dmd matrix"
@@ -1617,9 +1719,6 @@ msgstr "Aktuální nastavení"
 msgid "UPDATE GAMELISTS"
 msgstr "AKTUALIZOVAT SEZNAMY HER"
 
-msgid "ACCOUNTS"
-msgstr "ÚČTY"
-
 msgid "BIOS SETTINGS"
 msgstr "NASTAVENÍ BIOSU"
 
@@ -1956,6 +2055,12 @@ msgstr "PŘEHRÁT SYSTÉMOVÉ SKLADBY"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "ZTIŠENÍ HUDBY PŘI PŘEHRÁVÁNÍ VIDEA"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "PŘEHRÁT POUZE SKLADBY ZE SEZNAMU OBLÍBENÝCH"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "VÝBĚR OBLÍBENÝCH SKLADEB"
+
 msgid "SOUNDS"
 msgstr "ZVUKY"
 
@@ -2003,6 +2108,12 @@ msgstr "PŘESKOČIT NA DALŠÍ SKLADBU"
 
 msgid "NOW PLAYING"
 msgstr "PRÁVĚ SE PŘEHRÁVÁ"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "ODEBRAT AKTUÁLNÍ SKLADBU ZE SEZNAMU OBLÍBENÝCH"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "ULOŽIT AKTUÁLNÍ SKLADBU DO SEZNAMU OBLÍBENÝCH"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "SPUSTIT SPOŘIČ OBRAZOVKY"
@@ -2226,9 +2337,6 @@ msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
 msgid "DELETE COLLECTION"
 msgstr "SMAZAT SBÍRKU"
 
-msgid "SCRAPE"
-msgstr "VYHLEDÁVAČ"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "POKROČILÉ HERNÍ NASTAVENÍ"
 
@@ -2252,90 +2360,6 @@ msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
 
 msgid "PAIR"
 msgstr "PÁROVÁNÍ"
-
-msgid "IMAGE SOURCE"
-msgstr "ZDROJ OBRÁZKU"
-
-msgid "SCREENSHOT"
-msgstr "SNÍMEK OBRAZOVKY"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITULNÍ SNÍMEK OBRAZOVKY"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "OBAL 2D"
-
-msgid "BOX 3D"
-msgstr "OBAL 3D"
-
-msgid "FAN ART"
-msgstr "OBRÁZEK FANOUŠKŮ"
-
-msgid "BOX SOURCE"
-msgstr "ZDROJ OBALU"
-
-msgid "LOGO SOURCE"
-msgstr "ZDROJ LOGA"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "KOLO"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "PREFEROVANÁ OBLAST"
-
-msgid "OVERWRITE NAMES"
-msgstr "PŘEPSAT JMÉNA"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "PŘEPSAT POPISY"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "PŘEPSAT MÉDIA"
-
-msgid "SCRAPE FOR"
-msgstr "VYHLEDAT PRO"
-
-msgid "SHORT NAME"
-msgstr "KRÁTKÝ NÁZEV"
-
-msgid "COMMUNITY RATING"
-msgstr "HODNOCENÍ SPOLKU"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "UMĚNÍ FANOUŠKŮ"
-
-msgid "BEZEL (16:9)"
-msgstr "RÁMEČEK (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "BOX ZADNÍ STRANA"
-
-msgid "MAP"
-msgstr "MAPA"
-
-msgid "MANUAL"
-msgstr "MANUÁL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "NASTAVENÍ KLÁVES OVLADAČE"
-
-msgid "ACCOUNT"
-msgstr "ÚČET"
 
 msgid "NO DEVICE FOUND"
 msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ"
@@ -2554,6 +2578,9 @@ msgstr ""
 "NĚKTERÉ SOUBORY, KTERÉ JSTE PROPOJILI, SE NACHÁZEJÍ MIMO CESTU K SEZNAMU "
 "HER.\n"
 "CHCETE POUŽÍT KOPII TĚCHTO SOUBORŮ VZHLEDEM K SEZNAMU HER ?"
+
+msgid "FAVORITE SONGS"
+msgstr "OBLÍBENÉ SKLADBY"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "PŘIPOJIT SE K SÍTI"
@@ -3096,6 +3123,9 @@ msgstr "CHYBĚJÍCÍ MÉDIA"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "CHCETE PŘEPNOUT OBRAZOVKU ?"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
 
@@ -3590,6 +3620,15 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "NASTAVENÍ VYHLEDÁVAČE"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "ÚČET"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "REŽIM UŽIVATELSKÉHO ROZHRANÍ JE NYNÍ ODEMČENÝ"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "ZOBRAZIT MOŽNOSTI NETPLAY PŘI SPUŠTĚNÍ HRY"

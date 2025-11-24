@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -479,7 +479,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "EDITAR DESCRIÇÃO"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "TEM CERTEZA QUE DESEJA EXCLUIR ESTE ITEM ?"
+msgstr "TEM CERTEZA QUE DESEJA EXCLUIR ESTE ITEM?"
 
 msgid "DELETE MAPPING"
 msgstr "APAGAR MAPEAMENTO"
@@ -508,6 +508,9 @@ msgstr "SISTEMA"
 msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VÍDEO"
 
+msgid "SEOUL"
+msgstr "SEUL"
+
 msgid "NETPLAY SETTINGS"
 msgstr "AJUSTES DOS JOGOS EM REDE"
 
@@ -525,6 +528,34 @@ msgstr "OPÇÕES"
 
 msgid "PORT"
 msgstr "PORTA"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CRIAR LOBBY AUTOMATICAMENTE"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+"Automaticamente cria um lobby Netplay quando estiver começando um jogo."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Os jogos em servidor têm uma chance maior de entrada bem-sucedida."
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "EXIBIR JOGOS INDISPONÍVEIS"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "Exibe salas para jogos que não estão presentes nesta máquina."
+
+msgid "GAME INDEXES"
+msgstr "ÍNDICES DO JOGO"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
+
+msgid "INDEX GAMES"
+msgstr "INDEXAR JOGOS"
 
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
@@ -549,33 +580,6 @@ msgstr "PERSONALIZAR"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR PERSONALIZADO"
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr "CRIAR LOBBY AUTOMATICAMENTE"
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr "Automaticamente cria um lobby Netplay quando estiver começando um jogo"
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Os jogos em servidor têm uma chance maior de entrada bem-sucedida."
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "EXIBIR JOGOS INDISPONÍVEIS"
-
-msgid "Show rooms for games not present on this machine."
-msgstr "Exibe salas para jogos que não estão presentes nesta máquina."
-
-msgid "GAME INDEXES"
-msgstr "ÍNDICES DO JOGO"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
-
-msgid "INDEX GAMES"
-msgstr "INDEXAR JOGOS"
 
 msgid "INPUT"
 msgstr "ENTRADA"
@@ -672,6 +676,12 @@ msgstr ""
 "Mostra os ícones no canto inferior direito quando as conquistas elegíveis "
 "podem ser obtidas."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR NOVAS CONQUISTAS"
 
@@ -756,6 +766,15 @@ msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
 msgid "SCRAPER"
 msgstr "PROCURAR MÍDIAS DE JOGO"
 
+msgid "SCRAPE"
+msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
+
+msgid "ACCOUNTS"
+msgstr "CONTAS"
+
+msgid "go back"
+msgstr "voltar"
+
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DADOS DAS MÍDIAS DE JOGO"
 
@@ -764,9 +783,6 @@ msgstr "FONTE"
 
 msgid "SCRAPE FROM"
 msgstr "OBTER MÍDIAS DE"
-
-msgid "SCRAPER SETTINGS"
-msgstr "AJUSTES DO SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTROS"
@@ -813,8 +829,101 @@ msgstr "BAIXAR AGORA"
 msgid "START"
 msgstr "INICIAR"
 
-msgid "go back"
-msgstr "voltar"
+msgid "IMAGE SOURCE"
+msgstr "FONTE DA MÍDIA DE IMAGEM"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURA DE TELA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "IMAGEM DO TÍTULO"
+
+msgid "MIX V1"
+msgstr "COMBINAÇÃO 1"
+
+msgid "MIX V2"
+msgstr "COMBINAÇÃO 2"
+
+msgid "BOX 2D"
+msgstr "CAIXA 2D"
+
+msgid "BOX 3D"
+msgstr "CAIXA 3D"
+
+msgid "FAN ART"
+msgstr "ARTE DE FÃ"
+
+msgid "BOX SOURCE"
+msgstr "FONTE DA MÍDIA DA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "FONTE DA MÍDIA DO LOGOTIPO"
+
+msgid "HD WHEEL"
+msgstr "LOGOTIPO HD"
+
+msgid "WHEEL"
+msgstr "LOGOTIPO"
+
+msgid "MARQUEE"
+msgstr "LETREIRO"
+
+msgid "PREFERED REGION"
+msgstr "PRIORIZAR REGIÃO"
+
+msgid "AUTO"
+msgstr "AUTOMÁTICO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SOBRESCREVER NOMES"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOBRESCREVER DESCRIÇÕES"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOBRESCREVER MÍDIAS"
+
+msgid "SCRAPE FOR"
+msgstr "OBTER MÍDIAS PARA"
+
+msgid "SHORT NAME"
+msgstr "NOME ABREVIADO"
+
+msgid "COMMUNITY RATING"
+msgstr "AVALIAÇÃO DA COMUNIDADE"
+
+msgid "VIDEO"
+msgstr "VÍDEO"
+
+msgid "FANART"
+msgstr "FÃ-ARTE"
+
+msgid "BEZEL (16:9)"
+msgstr "MOLDURA (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "PARTE DE TRÁS DA CAIXA"
+
+msgid "MAP"
+msgstr "MAPA DO JOGO"
+
+msgid "MANUAL"
+msgstr "MANUAL DE INSTRUÇÕES"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
+
+msgid "SCREENSCRAPER"
+msgstr "INFORMAÇÃO DOS JOGOS"
+
+msgid "IGDB"
+msgstr "IGDB"
+
+msgid "CLIENT ID"
+msgstr "ID DO CLIENTE"
+
+msgid "CLIENT SECRET"
+msgstr "SEGREDO DO CLIENTE"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1034,9 +1143,6 @@ msgstr "ESTA FUNÇÃO ESTÁ DESATIVADA ENQUANTO O RASPADOR ESTÁ EM EXECUÇÃO"
 msgid "CHOOSE"
 msgstr "ESCOLHER"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "O MODO INTERFACE DO USUÁRIO ESTÁ AGORA DESBLOQUEADO"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "INFORME AGORA O CÓDIGO PARA DESBLOQUEAR"
 
@@ -1063,9 +1169,6 @@ msgstr "servidor dmd"
 
 msgid "FORMAT"
 msgstr "FORMATAR"
-
-msgid "AUTO"
-msgstr "AUTOMÁTICO"
 
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
@@ -1634,9 +1737,6 @@ msgstr "Ajuste atual"
 msgid "UPDATE GAMELISTS"
 msgstr "ATUALIZAR A LISTA DE JOGOS"
 
-msgid "ACCOUNTS"
-msgstr "CONTAS"
-
 msgid "BIOS SETTINGS"
 msgstr "AJUSTES DA BIOS"
 
@@ -1975,6 +2075,12 @@ msgstr "REPRODUZIR MÚSICA ESPECÍFICA DO SISTEMA"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "MÚSICA DE FUNDO AO REPRODUZIR VÍDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "TOCAR APENAS MÚSICAS DA SUA PLAYLIST DE FAVORITOS"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELEÇÃO DE MÚSICAS FAVORITAS"
+
 msgid "SOUNDS"
 msgstr "SONS"
 
@@ -2022,6 +2128,12 @@ msgstr "PULE PARA A PRÓXIMA MÚSICA"
 
 msgid "NOW PLAYING"
 msgstr "REPRODUZINDO"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "REMOVER A MÚSICA ATUAL DA PLAYLIST DE FAVORITOS"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "SALVAR A MÚSICA ATUAL NA PLAYLIST DE FAVORITOS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE TELA"
@@ -2245,9 +2357,6 @@ msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 msgid "DELETE COLLECTION"
 msgstr "APAGAR COLEÇÃO"
 
-msgid "SCRAPE"
-msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
@@ -2271,90 +2380,6 @@ msgstr "PAREAR DISPOSITIVO BLUETOOTH"
 
 msgid "PAIR"
 msgstr "EMPARELHAR"
-
-msgid "IMAGE SOURCE"
-msgstr "FONTE DA MÍDIA DE IMAGEM"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURA DE TELA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "IMAGEM DO TÍTULO"
-
-msgid "MIX V1"
-msgstr "COMBINAÇÃO 1"
-
-msgid "MIX V2"
-msgstr "COMBINAÇÃO 2"
-
-msgid "BOX 2D"
-msgstr "CAIXA 2D"
-
-msgid "BOX 3D"
-msgstr "CAIXA 3D"
-
-msgid "FAN ART"
-msgstr "ARTE DE FÃ"
-
-msgid "BOX SOURCE"
-msgstr "FONTE DA MÍDIA DA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "FONTE DA MÍDIA DO LOGOTIPO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "LOGOTIPO"
-
-msgid "MARQUEE"
-msgstr "LETREIRO"
-
-msgid "PREFERED REGION"
-msgstr "PRIORIZAR REGIÃO"
-
-msgid "OVERWRITE NAMES"
-msgstr "SOBRESCREVER NOMES"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SOBRESCREVER DESCRIÇÕES"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SOBRESCREVER MÍDIAS"
-
-msgid "SCRAPE FOR"
-msgstr "OBTER MÍDIAS PARA"
-
-msgid "SHORT NAME"
-msgstr "NOME ABREVIADO"
-
-msgid "COMMUNITY RATING"
-msgstr "AVALIAÇÃO DA COMUNIDADE"
-
-msgid "VIDEO"
-msgstr "VÍDEO"
-
-msgid "FANART"
-msgstr "FÃ-ARTE"
-
-msgid "BEZEL (16:9)"
-msgstr "MOLDURA (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "PARTE DE TRÁS DA CAIXA"
-
-msgid "MAP"
-msgstr "MAPA DO JOGO"
-
-msgid "MANUAL"
-msgstr "MANUAL DE INSTRUÇÕES"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
-
-msgid "ACCOUNT"
-msgstr "CONTA"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
@@ -2573,6 +2598,9 @@ msgstr ""
 "ALGUNS ARQUIVOS VINCULADOS ESTÃO LOCALIZADOS FORA DO CAMINHO DA LISTA DE "
 "JOGOS.\n"
 "DESEJA USAR UMA CÓPIA DESTES ARQUIVOS RELACIONADOS A LISTA DE JOGOS ?"
+
+msgid "FAVORITE SONGS"
+msgstr "MÚSICAS FAVORITAS"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTE-SE AOS JOGOS EM REDE"
@@ -3113,6 +3141,9 @@ msgstr "MÍDIAS AUSENTES"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOCÊ QUER TROCAR DE TELA?"
 
+msgid "INVALID CREDENTIALS"
+msgstr "CREDENCIAIS INVÁLIDAS"
+
 msgid "SCRAPING"
 msgstr "PROCURANDO MÍDIAS"
 
@@ -3600,6 +3631,15 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "AJUSTES DO SCRAPER"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "CONTA"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "O MODO INTERFACE DO USUÁRIO ESTÁ AGORA DESBLOQUEADO"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"

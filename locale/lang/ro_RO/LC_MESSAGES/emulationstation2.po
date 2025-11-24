@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-29 14:16+0200\n"
+"PO-Revision-Date: 2025-08-24 16:56+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SE SCANEAZĂ BLUETOOTH"
@@ -509,6 +509,9 @@ msgstr "SISTEM"
 msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
+msgid "SEOUL"
+msgstr "SEOUL"
+
 msgid "NETPLAY SETTINGS"
 msgstr "SETĂRI NETPLAY"
 
@@ -526,30 +529,6 @@ msgstr "OPȚIUNI"
 
 msgid "PORT"
 msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "FOLOSEȘTE SERVER RETRANSLAȚIE"
-
-msgid "NONE"
-msgstr "FĂRĂ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALIZAT"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CREEAZĂ O SALĂ AUTOMAT"
@@ -579,6 +558,30 @@ msgstr "INDEXEAZĂ NOILE JOCURI LA PORNIRE"
 
 msgid "INDEX GAMES"
 msgstr "INDEXEAZĂ JOCURILE"
+
+msgid "USE RELAY SERVER"
+msgstr "FOLOSEȘTE SERVER RETRANSLAȚIE"
+
+msgid "NONE"
+msgstr "FĂRĂ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "PERSONALIZAT"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "INPUT"
 msgstr "INTRARE"
@@ -630,7 +633,7 @@ msgstr "MOD HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Dezactivează încărcarea stărilor, derularea și trișările pentru mai multe "
+"Dezactivează încărcarea stărilor, rewind-ul și cheat-urile pentru mai multe "
 "puncte."
 
 msgid "LEADERBOARDS"
@@ -672,6 +675,12 @@ msgid ""
 msgstr ""
 "Afișează pictograme in colțul din dreapta jos când realizări eligibile pot "
 "fi dobândite."
+
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr "REALIZĂRI NEOFICIALE"
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr "Permite deblocarea de realizări neoficiale."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUNET DEBLOCARE RETROREALIZARE"
@@ -756,6 +765,15 @@ msgstr "NICIO ACTUALIZARE DISPONIBILĂ"
 msgid "SCRAPER"
 msgstr "PRELUARE INFORMAȚII"
 
+msgid "SCRAPE"
+msgstr "PREIA DATE"
+
+msgid "ACCOUNTS"
+msgstr "CONTURI"
+
+msgid "go back"
+msgstr "mergi înapoi"
+
 msgid "SCRAPING DATABASE"
 msgstr "BAZA DE DATE PENTRU INFORMAȚII"
 
@@ -764,9 +782,6 @@ msgstr "SURSĂ"
 
 msgid "SCRAPE FROM"
 msgstr "PREIA INFORMAȚIILE DIN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "SETĂRI PRELUARE INFORMAȚII"
 
 msgid "FILTERS"
 msgstr "FILTRE"
@@ -813,8 +828,101 @@ msgstr "PREIA ACUM"
 msgid "START"
 msgstr "ÎNCEPE"
 
-msgid "go back"
-msgstr "mergi înapoi"
+msgid "IMAGE SOURCE"
+msgstr "SURSĂ IMAGINE"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURĂ DE ECRAN"
+
+msgid "TITLE SCREENSHOT"
+msgstr "CAPTURĂ ECRAN TITLU"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "CUTIE 2D"
+
+msgid "BOX 3D"
+msgstr "CUTIE 3D"
+
+msgid "FAN ART"
+msgstr "FAN ART"
+
+msgid "BOX SOURCE"
+msgstr "SURSĂ CUTIE"
+
+msgid "LOGO SOURCE"
+msgstr "SURSĂ LOGO"
+
+msgid "HD WHEEL"
+msgstr "ROATĂ HD"
+
+msgid "WHEEL"
+msgstr "ROATĂ"
+
+msgid "MARQUEE"
+msgstr "BANNER"
+
+msgid "PREFERED REGION"
+msgstr "REGIUNEA PREFERATĂ"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "SUPRASCRIE NUMELE"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SUPRASCRIE DESCRIERILE"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SUPRASCRIE FIȘIERELE MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "PREIA DATE PENTRU"
+
+msgid "SHORT NAME"
+msgstr "NUME SCURT"
+
+msgid "COMMUNITY RATING"
+msgstr "SCORUL COMUNITĂȚII"
+
+msgid "VIDEO"
+msgstr "VIDEOCLIP"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "RAMĂ (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "SPATELE CUTIEI"
+
+msgid "MAP"
+msgstr "HARTĂ"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "SETĂRI PADTOKEY"
+
+msgid "SCREENSCRAPER"
+msgstr "SCREENSCRAPER"
+
+msgid "IGDB"
+msgstr "IGDB"
+
+msgid "CLIENT ID"
+msgstr "ID CLIENT"
+
+msgid "CLIENT SECRET"
+msgstr "SECRET CLIENT"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1034,9 +1142,6 @@ msgstr "ACEASTĂ FUNCȚIE ESTE DEZACTIVATĂ CÂT TIMP SE PREIAU INFORMAȚII"
 msgid "CHOOSE"
 msgstr "ALEGE"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "INTERFAȚA ESTE ACUM DEBLOCATĂ"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "INTRODU CODUL PENTRU DEBLOCARE"
 
@@ -1063,9 +1168,6 @@ msgstr "server dmd"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "mărime matrice dmd"
@@ -1633,9 +1735,6 @@ msgstr "Setare curentă"
 msgid "UPDATE GAMELISTS"
 msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI"
 
-msgid "ACCOUNTS"
-msgstr "CONTURI"
-
 msgid "BIOS SETTINGS"
 msgstr "SETĂRI BIOS"
 
@@ -1701,7 +1800,7 @@ msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "NETEZEȘTE JOCURILE (FILTRARE BILINEARĂ)"
 
 msgid "REWIND"
-msgstr "REVENIRE"
+msgstr "REWIND"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
@@ -1975,6 +2074,12 @@ msgstr "REDĂ MUZICĂ SPECIFICĂ SISTEMULUI"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "REDU VOLUMUL MUZICII LA REDAREA UNUI VIDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "REDĂ DOAR MELODIILE DIN LISTA TA DE REDARE FAVORITE"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELECȚIE DE MELODII FAVORITE"
+
 msgid "SOUNDS"
 msgstr "SUNETE"
 
@@ -2022,6 +2127,12 @@ msgstr "TRECI LA URMĂTORUL CÂNTEC"
 
 msgid "NOW PLAYING"
 msgstr "ACUM SE REDĂ"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "ELIMINĂ MELODIA CURENTĂ DIN LISTA DE REDARE FAVORITE"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "SALVEAZĂ MELODIA CURENTĂ ÎN LISTA DE REDARE FAVORITE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSEAZĂ ECONOMIZORUL DE ECRAN"
@@ -2245,9 +2356,6 @@ msgstr "ADAUGĂ LA O COLECȚIE PERSONALIZATĂ..."
 msgid "DELETE COLLECTION"
 msgstr "ȘTERGE COLECȚIA"
 
-msgid "SCRAPE"
-msgstr "PREIA DATE"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPȚIUNI AVANSATE JOC"
 
@@ -2271,90 +2379,6 @@ msgstr "CONECTEAZĂ UN DISPOZITIV BLUETOOTH"
 
 msgid "PAIR"
 msgstr "CONECTEAZĂ"
-
-msgid "IMAGE SOURCE"
-msgstr "SURSĂ IMAGINE"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURĂ DE ECRAN"
-
-msgid "TITLE SCREENSHOT"
-msgstr "CAPTURĂ ECRAN TITLU"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "CUTIE 2D"
-
-msgid "BOX 3D"
-msgstr "CUTIE 3D"
-
-msgid "FAN ART"
-msgstr "FAN ART"
-
-msgid "BOX SOURCE"
-msgstr "SURSĂ CUTIE"
-
-msgid "LOGO SOURCE"
-msgstr "SURSĂ LOGO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "ROATĂ"
-
-msgid "MARQUEE"
-msgstr "BANNER"
-
-msgid "PREFERED REGION"
-msgstr "REGIUNEA PREFERATĂ"
-
-msgid "OVERWRITE NAMES"
-msgstr "SUPRASCRIE NUMELE"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SUPRASCRIE DESCRIERILE"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SUPRASCRIE FIȘIERELE MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "PREIA DATE PENTRU"
-
-msgid "SHORT NAME"
-msgstr "NUME SCURT"
-
-msgid "COMMUNITY RATING"
-msgstr "SCORUL COMUNITĂȚII"
-
-msgid "VIDEO"
-msgstr "VIDEOCLIP"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "RAMĂ (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "SPATELE CUTIEI"
-
-msgid "MAP"
-msgstr "HARTĂ"
-
-msgid "MANUAL"
-msgstr "MANUAL"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "SETĂRI PADTOKEY"
-
-msgid "ACCOUNT"
-msgstr "CONT"
 
 msgid "NO DEVICE FOUND"
 msgstr "NICIUN DISPOZITIV GĂSIT"
@@ -2572,6 +2596,9 @@ msgid ""
 msgstr ""
 "UNELE FIȘIERE PE CARE LE-AI INDICAT SE AFLĂ ÎN AFARA CĂII LISTEI DE JOCURI.\n"
 "DOREȘTI SĂ FOLOSEȘTI O COPIE A ACESTOR FIȘIERE RELATIVĂ LA LISTA DE JOCURI?"
+
+msgid "FAVORITE SONGS"
+msgstr "MELODII FAVORITE"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTEAZĂ-TE LA NETPLAY"
@@ -3115,6 +3142,9 @@ msgstr "FIȘIERE MEDIA LIPSĂ"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "DOREȘTI SĂ COMUȚI ECRANUL?"
 
+msgid "INVALID CREDENTIALS"
+msgstr "ACREDITĂRI INVALIDE"
+
 msgid "SCRAPING"
 msgstr "PRELUARE DATE"
 
@@ -3610,6 +3640,15 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "SCRAPER SETTINGS"
+#~ msgstr "SETĂRI PRELUARE INFORMAȚII"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "CONT"
+
+#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+#~ msgstr "INTERFAȚA ESTE ACUM DEBLOCATĂ"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 #~ msgstr "ARATĂ OPȚIUNILE NETPLAY LA LANSAREA JOCULUI"

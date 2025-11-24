@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-05-06 22:37+0000\n"
+"PO-Revision-Date: 2025-07-23 21:29+0000\n"
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: nl_NL\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH WORDT GESCAND"
@@ -509,6 +509,9 @@ msgstr "SYSTEEM"
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
 
+msgid "SEOUL"
+msgstr "SEOUL"
+
 msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY"
 
@@ -526,30 +529,6 @@ msgstr "OPTIES"
 
 msgid "PORT"
 msgstr "POORT"
-
-msgid "USE RELAY SERVER"
-msgstr "RELAY SERVER GEBRUIKEN"
-
-msgid "NONE"
-msgstr "GEEN"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "AANGEPAST"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "AANGEPASTE RELAY SERVER"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "AUTOMATISCH EEN LOBBY MAKEN"
@@ -577,6 +556,30 @@ msgstr "INDEXEER NIEUWE SPELLEN BIJ HET OPSTARTEN"
 
 msgid "INDEX GAMES"
 msgstr "INDEXEER SPELLEN"
+
+msgid "USE RELAY SERVER"
+msgstr "RELAY SERVER GEBRUIKEN"
+
+msgid "NONE"
+msgstr "GEEN"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "AANGEPAST"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "AANGEPASTE RELAY SERVER"
 
 msgid "INPUT"
 msgstr "INVOER"
@@ -670,6 +673,12 @@ msgstr ""
 "Laat iconen zien rechts-onder wanneer beschikbare prestaties verdiend kunnen "
 "worden."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROPRESTATIE GELUID ONTGRENDELEN"
 
@@ -753,6 +762,15 @@ msgstr "ER IS GEEN UPDATE BESCHIKBAAR"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPEN"
+
+msgid "ACCOUNTS"
+msgstr "ACCOUNTS"
+
+msgid "go back"
+msgstr "ga terug"
+
 msgid "SCRAPING DATABASE"
 msgstr "SCRAPE DATABASE"
 
@@ -761,9 +779,6 @@ msgstr "BRON"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VAN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "INSTELLINGEN SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTERS"
@@ -810,8 +825,101 @@ msgstr "NU SCRAPEN"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "ga terug"
+msgid "IMAGE SOURCE"
+msgstr "AFBEELDINGSBRON"
+
+msgid "SCREENSHOT"
+msgstr "SCREENSHOT"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITEL SCREENSHOT"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "DOOS 2D"
+
+msgid "BOX 3D"
+msgstr "DOOS 3D"
+
+msgid "FAN ART"
+msgstr "FANART"
+
+msgid "BOX SOURCE"
+msgstr "DOOS BRON"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO BRON"
+
+msgid "HD WHEEL"
+msgstr "HD WIEL"
+
+msgid "WHEEL"
+msgstr "STUURWIEL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "VOORKEURSREGIO"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "OVERSCHRIJF NAMEN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "OVERSCHRIJF MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPEN NAAR"
+
+msgid "SHORT NAME"
+msgstr "KORTE NAAM"
+
+msgid "COMMUNITY RATING"
+msgstr "COMMUNITY BEOORDELING"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "Schermrand (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "DOOS ACHTERKANT"
+
+msgid "MAP"
+msgstr "MAP"
+
+msgid "MANUAL"
+msgstr "HANDLEIDING"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "INSTELLINGEN PAD-TO-KEY"
+
+msgid "SCREENSCRAPER"
+msgstr "SCREENSCRAPER"
+
+msgid "IGDB"
+msgstr "IGDB"
+
+msgid "CLIENT ID"
+msgstr "CLIENT ID"
+
+msgid "CLIENT SECRET"
+msgstr "CLIENT SECRET"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1031,9 +1139,6 @@ msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
 msgid "CHOOSE"
 msgstr "KIES"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "DE UI MODUS IS NU ONTGRENDELD"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "VOER NU DE CODE IN OM TE ONTGRENDELEN"
 
@@ -1060,9 +1165,6 @@ msgstr "dmd server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd matrix grootte"
@@ -1436,8 +1538,8 @@ msgstr "GEBRUIKERSINTERFACE MODUS"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
-"Vergrendel bepaalde configuratiemenu's voor gebruik door "
-"gastgebruikers/kinderen."
+"Vergrendel bepaalde configuratiemenu's voor gebruik door gastgebruikers/"
+"kinderen."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1612,8 +1714,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Verlaagt automatisch de framevertraging tijdelijk om framedrops te voorkomen."
-" Kan stotteren introduceren."
+"Verlaagt automatisch de framevertraging tijdelijk om framedrops te "
+"voorkomen. Kan stotteren introduceren."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "VARIABELE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -1624,8 +1726,8 @@ msgstr "VARIABELE REFRESH RATE"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI 2."
-"1 VRR."
+"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI "
+"2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DECORATIESET"
@@ -1635,9 +1737,6 @@ msgstr "Huidige instelling"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPDATE DE SPELLIJSTEN"
-
-msgid "ACCOUNTS"
-msgstr "ACCOUNTS"
 
 msgid "BIOS SETTINGS"
 msgstr "INSTELLINGEN BIOS"
@@ -1979,6 +2078,12 @@ msgstr "SPEEL SYSTEEM-SPECIFIEKE MUZIEK"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "DEMP MUZIEK ALS VIDEO SPEELT"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ALLEEN NUMMERS VAN JE FAVORIETENAFSPEELLIJST AFSPELEN"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELECTIE VAN FAVORIETE NUMMERS"
+
 msgid "SOUNDS"
 msgstr "GELUIDEN"
 
@@ -2026,6 +2131,12 @@ msgstr "SKIP NAAR HET VOLGENDE NUMMER"
 
 msgid "NOW PLAYING"
 msgstr "SPEELT NU"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "HUIDIG NUMMER VERWIJDEREN UIT DE FAVORIETENAFSPEELLIJST"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "HUIDIG NUMMER OPSLAAN IN DE FAVORIETENAFSPEELLIJST"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "START DE SCHERMBEVEILIGING"
@@ -2247,9 +2358,6 @@ msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
 msgid "DELETE COLLECTION"
 msgstr "VERWIJDER COLLECTIE"
 
-msgid "SCRAPE"
-msgstr "SCRAPEN"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "GEAVANCEERDE SPELOPTIES"
 
@@ -2273,90 +2381,6 @@ msgstr "EEN BLUETOOTH APPARAAT KOPPELEN"
 
 msgid "PAIR"
 msgstr "KOPPELEN"
-
-msgid "IMAGE SOURCE"
-msgstr "AFBEELDINGSBRON"
-
-msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITEL SCREENSHOT"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "DOOS 2D"
-
-msgid "BOX 3D"
-msgstr "DOOS 3D"
-
-msgid "FAN ART"
-msgstr "FANART"
-
-msgid "BOX SOURCE"
-msgstr "DOOS BRON"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO BRON"
-
-msgid "HD WHEEL"
-msgstr "HD WIEL"
-
-msgid "WHEEL"
-msgstr "STUURWIEL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "VOORKEURSREGIO"
-
-msgid "OVERWRITE NAMES"
-msgstr "OVERSCHRIJF NAMEN"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "OVERSCHRIJF MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPEN NAAR"
-
-msgid "SHORT NAME"
-msgstr "KORTE NAAM"
-
-msgid "COMMUNITY RATING"
-msgstr "COMMUNITY BEOORDELING"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "Schermrand (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "DOOS ACHTERKANT"
-
-msgid "MAP"
-msgstr "MAP"
-
-msgid "MANUAL"
-msgstr "HANDLEIDING"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "INSTELLINGEN PAD-TO-KEY"
-
-msgid "ACCOUNT"
-msgstr "ACCOUNT"
 
 msgid "NO DEVICE FOUND"
 msgstr "GEEN APPARAAT GEVONDEN"
@@ -2575,6 +2599,9 @@ msgstr ""
 "SOMMIGE GELINKTE BESTANDEN BEVINDEN ZICH BUITEN HET PAD VAN DE SPELLIJST.\n"
 "WILT U EEN KOPIE GEBRUIKEN VAN DEZE BESTANDEN REALITIEF AAN DE SPEELLIJST?"
 
+msgid "FAVORITE SONGS"
+msgstr "FAVORIETE NUMMERS"
+
 msgid "CONNECT TO NETPLAY"
 msgstr "VERBIND MET NETPLAY"
 
@@ -2643,8 +2670,8 @@ msgstr "CONTROLLER MAPPING"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "JE GAAT EEN CONTROLLER MAPPEN. MAP IS GEBASEERD OP DE POSITIE VAN DE KNOP, "
 "NIET OP HET FYSIEKE LABEL. ALS U GEEN SPECIALE KNOP VOOR HOTKEY HEBT, "
@@ -2929,11 +2956,11 @@ msgid "INVALID CONTENT"
 msgstr "ONGELDIGE INHOUD"
 
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
-"Een geldig account is vereist. Gelieve een account te registreren op https:"
-"//retroachievements.org"
+"Een geldig account is vereist. Gelieve een account te registreren op https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Volledig"
@@ -3112,6 +3139,9 @@ msgstr "ONTBREKENDE MEDIA"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "WILT U VAN SCHERM VERANDEREN?"
+
+msgid "INVALID CREDENTIALS"
+msgstr "ONGELDIGE INLOGGEGEVENS"
 
 msgid "SCRAPING"
 msgstr "SCRAPEN"

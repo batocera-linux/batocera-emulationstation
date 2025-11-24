@@ -353,18 +353,18 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 
 bool ApiSystem::ping() 
 {
-	// ping Google, if it fails then move on, if succeeds exit loop and return "true"
-	if (!executeScript("timeout 1 ping -c 1 -t 255 google.com"))
-	{
-		// ping Google DNS
-		if (!executeScript("timeout 1 ping -c 1 -t 255 dns.google"))
-		{
-			// ping Cloudflare DNS & give 2 seconds, return this one's status
-			return executeScript("timeout 2 ping -c 1 -t 255 one.one.one.one");
-		}
-	}
+    // Google DNS
+    if (!executeScript("ping -c 1 -W 2 -t 255 8.8.8.8"))
+    {
+        // Cloudflare DNS
+        if (!executeScript("ping -c 1 -W 2 -t 255 1.1.1.1"))
+        {
+            // Quad9 DNS
+            return executeScript("ping -c 1 -W 2 -t 255 9.9.9.9");
+        }
+    }
 
-	return true;
+    return true;
 }
 
 bool ApiSystem::canUpdate(std::vector<std::string>& output) 
@@ -2211,7 +2211,7 @@ bool ApiSystem::emuKill()
 void ApiSystem::suspend()
 {
 	LOG(LogDebug) << "ApiSystem::suspend";
-	executeScript("/usr/sbin/pm-suspend");
+	executeScript("/usr/bin/batocera-shutdown 1");
 }
 
 void ApiSystem::replugControllers_sindenguns()
