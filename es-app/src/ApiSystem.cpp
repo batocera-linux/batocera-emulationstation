@@ -420,6 +420,12 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after OK";
 }
 
+#ifdef BATOCERA
+void ApiSystem::launchControlcenter() {
+  system("batocera-controlcenter");
+}
+#endif
+
 bool ApiSystem::launchKodi(Window *window) 
 {
 	LOG(LogDebug) << "ApiSystem::launchKodi";

@@ -210,6 +210,10 @@ public:
     virtual bool launchKodi(Window *window);
     bool launchFileManager(Window *window);
 
+#ifdef BATOCERA
+    virtual void launchControlcenter();
+#endif
+
 #if !WIN32
 	bool enableWifi(std::string ssid, std::string key, std::string country);
 #else
