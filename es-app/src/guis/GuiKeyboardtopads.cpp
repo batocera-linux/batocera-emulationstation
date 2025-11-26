@@ -9,35 +9,35 @@ struct KeyboardtopadsInputStructure
 	std::string icon;
 };
 
-#ifdef BATOCERA
 struct hotkeyTargetDefinition
 {
 	std::string code;
 	std::string name;
 };
-#endif
 
 GuiKeyboardtopads::GuiKeyboardtopads(Window* window, Keyboardtopad ktp)
 	: GuiSettings(window, _("KEYBOARDTOPADS"), true)
 {
-  	m_ktp = ktp;
+	m_ktp = ktp;
 	m_devices = ApiSystem::getInstance()->getKeyboardtopadDevices(m_ktp.config);
 	m_need_save = false;
 
 	// force 4 devices minimum and 1 hotkey
 	int n_joystick = countJoystickDevice("joystick");
-	for(unsigned int i=n_joystick; i<4; i++) {
-	  KeyboardtopadDevice dev;
-	  dev.type = "joystick";
-	  m_devices.push_back(dev);
+	for (unsigned int i = n_joystick; i < 4; i++) 
+	{
+		KeyboardtopadDevice dev;
+		dev.type = "joystick";
+		m_devices.push_back(dev);
 	}
+
 	int n_hotkey = countJoystickDevice("hotkeys");
-	if(n_hotkey == 0) {
-	  KeyboardtopadDevice dev;
-	  dev.type = "hotkeys";
-	  m_devices.push_back(dev);
+	if (n_hotkey == 0) 
+	{
+		KeyboardtopadDevice dev;
+		dev.type = "hotkeys";
+		m_devices.push_back(dev);
 	}
-	//
 
 	addTab(_("PLAYER 1"));
 	addTab(_("PLAYER 2"));
@@ -53,19 +53,22 @@ GuiKeyboardtopads::GuiKeyboardtopads(Window* window, Keyboardtopad ktp)
 	else
 		mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 
-	onFinalize([this, window] {  if(this->m_need_save) {
-	      for(unsigned int d=0; d<this->m_devices.size(); d++) {
-		if(this->m_devices[d].type == "joystick" && this->m_devices[d].name == "" && this->m_devices[d].keys.size() > 0) {
-		  window->displayNotificationMessage(_U("\uF013  ") + _("KEYS DEFINED BUT JOYSTICK NOT NAMED"));
-		}
+	onFinalize([this, window]
+	{
+		if (this->m_need_save)
+		{
+			for (unsigned int d = 0; d < this->m_devices.size(); d++)
+			{
+				if (this->m_devices[d].type == "joystick" && this->m_devices[d].name == "" && this->m_devices[d].keys.size() > 0)
+					window->displayNotificationMessage(_U("\uF013  ") + _("KEYS DEFINED BUT JOYSTICK NOT NAMED"));
 
-		if (this->m_devices[d].type == "joystick" && this->m_devices[d].name != "" && this->m_devices[d].keys.size() == 0) {
-		  window->displayNotificationMessage(_U("\uF013  ") + _("JOYSTICK NAMED BUT NO KEYS DEFINED"));
+				if (this->m_devices[d].type == "joystick" && this->m_devices[d].name != "" && this->m_devices[d].keys.size() == 0)
+					window->displayNotificationMessage(_U("\uF013  ") + _("JOYSTICK NAMED BUT NO KEYS DEFINED"));
+			}
+
+			ApiSystem::getInstance()->saveKeyboardtopads(this->m_ktp, this->m_devices);
+			window->displayNotificationMessage(_("UNPLUG AND REPLUG THE DEVICE TO APPLY"));
 		}
-	      }
-	      ApiSystem::getInstance()->saveKeyboardtopads(this->m_ktp, this->m_devices);
-	      window->displayNotificationMessage(_("UNPLUG AND REPLUG THE DEVICE TO APPLY"));
-	    }
 	});
 }
 
@@ -80,90 +83,94 @@ void GuiKeyboardtopads::loadActivePage(const std::string& device_path)
 	case 1:
 	case 2:
 	case 3:
-	  loadPlayerPage(this->getTabIndex()+1, device_path);
-	  break;
+		loadPlayerPage(this->getTabIndex() + 1, device_path);
+		break;
 	case 4:
-	  loadHotkeysPage(device_path);
-	  break;
+		loadHotkeysPage(device_path);
+		break;
 	}
 
 	mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 }
 
-KeyboardtopadDevice* GuiKeyboardtopads::getJoystickDevice(int n) {
-  KeyboardtopadDevice* res;
-
-  unsigned int x = 0;
-  for(unsigned int i=0; i<m_devices.size(); i++) {
-    if(m_devices[i].type == "joystick") {
-      if(x == n) return &(m_devices[i]);
-      x++;
-    }
-  }
-  return NULL;
-}
-
-KeyboardtopadDevice* GuiKeyboardtopads::getHotkeyDevice() {
-  KeyboardtopadDevice* res;
-
-  for(unsigned int i=0; i<m_devices.size(); i++) {
-    if(m_devices[i].type == "hotkeys") {
-      return &(m_devices[i]);
-    }
-  }
-  return NULL;
-}
-
-int GuiKeyboardtopads::countJoystickDevice(const std::string& type) {
-  int n = 0;
-  for(unsigned int i=0; i<m_devices.size(); i++) {
-    if(m_devices[i].type == type) {
-      n++;
-    }
-  }
-  return n;
-}
-
-void GuiKeyboardtopads::loadPlayerPage(int n, const std::string& device_path) 
+KeyboardtopadDevice* GuiKeyboardtopads::getJoystickDevice(int n) 
 {
-  std::vector<KeyboardtopadsInputStructure> GUI_INPUT_CONFIG_LIST = 
-        {
-                { "btn:south",           "SOUTH",              ":/help/buttons_south.svg" },
-                { "btn:east",            "EAST",               ":/help/buttons_east.svg" },
-                { "btn:north",           "NORTH",              ":/help/buttons_north.svg" },
-                { "btn:west",            "WEST",               ":/help/buttons_west.svg" },
+	unsigned int x = 0;
 
-                { "btn:start",           "START",              ":/help/button_start.svg" },
-                { "btn:select",          "SELECT",             ":/help/button_select.svg" },
+	for (unsigned int i = 0; i < m_devices.size(); i++) 
+	{
+		if (m_devices[i].type == "joystick") 
+		{
+			if (x == n) return &(m_devices[i]);
+			x++;
+		}
+	}
 
-                { "abs:hat0y:-1",        "D-PAD UP",           ":/help/dpad_up.svg" },
-                { "abs:hat0y:1",         "D-PAD DOWN",         ":/help/dpad_down.svg" },
-                { "abs:hat0x:-1",        "D-PAD LEFT",         ":/help/dpad_left.svg" },
-                { "abs:hat0x:1",         "D-PAD RIGHT",        ":/help/dpad_right.svg" },
+	return nullptr;
+}
 
-                { "btn:tl",              "LEFT SHOULDER",      ":/help/button_l.svg" },
-                { "btn:tr",              "RIGHT SHOULDER",     ":/help/button_r.svg" },
+KeyboardtopadDevice* GuiKeyboardtopads::getHotkeyDevice() 
+{
+	for (unsigned int i = 0; i < m_devices.size(); i++) 
+		if (m_devices[i].type == "hotkeys") 
+			return &(m_devices[i]);
 
-                { "btn:tl2",             "LEFT TRIGGER",       ":/help/button_lt.svg" },
-                { "btn:tr2",             "RIGHT TRIGGER",      ":/help/button_rt.svg" },
-                { "btn:thumbl",          "LEFT STICK PRESS",   ":/help/analog_thumb.svg" },
-                { "btn:thumbr",          "RIGHT STICK PRESS",  ":/help/analog_thumb.svg" },
+	return nullptr;
+}
 
-                { "btn:mode",            "HOTKEY",             ":/help/button_hotkey.svg" }
-        };
-        auto theme = ThemeData::getMenuTheme();
+int GuiKeyboardtopads::countJoystickDevice(const std::string& type) 
+{
+	int n = 0;
+
+	for (unsigned int i = 0; i < m_devices.size(); i++)
+		if (m_devices[i].type == type)
+			n++;
+
+	return n;
+}
+
+void GuiKeyboardtopads::loadPlayerPage(int n, const std::string& device_path)
+{
+	std::vector<KeyboardtopadsInputStructure> GUI_INPUT_CONFIG_LIST =
+	{
+		{ "btn:south",           "SOUTH",              ":/help/buttons_south.svg" },
+		{ "btn:east",            "EAST",               ":/help/buttons_east.svg" },
+		{ "btn:north",           "NORTH",              ":/help/buttons_north.svg" },
+		{ "btn:west",            "WEST",               ":/help/buttons_west.svg" },
+
+		{ "btn:start",           "START",              ":/help/button_start.svg" },
+		{ "btn:select",          "SELECT",             ":/help/button_select.svg" },
+
+		{ "abs:hat0y:-1",        "D-PAD UP",           ":/help/dpad_up.svg" },
+		{ "abs:hat0y:1",         "D-PAD DOWN",         ":/help/dpad_down.svg" },
+		{ "abs:hat0x:-1",        "D-PAD LEFT",         ":/help/dpad_left.svg" },
+		{ "abs:hat0x:1",         "D-PAD RIGHT",        ":/help/dpad_right.svg" },
+
+		{ "btn:tl",              "LEFT SHOULDER",      ":/help/button_l.svg" },
+		{ "btn:tr",              "RIGHT SHOULDER",     ":/help/button_r.svg" },
+
+		{ "btn:tl2",             "LEFT TRIGGER",       ":/help/button_lt.svg" },
+		{ "btn:tr2",             "RIGHT TRIGGER",      ":/help/button_rt.svg" },
+		{ "btn:thumbl",          "LEFT STICK PRESS",   ":/help/analog_thumb.svg" },
+		{ "btn:thumbr",          "RIGHT STICK PRESS",  ":/help/analog_thumb.svg" },
+
+		{ "btn:mode",            "HOTKEY",             ":/help/button_hotkey.svg" }
+	};
+
+	auto theme = ThemeData::getMenuTheme();
 	Window* window = mWindow;
 
-	KeyboardtopadDevice* device = getJoystickDevice(n-1);
+	KeyboardtopadDevice* device = getJoystickDevice(n - 1);
 
-	if(device == NULL) return;
-	
-	addInputTextRow(_("JOYSTICK NAME"), device->name, false, nullptr, [this, device](std::string new_value) { this->m_need_save = true; device->name = new_value; } );
+	if (device == nullptr)
+		return;
 
-	for(int i = 0; i < GUI_INPUT_CONFIG_LIST.size(); i++)
+	addInputTextRow(_("JOYSTICK NAME"), device->name, false, nullptr, [this, device](std::string new_value) { this->m_need_save = true; device->name = new_value; });
+
+	for (int i = 0; i < GUI_INPUT_CONFIG_LIST.size(); i++)
 	{
 		ComponentListRow row;
-		
+
 		// icon
 		auto icon = std::make_shared<ImageComponent>(mWindow);
 		icon->setIsLinear(true);
@@ -189,86 +196,94 @@ void GuiKeyboardtopads::loadPlayerPage(int n, const std::string& device_path)
 	}
 
 	// adding keys that are not in the defined list
-	for(unsigned int i=0; i<device->keys.size(); i++) {
-	  bool found = false;
-	  for(int x = 0; x < GUI_INPUT_CONFIG_LIST.size(); x++) {
-	    if(GUI_INPUT_CONFIG_LIST[x].code == device->keys[i].value) {
-	      found = true;
-	    }
-	  }
-	  if(found == false) {
-	    auto text = std::make_shared<TextComponent>(mWindow, device->keys[i].name, theme->Text.font, theme->Text.color);
-	    std::string code = device->keys[i].value;
-	    addWithLabel(device->keys[i].value, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code, window, device_path](std::string key) { text->setValue(key); setDeviceValue(device, key, code, window, device_path); }); });
-	  }
+	for (unsigned int i = 0; i < device->keys.size(); i++) 
+	{
+		bool found = false;
+
+		for (int x = 0; x < GUI_INPUT_CONFIG_LIST.size(); x++)
+			if (GUI_INPUT_CONFIG_LIST[x].code == device->keys[i].value)
+				found = true;
+
+		if (!found) 
+		{
+			auto text = std::make_shared<TextComponent>(mWindow, device->keys[i].name, theme->Text.font, theme->Text.color);
+			std::string code = device->keys[i].value;
+			addWithLabel(device->keys[i].value, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code, window, device_path](std::string key) { text->setValue(key); setDeviceValue(device, key, code, window, device_path); }); });
+		}
 	}
 }
 
 void GuiKeyboardtopads::declareEvKey(Window* window, const std::string& device_path, const std::function<void(std::string)>& func)
 {
-  window->pushGui(new GuiLoading<std::string>(window, _("PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"), [this, window, device_path, func](auto gui)
-  {
-    m_need_save = true;
-    return ApiSystem::getInstance()->detectEvKey(device_path);
-  }, func));
+	window->pushGui(new GuiLoading<std::string>(window, _("PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"), [this, window, device_path, func](auto gui)
+	{
+		m_need_save = true;
+		return ApiSystem::getInstance()->detectEvKey(device_path);
+	}, func));
 }
 
-std::string GuiKeyboardtopads::getNameForInput(KeyboardtopadDevice* device, std::string value) {
-  for(unsigned int i=0; i<device->keys.size(); i++) {
-    if(device->keys[i].value == value) return device->keys[i].name;
-  }
-  return "";
-}
-
-void GuiKeyboardtopads::loadHotkeysPage(const std::string& device_path) 
+std::string GuiKeyboardtopads::getNameForInput(KeyboardtopadDevice* device, std::string value) 
 {
-  std::vector<hotkeyTargetDefinition> targets_labels = {
-    { "bezels",           _("OVERLAYS") },
-    { "brightness-cycle", _("BRIGHTNESS CYCLE") },
-    { "coin",             _("COIN") },
-    { "exit",             _("EXIT") },
-    { "fastforward",      _("FAST FORWARD") },
-    { "menu",             _("MENU") },
-    { "files",            _("FILES") },
-    { "next_disk",        _("NEXT DISK") },
-    { "next_slot",        _("NEXT SLOT") },
-    { "pause",            _("PAUSE") },
-    { "previous_slot",    _("PREVIOUS SLOT") },
-    { "reset",            _("RESET") },
-    { "restore_state",    _("RESTORE STATE") },
-    { "rewind",           _("REWIND") },
-    { "save_state",       _("SAVE STATE") },
-    { "screen_layout",    _("SCREEN LAYOUT") },
-    { "screenshot",       _("SCREENSHOT") },
-    { "swap_screen",      _("SWAP SCREEN") },
-    { "translation",      _("TRANSLATION") },
-    { "volumedown",       _("VOLUME DOWN") },
-    { "volumemute",       _("VOLUME MUTE") },
-    { "volumeup",         _("VOLUME UP") },
-    { "controlcenter",    _("CONTROL CENTER") }
-  };
+	for (unsigned int i = 0; i < device->keys.size(); i++) 
+		if (device->keys[i].value == value) 
+			return device->keys[i].name;
 
-  KeyboardtopadDevice* device = getHotkeyDevice();
-  if(device == NULL) return;
+	return "";
+}
 
-  Window* window = mWindow;
+void GuiKeyboardtopads::loadHotkeysPage(const std::string& device_path)
+{
+	std::vector<hotkeyTargetDefinition> targets_labels = {
+	  { "bezels",           _("OVERLAYS") },
+	  { "brightness-cycle", _("BRIGHTNESS CYCLE") },
+	  { "coin",             _("COIN") },
+	  { "exit",             _("EXIT") },
+	  { "fastforward",      _("FAST FORWARD") },
+	  { "menu",             _("MENU") },
+	  { "files",            _("FILES") },
+	  { "next_disk",        _("NEXT DISK") },
+	  { "next_slot",        _("NEXT SLOT") },
+	  { "pause",            _("PAUSE") },
+	  { "previous_slot",    _("PREVIOUS SLOT") },
+	  { "reset",            _("RESET") },
+	  { "restore_state",    _("RESTORE STATE") },
+	  { "rewind",           _("REWIND") },
+	  { "save_state",       _("SAVE STATE") },
+	  { "screen_layout",    _("SCREEN LAYOUT") },
+	  { "screenshot",       _("SCREENSHOT") },
+	  { "swap_screen",      _("SWAP SCREEN") },
+	  { "translation",      _("TRANSLATION") },
+	  { "volumedown",       _("VOLUME DOWN") },
+	  { "volumemute",       _("VOLUME MUTE") },
+	  { "volumeup",         _("VOLUME UP") },
+	  { "controlcenter",    _("CONTROL CENTER") }
+	};
 
-  std::vector<KeyboardtopadKey> key_values = ApiSystem::getInstance()->getKeyboardtopadKeyValues();
-  auto theme = ThemeData::getMenuTheme();
+	KeyboardtopadDevice* device = getHotkeyDevice();
+	if (device == nullptr) 
+		return;
 
-  for(unsigned int i = 0; i < key_values.size(); i++) {
-    std::string xlabel = key_values[i].value;
-    for(unsigned int x = 0; x < targets_labels.size(); x++) {
-      if(targets_labels[x].code == key_values[i].name) {
-	xlabel = targets_labels[x].name;
-	break;
-      }
-    }
+	Window* window = mWindow;
 
-    auto text = std::make_shared<TextComponent>(mWindow, getNameForInput(device, key_values[i].value), theme->Text.font, theme->Text.color);
-    std::string code = key_values[i].value;
-    addWithLabel(xlabel, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code, window, device_path](std::string key) { text->setValue(key); this->updateSize(); setDeviceValue(device, key, code, window, device_path); }); });
-  }
+	std::vector<KeyboardtopadKey> key_values = ApiSystem::getInstance()->getKeyboardtopadKeyValues();
+	auto theme = ThemeData::getMenuTheme();
+
+	for (unsigned int i = 0; i < key_values.size(); i++) 
+	{
+		std::string xlabel = key_values[i].value;
+		for (unsigned int x = 0; x < targets_labels.size(); x++) 
+		{
+			if (targets_labels[x].code == key_values[i].name) 
+			{
+				xlabel = targets_labels[x].name;
+				break;
+			}
+		}
+
+		auto text = std::make_shared<TextComponent>(mWindow, getNameForInput(device, key_values[i].value), theme->Text.font, theme->Text.color);
+		std::string code = key_values[i].value;
+		addWithLabel(xlabel, text, false, [this, window, device_path, device, text, code] { declareEvKey(window, device_path, [this, device, text, code, window, device_path](std::string key) { text->setValue(key); this->updateSize(); setDeviceValue(device, key, code, window, device_path); }); });
+	}
 }
 
 std::vector<HelpPrompt> GuiKeyboardtopads::getHelpPrompts()
@@ -279,72 +294,84 @@ std::vector<HelpPrompt> GuiKeyboardtopads::getHelpPrompts()
 	return prompts;
 }
 
-void GuiKeyboardtopads::setDeviceValue(KeyboardtopadDevice* ktp, std::string key, std::string value, Window* window, const std::string& device_path) {
-  bool need_to_reload = false;
-  bool already_warn = false;
+void GuiKeyboardtopads::setDeviceValue(KeyboardtopadDevice* ktp, std::string key, std::string value, Window* window, const std::string& device_path) 
+{
+	bool need_to_reload = false;
+	bool already_warn = false;
 
-  // clear the key if already set somewhere
-  if(key != "") {
-    // warn and clear if already used somewhere else
-    for(unsigned int d=0; d<m_devices.size(); d++) {
-      std::vector<int> to_erase;
-      for(unsigned int k=0; k<m_devices[d].keys.size(); k++) {
-	bool same_device = (&(m_devices[d]) == ktp);
-	if((m_devices[d].keys[k].name == key) || (m_devices[d].keys[k].value == value && same_device)) { // if not the same device but the same key, or same device and same values
-	  if(same_device) {
-	    if(m_devices[d].keys[k].value != value) {
-	      need_to_reload = true; // on the device, the key will be erased by the new value
-	    }
-	  } else {
-	    to_erase.push_back(k); // on an other device, remove the key
-	  }
+	// clear the key if already set somewhere
+	if (!key.empty()) 
+	{
+		// warn and clear if already used somewhere else
+		for (auto d = 0; d < m_devices.size(); d++) 
+		{
+			std::vector<int> to_erase;
+			for (unsigned int k = 0; k < m_devices[d].keys.size(); k++) 
+			{
+				bool same_device = (&(m_devices[d]) == ktp);
+				if ((m_devices[d].keys[k].name == key) || (m_devices[d].keys[k].value == value && same_device)) 
+				{ 
+					// if not the same device but the same key, or same device and same values
+					if (same_device) 
+					{
+						if (m_devices[d].keys[k].value != value) 
+							need_to_reload = true; // on the device, the key will be erased by the new value
+					}
+					else 
+					{
+						to_erase.push_back(k); // on an other device, remove the key
+					}
+				}
+			}
+			// remove the duplicated keys
+			for (int i = to_erase.size() - 1; i >= 0; i--) 
+			{
+				int nerase = to_erase[i];
+				m_devices[d].keys.erase(m_devices[d].keys.begin() + nerase);
+				if (already_warn == false) 
+				{
+					already_warn = true;
+					window->displayNotificationMessage(_U("\uF013  ") + _("KEY ASSIGNED TWICE"), 1000);
+				}
+			}
+		}
 	}
-      }
-      // remove the duplicated keys
-      for(int i=to_erase.size()-1; i>=0; i--) {
-	int nerase = to_erase[i];
-	m_devices[d].keys.erase(m_devices[d].keys.begin()+nerase);
-	if(already_warn == false) {
-	  already_warn = true;
-	  window->displayNotificationMessage(_U("\uF013  ") + _("KEY ASSIGNED TWICE"), 1000);
+
+	if (key.empty()) 
+	{
+		// remove the key
+		int nerase = -1;
+		for (unsigned int i = 0; i < ktp->keys.size(); i++)
+			if (ktp->keys[i].value == value)
+				nerase = i;
+
+		if (nerase != -1)
+			ktp->keys.erase(ktp->keys.begin() + nerase);		
 	}
-      }
-    }
-  }
+	else 
+	{
+		// set it
+		bool found = false;
+		for (unsigned int i = 0; i < ktp->keys.size(); i++) 
+		{
+			if (ktp->keys[i].name == key) 
+			{
+				ktp->keys[i].value = value;
+				found = true;
+			}
+		}
 
-  if(key == "") {
-    // remove the key
-    int nerase  =-1;
-    for(unsigned int i=0; i<ktp->keys.size(); i++) {
-      if(ktp->keys[i].value == value) {
-	nerase = i;
-      }
-    }
-    if(nerase != -1) {
-      ktp->keys.erase(ktp->keys.begin()+nerase);
-    }
-  } else {
-    // set it
-    bool found = false;
-    for(unsigned int i=0; i<ktp->keys.size(); i++) {
-      if(ktp->keys[i].name == key) {
-	ktp->keys[i].value = value;
-	found = true;
-      }
-    }
-    
-    // not found, create a new one
-    if(found == false) {
-      KeyboardtopadKey ktpk;
-      ktpk.name = key;
-      ktpk.value = value;
-      ktp->keys.push_back(ktpk);
-    }
+		// not found, create a new one
+		if (!found) 
+		{
+			KeyboardtopadKey ktpk;
+			ktpk.name = key;
+			ktpk.value = value;
+			ktp->keys.push_back(ktpk);
+		}
 
-    // reload the tab
-    if(need_to_reload) {
-      loadActivePage(device_path);
-    }
-
-  }
+		// reload the tab
+		if (need_to_reload)
+			loadActivePage(device_path);
+	}
 }
