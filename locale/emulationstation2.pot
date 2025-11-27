@@ -3717,3 +3717,6 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+msgid "WRITE GAME ON NFC TAG"
+msgstr ""
