@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-02 23:12+0100\n"
+"PO-Revision-Date: 2025-11-18 20:14+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -943,25 +943,25 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINCS A FELTÉTELEKNEK MEGFELELŐ JÁTÉK."
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "BILLENTYŰZETBŐLGAMEPAD"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "GYORSBILLENTYŰ"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "A BILLENTYŰK MEGHATÁROZVA VANNAK, DE A JOYSTICKNAK NINCS NEVE"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "A JOYSTICK ELNEVEZVE, DE NINCSENEK MEGADOTT BILLENTYŰK"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "HÚZZA KI, MAJD CSATLAKOZTASSA ÚJRA A KÉSZÜLÉKET A HOZZÁFÉRÉSHEZ"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "JOYSTICK NEVE"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "NYOMJON MEG EGY GOMBOT, VAGY VÁRJON 4 MÁSODPERCET A TÖRLÉSHEZ"
 
 msgid "OVERLAYS"
 msgstr "ÁTFEDÉSEK"
@@ -1027,10 +1027,10 @@ msgid "VOLUME UP"
 msgstr "HANGERŐ NÖVELÉSE"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "VEZÉRLŐKÖZPONT"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "KÉTSZER HOZZÁRENDELT KULCS"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "TELEPÍTÉS ÚJ LEMEZRE"
@@ -2518,10 +2518,10 @@ msgid "BY MANUFACTURER"
 msgstr "GYÁRTÓ SZERINT"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "HARDVERTÍPUS SZERINT, MAJD ÁBCÉ SZERINT"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "HARDVERTÍPUS SZERINT, AZTÁN ÉV"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "GYÁRTÓ ÉS TÍPUS SZERINT"
@@ -2873,7 +2873,7 @@ msgid "HOTKEY"
 msgstr "GYORSBILLENTYŰ"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ÚJ GLOBÁLIS GYORSBILLENTYŰ MEGADÁSA"
@@ -3126,8 +3126,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
-"org"
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Teljes"

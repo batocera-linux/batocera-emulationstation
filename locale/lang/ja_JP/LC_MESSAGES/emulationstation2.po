@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v43b(2025/11/07)\n"
+"Project-Id-Version: batocera-es v43b(2025/11/16)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-07 16:09+0900\n"
+"PO-Revision-Date: 2025-11-16 20:42+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -945,25 +945,22 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "適合する ゲームが 見つかりませんでした。"
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "キーボードからパッド"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "ホットキー"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "キーは定義されていますが、ジョイスティック名がありません"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
-
-msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "ジョイスティック名はキーが定義されていません"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "ジョイスティック名"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "キーを押すか、4秒間待つとクリアします"
 
 msgid "OVERLAYS"
 msgstr "オーバーレイ"
@@ -1029,10 +1026,7 @@ msgid "VOLUME UP"
 msgstr "音量 上"
 
 msgid "CONTROL CENTER"
-msgstr ""
-
-msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "コントロールセンター"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "新規ストレージにインストール"
@@ -2500,10 +2494,10 @@ msgid "BY MANUFACTURER"
 msgstr "メーカー別"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "ハードウェア種類別、アルファベット順"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "ハードウェア種類別、製造年順"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "メーカーとゲーム機別"
@@ -2855,7 +2849,7 @@ msgid "HOTKEY"
 msgstr "ホットキー"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "デバイスが見つかりません（JAMMASD、IPAC、...）"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新しいグローバルホットキーを設定"

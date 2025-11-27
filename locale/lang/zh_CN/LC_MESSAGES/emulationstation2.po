@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-30 00:34+0800\n"
+"PO-Revision-Date: 2025-11-20 09:49+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -936,25 +936,25 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "键盘支架"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "热键"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "按键已定义，但摇杆未命名"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "摇杆已命名，但未定义按键"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "拔下设备插头并重新插入以应用"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "摇杆名称"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "按任意键或等待4秒以清除"
 
 msgid "OVERLAYS"
 msgstr "叠加层"
@@ -1020,10 +1020,10 @@ msgid "VOLUME UP"
 msgstr "增大音量"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "控制中心"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "密钥被重复分配"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "安装到新的磁盘"
@@ -2474,10 +2474,10 @@ msgid "BY MANUFACTURER"
 msgstr "按制造商"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "按硬件类型排序，然后按字母顺序排序"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "按硬件类型再按年份"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "按制造商和类型"
@@ -2826,13 +2826,13 @@ msgid "HOTKEY"
 msgstr "热键"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "未找到设备 (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新建全局热键"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr "你有4秒钟的时间, 必须准确地按下全局热键两次."
+msgstr "你有4秒钟的时间, 必须准确地按下全局热键两次"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
 msgstr "未检测到全局热键"
