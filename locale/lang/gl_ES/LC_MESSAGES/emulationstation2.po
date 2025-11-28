@@ -1,23 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-13 12:11+0100\n"
-"Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
+"PO-Revision-Date: 2025-11-26 23:32+0100\n"
+"Last-Translator: ninjum, enfeitizador\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BUSCANDO BLUETOOTH"
@@ -614,7 +607,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROLOGROS"
+msgstr "RETROACHIEVEMENTS"
 
 msgid "Softcore points"
 msgstr "Puntos en moderado"
@@ -658,8 +651,7 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALLADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
-"Amosa a progresión de fazañas no inicio do xogo e outras notificacións."
+msgstr "Amosa a progresión de logros no inicio do xogo e outras notificacións."
 
 msgid "RICH PRESENCE"
 msgstr "PRESENZA ENRIQUECIDA"
@@ -674,7 +666,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "INSTANTÁNEA AUTOMÁTICA"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "Fai automáticamente una instantánea cado se acada una fazaña."
+msgstr "Fai automáticamente una instantánea cado se acada un logro."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFÍO"
@@ -701,7 +693,7 @@ msgid "UNLOCK SOUND"
 msgstr "SON DE DESBLOQUEO"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "AMOSAR ENTRADA RETROLOGROS NO MENÚ PRINCIPAL"
+msgstr "AMOSAR ENTRADA RETROACHIEVEMENTS NO MENÚ PRINCIPAL"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
@@ -709,7 +701,7 @@ msgstr ""
 "principal!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "NON SE PODE ACTIVAR RETROLOGROS:"
+msgstr "NON SE PODE ACTIVAR RETROACHIEVEMENTS:"
 
 msgid "BLUETOOTH DEVICE LIST"
 msgstr "LISTA DE DISPOSITIVOS BLUETOOTH"
@@ -951,25 +943,25 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN XOGO COINCIDE CO CRITERIO."
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "TECLADOAMANDOS"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "TECLAS DE ATALLO"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "TECLAS DEFINIDAS PERO PANCA DE XOGOS NON NOMEADA"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "PANCA DE XOGOS NOMEADA PERO SEN TECLAS DEFINIDAS"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "DESCONECTA E CONECTA O DISPOSITIVO PARA APLICAR"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "NOME DA PANCA DE XOGOS"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "PREME TECLA A OU AGARDA 4 SEGUNDOS PARA LIMPAR"
 
 msgid "OVERLAYS"
 msgstr "SUPERPOSICIÓNS"
@@ -1035,10 +1027,10 @@ msgid "VOLUME UP"
 msgstr "SUBIR VOLUME"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "CENTRO DE CONTROL"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "TECLA ASIGNADA DÚAS VECES"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALAR NUN NOVO DISCO"
@@ -1516,7 +1508,7 @@ msgstr ""
 "pulsación longa do botón Sur para as opcións do xogo"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "CONTROLAR EMULATIONSTATION SÓ CA PANCA DE MANDO PRINCIPAL"
+msgstr "CONTROLAR EMULATIONSTATION SÓ COA PANCA DE XOGOS PRINCIPAL"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCIA O MOVEMENTO DA ARMA"
@@ -1528,7 +1520,7 @@ msgid "Might have negative impact on security."
 msgstr "Pode ter un impacto negativo na seguridade."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr "ACTIVAR CONTROLADORES PARA A PANCA DE MANDO HID"
+msgstr "ACTIVAR CONTROLADORES HID PARA A PANCA DE XOGOS"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AMOSAR INDICADOR DE REDE"
@@ -1809,7 +1801,7 @@ msgid "AUTOMATIC FRAME DELAY"
 msgstr "ATRASO DE FOTOGRAMAS AUTOMÁTICO"
 
 msgid "AUTO FRAME DELAY"
-msgstr "ATRASO DE FOTOGRAMAS AUTO"
+msgstr "AUTO ATRASO DE FOTOGRAMAS"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
@@ -1974,7 +1966,7 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSAR NA PANTALLA TRADUCIDA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "AUTOCONFIGURACIÓN DE MANDOS"
+msgstr "AUTOCONFIGURAR MANDOS"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
@@ -2064,7 +2056,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "AMOSAR ICONA DO MANUAL"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "AMOSAR ICONA DE RETROLOGROS"
+msgstr "AMOSAR ICONA DE RETROACHIEVEMENTS"
 
 msgid "SHOW GUN ICON"
 msgstr "AMOSAR ICONA DA ARMA"
@@ -2519,10 +2511,10 @@ msgid "BY MANUFACTURER"
 msgstr "POR FABRICANTE"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "POR TIPO DE HARDWARE DESPOIS ALFABETICAMENTE"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "POR TIPO DE HARDWARE DESPOIS POR ANO"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "POR FABRICANTE E TIPO"
@@ -2774,9 +2766,9 @@ msgid ""
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "VAS CONFIGURAR UN MANDO. A DISPOSICIÓN BASEASE NA POSICIÓN DO BOTÓN, NON DA "
-"ETIQUETA FÍSICA. SE NON TES UN BOTÓN ESPECIAL DE TECLA RÁPIDA, USA O BOTÓN "
-"SELECT. OMITE TODO BOTÓN/PANCA QUE NON TEÑAS PREMENDO CALQUERA BOTÓN. PREME "
-"O BOTÓN SUR PARA CONFIRMAR CANDO REMATES."
+"ETIQUETA FÍSICA. SE NON TES UN BOTÓN ESPECIAL DE TECLA DE ATALLO, USA O "
+"BOTÓN SELECT. OMITE TODO BOTÓN/PANCA QUE NON TEÑAS PREMENDO CALQUERA BOTÓN. "
+"PREME O BOTÓN SUR PARA CONFIRMAR CANDO REMATES."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "AXUSTES PISTOLA SINDEN"
@@ -2815,13 +2807,13 @@ msgid "BEHAVIOR"
 msgstr "COMPORTAMENTO"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr "ATALLOS DAS PANCAS DE MANDOS"
+msgstr "TECLAS DE ATALLO DA PANCA DE XOGOS"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr "RESTRINXIR AS TECLAS DE ATALLO DOS MANDOS PARA SAÍR"
+msgstr "RESTRINXIR AS TECLAS DE ATALLO DA PANCA DE XOGOS PARA SAÍR"
 
 msgid "GLOBAL HOTKEYS"
-msgstr "TECLAS DE ATALLOS GLOBAIS"
+msgstr "TECLAS DE ATALLO GLOBAIS"
 
 msgid "default"
 msgstr "por defecto"
@@ -2869,22 +2861,23 @@ msgid "RIGHT STICK PRESS"
 msgstr "PAU DEREITO PREMER"
 
 msgid "HOTKEY"
-msgstr "ATALLO"
+msgstr "TECLA DE ATALLO"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "DISPOSITIVO NON ATOPADO (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr "DECLARAR UNHA NOVA TECLA DE ATALLO GOBLAL"
+msgstr "DECLARAR UNHA NOVA TECLA DE ATALLO GLOBAL"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr "TES 4 SEGUNDOS PARA PREMER EXACTAMENTE 2 VECES A TECLA DE ATALO GLOBAL"
+msgstr ""
+"TES 4 SEGUNDOS PARA PREMER EXACTAMENTE 2 VECES A TECLA DE ATALLO GLOBAL"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr "NON SE DETECTOU NINGUNHA TECLA DE ATALLO GLOBAL"
+msgstr "NON SE DETECTOU NINGUNHA TECLA DE ATALLO RÁPIDO GLOBAL"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr "DETECTOUSE MÁIS DUNHA TECLA DE ATALLO GLOBAL"
+msgstr "DETECTOUSE MÁIS DUNHA TECLA DE ATALLO RÁPIDO GLOBAL"
 
 msgid "BORDER SIZE"
 msgstr "TAMAÑO DO BORDO"
@@ -2980,7 +2973,7 @@ msgid "MODE"
 msgstr "MODO"
 
 msgid "JOYSTICK"
-msgstr "PANCA DE MANDO"
+msgstr "PANCA DE XOGOS"
 
 msgid "MOUSE ONLY"
 msgstr "SÓ RATO"
@@ -3363,7 +3356,7 @@ msgid "never played"
 msgstr "nunca xogado"
 
 msgid "retroachievements"
-msgstr "retrologros"
+msgstr "retroachievements"
 
 msgid "arcade"
 msgstr "arcade"
@@ -3405,7 +3398,7 @@ msgid "Various"
 msgstr "Varios"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "BUSCANDO RETROLOGROS"
+msgstr "BUSCANDO RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "BUSCANDO XOGOS EN REDE"
@@ -3618,7 +3611,7 @@ msgid "PRESS ESC TO CANCEL."
 msgstr "PREME ESC PARA CANCELAR."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "PREME ESC OU TECLA RÁPIDA PARA CANCELAR."
+msgstr "PREME ESC OU UNHA TECLA DE ATALLO PARA CANCELAR."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "MAIÚSC. PARA MAIÚSCULAS, MINÚSCULAS E ESPECIAIS"
@@ -3730,7 +3723,7 @@ msgstr "PREME PANCA DEREITA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "TECLA RÁPIDA"
+msgstr "TECLA DE ATALLO"
 
 msgid "CONFIGURING"
 msgstr "CONFIGURANDO"
@@ -3755,14 +3748,14 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"NON SE ASGINOU NINGUNHA TECLA RÁPIDA. REQUÍRESE PARA SAÍR DOS XOGOS CUN "
+"NON SE ASGINOU NINGUNHA TECLA DE ATALLO. REQUÍRESE PARA SAÍR DOS XOGOS CUN "
 "MANDO. QUERES USAR O BOTÓN SELECT COMO A TÚA TECLA RÁPIDA?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "ESTABELECER SELECT COMO TECLA RÁPIDA"
+msgstr "ESTABELECER SELECT COMO TECLA DE ATALLO"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "NON ASIGNAR TECLA RÁPIDA"
+msgstr "NON ASIGNAR TECLA DE ATALLO"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"

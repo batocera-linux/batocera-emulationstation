@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v43b(2025/11/16)\n"
+"Project-Id-Version: batocera-es v43b(2025/11/18)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-16 20:42+0900\n"
+"PO-Revision-Date: 2025-11-18 07:24+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -956,6 +956,9 @@ msgstr "キーは定義されていますが、ジョイスティック名があ
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
 msgstr "ジョイスティック名はキーが定義されていません"
 
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr "適用するにはデバイスのプラグを抜き差ししてください"
+
 msgid "JOYSTICK NAME"
 msgstr "ジョイスティック名"
 
@@ -1027,6 +1030,9 @@ msgstr "音量 上"
 
 msgid "CONTROL CENTER"
 msgstr "コントロールセンター"
+
+msgid "KEY ASSIGNED TWICE"
+msgstr "キーが重複割り当てしています"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "新規ストレージにインストール"
