@@ -2823,3 +2823,26 @@ bool ApiSystem::enableService(std::string name, bool enable)
 	
 	return res;
 }
+
+std::vector<std::string> ApiSystem::getEjectableDrives()
+{
+    return executeEnumerationScript("batocera-storage-manager list_ejectable");
+}
+
+bool ApiSystem::ejectDrive(const std::string& mountPath)
+{
+    std::string cmd = "batocera-storage-manager eject \"" + mountPath + "\"";
+    return executeScript(cmd);
+}
+
+bool ApiSystem::mergeDrive(const std::string& mountPath)
+{
+    std::string cmd = "batocera-storage-manager merge \"" + mountPath + "\"";
+    return executeScript(cmd);
+}
+
+bool ApiSystem::prepareDrive(const std::string& device, const std::string& fsType)
+{
+    std::string cmd = "batocera-storage-manager format \"" + device + "\" \"" + fsType + "\"";
+    return executeScript(cmd);
+}

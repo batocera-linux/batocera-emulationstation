@@ -67,6 +67,10 @@ private:
         void openFormatDriveSettings();
         void exitKidMode();
 
+#ifdef BATOCERA
+        void openUnmountDriveSettings();
+#endif
+
         // windows
         void openEmulatorSettings();
         void openSystemEmulatorSettings(SystemData* system);

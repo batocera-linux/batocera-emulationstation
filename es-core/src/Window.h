@@ -109,6 +109,9 @@ public:
 	void setMouseCapture(GuiComponent* mouseCapture) { mMouseCapture = mouseCapture; }
 	bool hasMouseCapture(GuiComponent* mouseCapture) { return mMouseCapture == mouseCapture; }
 
+	void processStorageRequest(std::string line);
+	void setReloadGamelistsCallback(const std::function<void()>& func);
+
 private:
 	std::vector<GuiComponent*> hitTest(int x, int y);
 
@@ -185,6 +188,8 @@ private:
 	void renderMenuBackgroundShader();
 	void resetMenuBackgroundShader();
 	unsigned int mMenuBackgroundShaderTextureCache;
+
+	std::function<void()> mReloadGamelistsCallback;
 };
 
 #endif // ES_CORE_WINDOW_H

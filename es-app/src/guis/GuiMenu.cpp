@@ -1981,6 +1981,35 @@ void GuiMenu::openSystemSettings()
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::INSTALL))
 		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
+
+	s->addEntry(_("EJECT AN EXTERNAL DISK"), true, [this] { openUnmountDriveSettings(); });
+
+    auto diskFormat = std::make_shared<OptionListComponent<std::string>>(window, _("EXTERNAL DRIVE FILESYSTEM TYPE"), false);
+    
+    // Load saved preference (default to btrfs)
+    std::string selectedFormat = SystemConf::getInstance()->get("system.external_disk_format");
+    
+    if (selectedFormat.empty()) selectedFormat = "btrfs";
+
+    std::vector<std::string> fstypes = ApiSystem::getInstance()->getFormatFileSystems();
+    if (fstypes.empty()) fstypes = { "ext4", "btrfs", "exfat" };
+
+    for (const auto& fs : fstypes) {
+        diskFormat->add(Utils::String::toUpper(fs), fs, selectedFormat == fs);
+    }
+    
+    if (!diskFormat->hasSelection()) {
+         diskFormat->selectFirstItem();
+    }
+
+    s->addWithLabel(_("EXTERNAL DRIVE FILESYSTEM TYPE"), diskFormat);
+    
+    s->addSaveFunc([diskFormat] {
+        if (diskFormat->changed()) {
+            SystemConf::getInstance()->set("system.external_disk_format", diskFormat->getSelected());
+            SystemConf::getInstance()->saveSystemConf();
+        }
+    });
 	
 	s->addGroup(_("ADVANCED"));
 
@@ -5316,3 +5345,77 @@ bool GuiMenu::onMouseClick(int button, bool pressed, int x, int y)
 
 	return (button == 1);
 }
+
+#ifdef BATOCERA
+void GuiMenu::openUnmountDriveSettings()
+{
+	Window *window = mWindow;
+	auto s = new GuiSettings(mWindow, _("SAFELY EJECT A DISK").c_str());
+	auto optionsStorage = std::make_shared<OptionListComponent<std::string>>(window, _("MERGED DRIVE"), false);
+
+	// Ask the manager for a list of merged drives that can be ejected
+	std::vector<std::string> merged_drives = ApiSystem::getInstance()->getEjectableDrives();
+    
+	bool found = false;
+	for(const auto& line : merged_drives)
+	{
+		size_t delimiter = line.find(":");
+		if (delimiter != std::string::npos)
+		{
+			std::string name = line.substr(0, delimiter);
+			std::string path = line.substr(delimiter + 1);
+			optionsStorage->add(name, path, false);
+			found = true;
+		}
+	}
+	
+	if (!found) {
+		optionsStorage->add(_("NO MERGED DRIVES FOUND"), "", true);
+	} else {
+		optionsStorage->selectFirstItem();
+	}
+
+	s->addWithLabel(_("MERGED DRIVE"), optionsStorage);
+
+	s->addEntry(_("EJECT"), false, [s, optionsStorage, window]
+	{
+		std::string path = optionsStorage->getSelected();
+		if (path.empty()) {
+			window->pushGui(new GuiMsgBox(window, _("NO DRIVE SELECTED")));
+			return;
+		}
+
+		window->pushGui(new GuiMsgBox(window, "ARE YOU SURE YOU WANT TO EJECT THIS DRIVE?\n\nThis will unmount the drive and remove it from the boot configuration.",
+			"YES, EJECT", [s, window, path]
+			{
+				auto* ac = window->createAsyncNotificationComponent();
+				ac->updateText(_("Ejecting..."));
+
+				window->postToUiThread([window, ac, path, s]() {
+					bool success = ApiSystem::getInstance()->ejectDrive(path);
+					
+					window->postToUiThread([window, ac, success, s]() {
+						ac->close();
+
+						if (success) {
+							window->pushGui(new GuiMsgBox(window, "DEVICE EJECTED SAFELY.\nGAME LISTS WILL REFRESH WHEN YOU CLICK OK.", "OK", [window, s] {
+								s->close(); 
+                                if (ViewController::get()) {
+                                    if (ThreadedScraper::isRunning() || ThreadedHasher::isRunning()) {
+                                        return;
+                                    }
+                                    Scripting::fireEvent("update-gamelists");
+                                    ViewController::reloadAllGames(window, true, true);
+                                }
+							}));
+						} else {
+							window->pushGui(new GuiMsgBox(window, "FAILED TO EJECT DEVICE.", "OK"));
+						}
+					});
+				});
+			}, "NO", nullptr));
+	});
+
+	mWindow->pushGui(s);
+}
+#endif

@@ -214,6 +214,19 @@ public:
     virtual void launchControlcenter();
 #endif
 
+    // Gets a list of drives that are safe to unmount.
+    // Returns a vector of strings, each formatted as "DisplayName:MountPath"
+    std::vector<std::string> getEjectableDrives();
+
+    // Executes the eject command for a given mount path.
+    bool ejectDrive(const std::string& mountPath);
+
+	// Merges the specific drive mount path into the ROMs pool
+    bool mergeDrive(const std::string& mountPath);
+
+    // Prepares the specific device with partition the given filesystem
+    bool prepareDrive(const std::string& device, const std::string& fsType);
+
 #if !WIN32
 	bool enableWifi(std::string ssid, std::string key, std::string country);
 #else

@@ -536,6 +536,11 @@ int main(int argc, char* argv[])
 	SystemScreenSaver screensaver(&window);
 	ViewController::init(&window);
 	CollectionSystemManager::init(&window);
+	
+	window.setReloadGamelistsCallback([&window] {
+		ViewController::reloadAllGames(&window, true, true);
+	});
+	
 	VideoVlcComponent::init();
 
 	window.pushGui(ViewController::get());
