@@ -212,6 +212,14 @@ public:
 
 #ifdef BATOCERA
     virtual void launchControlcenter();
+
+    // Gets a list of drives that are safe to unmount.
+    // Returns a vector of strings, each formatted as "DisplayName:MountPath"
+    std::vector<std::string> getEjectableDrives();
+
+    // Executes the eject command for a given mount path.
+    // Returns true on success, false on failure.
+    bool ejectDrive(const std::string& mountPath, bool quiet = false);
 #endif
 
 #if !WIN32

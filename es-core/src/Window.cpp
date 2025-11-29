@@ -26,6 +26,12 @@
 #include "PowerSaver.h"
 #include "renderers/Renderer.h"
 
+#ifdef BATOCERA
+#include <fstream>
+#include "utils/FileSystemUtil.h"
+#include <thread>
+#endif
+
 #if WIN32
 #include <SDL_syswm.h>
 #endif
@@ -41,6 +47,12 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 
 	mSplash = nullptr;
 	mLastShowCursor = -2;
+
+#ifdef BATOCERA
+	mCheckedPendingStorage = false;
+	mStoragePipeTimer = 0;
+#endif
+
 }
 
 Window::~Window()
@@ -441,6 +453,38 @@ void Window::update(int deltaTime)
 	processPostedFunctions();
 	processSongTitleNotifications();
 	processNotificationMessages();
+
+#ifdef BATOCERA
+	// One-time Boot Check for pending storage requests (from boot scripts)
+	if (!mCheckedPendingStorage) {
+		mCheckedPendingStorage = true;
+		checkPendingStorageRequests();
+	}
+
+	// Runtime Hotplug Check (Poll file every 1s)
+	mStoragePipeTimer += deltaTime;
+	if (mStoragePipeTimer > 1000) {
+		mStoragePipeTimer = 0;
+		
+		const std::string eventFile = "/tmp/es-hotplug-event";
+
+		if (Utils::FileSystem::exists(eventFile)) {
+            std::ifstream file(eventFile);
+            std::string line;
+            
+            // Read all lines (in case multiple drives inserted at once)
+            while (std::getline(file, line)) {
+                if(!line.empty()) {
+                    processStorageRequest(line);
+                }
+            }
+            file.close();
+            
+            // Delete file after processing so we don't process it again
+            remove(eventFile.c_str());
+		}
+	}
+#endif
 
 	if (mNormalizeNextUpdate)
 	{
@@ -1427,3 +1471,88 @@ bool Window::processMouseButton(int button, bool down, int x, int y)
 
 	return false;
 }
+
+#ifdef BATOCERA
+void Window::checkPendingStorageRequests()
+{
+	const std::string pendingFile = "/tmp/es-pending-storage";
+	if (Utils::FileSystem::exists(pendingFile))
+	{
+		std::ifstream file(pendingFile);
+		std::string line;
+		while (std::getline(file, line))
+		{
+			if(!line.empty())
+				processStorageRequest(line);
+		}
+		file.close();
+		// Remove the file so we don't process it again
+		remove(pendingFile.c_str());
+	}
+}
+
+void Window::processStorageRequest(std::string line)
+{
+	LOG(LogInfo) << "Storage Request Received: " << line;	
+	size_t delimiter = line.find(":");
+	if (delimiter == std::string::npos) return;
+	std::string type = line.substr(0, delimiter);
+	std::string argument = line.substr(delimiter + 1);
+
+	if (type == "REQUEST_MERGE")
+	{
+        auto* msg = new GuiMsgBox(this, "GAME DRIVE DETECTED\n\nMerge games from this drive now?\n(This will also apply on future boots)",
+			"YES", [this, argument] {
+				this->displayNotificationMessage(_("Preparing to merge drive...")); // Initial feedback
+				std::thread([this, argument]() {
+					std::system(("/usr/bin/batocera-storage-manager merge \"" + argument + "\"").c_str());
+				}).detach();
+			}, "NO", nullptr);
+		pushGui(msg);
+	} 
+	else if (type == "REQUEST_FORMAT")
+	{
+		auto* msg = new GuiMsgBox(this, "INCOMPATIBLE DRIVE DETECTED\n\nFormat and prepare this drive for game storage?\n(ALL EXISTING DATA WILL BE ERASED)",
+			"YES, FORMAT & MERGE", [this, argument] {
+				this->displayNotificationMessage(_("Starting format process..."));
+
+				std::thread([this, argument]() {
+                    // Get the user's preferred filesystem (Default to exfat)
+                    std::string fsType = SystemConf::getInstance()->get("system.external_disk_format");
+                    if (fsType.empty()) fsType = "exfat";
+
+					int ret = std::system(("/usr/bin/batocera-storage-manager format \"" + argument + "\" \"" + fsType + "\"").c_str());
+					
+					this->postToUiThread([this, ret]() {
+						if (ret != 0) {
+							this->pushGui(new GuiMsgBox(this, "Format Failed. Please check the logs.", "OK", nullptr));
+						}
+                        // Success is handled by the RELOAD_GAMELISTS signal from the script
+					});
+				}).detach(); 
+				
+			}, "NO, IGNORE", nullptr);
+		pushGui(msg);
+	}
+	else if (type == "NOTIFY")
+	{
+		if (argument == "DriveUnplugged")
+            this->displayNotificationMessage(_("A storage device was removed. Updating game lists..."));
+        else if (argument == "Partitioning")
+            this->displayNotificationMessage(_("Partitioning storage device..."));
+        else if (argument == "Formatting")
+            this->displayNotificationMessage(_("Creating chosen filesystem..."));
+        else if (argument == "Mounting")
+            this->displayNotificationMessage(_("Mounting and merging storage..."));
+        else
+    		this->displayNotificationMessage(argument);
+	}
+	else if (type == "RELOAD_GAMELISTS")
+	{
+		LOG(LogInfo) << "Received RELOAD_GAMELISTS signal. Refreshing.";
+		if (mReloadAllCallback) {
+			mReloadAllCallback();
+		}
+	}
+}
+#endif
