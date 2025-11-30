@@ -109,6 +109,10 @@ public:
 	void setMouseCapture(GuiComponent* mouseCapture) { mMouseCapture = mouseCapture; }
 	bool hasMouseCapture(GuiComponent* mouseCapture) { return mMouseCapture == mouseCapture; }
 
+#ifdef BATOCERA
+    void setReloadAllCallback(const std::function<void()>& func) { mReloadAllCallback = func; }
+#endif
+
 private:
 	std::vector<GuiComponent*> hitTest(int x, int y);
 
@@ -185,6 +189,17 @@ private:
 	void renderMenuBackgroundShader();
 	void resetMenuBackgroundShader();
 	unsigned int mMenuBackgroundShaderTextureCache;
+
+#ifdef BATOCERA
+    void checkPendingStorageRequests();
+    void processStorageRequest(std::string line);
+
+    bool mCheckedPendingStorage;
+    int mStoragePipeTimer;
+
+    std::function<void()> mReloadAllCallback;
+#endif
+
 };
 
 #endif // ES_CORE_WINDOW_H

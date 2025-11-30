@@ -362,6 +362,14 @@ void playVideo()
 		return;
 	}
 
+#ifdef BATOCERA
+    window.setReloadAllCallback([]() {
+        if (ViewController::get()) {
+            ViewController::get()->reloadAll();
+        }
+    });
+#endif
+
 	Settings::getInstance()->setBool("VideoAudio", true);
 
 	bool exitLoop = false;
@@ -544,6 +552,36 @@ int main(int argc, char* argv[])
 		LOG(LogError) << "Window failed to initialize!";
 		return 1;
 	}
+
+#ifdef BATOCERA
+    window.setReloadAllCallback([&window]() {
+        if (ViewController::get()) {
+            
+            // Force Stop Scraper if it is running
+            if (ThreadedScraper::isRunning()) {
+                LOG(LogWarning) << "Hotplug: Stopping active Scraper to reload game lists...";
+                ThreadedScraper::stop();
+                for(int i=0; i<30; i++) { 
+                    if(!ThreadedScraper::isRunning()) break; 
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100)); 
+                }
+            }
+
+            if (ThreadedHasher::isRunning()) {
+                LOG(LogWarning) << "Hotplug: Stopping active Hasher to reload game lists...";
+                ThreadedHasher::stop();
+                for(int i=0; i<30; i++) { 
+                    if(!ThreadedHasher::isRunning()) break; 
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100)); 
+                }
+            }
+
+            Scripting::fireEvent("update-gamelists");
+
+            ViewController::reloadAllGames(&window, true, true);
+        }
+    });
+#endif
 
 	Renderer::setWindowResizable(false);
 	PowerSaver::init();
