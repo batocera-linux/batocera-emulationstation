@@ -2321,5 +2321,5 @@ bool ApiSystem::isServiceEnabled(std::string name)
 
 bool ApiSystem::writeZaparooCard(std::string name)
 {
-	return executeScript("/userdata/system/zaparoo -write " + name);
+	return executeScript("/userdata/system/zaparoo -write \"" + name + "\"");
 }

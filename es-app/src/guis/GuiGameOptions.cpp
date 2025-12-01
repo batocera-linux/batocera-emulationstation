@@ -426,7 +426,10 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					{
 						if (!ok) {
 							mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURRED"),
-							_("CANCEL"), nullptr, ICON_ERROR)); 
+							_("CLOSE"), nullptr, ICON_ERROR)); 
+						} else {
+							mWindow->pushGui(new GuiMsgBox(mWindow, _("THE TAG WAS WRITTEN SUCCESSFULLY"),
+							_("OK"), nullptr, ICON_INFORMATION)); 
 						}
 					}));
 					return;
