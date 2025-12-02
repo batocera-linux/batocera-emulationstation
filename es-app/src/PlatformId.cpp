@@ -244,7 +244,7 @@ namespace PlatformIds
 		{ 142, { "neogeo", "Neo-Geo" } },
 		{ 147, { "sega", "Sega" } },
 		{ 148, { "irem", "Irem" } },
-		{ 148, { "seta", "Seta" } },
+		{ 149, { "seta", "Seta" } },
 		{ 150, { "midway", "Midway" } },
 		{ 151, { "capcom", "Capcom" } },
 		{ 152, { "eighting", "Eighting/Raizing" } },		
