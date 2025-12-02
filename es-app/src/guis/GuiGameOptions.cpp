@@ -243,6 +243,34 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		}
 	}
 
+	if (hasZaparoo) {
+		mMenu.addGroup("ZAPAROO");
+		mMenu.addEntry(_("WRITE GAME ON NFC TAG"), false, [this, game]
+		{
+			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::format(_("IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER").c_str(), game->getName().c_str()), _("WRITE"),
+				[this, game]
+				{
+					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER ..."),
+					[this, game](auto gui)
+					{
+						return ApiSystem::getInstance()->writeZaparooCard(game->getFullPath());
+					},
+					[this](bool ok)
+					{
+						if (!ok) {
+							mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURRED"),
+							_("CLOSE"), nullptr, ICON_ERROR)); 
+						} else {
+							mWindow->pushGui(new GuiMsgBox(mWindow, _("THE TAG WAS WRITTEN SUCCESSFULLY"),
+							_("OK"), nullptr, ICON_INFORMATION)); 
+						}
+					}));
+					return;
+				}, 
+				_("CANCEL"), nullptr));
+		});
+	}
+
 	bool isCustomCollection = (mSystem->isCollection() && game->getType() == FOLDER && CollectionSystemManager::get()->isCustomCollection(mSystem->getName()));
 	bool isAppendableToCollection = (game->getType() == GAME) && (mSystem->isGameSystem() || mSystem->isGroupSystem());
 
@@ -409,35 +437,6 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			GuiMenu::editKeyboardMappings(mWindow, game, false);
 			close();
 		});
-	}
-	if (hasZaparoo) {
-		mMenu.addGroup("ZAPAROO");
-		mMenu.addEntry(_("WRITE GAME ON NFC TAG"), false, [this, game]
-		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::format(_("IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER").c_str(), game->getName().c_str()), _("WRITE"),
-				[this, game]
-				{
-					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER ..."),
-					[this, game](auto gui)
-					{
-						return ApiSystem::getInstance()->writeZaparooCard(game->getFullPath());
-					},
-					[this](bool ok)
-					{
-						if (!ok) {
-							mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURRED"),
-							_("CLOSE"), nullptr, ICON_ERROR)); 
-						} else {
-							mWindow->pushGui(new GuiMsgBox(mWindow, _("THE TAG WAS WRITTEN SUCCESSFULLY"),
-							_("OK"), nullptr, ICON_INFORMATION)); 
-						}
-					}));
-					return;
-				}, 
-				_("CANCEL"), nullptr));
-		});
-
-
 	}
 
 	if (Renderer::ScreenSettings::fullScreenMenus())
