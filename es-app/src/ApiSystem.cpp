@@ -2307,19 +2307,3 @@ bool ApiSystem::enableService(std::string name, bool enable)
 	
 	return res;
 }
-
-bool ApiSystem::isServiceEnabled(std::string name)
-{
-	std::string serviceName = name;
-	if (serviceName.find(" ") != std::string::npos)
-		serviceName = "\"" + serviceName + "\"";
-
-	auto slines = executeEnumerationScript("batocera-services status " + serviceName);
-	auto sline = slines[0];
-	return sline.compare("started") == 0;
-}
-
-bool ApiSystem::writeZaparooCard(std::string name)
-{
-	return executeScript("/userdata/system/zaparoo -write \"" + name + "\"");
-}

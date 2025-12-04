@@ -20,6 +20,7 @@
 #include "ThreadedHasher.h"
 #include "guis/GuiMenu.h"
 #include "ApiSystem.h"
+#include "ZaparooSupport.h"
 #include "guis/GuiImageViewer.h"
 #include "views/SystemView.h"
 #include "GuiGameAchievements.h"
@@ -55,7 +56,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasVideo = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Video));
 	bool hasAlternateMedias = game->getSourceFileData()->getFileMedias().size() > 0;
 	bool hasCheevos = game->hasCheevos();
-	bool hasZaparoo = ApiSystem::getInstance()->isServiceEnabled("zaparoo_service");
+	bool hasZaparoo = Zaparoo::getInstance()->isZaparooEnabled();
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
 	{
@@ -420,7 +421,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER ..."),
 					[this, game](auto gui)
 					{
-						return ApiSystem::getInstance()->writeZaparooCard(game->getFullPath());
+						return Zaparoo::getInstance()->writeZaparooCard(game->getFullPath());
 					},
 					[this](bool ok)
 					{
