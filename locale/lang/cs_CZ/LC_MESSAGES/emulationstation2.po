@@ -13,30 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 3.5\n"
 
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "VYHLEDÁVÁNÍ RETROÚSPĚCHU"
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "VYHLEDÁVÁNÍ HER PRO NETPLAY"
-
-msgid "INDEXING COMPLETED"
-msgstr "NDEXOVÁNÍ DOKONČENO"
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "AKTUALIZOVAT SEZNAMY HER A POUŽÍT ZMĚNY."
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "HERNÍ HASHING JE SPUŠTĚN.  CHCETE HO ZASTAVIT?"
-
-msgid "YES"
-msgstr "ANO"
-
-msgid "NO"
-msgstr "NE"
-
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "ŽÁDNÁ HRA NESPLŇUJE TYTO KRITÉRIA."
-
 msgid "SCANNING BLUETOOTH"
 msgstr "HLEDÁNÍ BLUETOOTH"
 
@@ -58,65 +34,245 @@ msgstr "K DOKONČENÍ OPERACE JE NUTNÝ RESTART"
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "JEDNOTKA JE JIŽ NAFORMÁTOVÁNA."
 
-msgid "all games"
-msgstr "všechny hry"
+msgid "Name"
+msgstr "Název"
 
-msgid "last played"
-msgstr "naposledy přehráno"
+msgid "this game's name"
+msgstr "jméno této hry"
 
-msgid "favorites"
-msgstr "oblíbené"
+msgid "Description"
+msgstr "Popis"
 
-msgid "2 players"
-msgstr "2 hráči"
+msgid "this game's description"
+msgstr "popis této hry"
 
-msgid "4 players"
-msgstr "4 hráči"
+msgid "Emulator"
+msgstr "Emulátor"
 
-msgid "never played"
-msgstr "nikdy nepřehrál"
+msgid "emulator"
+msgstr "emulátor"
 
-msgid "retroachievements"
-msgstr "retroúspechy"
+msgid "Core"
+msgstr "Jádro"
 
-msgid "arcade"
-msgstr "arkáda"
+msgid "core"
+msgstr "jádro"
 
-msgid "vertical arcade"
-msgstr "vertikální arkáda"
+msgid "Image"
+msgstr "Obrázek"
 
-msgid "lightgun games"
-msgstr "hry se světelnou pistolí"
+msgid "enter path to image"
+msgstr "zadejte cestu k obrázku"
 
-msgid "wheel games"
-msgstr "kolové hry"
+msgid "Video"
+msgstr "Video"
 
-msgid "trackball games"
-msgstr "trackball hry"
+msgid "enter path to video"
+msgstr "zadejte cestu k videu"
 
-msgid "spinner games"
-msgstr "spinner hry"
+msgid "Logo"
+msgstr "Logo"
 
-msgid "collections"
-msgstr "sbírky"
+msgid "enter path to logo"
+msgstr "zadejte cestu k logu"
 
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "Přidáno '%s' do '%s'"
+msgid "Box"
+msgstr "Obal"
 
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "Odstraněno '%s' z '%s'"
+msgid "enter path to box"
+msgstr "zadejte cestu ke schránce"
 
-msgid "This collection is empty."
-msgstr "Tato sbírka je prázdná."
+msgid "Fan art"
+msgstr "Fanouškovská tvorba"
 
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Žádné"
+msgid "enter path to fanart"
+msgstr "zadejte cestu k fanouškovské tvorbě"
 
-msgid "Various"
-msgstr "Různé"
+msgid "Title shot"
+msgstr "Titulní snímek"
+
+msgid "enter path to title shot"
+msgstr "zadejte cestu k titulnímu snímku"
+
+msgid "Manual"
+msgstr "Manuál"
+
+msgid "enter path to manual"
+msgstr "zadejte cestu k příručce"
+
+msgid "Magazine"
+msgstr "Časopis"
+
+msgid "enter path to magazine"
+msgstr "zadejte cestu k časopisu"
+
+msgid "Map"
+msgstr "Mapa"
+
+msgid "enter path to map"
+msgstr "zadejte cestu k mapě"
+
+msgid "Bezel (16:9)"
+msgstr "Rámeček (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "zadejte cestu k rámečku (16:9)"
+
+msgid "Cartridge"
+msgstr "Kazeta"
+
+msgid "enter path to cartridge"
+msgstr "zadejte cestu ke kazetě"
+
+msgid "Alt BoxArt"
+msgstr "Alternatívní obrázek obalu"
+
+msgid "enter path to alt boxart"
+msgstr "zadejte cestu k alternativnímu obalu"
+
+msgid "Box backside"
+msgstr "Zadní strana obalu"
+
+msgid "enter path to box background"
+msgstr "zadejte cestu k zadní straně obalu"
+
+msgid "Wheel"
+msgstr "Kolo"
+
+msgid "enter path to wheel"
+msgstr "zadejte cestu ke kolu"
+
+msgid "Mix"
+msgstr "Mix"
+
+msgid "enter path to mix"
+msgstr "zadejte cestu k mixu"
+
+msgid "Rating"
+msgstr "Hodnocení"
+
+msgid "enter rating"
+msgstr "zadejte hodnocení"
+
+msgid "Release date"
+msgstr "Datum vydání"
+
+msgid "enter release date"
+msgstr "zadejte datum vydání"
+
+msgid "Developer"
+msgstr "Tvůrce"
+
+msgid "this game's developer"
+msgstr "tvůrce této hry"
+
+msgid "Publisher"
+msgstr "Vydavatel"
+
+msgid "this game's publisher"
+msgstr "vydavatel této hry"
+
+msgid "Genre"
+msgstr "Žánr"
+
+msgid "enter game genre"
+msgstr "zadejte žánr hry"
+
+msgid "Game family"
+msgstr "Rodinná hra"
+
+msgid "this game's game family"
+msgstr "herní rodina této hry"
+
+msgid "Genres"
+msgstr "Žánry"
+
+msgid "enter game genres"
+msgstr "zadejte herní žánry"
+
+msgid "Arcade system"
+msgstr "Arkádový systém"
+
+msgid "this game's arcade system"
+msgstr "arkádový systém této hry"
+
+msgid "Players"
+msgstr "Hráči"
+
+msgid "this game's number of players"
+msgstr "počet hráčů této hry"
+
+msgid "Favorite"
+msgstr "Oblíbené"
+
+msgid "enter favorite"
+msgstr "zadejte oblíbené"
+
+msgid "Hidden"
+msgstr "Skryté"
+
+msgid "enter hidden"
+msgstr "zadat skryté"
+
+msgid "Kidgame"
+msgstr "Dětská hra"
+
+msgid "enter kidgame"
+msgstr "zadat dětskou hru"
+
+msgid "Play count"
+msgstr "Počet přehrávek"
+
+msgid "enter number of times played"
+msgstr "zadejte počet přehrání"
+
+msgid "Last played"
+msgstr "Naposledy přehrané"
+
+msgid "enter last played date"
+msgstr "zadejte datum posledního přehrání"
+
+msgid "Crc32"
+msgstr "Crc32"
+
+msgid "Crc32 checksum"
+msgstr "Kontrolní součet Crc32"
+
+msgid "Md5"
+msgstr "Md5"
+
+msgid "Md5 checksum"
+msgstr "Kontrolní součet Md5"
+
+msgid "Game time"
+msgstr "Herní čas"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "jak dlouho byla hra celkem hrána (sekundy)"
+
+msgid "Languages"
+msgstr "Jazyky"
+
+msgid "this game's languages"
+msgstr "jazyk této hry"
+
+msgid "Region"
+msgstr "Region"
+
+msgid "this game's region"
+msgstr "region této hry"
+
+msgid "Cheevos Hash"
+msgstr "Cheevos Hash"
+
+msgid "Cheevos checksum"
+msgstr "Kontrolní součet Cheevos"
+
+msgid "Cheevos Game ID"
+msgstr "Cheevos Hry ID"
+
+msgid "Screenscraper Game ID"
+msgstr "Vyhledávač snímku ID hry"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -125,71 +281,14 @@ msgstr[0] "Tato kolekce obsahuje %i hru:%s"
 msgstr[1] "Tato kolekce obsahuje %i hry, včetně:%s"
 msgstr[2] "Tato kolekce obsahuje %i her, včetně:%s"
 
-msgid "FAVORITES"
-msgstr "OBLÍBENÉ"
-
-msgid "GENRE"
-msgstr "ŽÁNR"
-
-msgid "FAMILY"
-msgstr "RODINA"
-
-msgid "PLAYERS"
-msgstr "HRÁČI"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr "VYDAVATEL/VÝVOJÁŘ"
-
-msgid "RATING"
-msgstr "HODNOCENÍ"
-
-msgid "YEAR"
-msgstr "ROK"
-
-msgid "LANGUAGE"
-msgstr "JAZYK"
-
-msgid "REGION"
-msgstr "REGION"
-
-msgid "KIDGAME"
-msgstr "DĚTSKÁ HRA"
-
-msgid "ALREADY PLAYED"
-msgstr "JIŽ HRANÉ"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "MÉ ÚSPĚCHY"
-
-msgid "VERTICAL"
-msgstr "VERTIKÁLNĚ"
-
-msgid "LIGHTGUN"
-msgstr "SVĚTELNÁ ZBRAŇ"
-
-msgid "STEERING WHEEL"
-msgstr "ŘÍDICÍ KOLO"
-
-msgid "TRACKBALL"
-msgstr "TRACKBALL"
-
-msgid "SPINNER"
-msgstr "SPINNER"
-
-msgid "HAVING MEDIAS"
-msgstr "MAJÍCÍ MÉDIA"
-
-msgid "MISSING MEDIAS"
-msgstr "CHYBĚJÍCÍ MÉDIA"
-
-msgid "SEARCH"
-msgstr "HLEDAT"
-
 msgid "Collections"
 msgstr "Sbírka"
 
 msgid "Unknown"
 msgstr "Neznámý"
+
+msgid "Extracting"
+msgstr "Rozbalování"
 
 msgid "DOWNLOADING"
 msgstr "STAHOVÁNÍ"
@@ -215,86 +314,316 @@ msgstr "BALÍČEK ÚSPĚŠNĚ NAINSTALOVÁN"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "BALÍČEK ODSTRANĚN"
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
+msgid "Searching"
+msgstr "Vyhledávání"
+
+msgid "Released"
+msgstr "Datum vydáni"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NEBYLY NALEZENY ŽÁDNÉ HRY - PŘESKOČIT"
+
+msgid "RETRY"
+msgstr "ZNOVU"
+
+msgid "SKIP"
+msgstr "PŘESKOČIT"
 
 msgid "CANCEL"
 msgstr "ZRUŠIT"
 
-msgid "PAIR"
-msgstr "PÁROVÁNÍ"
+msgid "Downloading"
+msgstr "Stahování"
 
-msgid "PLEASE WAIT"
-msgstr "PROSÍM, ČEKEJTE"
+msgid "SEARCH FOR"
+msgstr "HLEDAT"
 
-msgid "FILE BROWSER"
-msgstr "DATOVÝ PROHLÍŽEČ"
+msgid "ACCEPT RESULT"
+msgstr "PŘIJMOUT VÝSLEDEK"
 
-msgid "RESET"
-msgstr "RESETOVAT"
+msgid "THEMES DOWNLOADER"
+msgstr "STAHOVAČ TÉMAT"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
+
+msgid "All"
+msgstr "Všechno"
+
+msgid "Installed"
+msgstr "Nainstalováno"
+
+msgid "Available"
+msgstr "Dostupné"
 
 msgid "BACK"
 msgstr "ZPĚT"
 
+msgid "No items"
+msgstr "Žádné položky"
+
+msgid "PLEASE WAIT"
+msgstr "PROSÍM, ČEKEJTE"
+
+msgid "UPDATE"
+msgstr "AKTUALIZOVAT"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' PŘIDÁNO DO FRONTY KE STAŽENÍ"
+
+msgid "REMOVE"
+msgstr "ODSTRANIT"
+
+msgid "INSTALL"
+msgstr "INSTALOVAT"
+
 msgid "CLOSE"
 msgstr "ZAVŘÍT"
 
-msgid "PARENT FOLDER"
-msgstr "NADŘAZENÁ SLOŽKA"
+msgid "CURRENT THEME"
+msgstr "AKTUÁLNÍ MOTIV"
 
-msgid "SCREENSHOTS FOLDER"
-msgstr "SLOŽKA SNÍMKŮ OBRAZOVKY"
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "AKTUÁLNĚ VE FRONTĚ KE STAŽENÍ"
 
-msgid "SELECT"
-msgstr "VÝBĚR"
-
-msgid "go back"
-msgstr "vrátit se zpět"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NEJSTE PŘIPOJENI K SÍTI"
+msgid "FINISHED"
+msgstr "DOKONČENO"
 
 msgid "OK"
 msgstr "OK"
 
-msgid "INDEX GAMES"
-msgstr "INDEXOVANÉ HRY"
+msgid "REFRESH"
+msgstr "OBNOVIT"
 
-msgid "GAMES TO INDEX"
-msgstr "HRY DO INDEXU"
+msgid "INPUT MANUALLY"
+msgstr "MANUÁLNÍ VSTUP"
 
-msgid "ALL"
-msgstr "VŠECHNY"
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "NEBYLY NALEZENY ŽÁDNÉ SÍTĚ WI-FI"
 
-msgid "ONLY MISSING"
-msgstr "POUZE CHYBĚJÍCÍ"
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "VYHLEDÁVÁNÍ SÍTÍ WI-FI"
 
-msgid "SYSTEMS INCLUDED"
-msgstr "OBSAŽENÉ SYSTÉMY"
+msgid "DEVICE OPTIONS"
+msgstr "MOŽNOSTI ZAŘÍZENÍ"
 
-msgid "START"
-msgstr "START"
+msgid "DISCONNECT"
+msgstr "ODPOJIT"
 
-msgid "FAVORITE SONGS"
-msgstr "OBLÍBENÉ SKLADBY"
+msgid "CONNECT"
+msgstr "PŘIPOJIT"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "NASTAVENÍ RETROÚSPĚCHU"
+msgid "FORGET"
+msgstr "ZAPOMENOUT"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "JSTE SI JISTI, ŽE CHCETE ZAPOMENOUT '%s' ?"
+
+msgid "YES"
+msgstr "ANO"
+
+msgid "NO"
+msgstr "NE"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr "JSTE SI JISTI, ŽE SE CHCETE PŘIPOJIT K '%s' ?"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr "JSTE SI JISTI, ŽE SE CHCETE ODPOJIT OD '%s' ?"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr "KONFIGURACE KLÁVESNICE NA HERNÍM OVLADAČI"
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr "VYBERTE AKCE, KTERÉ CHCETE ZMĚNIT"
+
+msgid "SAVE"
+msgstr "ULOŽIT"
+
+msgid "DELETE"
+msgstr "ODSTRANIT"
+
+msgid "PLAYER 1"
+msgstr "HRÁČ 1"
+
+msgid "PLAYER 2"
+msgstr "HRÁČ 2"
+
+msgid "PLAYER 3"
+msgstr "HRÁČ 3"
+
+msgid "PLAYER 4"
+msgstr "HRÁČ 4"
+
+msgid "COMBINATIONS"
+msgstr "KOMBINACE"
+
+msgid "MOUSE CURSOR"
+msgstr "KURZOR MYŠI"
+
+msgid "EMULATE MOUSE CURSOR"
+msgstr "EMULACE KURZORU MYŠI"
+
+msgid "LEFT ANALOG STICK"
+msgstr "LEVÁ ANALOGOVÁ PÁČKA"
+
+msgid "RIGHT ANALOG STICK"
+msgstr "PRAVÁ ANALOGOVÁ PÁČKA"
+
+msgid "EDIT DESCRIPTION"
+msgstr "UPRAVIT POPIS"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "JSTE SI JISTI, ŽE CHCETE TUTO POLOŽKU ODSTRANIT?"
+
+msgid "DELETE MAPPING"
+msgstr "ODSTRANIT MAPOVÁNÍ"
+
+msgid "SAVE CHANGES?"
+msgstr "ULOŽIT ZMĚNY?"
+
+msgid "ARE YOU SURE?"
+msgstr "JSTE SI JISTI?"
+
+msgid "INFORMATION"
+msgstr "INFORMACE"
+
+msgid "VERSION"
+msgstr "VERZE"
+
+msgid "USER DISK USAGE"
+msgstr "VYUŽITÍ DISKU UŽIVATELE"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "VYUŽITÍ SYSTÉMOVÉHO DISKU"
+
+msgid "SYSTEM"
+msgstr "SYSTÉM"
+
+msgid "VIDEO DRIVER"
+msgstr "OVLADAČ VIDEA"
+
+msgid "SEOUL"
+msgstr ""
+
+msgid "NETPLAY SETTINGS"
+msgstr "NASTAVENÍ NETPLAY"
 
 msgid "SETTINGS"
 msgstr "NASTAVENÍ"
 
+msgid "ENABLE NETPLAY"
+msgstr "POVOLIT NETPLAY"
+
+msgid "NICKNAME"
+msgstr "PŘEZDÍVKA"
+
+msgid "OPTIONS"
+msgstr "VOLBY"
+
+msgid "PORT"
+msgstr "PORT"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "Zobrazení místností pro hry, které se v tomto počítači nenacházejí."
+
+msgid "GAME INDEXES"
+msgstr "INDEXY HRY"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXOVAT NOVÉ HRY PŘI SPUŠTĚNÍ"
+
+msgid "INDEX GAMES"
+msgstr "INDEXOVANÉ HRY"
+
+msgid "USE RELAY SERVER"
+msgstr "POUŽÍT PŘENOSOVÝ SERVER"
+
+msgid "NONE"
+msgstr "ŽÁDNÝ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "VLASTNÍ"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "VLASTNÍ RELAY SERVER"
+
+msgid "INPUT"
+msgstr "ZADAT"
+
+msgid "SEARCH"
+msgstr "HLEDAT"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr "%d z %d softcore bodů"
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr "%d z %d hardcore bodů"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d of %d)"
+
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROÚSPĚCHY"
+
+msgid "Softcore points"
+msgstr "Softcore body"
+
+msgid "Points (hardcore)"
+msgstr "Body (hardcore)"
+
+msgid "Rank"
+msgstr "Hodnost"
+
+msgid "VIEW DETAILS"
+msgstr "ZOBRAZIT PODROBNOSTI"
+
+msgid "LAUNCH"
+msgstr "SPUSTIT"
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "NASTAVENÍ RETROÚSPĚCHU"
 
 msgid "USERNAME"
 msgstr "UŽIVATELSKÉ JMÉNO"
 
 msgid "PASSWORD"
 msgstr "HESLO"
-
-msgid "OPTIONS"
-msgstr "VOLBY"
 
 msgid "HARDCORE MODE"
 msgstr "REŽIM HARDCORE"
@@ -359,68 +688,27 @@ msgstr "ZOBRAZIT POLOŽKU RETROÚSPĚCHY V HLAVNÍ NABÍDCE"
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "Prohlédněte si své statistiky RetroÚspechu přímo z hlavního menu!"
 
-msgid "GAME INDEXES"
-msgstr "INDEXY HRY"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXOVAT NOVÉ HRY PŘI SPUŠTĚNÍ"
-
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NELZE AKTIVOVAT RETROÚSPĚCHY:"
 
-msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "KONFIGURACE KLÁVESNICE NA HERNÍM OVLADAČI"
+msgid "BLUETOOTH DEVICE LIST"
+msgstr "SEZNAM BLUETOOTH ZAŘÍZENÍ"
 
-msgid "SELECT ACTIONS TO CHANGE"
-msgstr "VYBERTE AKCE, KTERÉ CHCETE ZMĚNIT"
+msgid "REMOVE ALL"
+msgstr "VŠE ODSTRANIT"
 
-msgid "SAVE"
-msgstr "ULOŽIT"
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ BLUETOOTH"
 
-msgid "DELETE"
-msgstr "ODSTRANIT"
+msgid " (Connected)"
+msgstr " (Připojeno)"
 
-msgid "PLAYER 1"
-msgstr "HRÁČ 1"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "ZAŘÍZENÍ BLUETOOTH BYLA ODSTRANĚNA."
 
-msgid "PLAYER 2"
-msgstr "HRÁČ 2"
-
-msgid "PLAYER 3"
-msgstr "HRÁČ 3"
-
-msgid "PLAYER 4"
-msgstr "HRÁČ 4"
-
-msgid "COMBINATIONS"
-msgstr "KOMBINACE"
-
-msgid "MOUSE CURSOR"
-msgstr "KURZOR MYŠI"
-
-msgid "EMULATE MOUSE CURSOR"
-msgstr "EMULACE KURZORU MYŠI"
-
-msgid "LEFT ANALOG STICK"
-msgstr "LEVÁ ANALOGOVÁ PÁČKA"
-
-msgid "RIGHT ANALOG STICK"
-msgstr "PRAVÁ ANALOGOVÁ PÁČKA"
-
-msgid "EDIT DESCRIPTION"
-msgstr "UPRAVIT POPIS"
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "JSTE SI JISTI, ŽE CHCETE TUTO POLOŽKU ODSTRANIT?"
-
-msgid "DELETE MAPPING"
-msgstr "ODSTRANIT MAPOVÁNÍ"
-
-msgid "SAVE CHANGES?"
-msgstr "ULOŽIT ZMĚNY?"
-
-msgid "ARE YOU SURE?"
-msgstr "JSTE SI JISTI?"
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "JSTE SI JISTI, ŽE CHCETE ODSTRANIT '%s' ?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "PROJEKT RÁMEČEK"
@@ -428,199 +716,54 @@ msgstr "PROJEKT RÁMEČEK"
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr "VYBERTE RÁMEČKY PRO INSTALACI/ODSTRANIT"
 
-msgid "UPDATE"
-msgstr "AKTUALIZOVAT"
+#, c-format
+msgid "UPDATING %s"
+msgstr "PROBÍHÁ AKTUALIZACE %s"
+
+msgid "UPDATE IS READY"
+msgstr "AKTUALIZACE HOTOVÁ"
+
+msgid "REBOOT TO APPLY"
+msgstr "NUTNÝ RESTART"
+
+msgid "REALLY UPDATE?"
+msgstr "OPRAVDU AKTUALIZOVAT?"
 
 #, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' PŘIDÁNO DO FRONTY KE STAŽENÍ"
-
-msgid "REMOVE"
-msgstr "ODSTRANIT"
-
-msgid "INSTALL"
-msgstr "INSTALOVAT"
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"V SOUČASNÉ DOBĚ POUŽÍVÁTE VERZI %s\n"
+"CHCETE AKTUALIZOVAT VERZI %s?"
 
 #, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "AKTUÁLNĚ VE FRONTĚ KE STAŽENÍ"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "STAHOVÁNÍ OBSAHU"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "VYBERTE OBSAH, KTERÝ CHCETE NAINSTALOVAT/ODSTRANIT"
-
-msgid "REFRESH"
-msgstr "OBNOVIT"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "AKTUALIZACE INSTALOVANÉHO OBSAHU"
-
-msgid "No items"
-msgstr "Žádné položky"
-
-msgid "MISC"
-msgstr "RŮZNÉ"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "ODINSTALACE PŘIDÁNA DO FRONTY"
-
-msgid "EDIT METADATA"
-msgstr "EDITACE METADAT"
-
-msgid "Emulator"
-msgstr "Emulátor"
-
-msgid "Core"
-msgstr "Jádro"
-
-msgid "AUTO"
-msgstr "AUTOMATICKY"
-
-msgid "GENRES"
-msgstr "ŽÁNRY"
-
-msgid "SCRAPE"
-msgstr "VYHLEDÁVAČ"
-
 msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"OPRAVDU ODSTRANIT SOUBOR(Y) HRY!\n"
-"JSTE SI JISTI?"
+"ZJIŠTĚNY NEOFICIÁLNÍ ÚPRAVY SYSTÉMU.\n"
+"AKTUALIZACE BY MOHLA POŠKODIT VÁŠ SYSTÉM.\n"
+"CHCETE AKTUALIZOVAT NA VERZI %s?"
 
-msgid ""
-"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
-"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
-msgstr ""
-"NĚKTERÉ SOUBORY, KTERÉ JSTE PROPOJILI, SE NACHÁZEJÍ MIMO CESTU K SEZNAMU "
-"HER.\n"
-"CHCETE POUŽÍT KOPII TĚCHTO SOUBORŮ VZHLEDEM K SEZNAMU HER ?"
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "JE NUTNÉ PŘIPOJENÍ K SÍTI"
 
-msgid "FINISHED"
-msgstr "DOKONČENO"
-
-msgid "ADD COMBINATION KEY"
-msgstr "PŘIDAT KOMBINAČNÍ KLÍČ"
-
-msgid "dim"
-msgstr "tmavý"
-
-msgid "black"
-msgstr "černý"
-
-msgid "random video"
-msgstr "náhodné video"
-
-msgid "slideshow"
-msgstr "prezentace"
-
-msgid "suspend"
-msgstr "pozastavit"
-
-msgid "always"
-msgstr "vždy"
-
-msgid "start & end"
-msgstr "začátek a konec"
-
-msgid "never"
-msgstr "nikdy"
-
-msgid "systems"
-msgstr "systémy"
-
-msgid "random"
-msgstr "náhodný"
-
-msgid "SCREENSAVER SETTINGS"
-msgstr "NASTAVENÍ SPOŘIČE OBRAZOVKY"
-
-msgid "START SCREENSAVER AFTER"
-msgstr "SPUSTIT SPOŘIČ OBRAZOVKY PO"
-
-msgid "SCREENSAVER TYPE"
-msgstr "TYP SPOŘIČE OBRAZOVKY"
-
-msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "ZASTAVENÍ HUDBY PŘISPOŘIČI OBRAZOVKY"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "NASTAVENÍ NÁHODNÉHO SPOŘIČE OBRAZOVKY"
-
-msgid "VIDEO DURATION (SECS)"
-msgstr "TRVÁNÍ VIDEA (SEK)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "POUŽITÍ PŘEHRÁVAČE OMX PRO SPOŘIČ OBRAZOVKY"
-
-msgid "SHOW GAME INFO"
-msgstr "ZOBRAZIT INFO O HŘE"
-
-msgid "SHOW DATE TIME"
-msgstr "ZOBRAZIT DATUM ČAS"
-
-msgid "DATE FORMAT"
-msgstr "FORMÁT DATUMU"
-
-msgid "TIME FORMAT"
-msgstr "FORMÁT ČASU"
-
-msgid "USE MARQUEE AS GAME INFO"
-msgstr "POUŽIJ MARQUEE JAKO INFORMACE O HŘE"
-
-msgid "DECORATION SET USED"
-msgstr "POUŽITÁ SADA DEKORACÍ"
-
-msgid "STRETCH VIDEOS"
-msgstr "NALEZENA VIDEA"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "VYPNUTÍ ZVUKU VIDEA"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "OVLÁDÁNÍ SPOŘIČE OBRAZOVKY"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "POUŽÍT VLASTNÍ VIDEA"
-
-msgid "CUSTOM VIDEO DIRECTORY"
-msgstr "ADRESÁŘ VLASTNÍCH VIDEI"
-
-msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "POUŽITÍ VIDEÍ V PODSLOŽKÁCH VLASTNÍHO ADRESÁŘE"
-
-msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr "VLASTNÍ ROZŠÍŘENÍ SOUBORU VIDEA"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "NASTAVENÍ PREZENTACE SPOŘIČE OBRAZOVKY"
-
-msgid "IMAGE DURATION (SECS)"
-msgstr "DOBA TRVÁNÍ SNÍMKU (SEK)"
-
-msgid "STRETCH IMAGES"
-msgstr "ROZTAŽENÍ OBRÁZKU"
-
-msgid "USE CUSTOM IMAGES"
-msgstr "POUŽÍT VLASTNÍ OBRÁZKY"
-
-msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "VLASTNÍ ADRESÁŘ OBRÁZKU"
-
-msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "POUŽITÍ OBRÁZKŮ V PODSLOŽKÁCH VLASTNÍHO ADRESÁŘE"
-
-msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr "VLASTNÍ PŘÍPONY OBRAZOVÝCH SOUBORŮ"
+msgid "NO UPDATE AVAILABLE"
+msgstr "NENÍ K DISPOZICI ŽÁDNÁ AKTUALIZACE"
 
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
 
+msgid "SCRAPE"
+msgstr "VYHLEDÁVAČ"
+
 msgid "ACCOUNTS"
 msgstr "ÚČTY"
+
+msgid "go back"
+msgstr "vrátit se zpět"
 
 msgid "SCRAPING DATABASE"
 msgstr "VYHLEDAT DATABÁZI"
@@ -636,6 +779,9 @@ msgstr "FILTRY"
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr "HRY NA VYHLEDÁNÍ"
+
+msgid "ALL"
+msgstr "VŠECHNY"
 
 msgid "GAMES MISSING ANY MEDIA"
 msgstr "CHYBÍ JAKÁKOLI MÉDIA PRO HRY"
@@ -664,8 +810,14 @@ msgstr "POSLEDNÍ 3 MĚSÍCE"
 msgid "LAST YEAR"
 msgstr "POSLEDNÍ ROK"
 
+msgid "SYSTEMS INCLUDED"
+msgstr "OBSAŽENÉ SYSTÉMY"
+
 msgid "SCRAPE NOW"
 msgstr "VYHLEDAT"
+
+msgid "START"
+msgstr "START"
 
 msgid "IMAGE SOURCE"
 msgstr "ZDROJ OBRÁZKU"
@@ -691,9 +843,6 @@ msgstr "OBAL 3D"
 msgid "FAN ART"
 msgstr "OBRÁZEK FANOUŠKŮ"
 
-msgid "NONE"
-msgstr "ŽÁDNÝ"
-
 msgid "BOX SOURCE"
 msgstr "ZDROJ OBALU"
 
@@ -711,6 +860,9 @@ msgstr "MARQUEE"
 
 msgid "PREFERED REGION"
 msgstr "PREFEROVANÁ OBLAST"
+
+msgid "AUTO"
+msgstr "AUTOMATICKY"
 
 msgid "OVERWRITE NAMES"
 msgstr "PŘEPSAT JMÉNA"
@@ -775,11 +927,17 @@ msgstr ""
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "PROBÍHÁ VYHLEDÁVÁNÍ. CHCETE HO ZASTAVIT?"
 
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "ŽÁDNÁ HRA NESPLŇUJE TYTO KRITÉRIA."
+
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALACE NA NOVÝ DISK"
 
 msgid "TARGET DEVICE"
 msgstr "CÍLOVÉ ZAŘÍZENÍ"
+
+msgid "SELECT"
+msgstr "VÝBĚR"
 
 msgid "TARGET ARCHITECTURE"
 msgstr "CÍLOVÁ ARCHITEKTURA"
@@ -789,821 +947,6 @@ msgstr "POŽADOVANÁ SÍŤ"
 
 msgid "INVALID PARAMETERS"
 msgstr "NEPLATNÉ PARAMETRY"
-
-msgid "INPUT MANUALLY"
-msgstr "MANUÁLNÍ VSTUP"
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NEBYLY NALEZENY ŽÁDNÉ SÍTĚ WI-FI"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "VYHLEDÁVÁNÍ SÍTÍ WI-FI"
-
-msgid "CONTROLLER SETTINGS"
-msgstr "NASTAVENÍ OVLADAČE"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "NASTAVENÍ HER.OVLADAČE A BLUETOOTH"
-
-msgid "CONTROLLERS PRIORITY"
-msgstr "PRIORITA OVLADAČŮ"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "PŘIDĚLENÍ HRÁČŮ"
-
-#, c-format
-msgid "CONTROLLER #%i"
-msgstr "OVLADAČ #%i"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "P%i'S HER.OVLADAČ"
-
-msgid "CONTROLLER MAPPING"
-msgstr "MAPOVÁNÍ HER. OVLADAČE"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"BUDETE MAPOVAT OVLADAČ. MAPOVAT NA ZÁKLADĚ POZICE TLAČÍTKA, NIKOLI JEHO "
-"FYZICKÉHO OZNAČENÍ. POKUD NEMÁTE SPECIÁLNÍ TLAČÍTKO PRO KLÁVESOVOU ZKRATKU, "
-"POUŽIJTE TLAČÍTKO VÝBĚRU. PODRŽENÍM LIBOVOLNÉHO TLAČÍTKA PŘESKOČTE VŠECHNA "
-"TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO "
-"POTVRZENÍ."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "NASTAVENÍ ZBRANĚ SINDEN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "NASTAVENÍ MYŠI/PISTOLE STEAMDECK"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "ENABLE BLUETOOTH"
-msgstr "ZAPNOUT BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "AUTOMATICKÉ PÁROVÁNÍ BLUETOOTH OVLADAČE"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "RUČNÍ SPÁROVÁNÍ ZAŘÍZENÍ BLUETOOTH"
-
-msgid "BLUETOOTH DEVICE LIST"
-msgstr "SEZNAM BLUETOOTH ZAŘÍZENÍ"
-
-msgid "DISPLAY OPTIONS"
-msgstr "MOŽNOSTI DISPLEJE"
-
-msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr "ZOBRAZIT OZNÁMENÍ OVLADAČE"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
-
-msgid "DRAW GUN CROSSHAIR"
-msgstr "VYKRESLIT ZAMĚŘOVAČ ZBRANĚ"
-
-msgid "BEHAVIOR"
-msgstr "BEHAVIOR"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "OMEZIT HORKÉ KLÁVESY PRO UKONČENÍ"
-
-msgid "default"
-msgstr "výchozí"
-
-msgid "NOT CONNECTED"
-msgstr "NEPŘIPOJEN"
-
-msgid "BORDER SIZE"
-msgstr "VELIKOST OHRANIČENÍ"
-
-msgid "THIN"
-msgstr "TENKÁ"
-
-msgid "MEDIUM"
-msgstr "STŘEDNÍ"
-
-msgid "BIG"
-msgstr "VELKÁ"
-
-msgid "BORDER MODE"
-msgstr "HRANIČNÍ REŽIM"
-
-msgid "NORMAL"
-msgstr "NORMÁLNÍ"
-
-msgid "IN GAME ONLY"
-msgstr "POUZE VE HŘE"
-
-msgid "HIDDEN"
-msgstr "SKRYTÝ"
-
-msgid "BORDER COLOR"
-msgstr "BARVA HRANICE"
-
-msgid "WHITE"
-msgstr "BÍLÁ"
-
-msgid "RED"
-msgstr "ČERVENÁ"
-
-msgid "GREEN"
-msgstr "ZELENÁ"
-
-msgid "BLUE"
-msgstr "MODRÁ"
-
-msgid "BORDER RATIO"
-msgstr "POMĚR OKRAJŮ"
-
-msgid "CAMERA CONTRAST"
-msgstr "KONTRAST KAMERY"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "Denní/jasné sluneční světlo (40)"
-
-msgid "Default (50)"
-msgstr "Výchozí (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "Stmívání displeje/večer (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "JAS KAMERY"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "Denní/jasné sluneční světlo (80)"
-
-msgid "Default (100)"
-msgstr "Výchozí (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "Stmívání displeje/večer (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "EXPOZICE KAMERY"
-
-msgid "Projector/CRT (-5)"
-msgstr "Projektor/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "Projektor/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "Výchozí (-7)"
-
-msgid "Other (-8)"
-msgstr "Ostatní (-8)"
-
-msgid "Other (-9)"
-msgstr "Ostatní (-9)"
-
-msgid "RECOIL"
-msgstr "ZÁKLUZ"
-
-msgid "DISABLED"
-msgstr "VYPNUTO"
-
-msgid "GUN"
-msgstr "PISTOLE"
-
-msgid "MACHINE GUN"
-msgstr "AUTOMATICKÁ ZBRAŇ"
-
-msgid "QUIET GUN"
-msgstr "TICHÁ ZBRAŇ"
-
-msgid "QUIET MACHINE GUN"
-msgstr "TICHÁ AUTOMATICKÁ ZBRAŇ"
-
-msgid "MODE"
-msgstr "MÓD"
-
-msgid "JOYSTICK"
-msgstr "JOYSTICK"
-
-msgid "MOUSE ONLY"
-msgstr "POUZE MYŠ"
-
-msgid "HAND"
-msgstr "RUČNÍ"
-
-msgid "LEFT"
-msgstr "LEVÁ"
-
-msgid "RIGHT"
-msgstr "PRAVÁ"
-
-msgid "SAVESTATE MANAGER"
-msgstr "SPRÁVCE UKLÁDÁNÍ POZIC"
-
-msgid "START NEW GAME"
-msgstr "START NOVÉ HRY"
-
-msgid "START NEW AUTO SAVE"
-msgstr "SPUSTIT Z AUTO. ULOŽENÍ"
-
-msgid "AUTO SAVE"
-msgstr "AUTO. ULOŽENÍ"
-
-msgid "SLOT"
-msgstr "SLOT"
-
-msgid "LAUNCH"
-msgstr "SPUSTIT"
-
-msgid "COPY TO FREE SLOT"
-msgstr "KOPÍROVÁT DO VOLNÉHO SLOTU"
-
-#, c-format
-msgid "%d of %d softcore points"
-msgstr "%d z %d softcore bodů"
-
-#, c-format
-msgid "%d of %d hardcore points"
-msgstr "%d z %d hardcore bodů"
-
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d of %d)"
-
-msgid "Softcore points"
-msgstr "Softcore body"
-
-msgid "Points (hardcore)"
-msgstr "Body (hardcore)"
-
-msgid "Rank"
-msgstr "Hodnost"
-
-msgid "VIEW DETAILS"
-msgstr "ZOBRAZIT PODROBNOSTI"
-
-msgid "DEVICE OPTIONS"
-msgstr "MOŽNOSTI ZAŘÍZENÍ"
-
-msgid "DISCONNECT"
-msgstr "ODPOJIT"
-
-msgid "CONNECT"
-msgstr "PŘIPOJIT"
-
-msgid "FORGET"
-msgstr "ZAPOMENOUT"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "JSTE SI JISTI, ŽE CHCETE ZAPOMENOUT '%s' ?"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr "JSTE SI JISTI, ŽE SE CHCETE PŘIPOJIT K '%s' ?"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr "JSTE SI JISTI, ŽE SE CHCETE ODPOJIT OD '%s' ?"
-
-msgid "SEOUL"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "NASTAVENÍ NETPLAY"
-
-msgid "ENABLE NETPLAY"
-msgstr "POVOLIT NETPLAY"
-
-msgid "NICKNAME"
-msgstr "PŘEZDÍVKA"
-
-msgid "PORT"
-msgstr "PORT"
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
-
-msgid "Show rooms for games not present on this machine."
-msgstr "Zobrazení místností pro hry, které se v tomto počítači nenacházejí."
-
-msgid "USE RELAY SERVER"
-msgstr "POUŽÍT PŘENOSOVÝ SERVER"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "VLASTNÍ"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "VLASTNÍ RELAY SERVER"
-
-msgid "GAME COLLECTION SETTINGS"
-msgstr "NASTAVENÍ SBÍRKY HER"
-
-msgid "COLLECTIONS TO DISPLAY"
-msgstr "SBÍRKY K ZOBRAZENÍ"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "ZOBRAZENÉ SYSTÉMY"
-
-msgid "GROUPED SYSTEMS"
-msgstr "SESKUPENÉ SYSTÉMY"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr "VYTVOŘIT VLASTNÍ SBÍRKU"
-
-msgid "New Collection Name"
-msgstr "Název nové sbírky"
-
-msgid "ENTER NAME"
-msgstr "VLOŽIT JMÉNO"
-
-msgid "CREATE FROM THEME"
-msgstr "VYTVOŘIT Z TÉMATU"
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "VYTVOŘIT NOVOU UPRAVITELNOU SBÍRKU"
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "VYTVOŘIT NOVOU DYNAMICKOU SBÍRKU"
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr "TŘÍDĚNÍ SBÍREK A SYSTÉMŮ"
-
-msgid "ALPHABETICALLY"
-msgstr "ABECEDNĚ"
-
-msgid "BY MANUFACTURER"
-msgstr "PODLE VÝROBCE"
-
-msgid "BY HARDWARE TYPE"
-msgstr "PODLE TYPU HARDWARU"
-
-msgid "BY MANUFACTURER AND TYPE"
-msgstr "PODLE VÝROBCE A TYPU"
-
-msgid "BY RELEASE YEAR"
-msgstr "PODLE ROKU VYDÁNÍ"
-
-msgid "SORT SYSTEMS"
-msgstr "TŘÍDICÍ SYSTÉMY"
-
-msgid "START ON SYSTEM"
-msgstr "SPUSTIT V SYSTÉMU"
-
-msgid "RESTORE LAST SELECTED"
-msgstr "OBNOVIT POSLEDNÍ VYBRANÉ"
-
-msgid "START ON GAMELIST"
-msgstr "ZAČÍT NA SEZNAMU HER"
-
-msgid "GROUP CUSTOM COLLECTIONS"
-msgstr "SKUPINOVÉ VLASTNÍ SBÍRKY"
-
-msgid "UNTHEMED"
-msgstr "NEZAMĚŘENÉ"
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "ZOBRAZIT NÁZEV SYSTÉMU VE SBÍRKÁCH"
-
-msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr "ZOBRAZIT HRY SKRYTÝCH SYSTÉMŮ VE SBÍRKÁCH"
-
-msgid "SHOW EMPTY SYSTEMS"
-msgstr "ZOBRAZIT PRÁZDNÉ SYSTÉMY"
-
-msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr "NEZOBRAZOVAT SUPINY S POUZE JEDNÍM SYSTÉMEM"
-
-msgid "UPDATE GAMELISTS"
-msgstr "AKTUALIZOVAT SEZNAMY HER"
-
-msgid "Loading..."
-msgstr "Načítání..."
-
-msgid "SELECT COLLECTIONS"
-msgstr "VYBRAT SBÍRKY"
-
-msgid "AUTOMATIC COLLECTIONS"
-msgstr "AUTOMATICKÉ SBÍRKY"
-
-msgid "PER GENRE"
-msgstr "PRO ŽÁNR"
-
-msgid "ARCADE SYSTEMS"
-msgstr "ARKÁDE SYSTÉMY"
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "AUTOMATICKÉ SBÍRKY HER"
-
-msgid "EDITABLE COLLECTIONS"
-msgstr "UPRAVITELNÉ SBÍRKY"
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr "DYNAMICKÉ SBÍRKY"
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "VLASTNÍ KOLEKCE HER"
-
-msgid "NO MISSING BIOS FILES"
-msgstr "NECHYBÍ ŽÁDNÉ SOUBORY BIOSU"
-
-msgid "MISSING BIOS CHECK"
-msgstr "CHYBĚJÍCÍ BIOS"
-
-msgid "Installed systems"
-msgstr "Instalované systémy"
-
-msgid "All"
-msgstr "Všechno"
-
-msgid "refresh"
-msgstr "obnovit"
-
-msgid "NO MISSING BIOS"
-msgstr "NECHYBÍ ŽÁDNÝ BIOS"
-
-msgid "GAME MEDIA"
-msgstr "MÉDIA HRY"
-
-msgid "VIEW GAME MANUAL"
-msgstr "ZOBRAZIT HERNÍ MANUÁL"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr "ZOBRAZIT HERNÍ MAGAZÍN"
-
-msgid "VIEW GAME MAP"
-msgstr "ZOBRAZIT HERNÍ MAPU"
-
-msgid "VIEW FULLSCREEN VIDEO"
-msgstr "ZOBRAZIT VIDEO NA CELOU OBRAZOVKU"
-
-msgid "VIEW GAME MEDIA"
-msgstr "ZOBRAZIT HERNÍ MÉDIA"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "AKTUALNÍ JÁDRO NENÍ KOMPATIBILNÍ"
-
-msgid "COMPATIBLE CORE(S)"
-msgstr "KOMPATIBILNÍ JÁDRO(A)"
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "ZOBRAZIT HERNÍ ÚSPĚCHY TÉTO HRY"
-
-msgid "GAME"
-msgstr "HRA"
-
-msgid "SAVE STATES"
-msgstr "ULOŽENÉ"
-
-msgid "OPEN"
-msgstr "OTEVŘÍT"
-
-msgid "START A NETPLAY GAME"
-msgstr "SPUSTIT HRU PO SÍTI"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "START HRY"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "HOSTIT NETPLAY HRU"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "VEŘEJNĚ OZNÁMIT HRU"
-
-msgid "PLAYER PASSWORD"
-msgstr "HESLO HRÁČE"
-
-msgid "VIEWER PASSWORD"
-msgstr "HESLO PROHLÍŽEČE"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "NAJÍT PODOBNÉ HRY..."
-
-msgid "DELETE ITEM"
-msgstr "ODSTRANIT POLOŽKU"
-
-msgid "DELETE GAME"
-msgstr "ODSTRANIT HRU"
-
-msgid "COLLECTIONS"
-msgstr "SBÍRKY"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "ODSTRANIT Z %s"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "PŘIDAT DO %s"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
-
-msgid "DELETE COLLECTION"
-msgstr "SMAZAT SBÍRKU"
-
-msgid "EDIT PADTOKEY PROFILE"
-msgstr "EDITOVAT PROFIL KLÁVES. NA HER.OVLADAČI"
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr "VYTVOŘIT PROFIL KLAVES. NA HER.OVLADAČI"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "POKROČILÉ HERNÍ NASTAVENÍ"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "EUPRAVIT METADATA SLOŽKY"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "UPRAVIT METADATA TÉTO HRY"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "ZOBRAZENÍ KONFIGURACE KLÁVESNICE NA HERNÍM OVLADAČI"
-
-msgid "WRITE GAME ON NFC TAG"
-msgstr ""
-
-#, c-format
-msgid ""
-"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
-"'%s'\n"
-"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
-msgstr ""
-
-msgid "WRITE"
-msgstr ""
-
-msgid "PLACE A TAG ON THE WRITER ..."
-msgstr ""
-
-msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
-
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "TATO FUNKCE JE VYPNUTA, KDYŽ JE SPUŠTĚN VYHLEDÁVAČ"
-
-msgid "INFORMATION"
-msgstr "INFORMACE"
-
-msgid "VERSION"
-msgstr "VERZE"
-
-msgid "USER DISK USAGE"
-msgstr "VYUŽITÍ DISKU UŽIVATELE"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "VYUŽITÍ SYSTÉMOVÉHO DISKU"
-
-msgid "SYSTEM"
-msgstr "SYSTÉM"
-
-msgid "VIDEO DRIVER"
-msgstr "OVLADAČ VIDEA"
-
-msgid "BACKUP USER DATA"
-msgstr "ZÁLOHOVAT UŽIVATELSKÁ DATA"
-
-msgid "NO DEVICE FOUND"
-msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ"
-
-msgid "INPUT"
-msgstr "ZADAT"
-
-msgid "FILTER GAMELIST BY"
-msgstr "FILTROVAT SEZNAM HER PODLE"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "UPRAVIT DYNAMICKÉ FILTRY SBÍREK"
-
-msgid "RESET ALL FILTERS"
-msgstr "RESETOVAT VŠECHNY FILTRY"
-
-msgid "FIND GAMES"
-msgstr "HLEDAT HRY"
-
-msgid "SYSTEMS"
-msgstr "SYSTÉMY"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "PROBÍHÁ AKTUALIZACE %s"
-
-msgid "UPDATE IS READY"
-msgstr "AKTUALIZACE HOTOVÁ"
-
-msgid "REBOOT TO APPLY"
-msgstr "NUTNÝ RESTART"
-
-msgid "REALLY UPDATE?"
-msgstr "OPRAVDU AKTUALIZOVAT?"
-
-#, c-format
-msgid ""
-"YOU ARE CURRENTLY USING VERSION %s\n"
-"DO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr ""
-"V SOUČASNÉ DOBĚ POUŽÍVÁTE VERZI %s\n"
-"CHCETE AKTUALIZOVAT VERZI %s?"
-
-#, c-format
-msgid ""
-"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
-"UPGRADING COULD BREAK YOUR SYSTEM.\n"
-"DO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr ""
-"ZJIŠTĚNY NEOFICIÁLNÍ ÚPRAVY SYSTÉMU.\n"
-"AKTUALIZACE BY MOHLA POŠKODIT VÁŠ SYSTÉM.\n"
-"CHCETE AKTUALIZOVAT NA VERZI %s?"
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "JE NUTNÉ PŘIPOJENÍ K SÍTI"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "NENÍ K DISPOZICI ŽÁDNÁ AKTUALIZACE"
-
-msgid "THEMES DOWNLOADER"
-msgstr "STAHOVAČ TÉMAT"
-
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
-
-msgid "Installed"
-msgstr "Nainstalováno"
-
-msgid "Available"
-msgstr "Dostupné"
-
-msgid "CURRENT THEME"
-msgstr "AKTUÁLNÍ MOTIV"
-
-msgid "VIEW OPTIONS"
-msgstr "ZOBRAZIT MOŽNOSTI"
-
-msgid "NAVIGATION"
-msgstr "NAVIGACE"
-
-msgid "OTHER FILTERS"
-msgstr "OSTATNÍ FILTRY"
-
-msgid "SELECT RANDOM GAME"
-msgstr "VYBRAT NÁHODNOU HRU"
-
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "PŘEJÍT NA HRU ZAČÍNAJÍCÍ PÍSMENEM"
-
-msgid "SORT GAMES BY"
-msgstr "Třídit hry podle"
-
-msgid "DYNAMIC COLLECTION"
-msgstr "DYNAMICKÁ SBÍRKA"
-
-msgid "CUSTOM COLLECTION"
-msgstr "SBÍRKA NA MÍRU"
-
-msgid "COLLECTION"
-msgstr "SBÍRKY"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "STYL ZOBRAZENÍ HERNÍHO SEZNAMU"
-
-msgid "automatic"
-msgstr "automaticky"
-
-msgid "VIEW CUSTOMIZATION"
-msgstr "PŘIZPŮSOBENÍ ZOBRAZENÍ"
-
-msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "POKROČILÉ SYSTÉMOVÉ MOŽNOSTI"
-
-msgid "RESET FILTERS"
-msgstr "RESET FILTRŮ"
-
-msgid "FILTER GAMES BY TEXT"
-msgstr "FILTROVAT HRY PODLE TEXTU"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "PŘIPOJIT SE K SÍTI"
-
-msgid "Select a game lobby to join"
-msgstr "Vyberte herní lobby, do které se chcete připojit"
-
-msgid "FAILED"
-msgstr "NEÚSPĚŠNÉ"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "NEZNÁMÁ VERZE ROM"
-
-msgid "DIFFERENT ROM"
-msgstr "ROZDÍLNÉ ROM"
-
-msgid "SAME ROM"
-msgstr "STEJNÁ ROM"
-
-msgid "UNAVAILABLE CORE"
-msgstr "NEDOSTUPNÉ JÁDRO"
-
-msgid "LAN GAMES"
-msgstr "HRY LOKÁLNÍ SÍTĚ"
-
-msgid "ONLINE GAMES"
-msgstr "ONLINE HRY"
-
-msgid "AVAILABLE GAMES"
-msgstr "DOSTUPNÉ HRY"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "NEDOSTUPNÉ HRY"
-
-msgid "NO GAMES FOUND"
-msgstr "NENALEZENY ŽÁDNÉ HRY"
-
-msgid "JOIN GAME"
-msgstr "PŘIPOJIT HRU"
-
-msgid "WATCH GAME"
-msgstr "SLEDOVAT HRU"
-
-msgid "REMOVE ALL"
-msgstr "VŠE ODSTRANIT"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ BLUETOOTH"
-
-msgid " (Connected)"
-msgstr " (Připojeno)"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "ZAŘÍZENÍ BLUETOOTH BYLA ODSTRANĚNA."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "JSTE SI JISTI, ŽE CHCETE ODSTRANIT '%s' ?"
-
-msgid "ZOOM OUT"
-msgstr "ZOOM-"
-
-msgid "ZOOM IN"
-msgstr "ZOOM+"
-
-msgid "MOVE"
-msgstr "PŘESUŇ"
-
-msgid "ZOOM"
-msgstr "ZVĚTŠENÍ"
-
-msgid "Points"
-msgstr "Body"
-
-msgid "Unlocked on"
-msgstr "Odblokovano"
-
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "TATO HRA ZATÍM NEMÁ ŽÁDNÉ ÚSPĚCHY"
-
-msgid "Achievements (softcore)"
-msgstr "Úspěchy (softcore)"
-
-msgid "Achievements (hardcore)"
-msgstr "Úspěchy (hardcore)"
-
-#, c-format
-msgid "%d%% complete"
-msgstr "HOTOVO %d%%"
 
 msgid "fade"
 msgstr "vyblednutí"
@@ -1754,6 +1097,9 @@ msgstr "NASTAVENÍ HRY"
 msgid "USER INTERFACE SETTINGS"
 msgstr "NASTAVENÍ UŽIVATELSKÉHO ROZHRANÍ"
 
+msgid "GAME COLLECTION SETTINGS"
+msgstr "NASTAVENÍ SBÍRKY HER"
+
 msgid "SOUND SETTINGS"
 msgstr "NASTAVENÍ ZVUKU"
 
@@ -1781,6 +1127,9 @@ msgstr "UKONČIT"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "JSTE SI JISTI, ŽE CHCETE KONFIGUROVAT VSTUP?"
 
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "TATO FUNKCE JE VYPNUTA, KDYŽ JE SPUŠTĚN VYHLEDÁVAČ"
+
 msgid "CHOOSE"
 msgstr "POHYB"
 
@@ -1795,6 +1144,9 @@ msgstr "DMD"
 
 msgid "SERVER"
 msgstr "SERVER"
+
+msgid "DISABLED"
+msgstr "VYPNUTO"
 
 msgid "DMDSERVER (for real dmd)"
 msgstr "DMDSERVER (pro reálné dmd)"
@@ -2103,6 +1455,9 @@ msgstr "RESTARTOVÁNÍ NUTNÉ PRO POUŽITÍ NOVÉ KONFIGURACE"
 msgid "DOWNLOADS"
 msgstr "ULOŽENÉ"
 
+msgid "CONTENT DOWNLOADER"
+msgstr "STAHOVÁNÍ OBSAHU"
+
 msgid "THEMES"
 msgstr "MOTIVY"
 
@@ -2123,6 +1478,12 @@ msgstr "AKTUALIZOVAT"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "AKTUALIZÁTOR JE JIŽ SPUŠTĚN"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NEJSTE PŘIPOJENI K SÍTI"
+
+msgid "LANGUAGE"
+msgstr "JAZYK"
 
 msgid "LANGUAGE (REGION)"
 msgstr "JAZYK (REGION)"
@@ -2216,6 +1577,9 @@ msgstr "UVÍTACÍ OBRÁZEK BATOCERY"
 msgid "SPLASH SETTING"
 msgstr "UVÍTACÍ NASTAVENÍ"
 
+msgid "MISSING BIOS CHECK"
+msgstr "CHYBĚJÍCÍ BIOS"
+
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "PŘED SPUŠTĚNÍM HRY ZKONTROLOVAT BIOSY"
 
@@ -2270,6 +1634,15 @@ msgstr "PŘETAKTOVÁNÍ"
 msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
+msgid "RED"
+msgstr "ČERVENÁ"
+
+msgid "GREEN"
+msgstr "ZELENÁ"
+
+msgid "BLUE"
+msgstr "MODRÁ"
+
 msgid "LED BRIGHTNESS"
 msgstr "JAS LED"
 
@@ -2278,6 +1651,9 @@ msgstr "ULOŽIŠTĚ"
 
 msgid "STORAGE DEVICE"
 msgstr "ULOŽNÉ ZAŘÍZENÍ"
+
+msgid "BACKUP USER DATA"
+msgstr "ZÁLOHOVAT UŽIVATELSKÁ DATA"
 
 msgid "ADVANCED"
 msgstr "POKROČILÉ"
@@ -2339,6 +1715,9 @@ msgstr "SADA DEKORACÍ"
 
 msgid "Current setting"
 msgstr "Aktuální nastavení"
+
+msgid "UPDATE GAMELISTS"
+msgstr "AKTUALIZOVAT SEZNAMY HER"
 
 msgid "BIOS SETTINGS"
 msgstr "NASTAVENÍ BIOSU"
@@ -2484,6 +1863,9 @@ msgstr "POKROČILÁ KONFIGURACE SYSTÉMU"
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "VYHLEDAVAČ JE SPUŠTĚN. CHCETE HO ZASTAVIT?"
 
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "HERNÍ HASHING JE SPUŠTĚN.  CHCETE HO ZASTAVIT?"
+
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "OPRAVDU AKTUALIZOVAT SEZNAMY HER?"
 
@@ -2493,8 +1875,17 @@ msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"
 msgid "THEME CONFIGURATION"
 msgstr "NASTAVENÍ MOTIVU"
 
+msgid "VIEW CUSTOMIZATION"
+msgstr "PŘIZPŮSOBENÍ ZOBRAZENÍ"
+
 msgid "GAMELIST STYLE"
 msgstr "STYL HERNÍHO SEZNAMU"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "STYL ZOBRAZENÍ HERNÍHO SEZNAMU"
+
+msgid "automatic"
+msgstr "automaticky"
 
 msgid "basic"
 msgstr "základní"
@@ -2525,6 +1916,12 @@ msgstr "ZOBRAZIT SKRYTÉ SOUBORY"
 
 msgid "SHOW FOLDERS"
 msgstr "ZOBRAZIT SLOŽKY"
+
+msgid "always"
+msgstr "vždy"
+
+msgid "never"
+msgstr "nikdy"
 
 msgid "having multiple games"
 msgstr "s více hrami"
@@ -2582,6 +1979,12 @@ msgstr "video"
 
 msgid "grid"
 msgstr "mřížka"
+
+msgid "DISPLAY OPTIONS"
+msgstr "MOŽNOSTI DISPLEJE"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "NASTAVENÍ SPOŘIČE OBRAZOVKY"
 
 msgid "LIST TRANSITION"
 msgstr "PŘECHOD NA SEZNAM"
@@ -2672,6 +2075,9 @@ msgstr "IP ADRESA"
 
 msgid "CONNECTED"
 msgstr "PŘIPOJEN"
+
+msgid "NOT CONNECTED"
+msgstr "NEPŘIPOJEN"
 
 msgid "INTERNET STATUS"
 msgstr "STAV INTERNETU"
@@ -2792,6 +2198,12 @@ msgstr "VEDLE SEBE"
 msgid "INTERNAL RESOLUTION"
 msgstr "VNITŘNÍ ROZLIŠENÍ"
 
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "EDITOVAT PROFIL KLÁVES. NA HER.OVLADAČI"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "VYTVOŘIT PROFIL KLAVES. NA HER.OVLADAČI"
+
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "SPUSTIT TUTO HRU PŘI STARTU"
 
@@ -2813,8 +2225,1017 @@ msgstr "VYBRANÉ MOŽNOSTI JSOU NEPLATNÉ"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "JSTE SI JISTI, ŽE CHCETE TUTO JEDNOTKU NAFORMÁTOVAT?"
 
-msgid "UPDATE AVAILABLE"
-msgstr "AKTUALIZACE DOSTUPNÁ"
+msgid "Points"
+msgstr "Body"
+
+msgid "Unlocked on"
+msgstr "Odblokovano"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "TATO HRA ZATÍM NEMÁ ŽÁDNÉ ÚSPĚCHY"
+
+msgid "Achievements (softcore)"
+msgstr "Úspěchy (softcore)"
+
+msgid "Achievements (hardcore)"
+msgstr "Úspěchy (hardcore)"
+
+#, c-format
+msgid "%d%% complete"
+msgstr "HOTOVO %d%%"
+
+msgid "GAME MEDIA"
+msgstr "MÉDIA HRY"
+
+msgid "VIEW GAME MANUAL"
+msgstr "ZOBRAZIT HERNÍ MANUÁL"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "ZOBRAZIT HERNÍ MAGAZÍN"
+
+msgid "VIEW GAME MAP"
+msgstr "ZOBRAZIT HERNÍ MAPU"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "ZOBRAZIT VIDEO NA CELOU OBRAZOVKU"
+
+msgid "VIEW GAME MEDIA"
+msgstr "ZOBRAZIT HERNÍ MÉDIA"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "AKTUALNÍ JÁDRO NENÍ KOMPATIBILNÍ"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "KOMPATIBILNÍ JÁDRO(A)"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "ZOBRAZIT HERNÍ ÚSPĚCHY TÉTO HRY"
+
+msgid "GAME"
+msgstr "HRA"
+
+msgid "SAVE STATES"
+msgstr "ULOŽENÉ"
+
+msgid "OPEN"
+msgstr "OTEVŘÍT"
+
+msgid "START A NETPLAY GAME"
+msgstr "SPUSTIT HRU PO SÍTI"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "START HRY"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOSTIT NETPLAY HRU"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "VEŘEJNĚ OZNÁMIT HRU"
+
+msgid "PLAYER PASSWORD"
+msgstr "HESLO HRÁČE"
+
+msgid "VIEWER PASSWORD"
+msgstr "HESLO PROHLÍŽEČE"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "NAJÍT PODOBNÉ HRY..."
+
+msgid "DELETE ITEM"
+msgstr "ODSTRANIT POLOŽKU"
+
+msgid "DELETE GAME"
+msgstr "ODSTRANIT HRU"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"OPRAVDU ODSTRANIT SOUBOR(Y) HRY!\n"
+"JSTE SI JISTI?"
+
+msgid "COLLECTIONS"
+msgstr "SBÍRKY"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "ODSTRANIT Z %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "PŘIDAT DO %s"
+
+msgid "FAVORITES"
+msgstr "OBLÍBENÉ"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
+
+msgid "DELETE COLLECTION"
+msgstr "SMAZAT SBÍRKU"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "POKROČILÉ HERNÍ NASTAVENÍ"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "EUPRAVIT METADATA SLOŽKY"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "UPRAVIT METADATA TÉTO HRY"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "ZOBRAZENÍ KONFIGURACE KLÁVESNICE NA HERNÍM OVLADAČI"
+
+msgid "RESET"
+msgstr "RESETOVAT"
+
+msgid "ADD COMBINATION KEY"
+msgstr "PŘIDAT KOMBINAČNÍ KLÍČ"
+
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
+
+msgid "PAIR"
+msgstr "PÁROVÁNÍ"
+
+msgid "NO DEVICE FOUND"
+msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "SBÍRKY K ZOBRAZENÍ"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "ZOBRAZENÉ SYSTÉMY"
+
+msgid "GROUPED SYSTEMS"
+msgstr "SESKUPENÉ SYSTÉMY"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "VYTVOŘIT VLASTNÍ SBÍRKU"
+
+msgid "New Collection Name"
+msgstr "Název nové sbírky"
+
+msgid "ENTER NAME"
+msgstr "VLOŽIT JMÉNO"
+
+msgid "CREATE FROM THEME"
+msgstr "VYTVOŘIT Z TÉMATU"
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "VYTVOŘIT NOVOU UPRAVITELNOU SBÍRKU"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "VYTVOŘIT NOVOU DYNAMICKOU SBÍRKU"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "TŘÍDĚNÍ SBÍREK A SYSTÉMŮ"
+
+msgid "ALPHABETICALLY"
+msgstr "ABECEDNĚ"
+
+msgid "BY MANUFACTURER"
+msgstr "PODLE VÝROBCE"
+
+msgid "BY HARDWARE TYPE"
+msgstr "PODLE TYPU HARDWARU"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr "PODLE VÝROBCE A TYPU"
+
+msgid "BY RELEASE YEAR"
+msgstr "PODLE ROKU VYDÁNÍ"
+
+msgid "SORT SYSTEMS"
+msgstr "TŘÍDICÍ SYSTÉMY"
+
+msgid "START ON SYSTEM"
+msgstr "SPUSTIT V SYSTÉMU"
+
+msgid "RESTORE LAST SELECTED"
+msgstr "OBNOVIT POSLEDNÍ VYBRANÉ"
+
+msgid "START ON GAMELIST"
+msgstr "ZAČÍT NA SEZNAMU HER"
+
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr "SKUPINOVÉ VLASTNÍ SBÍRKY"
+
+msgid "UNTHEMED"
+msgstr "NEZAMĚŘENÉ"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "ZOBRAZIT NÁZEV SYSTÉMU VE SBÍRKÁCH"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "ZOBRAZIT HRY SKRYTÝCH SYSTÉMŮ VE SBÍRKÁCH"
+
+msgid "SHOW EMPTY SYSTEMS"
+msgstr "ZOBRAZIT PRÁZDNÉ SYSTÉMY"
+
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr "NEZOBRAZOVAT SUPINY S POUZE JEDNÍM SYSTÉMEM"
+
+msgid "Loading..."
+msgstr "Načítání..."
+
+msgid "SELECT COLLECTIONS"
+msgstr "VYBRAT SBÍRKY"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr "AUTOMATICKÉ SBÍRKY"
+
+msgid "PER GENRE"
+msgstr "PRO ŽÁNR"
+
+msgid "ARCADE SYSTEMS"
+msgstr "ARKÁDE SYSTÉMY"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "AUTOMATICKÉ SBÍRKY HER"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "UPRAVITELNÉ SBÍRKY"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "DYNAMICKÉ SBÍRKY"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "VLASTNÍ KOLEKCE HER"
+
+msgid "GAMES TO INDEX"
+msgstr "HRY DO INDEXU"
+
+msgid "ONLY MISSING"
+msgstr "POUZE CHYBĚJÍCÍ"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "VYBERTE OBSAH, KTERÝ CHCETE NAINSTALOVAT/ODSTRANIT"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "AKTUALIZACE INSTALOVANÉHO OBSAHU"
+
+msgid "MISC"
+msgstr "RŮZNÉ"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "ODINSTALACE PŘIDÁNA DO FRONTY"
+
+msgid "SAVESTATE MANAGER"
+msgstr "SPRÁVCE UKLÁDÁNÍ POZIC"
+
+msgid "START NEW GAME"
+msgstr "START NOVÉ HRY"
+
+msgid "START NEW AUTO SAVE"
+msgstr "SPUSTIT Z AUTO. ULOŽENÍ"
+
+msgid "AUTO SAVE"
+msgstr "AUTO. ULOŽENÍ"
+
+msgid "SLOT"
+msgstr "SLOT"
+
+msgid "COPY TO FREE SLOT"
+msgstr "KOPÍROVÁT DO VOLNÉHO SLOTU"
+
+msgid "VIEW OPTIONS"
+msgstr "ZOBRAZIT MOŽNOSTI"
+
+msgid "NAVIGATION"
+msgstr "NAVIGACE"
+
+msgid "OTHER FILTERS"
+msgstr "OSTATNÍ FILTRY"
+
+msgid "SELECT RANDOM GAME"
+msgstr "VYBRAT NÁHODNOU HRU"
+
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "PŘEJÍT NA HRU ZAČÍNAJÍCÍ PÍSMENEM"
+
+msgid "SORT GAMES BY"
+msgstr "Třídit hry podle"
+
+msgid "DYNAMIC COLLECTION"
+msgstr "DYNAMICKÁ SBÍRKA"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "UPRAVIT DYNAMICKÉ FILTRY SBÍREK"
+
+msgid "CUSTOM COLLECTION"
+msgstr "SBÍRKA NA MÍRU"
+
+msgid "COLLECTION"
+msgstr "SBÍRKY"
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "POKROČILÉ SYSTÉMOVÉ MOŽNOSTI"
+
+msgid "RESET FILTERS"
+msgstr "RESET FILTRŮ"
+
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTROVAT HRY PODLE TEXTU"
+
+msgid "NO MISSING BIOS FILES"
+msgstr "NECHYBÍ ŽÁDNÉ SOUBORY BIOSU"
+
+msgid "Installed systems"
+msgstr "Instalované systémy"
+
+msgid "refresh"
+msgstr "obnovit"
+
+msgid "NO MISSING BIOS"
+msgstr "NECHYBÍ ŽÁDNÝ BIOS"
+
+msgid "ZOOM OUT"
+msgstr "ZOOM-"
+
+msgid "ZOOM IN"
+msgstr "ZOOM+"
+
+msgid "MOVE"
+msgstr "PŘESUŇ"
+
+msgid "ZOOM"
+msgstr "ZVĚTŠENÍ"
+
+msgid "EDIT METADATA"
+msgstr "EDITACE METADAT"
+
+msgid "GENRES"
+msgstr "ŽÁNRY"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+"NĚKTERÉ SOUBORY, KTERÉ JSTE PROPOJILI, SE NACHÁZEJÍ MIMO CESTU K SEZNAMU "
+"HER.\n"
+"CHCETE POUŽÍT KOPII TĚCHTO SOUBORŮ VZHLEDEM K SEZNAMU HER ?"
+
+msgid "FAVORITE SONGS"
+msgstr "OBLÍBENÉ SKLADBY"
+
+msgid "CONNECT TO NETPLAY"
+msgstr "PŘIPOJIT SE K SÍTI"
+
+msgid "Select a game lobby to join"
+msgstr "Vyberte herní lobby, do které se chcete připojit"
+
+msgid "FAILED"
+msgstr "NEÚSPĚŠNÉ"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "NEZNÁMÁ VERZE ROM"
+
+msgid "DIFFERENT ROM"
+msgstr "ROZDÍLNÉ ROM"
+
+msgid "SAME ROM"
+msgstr "STEJNÁ ROM"
+
+msgid "UNAVAILABLE CORE"
+msgstr "NEDOSTUPNÉ JÁDRO"
+
+msgid "LAN GAMES"
+msgstr "HRY LOKÁLNÍ SÍTĚ"
+
+msgid "ONLINE GAMES"
+msgstr "ONLINE HRY"
+
+msgid "AVAILABLE GAMES"
+msgstr "DOSTUPNÉ HRY"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "NEDOSTUPNÉ HRY"
+
+msgid "NO GAMES FOUND"
+msgstr "NENALEZENY ŽÁDNÉ HRY"
+
+msgid "JOIN GAME"
+msgstr "PŘIPOJIT HRU"
+
+msgid "WATCH GAME"
+msgstr "SLEDOVAT HRU"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "NASTAVENÍ OVLADAČE"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "NASTAVENÍ HER.OVLADAČE A BLUETOOTH"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "PRIORITA OVLADAČŮ"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "PŘIDĚLENÍ HRÁČŮ"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "OVLADAČ #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i'S HER.OVLADAČ"
+
+msgid "CONTROLLER MAPPING"
+msgstr "MAPOVÁNÍ HER. OVLADAČE"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"BUDETE MAPOVAT OVLADAČ. MAPOVAT NA ZÁKLADĚ POZICE TLAČÍTKA, NIKOLI JEHO "
+"FYZICKÉHO OZNAČENÍ. POKUD NEMÁTE SPECIÁLNÍ TLAČÍTKO PRO KLÁVESOVOU ZKRATKU, "
+"POUŽIJTE TLAČÍTKO VÝBĚRU. PODRŽENÍM LIBOVOLNÉHO TLAČÍTKA PŘESKOČTE VŠECHNA "
+"TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO "
+"POTVRZENÍ."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "NASTAVENÍ ZBRANĚ SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "NASTAVENÍ MYŠI/PISTOLE STEAMDECK"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "ENABLE BLUETOOTH"
+msgstr "ZAPNOUT BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "AUTOMATICKÉ PÁROVÁNÍ BLUETOOTH OVLADAČE"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "RUČNÍ SPÁROVÁNÍ ZAŘÍZENÍ BLUETOOTH"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr "ZOBRAZIT OZNÁMENÍ OVLADAČE"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "VYKRESLIT ZAMĚŘOVAČ ZBRANĚ"
+
+msgid "BEHAVIOR"
+msgstr "BEHAVIOR"
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr "OMEZIT HORKÉ KLÁVESY PRO UKONČENÍ"
+
+msgid "default"
+msgstr "výchozí"
+
+msgid "BORDER SIZE"
+msgstr "VELIKOST OHRANIČENÍ"
+
+msgid "THIN"
+msgstr "TENKÁ"
+
+msgid "MEDIUM"
+msgstr "STŘEDNÍ"
+
+msgid "BIG"
+msgstr "VELKÁ"
+
+msgid "BORDER MODE"
+msgstr "HRANIČNÍ REŽIM"
+
+msgid "NORMAL"
+msgstr "NORMÁLNÍ"
+
+msgid "IN GAME ONLY"
+msgstr "POUZE VE HŘE"
+
+msgid "HIDDEN"
+msgstr "SKRYTÝ"
+
+msgid "BORDER COLOR"
+msgstr "BARVA HRANICE"
+
+msgid "WHITE"
+msgstr "BÍLÁ"
+
+msgid "BORDER RATIO"
+msgstr "POMĚR OKRAJŮ"
+
+msgid "CAMERA CONTRAST"
+msgstr "KONTRAST KAMERY"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Denní/jasné sluneční světlo (40)"
+
+msgid "Default (50)"
+msgstr "Výchozí (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Stmívání displeje/večer (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "JAS KAMERY"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Denní/jasné sluneční světlo (80)"
+
+msgid "Default (100)"
+msgstr "Výchozí (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Stmívání displeje/večer (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "EXPOZICE KAMERY"
+
+msgid "Projector/CRT (-5)"
+msgstr "Projektor/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Projektor/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Výchozí (-7)"
+
+msgid "Other (-8)"
+msgstr "Ostatní (-8)"
+
+msgid "Other (-9)"
+msgstr "Ostatní (-9)"
+
+msgid "RECOIL"
+msgstr "ZÁKLUZ"
+
+msgid "GUN"
+msgstr "PISTOLE"
+
+msgid "MACHINE GUN"
+msgstr "AUTOMATICKÁ ZBRAŇ"
+
+msgid "QUIET GUN"
+msgstr "TICHÁ ZBRAŇ"
+
+msgid "QUIET MACHINE GUN"
+msgstr "TICHÁ AUTOMATICKÁ ZBRAŇ"
+
+msgid "MODE"
+msgstr "MÓD"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr "POUZE MYŠ"
+
+msgid "HAND"
+msgstr "RUČNÍ"
+
+msgid "LEFT"
+msgstr "LEVÁ"
+
+msgid "RIGHT"
+msgstr "PRAVÁ"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FILTROVAT SEZNAM HER PODLE"
+
+msgid "RESET ALL FILTERS"
+msgstr "RESETOVAT VŠECHNY FILTRY"
+
+msgid "FIND GAMES"
+msgstr "HLEDAT HRY"
+
+msgid "SYSTEMS"
+msgstr "SYSTÉMY"
+
+msgid "FILE BROWSER"
+msgstr "DATOVÝ PROHLÍŽEČ"
+
+msgid "PARENT FOLDER"
+msgstr "NADŘAZENÁ SLOŽKA"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "SLOŽKA SNÍMKŮ OBRAZOVKY"
+
+msgid "dim"
+msgstr "tmavý"
+
+msgid "black"
+msgstr "černý"
+
+msgid "random video"
+msgstr "náhodné video"
+
+msgid "slideshow"
+msgstr "prezentace"
+
+msgid "suspend"
+msgstr "pozastavit"
+
+msgid "start & end"
+msgstr "začátek a konec"
+
+msgid "systems"
+msgstr "systémy"
+
+msgid "random"
+msgstr "náhodný"
+
+msgid "START SCREENSAVER AFTER"
+msgstr "SPUSTIT SPOŘIČ OBRAZOVKY PO"
+
+msgid "SCREENSAVER TYPE"
+msgstr "TYP SPOŘIČE OBRAZOVKY"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "ZASTAVENÍ HUDBY PŘISPOŘIČI OBRAZOVKY"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "NASTAVENÍ NÁHODNÉHO SPOŘIČE OBRAZOVKY"
+
+msgid "VIDEO DURATION (SECS)"
+msgstr "TRVÁNÍ VIDEA (SEK)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "POUŽITÍ PŘEHRÁVAČE OMX PRO SPOŘIČ OBRAZOVKY"
+
+msgid "SHOW GAME INFO"
+msgstr "ZOBRAZIT INFO O HŘE"
+
+msgid "SHOW DATE TIME"
+msgstr "ZOBRAZIT DATUM ČAS"
+
+msgid "DATE FORMAT"
+msgstr "FORMÁT DATUMU"
+
+msgid "TIME FORMAT"
+msgstr "FORMÁT ČASU"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "POUŽIJ MARQUEE JAKO INFORMACE O HŘE"
+
+msgid "DECORATION SET USED"
+msgstr "POUŽITÁ SADA DEKORACÍ"
+
+msgid "STRETCH VIDEOS"
+msgstr "NALEZENA VIDEA"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "VYPNUTÍ ZVUKU VIDEA"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "OVLÁDÁNÍ SPOŘIČE OBRAZOVKY"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "POUŽÍT VLASTNÍ VIDEA"
+
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr "ADRESÁŘ VLASTNÍCH VIDEI"
+
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "POUŽITÍ VIDEÍ V PODSLOŽKÁCH VLASTNÍHO ADRESÁŘE"
+
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr "VLASTNÍ ROZŠÍŘENÍ SOUBORU VIDEA"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "NASTAVENÍ PREZENTACE SPOŘIČE OBRAZOVKY"
+
+msgid "IMAGE DURATION (SECS)"
+msgstr "DOBA TRVÁNÍ SNÍMKU (SEK)"
+
+msgid "STRETCH IMAGES"
+msgstr "ROZTAŽENÍ OBRÁZKU"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "POUŽÍT VLASTNÍ OBRÁZKY"
+
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr "VLASTNÍ ADRESÁŘ OBRÁZKU"
+
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "POUŽITÍ OBRÁZKŮ V PODSLOŽKÁCH VLASTNÍHO ADRESÁŘE"
+
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr "VLASTNÍ PŘÍPONY OBRAZOVÝCH SOUBORŮ"
+
+msgid "INVALID CONTENT"
+msgstr "NEPLATNÝ OBSAH"
+
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Je vyžadován platný účet. Zaregistrujte si prosím účet na https://"
+"retroachievements.org"
+
+msgid "Full"
+msgstr "Plný"
+
+msgid "Kiosk"
+msgstr "Prodejna"
+
+msgid "Kid"
+msgstr "Dítě"
+
+msgid "Basic"
+msgstr "Základní"
+
+msgid "Games similar to"
+msgstr "Podobné hry jako"
+
+msgid "SAVE STATES (HOLD)"
+msgstr "ULOŽENÉ"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "MOŽNOSTI"
+
+msgid "GAME OPTIONS"
+msgstr "HERNÍ MOŽNOSTI"
+
+msgid "FAVORITE"
+msgstr "OBLÍBENÉ"
+
+msgid "RANDOM"
+msgstr "NÁHODNÝ"
+
+#, c-format
+msgid "Back to %s"
+msgstr "Zpět na %s"
+
+msgid "No Entries Found"
+msgstr "Nebyly nalezeny žádné záznamy"
+
+msgid "Times played"
+msgstr "Přehrané časy"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "Tato složka obsahuje %i hra, včetně: %s"
+msgstr[1] "Tato složka obsahuje %i hry, včetně: %s"
+msgstr[2] "Tato složka obsahuje %i her, včetně: %s"
+
+msgid "SYSTEM INFO"
+msgstr "INFORMACE O SYSTÉMU"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr "CHYBA: KAŽDÝ SYSTÉM JE SKRYTÝ, NYNÍ SE VŠECHNY ZNOVU ZOBRAZÍ"
+
+msgid "QUICK SEARCH"
+msgstr "RYCHLÉ HLEDÁNÍ"
+
+msgid "GO TO LETTER"
+msgstr "PŘEJÍT NA DOPIS"
+
+msgid "GO TO MANUFACTURER"
+msgstr "VÝBĚR SYSTÉMU"
+
+msgid "GO TO HARDWARE"
+msgstr "PŘEJÍT NA HARDWARE"
+
+msgid "GO TO DECADE"
+msgstr "PŘEJÍT DO SEKCE DEKADA"
+
+msgid "CONFIGURATION"
+msgstr "KONFIGURACE"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i SBÍRKA"
+msgstr[1] "%i SBÍRKY"
+msgstr[2] "%i SBÍREK"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i POLOŽKA"
+msgstr[1] "%i POLOŽKY"
+msgstr[2] "%i POLOŽEK"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i HRA"
+msgstr[1] "%i HRY"
+msgstr[2] "%i HER"
+
+msgid "NAVIGATION BAR"
+msgstr "NAVIGAČNÍ LIŠTA"
+
+msgid "FILES"
+msgstr "SOUBORY"
+
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"VAROVÁNÍ: AKTUÁLNĚ NASTAVENÝ EMULÁTOR/JÁDRO NEPODPORUJE FORMÁT SOUBORU TÉTO "
+"HRY.\n"
+"CHCETE JI PŘESTO SPUSTIT?"
+
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"VAROVÁNÍ: V SYSTÉMU CHYBÍ SOUBORY BIOSU A HRA NEMŮŽE FUNGOVAT SPRÁVNĚ.\n"
+"CHCETE JI PŘESTO SPUSTIT?"
+
+msgid "Preloading UI"
+msgstr "Přednačítám UI"
+
+msgid "Loading theme"
+msgstr "Načítání motivu"
+
+msgid "Loading gamelists"
+msgstr "Načítání seznamu her"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "GENRE"
+msgstr "ŽÁNR"
+
+msgid "FAMILY"
+msgstr "RODINA"
+
+msgid "PLAYERS"
+msgstr "HRÁČI"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "VYDAVATEL/VÝVOJÁŘ"
+
+msgid "RATING"
+msgstr "HODNOCENÍ"
+
+msgid "YEAR"
+msgstr "ROK"
+
+msgid "REGION"
+msgstr "REGION"
+
+msgid "KIDGAME"
+msgstr "DĚTSKÁ HRA"
+
+msgid "ALREADY PLAYED"
+msgstr "JIŽ HRANÉ"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "MÉ ÚSPĚCHY"
+
+msgid "VERTICAL"
+msgstr "VERTIKÁLNĚ"
+
+msgid "LIGHTGUN"
+msgstr "SVĚTELNÁ ZBRAŇ"
+
+msgid "STEERING WHEEL"
+msgstr "ŘÍDICÍ KOLO"
+
+msgid "TRACKBALL"
+msgstr "TRACKBALL"
+
+msgid "SPINNER"
+msgstr "SPINNER"
+
+msgid "HAVING MEDIAS"
+msgstr "MAJÍCÍ MÉDIA"
+
+msgid "MISSING MEDIAS"
+msgstr "CHYBĚJÍCÍ MÉDIA"
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "CHCETE PŘEPNOUT OBRAZOVKU ?"
+
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
+msgid "SCRAPING"
+msgstr "VYHLEDÁVÁNÍ"
+
+msgid "SCRAPE FAILED"
+msgstr "VYHLEDÁVÁNÍ SE NEPOVEDLO"
+
+msgid "SCRAPING FINISHED"
+msgstr "VYHLEDÁVÁNÍ DOKONČENO"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "AKTUALIZOVAT SEZNAMY HER A POUŽÍT ZMĚNY."
+
+msgid "Loading system config..."
+msgstr "Načítání konfigurace systému..."
+
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "UKLÁDÁNÍ METADAT, PROSÍM POČKEJTE."
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "EMULÁTOR SE NEOČEKÁVANĚ UKONČIL"
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "ŠPATNÉ ARGUMENTY PŘÍKAZOVÉHO ŘÁDKU"
+
+msgid "INVALID CONFIGURATION"
+msgstr "NEPLATNÁ KONFIGURACE"
+
+msgid "UNKNOWN EMULATOR"
+msgstr "NEZNÁMÝ EMULÁTOR"
+
+msgid "EMULATOR IS MISSING"
+msgstr "CHYBÍ EMULÁTOR"
+
+msgid "CORE IS MISSING"
+msgstr "CHYBÍ JÁDRO"
+
+msgid "UKNOWN ERROR"
+msgstr "NEZNÁMA CHYBA"
+
+msgid "Interlaced"
+msgstr "Prokládaný"
+
+msgid "all games"
+msgstr "všechny hry"
+
+msgid "last played"
+msgstr "naposledy přehráno"
+
+msgid "favorites"
+msgstr "oblíbené"
+
+msgid "2 players"
+msgstr "2 hráči"
+
+msgid "4 players"
+msgstr "4 hráči"
+
+msgid "never played"
+msgstr "nikdy nepřehrál"
+
+msgid "retroachievements"
+msgstr "retroúspechy"
+
+msgid "arcade"
+msgstr "arkáda"
+
+msgid "vertical arcade"
+msgstr "vertikální arkáda"
+
+msgid "lightgun games"
+msgstr "hry se světelnou pistolí"
+
+msgid "wheel games"
+msgstr "kolové hry"
+
+msgid "trackball games"
+msgstr "trackball hry"
+
+msgid "spinner games"
+msgstr "spinner hry"
+
+msgid "collections"
+msgstr "sbírky"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "Přidáno '%s' do '%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "Odstraněno '%s' z '%s'"
+
+msgid "This collection is empty."
+msgstr "Tato sbírka je prázdná."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Žádné"
+
+msgid "Various"
+msgstr "Různé"
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "VYHLEDÁVÁNÍ RETROÚSPĚCHU"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "VYHLEDÁVÁNÍ HER PRO NETPLAY"
+
+msgid "INDEXING COMPLETED"
+msgstr "NDEXOVÁNÍ DOKONČENO"
 
 msgid "FILENAME, ASCENDING"
 msgstr "NÁZEV SOUBORU, VZESTUPNĚ"
@@ -2903,448 +3324,8 @@ msgstr "ROK VYDÁNÍ, SYSTÉM, SESTUPNĚ"
 msgid "A,AN,THE"
 msgstr "A,AN,THE"
 
-msgid "INVALID CONTENT"
-msgstr "NEPLATNÝ OBSAH"
-
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr ""
-"Je vyžadován platný účet. Zaregistrujte si prosím účet na https://"
-"retroachievements.org"
-
-msgid "Searching"
-msgstr "Vyhledávání"
-
-msgid "Publisher"
-msgstr "Vydavatel"
-
-msgid "Developer"
-msgstr "Tvůrce"
-
-msgid "Genre"
-msgstr "Žánr"
-
-msgid "Players"
-msgstr "Hráči"
-
-msgid "Released"
-msgstr "Datum vydáni"
-
-msgid "Rating"
-msgstr "Hodnocení"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "NEBYLY NALEZENY ŽÁDNÉ HRY - PŘESKOČIT"
-
-msgid "RETRY"
-msgstr "ZNOVU"
-
-msgid "SKIP"
-msgstr "PŘESKOČIT"
-
-msgid "Downloading"
-msgstr "Stahování"
-
-msgid "SEARCH FOR"
-msgstr "HLEDAT"
-
-msgid "ACCEPT RESULT"
-msgstr "PŘIJMOUT VÝSLEDEK"
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "EMULÁTOR SE NEOČEKÁVANĚ UKONČIL"
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr "ŠPATNÉ ARGUMENTY PŘÍKAZOVÉHO ŘÁDKU"
-
-msgid "INVALID CONFIGURATION"
-msgstr "NEPLATNÁ KONFIGURACE"
-
-msgid "UNKNOWN EMULATOR"
-msgstr "NEZNÁMÝ EMULÁTOR"
-
-msgid "EMULATOR IS MISSING"
-msgstr "CHYBÍ EMULÁTOR"
-
-msgid "CORE IS MISSING"
-msgstr "CHYBÍ JÁDRO"
-
-msgid "UKNOWN ERROR"
-msgstr "NEZNÁMA CHYBA"
-
-msgid "Name"
-msgstr "Název"
-
-msgid "this game's name"
-msgstr "jméno této hry"
-
-msgid "Description"
-msgstr "Popis"
-
-msgid "this game's description"
-msgstr "popis této hry"
-
-msgid "emulator"
-msgstr "emulátor"
-
-msgid "core"
-msgstr "jádro"
-
-msgid "Image"
-msgstr "Obrázek"
-
-msgid "enter path to image"
-msgstr "zadejte cestu k obrázku"
-
-msgid "Video"
-msgstr "Video"
-
-msgid "enter path to video"
-msgstr "zadejte cestu k videu"
-
-msgid "Logo"
-msgstr "Logo"
-
-msgid "enter path to logo"
-msgstr "zadejte cestu k logu"
-
-msgid "Box"
-msgstr "Obal"
-
-msgid "enter path to box"
-msgstr "zadejte cestu ke schránce"
-
-msgid "Fan art"
-msgstr "Fanouškovská tvorba"
-
-msgid "enter path to fanart"
-msgstr "zadejte cestu k fanouškovské tvorbě"
-
-msgid "Title shot"
-msgstr "Titulní snímek"
-
-msgid "enter path to title shot"
-msgstr "zadejte cestu k titulnímu snímku"
-
-msgid "Manual"
-msgstr "Manuál"
-
-msgid "enter path to manual"
-msgstr "zadejte cestu k příručce"
-
-msgid "Magazine"
-msgstr "Časopis"
-
-msgid "enter path to magazine"
-msgstr "zadejte cestu k časopisu"
-
-msgid "Map"
-msgstr "Mapa"
-
-msgid "enter path to map"
-msgstr "zadejte cestu k mapě"
-
-msgid "Bezel (16:9)"
-msgstr "Rámeček (16:9)"
-
-msgid "enter path to bezel (16:9)"
-msgstr "zadejte cestu k rámečku (16:9)"
-
-msgid "Cartridge"
-msgstr "Kazeta"
-
-msgid "enter path to cartridge"
-msgstr "zadejte cestu ke kazetě"
-
-msgid "Alt BoxArt"
-msgstr "Alternatívní obrázek obalu"
-
-msgid "enter path to alt boxart"
-msgstr "zadejte cestu k alternativnímu obalu"
-
-msgid "Box backside"
-msgstr "Zadní strana obalu"
-
-msgid "enter path to box background"
-msgstr "zadejte cestu k zadní straně obalu"
-
-msgid "Wheel"
-msgstr "Kolo"
-
-msgid "enter path to wheel"
-msgstr "zadejte cestu ke kolu"
-
-msgid "Mix"
-msgstr "Mix"
-
-msgid "enter path to mix"
-msgstr "zadejte cestu k mixu"
-
-msgid "enter rating"
-msgstr "zadejte hodnocení"
-
-msgid "Release date"
-msgstr "Datum vydání"
-
-msgid "enter release date"
-msgstr "zadejte datum vydání"
-
-msgid "this game's developer"
-msgstr "tvůrce této hry"
-
-msgid "this game's publisher"
-msgstr "vydavatel této hry"
-
-msgid "enter game genre"
-msgstr "zadejte žánr hry"
-
-msgid "Game family"
-msgstr "Rodinná hra"
-
-msgid "this game's game family"
-msgstr "herní rodina této hry"
-
-msgid "Genres"
-msgstr "Žánry"
-
-msgid "enter game genres"
-msgstr "zadejte herní žánry"
-
-msgid "Arcade system"
-msgstr "Arkádový systém"
-
-msgid "this game's arcade system"
-msgstr "arkádový systém této hry"
-
-msgid "this game's number of players"
-msgstr "počet hráčů této hry"
-
-msgid "Favorite"
-msgstr "Oblíbené"
-
-msgid "enter favorite"
-msgstr "zadejte oblíbené"
-
-msgid "Hidden"
-msgstr "Skryté"
-
-msgid "enter hidden"
-msgstr "zadat skryté"
-
-msgid "Kidgame"
-msgstr "Dětská hra"
-
-msgid "enter kidgame"
-msgstr "zadat dětskou hru"
-
-msgid "Play count"
-msgstr "Počet přehrávek"
-
-msgid "enter number of times played"
-msgstr "zadejte počet přehrání"
-
-msgid "Last played"
-msgstr "Naposledy přehrané"
-
-msgid "enter last played date"
-msgstr "zadejte datum posledního přehrání"
-
-msgid "Crc32"
-msgstr "Crc32"
-
-msgid "Crc32 checksum"
-msgstr "Kontrolní součet Crc32"
-
-msgid "Md5"
-msgstr "Md5"
-
-msgid "Md5 checksum"
-msgstr "Kontrolní součet Md5"
-
-msgid "Game time"
-msgstr "Herní čas"
-
-msgid "how long the game has been played in total (seconds)"
-msgstr "jak dlouho byla hra celkem hrána (sekundy)"
-
-msgid "Languages"
-msgstr "Jazyky"
-
-msgid "this game's languages"
-msgstr "jazyk této hry"
-
-msgid "Region"
-msgstr "Region"
-
-msgid "this game's region"
-msgstr "region této hry"
-
-msgid "Cheevos Hash"
-msgstr "Cheevos Hash"
-
-msgid "Cheevos checksum"
-msgstr "Kontrolní součet Cheevos"
-
-msgid "Cheevos Game ID"
-msgstr "Cheevos Hry ID"
-
-msgid "Screenscraper Game ID"
-msgstr "Vyhledávač snímku ID hry"
-
-msgid "INVALID CREDENTIALS"
-msgstr ""
-
-msgid "SCRAPING"
-msgstr "VYHLEDÁVÁNÍ"
-
-msgid "SCRAPE FAILED"
-msgstr "VYHLEDÁVÁNÍ SE NEPOVEDLO"
-
-msgid "SCRAPING FINISHED"
-msgstr "VYHLEDÁVÁNÍ DOKONČENO"
-
-msgid "Extracting"
-msgstr "Rozbalování"
-
-msgid "SYSTEM INFO"
-msgstr "INFORMACE O SYSTÉMU"
-
-msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "CHYBA: KAŽDÝ SYSTÉM JE SKRYTÝ, NYNÍ SE VŠECHNY ZNOVU ZOBRAZÍ"
-
-msgid "QUICK SEARCH"
-msgstr "RYCHLÉ HLEDÁNÍ"
-
-msgid "GO TO LETTER"
-msgstr "PŘEJÍT NA DOPIS"
-
-msgid "GO TO MANUFACTURER"
-msgstr "VÝBĚR SYSTÉMU"
-
-msgid "GO TO HARDWARE"
-msgstr "PŘEJÍT NA HARDWARE"
-
-msgid "GO TO DECADE"
-msgstr "PŘEJÍT DO SEKCE DEKADA"
-
-msgid "CONFIGURATION"
-msgstr "KONFIGURACE"
-
-#, c-format
-msgid "%i COLLECTION"
-msgid_plural "%i COLLECTIONS"
-msgstr[0] "%i SBÍRKA"
-msgstr[1] "%i SBÍRKY"
-msgstr[2] "%i SBÍREK"
-
-#, c-format
-msgid "%i ITEM"
-msgid_plural "%i ITEMS"
-msgstr[0] "%i POLOŽKA"
-msgstr[1] "%i POLOŽKY"
-msgstr[2] "%i POLOŽEK"
-
-#, c-format
-msgid "%i GAME"
-msgid_plural "%i GAMES"
-msgstr[0] "%i HRA"
-msgstr[1] "%i HRY"
-msgstr[2] "%i HER"
-
-msgid "RANDOM"
-msgstr "NÁHODNÝ"
-
-msgid "NAVIGATION BAR"
-msgstr "NAVIGAČNÍ LIŠTA"
-
-msgid "FILES"
-msgstr "SOUBORY"
-
-msgid "Times played"
-msgstr "Přehrané časy"
-
-#, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Tato složka obsahuje %i hra, včetně: %s"
-msgstr[1] "Tato složka obsahuje %i hry, včetně: %s"
-msgstr[2] "Tato složka obsahuje %i her, včetně: %s"
-
-msgid "Games similar to"
-msgstr "Podobné hry jako"
-
-msgid "SAVE STATES (HOLD)"
-msgstr "ULOŽENÉ"
-
-msgid "GAME OPTIONS (HOLD)"
-msgstr "MOŽNOSTI"
-
-msgid "GAME OPTIONS"
-msgstr "HERNÍ MOŽNOSTI"
-
-msgid "FAVORITE"
-msgstr "OBLÍBENÉ"
-
-#, c-format
-msgid "Back to %s"
-msgstr "Zpět na %s"
-
-msgid "No Entries Found"
-msgstr "Nebyly nalezeny žádné záznamy"
-
-msgid ""
-"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
-"FORMAT.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-"VAROVÁNÍ: AKTUÁLNĚ NASTAVENÝ EMULÁTOR/JÁDRO NEPODPORUJE FORMÁT SOUBORU TÉTO "
-"HRY.\n"
-"CHCETE JI PŘESTO SPUSTIT?"
-
-msgid ""
-"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
-"CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-"VAROVÁNÍ: V SYSTÉMU CHYBÍ SOUBORY BIOSU A HRA NEMŮŽE FUNGOVAT SPRÁVNĚ.\n"
-"CHCETE JI PŘESTO SPUSTIT?"
-
-msgid "Preloading UI"
-msgstr "Přednačítám UI"
-
-msgid "Loading theme"
-msgstr "Načítání motivu"
-
-msgid "Loading gamelists"
-msgstr "Načítání seznamu her"
-
-msgid "MENU"
-msgstr "MENU"
-
-msgid "Full"
-msgstr "Plný"
-
-msgid "Kiosk"
-msgstr "Prodejna"
-
-msgid "Kid"
-msgstr "Dítě"
-
-msgid "Basic"
-msgstr "Základní"
-
-msgid "Loading system config..."
-msgstr "Načítání konfigurace systému..."
-
-msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "UKLÁDÁNÍ METADAT, PROSÍM POČKEJTE."
-
-msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "CHCETE PŘEPNOUT OBRAZOVKU ?"
-
-msgid "Interlaced"
-msgstr "Prokládaný"
+msgid "UPDATE AVAILABLE"
+msgstr "AKTUALIZACE DOSTUPNÁ"
 
 #, c-format
 msgid "%s connected"
@@ -3354,8 +3335,121 @@ msgstr "%s připojen"
 msgid "%s disconnected"
 msgstr "%s odpojen"
 
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d mn"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sec"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "před %d rokem"
+msgstr[1] "před %d lety"
+msgstr[2] "před %d lety"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d před dnem"
+msgstr[1] "%d před dny"
+msgstr[2] "%d před dny"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d před hodinou"
+msgstr[1] "%d před hodinami"
+msgstr[2] "%d před hodinami"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d před minutou"
+msgstr[1] "%d před minutami"
+msgstr[2] "%d před minutami"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d před sekundou"
+msgstr[1] "%d před sekundami"
+msgstr[2] "%d před sekundami"
+
+msgid "MOVE CURSOR"
+msgstr "PŘESUNOUT KURZOR"
+
+msgid "EDIT"
+msgstr "UPRAVIT"
+
+msgid "CHANGE"
+msgstr "ZMĚNIT"
+
+msgid "WORKING..."
+msgstr "PRACUJI..."
+
+msgid "up/down"
+msgstr "nahoru/dolů"
+
+msgid "accept"
+msgstr "přijmout"
+
+msgid "SELECT ALL"
+msgstr "OZNAČIT VŠE"
+
+msgid "select all"
+msgstr "označit vše"
+
+msgid "SELECT NONE"
+msgstr "ŽÁDNÝ VÝBĚR"
+
+msgid "select none"
+msgstr "žádný výběr"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i VYBRANÁ"
+msgstr[1] "%i VYBRANÉ"
+msgstr[2] "%i VYBRANÝCH"
+
+msgid "ENABLED"
+msgstr "ZAPNUTO"
+
 msgid "DISCARD CHANGES"
 msgstr "ZAHODIT ZMĚNY"
+
+msgid "WELCOME"
+msgstr "VÍTEJ"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "DETEKOVÁN %i GAMEPAD"
+msgstr[1] "DETEKOVANÉ %i GAMEPADY"
+msgstr[2] "DETEKOVÁNO %i GAMEPADŮ"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "NEBYLY ZJIŠTĚNY ŽÁDNÉ GAMEPADY"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "PODRŽENÍM TLAČÍTKA NA ZAŘÍZENÍ JEJ NAKONFIGURUJETE."
+
+msgid "PRESS ESC TO CANCEL."
+msgstr "STISKNĚTE ESC PRO ZRUŠENÍ."
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "STISKNĚTE ESC NEBO HOTKEY PRO ZRUŠENÍ."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFTY PRO HORNÍ, DOLNÍ A SPECIÁLNÍ"
@@ -3514,27 +3608,11 @@ msgstr "STISKNĚTE COKOLI"
 msgid "ALREADY TAKEN"
 msgstr "JIŽ PŘIJATO"
 
-msgid "WELCOME"
-msgstr "VÍTEJ"
+msgid "SCREEN READER ENABLED"
+msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "DETEKOVÁN %i GAMEPAD"
-msgstr[1] "DETEKOVANÉ %i GAMEPADY"
-msgstr[2] "DETEKOVÁNO %i GAMEPADŮ"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "NEBYLY ZJIŠTĚNY ŽÁDNÉ GAMEPADY"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "PODRŽENÍM TLAČÍTKA NA ZAŘÍZENÍ JEJ NAKONFIGURUJETE."
-
-msgid "PRESS ESC TO CANCEL."
-msgstr "STISKNĚTE ESC PRO ZRUŠENÍ."
-
-msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "STISKNĚTE ESC NEBO HOTKEY PRO ZRUŠENÍ."
+msgid "SCREEN READER DISABLED"
+msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 
 msgid ""
 "CALIBRATING GUN\n"
@@ -3542,103 +3620,6 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d h"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d mn"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d sec"
-
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "před %d rokem"
-msgstr[1] "před %d lety"
-msgstr[2] "před %d lety"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d před dnem"
-msgstr[1] "%d před dny"
-msgstr[2] "%d před dny"
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "%d před hodinou"
-msgstr[1] "%d před hodinami"
-msgstr[2] "%d před hodinami"
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "%d před minutou"
-msgstr[1] "%d před minutami"
-msgstr[2] "%d před minutami"
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "%d před sekundou"
-msgstr[1] "%d před sekundami"
-msgstr[2] "%d před sekundami"
-
-msgid "CHANGE"
-msgstr "ZMĚNIT"
-
-msgid "up/down"
-msgstr "nahoru/dolů"
-
-msgid "accept"
-msgstr "přijmout"
-
-msgid "SELECT ALL"
-msgstr "OZNAČIT VŠE"
-
-msgid "select all"
-msgstr "označit vše"
-
-msgid "SELECT NONE"
-msgstr "ŽÁDNÝ VÝBĚR"
-
-msgid "select none"
-msgstr "žádný výběr"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i VYBRANÁ"
-msgstr[1] "%i VYBRANÉ"
-msgstr[2] "%i VYBRANÝCH"
-
-msgid "MOVE CURSOR"
-msgstr "PŘESUNOUT KURZOR"
-
-msgid "EDIT"
-msgstr "UPRAVIT"
-
-msgid "WORKING..."
-msgstr "PRACUJI..."
-
-msgid "ENABLED"
-msgstr "ZAPNUTO"
-
-msgid "SCREEN READER ENABLED"
-msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
-
-msgid "SCREEN READER DISABLED"
-msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "NASTAVENÍ VYHLEDÁVAČE"
