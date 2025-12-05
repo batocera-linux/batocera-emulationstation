@@ -192,7 +192,7 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
 
 	//set curl to connection timeout
-	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, options->connectTimeout);
+	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, options != nullptr ? options->connectTimeout : 10L);
 	if (err != CURLE_OK)
 	{
 		mStatus = REQ_IO_ERROR;
