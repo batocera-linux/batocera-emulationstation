@@ -61,21 +61,10 @@ Zaparoo* Zaparoo::getInstance()
 	return Zaparoo::sInstance;
 }
 
-bool Zaparoo::executeScript(const std::string command)
-{	
-	
-
-	if (system(command.c_str()) == 0)
-		return true;
-	
-	LOG(LogError) << "Error executing " << command;
-	return false;
-}
-
 bool Zaparoo::isZaparooEnabled()
 {
     HttpReqOptions options = getHttpOptionsZaparoo();
-    // options.connectTimeout = 1L;
+    options.connectTimeout = 250L;
     HttpReq req("http://127.0.0.1:7497/health", &options);
 
     if (req.wait()) {
@@ -93,10 +82,5 @@ bool Zaparoo::writeZaparooCard(std::string name)
     options.customHeaders = {"Content-Type: application/json"};
     options.dataToPost = "{\"jsonrpc\": \"2.0\",\"id\": \"" + uuid + "\",\"method\": \"readers.write\",\"params\": {\"text\": \"" + name + "\"}}";
     HttpReq req("http://127.0.0.1:7497/api/v0.1", &options);
-    if (req.wait()) {
-        // may need to inspect the response here
-        return true;
-    } else {
-        return false;
-    }
+    return req.wait();
 }
