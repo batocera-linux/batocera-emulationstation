@@ -191,8 +191,8 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 	// Ignore expired SSL certificates
 	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
 
-	//set curl to handle redirects
-	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, 10L);
+	//set curl to connection timeout
+	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, options->connectTimeout);
 	if (err != CURLE_OK)
 	{
 		mStatus = REQ_IO_ERROR;

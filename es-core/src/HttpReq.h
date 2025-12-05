@@ -49,6 +49,7 @@ public:
 	{
 		userAgent = HTTP_REQ_USERAGENT;
 		useCookieManager = true;
+		connectTimeout = 10L;
 	}
 
 	HttpReqOptions(const std::string& filename)
@@ -56,13 +57,14 @@ public:
 		outputFilename = filename;
 		userAgent = HTTP_REQ_USERAGENT;
 		useCookieManager = true;
+		connectTimeout = 10L;
 	}
 
 	std::string outputFilename;
 	std::vector<std::string> customHeaders;
 	std::string dataToPost;
 	std::string userAgent;
-
+    long connectTimeout;
 	bool useCookieManager;
 };
 
