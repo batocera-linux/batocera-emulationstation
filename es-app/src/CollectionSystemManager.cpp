@@ -595,7 +595,7 @@ void CollectionSystemManager::deleteCollectionFiles(FileData* file)
 	}
 }
 
-std::string CollectionSystemManager::getValidNewCollectionName(std::string inName, int index)
+std::string CollectionSystemManager::getValidNewCollectionName(const std::string& inName, int index)
 {
 	std::string name = inName;
 
@@ -652,7 +652,7 @@ std::string CollectionSystemManager::getValidNewCollectionName(std::string inNam
 	return name;
 }
 
-bool CollectionSystemManager::inInCustomCollection(FileData* file, const std::string collectionName)
+bool CollectionSystemManager::inInCustomCollection(FileData* file, const std::string& collectionName)
 {
 	auto data = mCustomCollectionSystemsData.find(collectionName);
 	if (data == mCustomCollectionSystemsData.cend())
@@ -917,7 +917,7 @@ SystemData* CollectionSystemManager::getAllGamesCollection()
 	return allSysData->system;
 }
 
-SystemData* CollectionSystemManager::addNewCustomCollection(std::string name, bool needSave)
+SystemData* CollectionSystemManager::addNewCustomCollection(const std::string& name, bool needSave)
 {
 	CollectionSystemDecl decl = mCollectionSystemDeclsIndex[myCollectionsName];
 	decl.themeFolder = name;
@@ -927,7 +927,7 @@ SystemData* CollectionSystemManager::addNewCustomCollection(std::string name, bo
 }
 
 // creates a new, empty Collection system, based on the name and declaration
-SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, CollectionSystemDecl sysDecl, bool index, bool needSave)
+SystemData* CollectionSystemManager::createNewCollectionEntry(const std::string& name, CollectionSystemDecl sysDecl, bool index, bool needSave)
 {	
 	SystemMetadata md;
 	md.name = name;
@@ -1489,7 +1489,7 @@ std::vector<std::string> CollectionSystemManager::getUserCollectionThemeFolders(
 }
 
 // returns whether a specific folder exists in the theme
-bool CollectionSystemManager::themeFolderExists(std::string folder)
+bool CollectionSystemManager::themeFolderExists(const std::string& folder)
 {
 	return std::find(mSystemsFromTheme.cbegin(), mSystemsFromTheme.cend(), folder) != mSystemsFromTheme.cend();
 }
@@ -1505,12 +1505,12 @@ bool CollectionSystemManager::includeFileInAutoCollections(FileData* file)
 	return false;
 }
 
-std::string getFilteredCollectionPath(std::string collectionName)
+std::string getFilteredCollectionPath(const std::string& collectionName)
 {
 	return getCollectionsFolder() + "/" + collectionName + ".xcc";
 }
 
-std::string getCustomCollectionConfigPath(std::string collectionName)
+std::string getCustomCollectionConfigPath(const std::string& collectionName)
 {
 	return getCollectionsFolder() + "/custom-" + collectionName + ".cfg";
 }
@@ -1520,7 +1520,7 @@ std::string getCollectionsFolder()
 	return Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/collections");
 }
 
-bool CollectionSystemManager::isCustomCollection(const std::string collectionName)
+bool CollectionSystemManager::isCustomCollection(const std::string& collectionName)
 {
 	auto data = mCustomCollectionSystemsData.find(collectionName);
 	if (data == mCustomCollectionSystemsData.cend())
@@ -1529,7 +1529,7 @@ bool CollectionSystemManager::isCustomCollection(const std::string collectionNam
 	return data->second.decl.isCustom;
 }
 
-bool CollectionSystemManager::isDynamicCollection(const std::string collectionName)
+bool CollectionSystemManager::isDynamicCollection(const std::string& collectionName)
 {
 	auto data = mCustomCollectionSystemsData.find(collectionName);
 	if (data == mCustomCollectionSystemsData.cend())
@@ -1538,25 +1538,30 @@ bool CollectionSystemManager::isDynamicCollection(const std::string collectionNa
 	return data->second.decl.isCustom && data->second.filteredIndex != nullptr;
 }
 
-void CollectionSystemManager::reloadCollection(const std::string collectionName, bool repopulateGamelist)
+void CollectionSystemManager::repopulateGameListView(const std::string& collectionName)
+{
+	for (auto system : SystemData::sSystemVector)
+	{
+		if (!system->isCollection() || system->getName() != collectionName)
+			continue;
+		
+		system->updateDisplayedGameCount();
+
+		auto view = ViewController::get()->getGameListView(system, false);
+		if (view != nullptr)
+			view->repopulate();
+
+		return;
+	}
+}
+
+void CollectionSystemManager::reloadCollection(const std::string& collectionName, bool repopulateGamelist)
 {
 	auto autoc = mAutoCollectionSystemsData.find(collectionName);
 	if (autoc != mAutoCollectionSystemsData.cend())
 	{
 		if (repopulateGamelist)
-		{
-			for (auto system : SystemData::sSystemVector)
-			{
-				if (system->isCollection() && system->getName() == collectionName)
-				{
-					system->updateDisplayedGameCount();
-
-					auto view = ViewController::get()->getGameListView(system, false);
-					if (view != nullptr)
-						view->repopulate();
-				}
-			}
-		}
+			repopulateGameListView(collectionName);
 
 		return;
 	}
@@ -1565,45 +1570,36 @@ void CollectionSystemManager::reloadCollection(const std::string collectionName,
 	if (data == mCustomCollectionSystemsData.cend())
 		return;
 
-	if (data->second.filteredIndex == nullptr)
-		return;
-
-	data->second.isPopulated = false;
-	populateCustomCollection(&data->second);
-
-	if (!repopulateGamelist)
-		return;
-
-	auto bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
-	for (auto ff : bundle->getRootFolder()->getChildren())
+	if (data->second.filteredIndex != nullptr)
 	{
-		if (ff->getType() == FOLDER && ff->getName() == collectionName)
-		{			
-			auto view = ViewController::get()->getGameListView(bundle, false);
-			if (view != nullptr)
-			{
-				ViewController::get()->reloadGameListView(bundle);
+		data->second.isPopulated = false;
+		populateCustomCollection(&data->second);
 
-				ISimpleGameListView* sgview = dynamic_cast<ISimpleGameListView*>(view.get());
-				if (sgview != nullptr)
-					sgview->moveToFolder((FolderData*)ff);
-			}
-
+		if (!repopulateGamelist)
 			return;
-		}
-	}
 
-	for (auto system : SystemData::sSystemVector)
-	{
-		if (system->isCollection() && system->getName() == collectionName)
+		auto bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
+		for (auto ff : bundle->getRootFolder()->getChildren())
 		{
-			auto view = ViewController::get()->getGameListView(system, false);					
-			if (view != nullptr)
-				view->repopulate();
+			if (ff->getType() == FOLDER && ff->getName() == collectionName)
+			{
+				auto view = ViewController::get()->getGameListView(bundle, false);
+				if (view != nullptr)
+				{
+					ViewController::get()->reloadGameListView(bundle);
 
-			return;
+					ISimpleGameListView* sgview = dynamic_cast<ISimpleGameListView*>(view.get());
+					if (sgview != nullptr)
+						sgview->moveToFolder((FolderData*)ff);
+				}
+
+				return;
+			}
 		}
 	}
+	
+	if (repopulateGamelist)
+		repopulateGameListView(collectionName);
 }
 
 bool CollectionSystemManager::deleteCustomCollection(CollectionSystemData* data)
