@@ -274,14 +274,14 @@ void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queu
 					if (it != hfsdb_platformids.cend())
 					{
 						for (auto plaformId : Utils::String::split(it->second, ',', true))
-							urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&system=" + HttpReq::urlEncode(Utils::String::trim(plaformId)) + "&limit=5");
+							urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&system=" + HttpReq::urlEncode(Utils::String::trim(plaformId)) + "&limit=25");
 					}
 				}
 			}
 		}
 
 		if (urls.size() == 0)
-			urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&limit=5");
+			urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&limit=25");
 	}
 	
 	HttpReqOptions tokenAuth;
