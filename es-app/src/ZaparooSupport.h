@@ -13,7 +13,6 @@ public:
 
 protected:
 	Zaparoo();
-	bool executeScript(const std::string command);
 
 private:
 	static Zaparoo* sInstance;
