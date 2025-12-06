@@ -560,6 +560,28 @@ void HttpServerThread::run()
 
 		mWindow->displayNotificationMessage(req.body);
 	});
+	
+	mHttpServer->Post("/storage/event", [this](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		if (req.body.empty())
+		{
+			res.set_content("400 bad request - body is missing", "text/plain");
+			res.status = 400;
+			return;
+		}
+
+		std::string eventLine = req.body;
+		Window* w = mWindow;
+		
+		mWindow->postToUiThread([w, eventLine]() { 
+            w->processStorageRequest(eventLine); 
+        });
+
+        res.set_content("OK", "text/plain");
+	});
 
 	mHttpServer->Post("/launch", [this](const httplib::Request& req, httplib::Response& res)
 	{

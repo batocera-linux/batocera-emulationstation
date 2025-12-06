@@ -25,6 +25,8 @@
 #include "Splash.h"
 #include "PowerSaver.h"
 #include "renderers/Renderer.h"
+#include <thread>
+#include "../es-app/src/ApiSystem.h"
 
 #if WIN32
 #include <SDL_syswm.h>
@@ -1426,4 +1428,74 @@ bool Window::processMouseButton(int button, bool down, int x, int y)
 			return true;
 
 	return false;
+}
+
+void Window::setReloadGamelistsCallback(const std::function<void()>& func)
+{
+    mReloadGamelistsCallback = func;
+}
+
+void Window::processStorageRequest(std::string line)
+{
+	LOG(LogInfo) << "Storage Request Received via API: " << line;
+
+	size_t delimiter = line.find(":");
+	if (delimiter == std::string::npos) return;
+	std::string type = line.substr(0, delimiter);
+	std::string argument = line.substr(delimiter + 1);
+
+	if (type == "REQUEST_MERGE")
+	{
+		auto* msg = new GuiMsgBox(this, _("GAME DRIVE DETECTED") + "\n\n" + _("Merge games from this drive now?") + "\n" + _("(This will also apply on future boots)"),
+			_("YES"), [this, argument] {
+				
+                this->displayNotificationMessage(_("Merging drive... Please wait."));
+
+				this->displayNotificationMessage(_("New drive content will be available after games list is refreshed..."));
+
+                std::thread([this, argument]() {
+                    bool success = ApiSystem::getInstance()->mergeDrive(argument);
+
+                    this->postToUiThread([this, success]() {
+                        if (success) {
+                            if (mReloadGamelistsCallback) {
+                                this->postToUiThread([this]() {
+                                    if (mReloadGamelistsCallback) {
+                                        mReloadGamelistsCallback();
+										this->displayNotificationMessage(_("Reloaded the games list..."));
+                                    }
+                                });
+                            }
+                        } else {
+                            this->pushGui(new GuiMsgBox(this, _("MERGE FAILED") + "\n" + _("Please check the logs."), _("OK"), nullptr));
+                        }
+                    });
+                }).detach();
+
+			}, _("NO"), nullptr);
+		pushGui(msg);
+	} 
+	else if (type == "REQUEST_FORMAT")
+	{
+		auto* msg = new GuiMsgBox(this, _("INCOMPATIBLE DRIVE DETECTED") + "\n\n" + _("Format and prepare this drive for game storage?") + "\n" + _("(ALL EXISTING DATA WILL BE ERASED)"),
+			_("YES, FORMAT & MERGE"), [this, argument] {
+				
+                this->displayNotificationMessage(_("Starting format process..."));
+
+				std::thread([this, argument]() {
+                    std::string fsType = SystemConf::getInstance()->get("system.external_disk_format");
+                    if (fsType.empty()) fsType = "btrfs";
+
+					bool success = ApiSystem::getInstance()->prepareDrive(argument, fsType);
+					
+					if (!success) {
+                        this->postToUiThread([this]() {
+							this->pushGui(new GuiMsgBox(this, _("FORMAT FAILED") + "\n" + _("Please check the logs."), _("OK"), nullptr));
+						});
+					}
+				}).detach(); 
+				
+			}, _("NO, IGNORE"), nullptr);
+		pushGui(msg);
+	}
 }
