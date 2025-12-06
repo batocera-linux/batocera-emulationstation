@@ -271,7 +271,7 @@ msgid "Cheevos Game ID"
 msgstr "Cheevos ID do xogo"
 
 msgid "Screenscraper Game ID"
-msgstr "Identificador do xogo no raspador de cubertas"
+msgstr "Identificador do xogo en Screenscraper"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -916,7 +916,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AXUSTES MANDO A TECLA"
 
 msgid "SCREENSCRAPER"
-msgstr "RASPADOR DE CUBERTAS"
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
 msgstr "BDXR"

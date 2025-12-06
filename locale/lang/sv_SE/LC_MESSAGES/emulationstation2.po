@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-21 20:28+0200\n"
+"PO-Revision-Date: 2025-12-05 08:43+0100\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -941,25 +941,25 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "KEYBOARDTOPADS"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "SNABBTANGENTER"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "TANGENTER DEFINIERADE MEN JOYSTICK INTE NAMNGIVEN"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "JOYSTICK NAMNGIVEN MEN INGA TANGENTER DEFINIERADE"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "KOPPLA FRÅN OCH KOPPLA IN ENHETEN IGEN FÖR ATT TILLÄMPA"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "JOYSTICKNAMN"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "TRYCK PÅ EN TANGENT ELLER VÄNTA 4 SEKUNDER FÖR ATT TA BORT"
 
 msgid "OVERLAYS"
 msgstr "ÖVERLAGRINGAR"
@@ -1025,10 +1025,10 @@ msgid "VOLUME UP"
 msgstr "VOLYM UPP"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "KONTROLLCENTER"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "TANGENT TILLDELAD TVÅ GÅNGER"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALLERA PÅ EN NY DISK"
@@ -2500,10 +2500,10 @@ msgid "BY MANUFACTURER"
 msgstr "EFTER TILLVERKARE"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "EFTER HÅRDVARUTYP OCH SEDAN ALFABETISKT"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "EFTER HÅRDVARUTYP OCH ÅR"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "EFTER TILLVERKARE OCH TYP"
@@ -2796,13 +2796,13 @@ msgid "BEHAVIOR"
 msgstr "BETEENDE"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr "SNABBTANGENTER FÖR STYRSPAK"
+msgstr "SNABBTANGENTER FÖR JOYSTICKS"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "BEGRÄNSA SNABBTANGENTER FÖR JOYSTICK ATT AVSLUTA"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "GLOBALA SNABBTANGENTER"
 
 msgid "default"
 msgstr "standard"
@@ -2853,19 +2853,20 @@ msgid "HOTKEY"
 msgstr "HOTKEY"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "INGEN ENHET HITTAD (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "DEKLARERA EN NY GLOBAL SNABBTANGENT"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
 msgstr ""
+"DU HAR 4 SEKUNDER PÅ DIG ATT TRYCKA EXAKT 2 GÅNGER PÅ GLOBAL SNABBTANGENT"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "INGEN GLOBAL SNABBTANGENT UPPTÄCKTES"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "FLER ÄN EN GLOBAL SNABBTANGENT UPPTÄCKTES"
 
 msgid "BORDER SIZE"
 msgstr "RAMSTORLEK"
@@ -3105,8 +3106,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
-"org"
+"Ett giltigt konto krävs. Registrera ett konto på https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Fullständig"
