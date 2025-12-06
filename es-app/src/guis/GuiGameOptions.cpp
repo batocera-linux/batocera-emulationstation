@@ -246,12 +246,12 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 	if (hasZaparoo) {
 		mMenu.addGroup("ZAPAROO");
-		mMenu.addEntry(_("WRITE GAME ON NFC TAG"), false, [this, game]
+		mMenu.addEntry(_("WRITE AN NFC TAG FOR THIS GAME"), false, [this, game]
 		{
 			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::format(_("IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER").c_str(), game->getName().c_str()), _("WRITE"),
 				[this, game]
 				{
-					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER ..."),
+					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER..."),
 					[this, game](auto gui)
 					{
 						return Zaparoo::getInstance()->writeZaparooCard(game->getFullPath());
