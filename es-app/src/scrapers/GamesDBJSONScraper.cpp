@@ -409,7 +409,7 @@ namespace
 		return "";
 	}
 
-	void processGame(const Value& game, const Value& boxart, std::vector<ScraperSearchResult>& results)
+	void processGame(const Value& game, const Value& boxart, std::vector<ScraperSearchResult>& results, const TheGamesDBJSONRequest& req)
 	{
 		std::string baseImageUrlThumb = getStringOrThrow(boxart["base_url"], "thumb");
 		std::string baseImageUrlLarge = getStringOrThrow(boxart["base_url"], "large");
@@ -454,12 +454,10 @@ namespace
 			}
 		}
 
-		const std::string apiKey = std::string("apikey=") + resources.getApiKey();
-		HttpReq req("https://api.thegamesdb.net/v1/Games/Images?" + apiKey + "&games_id=" + id);
-		if (req.wait())
+		auto json = req.getDependencyResponse(id);
+		if (!json.empty())
 		{
 			Document imageDoc;
-			auto json = req.getContent();
 			imageDoc.Parse(json.c_str());
 
 			std::string pathMedium;
@@ -548,14 +546,33 @@ namespace
 	}
 } // namespace
 
-  // Process should return false only when we reached a maximum scrap by minute, to retry
-bool TheGamesDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& results)
+void TheGamesDBJSONRequest::preProcess(const std::string& response)
 {
-	if (request->status() != HttpReq::REQ_SUCCESS)
-		return false;
-
 	Document doc;
-	doc.Parse(request->getContent().c_str());
+	doc.Parse(response.c_str());
+	
+	if (doc.HasParseError() || !doc.HasMember("data") || !doc["data"].HasMember("games") || !doc["data"]["games"].IsArray())
+		return;
+
+	const Value& games = doc["data"]["games"];
+
+	for (int i = 0; i < (int)games.Size(); ++i)
+	{
+		auto& game = games[i];
+		if (!game.HasMember("id") || !game["id"].IsInt())
+			continue;
+		
+		std::string id = std::to_string(game["id"].GetInt());
+		const std::string apiKey = std::string("apikey=") + resources.getApiKey();
+		mDependencyQueue.push(std::pair<std::string, std::string>(id, "https://api.thegamesdb.net/v1/Games/Images?" + apiKey + "&games_id=" + id));		
+	}
+}
+
+  // Process should return false only when we reached a maximum scrap by minute, to retry
+bool TheGamesDBJSONRequest::process(const std::string& response, std::vector<ScraperSearchResult>& results)
+{
+	Document doc;
+	doc.Parse(response.c_str());
 
 	if (doc.HasParseError())
 	{
@@ -598,7 +615,7 @@ bool TheGamesDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchR
 
 		try
 		{
-			processGame(v, boxart, results);
+			processGame(v, boxart, results, *this);
 		}
 		catch (std::runtime_error& e)
 		{

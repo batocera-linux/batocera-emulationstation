@@ -79,7 +79,7 @@ public:
 	static ScreenScraperUser processUserInfo(const pugi::xml_document& xmldoc);
 
 protected:
-	bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) override;
+	bool process(const std::string& response, std::vector<ScraperSearchResult>& results) override;
 	std::string ensureUrl(const std::string& url);
 	
 	void processGame(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results);
