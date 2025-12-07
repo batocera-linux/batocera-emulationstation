@@ -53,7 +53,7 @@ class HfsDBRequest : public ScraperHttpRequest
 	virtual bool retryOn249() { return !mIsManualScrape; }
 
   protected:
-	bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) override;
+	bool process(const std::string& response, std::vector<ScraperSearchResult>& results) override;
 	bool isGameRequest() { return !mRequestQueue; }
 
 	bool mIsManualScrape;

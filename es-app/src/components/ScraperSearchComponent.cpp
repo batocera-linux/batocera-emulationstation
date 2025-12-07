@@ -268,6 +268,28 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 		ss->searchHandle = Scraper::getScraper(ss->name)->search(params);
 		mScrapEngines.push_back(ss);
 	}
+
+	updateBusyAnim();
+}
+
+void ScraperSearchComponent::updateBusyAnim()
+{
+	#define CHECKED	 _U("\uF046 ")
+	#define UNCHECKED _U("\uF096 ")
+
+	std::string engineNames;
+	for (auto engine : mScrapEngines)
+	{
+		if (!engineNames.empty())
+			engineNames += "\r\n";
+
+		if (engine->searchHandle != nullptr)
+			engineNames += UNCHECKED + engine->name;
+		else
+			engineNames += CHECKED + engine->name;
+	}
+
+	mBusyAnim.setText(_("Searching") + "\r\n" + engineNames);
 }
 
 void ScraperSearchComponent::stop()
@@ -280,7 +302,7 @@ void ScraperSearchComponent::stop()
 }
 
 void ScraperSearchComponent::onSearchDone()
-{
+{	
 	mResultList->clear();
 
 	auto theme = ThemeData::getMenuTheme();
@@ -596,6 +618,8 @@ void ScraperSearchComponent::update(int deltaTime)
 
 	if (checkDone && !std::any_of(mScrapEngines.cbegin(), mScrapEngines.cend(), [](ScraperSearch* x) { return x->searchHandle != nullptr; }))
 		onSearchDone();
+	else
+		updateBusyAnim();
 
 	if (mMDResolveHandle && mMDResolveHandle->status() != ASYNC_IN_PROGRESS)
 	{

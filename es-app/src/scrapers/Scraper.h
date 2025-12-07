@@ -90,11 +90,14 @@ public:
 	ScraperHttpRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options = nullptr);
 	~ScraperHttpRequest();
 
+	std::string getDependencyResponse(const std::string& id) const;
+
 	virtual void update() override;
 	virtual bool retryOn249() { return true; }
 
 protected:
-	virtual bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) = 0;
+	virtual bool process(const std::string& response, std::vector<ScraperSearchResult>& results) = 0;
+	virtual void preProcess(const std::string& response) { }
 
 private:
 	HttpReq* mRequest;
@@ -104,6 +107,13 @@ private:
 	int mOverQuotaPendingTime;
 	int mOverQuotaRetryDelay;
 	int mOverQuotaRetryCount;
+
+	std::map<std::string, std::string> mResponses;
+	std::string mDependencyId;
+
+protected:
+	std::string mUrl;
+	std::queue<std::pair<std::string, std::string>> mDependencyQueue;
 };
 
 // a request to get a list of results
@@ -118,7 +128,7 @@ public:
 	inline const std::vector<ScraperSearchResult>& getResults() const { assert(mStatus != ASYNC_IN_PROGRESS); return mResults; }
 
 protected:
-	std::queue< std::unique_ptr<ScraperRequest> > mRequestQueue;
+	std::queue<std::unique_ptr<ScraperRequest>> mRequestQueue;
 	std::vector<ScraperSearchResult> mResults;
 };
 

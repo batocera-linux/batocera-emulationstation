@@ -45,6 +45,7 @@ public:
 	void onFocusLost() override;
 
 private:
+	void updateBusyAnim();
 	void updateViewStyle();
 	void updateInfoPane();
 
