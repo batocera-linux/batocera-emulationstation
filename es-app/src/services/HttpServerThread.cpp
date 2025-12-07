@@ -606,6 +606,7 @@ void HttpServerThread::run()
 			{
 				if (file->getFullPath() == path || file->getPath() == path)
 				{
+					Window* w = mWindow;
 					mWindow->postToUiThread([w, file]() {
 						w->cancelScreenSaver();
 						ViewController::get()->launch(file);
