@@ -25,7 +25,7 @@
 #include "guis/GuiUpdate.h"
 #include "ContentInstaller.h"
 
-/* 
+/*
 
 Misc APIS
 -----------------
@@ -45,7 +45,7 @@ System/Games APIS
 GET  /systems
 GET  /systems/{systemName}
 GET  /systems/{systemName}/logo
-GET  /systems/{systemName}/games/{gameId}		
+GET  /systems/{systemName}/games/{gameId}
 POST /systems/{systemName}/games/{gameId}						-> body must contain the game metadata to save as application/json
 GET  /systems/{systemName}/games/{gameId}/media/{mediaType}
 POST /systems/{systemName}/games/{gameId}/media/{mediaType}		-> body must contain the file bytes to save. Content-type must be valid.
@@ -61,106 +61,103 @@ GET /resources/{path relative to resources}"					-> any file in resources
 GET /{path relative to resources/services}"						-> any other file in resources/services
 
 */
-HttpServerThread::HttpServerThread(Window* window) : mWindow(window)
+HttpServerThread::HttpServerThread(Window *window) : mWindow(window)
 {
-	LOG(LogDebug) << "HttpServerThread : Starting";
+  LOG(LogDebug) << "HttpServerThread : Starting";
 
-	mHttpServer = nullptr;
+  mHttpServer = nullptr;
 
-	// creer le thread
-	mFirstRun = true;
-	mRunning = true;
-	mThread = new std::thread(&HttpServerThread::run, this);
+  // creer le thread
+  mFirstRun = true;
+  mRunning = true;
+  mThread = new std::thread(&HttpServerThread::run, this);
 }
 
 HttpServerThread::~HttpServerThread()
 {
-	LOG(LogDebug) << "HttpServerThread : Exit";
+  LOG(LogDebug) << "HttpServerThread : Exit";
 
-	if (mHttpServer != nullptr)
-	{
-		mHttpServer->stop();
-		delete mHttpServer;
-		mHttpServer = nullptr;
-	}
+  if (mHttpServer != nullptr)
+  {
+    mHttpServer->stop();
+    delete mHttpServer;
+    mHttpServer = nullptr;
+  }
 
-	mRunning = false;
-	mThread->join();
-	delete mThread;
+  mRunning = false;
+  mThread->join();
+  delete mThread;
 }
 
-static std::map<std::string, std::string> mimeTypes = 
-{
-	{ "txt", "text/plain" },
-	{ "html", "text/html" },
-	{ "htm", "text/html" },
-	{ "css", "text/css" },
-	{ "jpeg", "image/jpg" },
-	{ "jpg", "image/jpg" },
-	{ "png", "image/png" },
-	{ "gif", "image/gif" },
-	{ "webp", "image/webp" },
-	{ "svg", "image/svg+xml" },
-	{ "ico", "image/x-icon" },
-	{ "json", "application/json" },
-	{ "pdf", "application/pdf" },
-	{ "js", "application/javascript" },
-	{ "wasm", "application/wasm" },
-	{ "xml", "application/xml" },
-	{ "xhtml", "application/xhtml+xml" }
-};
+static std::map<std::string, std::string> mimeTypes =
+    {
+        {"txt", "text/plain"},
+        {"html", "text/html"},
+        {"htm", "text/html"},
+        {"css", "text/css"},
+        {"jpeg", "image/jpg"},
+        {"jpg", "image/jpg"},
+        {"png", "image/png"},
+        {"gif", "image/gif"},
+        {"webp", "image/webp"},
+        {"svg", "image/svg+xml"},
+        {"ico", "image/x-icon"},
+        {"json", "application/json"},
+        {"pdf", "application/pdf"},
+        {"js", "application/javascript"},
+        {"wasm", "application/wasm"},
+        {"xml", "application/xml"},
+        {"xhtml", "application/xhtml+xml"}};
 
 std::string HttpServerThread::getMimeType(const std::string &path)
 {
-	auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(path));
-	if (ext[0] == '.')
-		ext = ext.substr(1);
+  auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(path));
+  if (ext[0] == '.')
+    ext = ext.substr(1);
 
-	auto it = mimeTypes.find(ext);
-	if (it != mimeTypes.cend())
-		return it->second;
-	
-	return "text/plain";
+  auto it = mimeTypes.find(ext);
+  if (it != mimeTypes.cend())
+    return it->second;
+
+  return "text/plain";
 }
 
-static bool isAllowed(const httplib::Request& req, httplib::Response& res)
+static bool isAllowed(const httplib::Request &req, httplib::Response &res)
 {
-	if (req.remote_addr != "127.0.0.1" && !Settings::getInstance()->getBool("PublicWebAccess"))
-	{
-		LOG(LogWarning) << "HttpServerThread : Access disabled for " + req.remote_addr;
+  if (req.remote_addr != "127.0.0.1" && !Settings::getInstance()->getBool("PublicWebAccess"))
+  {
+    LOG(LogWarning) << "HttpServerThread : Access disabled for " + req.remote_addr;
 
-		res.set_content("403 - Forbidden", "text/html");
-		res.status = 403;
-		return false;
-	}
+    res.set_content("403 - Forbidden", "text/html");
+    res.status = 403;
+    return false;
+  }
 
-	return true;
+  return true;
 }
 
 void HttpServerThread::run()
 {
-	mHttpServer = new httplib::Server();
+  mHttpServer = new httplib::Server();
 
-	mHttpServer->Get("/", [=](const httplib::Request & req, httplib::Response &res) 
-	{
+  mHttpServer->Get("/", [=](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
-		res.set_redirect("/index.html");
-	});
+		res.set_redirect("/index.html"); });
 
-	mHttpServer->Get("/favicon.png", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/favicon.png", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
 		auto data = ResourceManager::getInstance()->getFileData(":/window_icon_256.png");
 		if (data.ptr)
-			res.set_content((char*)data.ptr.get(), data.length, "image/png");
-	});
+			res.set_content((char*)data.ptr.get(), data.length, "image/png"); });
 
-	mHttpServer->Get("/index.html", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/index.html", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -208,11 +205,10 @@ void HttpServerThread::run()
 			"<br/>"
 			"<input type='button' value='Kill emulator' onClick='emuKill()'/>\r\n"
 
-			"</body>\r\n</html>", "text/html");
-	});
+			"</body>\r\n</html>", "text/html"); });
 
-	mHttpServer->Get("/quit", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/quit", [this](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -233,43 +229,38 @@ void HttpServerThread::run()
 			return;
 		}
 
-		Utils::Platform::quitES();
-	});
+		Utils::Platform::quitES(); });
 
-	mHttpServer->Get("/restart", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/restart", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
-		Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT);
-	});
+		Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT); });
 
-	mHttpServer->Get("/emukill", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/emukill", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
-		ApiSystem::getInstance()->emuKill();
-	});
+		ApiSystem::getInstance()->emuKill(); });
 
-	mHttpServer->Get("/caps", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/caps", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
-		res.set_content(HttpApi::getCaps(), "application/json");
-	});
+		res.set_content(HttpApi::getCaps(), "application/json"); });
 
-	mHttpServer->Get("/systems", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/systems", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
-		res.set_content(HttpApi::getSystemList(), "application/json");
-	});
+		res.set_content(HttpApi::getSystemList(), "application/json"); });
 
-	mHttpServer->Get("/runningGame", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/runningGame", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -280,11 +271,10 @@ void HttpServerThread::run()
 			res.status = 201;
 		}
 		else
-			res.set_content(ret, "application/json");
-	});
+			res.set_content(ret, "application/json"); });
 
-	mHttpServer->Get("/isIdle", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get("/isIdle", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -304,11 +294,10 @@ void HttpServerThread::run()
 		{
 			res.set_content("[ false ]", "application/json");
 			res.status = 201;
-		}
-	});	
+		} });
 
-	mHttpServer->Get(R"(/systems/(/?.*)/logo)", [](const httplib::Request& req, httplib::Response& res)
-	{		
+  mHttpServer->Get(R"(/systems/(/?.*)/logo)", [](const httplib::Request &req, httplib::Response &res)
+                   {		
 		if (!isAllowed(req, res))
 			return;
 
@@ -334,11 +323,10 @@ void HttpServerThread::run()
 		}
 
 		res.set_content("404 not found", "text/html");
-		res.status = 404;
-	});
-	
-	mHttpServer->Get(R"(/systems/(/?.*)/games)", [](const httplib::Request& req, httplib::Response& res)
-	{
+		res.status = 404; });
+
+  mHttpServer->Get(R"(/systems/(/?.*)/games)", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -351,11 +339,10 @@ void HttpServerThread::run()
 		}
 		
 		res.set_content("404 system not found", "text/html");
-		res.status = 404;		
-	});
+		res.status = 404; });
 
-	mHttpServer->Get(R"(/systems/(/?.*)/games/(/?.*)/media/(/?.*))", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get(R"(/systems/(/?.*)/games/(/?.*)/media/(/?.*))", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -388,11 +375,10 @@ void HttpServerThread::run()
 		}
 
 		res.set_content("404 media not found", "text/html");
-		res.status = 404;
-	});
+		res.status = 404; });
 
-	mHttpServer->Post(R"(/systems/(/?.*)/games/(/?.*)/media/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Post(R"(/systems/(/?.*)/games/(/?.*)/media/(/?.*))", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -436,12 +422,10 @@ void HttpServerThread::run()
 		}
 
 		res.set_content("404 media not found", "text/html");
-		res.status = 404;
-	});
+		res.status = 404; });
 
-
-	mHttpServer->Post(R"(/systems/(/?.*)/games/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Post(R"(/systems/(/?.*)/games/(/?.*))", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -471,12 +455,10 @@ void HttpServerThread::run()
 		}
 
 		res.set_content("404 game not found", "text/html");
-		res.status = 404;
-	});
+		res.status = 404; });
 
-
-	mHttpServer->Get(R"(/systems/(/?.*)/games/(/?.*))", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get(R"(/systems/(/?.*)/games/(/?.*))", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -495,11 +477,10 @@ void HttpServerThread::run()
 		}
 
 		res.set_content("404 game not found", "text/html");
-		res.status = 404;
-	});
+		res.status = 404; });
 
-	mHttpServer->Get(R"(/systems/(/?.*))", [](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Get(R"(/systems/(/?.*))", [](const httplib::Request &req, httplib::Response &res)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -513,12 +494,10 @@ void HttpServerThread::run()
 		}
 
 		res.set_content("404 not found", "text/html");
-		res.status = 404;
-	});
+		res.status = 404; });
 
-	
-	mHttpServer->Get("/reloadgames", [this](const httplib::Request& req, httplib::Response& res)
-	{	
+  mHttpServer->Get("/reloadgames", [this](const httplib::Request &req, httplib::Response &res)
+                   {	
 		if (!isAllowed(req, res))
 			return;
 
@@ -526,11 +505,10 @@ void HttpServerThread::run()
 		mWindow->postToUiThread([w]()
 		{
 			GuiMenu::updateGameLists(w, false);
-		});
-	});
+		}); });
 
-	mHttpServer->Post("/messagebox", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Post("/messagebox", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -543,11 +521,10 @@ void HttpServerThread::run()
 
 		auto msg = req.body;
 		Window* w = mWindow;
-		mWindow->postToUiThread([msg, w]() { w->pushGui(new GuiMsgBox(w, msg)); });
-	});
+		mWindow->postToUiThread([msg, w]() { w->pushGui(new GuiMsgBox(w, msg)); }); });
 
-	mHttpServer->Post("/notify", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Post("/notify", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -558,11 +535,10 @@ void HttpServerThread::run()
 			return;
 		}
 
-		mWindow->displayNotificationMessage(req.body);
-	});
-	
-	mHttpServer->Post("/storage/event", [this](const httplib::Request& req, httplib::Response& res)
-	{
+		mWindow->displayNotificationMessage(req.body); });
+
+  mHttpServer->Post("/storage/event", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -580,11 +556,10 @@ void HttpServerThread::run()
             w->processStorageRequest(eventLine); 
         });
 
-        res.set_content("OK", "text/plain");
-	});
+        res.set_content("OK", "text/plain"); });
 
-	mHttpServer->Post("/launch", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Post("/launch", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -606,15 +581,18 @@ void HttpServerThread::run()
 			{
 				if (file->getFullPath() == path || file->getPath() == path)
 				{
-					mWindow->postToUiThread([file]() { ViewController::get()->launch(file); });					
+          Window* w = mWindow;
+					mWindow->postToUiThread([file, w]() {
+            w->cancelScreenSaver();
+            ViewController::get()->launch(file);
+          });					
 					return;
 				}
 			}
-		}
-	});
+		} });
 
-	mHttpServer->Post(R"(/addgames/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
-	{
+  mHttpServer->Post(R"(/addgames/(/?.*))", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -686,11 +664,10 @@ void HttpServerThread::run()
 			});
 		}
 
-		res.set_content("OK", "text/html");
-	});
-	
-	mHttpServer->Post(R"(/removegames/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
-	{
+		res.set_content("OK", "text/html"); });
+
+  mHttpServer->Post(R"(/removegames/(/?.*))", [this](const httplib::Request &req, httplib::Response &res)
+                    {
 		if (!isAllowed(req, res))
 			return;
 
@@ -760,11 +737,10 @@ void HttpServerThread::run()
 			});
 		}
 		
-		res.set_content("OK", "text/html");
-	});
+		res.set_content("OK", "text/html"); });
 
-	mHttpServer->Get(R"(/resources/(/?.*))", [](const httplib::Request& req, httplib::Response& res)  // (.*)
-	{
+  mHttpServer->Get(R"(/resources/(/?.*))", [](const httplib::Request &req, httplib::Response &res) // (.*)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -777,11 +753,10 @@ void HttpServerThread::run()
 			res.set_content("404 not found", "text/html");
 			res.status = 404;
 			return;
-		}
-	});
+		} });
 
-	mHttpServer->Get(R"(/(/?.*))", [](const httplib::Request& req, httplib::Response& res)  // (.*)
-	{
+  mHttpServer->Get(R"(/(/?.*))", [](const httplib::Request &req, httplib::Response &res) // (.*)
+                   {
 		if (!isAllowed(req, res))
 			return;
 
@@ -795,20 +770,18 @@ void HttpServerThread::run()
 			res.set_content("404 not found", "text/html");
 			res.status = 404;
 			return;
-		}
-	});
+		} });
 
-	try
-	{
-		std::string ip = "127.0.0.1";
+  try
+  {
+    std::string ip = "127.0.0.1";
 
-		if (Settings::getInstance()->getBool("PublicWebAccess"))
-			ip = "0.0.0.0";
+    if (Settings::getInstance()->getBool("PublicWebAccess"))
+      ip = "0.0.0.0";
 
-		mHttpServer->listen(ip.c_str(), 1234);
-	}
-	catch (...)
-	{
-
-	}
+    mHttpServer->listen(ip.c_str(), 1234);
+  }
+  catch (...)
+  {
+  }
 }
