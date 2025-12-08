@@ -18,6 +18,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 private:
+	void BuildButtonGrid(bool allowEdit);
+
 	bool mClose;
 	void close();
 

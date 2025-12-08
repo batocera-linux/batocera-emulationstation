@@ -542,6 +542,9 @@ namespace
 				result.urls[MetaDataId::BoxBack] = ScraperSearchItem(art);
 		}
 
+		if (result.mdl.get(MetaDataId::Desc).empty() && result.urls.size() == 0)
+			return;
+
 		results.push_back(result);
 	}
 } // namespace

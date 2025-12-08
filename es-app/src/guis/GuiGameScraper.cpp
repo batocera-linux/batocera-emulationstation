@@ -39,45 +39,15 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 	// row 4 is a spacer
 
 	// ScraperSearchComponent
-	mSearch = std::make_shared<ScraperSearchComponent>(window, ScraperSearchComponent::NEVER_AUTO_ACCEPT);
+	mSearch = std::make_shared<ScraperSearchComponent>(window);
 	mGrid.setEntry(mSearch, Vector2i(0, 5), true);
 
-	// buttons
-	std::vector< std::shared_ptr<ButtonComponent> > buttons;
+	BuildButtonGrid(false);
 
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("INPUT"), _("SEARCH"), [&] {
-		mSearch->openInputScreen(mSearchParams);
-		mGrid.resetCursor();
-	}));
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [&] { delete this; }));
-	mButtonGrid = makeButtonGrid(mWindow, buttons);
-
-	mGrid.setEntry(mButtonGrid, Vector2i(0, 6), true, false);
-
-	// we call this->close() instead of just delete this; in the accept callback:
-	// this is because of how GuiComponent::update works.  if it was just delete this, this would happen when the metadata resolver is done:
-	//     GuiGameScraper::update()
-	//       GuiComponent::update()
-	//         it = mChildren.cbegin();
-	//         mBox::update()
-	//         it++;
-	//         mSearchComponent::update()
-	//           acceptCallback -> delete this
-	//         it++; // error, mChildren has been deleted because it was part of this
-
-	// so instead we do this:
-	//     GuiGameScraper::update()
-	//       GuiComponent::update()
-	//         it = mChildren.cbegin();
-	//         mBox::update()
-	//         it++;
-	//         mSearchComponent::update()
-	//           acceptCallback -> close() -> mClose = true
-	//         it++; // ok
-	//       if(mClose)
-	//         delete this;
 	mSearch->setAcceptCallback([this, doneFunc](const ScraperSearchResult& result) { doneFunc(result); close(); });
 	mSearch->setCancelCallback([&] { delete this; });
+	mSearch->setSearchStartingCallback([&] { BuildButtonGrid(false); });
+	mSearch->setSearchDoneCallback([&] { BuildButtonGrid(true); });
 
 	if (Renderer::ScreenSettings::fullScreenMenus())
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
@@ -88,6 +58,28 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 
 	mGrid.resetCursor();
 	mSearch->search(params); // start the search
+}
+
+void GuiGameScraper::BuildButtonGrid(bool allowEdit)
+{
+	if (mButtonGrid)
+		mGrid.removeEntry(mButtonGrid);
+
+	mButtonGrid = nullptr;
+
+	std::vector<std::shared_ptr<ButtonComponent>> doneButtons;
+	if (allowEdit)
+	{
+		doneButtons.push_back(std::make_shared<ButtonComponent>(mWindow, _("INPUT"), _("SEARCH"), [&] {
+			mSearch->openInputScreen(mSearchParams);
+			mGrid.resetCursor();
+			}));
+	}
+
+	doneButtons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [&] { delete this; }));
+	mButtonGrid = makeButtonGrid(mWindow, doneButtons);
+
+	mGrid.setEntry(mButtonGrid, Vector2i(0, 6), true, false);
 }
 
 void GuiGameScraper::onSizeChanged()
