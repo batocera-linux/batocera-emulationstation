@@ -2846,3 +2846,9 @@ bool ApiSystem::prepareDrive(const std::string& device, const std::string& fsTyp
     std::string cmd = "batocera-storage-manager format \"" + device + "\" \"" + fsType + "\"";
     return executeScript(cmd);
 }
+
+bool ApiSystem::ignoreDevicePermanently(const std::string& deviceId)
+{
+    std::string cmd = "batocera-storage-manager ignore \"" + deviceId + "\"";
+    return executeScript(cmd);
+}

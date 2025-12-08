@@ -227,6 +227,9 @@ public:
     // Prepares the specific device with partition the given filesystem
     bool prepareDrive(const std::string& device, const std::string& fsType);
 
+	// Ignores a drive from future format requests if used by other OS'
+	bool ignoreDevicePermanently(const std::string& deviceId);
+
 #if !WIN32
 	bool enableWifi(std::string ssid, std::string key, std::string country);
 #else
