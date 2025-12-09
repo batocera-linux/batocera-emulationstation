@@ -41,7 +41,8 @@ enum class LightGunType
 	RetroShooter,
 	Blamcon,
 	Aimtrak,
-	AELightgun
+	AELightgun,
+	VirtualHID
 };
 
 class RawInputManager
@@ -85,6 +86,9 @@ public:
 		for (auto id : aeDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::AELightgun;
+
+		if (name.find("vmulti") != std::string::npos)
+			return LightGunType::VirtualHID;
 
 		return LightGunType::Mouse;
 	}
@@ -816,6 +820,10 @@ bool GunManager::updateGunPosition(Gun* gun)
 	{
 		int x, y;
 		auto buttons = SDL_GetMouseState(&x, &y);
+
+		if (x != gun->mX || y != gun->mY)
+			gun->m_lastTick = SDL_GetTicks();
+
 		gun->mX = x;
 		gun->mY = y;
 		gun->mLButtonDown = (buttons & SDL_BUTTON_LMASK) != 0;
