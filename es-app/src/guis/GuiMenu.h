@@ -28,8 +28,7 @@ class GuiMenu : public GuiComponent
 public:
         GuiMenu(Window* window, bool animate = true);
 
-        bool input(InputConfig* config, Input input) override;
-        void onSizeChanged() override;
+        bool input(InputConfig* config, Input input) override;        
         std::vector<HelpPrompt> getHelpPrompts() override;      
         static void openQuitMenu_static(Window *window, bool quickAccessMenu = false, bool animate = true);
 
@@ -78,7 +77,7 @@ private:
         static void openWifiSettings(Window* win, std::string title, std::string data, const std::function<void(std::string)>& onsave);
 
         MenuComponent mMenu;
-        TextComponent mVersion;
+        std::shared_ptr<TextComponent> mVersion;
 
         static std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname);
         static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname, std::string configoptname = "videomode", const std::string output = "");

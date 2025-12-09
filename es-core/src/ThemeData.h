@@ -113,6 +113,12 @@ struct Subset
 	std::string subSetDisplayName;
 };
 
+struct GridElement
+{
+	bool hasSeparatorColor;
+	unsigned int separatorColor;
+};
+
 struct MenuElement 
 {
 	unsigned int color;
@@ -191,6 +197,7 @@ public:
 		MenuGroupElement Group{ 0x777777FF, 0x00000010, 0xC6C7C6FF, 2.0, "", nullptr, 0 /*ALIGN_LEFT*/, false };
 		IconElement Icons { ":/on.svg", ":/off.svg", ":/auto.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg", ":/textinput_ninepatch.png", ":/textinput_ninepatch_active.png" };
 		ButtonElement Button { ":/button.png", ":/button_filled.png", Vector2f(16,16) };
+		GridElement Grid { false, 0xC6C7C6FF };
 
 		std::string getMenuIcon(const std::string name)
 		{

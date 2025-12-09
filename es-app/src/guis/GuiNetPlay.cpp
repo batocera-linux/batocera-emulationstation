@@ -194,7 +194,7 @@ GuiNetPlay::GuiNetPlay(Window* window)
 	mGrid.setEntry(mHeaderGrid, Vector2i(0, 0), false, true);
 	// Lobby Entries List
 	mList = std::make_shared<ComponentList>(mWindow);
-	mGrid.setEntry(mList, Vector2i(0, 1), true, true);
+	mGrid.setEntry(mList, Vector2i(0, 1), true, true, Vector2i(1, 1), GridFlags::BORDER_TOP);
 
 	// Buttons
 	std::vector< std::shared_ptr<ButtonComponent> > buttons;
@@ -202,7 +202,7 @@ GuiNetPlay::GuiNetPlay(Window* window)
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CLOSE"), _("CLOSE"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
-	mGrid.setEntry(mButtonGrid, Vector2i(0, 2), true, false);
+	mGrid.setEntry(mButtonGrid, Vector2i(0, 2), true, false, Vector2i(1,1), GridFlags::BORDER_TOP);
 
 	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool 
 	{

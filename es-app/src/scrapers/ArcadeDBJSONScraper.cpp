@@ -30,10 +30,18 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 
 	std::string cleanName = params.nameOverride;
 	if (!cleanName.empty())
+	{
+		cleanName = Utils::String::replace(cleanName, " ", "");
+		cleanName = Utils::String::replace(cleanName, ".", "");
+
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
+	}
 	else
 	{
 		cleanName = Utils::String::removeParenthesis(Utils::FileSystem::getStem(params.game->getPath()));
+		cleanName = Utils::String::replace(cleanName, " ", "");
+		cleanName = Utils::String::replace(cleanName, ".", "");
+
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
 	}
 
@@ -42,6 +50,9 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 
 bool ArcadeDBScraper::isSupportedPlatform(SystemData* system)
 {
+	if (system && system->getName() == "teknoparrot")
+		return false;
+
 	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO) || system->hasPlatformId(PlatformIds::LCD_GAMES);
 }
 

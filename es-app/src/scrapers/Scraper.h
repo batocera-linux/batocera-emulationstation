@@ -124,7 +124,7 @@ class ScraperSearchHandle : public AsyncHandle
 public:
 	ScraperSearchHandle();
 
-	void update();
+	virtual void update();
 	inline const std::vector<ScraperSearchResult>& getResults() const { assert(mStatus != ASYNC_IN_PROGRESS); return mResults; }
 
 protected:

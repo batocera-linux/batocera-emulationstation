@@ -65,7 +65,7 @@ MenuComponent::MenuComponent(Window* window,
 	setTitle(title, theme->Title.font); //  titleFont
 	setSubTitle(subTitle);
 
-	mGrid.setEntry(mHeaderGrid, Vector2i(0, 0), false, true);
+	mGrid.setEntry(mHeaderGrid, Vector2i(0, 0), false, true, Vector2i(1, 1), mTabs == nullptr ? GridFlags::BORDER_BOTTOM : GridFlags::BORDER_NONE);
 	//mGrid.setEntry(mTitle, Vector2i(0, 0), false);
 
 	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool {
@@ -91,7 +91,7 @@ MenuComponent::MenuComponent(Window* window,
 	mList = std::make_shared<ComponentList>(mWindow);
 
 	if (mTabs != nullptr)
-		mGrid.setEntry(mTabs, Vector2i(0, 1), false, true);
+		mGrid.setEntry(mTabs, Vector2i(0, 1), false, true, Vector2i(1, 1), GridFlags::BORDER_BOTTOM);
 
 	mGrid.setEntry(mList, Vector2i(0, 2), true);
 
@@ -463,9 +463,23 @@ void MenuComponent::addButton(const std::string& name, const std::string& helpTe
 	updateSize();
 }
 
+void MenuComponent::setButtonGrid(std::shared_ptr<GuiComponent> grid)
+{
+	if (mButtonGrid)
+		mGrid.removeEntry(mButtonGrid);
+
+	mButtonGrid.reset();
+
+	if (grid)
+	{
+		mButtonGrid = grid;
+		mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false, Vector2i(1, 1), GridFlags::BORDER_TOP);
+	}
+}
+
 void MenuComponent::updateGrid()
 {
-	if(mButtonGrid)
+	if (mButtonGrid)
 		mGrid.removeEntry(mButtonGrid);
 
 	mButtonGrid.reset();
@@ -473,7 +487,7 @@ void MenuComponent::updateGrid()
 	if (mButtons.size())
 	{
 		mButtonGrid = makeButtonGrid(mWindow, mButtons);
-		mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false);
+		mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false, Vector2i(1, 1), GridFlags::BORDER_TOP);
 	}
 }
 
