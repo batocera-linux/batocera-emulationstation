@@ -1477,7 +1477,7 @@ void Window::processStorageRequest(std::string line)
 			}, _("NO"), nullptr);
 		pushGui(msg);
 	} 
-	else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
+else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 	{
 		std::string deviceName = parts[1];
 		std::string deviceModel = (parts.size() > 2 && !parts[2].empty()) ? parts[2] : _("N/A");
@@ -1507,24 +1507,23 @@ void Window::processStorageRequest(std::string line)
 
         if (!uniqueId.empty())
         {
-            // Three-button dialog
             auto* msg = new GuiMsgBox(this, message,
-                _("YES, FORMAT & MERGE"), formatLambda, 
                 _("NO, IGNORE THIS TIME"), nullptr,
                 _("NO, IGNORE FOREVER"), [this, uniqueId] {
                     this->displayNotificationMessage(_("Adding drive to ignore list..."));
                     std::thread([uniqueId]() {
                         ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
                     }).detach();
-                });
+                },
+                _("YES, FORMAT & MERGE"), formatLambda
+            );
             pushGui(msg);
         }
         else
         {
-            // Two-button fallback if no unique ID is available
             auto* msg = new GuiMsgBox(this, message,
-                _("YES, FORMAT & MERGE"), formatLambda,
-                _("NO, IGNORE"), nullptr);
+                _("NO, IGNORE"), nullptr,
+                _("YES, FORMAT & MERGE"), formatLambda);
             pushGui(msg);
         }
 	}
