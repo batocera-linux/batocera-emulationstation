@@ -42,6 +42,8 @@ public:
 
 	void addButton(const std::string& label, const std::string& helpText, const std::function<void()>& callback);
 
+	void setButtonGrid(std::shared_ptr<GuiComponent> grid);
+
 	void setTitle(const std::string& title, const std::shared_ptr<Font>& font = nullptr);
 	void setSubTitle(const std::string& text);
 	void setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle = false);
@@ -99,7 +101,7 @@ private:
 	std::shared_ptr<TextComponent> mSubtitle;
 	std::shared_ptr<ImageComponent> mTitleImage;
 	std::shared_ptr<ComponentList> mList;
-	std::shared_ptr<ComponentGrid> mButtonGrid;
+	std::shared_ptr<GuiComponent>  mButtonGrid;
 	std::shared_ptr<ComponentTab>	mTabs;
 	int mTabIndex;
 	std::vector< std::shared_ptr<ButtonComponent> > mButtons;

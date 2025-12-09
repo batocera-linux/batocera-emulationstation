@@ -34,7 +34,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window) : GuiComponent(wi
 	mBlockAccept = false;
 
 	// left spacer (empty component, needed for borders)
-	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(1, 0), false, false, Vector2i(1, 6), GridFlags::BORDER_TOP | GridFlags::BORDER_BOTTOM);
+	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(1, 0), false, false, Vector2i(1, 6), GridFlags::BORDER_TOP);
 
 	// selected result name
 	mResultName = std::make_shared<TextComponent>(mWindow, "Result name", theme->Text.font, theme->Text.color);
@@ -181,7 +181,7 @@ void ScraperSearchComponent::updateViewStyle()
 	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(2, 0), false, true, Vector2i(3, 1), GridFlags::BORDER_TOP);
 
 	// show result list on the right
-	mGrid.setEntry(mResultList, Vector2i(0, 0), true, true, Vector2i(1, 5), GridFlags::BORDER_LEFT | GridFlags::BORDER_TOP | GridFlags::BORDER_BOTTOM);
+	mGrid.setEntry(mResultList, Vector2i(0, 0), true, true, Vector2i(1, 5), GridFlags::BORDER_RIGHT | GridFlags::BORDER_TOP | GridFlags::BORDER_BOTTOM);
 
 	// show description under image/info
 	mGrid.setEntry(mResultDesc, Vector2i(2, 3), false, true, Vector2i(2, 1));
@@ -418,7 +418,7 @@ void ScraperSearchComponent::onSearchDone()
 					icons += _U(" \uF07E");
 
 				row.elements.clear();
-				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(result.mdl.get(MetaDataId::Name)) + " " + icons, font, color), true);					
+				row.addElement(std::make_shared<TextComponent>(mWindow, result.mdl.get(MetaDataId::Name) + " " + icons, font, color), true);					
 				row.makeAcceptInputHandler([this, result] { returnResult(result); });
 
 				mResultList->addRow(row, false, true, std::to_string(i));

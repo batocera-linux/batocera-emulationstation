@@ -124,7 +124,7 @@
 #define fake_gettext_resolution_max_1K  _("maximum 1920x1080")
 #define fake_gettext_resolution_max_640 _("maximum 640x480")
 
-GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
+GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str())
 {
 	// MAIN MENU
 	bool isFullUI = !UIModeController::getInstance()->isUIModeKid() && !UIModeController::getInstance()->isUIModeKiosk();
@@ -259,10 +259,11 @@ void GuiMenu::addVersionInfo()
 
 	auto theme = ThemeData::getMenuTheme();
 
-	mVersion.setFont(theme->Footer.font);
-	mVersion.setColor(theme->Footer.color);
+	mVersion = std::make_shared<TextComponent>(mWindow);
+	mVersion->setFont(theme->Footer.font);
+	mVersion->setColor(theme->Footer.color);
 
-	mVersion.setLineSpacing(0);
+	mVersion->setLineSpacing(0);
 
 	std::string label;
 
@@ -286,13 +287,12 @@ void GuiMenu::addVersionInfo()
 		}
 		else
 		{
-			mVersion.setText(label);
+			mVersion->setHorizontalAlignment(ALIGN_CENTER);
+			mVersion->setVerticalAlignment(ALIGN_CENTER);
+			mVersion->setText(label);
+			mMenu.setButtonGrid(mVersion);
 		}
 	}
-
-	mVersion.setHorizontalAlignment(ALIGN_CENTER);
-	mVersion.setVerticalAlignment(ALIGN_CENTER);
-	addChild(&mVersion);
 }
 
 void GuiMenu::openScreensaverOptions() 
@@ -309,16 +309,6 @@ void GuiMenu::openCollectionSystemSettings()
 	}
 
 	mWindow->pushGui(new GuiCollectionSystemsOptions(mWindow));
-}
-
-void GuiMenu::onSizeChanged()
-{
-	GuiComponent::onSizeChanged();
-
-	float h = mMenu.getButtonGridHeight();
-
-	mVersion.setSize(mSize.x(), h);
-	mVersion.setPosition(0, mSize.y() - h);
 }
 
 void GuiMenu::addEntry(const std::string& name, bool add_arrow, const std::function<void()>& func, const std::string iconName)

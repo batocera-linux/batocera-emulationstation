@@ -645,6 +645,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "iconScraper", PATH },
 		{ "iconAdvanced", PATH },
 		{ "iconQuit", PATH } } },
+	{ "menuGrid", {
+		{ "separatorColor", COLOR } } },
 	{ "menuSwitch",{
 		{ "pathOn", PATH },
 		{ "pathOff", PATH } } },
@@ -2458,6 +2460,16 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 			Footer.color = elem->get<unsigned int>("color");
 		if (elem->has("selectorColor"))
 			Footer.selectorColor = elem->get<unsigned int>("selectorColor");
+	}
+
+	elem = theme->getElement("menu", "menugrid", "menuGrid");
+	if (elem)
+	{
+		if (elem->has("separatorColor"))
+		{
+			Grid.hasSeparatorColor = true;
+			Grid.separatorColor = elem->get<unsigned int>("separatorColor");
+		}
 	}
 
 	elem = theme->getElement("menu", "menutextsmall", "menuTextSmall");

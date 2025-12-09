@@ -65,7 +65,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 
-	mGrid.setEntry(mHeaderGrid, Vector2i(0, 0), false, true);
+	mGrid.setEntry(mHeaderGrid, Vector2i(0, 0), false, true, Vector2i(1, 1), GridFlags::BORDER_BOTTOM);
 
 	mList = std::make_shared<ComponentList>(mWindow);
 	mGrid.setEntry(mList, Vector2i(0, 1), true, true);
@@ -344,7 +344,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), _("CANCEL"), [&] { delete this; }));
 
 	mButtons = makeButtonGrid(mWindow, buttons);
-	mGrid.setEntry(mButtons, Vector2i(0, 2), true, false);
+	mGrid.setEntry(mButtons, Vector2i(0, 2), true, false, Vector2i(1, 1), GridFlags::BORDER_TOP);
 
 	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool {
 		if (config->isMappedLike("down", input)) {
