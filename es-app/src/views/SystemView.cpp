@@ -564,7 +564,7 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
 
 	int mCursor = mCarousel.getCursorIndex();
 
-	GuiSettings* gs = new GuiSettings(mWindow, title, "-----");
+	GuiSettings* gs = new GuiSettings(mWindow, title, "-----", nullptr, false, false);
 
 	int idx = 0;
 	std::string sel = selector(getSelected());
