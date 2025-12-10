@@ -16,6 +16,7 @@
 #include "Window.h"
 #include "LocaleES.h"
 #include "components/MultiLineMenuEntry.h"
+#include <thread>
 
 ScraperSearchComponent::ScraperSearchComponent(Window* window) : GuiComponent(window),
 	mGrid(window, Vector2i(5, 5)), mBusyAnim(window)
