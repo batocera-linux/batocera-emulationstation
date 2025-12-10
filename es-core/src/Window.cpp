@@ -1482,49 +1482,56 @@ else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 		std::string deviceName = parts[1];
 		std::string deviceModel = (parts.size() > 2 && !parts[2].empty()) ? parts[2] : _("N/A");
 		std::string deviceSize = (parts.size() > 3 && !parts[3].empty()) ? parts[3] : _("N/A");
-        std::string uniqueId = (parts.size() > 4 && !parts[4].empty()) ? parts[4] : "";
+		std::string uniqueId = (parts.size() > 4 && !parts[4].empty()) ? parts[4] : "";
 
-		std::string message = _("INCOMPATIBLE DRIVE DETECTED") + "\n\n" +
-							  _("DEVICE") + ": " + deviceName + "\n" +
-							  _("MODEL") + ": " + deviceModel + "\n" +
-							  _("SIZE") + ": " + deviceSize + "\n\n" +
-							  _("Format and prepare this drive for game storage?") + "\n" +
-							  _("(ALL EXISTING DATA WILL BE ERASED)");
+		std::string message = _("NEW DRIVE DETECTED") + "\n\n" +
+							_("DEVICE") + ": " + deviceName + "\n" +
+							_("MODEL") + ": " + deviceModel + "\n" +
+							_("SIZE") + ": " + deviceSize + "\n\n" +
+							_("Format and prepare this drive for game storage?") + "\n" +
+							_("(ALL EXISTING DATA WILL BE ERASED)");
+		
+		auto formatLambda = [this, deviceName] {
+			this->displayNotificationMessage(_("Starting format process..."));
+			std::thread([this, deviceName]() {
+				std::string fsType = SystemConf::getInstance()->get("system.external_disk_format");
+				if (fsType.empty()) fsType = "btrfs";
+				bool success = ApiSystem::getInstance()->prepareDrive(deviceName, fsType);
+				if (!success) {
+					this->postToUiThread([this]() {
+						this->pushGui(new GuiMsgBox(this, _("FORMAT FAILED") + "\n" + _("Please check the logs."), _("OK"), nullptr));
+					});
+				}
+			}).detach(); 
+		};
 
-        auto formatLambda = [this, deviceName] {
-            this->displayNotificationMessage(_("Starting format process..."));
-            std::thread([this, deviceName]() {
-                std::string fsType = SystemConf::getInstance()->get("system.external_disk_format");
-                if (fsType.empty()) fsType = "btrfs";
-                bool success = ApiSystem::getInstance()->prepareDrive(deviceName, fsType);
-                if (!success) {
-                    this->postToUiThread([this]() {
-                        this->pushGui(new GuiMsgBox(this, _("FORMAT FAILED") + "\n" + _("Please check the logs."), _("OK"), nullptr));
-                    });
-                }
-            }).detach(); 
-        };
+		auto confirmLambda = [this, formatLambda] {
+			this->pushGui(new GuiMsgBox(this, _("ARE YOU SURE?"), 
+				_("NO"), nullptr, 
+				_("YES"), formatLambda));
+		};
 
-        if (!uniqueId.empty())
-        {
-            auto* msg = new GuiMsgBox(this, message,
-                _("NO, IGNORE THIS TIME"), nullptr,
-                _("NO, IGNORE FOREVER"), [this, uniqueId] {
-                    this->displayNotificationMessage(_("Adding drive to ignore list..."));
-                    std::thread([uniqueId]() {
-                        ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
-                    }).detach();
-                },
-                _("YES, FORMAT & MERGE"), formatLambda
-            );
-            pushGui(msg);
-        }
-        else
-        {
-            auto* msg = new GuiMsgBox(this, message,
-                _("NO, IGNORE"), nullptr,
-                _("YES, FORMAT & MERGE"), formatLambda);
-            pushGui(msg);
-        }
+		if (!uniqueId.empty())
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("NO, IGNORE THIS TIME"), nullptr,
+				_("NO, IGNORE FOREVER"), [this, uniqueId] {
+					this->displayNotificationMessage(_("Adding drive to ignore list..."));
+					std::thread([uniqueId]() {
+						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
+					}).detach();
+				},
+				_("YES, FORMAT & MERGE"), confirmLambda
+			);
+			pushGui(msg);
+		}
+		else
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("NO, IGNORE"), nullptr,
+				_("YES, FORMAT & MERGE"), confirmLambda
+			);
+			pushGui(msg);
+		}
 	}
 }
