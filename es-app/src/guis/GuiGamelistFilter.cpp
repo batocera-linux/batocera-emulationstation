@@ -6,6 +6,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "Genres.h"
+#include "FileTag.h"
 
 GuiGamelistFilter::GuiGamelistFilter(Window* window, SystemData* system) : GuiComponent(window), mMenu(window, _("FILTER GAMELIST BY")), mSystem(system)
 {
@@ -165,6 +166,13 @@ void GuiGamelistFilter::addFiltersToMenu()
 							if (allKeys->find(parent) != allKeys->cend())
 								label = "      " + Utils::String::trim(label.substr(split + 1));
 						}
+					}
+
+					if (it->type == TAG_FILTER)
+					{
+						auto list = FileTag::getDisplayIcons(label);
+						if (list.size() == 1)
+							label = list[0] + " " + label;
 					}
 
 					optionList->add(_(label.c_str()), key.first, mFilterIndex->isKeyBeingFilteredBy(key.first, type), false);

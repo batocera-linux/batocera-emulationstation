@@ -32,4 +32,5 @@ private:
       	bool mShowSpinnerIcon;
 
 	int mShowFlags;
+	int mShowTags;
 };
