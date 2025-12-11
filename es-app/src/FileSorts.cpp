@@ -71,25 +71,12 @@ namespace FileSorts
 		mSortTypes.push_back(SortType(RELEASEDATE_SYSTEM_DESCENDING, &compareReleaseYearSystem, false, _("RELEASE YEAR, SYSTEM, DESCENDING"), _U("\uF161 ")));
 	}
 
-	static std::string getSortName(const FileData* file)
-	{
-		// Try to get sortname first to get precedence over (scraped) name
-		std::string sortName = file->getMetadata().get(MetaDataId::SortName);
-
-		// If empty, fallback to the standard display name
-		if (sortName.empty())
-			sortName = const_cast<FileData *>(file)->getName();
-
-		return sortName;
-	}
-
-
 	//returns if file1 should come before file2
 	bool compareName(const FileData* file1, const FileData* file2)
 	{
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
-		const std::string& name1 = getSortName(file1);
-		const std::string& name2 = getSortName(file2);
+		const std::string& name1 = file1->getSortName();
+		const std::string& name2 = file2->getSortName();
 
 		if (Settings::IgnoreLeadingArticles())
 		{

@@ -1828,6 +1828,18 @@ std::string FileData::getGenre()
 	return genre;
 }
 
+std::string FileData::getSortName() const
+{
+	// Try to get sortname first to get precedence over (scraped) name
+	std::string sortName = getMetadata().get(MetaDataId::SortName);
+
+	// If empty, fallback to the standard display name
+	if (sortName.empty())
+		sortName = const_cast<FileData*>(this)->getName();
+
+	return sortName;
+}
+
 BindableProperty FileData::getProperty(const std::string& name)
 {
 	auto it = properties.find(name);
