@@ -185,6 +185,7 @@ public:
 	IBindable*  getBindableParent() override;
 
 	std::string getGenre();
+	std::string getSortName() const;
 
 private:
 	std::string getKeyboardMappingFilePath();

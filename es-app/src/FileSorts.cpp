@@ -75,8 +75,8 @@ namespace FileSorts
 	bool compareName(const FileData* file1, const FileData* file2)
 	{
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
-		const std::string& name1 = ((FileData *) file1)->getName();
-		const std::string& name2 = ((FileData *) file2)->getName();
+		const std::string& name1 = file1->getSortName();
+		const std::string& name2 = file2->getSortName();
 
 		if (Settings::IgnoreLeadingArticles())
 		{
