@@ -2070,6 +2070,17 @@ bool SystemData::getShowCheevosIcon()
 	return false;
 }
 
+int SystemData::getShowTags()
+{
+	int show = Utils::String::toInteger(Settings::getInstance()->getString("ShowTags"));
+
+	auto spf = Settings::getInstance()->getString(getName() + ".ShowTags");
+	if (spf == "" || spf == "auto")
+		return show;
+
+	return Utils::String::toInteger(spf);
+}
+
 int SystemData::getShowFlags()
 {
 	if (!getShowFavoritesIcon())

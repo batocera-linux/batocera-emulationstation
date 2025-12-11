@@ -223,6 +223,7 @@ public:
 	bool getShowFavoritesIcon();
 	bool getShowCheevosIcon();
 	int  getShowFlags();
+	int  getShowTags();
 	std::string getFolderViewMode();
 	bool getBoolSetting(const std::string& settingName);
 

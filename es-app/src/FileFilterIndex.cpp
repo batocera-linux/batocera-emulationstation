@@ -14,12 +14,13 @@
 #include "CollectionSystemManager.h"
 #include "Genres.h"
 #include "SystemConf.h"
+#include "FileTag.h"
 
 #define UNKNOWN_LABEL "UNKNOWN"
 #define INCLUDE_UNKNOWN false;
 
 FileFilterIndex::FileFilterIndex()
-	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
+	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false), filterByTag(false)
 	, filterByLightGun(false), filterByWheel(false), filterByTrackball(false), filterBySpinner(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
 {
 	clearAllFilters();
@@ -28,6 +29,7 @@ FileFilterIndex::FileFilterIndex()
 		//type 				//allKeys 				//filteredBy 		//filteredKeys 				//primaryKey 	//hasSecondaryKey 	//secondaryKey 	//menuLabel
 		{ FAVORITES_FILTER, &favoritesIndexAllKeys, &filterByFavorites,	&favoritesIndexFilteredKeys,"favorite",		false,				"",				_("FAVORITES")	},
 		{ GENRE_FILTER, 	&genreIndexAllKeys, 	&filterByGenre,		&genreIndexFilteredKeys, 	"genre",		true,				"genre",		_("GENRE")	},
+		{ TAG_FILTER, 	    &tagIndexAllKeys, 	    &filterByTag,		&tagIndexFilteredKeys, 	    "tag",		    false,				"tag",		    _("TAG")	},
 		{ FAMILY_FILTER, 	&familyIndexAllKeys, 	&filterByFamily,	&familyIndexFilteredKeys, 	"family",		false,				"",				_("FAMILY") },
 		{ PLAYER_FILTER, 	&playersIndexAllKeys, 	&filterByPlayers,	&playersIndexFilteredKeys, 	"players",		false,				"",				_("PLAYERS")	},
 		{ PUBDEV_FILTER, 	&pubDevIndexAllKeys, 	&filterByPubDev,	&pubDevIndexFilteredKeys, 	"developer",	true,				"publisher",	_("PUBLISHER/DEVELOPER")	},
@@ -169,6 +171,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(spinnerIndexAllKeys);
 	clearIndex(hasMediasIndexAllKeys);
 	clearIndex(missingMediasIndexAllKeys);
+	clearIndex(tagIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -236,6 +239,9 @@ void FileFilterIndex::resetIndex()
 	manageIndexEntry(&ratingsIndexAllKeys, "3 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "4 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "5 STARS", false);
+
+	for (auto value : FileTag::Values())
+		manageIndexEntry(&tagIndexAllKeys, value.Name, false);
 }
 
 std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType type, bool getSecondary)
@@ -267,6 +273,15 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			break;
 
 		key = game->getMetadata(MetaDataId::Family);
+		break;
+	}
+
+	case TAG_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		key = game->getMetadata(MetaDataId::Tags);
 		break;
 	}
 
@@ -919,7 +934,7 @@ int FileFilterIndex::showFile(FileData* game)
 			// try to find a match
 			std::string key = getIndexableKey(game, filterData.type, false);
 
-			if (filterData.type == LANG_FILTER || filterData.type == REGION_FILTER)
+			if (filterData.type == LANG_FILTER || filterData.type == REGION_FILTER || filterData.type == TAG_FILTER)
 			{
 				for (auto val : Utils::String::split(key, ','))
 					if (isKeyBeingFilteredBy(val, filterData.type))
@@ -1204,6 +1219,8 @@ bool CollectionFilter::load(const std::string file)
 			hasMediaIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "missingMedia")
 			missingMediaIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "tag")
+			tagIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -1287,6 +1304,9 @@ bool CollectionFilter::save()
 		
 	for (auto key : missingMediaIndexFilteredKeys)
 		root.append_child("missingMedia").text().set(key.c_str());
+
+	for (auto key : tagIndexFilteredKeys)
+		root.append_child("tag").text().set(key.c_str());
 
 	if (!doc.save_file(WINSTRINGW(mPath).c_str()))
 	{

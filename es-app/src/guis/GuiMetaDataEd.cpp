@@ -26,6 +26,7 @@
 #include "ApiSystem.h"
 #include "scrapers/Scraper.h"
 #include "Genres.h"
+#include "FileTag.h"
 #include <algorithm>
 #include <set>
 
@@ -172,6 +173,30 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 		if (iter->key == "genre")
 			continue;
+
+		if (iter->key == "tags")
+		{
+			auto selectedGenres = Utils::String::split(mMetaData->get(MetaDataId::Tags), ',');
+
+			auto olTags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("TAGS"), true, true);
+			olTags->setTag("tags");
+			ed = olTags;
+
+			for (auto tag : FileTag::Values())
+			{
+				bool selected = std::find(selectedGenres.cbegin(), selectedGenres.cend(), tag.Name) != selectedGenres.cend();
+				olTags->add(tag.displayIcon + " " + tag.Name, tag.Name, selected);
+			}
+
+			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("TAGS")), theme->Text.font, theme->Text.color), true);
+			row.addElement(olTags, false);
+
+			mList->addRow(row);
+
+			mEditors.push_back(olTags);
+
+			continue;
+		}
 
 		if (iter->key == "genres")
 		{
@@ -436,6 +461,15 @@ bool GuiMetaDataEd::save()
 					mMetaData->set("genre", Genres::genreStringFromIds(list->getSelectedObjects(), false));
 			}
 
+			if (key == "tags")
+			{
+				std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
+				val = Utils::String::join(list->getSelectedObjects(), ",");
+
+				if (val != mMetaData->get(MetaDataId::Tags))
+					mMetaData->set("tags",val);
+			}
+
 			if (key == "core" || key == "emulator")
 			{
 				std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
@@ -556,7 +590,7 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 		if (key == "genre")
 			continue;
 
-		if (key == "genres")
+		if (key == "genres" || key == "tags")
 		{
 			std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
 			value = Utils::String::join(list->getSelectedObjects(), ",");

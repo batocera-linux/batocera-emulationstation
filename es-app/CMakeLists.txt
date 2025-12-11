@@ -31,6 +31,7 @@ endif()
 set(ES_HEADERS	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/FileTag.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/MetaData.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.h    
@@ -138,6 +139,7 @@ set(ES_HEADERS
 
 set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/FileTag.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/MetaData.cpp

@@ -31,8 +31,12 @@ void MetaDataList::initMetadata()
 	{
 		// key,             type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
 		{ Name,             "name",        MD_STRING,              "",                 false,      _("Name"),                 _("this game's name"),			true },
-		{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("Sort name"),             _("enter game sort name"),	true },
 		{ Desc,             "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("this game's description"),		true },
+
+		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false },
+
+		{ Tags,             "tags",        MD_LIST,                "",                 false,      _("Tags"),                 _("tags"),		true },
+		{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("Sort name"),             _("enter game sort name"),	true },
 
 #if WIN32 && !_DEBUG
 		{ Emulator,         "emulator",    MD_LIST,				 "",                 false,       _("Emulator"),			 _("emulator"),					false },
@@ -67,8 +71,6 @@ void MetaDataList::initMetadata()
 		{ Developer,        "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("this game's developer"),	false },
 		{ Publisher,        "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("this game's publisher"),	false },
 
-
-		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false }, 
 		{ Family,           "family",      MD_STRING,              "",                 false,      _("Game family"),		  _("this game's game family"),		false },
 
 		// GenreIds is not serialized

@@ -3455,8 +3455,30 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
-		// Show flags
+		themeconfig->addGroup(_("ICONS"));
 
+		// Tags
+		auto defShowTag = Settings::getInstance()->getString("ShowTags");
+		if (defShowTag == "1")
+			defShowTag = _("AFTER NAME");
+		else if (defShowTag == "2")
+			defShowTag = _("NO");
+		else
+			defShowTag = _("BEFORE NAME");
+
+		auto curShowTag = Settings::getInstance()->getString(system->getName() + ".ShowTags");
+		auto showTags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW TAGS ICONS"), false);
+		showTags->addRange({ { _("AUTO"), "auto" }, { _("BEFORE NAME"), "0" }, { _("AFTER NAME"), "1" }, { _("NO") , "2" } }, curShowTag);
+
+		themeconfig->addWithDescription(_("SHOW TAGS ICONS"), _("DEFAULT VALUE") + " : " + defShowTag, showTags);
+		themeconfig->addSaveFunc([themeconfig, showTags, system]
+			{
+				if (Settings::getInstance()->setString(system->getName() + ".ShowTags", showTags->getSelected()))
+					themeconfig->setVariable("reloadAll", true);
+			});
+
+
+		// Show flags
 		auto defSF = Settings::getInstance()->getString("ShowFlags");
 		if (defSF == "1")
 			defSF = _("BEFORE NAME");
@@ -3481,7 +3503,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			if (Settings::getInstance()->setString(system->getName() + ".ShowFlags", showRegionFlags->getSelected()))
 				themeconfig->setVariable("reloadAll", true);
 		});
-		
+
 		// Show SaveStates
 		auto defSS = Settings::getInstance()->getBool("ShowSaveStates") ? _("YES") : _("NO");
 		auto curSS = Settings::getInstance()->getString(system->getName() + ".ShowSaveStates");
@@ -3914,6 +3936,18 @@ void GuiMenu::openUISettings()
 	s->addOptionList(_("SHOW FOLDERS"), { { _("always"), "always" },{ _("never") , "never" },{ _("having multiple games"), "having multiple games" } }, "FolderViewMode", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW FOLDERS FIRST"), "ShowFoldersFirst", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW '..' PARENT FOLDER"), "ShowParentFolder", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW FILENAMES INSTEAD"), "ShowFilenames", true, [s]
+		{
+			SystemData::resetSettings();
+			FileData::resetSettings();
+
+			s->setVariable("reloadCollections", true);
+			s->setVariable("reloadAll", true);
+		});
+	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), _("Ignore 'The' and 'A' if at the start."), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
+
+	s->addGroup(_("ICONS"));
+	s->addOptionList(_("SHOW TAGS ICONS"), { { _("BEFORE NAME"), "auto" },{ _("AFTER NAME") , "1" },{ _("NO"), "2" } }, "ShowTags", true, [s] { s->setVariable("reloadAll", true); });
 	s->addOptionList(_("SHOW REGION FLAG"), { { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, "ShowFlags", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW SAVESTATE ICON"), "ShowSaveStates", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW MANUAL ICON"), "ShowManualIcon", true, [s] { s->setVariable("reloadAll", true); });	
@@ -3922,16 +3956,7 @@ void GuiMenu::openUISettings()
 	s->addSwitch(_("SHOW WHEEL ICON"), "ShowWheelIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW TRACKBALL ICON"), "ShowTrackballIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW SPINNER ICON"), "ShowSpinnerIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
-	s->addSwitch(_("SHOW FILENAMES INSTEAD"), "ShowFilenames", true, [s] 
-		{
-			SystemData::resetSettings();
-			FileData::resetSettings();
 
-			s->setVariable("reloadCollections", true);
-			s->setVariable("reloadAll", true); 
-		});
-	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), _("Ignore 'The' and 'A' if at the start."), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
-	
 	s->onFinalize([s, pthis, window]
 	{
 		if (s->getVariable("reloadCollections"))
