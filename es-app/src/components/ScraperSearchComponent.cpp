@@ -560,10 +560,11 @@ void ScraperSearchComponent::render(const Transform4x4f& parentTrans)
 void ScraperSearchComponent::returnResult(ScraperSearchResult result)
 {
 	mBlockAccept = true;
+	mBusyAnim.setText(_("Downloading"));
 
 	// resolve metadata image before returning
 	if (result.hasMedia())
-	{
+	{		
 		mMDResolveHandle = result.resolveMetaDataAssets(mInitialSearch);
 		return;
 	}
