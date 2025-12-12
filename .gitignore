@@ -39,6 +39,9 @@ Makefile
 .project
 .settings/
 
+# VSCode
+.vscode/
+
 # Clion
 .idea/
 CPackConfig.cmake

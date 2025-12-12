@@ -3735,6 +3735,28 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr "ЗАПИШІТЬ NFC-МІТКУ ДЛЯ ЦІЄЇ ГРИ"
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+"ЩОБ ЗАПИСАТИ КОМАНДУ ЗАПУСКУ ДЛЯ\n"
+"'%s'\n"
+"НАТИСНІТЬ КНОПКУ ЗАПИСУ, А ПОТІМ ПРИКЛАДІТЬ NFC-МІТКУ ДО ПРИСТРОЮ ДЛЯ ЗАПИСУ"
+
+msgid "WRITE"
+msgstr "ЗАПИСАТИ"
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr "ПРИКЛАДІТЬ МІТКУ ДО ПРИСТРОЮ ДЛЯ ЗАПИСУ..."
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr "МІТКУ УСПІШНО ЗАПИСАНО"
+
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "ЗА ТИПОМ ОБЛАДНАННЯ"
 
