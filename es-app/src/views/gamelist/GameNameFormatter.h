@@ -10,7 +10,7 @@ class GameNameFormatter
 public:
 	GameNameFormatter(SystemData* system);
 
-	std::string getDisplayName(FileData* fd, bool showFolderIcon = true);
+	std::string getDisplayName(FileData* fd, bool showFolderIcon = true, bool favoriteIcon = true, bool tagIcons = true);
 
 private:
 	unsigned int mSortId;

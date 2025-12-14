@@ -31,27 +31,27 @@ namespace Utils
 			Value() :type(UNDEFINED), number(0) {};
 			Value(std::string str, ValueType t) :type(t), string(str), number(0) {};
 			Value(std::string str) :type(STRING), string(str), number(0) {};
-			Value(float n) :type(NUMBER), number(n) {};
+			Value(double n) :type(NUMBER), number(n) {};
 			Value& operator=(std::string str) {
 				type = STRING;
 				string = str;
 				return *this;
 			}
-			Value& operator=(float n) {
+			Value& operator=(double n) {
 				type = NUMBER;
 				number = n;
 				return *this;
 			}
 
 			unsigned type;
-			float number;
+			double number;
 			std::string string;
 
 			bool isToken()const { return type == TOKEN; };
 			bool isString()const { return !isToken() && (type & STRING); };
 			bool isNumber()const { return !isToken() && (type & NUMBER); };
 
-			float toNumber();
+			double toNumber();
 			std::string toString();
 		};
 

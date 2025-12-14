@@ -181,6 +181,7 @@ private:
 	float mSaturation;
 
 	Renderer::ShaderInfo mCustomShader;
+	bool				 mCustomShaderEnabled;
 	
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::map<std::string, std::shared_ptr<TextureResource>> mPlaylistCache;

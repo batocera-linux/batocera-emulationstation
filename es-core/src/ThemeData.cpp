@@ -825,7 +825,8 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 
 	if(mVersion < MINIMUM_THEME_FORMAT_VERSION)
 		throw error << "Theme uses format version " << mVersion << ". Minimum supported version is " << MINIMUM_THEME_FORMAT_VERSION << ".";
-
+		
+	parseSubsetsDefaults(root);
 	parseVariables(root);
 	parseTheme(root);
 	
@@ -1405,14 +1406,9 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 
 				if (selectedSubset.empty())
 				{
-					for (const auto& it : mSubsets)
-					{
-						if (it.subset == subsetToFind)
-						{
-							selectedSubset = it.name;
-							break;
-						}
-					}
+					auto it = mSubsetDefault.find(subsetToFind);
+					if (it != mSubsetDefault.cend())
+						selectedSubset = it->second;
 				}
 
 				if (selectedSubset.empty())
@@ -1461,6 +1457,8 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 	}
 	else
 	{
+		parseSubsetsDefaults(root);
+
 		for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 		{
 			if (!parseFilterAttributes(node))
@@ -1478,6 +1476,30 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 				parseSubsetElement(node);
 			else if (name == "feature")
 				parseFeature(node);
+		}
+	}
+}
+
+void ThemeData::parseSubsetsDefaults(const pugi::xml_node& root)
+{
+	for (pugi::xml_node node = root.child("subset"); node; node = node.next_sibling("subset"))
+	{
+		if (!parseFilterAttributes(root))
+			return;
+
+		const std::string name = node.attribute("name").as_string();
+
+		for (pugi::xml_node child = node.child("include"); child; child = child.next_sibling("include"))
+		{
+			if (!parseFilterAttributes(child))
+				continue;
+
+			const std::string defaultValue = child.attribute("name").as_string();
+			if (!defaultValue.empty())
+			{
+				mSubsetDefault[name] = defaultValue;
+				break;
+			}
 		}
 	}
 }
@@ -1508,7 +1530,7 @@ void ThemeData::parseSubsetElement(const pugi::xml_node& root)
 			node.append_attribute("subSetDisplayName") = displayName.c_str();
 		}
 
-		parseInclude(node);
+		parseInclude(node);		
 	}
 }
 
@@ -2824,6 +2846,9 @@ bool ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer:
 						continue;
 
 					pShader->parameters[prop.first] = prop.second.s;
+
+					if (prop.first != "enabled_binding" && prop.first.find("_binding") != std::string::npos)
+						pShader->parameters[Utils::String::replace(prop.first, "_binding", "")] = "";
 				}
 			}
 		}

@@ -118,7 +118,7 @@ std::string valueOrDefault(const std::string value, const std::string defaultVal
 	return value;
 }
 
-std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
+std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon, bool favoriteIcon, bool tagIcons)
 {
 	std::string name = fd->getName();
 
@@ -201,7 +201,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	std::vector<std::string> before;
 	std::vector<std::string> after;
 
-	if (mShowTags == 0 || mShowTags == 1)
+	if (tagIcons && (mShowTags == 0 || mShowTags == 1))
 	{
 		for (auto tag : FileTag::getDisplayIcons(fd->getSourceFileData()->getMetadata(MetaDataId::Tags)))
 		{
@@ -246,7 +246,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 		name = items + " " + name;
 	}
 
-	if (mShowFavoriteIcon && fd->getFavorite())
+	if (favoriteIcon && mShowFavoriteIcon && fd->getFavorite())
 	{
 	//	if (mShowCheevosIcon && fd->hasCheevos())
 	//		return lang + FAVORITEICON + name + CHEEVOSICON + langAfter;

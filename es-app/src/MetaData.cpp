@@ -35,7 +35,7 @@ void MetaDataList::initMetadata()
 
 		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false },
 
-		{ Tags,             "tags",        MD_LIST,                "",                 false,      _("Tags"),                 _("tags"),		true },
+		{ Tags,             "tags",        MD_STRING,              "",                 false,      _("Tags"),                 _("tags"),		true },
 		{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("Sort name"),             _("enter game sort name"),	true },
 
 #if WIN32 && !_DEBUG

@@ -232,7 +232,7 @@ public:
 			{
 				String,
 				Int,
-				Float,				
+				Float,
 				Bool,
 				Pair,
 				Rect,
@@ -244,6 +244,7 @@ public:
 			Property(const Vector2f& value) { v = value; type = PropertyType::Pair; };
 			Property(const std::string& value) { s = value; type = PropertyType::String; };
 			Property(const unsigned int& value) { i = value; type = PropertyType::Int; };
+			Property(const double& value) { f = value; type = PropertyType::Float; };
 			Property(const float& value) { f = value; type = PropertyType::Float; };
 			Property(const bool& value) { b = value; type = PropertyType::Bool; };
 			Property(const Vector4f& value) { r = value; v = Vector2f(value.x(), value.y()); type = PropertyType::Rect; };
@@ -251,6 +252,7 @@ public:
 			void operator= (const Vector2f& value)     { v = value; type = PropertyType::Pair; }
 			void operator= (const std::string& value)  { s = value; type = PropertyType::String; }
 			void operator= (const unsigned int& value) { i = value; type = PropertyType::Int; }
+			void operator= (const double& value)       { f = value; type = PropertyType::Float; }
 			void operator= (const float& value)        { f = value; type = PropertyType::Float; }
 			void operator= (const bool& value)         { b = value; type = PropertyType::Bool; }
 			void operator= (const Vector4f& value)     { r = value; v = Vector2f(value.x(), value.y()); type = PropertyType::Rect; }
@@ -258,7 +260,7 @@ public:
 			union
 			{
 				unsigned int i;
-				float        f;
+				double       f;
 				bool         b;
 			};
 
@@ -269,18 +271,48 @@ public:
 
 		};
 
-		std::map< std::string, Property > properties;
+		std::map<std::string, Property> properties;
 
-		template<typename T>
+		template<typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0> 
 		const T get(const std::string& prop) const
 		{
-			if(     std::is_same<T, Vector2f>::value)     return *(const T*)&properties.at(prop).v;
-			else if(std::is_same<T, std::string>::value)  return *(const T*)&properties.at(prop).s;
-			else if(std::is_same<T, unsigned int>::value) return *(const T*)&properties.at(prop).i;
-			else if(std::is_same<T, float>::value)        return *(const T*)&properties.at(prop).f;
-			else if(std::is_same<T, bool>::value)         return *(const T*)&properties.at(prop).b;
-			else if (std::is_same<T, Vector4f>::value)         return *(const T*)&properties.at(prop).r;
-			return T();
+			return static_cast<float>(properties.at(prop).f);
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, double>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).f;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, std::string>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).s;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, bool>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).b;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, Vector2f>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).v;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, Vector4f>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).r;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, unsigned int>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).i;
 		}
 
 		inline bool has(const std::string& prop) const { return (properties.find(prop) != properties.cend()); }
@@ -417,6 +449,7 @@ private:
 	bool parseLanguage(const pugi::xml_node& node);
 	bool parseFilterAttributes(const pugi::xml_node& node);
 	void parseSubsetElement(const pugi::xml_node& root);
+	void parseSubsetsDefaults(const pugi::xml_node& root);
 
 	void processElement(const pugi::xml_node& root, ThemeElement& element, const std::string& name, const std::string& value, ElementPropertyType type);
 
@@ -530,6 +563,7 @@ private:
 	UnsortedViewMap<std::string, ThemeView> mViews;
 
 	std::vector<Subset> mSubsets;
+	std::map<std::string, std::string> mSubsetDefault;
 
 	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
 	static ThemeData* mDefaultTheme;	

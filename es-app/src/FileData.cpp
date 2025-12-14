@@ -33,6 +33,7 @@
 #include "guis/GuiMsgBox.h"
 #include "Paths.h"
 #include "resources/TextureData.h"
+#include "views/gamelist/GameNameFormatter.h"
 
 using namespace Utils::Platform;
 
@@ -51,12 +52,15 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "kidGame",			[](FileData* file) { return file->getKidGame(); } },
 	{ "gunGame",			[](FileData* file) { return file->isLightGunGame(); } },
 	{ "wheelGame",			[](FileData* file) { return file->isWheelGame(); } },
-	{ "trackballGame",			[](FileData* file) { return file->isTrackballGame(); } },
-	{ "spinnerGame",			[](FileData* file) { return file->isSpinnerGame(); } },
+	{ "trackballGame",		[](FileData* file) { return file->isTrackballGame(); } },
+	{ "spinnerGame",		[](FileData* file) { return file->isSpinnerGame(); } },
 	{ "cheevos",			[](FileData* file) { return file->hasCheevos(); } },
 	{ "genre",			    [](FileData* file) { return file->getGenre(); } },
 	{ "hasKeyboardMapping", [](FileData* file) { return file->hasKeyboardMapping(); } },	
 	{ "systemName",			[](FileData* file) { return file->getSourceFileData()->getSystem()->getFullName(); } },
+	{ "fullName",			[](FileData* file) { return GameNameFormatter(file->getSystem()).getDisplayName(file); } },
+	{ "fullNameNoFavorite",	[](FileData* file) { return GameNameFormatter(file->getSystem()).getDisplayName(file, false, false); } },
+	{ "fullNameNoTags",		[](FileData* file) { return GameNameFormatter(file->getSystem()).getDisplayName(file, false, false, false); } },
 };
 
 FileData* FileData::mRunningGame = nullptr;

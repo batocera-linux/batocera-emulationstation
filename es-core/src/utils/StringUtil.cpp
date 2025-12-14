@@ -912,6 +912,57 @@ namespace Utils
 			return neg ? -value : value;
 		}
 
+		double toDouble(const std::string& string)
+		{
+			if (string.empty())
+				return 0.0f;
+
+			const char* str = string.c_str();
+			while (*str == ' ')
+				str++;
+
+			bool neg = false;
+			if (*str == '-')
+			{
+				neg = true;
+				++str;
+			}
+			else if (*str == '+')
+				++str;
+
+			int64_t value = 0;
+			for (; *str && *str != '.' && *str != ' '; str++)
+			{
+				if (*str < '0' || *str > '9')
+					return 0;
+
+				value *= 10;
+				value += *str - '0';
+			}
+
+			if (*str == '.')
+			{
+				str++;
+
+				int64_t decimal = 0, weight = 1;
+
+				for (; *str && *str != ' '; str++)
+				{
+					if (*str < '0' || *str > '9')
+						return 0;
+
+					decimal *= 10;
+					decimal += *str - '0';
+					weight *= 10;
+				}
+
+				double ret = value + (decimal / (double)weight);
+				return neg ? -ret : ret;
+			}
+
+			return neg ? -value : value;
+		}
+
 		std::string decodeXmlString(const std::string& string)
 		{
 			std::string ret = string;
