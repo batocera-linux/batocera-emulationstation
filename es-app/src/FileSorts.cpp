@@ -69,6 +69,9 @@ namespace FileSorts
 		mSortTypes.push_back(SortType(SYSTEM_RELEASEDATE_DESCENDING, &compareSystemReleaseYear, false, _("SYSTEM, RELEASE YEAR, DESCENDING"), _U("\uF161 ")));
 		mSortTypes.push_back(SortType(RELEASEDATE_SYSTEM_ASCENDING, &compareReleaseYearSystem, true, _("RELEASE YEAR, SYSTEM, ASCENDING"), _U("\uF160 ")));
 		mSortTypes.push_back(SortType(RELEASEDATE_SYSTEM_DESCENDING, &compareReleaseYearSystem, false, _("RELEASE YEAR, SYSTEM, DESCENDING"), _U("\uF161 ")));
+
+		mSortTypes.push_back(SortType(NONE_ASCENDING, &compareNone, true, _("NONE"), _U("\uF15d ")));
+		mSortTypes.push_back(SortType(NONE_DESCENDING, &compareNone, false, _("NONE, REVERSE"), _U("\uF15e ")));
 	}
 
 	//returns if file1 should come before file2
@@ -222,5 +225,10 @@ namespace FileSorts
 		std::string system1 = ((FileData*)file1)->getSourceFileData()->getSystemName();
 		std::string system2 = ((FileData*)file2)->getSourceFileData()->getSystemName();
 		return Utils::String::compareIgnoreCase(system1, system2) < 0;		
+	}
+
+	bool compareNone(const FileData* file1, const FileData* file2)
+	{
+		return false;
 	}
 };
