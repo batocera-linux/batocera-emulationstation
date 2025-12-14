@@ -1,3 +1,5 @@
+#include <algorithm>
+#include "utils/StringUtil.h"
 #include "FileTag.h"
 #include "LocaleES.h"
 
