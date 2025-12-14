@@ -37,7 +37,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mTargetIsMax(false), mTargetIsMin(false), mFlipX(false), mFlipY(false), mTargetSize(0, 0), mColorShift(0xFFFFFFFF),
 	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
-	mReflection(0.0f, 0.0f), mSharedTexture(true)
+	mReflection(0.0f, 0.0f), mSharedTexture(true), mCustomShaderEnabled(true)
 {
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
@@ -691,7 +691,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		fadeIn(true);
 
 		mVertices->saturation = mSaturation;
-		mVertices->customShader = mCustomShader.path.empty() ? nullptr : &mCustomShader;						
+		mVertices->customShader = !mCustomShaderEnabled || mCustomShader.path.empty() ? nullptr : &mCustomShader;
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 		{
@@ -942,6 +942,21 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		else if (!mDefaultPath.empty() && mPlaylist == nullptr)
 			setImage("");
 	}
+
+	for (auto child : elem->children)
+	{
+		if (child.second.type != "shader")
+			continue;
+
+		if (child.second.has("enabled"))
+			mCustomShaderEnabled = child.second.get<bool>("enabled");
+
+		for (auto prop : child.second.properties)
+		{
+			if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
+				mBindingExpressions["shader." + Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;				
+		}
+	}	
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
@@ -1059,6 +1074,8 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 		return mSaturation;
 	else if (name == "autoFade")
 		return mAllowFading;
+	else if (name == "shader.enabled")
+		return mCustomShaderEnabled;
 	else if (Utils::String::startsWith(name, "shader."))
 	{
 		auto prop = name.substr(7);
@@ -1127,13 +1144,21 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 		setImage(value.s); // , false, getMaxSizeInfo()
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "saturation")
 		setSaturation(value.f);
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Bool && name == "shader.enabled")
+		mCustomShaderEnabled = (bool)(int)value.b;
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && Utils::String::startsWith(name, "shader."))
 	{
 		auto prop = name.substr(7);
 
-		auto it = mCustomShader.parameters.find(prop);
-		if (it != mCustomShader.parameters.cend())
-			mCustomShader.parameters[prop] = std::to_string(value.f);
+		if (prop == "enabled")
+			mCustomShaderEnabled = (bool) (int) value.f;
+		else
+		{
+			 auto it = mCustomShader.parameters.find(prop);
+			 if (it != mCustomShader.parameters.cend())
+				 it->second = std::to_string(value.f);
+			// mCustomShader.parameters[prop] = std::to_string(value.f);
+		}
 	}
 	else
 		GuiComponent::setProperty(name, value);
@@ -1150,7 +1175,25 @@ void ImageComponent::setRoundCorners(float value)
 
 void ImageComponent::setCustomShader(const Renderer::ShaderInfo& customShader)
 { 
+	Renderer::ShaderInfo sav = mCustomShader;
 	mCustomShader = customShader; 
+
+	// Restore property values that were set by evaluator
+	if (sav.path == customShader.path)
+	{
+		for (auto param : customShader.parameters)
+		{
+			if (param.second.empty())
+			{
+				auto it = sav.parameters.find(param.first);
+				if (it != sav.parameters.cend() && !it->second.empty())
+				{
+					mCustomShader.parameters[it->first] = it->second;
+				}
+			}
+		}
+	}
+
 	updateRoundCorners();
 }
 

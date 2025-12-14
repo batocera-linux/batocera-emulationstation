@@ -30,6 +30,7 @@ public:
 	BindableProperty(const std::string& value, const BindablePropertyType valueType = BindablePropertyType::String) { s = value; type = valueType; };
 	BindableProperty(const int& value) { i = value; type = BindablePropertyType::Int; };
 	BindableProperty(const float& value) { f = value; type = BindablePropertyType::Float; };
+	BindableProperty(const double& value) { f = value; type = BindablePropertyType::Float; };
 	BindableProperty(const bool& value) { b = value; type = BindablePropertyType::Bool; };
 	BindableProperty(const char* value) { if (value == nullptr) type = BindablePropertyType::Null; else { s = value; type = BindablePropertyType::String; } };
 
@@ -38,6 +39,7 @@ public:
 	void operator= (const std::string& value) { s = value; type = BindablePropertyType::String; }
 	void operator= (const int& value) { i = value; type = BindablePropertyType::Int; }
 	void operator= (const float& value) { f = value; type = BindablePropertyType::Float; }
+	void operator= (const double& value) { f = value; type = BindablePropertyType::Float; }
 	void operator= (const bool& value) { b = value; type = BindablePropertyType::Bool; }
 
 	void operator= (IBindable* value) { bindable = value; type = BindablePropertyType::Bindable; }
@@ -52,7 +54,7 @@ public:
 	union
 	{
 		int			 i;
-		float        f;
+		double        f;
 		bool         b;
 	};
 

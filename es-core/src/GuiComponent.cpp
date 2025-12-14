@@ -1434,11 +1434,15 @@ std::vector<GuiComponent*> GuiComponent::enumerateExtraChildrens()
 
 		for (auto it : current->mChildren)
 		{
-			if (it->mExtraType != ExtraType::EXTRACHILDREN || !it->isVisible())
+			if (!it->mVisible)
 				continue;
 
 			stack.push(it);
-			recursiveExtraChildrens.push_back(it);
+
+			if (it->mExtraType == ExtraType::EXTRACHILDREN)
+				recursiveExtraChildrens.push_back(it);
+			else if (it->getBindingExpressions().size())
+				recursiveExtraChildrens.push_back(it);
 		}
 	}
 

@@ -279,7 +279,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 			break;
 		case ThemeData::ThemeElement::Property::PropertyType::Float:
 			{
-				float value = Utils::String::toFloat(xp);
+				double value = Utils::String::toDouble(xp);
 
 				if (bindable != nullptr && !uniqueVariable)
 				{
