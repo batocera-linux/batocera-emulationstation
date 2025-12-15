@@ -485,7 +485,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (mdd.isStatistic && mdd.id != MetaDataId::ScraperId)
 			continue;
 
-		if (mdd.id == MetaDataId::KidGame) // Not scrapped yet
+		if (mdd.id == MetaDataId::KidGame || mdd.id == MetaDataId::Tags) // Not scrapped yet
 			continue;
 
 		if (mdd.id == MetaDataId::Name && !scapeNames)

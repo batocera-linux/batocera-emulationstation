@@ -935,6 +935,13 @@ std::set<std::string> FileData::getContentFiles()
 
 void FileData::deleteGameFiles()
 {
+	if (mType != FileType::GAME)
+		return;
+
+	std::string path = getPath();
+	if (path.empty() || getSystemEnvData()->mStartPath == path)
+		return;
+
 	for (auto mdd : mMetadata.getMDD())
 	{
 		if (mMetadata.getType(mdd.id) != MetaDataType::MD_PATH)
@@ -945,13 +952,13 @@ void FileData::deleteGameFiles()
 			Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
 	}
 
-	if (Utils::FileSystem::isDirectory(getPath()))
+	if (Utils::FileSystem::isDirectory(path))
 	{
-		Utils::FileSystem::deleteDirectoryFiles(getPath(), true);
+		Utils::FileSystem::deleteDirectoryFiles(path, true);
 		return;
 	}
 
-	Utils::FileSystem::removeFile(getPath());
+	Utils::FileSystem::removeFile(path);
 
 	for (auto contentFile : getContentFiles())
 		Utils::FileSystem::removeFile(contentFile);

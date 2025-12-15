@@ -370,9 +370,12 @@ void TextComponent::buildTextCache()
 
 	auto color = mColor & 0xFFFFFF00 | (unsigned char)((mColor & 0xFF) * (getOpacity() / 255.0));
 
+
 	Vector2f size = f->sizeText(text);
 	if (!isMultiline)
 	{
+		auto align = mHorizontalAlignment;
+
 		if (sx && text.size() && (size.x() > (sx + 1) || addAbbrev) && (mAutoScroll == AutoScrollType::NONE))
 		{
 			// abbreviate text
@@ -401,8 +404,10 @@ void TextComponent::buildTextCache()
 
 			text.append(abbrev);
 		}
+		else if (sx && text.size() && size.x() > (sx + 1) && mAutoScroll == AutoScrollType::HORIZONTAL)
+			align = ALIGN_LEFT;
 
-		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
+		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, align, mLineSpacing));
 	}
 	else
 		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(f->wrapText(text, sx), Vector2f(0, 0), color, sx, mHorizontalAlignment, mLineSpacing));
