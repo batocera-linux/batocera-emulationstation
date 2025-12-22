@@ -61,14 +61,14 @@ namespace Utils
 		typedef std::map<std::string, int> IntMap;
 
 	public:
-		static MathExpr::Value evaluate(const char* expr, ValueMap* vars = 0);
+		static MathExpr::Value evaluate(const char* expr, ValueMap* vars = 0, bool asColor = false);
 		static void performUnitTests();
 
 	private:
 		MathExpr() { };
 
-		static ValuePtrQueue toRPN(const char* expr, ValueMap* vars);
-		static std::string	 evaluateMethods(const std::string& expr, ValueMap* vars);		
+		static ValuePtrQueue toRPN(const char* expr, ValueMap* vars, bool asColor = false);
+		static std::string	 evaluateMethods(const std::string& expr, ValueMap* vars);
 	};
 }
 
