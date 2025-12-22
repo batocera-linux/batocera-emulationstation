@@ -222,6 +222,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 			continue;
 
 		bool uniqueVariable = xp[0] == '{' && xp[xp.size() - 1] == '}' && Utils::String::occurs(xp, '{') == 1;
+		bool isColorProperty = Utils::String::toLower(propertyName).find("color") != std::string::npos;
 
 		std::string evaluableExpression = updateBoundExpression(xp, bindable, text != nullptr && (text->getBindingDefaults() || showDefaultText));
 		
@@ -233,7 +234,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 			{
 				try
 				{
-					auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str());
+					auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str(), 0, isColorProperty);
 					if (ret.type == Utils::MathExpr::STRING)
 						xp = ret.string;
 					else if (ret.type == Utils::MathExpr::NUMBER)
@@ -259,7 +260,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 				{
 					try
 					{
-						auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str());
+						auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str(), 0, isColorProperty);
 						if (ret.type == Utils::MathExpr::NUMBER)
 							value = (int)ret.number;
 					}
@@ -285,7 +286,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 				{
 					try
 					{
-						auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str());
+						auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str(), 0, isColorProperty);
 						if (ret.type == Utils::MathExpr::NUMBER)
 							value = ret.number;
 					}
@@ -316,7 +317,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 				{
 					try
 					{
-						auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str());
+						auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str(), 0, isColorProperty);
 						if (ret.type == Utils::MathExpr::NUMBER)
 							value = (ret.number != 0);
 					}

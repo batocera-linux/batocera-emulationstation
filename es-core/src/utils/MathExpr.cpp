@@ -633,8 +633,8 @@ namespace Utils
 
 		return Utils::HtmlColor::isHtmlColor(colorEndPos);		
 	}
-
-	MathExpr::ValuePtrQueue MathExpr::toRPN(const char* expr, ValueMap* vars)
+	
+	MathExpr::ValuePtrQueue MathExpr::toRPN(const char* expr, ValueMap* vars, bool asColor)
 	{
 		ValuePtrQueue rpnQueue; std::stack<std::string> operatorStack;
 		bool lastTokenWasOp = true;
@@ -646,10 +646,10 @@ namespace Utils
 		while (*expr)
 		{
 			char* colorEnd;
-			if (iscolor(expr, &colorEnd))
+			if (asColor && iscolor(expr, &colorEnd))
 			{
 				const char* colorEndPos = strstr(expr, colorEnd);
-				int color = (int) Utils::HtmlColor::parse(colorEndPos);
+				int color = (int)Utils::HtmlColor::parse(colorEndPos);
 				rpnQueue.push(new Value(color));
 				expr = colorEnd;
 				lastTokenWasOp = false;
@@ -663,7 +663,7 @@ namespace Utils
 				rpnQueue.push(new Value(digit));
 				expr = nextChar;
 				lastTokenWasOp = false;
-			}
+			}			
 			else if (isvariablechar(*expr) || *expr == '{' || *expr == '$')
 			{
 				// If the function is a variable, resolve it and
@@ -806,7 +806,7 @@ namespace Utils
 		return rpnQueue;
 	}
 
-	MathExpr::Value MathExpr::evaluate(const char* expr, ValueMap* vars)
+	MathExpr::Value MathExpr::evaluate(const char* expr, ValueMap* vars, bool asColor)
 	{
 		std::string evalxp = evaluateMethods(expr, vars);
 		
@@ -820,7 +820,7 @@ namespace Utils
 			return MathExpr::Value("");
 
 		// Convert to RPN with Dijkstra's Shunting-yard algorithm.
-		ValuePtrQueue rpn = toRPN(evalxp.c_str(), vars);
+		ValuePtrQueue rpn = toRPN(evalxp.c_str(), vars, asColor);
 
 		// Evaluate the expression in RPN form.
 		ValueStack evaluation;
