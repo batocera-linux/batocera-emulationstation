@@ -56,7 +56,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasVideo = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Video));
 	bool hasAlternateMedias = game->getSourceFileData()->getFileMedias().size() > 0;
 	bool hasCheevos = game->hasCheevos();
-	bool hasZaparoo = Zaparoo::getInstance()->isZaparooEnabled();
+	bool hasZaparoo = Zaparoo::isZaparooEnabled();
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
 	{
@@ -254,7 +254,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER..."),
 					[this, game](auto gui)
 					{
-						return Zaparoo::getInstance()->writeZaparooCard(game->getFullPath());
+						return Zaparoo::writeZaparooCard(game->getFullPath());
 					},
 					[this](bool ok)
 					{

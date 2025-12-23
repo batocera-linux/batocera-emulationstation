@@ -42,6 +42,7 @@
 #include "watchers/WatchersManager.h"
 #include "HttpReq.h"
 #include <thread>
+#include "ZaparooSupport.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -531,6 +532,7 @@ int main(int argc, char* argv[])
 	HttpReq::resetCookies();
 	Genres::init();
 	MetaDataList::initMetadata();
+	Zaparoo::checkZaparooEnabledAsync();
 
 	Window window;
 	SystemScreenSaver screensaver(&window);
