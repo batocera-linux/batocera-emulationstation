@@ -2,24 +2,20 @@
 #define ZAPAROO_SUPPORT_H
 
 #include <string>
+#include <functional>
 
 class Zaparoo
 {
 public:
-	static Zaparoo* getInstance();
+	static bool isZaparooEnabled(long defaultDelay = 100L);
+	static void checkZaparooEnabledAsync(const std::function<void(bool enabled)>& func = nullptr);
 
-	bool isZaparooEnabled();
-	bool writeZaparooCard(std::string name);
-	void invalidateCache();
-
-protected:
-	Zaparoo();
+	static bool writeZaparooCard(const std::string& name);
+	static void invalidateCache();
 
 private:
-	static Zaparoo* sInstance;
-	// Cache whether we already checked Zaparoo availability and the result
-	bool mChecked;
-	bool mAvailable;
+	static bool mChecked;
+	static bool mAvailable;
 };
 
 #endif // ZAPAROO_SUPPORT_H

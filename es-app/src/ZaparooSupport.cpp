@@ -3,103 +3,61 @@
 #include "Log.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <vector>
-#include <sys/wait.h>
+#include <mutex>
+#include "utils/Randomizer.h"
 
-#include <random>
-#include <sstream>
-#include <iomanip>
+bool Zaparoo::mChecked = false;
+bool Zaparoo::mAvailable = false;
 
-std::string generateUUID()
-{
-  std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
-  std::uniform_int_distribution<> dist(0, 255);
-
-  std::stringstream ss;
-  ss << std::hex << std::setfill('0');
-
-  // Format: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
-  for (int i = 0; i < 16; i++)
-  {
-    if (i == 4 || i == 6 || i == 8 || i == 10)
-      ss << '-';
-
-    int byte = dist(engine);
-
-    // Version 4 UUID (set version bits)
-    if (i == 6)
-      byte = (byte & 0x0F) | 0x40;
-    // Variant bits
-    if (i == 8)
-      byte = (byte & 0x3F) | 0x80;
-
-    ss << std::setw(2) << byte;
-  }
-
-  return ss.str();
-}
-
-static HttpReqOptions getHttpOptionsZaparoo()
-{
-  HttpReqOptions options;
-
-  return options;
-}
-
-Zaparoo *Zaparoo::sInstance = nullptr;
-
-Zaparoo::Zaparoo()
-{
-  mChecked = false;
-  mAvailable = false;
-}
+static std::mutex mZaparooLock;
 
 void Zaparoo::invalidateCache()
 {
-  mChecked = false;
+	mChecked = false;
 }
 
-Zaparoo *Zaparoo::getInstance()
+void Zaparoo::checkZaparooEnabledAsync(const std::function<void(bool enabled)>& func)
 {
-  if (Zaparoo::sInstance == nullptr)
-    Zaparoo::sInstance = new Zaparoo();
-
-  return Zaparoo::sInstance;
+	std::thread([func]()
+	{
+		bool enabled = isZaparooEnabled(3000);
+		if (func)
+			func(enabled);
+	}).detach();
 }
 
-bool Zaparoo::isZaparooEnabled()
+bool Zaparoo::isZaparooEnabled(long defaultDelay)
 {
-  if (mChecked)
-  {
-    return mAvailable;
-  }
+	std::unique_lock<std::mutex> lock(mZaparooLock);
 
-  HttpReqOptions options = getHttpOptionsZaparoo();
-  options.connectTimeout = 100L;
-  HttpReq req("http://127.0.0.1:7497/health", &options);
+	if (mChecked)
+		return mAvailable;
 
-  if (req.wait())
-  {
-    std::string data = req.getContent();
-    mAvailable = (data.compare("OK") == 0);
-  }
-  else
-  {
-    mAvailable = false;
-  }
-  mChecked = true;
-  return mAvailable;
+	HttpReqOptions options;
+	options.connectTimeout = defaultDelay;
+	HttpReq req("http://127.0.0.1:7497/health", &options);
+
+	if (req.wait())
+	{
+		std::string data = req.getContent();
+		mAvailable = (data.compare("OK") == 0);
+	}
+	else
+		mAvailable = false;
+
+	mChecked = true;
+	return mAvailable;
 }
 
-bool Zaparoo::writeZaparooCard(std::string name)
-{
-  HttpReqOptions options = getHttpOptionsZaparoo();
-  std::string uuid = generateUUID();
-  LOG(LogInfo) << "Zaparoo::writeZaparooCard -> " << uuid;
-  options.customHeaders = {"Content-Type: application/json"};
-  options.dataToPost = "{\"jsonrpc\": \"2.0\",\"id\": \"" + uuid + "\",\"method\": \"readers.write\",\"params\": {\"text\": \"" + name + "\"}}";
-  HttpReq req("http://127.0.0.1:7497/api/v0.1", &options);
-  return req.wait();
+bool Zaparoo::writeZaparooCard(const std::string& name)
+{	
+	std::string uuid = Randomizer::generateUUID();
+	LOG(LogInfo) << "Zaparoo::writeZaparooCard -> " << uuid;
+
+	HttpReqOptions options;
+	options.customHeaders = { "Content-Type: application/json" };
+	options.dataToPost = "{\"jsonrpc\": \"2.0\",\"id\": \"" + uuid + "\",\"method\": \"readers.write\",\"params\": {\"text\": \"" + name + "\"}}";
+	
+	HttpReq req("http://127.0.0.1:7497/api/v0.1", &options);
+	return req.wait();
 }
