@@ -330,7 +330,10 @@ void ScraperSearchComponent::updateBusyAnim()
 			if (engine->error.empty())
 				engineNames += CHECKED + engine->name;
 			else
+			{
 				engineNames += FAILED + engine->name;
+				engineNames += "  " + engine->error;
+			}
 		}
 	}
 
@@ -649,7 +652,7 @@ void ScraperSearchComponent::update(int deltaTime)
 
 	if (checkDone && !std::any_of(mScrapEngines.cbegin(), mScrapEngines.cend(), [](ScraperSearch* x) { return x->searchHandle != nullptr; }))
 		onSearchDone();
-	else
+	else if (mMDResolveHandle == nullptr)
 		updateBusyAnim();
 
 	if (mMDResolveHandle && mMDResolveHandle->status() != ASYNC_IN_PROGRESS)
