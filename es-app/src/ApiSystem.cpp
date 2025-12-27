@@ -1502,11 +1502,6 @@ bool ApiSystem::getLEDBrightness(int& value)
 #if WIN32
     return false;
 #endif
-    if (mSystemLedType != LED_TYPE_UNIFIED)
-        return false;
-
-    if (LED_BRIGHTNESS_VALUE == "notfound")
-        return false;
 
     if (LED_BRIGHTNESS_VALUE.empty() || LED_MAX_BRIGHTNESS_VALUE.empty())
     {
@@ -1514,7 +1509,9 @@ bool ApiSystem::getLEDBrightness(int& value)
 
         for (const auto& directory : directories)
         {
-            if (directory.find("multicolor") != std::string::npos || directory.find(":rgb:joystick_rings") != std::string::npos)
+            if (directory.find("multicolor") != std::string::npos || 
+                directory.find(":rgb:joystick_rings") != std::string::npos ||
+                directory.find("l:r1") != std::string::npos) 
             {
                 std::string ledBrightnessPath = directory + "/brightness";
                 std::string ledMaxBrightnessPath = directory + "/max_brightness";
@@ -1524,6 +1521,9 @@ bool ApiSystem::getLEDBrightness(int& value)
                     LED_BRIGHTNESS_VALUE = ledBrightnessPath;
                     LED_MAX_BRIGHTNESS_VALUE = ledMaxBrightnessPath;
 
+                    // FORCE ENABLE: If we found a valid path, we MUST be in Unified mode
+                    mSystemLedType = LED_TYPE_UNIFIED;
+
                     LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path resolved to " << directory;
                     break;
                 }
@@ -1531,24 +1531,22 @@ bool ApiSystem::getLEDBrightness(int& value)
         }
     }
 
-    if (LED_BRIGHTNESS_VALUE.empty() || LED_MAX_BRIGHTNESS_VALUE.empty())
-    {
-        LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path is not resolved";
-
-        LED_BRIGHTNESS_VALUE = "notfound";
+    if (mSystemLedType != LED_TYPE_UNIFIED)
         return false;
-    }
+
+    if (LED_BRIGHTNESS_VALUE == "notfound" || LED_BRIGHTNESS_VALUE.empty())
+        return false;
 
     value = 0;
 
     int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
-    if (max == 0)
-        return false;
+    if (max <= 0) return false;
 
     if (Utils::FileSystem::exists(LED_BRIGHTNESS_VALUE))
         value = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_BRIGHTNESS_VALUE));
 
-    value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
+    // Convert raw hardware value (0-255) to percentage (0-100)
+    value = (uint32_t)((value / (float)max * 100.0f) + 0.5f);
     return true;
 }
 
@@ -1557,23 +1555,72 @@ void ApiSystem::setLEDBrightness(int value)
 #if WIN32
     return;
 #endif
-    if (mSystemLedType != LED_TYPE_UNIFIED)
-		return;
+    // If we haven't resolved the path yet, try to do it now
+    int dummy;
+    if (LED_BRIGHTNESS_VALUE.empty()) getLEDBrightness(dummy);
 
-    if (LED_BRIGHTNESS_VALUE.empty() || LED_BRIGHTNESS_VALUE == "notfound")
+    if (mSystemLedType != LED_TYPE_UNIFIED || LED_BRIGHTNESS_VALUE == "notfound")
         return;
 
     if (value < 0) value = 0;
-	if (value > 100) value = 100;
+    if (value > 100) value = 100;
 
-    int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
-    if (max == 0)
-        return;
+    std::string colorStr = SystemConf::getInstance()->get("led.colour");
+    if (colorStr.empty()) colorStr = "255 255 255"; // Default to white if not set
 
-    float percent = static_cast<float>(value) / 100.0f;
-	int brightnessValue = static_cast<int>(percent * max + 0.5f);
-    std::string content = std::to_string(brightnessValue) + "\n";
-    Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, content);
+    int rBase = 255, gBase = 255, bBase = 255;
+    
+    // Simple parser for "R G B" or "RRGGBB" formats
+    if (colorStr.find(" ") != std::string::npos) {
+        std::vector<std::string> parts = Utils::String::split(colorStr, ' ');
+        if (parts.size() >= 3) {
+            rBase = Utils::String::toInteger(parts[0]);
+            gBase = Utils::String::toInteger(parts[1]);
+            bBase = Utils::String::toInteger(parts[2]);
+        }
+    } else if (colorStr.length() == 6) {
+        rBase = std::stoul(colorStr.substr(0, 2), nullptr, 16);
+        gBase = std::stoul(colorStr.substr(2, 2), nullptr, 16);
+        bBase = std::stoul(colorStr.substr(4, 2), nullptr, 16);
+    }
+
+    float factor = static_cast<float>(value) / 100.0f;
+    int rOut = static_cast<int>(rBase * factor + 0.5f);
+    int gOut = static_cast<int>(gBase * factor + 0.5f);
+    int bOut = static_cast<int>(bBase * factor + 0.5f);
+
+    // Check if we are on an addressable device (Retroid/Ayn style)
+    // These paths typically look like /sys/class/leds/l:r1
+    if (LED_BRIGHTNESS_VALUE.find("/l:") != std::string::npos || 
+        LED_BRIGHTNESS_VALUE.find("/r:") != std::string::npos) 
+    {
+        // Batch update all addressable LED channels
+        auto directories = Utils::FileSystem::getDirContent("/sys/class/leds");
+        for (const auto& directory : directories)
+        {
+            // Identify if this is an addressable LED folder
+            if (directory.find("/l:") != std::string::npos || directory.find("/r:") != std::string::npos)
+            {
+                std::string path = directory + "/brightness";
+                if (!Utils::FileSystem::exists(path)) continue;
+
+                // Check the channel suffix to apply the correct scaled color
+                if (directory.find(":r") != std::string::npos)
+                    Utils::FileSystem::writeAllText(path, std::to_string(rOut) + "\n");
+                else if (directory.find(":g") != std::string::npos)
+                    Utils::FileSystem::writeAllText(path, std::to_string(gOut) + "\n");
+                else if (directory.find(":b") != std::string::npos)
+                    Utils::FileSystem::writeAllText(path, std::to_string(bOut) + "\n");
+            }
+        }
+    }
+    else 
+    {
+        // Fallback for standard devices (multicolor/joystick_rings handles scaling internally)
+        int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
+        int brightnessValue = static_cast<int>(factor * max + 0.5f);
+        Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, std::to_string(brightnessValue) + "\n");
+    }
 }
 
 bool ApiSystem::isLEDEnabled()
