@@ -42,6 +42,7 @@ enum class LightGunType
 	Blamcon,
 	Aimtrak,
 	AELightgun,
+	Xgunner,
 	VirtualHID
 };
 
@@ -81,6 +82,11 @@ public:
 		for (auto id : aimtrakDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::Aimtrak;
+
+		std::string xgunnerDeviceIds[] = { "VID_1209&PID_0001", "VID_1209&PID_0002", "VID_1209&PID_0003", "VID_1209&PID_0004" };
+		for (auto id : xgunnerDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::Xgunner;
 
 		std::string aeDeviceIds[] = { "VID_2341&PID_8037", "VID_2341&PID_8038" };
 		for (auto id : aeDeviceIds)
