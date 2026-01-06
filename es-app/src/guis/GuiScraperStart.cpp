@@ -311,6 +311,31 @@ void GuiScraperStart::loadSettingsPage()
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::PadToKey))
 		addSwitch(_("PADTOKEY SETTINGS"), "ScrapePadToKey", true);
+
+
+	addGroup(_("MANUAL SCRAPE"));
+
+	auto excludedScrapers = Utils::String::split(Settings::getInstance()->getString("DisabledManualScrapers"), ';');
+
+	// scrape from
+	auto scraper_list = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INCLUDED SCRAPERS"), true);
+
+	// Select either the first entry of the one read from the settings, just in case the scraper from settings has vanished.
+	for (auto engine : Scraper::getScraperList())
+		scraper_list->add(engine, engine, std::find(excludedScrapers.cbegin(), excludedScrapers.cend(), engine) == excludedScrapers.cend());
+
+	addWithLabel(_("INCLUDED SCRAPERS"), scraper_list);
+	addSaveFunc([this, scraper_list]
+		{
+			Utils::String::stringVector scraperNames = scraper_list->getSelectedObjects();
+
+			std::string exclusion;
+			for (auto engine : Scraper::getScraperList())
+				if (std::find(scraperNames.cbegin(), scraperNames.cend(), engine) == scraperNames.cend())
+					exclusion = exclusion.empty() ? engine : exclusion + ";" + engine;
+
+			Settings::getInstance()->setString("DisabledManualScrapers", exclusion);			
+		});
 }
 
 void GuiScraperStart::loadAccountsPage() 
