@@ -58,7 +58,7 @@ private:
 	void resizeMetadata();
 
 	void onSearchError(const std::string& error);
-	void onSearchDone();
+	void onSearchDone(bool isReallyFinished = true);
 
 	int getSelectedIndex();
 

@@ -87,7 +87,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window) : GuiComponent(wi
 
 	// result list
 	mResultList = std::make_shared<ComponentList>(mWindow);
-	mResultList->setCursorChangedCallback([this](CursorState state) { if (state == CURSOR_STOPPED) updateInfoPane(); });
+	mResultList->setCursorChangedCallback([this](CursorState state) { if (!mBlockAccept && state == CURSOR_STOPPED) updateInfoPane(); });
 
 	updateViewStyle();
 }
@@ -281,11 +281,16 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 	mMDResolveHandle.reset();
 	updateInfoPane();
 
+	auto excludedScrapers = Utils::String::split(Settings::getInstance()->getString("DisabledManualScrapers"), ';');
+
 	for (auto scraperName : Scraper::getScraperList())
 	{
 		auto scraper = Scraper::getScraper(scraperName);
 		if (scraper == nullptr || !scraper->isSupportedPlatform(params.system))
 			continue;
+
+		if (std::find(excludedScrapers.cbegin(), excludedScrapers.cend(), scraperName) != excludedScrapers.cend())
+			continue;		
 
 		ScraperSearch* ss = new ScraperSearch();
 		ss->name = scraperName;
@@ -301,10 +306,19 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 	
 	if (mScrapEngines.size() == 0)
 	{
+		std::string scraperName = Settings::getInstance()->getString("Scraper");
+		auto scraper = Scraper::getScraper(scraperName);
+
 		ScraperSearch* ss = new ScraperSearch();
-		ss->name = Settings::getInstance()->getString("Scraper");
+		ss->name = scraperName;
 		ss->params = params;
-		ss->searchHandle = Scraper::getScraper(ss->name)->search(params);
+		ss->params.isManualScrape = true;
+
+		if (params.nameOverride.empty() && scraper != nullptr && scraper->isSupportedPlatform(params.system))
+			ss->searchHandle = std::make_unique<ScraperAsyncRequestsBuilder>(scraper, ss);		
+		else
+			ss->searchHandle = Scraper::getScraper(ss->name)->search(params);
+
 		mScrapEngines.push_back(ss);
 	}
 
@@ -349,9 +363,10 @@ void ScraperSearchComponent::stop()
 	mBlockAccept = false;
 }
 
-void ScraperSearchComponent::onSearchDone()
+void ScraperSearchComponent::onSearchDone(bool isReallyFinished)
 {	
 	mResultList->clear();
+	mResultList->setReadOnly(!isReallyFinished);
 
 	auto theme = ThemeData::getMenuTheme();
 	auto font = theme->Text.font;
@@ -362,7 +377,7 @@ void ScraperSearchComponent::onSearchDone()
 	for (auto engine : mScrapEngines)
 		hasResults |= (engine->results.size() > 0);
 
-	if (!hasResults)
+	if (isReallyFinished && !hasResults)
 	{
 		// Check if the scraper used is still valid
 		if (!Scraper::isValidConfiguredScraper())
@@ -434,11 +449,15 @@ void ScraperSearchComponent::onSearchDone()
 		mGrid.resetCursor();
 	}
 
-	mBlockAccept = false;
-	updateInfoPane();
+	if (isReallyFinished)
+	{
+		mBlockAccept = false;
+		updateInfoPane();
 
-	if (mSearchDoneCallback)
-		mSearchDoneCallback(); 
+		if (mSearchDoneCallback)
+			mSearchDoneCallback();
+	}
+	
 }
 
 void ScraperSearchComponent::onSearchError(const std::string& error)
@@ -536,6 +555,17 @@ void ScraperSearchComponent::updateInfoPane()
 
 bool ScraperSearchComponent::input(InputConfig* config, Input input)
 {
+	if (config->isMappedTo(BUTTON_BACK, input) && input.value != 0)
+	{
+		if (mBlockAccept && !mMDResolveHandle)
+		{
+			stop();
+			onSearchDone();
+
+			return true;
+		}
+	}
+
 	if (config->isMappedTo(BUTTON_OK, input) && input.value != 0)
 	{
 		if (mBlockAccept)
@@ -652,8 +682,13 @@ void ScraperSearchComponent::update(int deltaTime)
 
 	if (checkDone && !std::any_of(mScrapEngines.cbegin(), mScrapEngines.cend(), [](ScraperSearch* x) { return x->searchHandle != nullptr; }))
 		onSearchDone();
-	else if (mMDResolveHandle == nullptr)
-		updateBusyAnim();
+	else if (mBlockAccept && mMDResolveHandle == nullptr)
+	{
+		if (checkDone)
+			onSearchDone(false);
+
+		updateBusyAnim();		
+	}
 
 	if (mMDResolveHandle && mMDResolveHandle->status() != ASYNC_IN_PROGRESS)
 	{

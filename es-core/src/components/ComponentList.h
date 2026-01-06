@@ -109,6 +109,8 @@ public:
 	virtual bool onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	inline void setReadOnly(bool value) { mReadOnly = value; }
+
 protected:
 	void onCursorChanged(const CursorState& state) override;
 
@@ -147,6 +149,7 @@ private:
 	int		  mPressedRow;
 	Vector2i  mPressedPoint;
 	bool	  mIsDragging;
+	bool	  mReadOnly;
 };
 
 #endif // ES_CORE_COMPONENTS_COMPONENT_LIST_H
