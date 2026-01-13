@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v43b(2025/11/18)\n"
+"Project-Id-Version: batocera-es v43b(2025/12/24)+knullu G2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-18 07:24+0900\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
+"PO-Revision-Date: 2025-12-26 01:20+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -945,16 +945,16 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "適合する ゲームが 見つかりませんでした。"
 
 msgid "KEYBOARDTOPADS"
-msgstr "キーボードからパッド"
+msgstr "キーボード-＞パッド"
 
 msgid "HOTKEYS"
-msgstr "ホットキー"
+msgstr "ホットキー組み合わせ変更"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr "キーは定義されていますが、ジョイスティック名がありません"
+msgstr "キーの定義に対し、ジョイスティック名が指定されていません"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr "ジョイスティック名はキーが定義されていません"
+msgstr "ジョイスティック名に対し、キーが定義されていません"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
 msgstr "適用するにはデバイスのプラグを抜き差ししてください"
@@ -963,7 +963,7 @@ msgid "JOYSTICK NAME"
 msgstr "ジョイスティック名"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr "キーを押すか、4秒間待つとクリアします"
+msgstr "キーを押すか4秒待つとクリアされます"
 
 msgid "OVERLAYS"
 msgstr "オーバーレイ"
@@ -1032,7 +1032,7 @@ msgid "CONTROL CENTER"
 msgstr "コントロールセンター"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr "キーが重複割り当てしています"
+msgstr "キー割り当てが重複しています"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "新規ストレージにインストール"
@@ -1834,8 +1834,8 @@ msgstr "自動ステートセーブ/読込み"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"開始時にステート読込み、終了時にステートセーブします\n"
-"(ステートセーブの方法－「ゲームごとにセーブ」を指定)"
+"ゲームの起動時に最新のステートセーブを読込み、\n"
+"終了時にステートセーブを保存します"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ステートセーブの方法"
@@ -2756,10 +2756,10 @@ msgid ""
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "コントローラーのボタン設定を行います。 このコントローラのボタンのラベル通りで"
-"はなく、システムで 使用するボタン位置に基づいて設定します。（A,B,X,Yの位置）"
-"ホットキー用の特別なボタン（PSやHOME）がない場合は、 「セレクト」ボタンを使用"
-"してください。 ボタンを長押しで、割り当てられないボタン/スティックを スキップ"
-"します。 完了したら、決定（下）ボタンを押して確認します。"
+"は なく、システムで使用するボタン位置に 基づいて設定します。（A,B,X,Yの位"
+"置） ホットキー用の特別なボタン(PSやHOME)が ない場合は、「セレクト」ボタンを"
+"使用して ください。ボタンを長押しで、割り当てられない ボタン/スティックをス"
+"キップします。 完了したら、決定（南）ボタンを押して確認してください。"
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "シンデン ライトガン 設定"
@@ -2855,19 +2855,19 @@ msgid "HOTKEY"
 msgstr "ホットキー"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "デバイスが見つかりません（JAMMASD、IPAC、...）"
+msgstr "デバイスが見つかりません (JAMMASD, IPAC , ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新しいグローバルホットキーを設定"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr "グローバルホットキーを正確に2回押すのに4秒かかります"
+msgstr "割り当てるボタンを 4秒以内に正確に2回押してください"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr "グローバルホットキーが検出されません"
+msgstr "グローバルホットキーが認識できません"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr "重複したグローバルホットキーが検出されました"
+msgstr "重複したグローバルホットキーです"
 
 msgid "BORDER SIZE"
 msgstr "境界サイズ"
@@ -3760,41 +3760,24 @@ msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
 
-#~ msgid "BY HARDWARE TYPE"
-#~ msgstr "ゲーム機器別"
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr "このゲーム用のNFCタグを作成"
 
-#~ msgid "SCRAPER SETTINGS"
-#~ msgstr "スクレイプ 設定"
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+"起動コマンド\n"
+"'%s'を書き込むには\n"
+"書き込みボタンを押し、NFCタグをセットしてください"
 
-#~ msgid "ACCOUNT"
-#~ msgstr "アカウント(SCREENSCRAPER)"
+msgid "WRITE"
+msgstr "書き込み"
 
-#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-#~ msgstr "ユーザーインターフェイスモードのロックを解除しました"
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr "NFCタグを書き込みしています..."
 
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "ゲーム起動時にネットプレイ オプションを表示"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "オンライン、オフライン、別のゲームへの参加を選択できます"
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "作成または参加するゲーム ロビーを選択"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "ホストとしてオンラインでプレイ"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "オフラインでプレイ"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "既存のゲームに参加"
-
-#~ msgid "MATRIX"
-#~ msgstr "マトリクス"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "RGB DMD順"
-
-#~ msgid "FORGET A BLUETOOTH DEVICE"
-#~ msgstr "BLUETOOTH デバイスの削除"
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr "タグは正常に書き込まれました"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-21 15:37+0300\n"
+"PO-Revision-Date: 2026-01-11 22:01+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -943,25 +943,25 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "HİÇBİR OYUN BU KRİTERE UYMUYOR."
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "KLAVYE ÜST PANELİ"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "KISAYOLLAR"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "TUŞLAR TANIMLANDI AMA JOYSTICK İSİMLENDİRİLMEDİ"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "JOYSTICK İSİMLENDİRİLMİŞ AMA TUŞLAR TANIMLANMAMIŞ"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "UYGULAMAK İÇİN CİHAZI FİŞTEN ÇIKARIP TEKRAR TAKIN"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "JOYSTICK İSMİ"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "TEMİZLEMEK İÇİN BİR TUŞA BASIN VEYA 4 SANİYE BEKLEYİN"
 
 msgid "OVERLAYS"
 msgstr "KAPLAMALAR"
@@ -1027,10 +1027,10 @@ msgid "VOLUME UP"
 msgstr "SES YÜKSELT"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "KONTROL MERKEZİ"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "TUŞ İKİ KEZ ATANDI"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "YENİ BİR DİSKE KUR"
@@ -2512,10 +2512,10 @@ msgid "BY MANUFACTURER"
 msgstr "ÜRETİCİYE GÖRE"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "ÖNCE DONANIM TÜRÜNE, SONRA ALFABETİK OLARAK"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "ÖNCE DONANIM TÜRÜNE, SONRA YILA GÖRE"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "ÜRETİCİYE VE TÜRE GÖRE"
@@ -2811,10 +2811,10 @@ msgid "JOYSTICKS HOTKEYS"
 msgstr "JOYSTICK KISAYOL TUŞU"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "JOYSTICK KISAYOLLARININ ÇIKIŞ İÇİN KULLANILMASINI KISITLA"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "GENEL KISAYOL TUŞLARI"
 
 msgid "default"
 msgstr "varsayılan"
@@ -2865,19 +2865,19 @@ msgid "HOTKEY"
 msgstr "KISAYOL TUŞU"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "CİHAZ BULUNAMADI (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "YENİ BİR GENEL KISAYOL TUŞU TANIMLA"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "GENEL KISAYOL TUŞUNA  2 KEZ BASMAK İÇİN 4 SANİYE VAR"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "GENEL KISAYOL TUŞU ALGILANMADI"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "BİRDEN FAZLA GENEL KISAYOL ALGILANDI"
 
 msgid "BORDER SIZE"
 msgstr "KENAR BOYUTU"
@@ -3794,12 +3794,6 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
-
-#~ msgid "BY HARDWARE TYPE"
-#~ msgstr "DONANIM TÜRÜNE GÖRE"
-
-#~ msgid "RESTRICT HOTKEYS TO EXIT"
-#~ msgstr "ÇIKIŞ İÇİN KISAYOL TUŞLARINI SINIRLA"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"
