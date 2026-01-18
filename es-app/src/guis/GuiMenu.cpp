@@ -67,6 +67,10 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <array>
+#include <memory>
+#include <sstream>
+#include <cstdio>
 #endif
 
 #if WIN32
@@ -1275,6 +1279,47 @@ bool GuiMenu::checkNetwork()
 	return true;
 }
 
+// Keyboard helper function that parses output "code Description" into a pair { "code", "Description" }
+#if !WIN32
+static std::vector<std::pair<std::string, std::string>> getScriptOutput(const std::string& command)
+{
+	std::vector<std::pair<std::string, std::string>> results;
+	std::array<char, 128> buffer;
+	std::string result;
+	std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(), "r"), pclose);
+	if (!pipe) return results;
+
+	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+		result += buffer.data();
+	}
+
+	std::stringstream ss(result);
+	std::string line;
+	while (std::getline(ss, line))
+	{
+		// Trim newline chars
+		if (!line.empty() && line.back() == '\n') line.pop_back();
+		if (!line.empty() && line.back() == '\r') line.pop_back();
+		if (line.empty()) continue;
+
+		// Find first space: split "code" and "Description"
+		size_t splitPos = line.find(' ');
+		if (splitPos != std::string::npos)
+		{
+			std::string code = line.substr(0, splitPos);
+			std::string name = line.substr(splitPos + 1);
+			
+			// Trim potential leading whitespace from name
+			size_t first = name.find_first_not_of(' ');
+			if (first != std::string::npos) name = name.substr(first);
+
+			results.push_back({ code, name });
+		}
+	}
+	return results;
+}
+#endif
+
 void GuiMenu::openSystemSettings() 
 {
 	Window *window = mWindow;
@@ -1345,6 +1390,92 @@ void GuiMenu::openSystemSettings()
 			s->setVariable("reloadGuiMenu", true);
 		}		
 	});
+
+	// Keyboard layout & variant
+#if !WIN32
+	
+	std::string curLayout = SystemConf::getInstance()->get("system.kblayout");
+	if (curLayout.empty()) curLayout = "us";
+
+	std::string curVariant = SystemConf::getInstance()->get("system.kbvariant");
+	if (curVariant.empty()) curVariant = "none";
+
+	auto keyboard_layout = std::make_shared<OptionListComponent<std::string>>(window, _("KEYBOARD LAYOUT"), false);
+	auto keyboard_variant = std::make_shared<OptionListComponent<std::string>>(window, _("KEYBOARD VARIANT"), false);
+
+	// Populate Layouts
+	auto layouts = getScriptOutput("/usr/bin/batocera-keyboard list-layouts");
+	bool layoutFound = false;
+	
+	for (const auto& l : layouts)
+	{
+		bool isSelected = (l.first == curLayout);
+		if (isSelected) layoutFound = true;
+		keyboard_layout->add(l.second, l.first, isSelected);
+	}
+	if (!layoutFound) {
+		keyboard_layout->add(curLayout, curLayout, true);
+	}
+
+	// Populate Variants
+	auto populateVariants = [keyboard_variant, curVariant](std::string layoutCode) {
+		keyboard_variant->clear();
+		bool noneSelected = (curVariant == "none" || curVariant.empty());
+		keyboard_variant->add(_("STANDARD"), "none", noneSelected);
+
+		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + layoutCode);
+		bool variantFound = false;
+		for (const auto& v : variants)
+		{
+			bool isSelected = (v.first == curVariant);
+			if (isSelected) variantFound = true;
+			keyboard_variant->add(v.second, v.first, isSelected);
+		}
+
+		if (!variantFound && !noneSelected) {
+			keyboard_variant->selectFirstItem(); 
+		}
+		keyboard_variant->invalidate();
+	};
+
+	populateVariants(curLayout);
+
+	// Callback for layout change
+	keyboard_layout->setSelectedChangedCallback([populateVariants, keyboard_variant](std::string newLayout) {
+		keyboard_variant->clear();
+		keyboard_variant->add(_("STANDARD"), "none", true);
+		
+		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + newLayout);
+		for (const auto& v : variants)
+		{
+			keyboard_variant->add(v.second, v.first, false); 
+		}
+		keyboard_variant->selectFirstItem();
+		keyboard_variant->invalidate();
+	});
+
+	std::string kbHelpText = _("Select the physical keyboard layout. A reboot may be required for changes to take full effect.");
+	
+	s->addWithDescription(_("KEYBOARD LAYOUT"), kbHelpText, keyboard_layout);
+	s->addWithDescription(_("KEYBOARD VARIANT"), kbHelpText, keyboard_variant);
+
+	s->addSaveFunc([keyboard_layout, keyboard_variant, s] {
+		if (keyboard_layout->changed() || keyboard_variant->changed()) 
+		{
+			std::string selLayout = keyboard_layout->getSelected();
+			std::string selVariant = keyboard_variant->getSelected();
+			
+			std::string cmd = "batocera-keyboard set \"" + selLayout + "\" \"" + selVariant + "\"";
+			if (system(cmd.c_str()) == 0) {
+				SystemConf::getInstance()->set("system.kblayout", selLayout);
+				SystemConf::getInstance()->set("system.kbvariant", selVariant);
+				
+				// Trigger the standard "Reboot Required" notification on menu exit
+				s->setVariable("reboot", true);
+			}
+		}
+	});
+#endif
 
 	// Timezone
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::TIMEZONES))
