@@ -760,24 +760,21 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	window->normalizeNextUpdate();
 
 	//update number of times the game has been launched
-	if (exitCode == 0)
-	{
-		int timesPlayed = gameToUpdate->getMetadata().getInt(MetaDataId::PlayCount) + 1;
-		gameToUpdate->setMetadata(MetaDataId::PlayCount, std::to_string(static_cast<long long>(timesPlayed)));
+  int timesPlayed = gameToUpdate->getMetadata().getInt(MetaDataId::PlayCount) + 1;
+  gameToUpdate->setMetadata(MetaDataId::PlayCount, std::to_string(static_cast<long long>(timesPlayed)));
 
-		// How long have you played that game? (more than 10 seconds, otherwise
-		// you might have experienced a loading problem)
-		time_t tend = time(NULL);
-		long elapsedSeconds = difftime(tend, tstart);
-		long gameTime = gameToUpdate->getMetadata().getInt(MetaDataId::GameTime) + elapsedSeconds;
-		if (elapsedSeconds >= 10)
-			gameToUpdate->setMetadata(MetaDataId::GameTime, std::to_string(static_cast<long>(gameTime)));
+  // How long have you played that game? (more than 10 seconds, otherwise
+  // you might have experienced a loading problem)
+  time_t tend = time(NULL);
+  long elapsedSeconds = difftime(tend, tstart);
+  long gameTime = gameToUpdate->getMetadata().getInt(MetaDataId::GameTime) + elapsedSeconds;
+  if (elapsedSeconds >= 10)
+    gameToUpdate->setMetadata(MetaDataId::GameTime, std::to_string(static_cast<long>(gameTime)));
 
-		//update last played time
-		gameToUpdate->setMetadata(MetaDataId::LastPlayed, Utils::Time::DateTime(Utils::Time::now()));
-		CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
-		saveToGamelistRecovery(gameToUpdate);
-	}
+  //update last played time
+  gameToUpdate->setMetadata(MetaDataId::LastPlayed, Utils::Time::DateTime(Utils::Time::now()));
+  CollectionSystemManager::get()->refreshCollectionSystems(gameToUpdate);
+  saveToGamelistRecovery(gameToUpdate);
 
 	window->reactivateGui();
 
