@@ -155,6 +155,7 @@ namespace PlatformIds
 			
 		{ "imageviewer",			IMAGEVIEWER },
 			
+		{ "cassettevision",			CASSETTE_VISION },
 		{ "scv",					SUPER_CASSETTE_VISION },
 		{ "easyrpg",				EASYRPG },			
 		{ "pet",					COMMODORE_PET },
