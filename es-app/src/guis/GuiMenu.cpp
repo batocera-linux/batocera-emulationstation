@@ -1421,7 +1421,7 @@ void GuiMenu::openSystemSettings()
 	auto populateVariants = [keyboard_variant, curVariant](std::string layoutCode) {
 		keyboard_variant->clear();
 		bool noneSelected = (curVariant == "none" || curVariant.empty());
-		keyboard_variant->add(_("STANDARD"), "none", noneSelected);
+		keyboard_variant->add(_("NONE"), "none", noneSelected);
 
 		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + layoutCode);
 		bool variantFound = false;
@@ -1443,12 +1443,12 @@ void GuiMenu::openSystemSettings()
 	// Callback for layout change
 	keyboard_layout->setSelectedChangedCallback([populateVariants, keyboard_variant](std::string newLayout) {
 		keyboard_variant->clear();
-		keyboard_variant->add(_("STANDARD"), "none", true);
+		keyboard_variant->add(_("NONE"), "none", true);
 		
 		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + newLayout);
 		for (const auto& v : variants)
 		{
-			keyboard_variant->add(v.second, v.first, false); 
+			keyboard_variant->add(v.second, v.first, false);
 		}
 		keyboard_variant->selectFirstItem();
 		keyboard_variant->invalidate();
@@ -1460,12 +1460,12 @@ void GuiMenu::openSystemSettings()
 	s->addWithDescription(_("KEYBOARD VARIANT"), kbHelpText, keyboard_variant);
 
 	s->addSaveFunc([keyboard_layout, keyboard_variant, s] {
-		if (keyboard_layout->changed() || keyboard_variant->changed()) 
+		if (keyboard_layout->changed() || keyboard_variant->changed())
 		{
 			std::string selLayout = keyboard_layout->getSelected();
 			std::string selVariant = keyboard_variant->getSelected();
 			
-			std::string cmd = "batocera-keyboard set \"" + selLayout + "\" \"" + selVariant + "\"";
+			std::string cmd = "/usr/bin/batocera-keyboard set \"" + selLayout + "\" \"" + selVariant + "\"";
 			if (system(cmd.c_str()) == 0) {
 				SystemConf::getInstance()->set("system.kblayout", selLayout);
 				SystemConf::getInstance()->set("system.kbvariant", selVariant);
