@@ -119,6 +119,7 @@ namespace PlatformIds
 		// Windows Specific
 		VISUALPINBALL,
 		FUTUREPINBALL,
+		PIONEER_LASERACTIVE,
 
 		// Misc systems
 		CHANNELF,
