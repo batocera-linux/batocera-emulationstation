@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.6\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SKANOWANIE BLUETOOTH"
@@ -30,7 +30,7 @@ msgid "Formatting"
 msgstr "Formatowanie"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "DO UKOŃCZENIA OPERACJI WYMAGANE JEST PONOWNE URUCHOMIENIE "
+msgstr "DO UKOŃCZENIA OPERACJI WYMAGANE JEST PONOWNE URUCHOMIENIE"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "DYSK JEST JUŻ FORMATOWANY."
@@ -715,7 +715,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid " (Connected)"
-msgstr "(Połączone)"
+msgstr " (Połączone)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "URZĄDZENIA BLUETOOTH ZOSTAŁY USUNIĘTE."
@@ -3307,7 +3307,7 @@ msgid "SCRAPING FINISHED"
 msgstr "SCRAPE'OWANIE ZAKOŃCZONE"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "ZAKTUALIZUJ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY"
+msgstr "ZAKTUALIZUJ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
 
 msgid "Loading system config..."
 msgstr "Wczytywanie konfiguracji systemowej..."
