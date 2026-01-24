@@ -7,13 +7,13 @@ msgstr ""
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: nl_NL\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH WORDT GESCAND"
@@ -47,6 +47,24 @@ msgstr "Omschrijving"
 
 msgid "this game's description"
 msgstr "omschrijving van dit spel"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "enter game genre"
+msgstr "voer genre van spel in"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -173,12 +191,6 @@ msgstr "Uitgever"
 
 msgid "this game's publisher"
 msgstr "uitgever van dit spel"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "voer genre van spel in"
 
 msgid "Game family"
 msgstr "Spel Familie"
@@ -918,6 +930,12 @@ msgstr "HANDLEIDING"
 msgid "PADTOKEY SETTINGS"
 msgstr "INSTELLINGEN PAD-TO-KEY"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
 
@@ -1606,6 +1624,17 @@ msgstr "TAAL"
 msgid "LANGUAGE (REGION)"
 msgstr "TAAL (REGIO)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECTEER UW TIJDZONE"
 
@@ -1639,8 +1668,8 @@ msgstr "GEBRUIKERSINTERFACE MODUS"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
-"Vergrendel bepaalde configuratiemenu's voor gebruik door "
-"gastgebruikers/kinderen."
+"Vergrendel bepaalde configuratiemenu's voor gebruik door gastgebruikers/"
+"kinderen."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1778,6 +1807,12 @@ msgstr "OPSLAGMEDIUM"
 msgid "BACKUP USER DATA"
 msgstr "BACKUP GEBRUIKERSDATA"
 
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
+
 msgid "ADVANCED"
 msgstr "GEAVANCEERD"
 
@@ -1818,8 +1853,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Verlaagt automatisch de framevertraging tijdelijk om framedrops te voorkomen."
-" Kan stotteren introduceren."
+"Verlaagt automatisch de framevertraging tijdelijk om framedrops te "
+"voorkomen. Kan stotteren introduceren."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "VARIABELE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -1830,8 +1865,8 @@ msgstr "VARIABELE REFRESH RATE"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI 2."
-"1 VRR."
+"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI "
+"2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DECORATIESET"
@@ -2053,11 +2088,17 @@ msgstr "heeft meerdere spellen"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "TOON '..' BOVENLIGGENDE MAP"
 
-msgid "BEFORE NAME"
-msgstr "VOOR NAAM"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "ACHTER NAAM"
+
+msgid "BEFORE NAME"
+msgstr "VOOR NAAM"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "TOON REGIOVLAG"
@@ -2352,6 +2393,24 @@ msgstr "GESELECTEERDE OPTIES ZIJN ONGELDIG"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "WEET U ZEKER DAT U DEZE SCHIJF WILT FORMATTEREN?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Punten"
 
@@ -2441,6 +2500,25 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr "DIT ZAL DE BESTANDEN VAN HET SPEL VERWIJDEREN! WEET U HET ZEKER?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIES"
@@ -2693,6 +2771,9 @@ msgstr "ZOOM"
 msgid "EDIT METADATA"
 msgstr "BEWERK METADATA"
 
+msgid "TAGS"
+msgstr ""
+
 msgid "GENRES"
 msgstr "GENRES"
 
@@ -2774,8 +2855,8 @@ msgstr "CONTROLLER MAPPING"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "JE GAAT EEN CONTROLLER MAPPEN. MAP IS GEBASEERD OP DE POSITIE VAN DE KNOP, "
 "NIET OP HET FYSIEKE LABEL. ALS U GEEN SPECIALE KNOP VOOR HOTKEY HEBT, "
@@ -3126,11 +3207,11 @@ msgid "INVALID CONTENT"
 msgstr "ONGELDIGE INHOUD"
 
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
-"Een geldig account is vereist. Gelieve een account te registreren op https:"
-"//retroachievements.org"
+"Een geldig account is vereist. Gelieve een account te registreren op https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Volledig"
@@ -3253,6 +3334,9 @@ msgstr "Spellijsten worden geladen"
 msgid "GENRE"
 msgstr "GENRE"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "FAMILIE"
 
@@ -3318,6 +3402,21 @@ msgstr "KLAAR MET SCRAPEN"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPDATE DE SPELLIJSTEN OM WIJZIGINGEN TOE TE PASSEN."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Systeemconfiguratie wordt geladen..."
@@ -3793,3 +3892,69 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""

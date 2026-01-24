@@ -46,6 +46,24 @@ msgstr "Deskripsi"
 msgid "this game's description"
 msgstr "deskripsi game ini"
 
+msgid "Genre"
+msgstr "Genre"
+
+msgid "enter game genre"
+msgstr "masukkan jenis game"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Emulator"
 
@@ -171,12 +189,6 @@ msgstr "Penerbit"
 
 msgid "this game's publisher"
 msgstr "penerbit game ini"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "masukkan jenis game"
 
 msgid "Game family"
 msgstr "Keluarga game"
@@ -914,6 +926,12 @@ msgstr "PANDUAN"
 msgid "PADTOKEY SETTINGS"
 msgstr "PENGATURAN PADTOKEY"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr ""
 
@@ -1592,6 +1610,17 @@ msgstr "BAHASA"
 msgid "LANGUAGE (REGION)"
 msgstr "BAHASA (WILAYAH)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "PILIH ZONA WAKTU ANDA"
 
@@ -1758,6 +1787,12 @@ msgstr "PERANGKAT PENYIMPANAN"
 
 msgid "BACKUP USER DATA"
 msgstr "CADANGKAN DATA PENGGUNA"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "LANJUTAN"
@@ -2029,11 +2064,17 @@ msgstr "memiliki banyak permainan"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "TAMPILKAN '..' FOLDER INDUK"
 
-msgid "BEFORE NAME"
-msgstr "NAMA SEBELUMNYA"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "NAMA SETELAHNYA"
+
+msgid "BEFORE NAME"
+msgstr "NAMA SEBELUMNYA"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "TAMPILKAN BENDERA WILAYAH"
@@ -2326,6 +2367,24 @@ msgstr "PILIHAN TIDAK VALID"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "YAKIN MAU FORMAT DRIVE INI?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Poin"
 
@@ -2417,6 +2476,25 @@ msgid ""
 msgstr ""
 "INI AKAN MENGHAPUS FILE GAME!\n"
 "KAU YAKIN?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "KOLEKSI"
@@ -2668,6 +2746,9 @@ msgstr "PERBESAR"
 
 msgid "EDIT METADATA"
 msgstr "UBAH METADATA"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "GENRE"
@@ -3223,6 +3304,9 @@ msgstr "Memuat listgame"
 msgid "GENRE"
 msgstr "GENRE"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "KELUARGA"
 
@@ -3288,6 +3372,21 @@ msgstr "MENGHIMPUN SELESAI"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPDATE LISTGAME UNTUK MENERAPKAN PERUBAHAN."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Memuat konfigurasi sistem..."
@@ -3755,6 +3854,72 @@ msgid ""
 msgstr ""
 "KALIBRASI GUN\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "BERDASARKAN TIPE HARDWARE"

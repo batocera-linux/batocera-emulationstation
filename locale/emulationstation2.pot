@@ -50,6 +50,24 @@ msgstr ""
 msgid "this game's description"
 msgstr ""
 
+msgid "Genre"
+msgstr ""
+
+msgid "enter game genre"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr ""
 
@@ -174,12 +192,6 @@ msgid "Publisher"
 msgstr ""
 
 msgid "this game's publisher"
-msgstr ""
-
-msgid "Genre"
-msgstr ""
-
-msgid "enter game genre"
 msgstr ""
 
 msgid "Game family"
@@ -909,6 +921,12 @@ msgstr ""
 msgid "PADTOKEY SETTINGS"
 msgstr ""
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr ""
 
@@ -1571,6 +1589,17 @@ msgstr ""
 msgid "LANGUAGE (REGION)"
 msgstr ""
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1731,6 +1760,12 @@ msgid "STORAGE DEVICE"
 msgstr ""
 
 msgid "BACKUP USER DATA"
+msgstr ""
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
 msgstr ""
 
 msgid "ADVANCED"
@@ -1998,10 +2033,16 @@ msgstr ""
 msgid "SHOW '..' PARENT FOLDER"
 msgstr ""
 
-msgid "BEFORE NAME"
+msgid "ICONS"
 msgstr ""
 
 msgid "AFTER NAME"
+msgstr ""
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "SHOW TAGS ICONS"
 msgstr ""
 
 msgid "SHOW REGION FLAG"
@@ -2295,6 +2336,24 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr ""
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr ""
 
@@ -2383,6 +2442,25 @@ msgstr ""
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
+msgstr ""
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr ""
 
 msgid "COLLECTIONS"
@@ -2634,6 +2712,9 @@ msgid "ZOOM"
 msgstr ""
 
 msgid "EDIT METADATA"
+msgstr ""
+
+msgid "TAGS"
 msgstr ""
 
 msgid "GENRES"
@@ -3181,6 +3262,9 @@ msgstr ""
 msgid "GENRE"
 msgstr ""
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr ""
 
@@ -3245,6 +3329,21 @@ msgid "SCRAPING FINISHED"
 msgstr ""
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
 msgstr ""
 
 msgid "Loading system config..."
@@ -3718,21 +3817,68 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 
-msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgid "GAME DRIVE DETECTED"
 msgstr ""
 
-#, c-format
-msgid ""
-"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
-"'%s'\n"
-"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgid "Merge games from this drive now?"
 msgstr ""
 
-msgid "WRITE"
+msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "Merging drive... Please wait."
 msgstr ""
 
-msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
 msgstr ""

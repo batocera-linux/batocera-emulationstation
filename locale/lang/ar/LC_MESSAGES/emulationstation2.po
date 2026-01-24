@@ -82,6 +82,24 @@ msgstr "الوصف"
 msgid "this game's description"
 msgstr "تفاصيل اللعبة"
 
+msgid "Genre"
+msgstr "النوع"
+
+msgid "enter game genre"
+msgstr "أدخل نوع اللعبة"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "المحاكي"
 
@@ -207,12 +225,6 @@ msgstr "الناشر"
 
 msgid "this game's publisher"
 msgstr "ناشر اللعبة"
-
-msgid "Genre"
-msgstr "النوع"
-
-msgid "enter game genre"
-msgstr "أدخل نوع اللعبة"
 
 msgid "Game family"
 msgstr "لعبة العائلة"
@@ -948,6 +960,12 @@ msgstr "الكتيب"
 msgid "PADTOKEY SETTINGS"
 msgstr "إعدادات وحدة التحكم إلى لوحة المفاتيح"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr "جالِب الشاشة"
 
@@ -1618,6 +1636,17 @@ msgstr "اللغة"
 msgid "LANGUAGE (REGION)"
 msgstr "اللغة (المنطقة)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "قم باختيار منطقتك الزمنية"
 
@@ -1783,6 +1812,12 @@ msgstr "جهاز التخزين"
 
 msgid "BACKUP USER DATA"
 msgstr "نسخ احتياطي لبيانات المستخدم"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "متقدم"
@@ -2051,11 +2086,17 @@ msgstr "تمتلك عدة ألعاب"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "عرض '..' لمجلد الوالدين"
 
-msgid "BEFORE NAME"
-msgstr "قبل الاسم"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "بعد الاسم"
+
+msgid "BEFORE NAME"
+msgstr "قبل الاسم"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "عرض عَلَم المنطقة"
@@ -2348,6 +2389,24 @@ msgstr "الخيارات المحددة غير صالحة"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "هل أنت متأكد أنك تريد تهيئة هذا القرص؟"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "النقاط"
 
@@ -2439,6 +2498,25 @@ msgid ""
 msgstr ""
 "سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
 "هل أنت متأكد؟"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "مجموعات"
@@ -2690,6 +2768,9 @@ msgstr "تكبيير"
 
 msgid "EDIT METADATA"
 msgstr "تعديل بيانات التعريف"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "الأنواع"
@@ -3263,6 +3344,9 @@ msgstr "تحميل قائمة الألعاب"
 msgid "GENRE"
 msgstr "النوع"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "العائلة"
 
@@ -3328,6 +3412,21 @@ msgstr "اكتملَ الجلب"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "قم بتحديث قائمة الألعاب لتطبيق التغييرات."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "...جار تحميل إعدادات النظام"
@@ -3835,6 +3934,72 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "حسب الجهاز"

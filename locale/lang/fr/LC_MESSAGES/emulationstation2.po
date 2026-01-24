@@ -46,6 +46,24 @@ msgstr "Description"
 msgid "this game's description"
 msgstr "description du jeu"
 
+msgid "Genre"
+msgstr "Genre"
+
+msgid "enter game genre"
+msgstr "entrer le genre du jeu"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Émulateur"
 
@@ -171,12 +189,6 @@ msgstr "Éditeur"
 
 msgid "this game's publisher"
 msgstr "éditeur du jeu"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "entrer le genre du jeu"
 
 msgid "Game family"
 msgstr "Famille de jeu"
@@ -919,6 +931,12 @@ msgstr "MANUEL"
 msgid "PADTOKEY SETTINGS"
 msgstr "PARAMÈTRES PADTOKEY"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
 
@@ -1600,6 +1618,17 @@ msgstr "LANGUE"
 msgid "LANGUAGE (REGION)"
 msgstr "LANGUE (RÉGION)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SÉLECTIONNER VOTRE FUSEAU HORAIRE"
 
@@ -1764,6 +1793,12 @@ msgstr "PÉRIPHÉRIQUE DE STOCKAGE"
 
 msgid "BACKUP USER DATA"
 msgstr "SAUVEGARDER LES DONNÉES UTILISATEUR"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AVANCÉ"
@@ -2040,11 +2075,17 @@ msgstr "avec jeux multiples"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "AFFICHER LE DOSSIER PARENT ‘..’"
 
-msgid "BEFORE NAME"
-msgstr "AVANT LE NOM"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "APRÈS LE NOM"
+
+msgid "BEFORE NAME"
+msgstr "AVANT LE NOM"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "AFFICHER LE DRAPEAU LANGUE DANS LES LISTES"
@@ -2338,6 +2379,24 @@ msgstr "LES OPTIONS SÉLECTIONNÉES SONT INVALIDES"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "VOUS ALLEZ FORMATER CE DISQUE. ÊTES-VOUS SÛR(E) ?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Points"
 
@@ -2429,6 +2488,25 @@ msgid ""
 msgstr ""
 "VOUS ALLEZ SUPPRIMER LE(S) FICHIER(S) DE JEU ACTUEL.\n"
 "ÊTES-VOUS SÛR(E) ?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIONS"
@@ -2680,6 +2758,9 @@ msgstr "ZOOM"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "GENRES"
@@ -3242,6 +3323,9 @@ msgstr "Chargement des listes de jeux"
 msgid "GENRE"
 msgstr "GENRE"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "FAMILLE"
 
@@ -3307,6 +3391,21 @@ msgstr "SCRAPE TERMINÉ"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
@@ -3782,6 +3881,72 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "PAR TYPE DE MATÉRIEL"

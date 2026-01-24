@@ -46,6 +46,24 @@ msgstr "Περιγραφη"
 msgid "this game's description"
 msgstr "η περιγραφη αυτου του παιχνιδιου"
 
+msgid "Genre"
+msgstr "Ειδος"
+
+msgid "enter game genre"
+msgstr "προσθηκη ειδους παιχνιδιου"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Εξομοιωτης"
 
@@ -171,12 +189,6 @@ msgstr "Εκδοτης"
 
 msgid "this game's publisher"
 msgstr "εκδοτης παιχνιδιου"
-
-msgid "Genre"
-msgstr "Ειδος"
-
-msgid "enter game genre"
-msgstr "προσθηκη ειδους παιχνιδιου"
 
 msgid "Game family"
 msgstr "Οικογενεια παιχνιδιου"
@@ -914,6 +926,12 @@ msgstr "ΕΓΧΕΙΡΙΔΙΑ"
 msgid "PADTOKEY SETTINGS"
 msgstr ""
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr ""
 
@@ -1586,6 +1604,17 @@ msgstr "ΓΛΩΣΣΑ"
 msgid "LANGUAGE (REGION)"
 msgstr "ΓΛΩΣΣΑ (ΠΕΡΙΟΧΗ)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "ΕΠΙΛΕΞΤΕ ΤΗΝ ΖΩΝΗ ΩΡΑΣ"
 
@@ -1749,6 +1778,12 @@ msgstr "ΣΥΣΚΕΥΗ ΑΠΟΘΗΚΕΥΣΗΣ"
 
 msgid "BACKUP USER DATA"
 msgstr "ΑΝΤΙΓΡΑΦΟ ΔΕΔΟΜΕΝΩΝ ΧΡΗΣΤΗ"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "ΠΡΟΧΩΡΗΜΕΝΟΣ"
@@ -2017,11 +2052,17 @@ msgstr "διαθεση πολλαπλων παιχνιδιων"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ΕΜΦΑΝΙΣΗ '..' ΓΟΝΙΚΟΥ ΦΑΚΕΛΟΥ"
 
-msgid "BEFORE NAME"
-msgstr "ΠΡΙΝ ΤΟ ΟΝΟΜΑ"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "ΜΕΤΑ ΤΟ ΟΝΟΜΑ"
+
+msgid "BEFORE NAME"
+msgstr "ΠΡΙΝ ΤΟ ΟΝΟΜΑ"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "ΕΜΦΑΝΙΣΗ ΣΗΜΑΤΟΔΟΤΗ ΓΛΩΣΣΑΣ ΣΤΙΣ ΛΙΣΤΕΣ"
@@ -2314,6 +2355,24 @@ msgstr "ΟΙ ΕΠΙΛΕΓΜΕΝΕΣ ΕΠΙΛΟΓΕΣ ΔΕΝ ΕΙΝΑΙ ΕΓΚΥ�
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ ΠΩΣ ΘΕΛΕΤΕ ΝΑ ΔΙΑΜΟΡΦΩΣΕΤΕ ΑΥΤΟΝ ΤΟΝ ΔΙΣΚΟ ;"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Ποντοι"
 
@@ -2405,6 +2464,25 @@ msgid ""
 msgstr ""
 "ΑΥΤΟ ΘΑ ΔΙΑΓΡΑΨΕΙ ΤΟ/Α ΠΡΑΓΜΑΤΙΚΟ/Α ΑΡΧΕΙΟ/Α ΠΑΙΧΝΙΔΙΟΥ/ΩΝ!\n"
 "ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "ΣΥΛΛΟΓΕΣ"
@@ -2656,6 +2734,9 @@ msgstr "ΜΕΓΕΘΥΝΣΗ"
 
 msgid "EDIT METADATA"
 msgstr "ΕΠΕΞΕΡΓΑΣΙΑ ΜΕΤΑΔΕΔΟΜΕΝΩΝ"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "ΕΙΔΗ"
@@ -3213,6 +3294,9 @@ msgstr "Φορτωση λιστων παιχνιδιων"
 msgid "GENRE"
 msgstr "ΕΙΔΟΣ"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "ΟΙΚΟΓΕΝΕΙΑ"
 
@@ -3278,6 +3362,21 @@ msgstr "ΤΟ SCRAPING ΤΕΛΕΙΩΣΕ"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ΕΝΗΜΕΡΩΣΤΕ ΤΗ ΛΙΣΤΑ ΠΑΙΧΝΙΔΙΩΝ ΓΙΑ ΝΑ ΕΝΕΡΓΟΠΟΙΗΘΟΥΝ ΟΙ ΑΛΛΑΓΕΣ."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Φορτωση τροποποιησης συστηματος..."
@@ -3754,6 +3853,72 @@ msgid ""
 msgstr ""
 "ΒΑΘΜΟΝΟΜΗΣΗ ΟΠΛΟΥ\n"
 "Πυροβοληστε σε στοχο για βαθμονομηση"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "ΚΑΤΑ ΤΥΠΟ ΥΛΙΚΟΥ"

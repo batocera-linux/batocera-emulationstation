@@ -46,6 +46,24 @@ msgstr "描述"
 msgid "this game's description"
 msgstr "本游戏描述"
 
+msgid "Genre"
+msgstr "游戏类型"
+
+msgid "enter game genre"
+msgstr "输入游戏类型"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "模拟器"
 
@@ -171,12 +189,6 @@ msgstr "发行商"
 
 msgid "this game's publisher"
 msgstr "此游戏发行商"
-
-msgid "Genre"
-msgstr "游戏类型"
-
-msgid "enter game genre"
-msgstr "输入游戏类型"
 
 msgid "Game family"
 msgstr "游戏所属合集"
@@ -909,6 +921,12 @@ msgstr "手册"
 msgid "PADTOKEY SETTINGS"
 msgstr "按键设置"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr "ScreenScraper"
 
@@ -1573,6 +1591,17 @@ msgstr "语言"
 msgid "LANGUAGE (REGION)"
 msgstr "语言（地区）"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "选择你的时区"
 
@@ -1737,6 +1766,12 @@ msgstr "存储设备"
 
 msgid "BACKUP USER DATA"
 msgstr "备份用户数据"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "高级设置选项"
@@ -2004,11 +2039,17 @@ msgstr "有多个游戏"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "显示 '..' 父文件夹（上级）"
 
-msgid "BEFORE NAME"
-msgstr "游戏名的前面"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "游戏名的后面"
+
+msgid "BEFORE NAME"
+msgstr "游戏名的前面"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "显示区域标识"
@@ -2301,6 +2342,24 @@ msgstr "所选的选项无效"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "您确定要格式化这个磁盘驱动器吗？"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "得分"
 
@@ -2392,6 +2451,25 @@ msgid ""
 msgstr ""
 "这个操作会删除实际的游戏文件!\n"
 "确定要执行吗?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "合辑"
@@ -2643,6 +2721,9 @@ msgstr "縮放"
 
 msgid "EDIT METADATA"
 msgstr "编辑元数据"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "类型"
@@ -3195,6 +3276,9 @@ msgstr "正在加载游戏列表"
 msgid "GENRE"
 msgstr "类型"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "游戏家族"
 
@@ -3260,6 +3344,21 @@ msgstr "抓取完成"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "更新游戏列表以应用更改。"
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "正在载入系统配置..."
@@ -3727,6 +3826,72 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "按硬件类型"

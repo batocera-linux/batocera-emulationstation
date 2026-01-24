@@ -46,6 +46,24 @@ msgstr "Beskrivning"
 msgid "this game's description"
 msgstr "detta spelets beskrivning"
 
+msgid "Genre"
+msgstr "Genre"
+
+msgid "enter game genre"
+msgstr "ange spelgenre"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Emulator"
 
@@ -171,12 +189,6 @@ msgstr "Utgivare"
 
 msgid "this game's publisher"
 msgstr "detta spelets utgivare"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "ange spelgenre"
 
 msgid "Game family"
 msgstr "Spelfamilj"
@@ -913,6 +925,12 @@ msgstr "MANUAL"
 msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY-INSTÄLLNINGAR"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
 
@@ -1589,6 +1607,17 @@ msgstr "SPRÅK"
 msgid "LANGUAGE (REGION)"
 msgstr "SPRÅK (REGION)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VÄLJ DIN TIDSZON"
 
@@ -1756,6 +1785,12 @@ msgstr "LAGRINGSENHET"
 
 msgid "BACKUP USER DATA"
 msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AVANCERAT"
@@ -2029,11 +2064,17 @@ msgstr "har flera spel"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "VISA '..' ÖVERORDNAD MAPP"
 
-msgid "BEFORE NAME"
-msgstr "FÖRE NAMNET"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "EFTER NAMNET"
+
+msgid "BEFORE NAME"
+msgstr "FÖRE NAMNET"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "VISA REGIONSFLAGGA"
@@ -2327,6 +2368,24 @@ msgstr "VALDA ALTERNATIV ÄR OGILTIGA"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ÄR DU SÄKER PÅ ATT DU VILL FORMATERA DENNA DISK?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Poäng"
 
@@ -2418,6 +2477,25 @@ msgid ""
 msgstr ""
 "DETTA KOMMER ATT RADERA DE AKTUELLA SPELFILERNA!\n"
 "ÄR DU SÄKER?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "SAMLINGAR"
@@ -2669,6 +2747,9 @@ msgstr "ZOOMA"
 
 msgid "EDIT METADATA"
 msgstr "REDIGERA METADATA"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "GENRER"
@@ -3106,8 +3187,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3230,6 +3311,9 @@ msgstr "Läser in spellistor"
 msgid "GENRE"
 msgstr "GENRE"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "FAMILJ"
 
@@ -3295,6 +3379,21 @@ msgstr "SKRAPNING SLUTFÖRD"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Läser in systemkonfiguration..."
@@ -3770,6 +3869,72 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "EFTER HÅRDVARUTYP"

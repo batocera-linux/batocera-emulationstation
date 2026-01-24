@@ -52,6 +52,24 @@ msgstr "Mô tả"
 msgid "this game's description"
 msgstr "mô tả của trò chơi này"
 
+msgid "Genre"
+msgstr "Thể loại"
+
+msgid "enter game genre"
+msgstr "nhập thể loại trò chơi"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Giả lập"
 
@@ -177,12 +195,6 @@ msgstr "Nhà xuất bản"
 
 msgid "this game's publisher"
 msgstr "nhà xuất bản trò chơi này"
-
-msgid "Genre"
-msgstr "Thể loại"
-
-msgid "enter game genre"
-msgstr "nhập thể loại trò chơi"
 
 msgid "Game family"
 msgstr "Trò chơi cho gia đình"
@@ -919,6 +931,12 @@ msgstr "THỦ CÔNG"
 msgid "PADTOKEY SETTINGS"
 msgstr "CÀI ĐẶT PADTOKEY"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr ""
 
@@ -1595,6 +1613,17 @@ msgstr "NGÔN NGỮ"
 msgid "LANGUAGE (REGION)"
 msgstr "NGÔN NGỮ (VÙNG)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "CHỌN MÚI GIỜ CỦA BẠN"
 
@@ -1762,6 +1791,12 @@ msgstr "THIẾT BỊ LƯU TRỮ"
 
 msgid "BACKUP USER DATA"
 msgstr "SAO LƯU DỮ LIỆU NGƯỜI DÙNG"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "NÂNG CAO"
@@ -2037,11 +2072,17 @@ msgstr "có nhiều trò chơi"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "HIỆN '..' THƯ MỤC CHÍNH"
 
-msgid "BEFORE NAME"
-msgstr "TRƯỚC TÊN"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "SAU TÊN"
+
+msgid "BEFORE NAME"
+msgstr "TRƯỚC TÊN"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "HIỂN THỊ CỜ KHU VỰC"
@@ -2336,6 +2377,24 @@ msgstr "CÁC TÙY CHỌN ĐÃ CHỌN KHÔNG HỢP LỆ"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "BẠN CÓ CHẮC CHẮN MUỐN ĐỊNH DẠNG Ổ ĐĨA NÀY KHÔNG?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Điểm"
 
@@ -2427,6 +2486,25 @@ msgid ""
 msgstr ""
 "XÓA HẾT CÁC TỆP TRÒ CHƠI!\n"
 "BẠN CÓ CHẮC CHẮN KHÔNG?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "BỘ SƯU TẬP"
@@ -2678,6 +2756,9 @@ msgstr "THU PHÓNG"
 
 msgid "EDIT METADATA"
 msgstr "CHỈNH SỬA SIÊU DỮ LIỆU"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "THỂ LOẠI"
@@ -3235,6 +3316,9 @@ msgstr "Đang nạp danh sách trò chơi"
 msgid "GENRE"
 msgstr "THỂ LOẠI"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "GIA ĐÌNH"
 
@@ -3300,6 +3384,21 @@ msgstr "SCRAPING XONG"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "CẬP NHẬT DANH SÁCH TRÒ CHƠI ĐỂ ÁP DỤNG CÁC THAY ĐỔI."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Đang tải cấu hình hệ thống..."
@@ -3767,6 +3866,72 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "THEO LOẠI PHẦN CỨNG"

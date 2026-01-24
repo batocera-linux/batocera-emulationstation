@@ -46,6 +46,24 @@ msgstr "説明"
 msgid "this game's description"
 msgstr "このゲームの説明を入力"
 
+msgid "Genre"
+msgstr "ジャンル"
+
+msgid "enter game genre"
+msgstr "ジャンルを入力"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "エミュレータ"
 
@@ -171,12 +189,6 @@ msgstr "販売"
 
 msgid "this game's publisher"
 msgstr "このゲームの販売元"
-
-msgid "Genre"
-msgstr "ジャンル"
-
-msgid "enter game genre"
-msgstr "ジャンルを入力"
 
 msgid "Game family"
 msgstr "ゲームシリーズ"
@@ -917,6 +929,12 @@ msgstr "マニュアル<manual>"
 msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr "スクリーンスクレーパー"
 
@@ -1593,6 +1611,17 @@ msgstr "言語"
 msgid "LANGUAGE (REGION)"
 msgstr "言語（地域）"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "タイムゾーンを選択"
 
@@ -1760,6 +1789,12 @@ msgstr "ストレージデバイス"
 
 msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "詳細項目"
@@ -2030,11 +2065,17 @@ msgstr "2個以上romがあるフォルダ"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
 
-msgid "BEFORE NAME"
-msgstr "ゲーム名の前"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "ゲーム名の後"
+
+msgid "BEFORE NAME"
+msgstr "ゲーム名の前"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "ゲームリージョンの国旗を表示"
@@ -2327,6 +2368,24 @@ msgstr "選択した設定は無効です"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "このストレージをフォーマットしますか？"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "ポイント"
 
@@ -2418,6 +2477,28 @@ msgid ""
 msgstr ""
 "これは実際にファイルを削除します！\n"
 "実行しますか？"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr "このゲーム用のNFCタグを作成"
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+"起動コマンド\n"
+"'%s'を書き込むには\n"
+"書き込みボタンを押し、NFCタグをセットしてください"
+
+msgid "WRITE"
+msgstr "書き込み"
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr "NFCタグを書き込みしています..."
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr "タグは正常に書き込まれました"
 
 msgid "COLLECTIONS"
 msgstr "コレクション"
@@ -2669,6 +2750,9 @@ msgstr "ズーム"
 
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "ジャンル"
@@ -3227,6 +3311,9 @@ msgstr "ゲームリストを読み込んでいます"
 msgid "GENRE"
 msgstr "ジャンル"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "ファミリー"
 
@@ -3292,6 +3379,21 @@ msgstr "スクレイプが終了しました"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します"
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
@@ -3760,24 +3862,68 @@ msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
 
-msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr "このゲーム用のNFCタグを作成"
-
-#, c-format
-msgid ""
-"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
-"'%s'\n"
-"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgid "GAME DRIVE DETECTED"
 msgstr ""
-"起動コマンド\n"
-"'%s'を書き込むには\n"
-"書き込みボタンを押し、NFCタグをセットしてください"
 
-msgid "WRITE"
-msgstr "書き込み"
+msgid "Merge games from this drive now?"
+msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
-msgstr "NFCタグを書き込みしています..."
+msgid "(This will also apply on future boots)"
+msgstr ""
 
-msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr "タグは正常に書き込まれました"
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""

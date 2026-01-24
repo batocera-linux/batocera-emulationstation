@@ -51,6 +51,24 @@ msgstr "Kuvaus"
 msgid "this game's description"
 msgstr "tämän pelin kuvaus"
 
+msgid "Genre"
+msgstr "Tyylilaji"
+
+msgid "enter game genre"
+msgstr "syötä pelin tyylilaji"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Emulaattori"
 
@@ -176,12 +194,6 @@ msgstr "Julkaisija"
 
 msgid "this game's publisher"
 msgstr "tämän pelin julkaisija"
-
-msgid "Genre"
-msgstr "Tyylilaji"
-
-msgid "enter game genre"
-msgstr "syötä pelin tyylilaji"
 
 msgid "Game family"
 msgstr ""
@@ -917,6 +929,12 @@ msgstr "OHJEKIRJA"
 msgid "PADTOKEY SETTINGS"
 msgstr "OHJEIMESTA-NÄPPÄIMISTÖÖN ASETUKSET"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr ""
 
@@ -1584,6 +1602,17 @@ msgstr "KIELI"
 msgid "LANGUAGE (REGION)"
 msgstr "KIELI (ALUE)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VALITSE AIKAVYÖHYKKEESI"
 
@@ -1752,6 +1781,12 @@ msgstr "TALLENUSLAITE"
 
 msgid "BACKUP USER DATA"
 msgstr "VARMUUSKOPIOI KÄYTTÄJÄN TIEDOT"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "EDISTYNYT"
@@ -2024,11 +2059,17 @@ msgstr "joissa on useita pelejä"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "NÄYTÄ \"..\" YLÄKANSIO"
 
-msgid "BEFORE NAME"
-msgstr "ENNEN NIMEÄ"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "NIMEN JÄLKEEN"
+
+msgid "BEFORE NAME"
+msgstr "ENNEN NIMEÄ"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "NÄYTÄ ALUEEN LIPPU"
@@ -2323,6 +2364,24 @@ msgstr "VALITUT ASETUKSET EIVÄT KELPAA"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "OLETKO VARMA ETTÄ HALUAT ALUSTAA TÄMÄN LEVYN?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Pisteet"
 
@@ -2414,6 +2473,25 @@ msgid ""
 msgstr ""
 "TÄMÄ POISTAA PELI(EN) TIEDOSTOT!\n"
 "HALUATKO JATKAA?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "KOKOELMAT"
@@ -2665,6 +2743,9 @@ msgstr ""
 
 msgid "EDIT METADATA"
 msgstr "MUOKKAA METATIETOJA"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "TYYLILAJIT"
@@ -3221,6 +3302,9 @@ msgstr "Ladataan pelilistaa"
 msgid "GENRE"
 msgstr "TYYLILAJI"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "PELISARJA"
 
@@ -3285,6 +3369,21 @@ msgid "SCRAPING FINISHED"
 msgstr ""
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
 msgstr ""
 
 msgid "Loading system config..."
@@ -3756,6 +3855,72 @@ msgstr "NÄYTÖNSÄÄSTÄJÄ POISTETTU KÄYTÖSTÄ"
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
+msgstr ""
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
 msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"

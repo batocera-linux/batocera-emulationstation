@@ -43,6 +43,24 @@ msgstr "Deskribapena"
 msgid "this game's description"
 msgstr "joku honen deskribapena"
 
+msgid "Genre"
+msgstr "Generoa"
+
+msgid "enter game genre"
+msgstr "sartu jokoaren generoa"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Emulatzaile"
 
@@ -168,12 +186,6 @@ msgstr "Argitaratzailea"
 
 msgid "this game's publisher"
 msgstr "joku honen argitaratzailea"
-
-msgid "Genre"
-msgstr "Generoa"
-
-msgid "enter game genre"
-msgstr "sartu jokoaren generoa"
 
 msgid "Game family"
 msgstr "Joku familia"
@@ -912,6 +924,12 @@ msgstr "MANUALA"
 msgid "PADTOKEY SETTINGS"
 msgstr "PAD-ETIK TEKLATURAKO KONFIGURAZIOA"
 
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
 msgid "SCREENSCRAPER"
 msgstr ""
 
@@ -1590,6 +1608,17 @@ msgstr "HIZKUNTZA"
 msgid "LANGUAGE (REGION)"
 msgstr "HIZKUNTZA (HERRIALDEA)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "AUKERATU ZURE DENBORA ZONALDEA"
 
@@ -1757,6 +1786,12 @@ msgstr "MEMORIA"
 
 msgid "BACKUP USER DATA"
 msgstr "ERABILTZAILE DATUEN SEGURTASUN KOPIA EGIN"
+
+msgid "EJECT AN EXTERNAL DISK"
+msgstr ""
+
+msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AURRERATUA"
@@ -2033,11 +2068,17 @@ msgstr "joku anitz dituztenak"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ERAKUTSI '..' GURASO KARPETA"
 
-msgid "BEFORE NAME"
-msgstr "IZENAREN AURRETIK"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "IZENAREN ONDOREN"
+
+msgid "BEFORE NAME"
+msgstr "IZENAREN AURRETIK"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "ERAKUTSI HERRIALDE BANDERA"
@@ -2331,6 +2372,24 @@ msgstr "AUKERATUTAKO EZARPENAK EZ DIRA EGOKIAK"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ZIUR AL ZAUDE GAILU HAU FORMATEATU NAHI DUZULA?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Puntuak"
 
@@ -2422,6 +2481,25 @@ msgid ""
 msgstr ""
 "ERAGIKETA HONEK ZURE UNEKO JOKO FITXATEGIA(K) EZABATUKO D(IT)U!\n"
 "ZIUR AL ZAUDE?"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
 
 msgid "COLLECTIONS"
 msgstr "KOLEKZIOAK"
@@ -2673,6 +2751,9 @@ msgstr "ZOOM-A"
 
 msgid "EDIT METADATA"
 msgstr "DATUAK EDITATU"
+
+msgid "TAGS"
+msgstr ""
 
 msgid "GENRES"
 msgstr "MOTAK"
@@ -3236,6 +3317,9 @@ msgstr "Joko listak kargatzen"
 msgid "GENRE"
 msgstr "GENEROA"
 
+msgid "TAG"
+msgstr ""
+
 msgid "FAMILY"
 msgstr "FAMILIA"
 
@@ -3301,6 +3385,21 @@ msgstr "DATU LORTZEA ONDO AMAITU DA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "EGUNERATU JOKO LISTAK ALDAKETAK APLIKATZEKO."
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
 
 msgid "Loading system config..."
 msgstr "Kargatu sistemaren konfigurazioa..."
@@ -3774,6 +3873,72 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "Merge games from this drive now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merging drive... Please wait."
+msgstr ""
+
+msgid "New drive content will be available after games list is refreshed..."
+msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARWARE MOTAREN ARABERA"
