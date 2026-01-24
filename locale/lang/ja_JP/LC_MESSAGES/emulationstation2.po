@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v43b(2025/12/24)+knullu G2\n"
+"Project-Id-Version: batocera-es v43b(2026/01/24)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-12-26 01:20+0900\n"
+"PO-Revision-Date: 2026-01-24 22:56+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "ジャンルを入力"
 
 msgid "Tags"
-msgstr ""
+msgstr "タグ"
 
 msgid "tags"
-msgstr ""
+msgstr "タグ"
 
 msgid "Sort name"
-msgstr ""
+msgstr "ソート名"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "ゲームのソート名を入力してください"
 
 msgid "Emulator"
 msgstr "エミュレータ"
@@ -930,10 +930,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "手動スクレイプ"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "付属スクレーパー"
 
 msgid "SCREENSCRAPER"
 msgstr "スクリーンスクレーパー"
@@ -1612,15 +1612,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "言語（地域）"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "キーボードレイアウト"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "キーボードバリアント"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"物理キーボードレイアウトを選択します。変更を完全に有効にするには再起動が必要"
+"になる場合があります"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "タイムゾーンを選択"
@@ -1791,10 +1793,10 @@ msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "外付けディスクを取り出す"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "外付けドライブのファイルシステムの種類"
 
 msgid "ADVANCED"
 msgstr "詳細項目"
@@ -2066,7 +2068,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
 
 msgid "ICONS"
-msgstr ""
+msgstr "アイコン"
 
 msgid "AFTER NAME"
 msgstr "ゲーム名の後"
@@ -2075,7 +2077,7 @@ msgid "BEFORE NAME"
 msgstr "ゲーム名の前"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "タグアイコンを表示"
 
 msgid "SHOW REGION FLAG"
 msgstr "ゲームリージョンの国旗を表示"
@@ -2369,22 +2371,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "このストレージをフォーマットしますか？"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "ディスクを安全に取り出す"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "マージドライブ"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "マージドライブが見つかりません"
 
 msgid "EJECT"
-msgstr ""
+msgstr "取り出し"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "ドライブが選択されていません"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "取り出し中..."
 
 msgid "Points"
 msgstr "ポイント"
@@ -2752,7 +2754,7 @@ msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
 
 msgid "TAGS"
-msgstr ""
+msgstr "タグ"
 
 msgid "GENRES"
 msgstr "ジャンル"
@@ -3312,7 +3314,7 @@ msgid "GENRE"
 msgstr "ジャンル"
 
 msgid "TAG"
-msgstr ""
+msgstr "タグ"
 
 msgid "FAMILY"
 msgstr "ファミリー"
@@ -3381,19 +3383,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します"
 
 msgid "SLOW"
-msgstr ""
+msgstr "遅い"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "機能していません"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "BUGGY"
 
 msgid "LIKED"
-msgstr ""
+msgstr "高評価"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "低評価"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
@@ -3863,67 +3865,69 @@ msgstr ""
 "ターゲットに発射して較正"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "ゲームドライブ検出"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "今すぐこのドライブからゲームをマージ(結合)しますか?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "（これは将来のブートにも適用されます）"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "ドライブをマージしています...お待ちください"
 
 msgid "New drive content will be available after games list is refreshed..."
 msgstr ""
+"ゲーム リストが更新されると、新しいドライブ コンテンツが利用できるようになり"
+"ます..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "ゲームリストを再読み込みしました..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "マージに失敗"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "ログを確認してください"
 
 msgid "N/A"
-msgstr ""
+msgstr "該当なし"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "ゲームドライブ検出"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "デバイス"
 
 msgid "MODEL"
-msgstr ""
+msgstr "モデル"
 
 msgid "SIZE"
-msgstr ""
+msgstr "サイズ"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "このドライブをフォーマットしてゲーム保存用に準備しますか?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "（既存のデータはすべて消去されます）"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "フォーマット処理を開始しています..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "フォーマットに失敗"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "いいえ、今回は無視します"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "いいえ、永遠に無視します"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "無視リストにドライブを追加しています..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "はい、フォーマット、マージします"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "いいえ、無視します"

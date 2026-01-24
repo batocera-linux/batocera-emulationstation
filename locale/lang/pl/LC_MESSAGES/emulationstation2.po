@@ -54,16 +54,16 @@ msgid "enter game genre"
 msgstr "wprowadź gatunek gry"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tagi"
 
 msgid "tags"
-msgstr ""
+msgstr "tagi"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Sortuj nazwę"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "wprowadź nazwę do sortowania gry"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -930,10 +930,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "USTAWIENIA PADTOKEY"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "RĘCZNE SKRAPE'OWANIE"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "DOŁĄCZONE SKRAPERY"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1617,15 +1617,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "JĘZYK (REGION)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "UKŁAD KLAWIATURY"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "WARIANT KLAWIATURY"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Wybierz układ klawiatury fizycznej. Aby zmiany zaczęły obowiązywać, może być "
+"konieczne ponowne uruchomienie komputera."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "WYBIERZ STREFĘ CZASOWĄ"
@@ -1798,10 +1800,10 @@ msgid "BACKUP USER DATA"
 msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "WYSUŃ DYSK ZEWNĘTRZNY"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TYP SYSTEMU PLIKÓW DYSKU ZEWNĘTRZNEGO"
 
 msgid "ADVANCED"
 msgstr "ZAAWANSOWANE"
@@ -2076,7 +2078,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "POKAŻ '..' FOLDER NADRZĘDNY"
 
 msgid "ICONS"
-msgstr ""
+msgstr "IKONYIKONY"
 
 msgid "AFTER NAME"
 msgstr "PO NAZWIE"
@@ -2085,7 +2087,7 @@ msgid "BEFORE NAME"
 msgstr "PRZED NAZWĄ"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "POKAŻ IKONY TAGÓW"
 
 msgid "SHOW REGION FLAG"
 msgstr "POKAŻ FLAGĘ JĘZYKA"
@@ -2381,22 +2383,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "CZY NA PEWNO CHCESZ SFORMATOWAĆ TEN DYSK?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "BEZPIECZNIE WYSUŃ DYSK"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "SCALONY NAPĘD"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "NIE ZNALEZIONO SCALONYCH NAPĘDÓW"
 
 msgid "EJECT"
-msgstr ""
+msgstr "WYSUŃ"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "BRAK WYBRANEGO NAPĘDU"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Wysuwanie..."
 
 msgid "Points"
 msgstr "Punkty"
@@ -2491,7 +2493,7 @@ msgstr ""
 "JESTEŚ PEWIEN?"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "ZAPISZ TAG NFC DLA TEJ GRY"
 
 #, c-format
 msgid ""
@@ -2499,15 +2501,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"ABY WYKONAĆ KOMENDĘ ZAPISU DLA\n"
+"'%s'\n"
+"NACIŚNIJ PRZYCISK ZAPISU, A NASTĘPNIE POŁÓŻ TAG NFC NA URZĄDZENIU DO ZAPISU"
 
 msgid "WRITE"
-msgstr ""
+msgstr "ZAPISZ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "UMIEŚĆ TAG NA URZĄDZENIU DO ZAPISU..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "TAG ZOSTAŁ POPRAWNIE ZAPISANY"
 
 msgid "COLLECTIONS"
 msgstr "KOLEKCJE"
@@ -2761,7 +2766,7 @@ msgid "EDIT METADATA"
 msgstr "EDYTUJ META DANE"
 
 msgid "TAGS"
-msgstr ""
+msgstr "TAGI"
 
 msgid "GENRES"
 msgstr "GATUNKI"
@@ -3325,7 +3330,7 @@ msgid "GENRE"
 msgstr "GATUNEK"
 
 msgid "TAG"
-msgstr ""
+msgstr "TAG"
 
 msgid "FAMILY"
 msgstr "RODZINA"
@@ -3394,19 +3399,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ZAKTUALIZUJ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY."
 
 msgid "SLOW"
-msgstr ""
+msgstr "POWOLNIE"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NIE DZIAŁA"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "BUGGY"
 
 msgid "LIKED"
-msgstr ""
+msgstr "POLUBIONE"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "NIEPOLUBIONE"
 
 msgid "Loading system config..."
 msgstr "Wczytywanie konfiguracji systemowej..."
@@ -3892,70 +3897,70 @@ msgstr ""
 "Strzelanie do celów w celu kalibracji"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "WYKRYTO NAPĘD GIER"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "Czy chcesz teraz scalić gry z tego dysku?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Dotyczy to również przyszłych uruchomień systemu)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "Scalanie napędu. Proszę czekać."
 
 msgid "New drive content will be available after games list is refreshed..."
-msgstr ""
+msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Ponownie załadowano listę gier..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "SCALANIE NIEUDANE"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Proszę sprawdzić logi."
 
 msgid "N/A"
-msgstr ""
+msgstr "Nd"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "WYKRYTO NOWY DYSK"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "URZĄDZENIE"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODEL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "ROZMIAR"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Sformatować i przygotować ten dysk do przechowywania gier?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(WSZYSTKIE DANE ZOSTANĄ USUNIĘTE)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Rozpoczęcie procesu formatowania..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMAT NIEUDANY"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NIE, ZIGNORUJ TYM RAZEM"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NIE, ZAWSZE IGNORUJ"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Dodaję dysk do listy ignorowanych..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "TAK, FORMATUJ I SCAL"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NIE, IGNORUJ"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "WEDŁUG SPRZĘTU"
