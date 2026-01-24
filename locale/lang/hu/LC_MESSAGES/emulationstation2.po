@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-18 20:14+0100\n"
-"Last-Translator: Szoldán Albert\n"
+"PO-Revision-Date: 2026-01-24 19:36+0100\n"
+"Last-Translator: Albi\n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "játék műfajának megadása"
 
 msgid "Tags"
-msgstr ""
+msgstr "Címkék"
 
 msgid "tags"
-msgstr ""
+msgstr "címkék"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Rövid  név"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "írja be a játék rövid nevét"
 
 msgid "Emulator"
 msgstr "Emulátor"
@@ -928,10 +928,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY BEÁLLÍTÁSOK"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "KÉZI KAPIRGÁLÁS"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "MELLÉKELT KAPIRGÁLÓK"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1618,15 +1618,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "NYELV (RÉGIÓ)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "BILLENTYŰZET KIOSZTÁS"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "BILLENTYŰZET VÁLTOZAT"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Válassza ki a fizikai billentyűzetkiosztást. A módosítások teljes érvénybe "
+"lépéséhez újraindításra lehet szükség."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VÁLASSZA KI AZ IDŐZÓNÁT"
@@ -1801,10 +1803,10 @@ msgid "BACKUP USER DATA"
 msgstr "FELHASZNÁLÓI ADAT MENTÉSE"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "KÜLSŐ LEMEZ KIADÁSA"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "KÜLSŐ MEGHAJTÓ FÁJLRENDSZER TÍPUSA"
 
 msgid "ADVANCED"
 msgstr "HALADÓ"
@@ -2081,7 +2083,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "'..' SZÜLŐ KÖNYVTÁR MEGJELENÍTÉSE"
 
 msgid "ICONS"
-msgstr ""
+msgstr "IKONOK"
 
 msgid "AFTER NAME"
 msgstr "NÉV UTÁN"
@@ -2090,7 +2092,7 @@ msgid "BEFORE NAME"
 msgstr "NÉV ELŐTT"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "MUTASSA CÍMKÉK IKONJAIT"
 
 msgid "SHOW REGION FLAG"
 msgstr "NYELVI ZÁSZLÓK MEGJELENÍTÉSE A LISTÁKBAN"
@@ -2387,22 +2389,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "BIZTOS, HOGY FORMÁZNI SZERETNÉD EZT A MEGHAJTÓT?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "LEMEZ BIZTONSÁGOS KIADÁSA"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "EGYESÍTETT MEGHAJTÓ"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "NEM TALÁLHATÓ EGYESÍTETT MEGHAJTÓ"
 
 msgid "EJECT"
-msgstr ""
+msgstr "KIADÁS"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "NINCS KIVÁLASZTVA MEGHAJTÓ"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Kiadás..."
 
 msgid "Points"
 msgstr "Pontok"
@@ -2514,7 +2516,7 @@ msgid "WRITE"
 msgstr "ÍRÁS"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "HELYEZZE A TAGET AZ ÍRÓRA"
+msgstr "HELYEZZE A TAGET AZ ÍRÓRA..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A TAG ÍRÁSA SIKERESEN BEFEJEZŐDÖTT"
@@ -2772,7 +2774,7 @@ msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
 
 msgid "TAGS"
-msgstr ""
+msgstr "CÍMKÉK"
 
 msgid "GENRES"
 msgstr "MŰFAJ"
@@ -3211,8 +3213,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
-"org"
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Teljes"
@@ -3336,7 +3338,7 @@ msgid "GENRE"
 msgstr "MŰFAJ"
 
 msgid "TAG"
-msgstr ""
+msgstr "CÍMKE"
 
 msgid "FAMILY"
 msgstr "CSALÁD"
@@ -3405,19 +3407,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "FRISSÍTSE A JÁTÉKLISTÁKAT A MÓDOSÍTÁSOK ALKALMAZÁSÁHOZ."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LASSÚ"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NEM MŰKÖDIK"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "HIBÁS"
 
 msgid "LIKED"
-msgstr ""
+msgstr "KEDVELT"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "NEMKEDVELT"
 
 msgid "Loading system config..."
 msgstr "Rendszer konfiguráció betöltése..."
@@ -3896,70 +3898,70 @@ msgstr ""
 "Tűz a kalibrálandó célpontokra"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "JÁTÉKMEGHAJTÓ ÉSZLELVE"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "Egyesíted most a játékokat erről a meghajtóról?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Ez a jövőbeli indításokra is vonatkozik)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "Meghajtó egyesítése... Kérjük, várjon."
 
 msgid "New drive content will be available after games list is refreshed..."
-msgstr ""
+msgstr "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Újratöltöttem a játékok listáját..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "EGYESÍTÉS SIKERTELEN"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Kérlek, ellenőrizd a naplókat."
 
 msgid "N/A"
-msgstr ""
+msgstr "Ismeretlen"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "ÚJ MEGHAJTÓ ÉRZÉKELVE"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "MEGHAJTÓ"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODELL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "MÉRET"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Formatálni és előkészíteni ezt a meghajtót játékok tárolására?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(MINDEN MEGLÉVŐ ADAT TÖRLŐDIK)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Formatálási folyamat indítása..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMATÁLÁS SIKERTELEN"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NEM, EZUTÁN FELEJTSD EL"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NEM, ÖRÖKKÉ FIGYELMEN KÍVÜL"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Meghajtó hozzáadása a tiltólistához..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "IGEN, FORMÁZÁS ÉS EGYESÍTÉS"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NEM, FIGYELMEN KÍVÜL HAGY"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARDVER TÍPUS SZERINT"
