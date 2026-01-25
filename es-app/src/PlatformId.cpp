@@ -126,6 +126,7 @@ namespace PlatformIds
 		{ "vpinball",				VISUALPINBALL },
 		{ "fpinball",				FUTUREPINBALL },
 		{ "o2em",					VIDEOPAC_ODYSSEY2 },
+		{ "laseractive",			PIONEER_LASERACTIVE },
 
 		// Misc systems
 		{ "channelf",				CHANNELF },
