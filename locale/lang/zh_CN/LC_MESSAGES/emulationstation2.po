@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-20 09:49+0800\n"
+"PO-Revision-Date: 2026-01-26 09:27+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "输入游戏类型"
 
 msgid "Tags"
-msgstr ""
+msgstr "标签"
 
 msgid "tags"
-msgstr ""
+msgstr "标签"
 
 msgid "Sort name"
-msgstr ""
+msgstr "排序名"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "输入游戏排序名称"
 
 msgid "Emulator"
 msgstr "模拟器"
@@ -922,10 +922,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "按键设置"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "手动刮削"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "包含爬虫"
 
 msgid "SCREENSCRAPER"
 msgstr "ScreenScraper"
@@ -1592,15 +1592,15 @@ msgid "LANGUAGE (REGION)"
 msgstr "语言（地区）"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "键盘布局"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "键盘变体"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
-msgstr ""
+msgstr "选择物理键盘布局. 为使更改完全生效, 可能需要重新启动."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "选择你的时区"
@@ -1768,10 +1768,10 @@ msgid "BACKUP USER DATA"
 msgstr "备份用户数据"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "弹出外部磁盘"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "外部驱动器文件系统类型"
 
 msgid "ADVANCED"
 msgstr "高级设置选项"
@@ -2040,7 +2040,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "显示 '..' 父文件夹（上级）"
 
 msgid "ICONS"
-msgstr ""
+msgstr "图标"
 
 msgid "AFTER NAME"
 msgstr "游戏名的后面"
@@ -2049,7 +2049,7 @@ msgid "BEFORE NAME"
 msgstr "游戏名的前面"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "显示标签图标"
 
 msgid "SHOW REGION FLAG"
 msgstr "显示区域标识"
@@ -2343,22 +2343,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "您确定要格式化这个磁盘驱动器吗？"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "安全弹出磁盘"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "合并驱动器"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "未找到合并的驱动器"
 
 msgid "EJECT"
-msgstr ""
+msgstr "弹出磁盘"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "未选择驱动器"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "弹出..."
 
 msgid "Points"
 msgstr "得分"
@@ -2453,7 +2453,7 @@ msgstr ""
 "确定要执行吗?"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "为这场游戏写一个NFC标签"
 
 #, c-format
 msgid ""
@@ -2461,15 +2461,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"要为\n"
+"'%s'\n"
+"编写启动命令, 请按下“写入”按钮, 然后将NFC标签放在写入器上."
 
 msgid "WRITE"
-msgstr ""
+msgstr "写入"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "为作者写入标签..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "标签写入成功"
 
 msgid "COLLECTIONS"
 msgstr "合辑"
@@ -2723,7 +2726,7 @@ msgid "EDIT METADATA"
 msgstr "编辑元数据"
 
 msgid "TAGS"
-msgstr ""
+msgstr "标签"
 
 msgid "GENRES"
 msgstr "类型"
@@ -3277,7 +3280,7 @@ msgid "GENRE"
 msgstr "类型"
 
 msgid "TAG"
-msgstr ""
+msgstr "标签"
 
 msgid "FAMILY"
 msgstr "游戏家族"
@@ -3346,19 +3349,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "更新游戏列表以应用更改。"
 
 msgid "SLOW"
-msgstr ""
+msgstr "慢速"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "未工作"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "故障"
 
 msgid "LIKED"
-msgstr ""
+msgstr "喜欢"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "不喜欢"
 
 msgid "Loading system config..."
 msgstr "正在载入系统配置..."
@@ -3828,70 +3831,70 @@ msgstr ""
 "对准目标射击以进行校准"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "检测到游戏驱动器"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "现在从这个硬盘合并游戏吗?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(这也将适用于未来的启动)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "正在合并驱动器... 请稍候."
 
 msgid "New drive content will be available after games list is refreshed..."
-msgstr ""
+msgstr "游戏列表刷新后, 将有新的硬盘内容可用..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "已重新加载游戏列表..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "合并失败"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "请检查日志."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "检测到新驱动器"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "驱动器"
 
 msgid "MODEL"
-msgstr ""
+msgstr "型号"
 
 msgid "SIZE"
-msgstr ""
+msgstr "大小"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "是否格式化并将此硬盘用于游戏存储?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(所有现有数据将被清除)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "正在启动格式化进程..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "格式化失败"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "否, 这次忽略"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "否, 永远忽略"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "将驱动器添加到忽略列表中..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "是, 格式化并合并"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "否, 忽略"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "按硬件类型"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-11 22:01+0300\n"
+"PO-Revision-Date: 2026-01-26 03:14+0300\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "oyun türünü girin"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiketler"
 
 msgid "tags"
-msgstr ""
+msgstr "etiketler"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Adı sırala"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "oyun sıralama adını girin"
 
 msgid "Emulator"
 msgstr "Emülatör"
@@ -928,10 +928,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "KOL İLE TUŞ AYARLARI"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "EL İLE BİLGİ GETİRİCİ"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "DAHİLİ OYUN BİLGİLERİ"
 
 msgid "SCREENSCRAPER"
 msgstr "OYUN BİLGİLERİ"
@@ -1613,15 +1613,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "DİL (BÖLGE)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "KLAVYE DÜZENİ"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "KLAVYE ÇEŞİTLERİ"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Fiziksel klavye düzenini seçin. Değişikliklerin tam olarak etkili olması "
+"için yeniden başlatma gerekebilir."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SAAT DİLİMİNİ SEÇ"
@@ -1792,10 +1794,10 @@ msgid "BACKUP USER DATA"
 msgstr "KULLANICI VERİLERİNİ YEDEKLE"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "HARİCİ BİR DİSKİ ÇIKAR"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "HARİCİ SÜRÜCÜ DOSYA SİSTEMİ TÜRÜ"
 
 msgid "ADVANCED"
 msgstr "GELİŞMİŞ"
@@ -2072,7 +2074,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "'..' ÜST KLASÖRÜNÜ GÖSTER"
 
 msgid "ICONS"
-msgstr ""
+msgstr "SİMGELER"
 
 msgid "AFTER NAME"
 msgstr "SONRAKİ İSİM"
@@ -2081,7 +2083,7 @@ msgid "BEFORE NAME"
 msgstr "ÖNCEKİ İSİM"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "ETİKET SİMGELERİNİ GÖSTER"
 
 msgid "SHOW REGION FLAG"
 msgstr "DİL BAYRAKLARINI GÖTER"
@@ -2381,22 +2383,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "BU SÜRÜCÜYÜ BİÇİMLENDİRMEK İSTİYOR MUSUNUZ?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "DİSKİ GÜVENLİ BİR ŞEKİLDE ÇIKAR"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "BİRLEŞTİRİLMİŞ SÜRÜCÜ"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "BİRLEŞTİRİLMİŞ SÜRÜCÜ BULUNAMADI"
 
 msgid "EJECT"
-msgstr ""
+msgstr "ÇIKART"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "HİÇBİR SÜRÜCÜ SEÇİLMEDİ"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Çıkartılıyor..."
 
 msgid "Points"
 msgstr "Puanlar"
@@ -2491,7 +2493,7 @@ msgstr ""
 "EMİN MİSİN?"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "BU OYUN İÇİN BİR NFC ETİKETİ YAZ"
 
 #, c-format
 msgid ""
@@ -2499,15 +2501,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"BAŞLATMA KOMUTUNU YAZMAK İÇİN\n"
+"'%s'\n"
+"YAZ DÜĞMESİNE BASIN VE SONRA YAZICIYA BİR NFC ETİKETİ YERLEŞTİRİN"
 
 msgid "WRITE"
-msgstr ""
+msgstr "YAZ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "YAZICIYA ETİKET YERLEŞTİRİN..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "ETİKET BAŞARIYLA YAZILDI"
 
 msgid "COLLECTIONS"
 msgstr "KOLEKSİYONLAR"
@@ -2761,7 +2766,7 @@ msgid "EDIT METADATA"
 msgstr "ÜST VERİYİ DÜZENLE"
 
 msgid "TAGS"
-msgstr ""
+msgstr "ETİKETLER"
 
 msgid "GENRES"
 msgstr "TÜRLER"
@@ -3325,7 +3330,7 @@ msgid "GENRE"
 msgstr "TÜR"
 
 msgid "TAG"
-msgstr ""
+msgstr "ETİKET"
 
 msgid "FAMILY"
 msgstr "AİLE"
@@ -3396,19 +3401,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "DEĞİŞİKLİKLERİ UYGULAMAK İÇİN OYUN LİSTELERİNİ GÜNCELLE."
 
 msgid "SLOW"
-msgstr ""
+msgstr "YAVAŞ"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "ÇALIŞMIYOR"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "HATALI"
 
 msgid "LIKED"
-msgstr ""
+msgstr "BEĞENİLDİ"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "BEĞENİLMEDİ"
 
 msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor..."
@@ -3895,70 +3900,70 @@ msgstr ""
 "Kalibrasyon için hedeflere ateş et"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "OYUN SÜRÜCÜSÜ ALGILANDI"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "Bu sürücüdeki oyunlar şimdi birleştirilsin mi?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Bu aynı zamanda gelecekteki botlar için de geçerli olacaktır)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
 msgid "New drive content will be available after games list is refreshed..."
-msgstr ""
+msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Oyun listesi yeniden yükleniyor..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "BİRLEŞTİRME BAŞARISIZ"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Lütfen günlükleri kontrol edin."
 
 msgid "N/A"
-msgstr ""
+msgstr "YOK"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "YENİ SÜRÜCÜ ALGILANDI"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "CİHAZ"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODEL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "BOYUT"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Bu sürücü biçimlendirilip oyun depolaması için hazırlansın mı?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(MEVCUT TÜM VERİLER SİLİNECEKTİR)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Biçimlendirme işlemi başlıyor..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "BİÇİMLENDİRME BAŞARISIZ"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "HAYIR, BU KEZ YOKSAY"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "HAYIR, SÜREKLİ YOKSAY"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Yoksayılacak sürücü listesine ekleniyor..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "EVET, BİÇİMLENDİR & BİRLEŞTİR"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "HAYIR, YOKSAY"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"
