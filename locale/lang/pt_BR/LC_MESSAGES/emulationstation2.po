@@ -56,16 +56,16 @@ msgid "enter game genre"
 msgstr "digite o gênero do jogo"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetas"
 
 msgid "tags"
-msgstr ""
+msgstr "etiquetas"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Ordenar por nome"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "Digite o nome do jogo"
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -937,10 +937,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "PROCURA MANUAL"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "INFORMAÇÃO INCLUÍDA"
 
 msgid "SCREENSCRAPER"
 msgstr "INFORMAÇÃO DOS JOGOS"
@@ -1627,15 +1627,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "IDIOMA (REGIÃO)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "LAYOUT DO TECLADO"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "VARIANTE DO TECLADO"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Selecione o layout do teclado físico. Pode ser necessário reiniciar para que "
+"as mudanças tenham efeito."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECIONE SEU FUSO HORÁRIO"
@@ -1807,10 +1809,10 @@ msgid "BACKUP USER DATA"
 msgstr "CÓPIA DE SEGURANÇA DOS DADOS DO USUÁRIO"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "EJETAR UM DISCO EXTERNO"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TIPO DE SISTEMA DE ARQUIVOS DO DISCO EXTERNO"
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
@@ -2086,7 +2088,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "EXIBIR '..' PARA A PASTA ASCENDENTE"
 
 msgid "ICONS"
-msgstr ""
+msgstr "ÍCONES"
 
 msgid "AFTER NAME"
 msgstr "DEPOIS DO NOME"
@@ -2095,7 +2097,7 @@ msgid "BEFORE NAME"
 msgstr "ANTES DO NOME"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "EXIBIR ÍCONES DAS ETIQUETAS"
 
 msgid "SHOW REGION FLAG"
 msgstr "EXIBIR ÍCONE DA BANDEIRA DO IDIOMA"
@@ -2391,22 +2393,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "TEM CERTEZA QUE DESEJA FORMATAR ESTE DISCO?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "EJETAR UM DISCO COM SEGURANÇA"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "DISCO FUNDIDO"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "NENHUM DISCO FUNDIDO ENCONTRADO"
 
 msgid "EJECT"
-msgstr ""
+msgstr "EJETAR"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "NENHUM DISCO SELECIONADO"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Ejetando..."
 
 msgid "Points"
 msgstr "Pontos"
@@ -2501,7 +2503,7 @@ msgstr ""
 "TEM CERTEZA?"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "GRAVAR UMA ETIQUETA NFC PARA ESTE JOGO"
 
 #, c-format
 msgid ""
@@ -2509,15 +2511,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"PARA GRAVAR O COMANDO DE INICIALIZAÇÃO PARA\n"
+"'%s'\n"
+"APERTE O BOTÃO DE GRAVAR E ENTÃO COLOQUE UMA ETIQUETA NFC NO GRAVADOR"
 
 msgid "WRITE"
-msgstr ""
+msgstr "GRAVAR"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "A ETIQUETA FOI GRAVADA COM SUCESSO"
 
 msgid "COLLECTIONS"
 msgstr "COLEÇÕES"
@@ -2771,7 +2776,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
 msgid "TAGS"
-msgstr ""
+msgstr "ETIQUETAS"
 
 msgid "GENRES"
 msgstr "GÊNEROS"
@@ -3338,7 +3343,7 @@ msgid "GENRE"
 msgstr "GÊNERO"
 
 msgid "TAG"
-msgstr ""
+msgstr "ETIQUETA"
 
 msgid "FAMILY"
 msgstr "FAMÍLIA"
@@ -3407,19 +3412,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LENTO"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NÃO FUNCIONA"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "COM ERROS"
 
 msgid "LIKED"
-msgstr ""
+msgstr "GOSTEI"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "NÃO GOSTEI"
 
 msgid "Loading system config..."
 msgstr "Carregando a configuração do sistema..."
@@ -3898,70 +3903,70 @@ msgstr ""
 "Atire nos alvos para calibrar"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "DISCO DE JOGOS DETECTADO"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "Fundir jogos deste disco agora?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Isso também se aplicará em inicializações futuras)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "Fundindo discos... Por favor aguarde."
 
 msgid "New drive content will be available after games list is refreshed..."
-msgstr ""
+msgstr "O conteúdo do novo disco ficará disponível após a lista de jogos ser atualizada..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Atualizou a lista de jogos..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "FUNDIÇÃO FALHOU"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Por favor verifique os registros"
 
 msgid "N/A"
-msgstr ""
+msgstr "NÃO APLICÁVEL"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "NOVO DISCO DETECTADO"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "DISPOSITIVO"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODELO"
 
 msgid "SIZE"
-msgstr ""
+msgstr "TAMANHO"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Formatar e preparar esse disco para armazenamento de jogos?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(TODOS OS DADOS EXISTENTES SERÃO APAGADOS)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Começando o processo de formatação..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMATAÇÃO FALHOU"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NÃO, IGNORAR DESTA VEZ"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NÃO, IGNORAR PARA SEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Adicionando disco a lista de ignorados..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "SIM, FORMATAR E FUNDIR"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NÃO, IGNORAR"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR TIPO DE HARDWARE"

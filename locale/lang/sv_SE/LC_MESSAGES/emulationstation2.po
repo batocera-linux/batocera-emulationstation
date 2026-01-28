@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-19 09:34+0100\n"
+"PO-Revision-Date: 2026-01-28 19:28+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "ange spelgenre"
 
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 msgid "tags"
-msgstr ""
+msgstr "taggar"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Sorteringsnamn"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "ange spelets sorteringsnamn"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -926,10 +926,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY-INSTÄLLNINGAR"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "MANUELL SKRAPA"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "INKLUDERADE SKRAPOR"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1608,15 +1608,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "SPRÅK (REGION)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "TANGENTBORDSLAYOUT"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "TANGENTBORDSVARIANT"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Välj det fysiska tangentbordets layout. En omstart kan krävas för att "
+"ändringarna ska träda i kraft fullt ut."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VÄLJ DIN TIDSZON"
@@ -1787,10 +1789,10 @@ msgid "BACKUP USER DATA"
 msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "MATA UT EN EXTERN DISK"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "EXTERN FILSYSTEMSTYP FÖR ENHET"
 
 msgid "ADVANCED"
 msgstr "AVANCERAT"
@@ -2065,7 +2067,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "VISA '..' ÖVERORDNAD MAPP"
 
 msgid "ICONS"
-msgstr ""
+msgstr "IKONER"
 
 msgid "AFTER NAME"
 msgstr "EFTER NAMNET"
@@ -2074,7 +2076,7 @@ msgid "BEFORE NAME"
 msgstr "FÖRE NAMNET"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "VISA TAGGIKONER"
 
 msgid "SHOW REGION FLAG"
 msgstr "VISA REGIONSFLAGGA"
@@ -2369,22 +2371,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ÄR DU SÄKER PÅ ATT DU VILL FORMATERA DENNA DISK?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "MATA UT EN DISK SÄKERT"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "SAMMANSLAGEN ENHET"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "INGA SAMMANSLAGNA ENHETER HITTADES"
 
 msgid "EJECT"
-msgstr ""
+msgstr "MATA UT"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "INGEN ENHET VALD"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Matar ut..."
 
 msgid "Points"
 msgstr "Poäng"
@@ -2479,7 +2481,7 @@ msgstr ""
 "ÄR DU SÄKER?"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "SKRIV EN NFC-TAGG FÖR DETTA SPEL"
 
 #, c-format
 msgid ""
@@ -2487,15 +2489,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"FÖR ATT SKRIVA STARTKOMANDOT FÖR\n"
+" '%s'\n"
+"TRYCK PÅ SKRIVKNAPPEN OCH PLACERA SEDAN EN NFC-TAGG PÅ SKRIVAREN"
 
 msgid "WRITE"
-msgstr ""
+msgstr "SKRIV"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "PLACERA EN TAGG PÅ SKRIVAREN..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "TAGGEN SKREVS UT UTAN PROBLEM"
 
 msgid "COLLECTIONS"
 msgstr "SAMLINGAR"
@@ -2749,7 +2754,7 @@ msgid "EDIT METADATA"
 msgstr "REDIGERA METADATA"
 
 msgid "TAGS"
-msgstr ""
+msgstr "TAGGAR"
 
 msgid "GENRES"
 msgstr "GENRER"
@@ -3187,8 +3192,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
-"org"
+"Ett giltigt konto krävs. Registrera ett konto på https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3312,7 +3317,7 @@ msgid "GENRE"
 msgstr "GENRE"
 
 msgid "TAG"
-msgstr ""
+msgstr "TAGG"
 
 msgid "FAMILY"
 msgstr "FAMILJ"
@@ -3381,19 +3386,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LÅNGSAM"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "FUNGERAR INTE"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "BUGGIGT"
 
 msgid "LIKED"
-msgstr ""
+msgstr "GILLADE"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "OGILLADE"
 
 msgid "Loading system config..."
 msgstr "Läser in systemkonfiguration..."
@@ -3715,11 +3720,11 @@ msgstr "BLANKSTEG"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr "NORR"
+msgstr "NORD"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr "SYD"
+msgstr "SÖDER"
 
 msgctxt "joystick"
 msgid "EAST"
@@ -3871,70 +3876,72 @@ msgstr ""
 "Skjut på mål för att kalibera"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "SPELENHET UPPTÄCKT"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "Vill du slå samman spel från den här enheten nu?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Detta kommer även att gälla för framtida uppstarter)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "Sammanfogar enhet... Vänta."
 
 msgid "New drive content will be available after games list is refreshed..."
 msgstr ""
+"Nytt enhetsinnehåll kommer att finnas tillgängligt efter att spellistan har "
+"uppdaterats..."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Uppdaterade spellistan..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "SAMMANSLAGNING MISSLYCKADES"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Kontrollera loggarna."
 
 msgid "N/A"
-msgstr ""
+msgstr "-"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "NY ENHET UPPTÄCKT"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "ENHET"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODELL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "STORLEK"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Formatera och förbereda denna enhet för lagring av spel?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(ALLA BEFINTLIGA DATA KOMMER ATT RADERAS)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Startar formateringsprocessen..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMATERING MISSLYCKADES"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NEJ, IGNORERA DENNA GÅNG"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NEJ, IGNORERA FÖR ALLTID"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Lägger till enhet i ignorera-listan..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "JA, FORMATERA & SLÅ SAMMAN"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NEJ, IGNORERA"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "EFTER HÅRDVARUTYP"
