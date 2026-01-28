@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-11-21 14:51+0000\n"
+"PO-Revision-Date: 2026-01-27 11:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: de_DE\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCANNE BLUETOOTH"
@@ -55,16 +55,16 @@ msgid "enter game genre"
 msgstr "Spiele-Genre eingeben"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "tags"
-msgstr ""
+msgstr "tag"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Sortiername"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "Sortiername für Spiel eingeben"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -932,10 +932,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY EINSTELLUNGEN"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "MANUELLES SCRAPING"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "ENTHALTENE SCRAPER"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1558,8 +1558,8 @@ msgstr "UI-ELEMENTE BEIM BOOTEN VORLADEN"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-"
-"Menü, verlängert Boot-Zeit"
+"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-Menü,"
+" verlängert Boot-Zeit"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "MEDIEN-METADATEN BEIM BOOTEN VORLADEN"
@@ -1623,15 +1623,16 @@ msgid "LANGUAGE (REGION)"
 msgstr "SPRACHE (REGION)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "TASTATURLAYOUT"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "TASTATURVARIANTE"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Physisches Tastaturlayout auswählen. Ein Neustart kann erforderlich sein."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "WÄHLEN SIE IHRE ZEITZONE"
@@ -1802,10 +1803,10 @@ msgid "BACKUP USER DATA"
 msgstr "BENUTZERDATEN SICHERN"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "EXTERNE FESTPLATTE AUSWERFEN"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "DATEISYSTEMTYP EXTERNES LAUFWERK"
 
 msgid "ADVANCED"
 msgstr "ERWEITERT"
@@ -2086,7 +2087,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "ÜBERGEORDNETEN ORDNER '..' ANZEIGEN"
 
 msgid "ICONS"
-msgstr ""
+msgstr "ICONS"
 
 msgid "AFTER NAME"
 msgstr "NACH NAME"
@@ -2095,7 +2096,7 @@ msgid "BEFORE NAME"
 msgstr "VOR NAME"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "TAGS-SYMBOLE ANZEIGEN"
 
 msgid "SHOW REGION FLAG"
 msgstr "REGIONS-SYMBOL IN LISTEN ANZEIGEN"
@@ -2391,22 +2392,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "SIND SIE SICHER, DASS SIE DIESES LAUFWERK FORMATIEREN WOLLEN?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "LAUFWERK SICHER AUSWERFEN"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "ZUSAMMENGEFÜHRTES LAUFWERK"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "KEINE ZUSAMMENGEFÜHRTEN LAUFWERKE GEFUNDEN"
 
 msgid "EJECT"
-msgstr ""
+msgstr "AUSWERFEN"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "KEIN LAUFWERK AUSGEWÄHLT"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Wird ausgeworfen..."
 
 msgid "Points"
 msgstr "Punkte"
@@ -2775,7 +2776,7 @@ msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
 
 msgid "TAGS"
-msgstr ""
+msgstr "TAGS"
 
 msgid "GENRES"
 msgstr "GENRES"
@@ -2859,8 +2860,8 @@ msgstr "CONTROLLER TASTENBELEGUNG"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
 "TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
@@ -3212,11 +3213,11 @@ msgid "INVALID CONTENT"
 msgstr "UNGÜLTIGER INHALT"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https://"
-"retroachievements.org"
+"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https:"
+"//retroachievements.org"
 
 msgid "Full"
 msgstr "Vollständig"
@@ -3340,7 +3341,7 @@ msgid "GENRE"
 msgstr "GENRE"
 
 msgid "TAG"
-msgstr ""
+msgstr "TAG"
 
 msgid "FAMILY"
 msgstr "FAMILIE"
@@ -3409,19 +3410,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "SPIELELISTEN UPDATEN, UM ÄNDERUNGEN ZU ÜBERNEHMEN."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LANGSAM"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NICHT FUNKTIONSFÄHIG"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "FEHLERHAFT"
 
 msgid "LIKED"
-msgstr ""
+msgstr "MOCHTE ICH"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "MOCHTE ICH NICHT"
 
 msgid "Loading system config..."
 msgstr "Lade Systemkonfiguration..."
@@ -3901,67 +3902,68 @@ msgstr ""
 "Zur Kalibration auf Ziele schießen"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "SPIELELAUFWERK ERKANNT"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "Spiele von diesem Laufwerk jetzt zusammenführen?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Dies gilt auch für zukünftige Starts)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "Laufwerk wird zusammengeführt... Bitte warten."
 
 msgid "New drive content will be available after games list is refreshed..."
 msgstr ""
+"Neuer Laufwerksinhalt wird nach Aktualisierung der Spieleliste verfügbar."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Spieleliste neu geladen..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "ZUSAMMENFÜHRUNG FEHLGESCHLAGEN"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Bitte Protokolle prüfen."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "NEUES LAUFWERK ERKANNT"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "GERÄT"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODELL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "GRÖSSE"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Dieses Laufwerk formatieren und für Spiele vorbereiten?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(ALLE BESTEHENDEN DATEN WERDEN GELÖSCHT)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Formatierungsvorgang wird gestartet..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMATIERUNG FEHLGESCHLAGEN"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NEIN, DIESES MAL IGNORIEREN"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NEIN, IMMER IGNORIEREN"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Laufwerk wird zur Ignorierliste hinzugefügt..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "JA, FORMATIEREN & ZUSAMMENFÜHREN"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NEIN, IGNORIEREN"
