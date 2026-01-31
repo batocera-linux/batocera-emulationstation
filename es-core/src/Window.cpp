@@ -1438,13 +1438,45 @@ void Window::setReloadGamelistsCallback(const std::function<void()>& func)
 
 void Window::processStorageRequest(std::string line)
 {
-	LOG(LogInfo) << "Storage Request Received via API: " << line;
+	static std::vector<std::string> storageQueue;
+	static bool isProcessing = false;
+	static bool needReload = false;
 
-	std::vector<std::string> parts = Utils::String::split(line, ':');
-	if (parts.empty()) return;
+	// Helper function to process the next item in the queue
+	auto processNext = [this]() {
+		if (storageQueue.empty()) {
+			isProcessing = false;
+			if (needReload && mReloadGamelistsCallback) {
+				mReloadGamelistsCallback();
+				this->displayNotificationMessage(_("Reloaded the games list..."));
+				needReload = false;
+			}
+			return;
+		}
+		
+		// Trigger the logic for the next item
+		this->processStorageRequest(""); 
+	};
+
+	// Add new incoming API request to the queue
+	if (!line.empty()) {
+		LOG(LogInfo) << "Storage Request Received via API: " << line;
+		storageQueue.push_back(line);
+		if (isProcessing) return;
+	}
+
+	if (storageQueue.empty()) return;
+
+	// Start processing the front of the queue
+	isProcessing = true;
+	std::string currentTask = storageQueue.front();
+	storageQueue.erase(storageQueue.begin());
+
+	std::vector<std::string> parts = Utils::String::split(currentTask, ':');
+	if (parts.empty()) { processNext(); return; }
 
 	std::string type = parts[0];
-	
+
 	if (type == "REQUEST_MERGE" && parts.size() >= 2)
 	{
 		std::string argument = parts[1];
@@ -1456,33 +1488,26 @@ void Window::processStorageRequest(std::string line)
 							  _("(This will also apply on future boots)");
 
 		auto* msg = new GuiMsgBox(this, message,
-			_("YES"), [this, argument] {
-				
-                this->displayNotificationMessage(_("Merging drive... Please wait."));
-				this->displayNotificationMessage(_("New drive content will be available after games list is refreshed..."));
+			_("YES"), [this, argument, processNext] {
+				this->displayNotificationMessage(_("Merging drive... Please wait."));
+				needReload = true;
 
-                std::thread([this, argument]() {
-                    bool success = ApiSystem::getInstance()->mergeDrive(argument);
-                    this->postToUiThread([this, success]() {
-                        if (success) {
-                            if (mReloadGamelistsCallback) {
-                                this->postToUiThread([this]() {
-                                    if (mReloadGamelistsCallback) {
-                                        mReloadGamelistsCallback();
-										this->displayNotificationMessage(_("Reloaded the games list..."));
-                                    }
-                                });
-                            }
-                        } else {
-                            this->pushGui(new GuiMsgBox(this, _("MERGE FAILED") + "\n" + _("Please check the logs."), _("OK"), nullptr));
-                        }
-                    });
-                }).detach();
-
-			}, _("NO"), nullptr);
+				std::thread([this, argument, processNext]() {
+					bool success = ApiSystem::getInstance()->mergeDrive(argument);
+					this->postToUiThread([this, success, processNext]() {
+						if (!success) {
+							this->pushGui(new GuiMsgBox(this, _("MERGE FAILED") + "\n" + _("Please check the logs."), _("OK"), [processNext] { processNext(); }));
+						} else {
+							processNext(); 
+						}
+					});
+				}).detach();
+			}, 
+			_("NO"), [processNext] { processNext(); }
+		);
 		pushGui(msg);
 	} 
-else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
+	else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 	{
 		std::string deviceName = parts[1];
 		std::string deviceModel = (parts.size() > 2 && !parts[2].empty()) ? parts[2] : _("N/A");
@@ -1496,34 +1521,39 @@ else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 							_("Format and prepare this drive for game storage?") + "\n" +
 							_("(ALL EXISTING DATA WILL BE ERASED)");
 		
-		auto formatLambda = [this, deviceName] {
+		auto formatLambda = [this, deviceName, processNext] {
 			this->displayNotificationMessage(_("Starting format process..."));
-			std::thread([this, deviceName]() {
+			needReload = true;
+
+			std::thread([this, deviceName, processNext]() {
 				std::string fsType = SystemConf::getInstance()->get("system.external_disk_format");
 				if (fsType.empty()) fsType = "btrfs";
 				bool success = ApiSystem::getInstance()->prepareDrive(deviceName, fsType);
-				if (!success) {
-					this->postToUiThread([this]() {
-						this->pushGui(new GuiMsgBox(this, _("FORMAT FAILED") + "\n" + _("Please check the logs."), _("OK"), nullptr));
-					});
-				}
+				this->postToUiThread([this, success, processNext]() {
+					if (!success) {
+						this->pushGui(new GuiMsgBox(this, _("FORMAT FAILED") + "\n" + _("Please check the logs."), _("OK"), [processNext] { processNext(); }));
+					} else {
+						processNext();
+					}
+				});
 			}).detach(); 
 		};
 
-		auto confirmLambda = [this, formatLambda] {
+		auto confirmLambda = [this, formatLambda, processNext] {
 			this->pushGui(new GuiMsgBox(this, _("ARE YOU SURE?"), 
-				_("NO"), nullptr, 
+				_("NO"), [processNext] { processNext(); }, 
 				_("YES"), formatLambda));
 		};
 
 		if (!uniqueId.empty())
 		{
 			auto* msg = new GuiMsgBox(this, message,
-				_("NO, IGNORE THIS TIME"), nullptr,
-				_("NO, IGNORE FOREVER"), [this, uniqueId] {
+				_("NO, IGNORE THIS TIME"), [processNext] { processNext(); },
+				_("NO, IGNORE FOREVER"), [this, uniqueId, processNext] {
 					this->displayNotificationMessage(_("Adding drive to ignore list..."));
-					std::thread([uniqueId]() {
+					std::thread([uniqueId, processNext, this]() {
 						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
+						this->postToUiThread([processNext] { processNext(); });
 					}).detach();
 				},
 				_("YES, FORMAT & MERGE"), confirmLambda
@@ -1533,10 +1563,14 @@ else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 		else
 		{
 			auto* msg = new GuiMsgBox(this, message,
-				_("NO, IGNORE"), nullptr,
+				_("NO, IGNORE"), [processNext] { processNext(); },
 				_("YES, FORMAT & MERGE"), confirmLambda
 			);
 			pushGui(msg);
 		}
+	}
+	else {
+		// Cleanup
+		processNext();
 	}
 }
