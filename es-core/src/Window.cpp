@@ -1444,13 +1444,18 @@ void Window::processStorageRequest(std::string line)
 	if (parts.empty()) return;
 
 	std::string type = parts[0];
-
+	
 	if (type == "REQUEST_MERGE" && parts.size() >= 2)
 	{
 		std::string argument = parts[1];
 		for (size_t i = 2; i < parts.size(); ++i) argument += ":" + parts[i];
 
-		auto* msg = new GuiMsgBox(this, _("GAME DRIVE DETECTED") + "\n\n" + _("Merge games from this drive now?") + "\n" + _("(This will also apply on future boots)"),
+		std::string message = _("GAME DRIVE DETECTED") + "\n\n" +
+							  _("MOUNT POINT") + ": " + argument + "\n\n" +
+							  _("Merge games from this drive partition now?") + "\n" + 
+							  _("(This will also apply on future boots)");
+
+		auto* msg = new GuiMsgBox(this, message,
 			_("YES"), [this, argument] {
 				
                 this->displayNotificationMessage(_("Merging drive... Please wait."));
