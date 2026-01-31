@@ -2103,9 +2103,9 @@ void GuiMenu::openSystemSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::INSTALL))
 		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
 
-	s->addEntry(_("EJECT AN EXTERNAL DISK"), true, [this] { openUnmountDriveSettings(); });
+	s->addEntry(_("EJECT AN EXTRA DISK"), true, [this] { openUnmountDriveSettings(); });
 
-    auto diskFormat = std::make_shared<OptionListComponent<std::string>>(window, _("EXTERNAL DRIVE FILESYSTEM TYPE"), false);
+    auto diskFormat = std::make_shared<OptionListComponent<std::string>>(window, _("EXTRA DRIVE FILESYSTEM TYPE"), false);
     
     // Load saved preference (default to btrfs)
     std::string selectedFormat = SystemConf::getInstance()->get("system.external_disk_format");
@@ -2123,7 +2123,7 @@ void GuiMenu::openSystemSettings()
          diskFormat->selectFirstItem();
     }
 
-    s->addWithLabel(_("EXTERNAL DRIVE FILESYSTEM TYPE"), diskFormat);
+    s->addWithLabel(_("EXTRA DRIVE FILESYSTEM TYPE"), diskFormat);
     
     s->addSaveFunc([diskFormat] {
         if (diskFormat->changed()) {
