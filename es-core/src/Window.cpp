@@ -1476,24 +1476,29 @@ void Window::processStorageRequest(std::string line)
 	if (parts.empty()) { processNext(); return; }
 
 	std::string type = parts[0];
-
-	if (type == "REQUEST_MERGE" && parts.size() >= 2)
+	
+	if (type == "REQUEST_MERGE" && parts.size() >= 5)
 	{
-		std::string argument = parts[1];
-		for (size_t i = 2; i < parts.size(); ++i) argument += ":" + parts[i];
+		std::string deviceName  = parts[1];
+		std::string deviceModel = parts[2];
+		std::string deviceSize  = parts[3];
+		std::string mountPoint  = parts[4];
 
 		std::string message = _("GAME DRIVE DETECTED") + "\n\n" +
-							  _("MOUNT POINT") + ": " + argument + "\n\n" +
+							  _("DEVICE") + ": " + deviceName + "\n" +
+							  _("MODEL")  + ": " + deviceModel + "\n" +
+							  _("SIZE")   + ": " + deviceSize + "\n" +
+							  _("MOUNT")  + ": " + mountPoint + "\n\n" +
 							  _("Merge games from this drive partition now?") + "\n" + 
 							  _("(This will also apply on future boots)");
 
 		auto* msg = new GuiMsgBox(this, message,
-			_("YES"), [this, argument, processNext] {
-				this->displayNotificationMessage(_("Merging drive... Please wait."));
+			_("YES"), [this, mountPoint, processNext] {
+				this->displayNotificationMessage(_("Merge requested... Please wait."));
 				needReload = true;
 
-				std::thread([this, argument, processNext]() {
-					bool success = ApiSystem::getInstance()->mergeDrive(argument);
+				std::thread([this, mountPoint, processNext]() {
+					bool success = ApiSystem::getInstance()->mergeDrive(mountPoint);
 					this->postToUiThread([this, success, processNext]() {
 						if (!success) {
 							this->pushGui(new GuiMsgBox(this, _("MERGE FAILED") + "\n" + _("Please check the logs."), _("OK"), [processNext] { processNext(); }));
@@ -1506,7 +1511,7 @@ void Window::processStorageRequest(std::string line)
 			_("NO"), [processNext] { processNext(); }
 		);
 		pushGui(msg);
-	} 
+	}
 	else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 	{
 		std::string deviceName = parts[1];
