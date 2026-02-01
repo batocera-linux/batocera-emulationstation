@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2026-01-18 21:53+0900\n"
+"PO-Revision-Date: 2026-01-31 01:02+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -55,16 +55,16 @@ msgid "enter game genre"
 msgstr "장르 입력"
 
 msgid "Tags"
-msgstr ""
+msgstr "태그"
 
 msgid "tags"
-msgstr ""
+msgstr "태그"
 
 msgid "Sort name"
-msgstr ""
+msgstr "이름 정렬"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "게임 종류 이름 입력"
 
 msgid "Emulator"
 msgstr "에뮬레이터"
@@ -925,10 +925,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "패드-키 설정"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "수동 스크레이프"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "스크레이퍼 포함"
 
 msgid "SCREENSCRAPER"
 msgstr "스크린스크래퍼"
@@ -1603,15 +1603,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "언어 (지역)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "키보드 레이아웃"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "키보드 변형"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"물리적 키보드 레이아웃을 선택하세요. 변경 사항이 완전히 적용되려면 재부팅이 "
+"필요할 수 있습니다."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "시간대 선택"
@@ -1779,10 +1781,10 @@ msgid "BACKUP USER DATA"
 msgstr "사용자 데이터 백업"
 
 msgid "EJECT AN EXTERNAL DISK"
-msgstr ""
+msgstr "외장 디스크 꺼내기"
 
 msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "외장 드라이브 파일 시스템 유형"
 
 msgid "ADVANCED"
 msgstr "고급"
@@ -2054,7 +2056,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "'..' 상위 폴더 표시"
 
 msgid "ICONS"
-msgstr ""
+msgstr "아이콘"
 
 msgid "AFTER NAME"
 msgstr "이름 뒤"
@@ -2063,7 +2065,7 @@ msgid "BEFORE NAME"
 msgstr "이름 앞"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "태그 아이콘 표시"
 
 msgid "SHOW REGION FLAG"
 msgstr "목록에 지역 깃발 표시"
@@ -2357,22 +2359,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "정말 현재 드라이브를 포맷할까요?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "디스크를 안전하게 꺼내기"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "병합된 드라이브"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "병합된 드라이브가 없"
 
 msgid "EJECT"
-msgstr ""
+msgstr "꺼내기"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "드라이브가 선택되지 않았"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "꺼내는 중..."
 
 msgid "Points"
 msgstr "포인트"
@@ -2475,6 +2477,9 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"다음 실행 명령을 작성하려면\n"
+"'%s'\n"
+"쓰기 버튼을 누른 다음 NFC 태그를 라이터에 올려놓으세요"
 
 msgid "WRITE"
 msgstr "쓰기"
@@ -2737,7 +2742,7 @@ msgid "EDIT METADATA"
 msgstr "메타데이터 편집"
 
 msgid "TAGS"
-msgstr ""
+msgstr "태그"
 
 msgid "GENRES"
 msgstr "장르"
@@ -3293,7 +3298,7 @@ msgid "GENRE"
 msgstr "장르"
 
 msgid "TAG"
-msgstr ""
+msgstr "태그"
 
 msgid "FAMILY"
 msgstr "패밀리"
@@ -3362,19 +3367,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "변경 사항을 적용하려면 게임목록을 업데이트하세요."
 
 msgid "SLOW"
-msgstr ""
+msgstr "느림"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "작동하지 않음"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "버그 투성"
 
 msgid "LIKED"
-msgstr ""
+msgstr "좋아요"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "싫어요"
 
 msgid "Loading system config..."
 msgstr "시스템 구성 불러오는 중..."
@@ -3844,70 +3849,71 @@ msgstr ""
 "목표물을 쏘아 보정"
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "게임 드라이브 감지됨"
 
 msgid "Merge games from this drive now?"
-msgstr ""
+msgstr "이 드라이브의 게임들을 지금 병합할까요?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(이 사항은 향후 출시될 부츠에도 적용됨)"
 
 msgid "Merging drive... Please wait."
-msgstr ""
+msgstr "드라이브 병합 중... 잠시 기다려 주세요."
 
 msgid "New drive content will be available after games list is refreshed..."
 msgstr ""
+"게임 목록이 새로 고쳐진 후 새로운 드라이브 콘텐츠를 이용할 수 있습니다."
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "게임 목록을 다시 불러옴..."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "병합 실패"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "로그를 확인하세요."
 
 msgid "N/A"
-msgstr ""
+msgstr "해당 사항 없음"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "새로운 드라이브가 감지되었음"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "장치"
 
 msgid "MODEL"
-msgstr ""
+msgstr "모델"
 
 msgid "SIZE"
-msgstr ""
+msgstr "크기"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "이 드라이브를 게임 저장용으로 포맷하고 준비할까요?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(기존 데이터는 모두 삭제됨)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "포맷 프로세스 시작 중..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "포맷 실패하였음"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "아니요, 이번에는 무시합니다"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "아니오, 영원히 무시합니다"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "무시 목록에 드라이브를 추가하는 중..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "예, 포맷 & 병합"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "아니요, 무시합니다"
 
 #~ msgid ""
 #~ "IN ORDER TO WRITE THE LAUNCH COMMAND FOR '%s' PRESS THE WRITE BUTTON AND "
