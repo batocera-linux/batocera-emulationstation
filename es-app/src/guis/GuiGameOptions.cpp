@@ -244,17 +244,25 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		}
 	}
 
-	if (hasZaparoo) {
-		mMenu.addGroup("ZAPAROO");
-		mMenu.addEntry(_("WRITE AN NFC TAG FOR THIS GAME"), false, [this, game]
+	if (hasZaparoo || (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::NFC) && ApiSystem::getInstance()->nfc_is_available())) {
+	  if(hasZaparoo) {
+	    mMenu.addGroup("ZAPAROO");
+	  } else {
+	    mMenu.addGroup(_("NFC"));
+	  }
+		mMenu.addEntry(_("WRITE AN NFC TAG FOR THIS GAME"), false, [this, game, hasZaparoo]
 		{
 			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::format(_("IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER").c_str(), game->getName().c_str()), _("WRITE"),
-				[this, game]
+				[this, game, hasZaparoo]
 				{
 					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER..."),
-					[this, game](auto gui)
+					[this, game, hasZaparoo](auto gui)
 					{
-						return Zaparoo::writeZaparooCard(game->getFullPath());
+					  if(hasZaparoo) {
+					    return Zaparoo::writeZaparooCard(game->getFullPath());
+					  } else {
+					    return ApiSystem::getInstance()->nfc_write(game->getFullPath());
+					  }
 					},
 					[this](bool ok)
 					{

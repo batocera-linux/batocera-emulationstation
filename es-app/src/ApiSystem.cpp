@@ -1812,6 +1812,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::BACKGLASS:
 		executables.push_back("batocera-backglass");
 		break;
+	case ApiSystem::NFC:
+		executables.push_back("batocera-nfc");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -2898,4 +2901,13 @@ bool ApiSystem::ignoreDevicePermanently(const std::string& deviceId)
 {
     std::string cmd = "batocera-storage-manager ignore \"" + deviceId + "\"";
     return executeScript(cmd);
+}
+
+bool ApiSystem::nfc_is_available() {
+  return Utils::FileSystem::exists("/var/run/batocera-nfc.running");
+}
+
+bool ApiSystem::nfc_write(const std::string& game) {
+  std::string cmd = "batocera-nfc --write \"" + game + "\"";
+  return executeScript(cmd);
 }
