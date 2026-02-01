@@ -1767,11 +1767,11 @@ msgstr "存储设备"
 msgid "BACKUP USER DATA"
 msgstr "备份用户数据"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "弹出外部磁盘"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "外部驱动器文件系统类型"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "高级设置选项"
@@ -3830,23 +3830,32 @@ msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
 
+msgid "Reloaded the games list..."
+msgstr "已重新加载游戏列表..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "检测到游戏驱动器"
 
-msgid "Merge games from this drive now?"
-msgstr "现在从这个硬盘合并游戏吗?"
+msgid "DEVICE"
+msgstr "驱动器"
+
+msgid "MODEL"
+msgstr "型号"
+
+msgid "SIZE"
+msgstr "大小"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(这也将适用于未来的启动)"
 
-msgid "Merging drive... Please wait."
-msgstr "正在合并驱动器... 请稍候."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "游戏列表刷新后, 将有新的硬盘内容可用..."
-
-msgid "Reloaded the games list..."
-msgstr "已重新加载游戏列表..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "合并失败"
@@ -3859,15 +3868,6 @@ msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "检测到新驱动器"
-
-msgid "DEVICE"
-msgstr "驱动器"
-
-msgid "MODEL"
-msgstr "型号"
-
-msgid "SIZE"
-msgstr "大小"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "是否格式化并将此硬盘用于游戏存储?"
@@ -3895,6 +3895,21 @@ msgstr "是, 格式化并合并"
 
 msgid "NO, IGNORE"
 msgstr "否, 忽略"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "弹出外部磁盘"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "外部驱动器文件系统类型"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "现在从这个硬盘合并游戏吗?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "正在合并驱动器... 请稍候."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr "游戏列表刷新后, 将有新的硬盘内容可用..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "按硬件类型"

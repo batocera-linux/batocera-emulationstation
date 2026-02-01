@@ -1808,11 +1808,11 @@ msgstr "DISPOSITIVO DE ARMAZENAMENTO"
 msgid "BACKUP USER DATA"
 msgstr "CÓPIA DE SEGURANÇA DOS DADOS DO USUÁRIO"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "EJETAR UM DISCO EXTERNO"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "TIPO DE SISTEMA DE ARQUIVOS DO DISCO EXTERNO"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
@@ -3902,23 +3902,32 @@ msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
 
+msgid "Reloaded the games list..."
+msgstr "Atualizou a lista de jogos..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "DISCO DE JOGOS DETECTADO"
 
-msgid "Merge games from this drive now?"
-msgstr "Fundir jogos deste disco agora?"
+msgid "DEVICE"
+msgstr "DISPOSITIVO"
+
+msgid "MODEL"
+msgstr "MODELO"
+
+msgid "SIZE"
+msgstr "TAMANHO"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Isso também se aplicará em inicializações futuras)"
 
-msgid "Merging drive... Please wait."
-msgstr "Fundindo discos... Por favor aguarde."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "O conteúdo do novo disco ficará disponível após a lista de jogos ser atualizada..."
-
-msgid "Reloaded the games list..."
-msgstr "Atualizou a lista de jogos..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "FUNDIÇÃO FALHOU"
@@ -3931,15 +3940,6 @@ msgstr "NÃO APLICÁVEL"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NOVO DISCO DETECTADO"
-
-msgid "DEVICE"
-msgstr "DISPOSITIVO"
-
-msgid "MODEL"
-msgstr "MODELO"
-
-msgid "SIZE"
-msgstr "TAMANHO"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Formatar e preparar esse disco para armazenamento de jogos?"
@@ -3967,6 +3967,23 @@ msgstr "SIM, FORMATAR E FUNDIR"
 
 msgid "NO, IGNORE"
 msgstr "NÃO, IGNORAR"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "EJETAR UM DISCO EXTERNO"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "TIPO DE SISTEMA DE ARQUIVOS DO DISCO EXTERNO"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "Fundir jogos deste disco agora?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Fundindo discos... Por favor aguarde."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "O conteúdo do novo disco ficará disponível após a lista de jogos ser "
+#~ "atualizada..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR TIPO DE HARDWARE"

@@ -1802,11 +1802,11 @@ msgstr "TÁROLÓ"
 msgid "BACKUP USER DATA"
 msgstr "FELHASZNÁLÓI ADAT MENTÉSE"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "KÜLSŐ LEMEZ KIADÁSA"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "KÜLSŐ MEGHAJTÓ FÁJLRENDSZER TÍPUSA"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "HALADÓ"
@@ -3213,8 +3213,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztráció szükséges! Kérlek készíts egyet itt: https://"
-"retroachievements.org"
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Teljes"
@@ -3897,23 +3897,32 @@ msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
 
+msgid "Reloaded the games list..."
+msgstr "Újratöltöttem a játékok listáját..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "JÁTÉKMEGHAJTÓ ÉSZLELVE"
 
-msgid "Merge games from this drive now?"
-msgstr "Egyesíted most a játékokat erről a meghajtóról?"
+msgid "DEVICE"
+msgstr "MEGHAJTÓ"
+
+msgid "MODEL"
+msgstr "MODELL"
+
+msgid "SIZE"
+msgstr "MÉRET"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Ez a jövőbeli indításokra is vonatkozik)"
 
-msgid "Merging drive... Please wait."
-msgstr "Meghajtó egyesítése... Kérjük, várjon."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után..."
-
-msgid "Reloaded the games list..."
-msgstr "Újratöltöttem a játékok listáját..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "EGYESÍTÉS SIKERTELEN"
@@ -3926,15 +3935,6 @@ msgstr "Ismeretlen"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "ÚJ MEGHAJTÓ ÉRZÉKELVE"
-
-msgid "DEVICE"
-msgstr "MEGHAJTÓ"
-
-msgid "MODEL"
-msgstr "MODELL"
-
-msgid "SIZE"
-msgstr "MÉRET"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Formatálni és előkészíteni ezt a meghajtót játékok tárolására?"
@@ -3962,6 +3962,22 @@ msgstr "IGEN, FORMÁZÁS ÉS EGYESÍTÉS"
 
 msgid "NO, IGNORE"
 msgstr "NEM, FIGYELMEN KÍVÜL HAGY"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "KÜLSŐ LEMEZ KIADÁSA"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "KÜLSŐ MEGHAJTÓ FÁJLRENDSZER TÍPUSA"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "Egyesíted most a játékokat erről a meghajtóról?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Meghajtó egyesítése... Kérjük, várjon."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARDVER TÍPUS SZERINT"

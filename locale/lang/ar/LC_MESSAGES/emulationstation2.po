@@ -1813,10 +1813,10 @@ msgstr "جهاز التخزين"
 msgid "BACKUP USER DATA"
 msgstr "نسخ احتياطي لبيانات المستخدم"
 
-msgid "EJECT AN EXTERNAL DISK"
+msgid "EJECT AN EXTRA DISK"
 msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
 msgstr ""
 
 msgid "ADVANCED"
@@ -3935,22 +3935,31 @@ msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
 
+msgid "Reloaded the games list..."
+msgstr ""
+
 msgid "GAME DRIVE DETECTED"
 msgstr ""
 
-msgid "Merge games from this drive now?"
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
 msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merging drive... Please wait."
-msgstr ""
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr ""
-
-msgid "Reloaded the games list..."
+msgid "Merge requested... Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3963,15 +3972,6 @@ msgid "N/A"
 msgstr ""
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
-
-msgid "DEVICE"
-msgstr ""
-
-msgid "MODEL"
-msgstr ""
-
-msgid "SIZE"
 msgstr ""
 
 msgid "Format and prepare this drive for game storage?"

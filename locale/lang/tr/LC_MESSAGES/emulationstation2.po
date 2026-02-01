@@ -1793,11 +1793,11 @@ msgstr "DEPOLAMA CİHAZI"
 msgid "BACKUP USER DATA"
 msgstr "KULLANICI VERİLERİNİ YEDEKLE"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "HARİCİ BİR DİSKİ ÇIKAR"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "HARİCİ SÜRÜCÜ DOSYA SİSTEMİ TÜRÜ"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "GELİŞMİŞ"
@@ -3899,23 +3899,32 @@ msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
 
+msgid "Reloaded the games list..."
+msgstr "Oyun listesi yeniden yükleniyor..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "OYUN SÜRÜCÜSÜ ALGILANDI"
 
-msgid "Merge games from this drive now?"
-msgstr "Bu sürücüdeki oyunlar şimdi birleştirilsin mi?"
+msgid "DEVICE"
+msgstr "CİHAZ"
+
+msgid "MODEL"
+msgstr "MODEL"
+
+msgid "SIZE"
+msgstr "BOYUT"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Bu aynı zamanda gelecekteki botlar için de geçerli olacaktır)"
 
-msgid "Merging drive... Please wait."
-msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
-
-msgid "Reloaded the games list..."
-msgstr "Oyun listesi yeniden yükleniyor..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "BİRLEŞTİRME BAŞARISIZ"
@@ -3928,15 +3937,6 @@ msgstr "YOK"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "YENİ SÜRÜCÜ ALGILANDI"
-
-msgid "DEVICE"
-msgstr "CİHAZ"
-
-msgid "MODEL"
-msgstr "MODEL"
-
-msgid "SIZE"
-msgstr "BOYUT"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Bu sürücü biçimlendirilip oyun depolaması için hazırlansın mı?"
@@ -3964,6 +3964,22 @@ msgstr "EVET, BİÇİMLENDİR & BİRLEŞTİR"
 
 msgid "NO, IGNORE"
 msgstr "HAYIR, YOKSAY"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "HARİCİ BİR DİSKİ ÇIKAR"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "HARİCİ SÜRÜCÜ DOSYA SİSTEMİ TÜRÜ"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "Bu sürücüdeki oyunlar şimdi birleştirilsin mi?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"

@@ -1792,11 +1792,11 @@ msgstr "ストレージデバイス"
 msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "外付けディスクを取り出す"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "外付けドライブのファイルシステムの種類"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "詳細項目"
@@ -3864,25 +3864,32 @@ msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
 
+msgid "Reloaded the games list..."
+msgstr "ゲームリストを再読み込みしました..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "ゲームドライブ検出"
 
-msgid "Merge games from this drive now?"
-msgstr "今すぐこのドライブからゲームをマージ(結合)しますか?"
+msgid "DEVICE"
+msgstr "デバイス"
+
+msgid "MODEL"
+msgstr "モデル"
+
+msgid "SIZE"
+msgstr "サイズ"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "（これは将来のブートにも適用されます）"
 
-msgid "Merging drive... Please wait."
-msgstr "ドライブをマージしています...お待ちください"
-
-msgid "New drive content will be available after games list is refreshed..."
+msgid "Merge requested... Please wait."
 msgstr ""
-"ゲーム リストが更新されると、新しいドライブ コンテンツが利用できるようになり"
-"ます..."
-
-msgid "Reloaded the games list..."
-msgstr "ゲームリストを再読み込みしました..."
 
 msgid "MERGE FAILED"
 msgstr "マージに失敗"
@@ -3895,15 +3902,6 @@ msgstr "該当なし"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "ゲームドライブ検出"
-
-msgid "DEVICE"
-msgstr "デバイス"
-
-msgid "MODEL"
-msgstr "モデル"
-
-msgid "SIZE"
-msgstr "サイズ"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "このドライブをフォーマットしてゲーム保存用に準備しますか?"
@@ -3931,3 +3929,20 @@ msgstr "はい、フォーマット、マージします"
 
 msgid "NO, IGNORE"
 msgstr "いいえ、無視します"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "外付けディスクを取り出す"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "外付けドライブのファイルシステムの種類"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "今すぐこのドライブからゲームをマージ(結合)しますか?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "ドライブをマージしています...お待ちください"
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "ゲーム リストが更新されると、新しいドライブ コンテンツが利用できるようにな"
+#~ "ります..."

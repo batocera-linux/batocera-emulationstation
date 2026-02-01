@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : 2"
-";\n"
+"Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
+"2;\n"
 "X-Generator: Lokalize 25.12.1\n"
 "X-Loco-Source-Locale: en\n"
 "X-Loco-Project-Id: 136009\n"
@@ -1787,11 +1787,11 @@ msgstr "Úložné zariadenie"
 msgid "BACKUP USER DATA"
 msgstr "Zálohovať údaje používateľa"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "Vysunúť externý disk"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "Typ filesystému externého disku"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "Pokročilé"
@@ -3884,23 +3884,32 @@ msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
 
+msgid "Reloaded the games list..."
+msgstr "Znovu načítaný zoznam hier..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "Zistil sa disk s hrou"
 
-msgid "Merge games from this drive now?"
-msgstr "Zlúčiť hry z tohto disku?"
+msgid "DEVICE"
+msgstr "Zariadenie"
+
+msgid "MODEL"
+msgstr "Model"
+
+msgid "SIZE"
+msgstr "Veľkosť"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Toto sa použije aj pri ďalších spusteniach)"
 
-msgid "Merging drive... Please wait."
-msgstr "Zlučujem disk... Prosím, čakajte."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier..."
-
-msgid "Reloaded the games list..."
-msgstr "Znovu načítaný zoznam hier..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "Zlúčenie zlyhalo"
@@ -3913,15 +3922,6 @@ msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "Zistil sa nový disk"
-
-msgid "DEVICE"
-msgstr "Zariadenie"
-
-msgid "MODEL"
-msgstr "Model"
-
-msgid "SIZE"
-msgstr "Veľkosť"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Formátovať a pripraviť tento disk na uloženie hier?"
@@ -3949,6 +3949,21 @@ msgstr "Áno, formátovať a zlúčiť"
 
 msgid "NO, IGNORE"
 msgstr "Nie, ignorovať"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "Vysunúť externý disk"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "Typ filesystému externého disku"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "Zlúčiť hry z tohto disku?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Zlučujem disk... Prosím, čakajte."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "Podľa typu hardvéru"

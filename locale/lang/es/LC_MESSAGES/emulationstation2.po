@@ -1635,8 +1635,8 @@ msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
-"Selecciona la distribución física del teclado. Es posible que sea "
-"necesario reiniciar para que los cambios surtan efecto."
+"Selecciona la distribución física del teclado. Es posible que sea necesario "
+"reiniciar para que los cambios surtan efecto."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECCIONA TU ZONA HORARIA"
@@ -1806,11 +1806,11 @@ msgstr "DISPOSITIVO DE ALMACENAMIENTO"
 msgid "BACKUP USER DATA"
 msgstr "CREAR COPIA DE SEGURIDAD DE DATOS DE USUARIO"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "EXPULSAR UN DISCO EXTERNO"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "TIPO DE SISTEMA DE ARCHIVOS DE UNIDAD EXTERNA"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AVANZADO"
@@ -2512,11 +2512,9 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
-
 "PARA ESCRIBIR EL COMANDO DE INICIO PARA\n"
 "'%s'\n"
-"PRESIONA EL BOTÓN DE ESCRITURA Y LUEGO COLOCA UNA ETIQUETA NFC EN EL "
-"LECTOR"
+"PRESIONA EL BOTÓN DE ESCRITURA Y LUEGO COLOCA UNA ETIQUETA NFC EN EL LECTOR"
 
 msgid "WRITE"
 msgstr "ESCRIBIR"
@@ -3905,25 +3903,32 @@ msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
 
+msgid "Reloaded the games list..."
+msgstr "Recargada la lista de juegos..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "UNIDAD DE JUEGO DETECTADA"
 
-msgid "Merge games from this drive now?"
-msgstr "¿Fusionar juegos de esta unidad ahora?"
+msgid "DEVICE"
+msgstr "DISPOSITIVO"
+
+msgid "MODEL"
+msgstr "MODELO"
+
+msgid "SIZE"
+msgstr "TAMAÑO"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Esto también se aplicará en futuros arranques)"
 
-msgid "Merging drive... Please wait."
-msgstr "Fusionando unidad... Por favor, espere."
-
-msgid "New drive content will be available after games list is refreshed..."
+msgid "Merge requested... Please wait."
 msgstr ""
-"El nuevo contenido de la unidad estará disponible después de que se "
-"actualice la lista de juegos..."
-
-msgid "Reloaded the games list..."
-msgstr "Recargada la lista de juegos..."
 
 msgid "MERGE FAILED"
 msgstr "FUSIÓN FALLIDA"
@@ -3936,15 +3941,6 @@ msgstr "N/D"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NUEVA UNIDAD DETECTADA"
-
-msgid "DEVICE"
-msgstr "DISPOSITIVO"
-
-msgid "MODEL"
-msgstr "MODELO"
-
-msgid "SIZE"
-msgstr "TAMAÑO"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "¿Formatear y preparar esta unidad para almacenar juegos?"
@@ -3972,6 +3968,23 @@ msgstr "SÍ, FORMATEAR Y FUSIONAR"
 
 msgid "NO, IGNORE"
 msgstr "NO, IGNORAR"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "EXPULSAR UN DISCO EXTERNO"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "TIPO DE SISTEMA DE ARCHIVOS DE UNIDAD EXTERNA"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "¿Fusionar juegos de esta unidad ahora?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Fusionando unidad... Por favor, espere."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "El nuevo contenido de la unidad estará disponible después de que se "
+#~ "actualice la lista de juegos..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR HARDWARE"

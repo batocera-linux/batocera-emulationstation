@@ -1799,11 +1799,11 @@ msgstr "NOŚNIK DANYCH"
 msgid "BACKUP USER DATA"
 msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "WYSUŃ DYSK ZEWNĘTRZNY"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "TYP SYSTEMU PLIKÓW DYSKU ZEWNĘTRZNEGO"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "ZAAWANSOWANE"
@@ -3896,23 +3896,32 @@ msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
 
+msgid "Reloaded the games list..."
+msgstr "Ponownie załadowano listę gier..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "WYKRYTO NAPĘD GIER"
 
-msgid "Merge games from this drive now?"
-msgstr "Czy chcesz teraz scalić gry z tego dysku?"
+msgid "DEVICE"
+msgstr "URZĄDZENIE"
+
+msgid "MODEL"
+msgstr "MODEL"
+
+msgid "SIZE"
+msgstr "ROZMIAR"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Dotyczy to również przyszłych uruchomień systemu)"
 
-msgid "Merging drive... Please wait."
-msgstr "Scalanie napędu. Proszę czekać."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier..."
-
-msgid "Reloaded the games list..."
-msgstr "Ponownie załadowano listę gier..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "SCALANIE NIEUDANE"
@@ -3925,15 +3934,6 @@ msgstr "Nd"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "WYKRYTO NOWY DYSK"
-
-msgid "DEVICE"
-msgstr "URZĄDZENIE"
-
-msgid "MODEL"
-msgstr "MODEL"
-
-msgid "SIZE"
-msgstr "ROZMIAR"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Sformatować i przygotować ten dysk do przechowywania gier?"
@@ -3961,6 +3961,21 @@ msgstr "TAK, FORMATUJ I SCAL"
 
 msgid "NO, IGNORE"
 msgstr "NIE, IGNORUJ"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "WYSUŃ DYSK ZEWNĘTRZNY"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "TYP SYSTEMU PLIKÓW DYSKU ZEWNĘTRZNEGO"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "Czy chcesz teraz scalić gry z tego dysku?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Scalanie napędu. Proszę czekać."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "WEDŁUG SPRZĘTU"

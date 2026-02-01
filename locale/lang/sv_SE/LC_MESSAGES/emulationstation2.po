@@ -1788,11 +1788,11 @@ msgstr "LAGRINGSENHET"
 msgid "BACKUP USER DATA"
 msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "MATA UT EN EXTERN DISK"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "EXTERN FILSYSTEMSTYP FÖR ENHET"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AVANCERAT"
@@ -3192,8 +3192,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://"
-"retroachievements.org"
+"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3875,25 +3875,32 @@ msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
 
+msgid "Reloaded the games list..."
+msgstr "Uppdaterade spellistan..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "SPELENHET UPPTÄCKT"
 
-msgid "Merge games from this drive now?"
-msgstr "Vill du slå samman spel från den här enheten nu?"
+msgid "DEVICE"
+msgstr "ENHET"
+
+msgid "MODEL"
+msgstr "MODELL"
+
+msgid "SIZE"
+msgstr "STORLEK"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Detta kommer även att gälla för framtida uppstarter)"
 
-msgid "Merging drive... Please wait."
-msgstr "Sammanfogar enhet... Vänta."
-
-msgid "New drive content will be available after games list is refreshed..."
+msgid "Merge requested... Please wait."
 msgstr ""
-"Nytt enhetsinnehåll kommer att finnas tillgängligt efter att spellistan har "
-"uppdaterats..."
-
-msgid "Reloaded the games list..."
-msgstr "Uppdaterade spellistan..."
 
 msgid "MERGE FAILED"
 msgstr "SAMMANSLAGNING MISSLYCKADES"
@@ -3906,15 +3913,6 @@ msgstr "-"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NY ENHET UPPTÄCKT"
-
-msgid "DEVICE"
-msgstr "ENHET"
-
-msgid "MODEL"
-msgstr "MODELL"
-
-msgid "SIZE"
-msgstr "STORLEK"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Formatera och förbereda denna enhet för lagring av spel?"
@@ -3942,6 +3940,23 @@ msgstr "JA, FORMATERA & SLÅ SAMMAN"
 
 msgid "NO, IGNORE"
 msgstr "NEJ, IGNORERA"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "MATA UT EN EXTERN DISK"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "EXTERN FILSYSTEMSTYP FÖR ENHET"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "Vill du slå samman spel från den här enheten nu?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "Sammanfogar enhet... Vänta."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "Nytt enhetsinnehåll kommer att finnas tillgängligt efter att spellistan "
+#~ "har uppdaterats..."
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "EFTER HÅRDVARUTYP"

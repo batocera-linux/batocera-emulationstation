@@ -1780,11 +1780,11 @@ msgstr "저장 장치"
 msgid "BACKUP USER DATA"
 msgstr "사용자 데이터 백업"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "외장 디스크 꺼내기"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "외장 드라이브 파일 시스템 유형"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "고급"
@@ -3848,24 +3848,32 @@ msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
 
+msgid "Reloaded the games list..."
+msgstr "게임 목록을 다시 불러옴..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "게임 드라이브 감지됨"
 
-msgid "Merge games from this drive now?"
-msgstr "이 드라이브의 게임들을 지금 병합할까요?"
+msgid "DEVICE"
+msgstr "장치"
+
+msgid "MODEL"
+msgstr "모델"
+
+msgid "SIZE"
+msgstr "크기"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(이 사항은 향후 출시될 부츠에도 적용됨)"
 
-msgid "Merging drive... Please wait."
-msgstr "드라이브 병합 중... 잠시 기다려 주세요."
-
-msgid "New drive content will be available after games list is refreshed..."
+msgid "Merge requested... Please wait."
 msgstr ""
-"게임 목록이 새로 고쳐진 후 새로운 드라이브 콘텐츠를 이용할 수 있습니다."
-
-msgid "Reloaded the games list..."
-msgstr "게임 목록을 다시 불러옴..."
 
 msgid "MERGE FAILED"
 msgstr "병합 실패"
@@ -3878,15 +3886,6 @@ msgstr "해당 사항 없음"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "새로운 드라이브가 감지되었음"
-
-msgid "DEVICE"
-msgstr "장치"
-
-msgid "MODEL"
-msgstr "모델"
-
-msgid "SIZE"
-msgstr "크기"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "이 드라이브를 게임 저장용으로 포맷하고 준비할까요?"
@@ -3914,6 +3913,22 @@ msgstr "예, 포맷 & 병합"
 
 msgid "NO, IGNORE"
 msgstr "아니요, 무시합니다"
+
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "외장 디스크 꺼내기"
+
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "외장 드라이브 파일 시스템 유형"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "이 드라이브의 게임들을 지금 병합할까요?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "드라이브 병합 중... 잠시 기다려 주세요."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "게임 목록이 새로 고쳐진 후 새로운 드라이브 콘텐츠를 이용할 수 있습니다."
 
 #~ msgid ""
 #~ "IN ORDER TO WRITE THE LAUNCH COMMAND FOR '%s' PRESS THE WRITE BUTTON AND "

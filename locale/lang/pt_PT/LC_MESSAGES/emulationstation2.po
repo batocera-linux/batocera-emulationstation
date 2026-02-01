@@ -1627,8 +1627,8 @@ msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
-"Selecione o layout físico do teclado. Pode ser necessário reiniciar para que as alterações tenham efeito. "
-"ter pleno efeito"
+"Selecione o layout físico do teclado. Pode ser necessário reiniciar para que "
+"as alterações tenham efeito. ter pleno efeito"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECIONE O SEU FUSO HORÁRIO"
@@ -1799,11 +1799,11 @@ msgstr "DISPOSITIVO DE ARMAZENAMENTO"
 msgid "BACKUP USER DATA"
 msgstr "BACKUP DADOS DO UTILIZADOR"
 
-msgid "EJECT AN EXTERNAL DISK"
-msgstr "EJETAR UM DISCO EXTERNO"
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
 
-msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-msgstr "TIPO DE SISTEMA DE FICHEIROS DO DISCO EXTERNO"
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
@@ -3884,23 +3884,32 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
+msgid "Reloaded the games list..."
+msgstr "Lista de jogos recarregada..."
+
 msgid "GAME DRIVE DETECTED"
 msgstr "DISCO DE JOGO DETETADO"
 
-msgid "Merge games from this drive now?"
-msgstr "A copiar jogos deste disco agora?"
+msgid "DEVICE"
+msgstr "DISPOSITIVO"
+
+msgid "MODEL"
+msgstr "MODELO"
+
+msgid "SIZE"
+msgstr "TAMANHO"
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
 
 msgid "(This will also apply on future boots)"
 msgstr "(Isto também se aplicará em arranques futuros)"
 
-msgid "Merging drive... Please wait."
-msgstr "A copiar o disco... Por favor, aguarde."
-
-msgid "New drive content will be available after games list is refreshed..."
-msgstr "O conteúdo do novo disco estará disponível depois de a lista de jogos ser atualizada..."
-
-msgid "Reloaded the games list..."
-msgstr "Lista de jogos recarregada..."
+msgid "Merge requested... Please wait."
+msgstr ""
 
 msgid "MERGE FAILED"
 msgstr "A COPIA FALHOU"
@@ -3913,15 +3922,6 @@ msgstr "NÃO APLICÁVEL"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NOVA UNIDADE DETECTADA"
-
-msgid "DEVICE"
-msgstr "DISPOSITIVO"
-
-msgid "MODEL"
-msgstr "MODELO"
-
-msgid "SIZE"
-msgstr "TAMANHO"
 
 msgid "Format and prepare this drive for game storage?"
 msgstr "Formatar e preparar este disco para armazenamento de jogos?"
@@ -3950,7 +3950,22 @@ msgstr "SIM, FORMATAR E COPIAR"
 msgid "NO, IGNORE"
 msgstr "NÃO, IGNORAR"
 
+#~ msgid "EJECT AN EXTERNAL DISK"
+#~ msgstr "EJETAR UM DISCO EXTERNO"
 
+#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
+#~ msgstr "TIPO DE SISTEMA DE FICHEIROS DO DISCO EXTERNO"
+
+#~ msgid "Merge games from this drive now?"
+#~ msgstr "A copiar jogos deste disco agora?"
+
+#~ msgid "Merging drive... Please wait."
+#~ msgstr "A copiar o disco... Por favor, aguarde."
+
+#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgstr ""
+#~ "O conteúdo do novo disco estará disponível depois de a lista de jogos ser "
+#~ "atualizada..."
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
