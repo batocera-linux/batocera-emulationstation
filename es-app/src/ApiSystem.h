@@ -172,6 +172,7 @@ public:
 		READPLANEMODE = 29,
 		WRITEPLANEMODE = 30,
 		BACKGLASS = 31,
+		NFC = 32,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -382,6 +383,9 @@ public:
 
 	virtual std::vector<std::string> backglassThemes();
 	virtual void restartBackglass();
+
+	virtual bool nfc_is_available();
+	virtual bool nfc_write(const std::string& game);
 
 protected:
 	ApiSystem();
