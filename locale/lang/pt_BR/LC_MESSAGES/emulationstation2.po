@@ -2502,6 +2502,9 @@ msgstr ""
 "ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
 "TEM CERTEZA?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "GRAVAR UMA ETIQUETA NFC PARA ESTE JOGO"
 

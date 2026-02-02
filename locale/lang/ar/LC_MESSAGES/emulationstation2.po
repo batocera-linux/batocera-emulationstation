@@ -2499,6 +2499,9 @@ msgstr ""
 "سيؤدي هذا إلى حذف ملف (ملفات) اللعبة الفعلية!\n"
 "هل أنت متأكد؟"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

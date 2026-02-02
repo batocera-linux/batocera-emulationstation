@@ -2489,6 +2489,9 @@ msgstr ""
 "VOUS ALLEZ SUPPRIMER LE(S) FICHIER(S) DE JEU ACTUEL.\n"
 "ÊTES-VOUS SÛR(E) ?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

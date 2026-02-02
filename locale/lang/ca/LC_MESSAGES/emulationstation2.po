@@ -2495,6 +2495,9 @@ msgstr ""
 "AIXÒ ELIMINARÀ L’ARXIU(S) DEL JOC ACTUAL!\n"
 "ESTÀS SEGUR?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

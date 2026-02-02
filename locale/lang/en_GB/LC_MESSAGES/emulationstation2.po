@@ -2469,6 +2469,9 @@ msgstr ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "WRITE AN NFC TAG FOR THIS GAME"
 

@@ -2498,6 +2498,9 @@ msgstr ""
 "EZZEL LETÖRLÖD AZ AKTUÁLIS JÁTÉK FÁJLOKAT!\n"
 "BIZTOS VAGY BENNE?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ÍRJ EGY NFC TAGET ENNEK A JÁTÉKNAK"
 

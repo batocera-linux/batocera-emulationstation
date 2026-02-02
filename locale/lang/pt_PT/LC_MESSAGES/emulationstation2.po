@@ -1800,10 +1800,10 @@ msgid "BACKUP USER DATA"
 msgstr "BACKUP DADOS DO UTILIZADOR"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "EJETAR UM DISCO EXTRA"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TIPO DE FICHEIROS - UNIDADE EXTRA"
 
 msgid "ADVANCED"
 msgstr "AVANÇADO"
@@ -2490,6 +2490,9 @@ msgid ""
 msgstr ""
 "ISTO APAGARÁ OS FICHEIROS DO JOGO!\n"
 "TEM A CERTEZA?"
+
+msgid "NFC"
+msgstr ""
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "Gravar uma etiqueta NFC para este jogo"
@@ -3900,16 +3903,16 @@ msgid "SIZE"
 msgstr "TAMANHO"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MONTAR"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Combinar jogos desta partição da unidade agora?"
 
 msgid "(This will also apply on future boots)"
 msgstr "(Isto também se aplicará em arranques futuros)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Combinação solicitada... Por favor, aguarde."
 
 msgid "MERGE FAILED"
 msgstr "A COPIA FALHOU"

@@ -2482,6 +2482,9 @@ msgstr ""
 "ERAGIKETA HONEK ZURE UNEKO JOKO FITXATEGIA(K) EZABATUKO D(IT)U!\n"
 "ZIUR AL ZAUDE?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

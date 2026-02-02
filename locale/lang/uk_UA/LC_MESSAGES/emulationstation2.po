@@ -2449,6 +2449,9 @@ msgstr ""
 "ВИДАЛЕННЯ ФАЙЛІВ ГРИ!\n"
 "ВИ ВПЕВНЕНІ?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ЗАПИШІТЬ NFC-МІТКУ ДЛЯ ЦІЄЇ ГРИ"
 

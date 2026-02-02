@@ -2452,6 +2452,9 @@ msgstr ""
 "这个操作会删除实际的游戏文件!\n"
 "确定要执行吗?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "为这场游戏写一个NFC标签"
 

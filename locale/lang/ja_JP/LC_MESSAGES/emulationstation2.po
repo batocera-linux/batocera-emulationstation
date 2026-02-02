@@ -2480,6 +2480,9 @@ msgstr ""
 "これは実際にファイルを削除します！\n"
 "実行しますか？"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "このゲーム用のNFCタグを作成"
 

@@ -2501,6 +2501,9 @@ msgid ""
 "ARE YOU SURE?"
 msgstr "DIT ZAL DE BESTANDEN VAN HET SPEL VERWIJDEREN! WEET U HET ZEKER?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

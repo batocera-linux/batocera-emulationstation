@@ -2443,6 +2443,9 @@ msgid ""
 "ARE YOU SURE?"
 msgstr "פעולה זו תמחק את קובצי המשחק סופית, האם להמשיך בפעולה ?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

@@ -2465,6 +2465,9 @@ msgstr ""
 "ΑΥΤΟ ΘΑ ΔΙΑΓΡΑΨΕΙ ΤΟ/Α ΠΡΑΓΜΑΤΙΚΟ/Α ΑΡΧΕΙΟ/Α ΠΑΙΧΝΙΔΙΟΥ/ΩΝ!\n"
 "ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

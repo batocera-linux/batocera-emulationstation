@@ -2453,6 +2453,9 @@ msgstr ""
 "這將會刪除實際的遊戲檔案！\n"
 "您確定要刪除嗎？"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

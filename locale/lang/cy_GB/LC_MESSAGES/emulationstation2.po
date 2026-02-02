@@ -2447,6 +2447,9 @@ msgstr ""
 "BYDD HYN YN DILEU'R FFEIL(IAU) GÊM GWIRIONEDDOL!\n"
 "WYT TI'N SIWR?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

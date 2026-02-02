@@ -2492,6 +2492,9 @@ msgstr ""
 "BU, GERÇEK OYUN DOSYALARINI SİLECEKTİR!\n"
 "EMİN MİSİN?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "BU OYUN İÇİN BİR NFC ETİKETİ YAZ"
 

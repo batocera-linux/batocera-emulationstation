@@ -2477,6 +2477,9 @@ msgstr ""
 "DETTE VIL SLETTE DEN FAKTISKE SPILLFILEN(E)!\n"
 "ER DU SIKKER?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

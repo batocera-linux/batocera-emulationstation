@@ -2487,6 +2487,9 @@ msgstr ""
 "XÓA HẾT CÁC TỆP TRÒ CHƠI!\n"
 "BẠN CÓ CHẮC CHẮN KHÔNG?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

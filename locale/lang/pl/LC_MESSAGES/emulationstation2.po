@@ -2492,6 +2492,9 @@ msgstr ""
 "TO SPOWODUJE USUNIĘCIE PLIKÓW GIER!\n"
 "JESTEŚ PEWIEN?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ZAPISZ TAG NFC DLA TEJ GRY"
 

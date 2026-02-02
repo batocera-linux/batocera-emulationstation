@@ -2478,6 +2478,9 @@ msgstr ""
 "OPRAVDU ODSTRANIT SOUBOR(Y) HRY!\n"
 "JSTE SI JISTI?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

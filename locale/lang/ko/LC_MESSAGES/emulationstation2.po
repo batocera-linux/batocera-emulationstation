@@ -2468,6 +2468,9 @@ msgstr ""
 "실제 게임 파일이 삭제됩니다!\n"
 "확실합니까?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "이 게임에 사용할 NFC 태그 작성"
 

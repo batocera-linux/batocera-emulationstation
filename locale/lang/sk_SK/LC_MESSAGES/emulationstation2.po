@@ -2479,6 +2479,9 @@ msgstr ""
 "Toto vymaže herné súbory!\n"
 "Chcete pokračovať?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "Zapísať NFC značku pre túto hru"
 

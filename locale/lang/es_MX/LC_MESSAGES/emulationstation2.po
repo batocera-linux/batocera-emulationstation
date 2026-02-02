@@ -2489,6 +2489,9 @@ msgstr ""
 "ESTO ELIMINARÁ EL ARCHIVO(S) DEL JUEGO ACTUAL!\n"
 "¿ESTÁS SEGURO?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

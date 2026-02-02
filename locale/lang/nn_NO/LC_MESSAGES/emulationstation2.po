@@ -2437,6 +2437,9 @@ msgid ""
 "ARE YOU SURE?"
 msgstr ""
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

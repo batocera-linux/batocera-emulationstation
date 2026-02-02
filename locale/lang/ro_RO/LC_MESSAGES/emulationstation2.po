@@ -2497,6 +2497,9 @@ msgstr ""
 "ACEST LUCRU VA ȘTERGE FIȘIERUL JOCULUI!\n"
 "EȘTI SIGUR?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "SCRIE UN TAG NFC PENTRU ACEST JOC"
 

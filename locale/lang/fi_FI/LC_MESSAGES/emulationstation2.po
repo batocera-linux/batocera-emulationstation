@@ -2474,6 +2474,9 @@ msgstr ""
 "TÄMÄ POISTAA PELI(EN) TIEDOSTOT!\n"
 "HALUATKO JATKAA?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 

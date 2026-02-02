@@ -2477,6 +2477,9 @@ msgstr ""
 "INI AKAN MENGHAPUS FILE GAME!\n"
 "KAU YAKIN?"
 
+msgid "NFC"
+msgstr ""
+
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr ""
 
