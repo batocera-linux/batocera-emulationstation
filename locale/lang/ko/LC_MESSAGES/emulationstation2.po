@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2026-01-31 01:02+0900\n"
+"PO-Revision-Date: 2026-02-03 22:30+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -1781,10 +1781,10 @@ msgid "BACKUP USER DATA"
 msgstr "사용자 데이터 백업"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "추가 디스크 꺼내기"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "추가 드라이브 파일 시스템 유형"
 
 msgid "ADVANCED"
 msgstr "고급"
@@ -2469,7 +2469,7 @@ msgstr ""
 "확실합니까?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "이 게임에 사용할 NFC 태그 작성"
@@ -3867,16 +3867,16 @@ msgid "SIZE"
 msgstr "크기"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "마운트"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "이 드라이브 파티션의 게임들을 지금 병합할까요?"
 
 msgid "(This will also apply on future boots)"
 msgstr "(이 사항은 향후 출시될 부츠에도 적용됨)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "병합 요청됨... 잠시 기다려 주세요."
 
 msgid "MERGE FAILED"
 msgstr "병합 실패"
