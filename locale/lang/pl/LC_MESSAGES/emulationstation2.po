@@ -1800,10 +1800,10 @@ msgid "BACKUP USER DATA"
 msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "WYSUŃ DODATKOWY DYSK"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "SYSTEM PLIKÓW DODATKOWEGO DYSKU"
 
 msgid "ADVANCED"
 msgstr "ZAAWANSOWANE"
@@ -2493,7 +2493,7 @@ msgstr ""
 "JESTEŚ PEWIEN?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ZAPISZ TAG NFC DLA TEJ GRY"
@@ -3915,16 +3915,16 @@ msgid "SIZE"
 msgstr "ROZMIAR"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "ZAMONTUJ"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Czy chcesz teraz scalić gry z tej partycji?"
 
 msgid "(This will also apply on future boots)"
 msgstr "(Dotyczy to również przyszłych uruchomień systemu)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Zażądano scalenia. Proszę czekać."
 
 msgid "MERGE FAILED"
 msgstr "SCALANIE NIEUDANE"

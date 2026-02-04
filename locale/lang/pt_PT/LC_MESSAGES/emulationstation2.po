@@ -2492,7 +2492,7 @@ msgstr ""
 "TEM A CERTEZA?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "Gravar uma etiqueta NFC para este jogo"

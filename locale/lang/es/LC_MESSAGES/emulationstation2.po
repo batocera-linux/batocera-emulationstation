@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2026-01-29 00:00+0100\n"
+"PO-Revision-Date: 2026-02-04 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -1807,10 +1807,10 @@ msgid "BACKUP USER DATA"
 msgstr "CREAR COPIA DE SEGURIDAD DE DATOS DE USUARIO"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "EXPULSAR DISCO EXTRA"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TIPO DE SISTEMA DE ARCHIVOS DE UNIDAD ADICIONAL"
 
 msgid "ADVANCED"
 msgstr "AVANZADO"
@@ -2504,7 +2504,7 @@ msgstr ""
 "¿ESTÁS SEGURO?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ESCRIBIR UNA ETIQUETA NFC PARA ESTE JUEGO"
@@ -3922,16 +3922,16 @@ msgid "SIZE"
 msgstr "TAMAÑO"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MONTAR"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "¿Fusionar juegos de esta partición ahora?"
 
 msgid "(This will also apply on future boots)"
 msgstr "(Esto también se aplicará en futuros arranques)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Fusión solicitada...Por favor, espere."
 
 msgid "MERGE FAILED"
 msgstr "FUSIÓN FALLIDA"
