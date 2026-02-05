@@ -3032,7 +3032,7 @@ void GuiMenu::openGamesSettings()
 			lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
 			lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
 			lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
-			lang_choices->add("POLISH", "Po", currentLang == "Po");
+			lang_choices->add("POLISH", "Pl", currentLang == "Pl");
 			lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
 			lang_choices->add("РУССКИЙ", "Ru", currentLang == "Ru");
 			lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
