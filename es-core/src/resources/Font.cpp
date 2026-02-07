@@ -1158,7 +1158,7 @@ void Font::OnThemeChanged()
 		{ 0xF300, ":/flags/au.png" },
 		{ 0xF301, ":/flags/br.png" },
 		{ 0xF302, ":/flags/ca.png" },
-		{ 0xF303, ":/flags/ch.png" },
+		{ 0xF303, ":/flags/cn.png" },
 		{ 0xF304, ":/flags/de.png" },
 		{ 0xF305, ":/flags/es.png" },
 		{ 0xF306, ":/flags/eu.png" },
