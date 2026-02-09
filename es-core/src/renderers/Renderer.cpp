@@ -334,6 +334,57 @@ namespace Renderer
 
 	} // destroyWindow
 
+#if WIN32	
+	void activateWindow()
+	{
+		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
+			SDL_RestoreWindow(sdlWindow);
+
+		SDL_SysWMinfo wmInfo;
+		SDL_VERSION(&wmInfo.version);
+		SDL_GetWindowWMInfo(sdlWindow, &wmInfo);
+		HWND hWnd = wmInfo.info.win.window;
+		if (!IsWindow(hWnd))
+			return;
+
+		HWND hWndParent = GetParent(hWnd);
+		while (hWndParent != NULL && hWndParent != GetDesktopWindow())
+		{
+			hWnd = hWndParent;
+			hWndParent = GetParent(hWnd);
+		}
+
+		DWORD currentThread = GetCurrentThreadId();
+
+		HWND activeWindow = GetForegroundWindow();
+		DWORD activeProcess;
+		DWORD activeThread = GetWindowThreadProcessId(activeWindow, &activeProcess);
+
+		DWORD windowProcess;
+		DWORD windowThread = GetWindowThreadProcessId(hWnd, &windowProcess);
+
+		if (currentThread != activeThread)
+			AttachThreadInput(currentThread, activeThread, true);
+		if (windowThread != currentThread)
+			AttachThreadInput(windowThread, currentThread, true);
+
+		DWORD oldTimeout = 0, newTimeout = 0;
+		SystemParametersInfo(SPI_GETFOREGROUNDLOCKTIMEOUT, 0, &oldTimeout, 0);
+		SystemParametersInfo(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, &newTimeout, 0);
+		LockSetForegroundWindow(LSFW_UNLOCK);
+		AllowSetForegroundWindow(ASFW_ANY);
+
+		SetForegroundWindow(hWnd);
+		ShowWindowAsync(hWnd, SW_SHOW);
+
+		SystemParametersInfo(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, &oldTimeout, 0);
+
+		if (currentThread != activeThread)
+			AttachThreadInput(currentThread, activeThread, false);
+		if (windowThread != currentThread)
+			AttachThreadInput(windowThread, currentThread, false);
+	}
+#else 
 	void activateWindow()
 	{
 		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
@@ -355,7 +406,7 @@ namespace Renderer
 		
 		SDL_SetWindowInputFocus(sdlWindow);		
 	}
-
+#endif
 
 	void updateProjection()
 	{

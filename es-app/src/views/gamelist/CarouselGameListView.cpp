@@ -97,6 +97,12 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 		onShow();
 }
 
+void CarouselGameListView::onShow()
+{
+	ISimpleGameListView::onShow();
+	updateInfoPanel();
+}
+
 FileData* CarouselGameListView::getCursor()
 {
 	if (mList.size() == 0)
