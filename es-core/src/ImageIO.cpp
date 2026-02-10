@@ -614,6 +614,7 @@ bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int
 	if (fread(buf, 1, BUFSIZE, f) != BUFSIZE)
 	{
 		updateImageCache(fn, -1, -1, -1);
+		fclose(f);
 		return false;
 	}
 
@@ -626,11 +627,13 @@ bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int
 			*x = get16bit(buf, 26) & 0x3FFF;
 			*y = get16bit(buf, 28) & 0x3FFF;
 			updateImageCache(fn, size, *x, *y);
+			fclose(f);
 			return true;			
 		case 'X':
 			*x = 1 + (get24bit(buf, 24));
 			*y = 1 + (get24bit(buf, 27));
 			updateImageCache(fn, size, *x, *y);
+			fclose(f);
 			return true;
 		case 'L':
 			{
@@ -642,11 +645,13 @@ bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int
 				*y = height;
 				*x = width;
 				updateImageCache(fn, size, *x, *y);
+				fclose(f);
 				return true;
 			}
 		}
 
 		updateImageCache(fn, -1, -1, -1);
+		fclose(f);
 		return false;
 	}
 
