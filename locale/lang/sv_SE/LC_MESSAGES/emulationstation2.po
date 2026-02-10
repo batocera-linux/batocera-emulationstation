@@ -1,11 +1,12 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-28 19:28+0100\n"
+"PO-Revision-Date: 2026-02-10 10:58+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: sv\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -649,8 +650,7 @@ msgid "HARDCORE MODE"
 msgstr "HARDCORE-LÄGE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
-"Inaktivera inläsningstillstånd, spola tillbaka och fuska för fler poäng."
+msgstr "Inaktivera inläsningstillstånd, spola tillbaka och fuska för fler poäng."
 
 msgid "LEADERBOARDS"
 msgstr "TOPPLISTOR"
@@ -682,12 +682,8 @@ msgstr "Ta automatiskt en skärmdump när du har tjänat in en prestation."
 msgid "CHALLENGE INDICATORS"
 msgstr "UTMANINGSINDIKATORER"
 
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-"Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan "
-"tjänas in."
+msgid "Shows icons in the bottom right corner when eligible achievements can be earned."
+msgstr "Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan tjänas in."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
 msgstr "INOFFICIELLA PRESTATIONER"
@@ -944,12 +940,12 @@ msgid "CLIENT SECRET"
 msgstr "KLIENTHEMLIGHET"
 
 msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE FOR "
+"DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"VARNING: NÅGRA AV DINA VALDA SYSTEM HAR INTE EN PLATTFORM INSTÄLLD. RESULTAT "
-"KAN VARA FÖR ANDRA SYSTEM!\n"
+"VARNING: NÅGRA AV DINA VALDA SYSTEM HAR INTE EN PLATTFORM INSTÄLLD. RESULTAT KAN VARA FÖR "
+"ANDRA SYSTEM!\n"
 "FORTSÄTT ÄNDÅ?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -1450,10 +1446,8 @@ msgstr "IGNORERA DISKINNEHÅLL MED FLERA FILER (CUE/GDI/CCD/M3U)"
 msgid "ENABLE GAME FILTERING"
 msgstr "AKTIVERA SPELFILTRERING"
 
-msgid ""
-"Whether to show or hide game filtering related settings in the view options."
-msgstr ""
-"Om spelfiltreringsinställningar ska visas eller inte i visningsalternativen."
+msgid "Whether to show or hide game filtering related settings in the view options."
+msgstr "Om spelfiltreringsinställningar ska visas eller inte i visningsalternativen."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SPARA METADATA VID AVSLUT"
@@ -1462,19 +1456,15 @@ msgid "PARSE GAMELISTS ONLY"
 msgstr "TOLKA ENDAST SPELLISTOR"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr ""
-"Felsökningsverktyg: Kontrollera inte om ROM:ar faktiskt finns. Kan orsaka "
-"problem!"
+msgstr "Felsökningsverktyg: Kontrollera inte om ROM:ar faktiskt finns. Kan orsaka problem!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SÖK EFTER LOKAL KONST"
 
 msgid ""
-"If no image is specified in the gamelist, try to find media with the same "
-"filename to use."
+"If no image is specified in the gamelist, try to find media with the same filename to use."
 msgstr ""
-"Om ingen bild anges i spellistan, försök hitta media med samma filnamn för "
-"att använda."
+"Om ingen bild anges i spellistan, försök hitta media med samma filnamn för att använda."
 
 msgid "USER INTERFACE"
 msgstr "ANVÄNDARGRÄNSNITT"
@@ -1510,11 +1500,10 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ÅTKOMST TILL SPELALTERNATIV MED NORRA KNAPPEN"
 
 msgid ""
-"Switches to short-press North for Savestates & long-press South button for "
-"Game Options"
+"Switches to short-press North for Savestates & long-press South button for Game Options"
 msgstr ""
-"Växlar till att korttrycka på Norr för sparade tillstånd & långtrycka på "
-"Söder för spelalternativ"
+"Växlar till att korttrycka på Norr för sparade tillstånd & långtrycka på Söder för "
+"spelalternativ"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROLLERA EMULATIONSTATION ENDAST MED FÖRSTA JOYSTICK"
@@ -1540,21 +1529,15 @@ msgstr "OPTIMERINGAR"
 msgid "PRELOAD UI ELEMENTS ON BOOT"
 msgstr "FÖRINLÄS ANVÄNDARGRÄNSSNITT VID UPPSTART"
 
-msgid ""
-"Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr ""
-"Minskar fördröjning när du går in i spellistor från systemmenyn, ökar "
-"uppstartstiden"
+msgid "Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr "Minskar fördröjning när du går in i spellistor från systemmenyn, ökar uppstartstiden"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "FÖRINLÄS METADATA-MEDIA VID UPPSTART"
 
-msgid ""
-"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
-"time"
+msgid "Reduces lag when scrolling through a fully scraped gamelist, increases boot time"
 msgstr ""
-"Minskar fördröjning när du bläddrar genom en helt skrapad spellista, ökar "
-"uppstartstiden"
+"Minskar fördröjning när du bläddrar genom en helt skrapad spellista, ökar uppstartstiden"
 
 msgid "THREADED LOADING"
 msgstr "TRÅDAD INLÄSNING"
@@ -1614,11 +1597,11 @@ msgid "KEYBOARD VARIANT"
 msgstr "TANGENTBORDSVARIANT"
 
 msgid ""
-"Select the physical keyboard layout. A reboot may be required for changes to "
-"take full effect."
+"Select the physical keyboard layout. A reboot may be required for changes to take full "
+"effect."
 msgstr ""
-"Välj det fysiska tangentbordets layout. En omstart kan krävas för att "
-"ändringarna ska träda i kraft fullt ut."
+"Välj det fysiska tangentbordets layout. En omstart kan krävas för att ändringarna ska "
+"träda i kraft fullt ut."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VÄLJ DIN TIDSZON"
@@ -1642,8 +1625,7 @@ msgid "INSTANT"
 msgstr "DIREKT"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
-"Minskar strömförbrukningen när den är inaktiv (användbart för handdatorer)."
+msgstr "Minskar strömförbrukningen när den är inaktiv (användbart för handdatorer)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
@@ -1660,10 +1642,8 @@ msgid ""
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
 "Du ändrar användargränssnittet till ett begränsat läge:\n"
-"Detta kommer att dölja de flesta menyalternativ för att förhindra ändringar "
-"i systemet.\n"
-"För att låsa upp och återgå till det fullständiga användargränssnittet, ange "
-"den här koden:"
+"Detta kommer att dölja de flesta menyalternativ för att förhindra ändringar i systemet.\n"
+"För att låsa upp och återgå till det fullständiga användargränssnittet, ange den här koden:"
 
 msgid "Do you want to proceed?"
 msgstr "Vill du fortsätta?"
@@ -1789,10 +1769,10 @@ msgid "BACKUP USER DATA"
 msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "MATA UT EN EXTRA DISK"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "FILSYSTEMSTYP FÖR EXTRA ENHET"
 
 msgid "ADVANCED"
 msgstr "AVANCERAT"
@@ -1831,11 +1811,11 @@ msgid "AUTO FRAME DELAY"
 msgstr "AUTOMATISK BILDFÖRDRÖJNING"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Can "
-"introduce stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can introduce "
+"stuttering."
 msgstr ""
-"Minska automatiskt bildrutefördröjningen tillfälligt för att förhindra att "
-"bildrutor tappas. Kan innebära stuttering."
+"Minska automatiskt bildrutefördröjningen tillfälligt för att förhindra att bildrutor "
+"tappas. Kan innebära stuttering."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "VARIABEL UPPDATERINGSFREKVENS (G-SYNC, FREESYNC)"
@@ -1843,10 +1823,8 @@ msgstr "VARIABEL UPPDATERINGSFREKVENS (G-SYNC, FREESYNC)"
 msgid "VARIABLE REFRESH RATE"
 msgstr "VARIABEL UPPDATERINGSFREKVENS"
 
-msgid ""
-"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
-"Avvik inte från kärnans begärda timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgid "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr "Avvik inte från kärnans begärda timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORATIONSUPPSÄTTNING"
@@ -1867,8 +1845,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SPARA/LÄS IN AUTOMATISKT"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Läs in senaste sparläge vid spelstart och sparläge när du avslutar spelet."
+msgstr "Läs in senaste sparläge vid spelstart och sparläge när du avslutar spelet."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SPARADE TILLSTÅND"
@@ -1912,18 +1889,15 @@ msgstr "SPELBILDFÖRHÅLLANDEN"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Tvinga spelet att renderas i detta bildförhållande."
 
-msgid ""
-"Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
-"Ställer in skärmens upplösning. Påverkar inte återgivningsupplösningen."
+msgid "Sets the display's resolution. Does not affect the rendering resolution."
+msgstr "Ställer in skärmens upplösning. Påverkar inte återgivningsupplösningen."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "UTJÄMNING I SPEL (BILINJÄR FILTRERING)"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
-"Lagra tidigare tillstånd för att spola tillbaka till i realtid, om kärnan "
-"stöder det."
+"Lagra tidigare tillstånd för att spola tillbaka till i realtid, om kärnan stöder det."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "HELHETSSKALNING (PIXEL PERFECT)"
@@ -2310,8 +2284,7 @@ msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SPARA/LÄS IN AUTOMATISKT VID SPELSTART"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr ""
-"Läs in senaste sparläge vid spelstart och spara läge när du avslutar spelet."
+msgstr "Läs in senaste sparläge vid spelstart och spara läge när du avslutar spelet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA SPELKONTROLLOVERLAYS"
@@ -2481,7 +2454,7 @@ msgstr ""
 "ÄR DU SÄKER?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "SKRIV EN NFC-TAGG FÖR DETTA SPEL"
@@ -2838,15 +2811,15 @@ msgid "CONTROLLER MAPPING"
 msgstr "SPELKONTROLLMAPPNING"
 
 msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT ITS PHYSICAL "
+"LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM "
+"WHEN DONE."
 msgstr ""
-"DU SKA KARTLÄGGA EN STYRENHET. BASERAT PÅ KNAPPENS POSITION, INTE PÅ DESS "
-"FYSISKA ETIKETT. OM DU INTE HAR EN SPECIELL KNAPP FÖR SNABBTANGENT, ANVÄND "
-"SELECT-KNAPPEN. HOPPA ÖVER ALLA KNAPPAR/SPAKAR DU INTE HAR GENOM ATT HÅLLA "
-"IN NÅGON KNAPP. TRYCK PÅ DEN SÖDRA KNAPPEN FÖR ATT BEKRÄFTA NÄR DU ÄR KLAR."
+"DU SKA KARTLÄGGA EN STYRENHET. BASERAT PÅ KNAPPENS POSITION, INTE PÅ DESS FYSISKA ETIKETT. "
+"OM DU INTE HAR EN SPECIELL KNAPP FÖR SNABBTANGENT, ANVÄND SELECT-KNAPPEN. HOPPA ÖVER ALLA "
+"KNAPPAR/SPAKAR DU INTE HAR GENOM ATT HÅLLA IN NÅGON KNAPP. TRYCK PÅ DEN SÖDRA KNAPPEN FÖR "
+"ATT BEKRÄFTA NÄR DU ÄR KLAR."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR SINDEN-PISTOL"
@@ -2948,8 +2921,7 @@ msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DEKLARERA EN NY GLOBAL SNABBTANGENT"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
-"DU HAR 4 SEKUNDER PÅ DIG ATT TRYCKA EXAKT 2 GÅNGER PÅ GLOBAL SNABBTANGENT"
+msgstr "DU HAR 4 SEKUNDER PÅ DIG ATT TRYCKA EXAKT 2 GÅNGER PÅ GLOBAL SNABBTANGENT"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
 msgstr "INGEN GLOBAL SNABBTANGENT UPPTÄCKTES"
@@ -3192,11 +3164,8 @@ msgid "INVALID CONTENT"
 msgstr "OGILTIGT INNEHÅLL"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
-"org"
+"A valid account is required. Please register an account on https://retroachievements.org"
+msgstr "Ett giltigt konto krävs. Registrera ett konto på https://retroachievements.org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3290,21 +3259,17 @@ msgid "NAVIGATION BAR"
 msgstr "NAVIGERINGSFÄLT"
 
 msgid ""
-"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
-"FORMAT.\n"
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"VARNING: EMULATORN/KÄRNEN SOM JUST NU ÄR INSTÄLLD STÖDJER INTE DETTA SPELETS "
-"FILFORMAT.\n"
+"VARNING: EMULATORN/KÄRNEN SOM JUST NU ÄR INSTÄLLD STÖDJER INTE DETTA SPELETS FILFORMAT.\n"
 "VILL DU STARTA DET I ALLA FALL?"
 
 msgid ""
-"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
-"CORRECTLY.\n"
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"VARNING: SYSTEMET SAKNAR BIOS-FILER OCH SPELET KANSKE INTE FUNGERAR "
-"KORREKT.\n"
+"VARNING: SYSTEMET SAKNAR BIOS-FILER OCH SPELET KANSKE INTE FUNGERAR KORREKT.\n"
 "VILL DU STARTA DET I ALLA FALL?"
 
 msgid "Preloading UI"
@@ -3841,11 +3806,11 @@ msgid "-NOT DEFINED-"
 msgstr "-INTE DEFINIERAD-"
 
 msgid ""
-"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
-"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. "
+"DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"INGEN HOTKEY-KNAPP HAR TILLDELATS. DETTA KRÄVS FÖR ATT KUNNA AVSLUTA SPEL "
-"MED EN SPELKONTROLL. VILL DU ANVÄNDA SELECT-KNAPPEN SOM DIN HOTKEY?"
+"INGEN HOTKEY-KNAPP HAR TILLDELATS. DETTA KRÄVS FÖR ATT KUNNA AVSLUTA SPEL MED EN "
+"SPELKONTROLL. VILL DU ANVÄNDA SELECT-KNAPPEN SOM DIN HOTKEY?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "STÄLL IN SELECT SOM HOTKEY"
@@ -3894,16 +3859,16 @@ msgid "SIZE"
 msgstr "STORLEK"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MONTERING"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Slå samman spel från denna enhetspartition nu?"
 
 msgid "(This will also apply on future boots)"
 msgstr "(Detta kommer även att gälla för framtida uppstarter)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Sammanslagning begärd... vänta."
 
 msgid "MERGE FAILED"
 msgstr "SAMMANSLAGNING MISSLYCKADES"
@@ -3943,335 +3908,3 @@ msgstr "JA, FORMATERA & SLÅ SAMMAN"
 
 msgid "NO, IGNORE"
 msgstr "NEJ, IGNORERA"
-
-#~ msgid "EJECT AN EXTERNAL DISK"
-#~ msgstr "MATA UT EN EXTERN DISK"
-
-#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-#~ msgstr "EXTERN FILSYSTEMSTYP FÖR ENHET"
-
-#~ msgid "Merge games from this drive now?"
-#~ msgstr "Vill du slå samman spel från den här enheten nu?"
-
-#~ msgid "Merging drive... Please wait."
-#~ msgstr "Sammanfogar enhet... Vänta."
-
-#~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr ""
-#~ "Nytt enhetsinnehåll kommer att finnas tillgängligt efter att spellistan "
-#~ "har uppdaterats..."
-
-#~ msgid "BY HARDWARE TYPE"
-#~ msgstr "EFTER HÅRDVARUTYP"
-
-#~ msgid "RESTRICT HOTKEYS TO EXIT"
-#~ msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"
-
-#~ msgid "SCRAPER SETTINGS"
-#~ msgstr "SKRAPNINGSINSTÄLLNINGAR"
-
-#~ msgid "ACCOUNT"
-#~ msgstr "KONTO"
-
-#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-#~ msgstr "ANVÄNDARGRÄNSNITTSLÄGET ÄR NU OLÅST"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIS"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "RGB-DMD-ordning"
-
-#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-#~ msgstr ""
-#~ "Nollställ värden för metadata av GameTime, PlayCount och LastPlayed."
-
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "SPARAR METADATA. VÄNTA..."
-
-#~ msgid "FORGET A BLUETOOTH DEVICE"
-#~ msgstr "GLÖM EN BLUETOOTH-ENHET"
-
-#~ msgid "Achievements won"
-#~ msgstr "Vunna prestationer"
-
-#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-#~ msgstr "SKAPA NY ANPASSAD SAMLING FRÅN TEMA"
-
-#~ msgid "SELECT THEME FOLDER"
-#~ msgstr "VÄLJ TEMAMAPP"
-
-#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-#~ msgstr "GRUPPERA ANPASSADE SAMLINGAR (EJ TEMARELATERADE)"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "UPP"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "NER"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "VÄNSTER"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "HÖGER"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "VÄXLA A & B-KNAPPAR I EMULATIONSTATION"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "DU KOMMER ATT MAPPA EN KONTROLLER. MAPPNING BASERAD PÅ KNAPPENS POSITION "
-#~ "I RELATION TILL DESS LIKVÄRDIGHET PÅ EN SNES-KONTROLLER, INTE DESS "
-#~ "FYSISKA ETIKETT. OM DU INTE HAR EN SPECIFIK KNAPP FÖR HOTKEY, VÄLJ SELECT-"
-#~ "KNAPPEN. HOPPA ÖVER ALLA KNAPPAR/JOYSTICKAR DU INTE HAR GENOM ATT HÅLLA "
-#~ "NÅGON KNAPP NEDTRYCKT. TRYCK PÅ DEN SÖDRA KNAPPEN FÖR ATT BEKRÄFTA NÄR DU "
-#~ "ÄR KLAR."
-
-#~ msgid "SAVE STATE MANAGER"
-#~ msgstr "HANTERARE FÖR 'SAVE STATE'"
-
-#~ msgid "0 DEGREES (AUTO)"
-#~ msgstr "0 GRADER (AUTO)"
-
-#~ msgid "SHOW SAVE STATE MANAGER"
-#~ msgstr "VISA SAVE STATE-HANTERARE"
-
-#, c-format
-#~ msgid "%d m"
-#~ msgstr "%d m"
-
-#, c-format
-#~ msgid "%d s"
-#~ msgstr "%d s"
-
-#~ msgid "SCRAPE RATINGS"
-#~ msgstr "SKRAPA BETYG"
-
-#~ msgid "SCRAPE VIDEOS"
-#~ msgstr "SKRAPA VIDEOR"
-
-#~ msgid "SCRAPE FANART"
-#~ msgstr "SKRAPA ENTHUSIASTKONST"
-
-#~ msgid "SCRAPE BEZEL (16:9)"
-#~ msgstr "SKRAPA RAM (16:9)"
-
-#~ msgid "SCRAPE BOX BACKSIDE"
-#~ msgstr "SKRAPA BOXBAKSIDA"
-
-#~ msgid "SCRAPE MAP"
-#~ msgstr "SKRAPA KARTA"
-
-#~ msgid "SCRAPE MANUAL"
-#~ msgstr "SKRAPA MANUAL"
-
-#~ msgid "SCRAPE PADTOKEY SETTINGS"
-#~ msgstr "SKRAPA 'PADTOKEY'-INSTÄLLNINGAR"
-
-#~ msgid "UI SETTINGS"
-#~ msgstr "ANVÄNDARGRÄNSSNITTSINSTÄLLNINGAR"
-
-#~ msgid "UNLOCK UI MODE"
-#~ msgstr "LÅS UPP UI-LÄGE"
-
-#~ msgid "THE UI MODE IS NOW UNLOCKED"
-#~ msgstr "UI-LÄGET ÄR NU OLÅST"
-
-#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-#~ msgstr "ANGE KODEN FÖR ATT LÅSA UPP DET AKTUELLA UI-LÄGET"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "UTVECKLARE"
-
-#~ msgid "ENABLE PUBLIC WEB ACCESS"
-#~ msgstr "AKTIVERA OFFENTLIG WEBBÅTKOMST"
-
-#~ msgid "CREATE A SUPPORT FILE?"
-#~ msgstr "SKAPA EN SUPPORTFIL?"
-
-#~ msgid "ENABLE FILTERS"
-#~ msgstr "AKTIVERA FILTER"
-
-#~ msgid "PARSE GAMESLISTS ONLY"
-#~ msgstr "ANALYSERA ENDAST SPELLISTOR"
-
-#~ msgid "UI"
-#~ msgstr "ANVÄNDARGRÄNSSNITT"
-
-#~ msgid "POWER SAVER MODES"
-#~ msgstr "STRÖMSPARLÄGEN"
-
-#~ msgid "UI MODE"
-#~ msgstr "LÄGE FÖR ANVÄNDARGRÄNSSNITT"
-
-#~ msgid ""
-#~ "You are changing the UI to a restricted mode:\n"
-#~ "This will hide most menu options to prevent changes to the system.\n"
-#~ "To unlock and return to the full UI, enter this code:"
-#~ msgstr ""
-#~ "Du ändrar användargränssnittet till ett begränsat läge:\n"
-#~ "Detta kommer att dölja de flesta menyalternativ för att förhindra "
-#~ "ändringar i systemet.\n"
-#~ "För att låsa upp och återgå till det fullständiga användargränssnittet, "
-#~ "ange denna kod:"
-
-#~ msgid "NEW GAME CREATES NEW SLOT"
-#~ msgstr "NYTT SPEL SKAPAR NY PLATS"
-
-#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
-#~ msgstr "NYTT SPEL SKRIVER ÖVER NUVARANDE PLATS"
-
-#~ msgid "LIST TRANSITION STYLE"
-#~ msgstr "ÖVERGÅNGSSTIL I LISTA"
-
-#~ msgid "VIEW USER'S MANUAL"
-#~ msgstr "VISA ANVÄNDARMANUAL"
-
-#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-#~ msgstr "STARTA OM SYSTEMET FÖR ATT VERKSTÄLLA UPPDATERINGEN"
-
-#~ msgid "UPDATING BATOCERA"
-#~ msgstr "UPPDATERAR BATOCERA"
-
-#~ msgid "INSTALL BATOCERA"
-#~ msgstr "INSTALLERA BATOCERA"
-
-#~ msgid "GAMES MISSING MEDIAS"
-#~ msgstr "SPEL SOM SAKNAR MEDIA"
-
-#~ msgid "GAMES WITHOUT ANY MEDIA"
-#~ msgstr "SPEL UTAN NÅGON MEDIA"
-
-#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-#~ msgstr "AUTOKONFIGURERA EMULATORSKONTROLLER"
-
-#~ msgid "INSTALL BATOCERA ON A NEW DISK"
-#~ msgstr "INSTALLERA BATOCERA PÅ NY DISK"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER"
-#~ msgstr "VISA SAVE STATE-HANTERARE"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-#~ msgstr "VISA SAVE STATE-HANTERARE INNAN START AV SPEL"
-
-#~ msgid "VIEW BATOCERA MANUAL"
-#~ msgstr "VISA BATOCERA-MANUAL"
-
-#~ msgid "USE RUN-AHEAD FRAMES"
-#~ msgstr "ANVÄND RUN-AHEAD FRAMES"
-
-#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
-#~ msgstr "RUN-AHEAD ANVÄND ANDRA INSTANS"
-
-#~ msgid ""
-#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
-#~ "Turn off if this worsens audio/video stuttering."
-#~ msgstr ""
-#~ "Minska automatiskt bildfördröjningen tillfälligt för att förhindra "
-#~ "tappade bildrutor (frame drops). Stäng av om detta förvärrar ljud/video."
-
-#~ msgid "SCANLINES"
-#~ msgstr "SCANLINES"
-
-#~ msgid "RETRO"
-#~ msgstr "RETRO"
-
-#~ msgid "CURVATURE"
-#~ msgstr "KRÖKNING"
-
-#~ msgid "ZFAST"
-#~ msgstr "ZFAST"
-
-#~ msgid "FLATTEN-GLOW"
-#~ msgstr "FLATTEN-GLOW"
-
-#~ msgid "RGA SCALING"
-#~ msgstr "RGA-SKALNING"
-
-#~ msgid "NETPLAY HOSTING/OPTIONS"
-#~ msgstr "NETPLAY VÄRD/ALTERNATIV"
-
-#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
-#~ msgstr "BÖRJA VARA VÄRD FÖR EN NETPLAY-SESSION"
-
-#~ msgid "SET PLAYER PASSWORD"
-#~ msgstr "STÄLL IN SPELARLÖSENORD"
-
-#~ msgid "SET VIEWER PASSWORD"
-#~ msgstr "STÄLL IN ÅSKÅDARLÖSENORD"
-
-#~ msgid "SCRAPE CRITERIA"
-#~ msgstr "SKRAPNINGSKRITERIER"
-
-#~ msgid "MEDIA TO SCRAPE FOR"
-#~ msgstr "MEDIA ATT SKRAPA FÖR"
-
-#~ msgid "NEXT"
-#~ msgstr "NÄSTA"
-
-#~ msgid "START AUTO SAVE"
-#~ msgstr "STARTA AUTOSPARA"
-
-#~ msgid "SHOW SAVE STATES"
-#~ msgstr "VISA SAVE STATES"
-
-#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
-#~ msgstr "VISA SAVE STATES OM EJ TOM"
-
-#~ msgid "UP"
-#~ msgstr "UPP"
-
-#~ msgid "DOWN"
-#~ msgstr "NER"
-
-#~ msgid "LEFT ANALOG UP"
-#~ msgstr "VÄNSTER ANALOG UPP"
-
-#~ msgid "LEFT ANALOG DOWN"
-#~ msgstr "VÄNSTER ANALOG NER"
-
-#~ msgid "LEFT ANALOG LEFT"
-#~ msgstr "VÄNSTER ANALOG VÄNSTER"
-
-#~ msgid "LEFT ANALOG RIGHT"
-#~ msgstr "VÄNSTER ANALOG HÖGER"
-
-#~ msgid "RIGHT ANALOG UP"
-#~ msgstr "HÖGER ANALOG UPP"
-
-#~ msgid "RIGHT ANALOG DOWN"
-#~ msgstr "HÖGER ANALOG NER"
-
-#~ msgid "RIGHT ANALOG LEFT"
-#~ msgstr "HÖGER ANALOG VÄNSTER"
-
-#~ msgid "RIGHT ANALOG RIGHT"
-#~ msgstr "HÖGER ANALOG HÖGER"
-
-#~ msgid "RESIZE TATTOO WIDTH"
-#~ msgstr "STORLEKSÄNDRA TATUERINGSBREDD"
-
-#~ msgid "225/1920"
-#~ msgstr "225/1920"
-
-#~ msgid "240/1920"
-#~ msgstr "240/1920"
-
-#~ msgid "ORIGINAL"
-#~ msgstr "ORIGINAL"
-
-#~ msgid "RESIZE OVERLAY WIDTH"
-#~ msgstr "STORLEKSÄNDRA OVERLAY-BREDD"
-
-#~ msgid "Relative to a 1920 px bezel."
-#~ msgstr "Relativt till en ram på 1920 px."
