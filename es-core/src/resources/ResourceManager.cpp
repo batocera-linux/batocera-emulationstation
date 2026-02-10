@@ -143,6 +143,12 @@ ResourceData ResourceManager::loadFile(const std::string& path, size_t size) con
 {
 	std::ifstream stream(WINSTRINGW(path), std::ios::binary);
 
+	if (!stream) {
+		int err = errno;
+		LOG(LogError) << "Failed to open file: '" << path << "': " << std::strerror(err);
+		return {NULL, 0};
+	}
+
 	if (size == 0 || size == SIZE_MAX)
 	{
 		stream.seekg(0, stream.end);
