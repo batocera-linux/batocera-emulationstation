@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v43b(2026/01/24)\n"
+"Project-Id-Version: batocera-es v43b(2026/02/05)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-01-24 22:56+0900\n"
+"PO-Revision-Date: 2026-02-06 06:25+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1793,10 +1793,10 @@ msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "追加ディスクを取り出す"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "追加ドライブのファイルシステム種類"
 
 msgid "ADVANCED"
 msgstr "詳細項目"
@@ -2481,7 +2481,7 @@ msgstr ""
 "実行しますか？"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "このゲーム用のNFCタグを作成"
@@ -3883,16 +3883,16 @@ msgid "SIZE"
 msgstr "サイズ"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "マウント"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "今すぐこのドライブからゲームをマージ(結合)しますか?"
 
 msgid "(This will also apply on future boots)"
 msgstr "（これは将来のブートにも適用されます）"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "ゲームを結合しています...お待ちください"
 
 msgid "MERGE FAILED"
 msgstr "マージに失敗"
