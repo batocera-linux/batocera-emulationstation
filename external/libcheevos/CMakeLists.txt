@@ -41,8 +41,14 @@ set(CHEEVOS_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/trigger.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/value.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash_zip.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash_rom.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash_encrypted.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash_disc.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/cdreader.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/md5.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/aes.c
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/aes.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rurl/url.c		
 )
 
