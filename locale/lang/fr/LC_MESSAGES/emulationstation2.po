@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "DÉCOUVERTE BLUETOOTH"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "entrer le genre du jeu"
 
 msgid "Tags"
-msgstr ""
+msgstr "Balises"
 
 msgid "tags"
-msgstr ""
+msgstr "balises"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Nom du tri"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "entrer le nom du tri"
 
 msgid "Emulator"
 msgstr "Émulateur"
@@ -932,10 +932,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PARAMÈTRES PADTOKEY"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "SCRAPE MANUEL"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "SCRAPERS INCLUS"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1619,15 +1619,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "LANGUE (RÉGION)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "DISPOSITION DU CLAVIER"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "VARIANTE CLAVIER"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Sélectionnez la disposition physique du clavier. Un redémarrage peut être "
+"nécessaire pour que les modifications prennent pleinement effet."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SÉLECTIONNER VOTRE FUSEAU HORAIRE"
@@ -1795,10 +1797,10 @@ msgid "BACKUP USER DATA"
 msgstr "SAUVEGARDER LES DONNÉES UTILISATEUR"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "ÉJECTER UN DISQUE SUPPLÉMENTAIRE"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TYPE DE SYSTÈME DE FICHIERS DE DISQUE SUPPLÉMENTAIRES"
 
 msgid "ADVANCED"
 msgstr "AVANCÉ"
@@ -2076,7 +2078,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "AFFICHER LE DOSSIER PARENT ‘..’"
 
 msgid "ICONS"
-msgstr ""
+msgstr "ICÔNES"
 
 msgid "AFTER NAME"
 msgstr "APRÈS LE NOM"
@@ -2085,7 +2087,7 @@ msgid "BEFORE NAME"
 msgstr "AVANT LE NOM"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "AFFICHER LES ICÔNES DES BALISES"
 
 msgid "SHOW REGION FLAG"
 msgstr "AFFICHER LE DRAPEAU LANGUE DANS LES LISTES"
@@ -2380,22 +2382,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "VOUS ALLEZ FORMATER CE DISQUE. ÊTES-VOUS SÛR(E) ?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "ÉJECTER UN DISQUE EN TOUTE SÉCURITÉ"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "LECTEUR FUSIONNÉ"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "AUCUN LECTEUR FUSIONNÉ TROUVÉ"
 
 msgid "EJECT"
-msgstr ""
+msgstr "ÉJECTER"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "AUCUN DISQUE SÉLECTIONNÉ"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Éjection..."
 
 msgid "Points"
 msgstr "Points"
@@ -2490,10 +2492,10 @@ msgstr ""
 "ÊTES-VOUS SÛR(E) ?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "ÉCRIRE UNE BALISE NFC POUR CE JEU"
 
 #, c-format
 msgid ""
@@ -2501,15 +2503,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"POUR ÉCRIRE LA COMMANDE DE LANCEMENT POUR\n"
+"'%s'\n"
+"APPUYEZ SUR LE BOUTON WRITE PUIS PLACEZ UNE BALISE NFC SUR L'AUTEUR"
 
 msgid "WRITE"
-msgstr ""
+msgstr "ÉCRIRE"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "APPOSER UNE ÉTIQUETTE SUR L'AUTEUR..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "LA BALISE A ÉTÉ ÉCRITE AVEC SUCCÈS"
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIONS"
@@ -2763,7 +2768,7 @@ msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
 
 msgid "TAGS"
-msgstr ""
+msgstr "BALISES"
 
 msgid "GENRES"
 msgstr "GENRES"
@@ -3327,7 +3332,7 @@ msgid "GENRE"
 msgstr "GENRE"
 
 msgid "TAG"
-msgstr ""
+msgstr "BALISE"
 
 msgid "FAMILY"
 msgstr "FAMILLE"
@@ -3396,19 +3401,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LENT"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NE FONCTIONNE PAS"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "BOGUÉ"
 
 msgid "LIKED"
-msgstr ""
+msgstr "J'AI AIMÉ"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "DÉTESTÉ"
 
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
@@ -3886,168 +3891,68 @@ msgstr ""
 "Tirer sur les cibles pour calibrer"
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Rechargement de la liste des jeux..."
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "DISQUE DE JEU DÉTECTÉ"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "APPAREIL"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODÈLE"
 
 msgid "SIZE"
-msgstr ""
+msgstr "TAILLE"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MONTER"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Fusionner les jeux de cette partition du disque dur maintenant ?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Cela s'appliquera également aux démarrages futurs)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Fusion demandée... Veuillez patienter."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "ÉCHEC DE LA FUSION"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Veuillez consulter les journaux."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "NOUVEAU DISQUE DÉTECTÉ"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Formater et préparer ce disque pour le stockage de jeux ?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(TOUTES LES DONNÉES EXISTANTES SERONT EFFACÉES)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Démarrage du processus de formatage..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "ÉCHEC DU FORMATTAGE"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NON, IGNORER CETTE FOIS"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NON, IGNORER À JAMAIS"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Ajout du disque à la liste d'exclusion..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "OUI, FORMATER & FUSIONNER"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NON, IGNORER"
 
-#~ msgid "BY HARDWARE TYPE"
-#~ msgstr "PAR TYPE DE MATÉRIEL"
-
-#~ msgid "RESTRICT HOTKEYS TO EXIT"
-#~ msgstr "RESTREINDRE LES HOTKEYS À EXIT"
-
-#~ msgid "SCRAPER SETTINGS"
-#~ msgstr "OPTIONS DU SCRAPEUR"
-
-#~ msgid "ACCOUNT"
-#~ msgstr "COMPTE"
-
-#~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-#~ msgstr "L'INTERFACE A ETE DEVERROUILLÉE"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "OPTIONS DES PARTIES EN RÉSEAU AU LANCEMENT D'UN JEU"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Permettre de choisir de jouer en ligne, hors ligne."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Choisir la partie à créer ou rejoindre"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "JOUER EN LIGNE EN HÔTE"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "JOUER HORS LIGNE"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "REJOINDRE UNE PARTIE EXISTANTE"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRICE"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "ordre des couleurs du dmd"
-
-#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-#~ msgstr ""
-#~ "Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
-#~ "dernières jouées."
-
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
-
-#~ msgid "FORGET A BLUETOOTH DEVICE"
-#~ msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"
-
-#~ msgid "-10 for auto"
-#~ msgstr "-10 pour automatique"
-
-#~ msgid "Achievements won"
-#~ msgstr "Succès gagnés"
-
-#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-#~ msgstr "CRÉER UNE COLLECTION DEPUIS UN THÈME"
-
-#~ msgid "SELECT THEME FOLDER"
-#~ msgstr "CHOISIR LE DOSSIER DU THÈME"
-
-#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-#~ msgstr "GROUPER LES COLLECTIONS SANS THÈME"
-
-#~ msgid "HAS MEDIAS"
-#~ msgstr "AVEC DES MÉDIAS"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "D-PAD HAUT"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "D-PAD BAS"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "D-PAD GAUCHE"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "D-PAD DROITE"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "VOUS ALLEZ CONFIGURER UNE MANETTE. CECI EST BASÉ SUR LA POSITION RELATIVE "
-#~ "DES BOUTONS PAR RAPPORT À SON ÉQUIVALENT SUR UNE SNES, ET NON PAR SON "
-#~ "LIBELLÉ. SI VOUS N’AVEZ PAS DE TOUCHE SPÉCIALE POUR HOTKEY, UTILISEZ LE "
-#~ "BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / PADS QUE VOUS N’AVEZ PAS EN "
-#~ "RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. APPUYEZ SUR LE BOUTON SUD "
-#~ "POUR CONFIRMER UNE FOIS TERMINÉ."
