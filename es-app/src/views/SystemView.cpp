@@ -53,6 +53,9 @@ SystemView::SystemView(Window* window) : GuiComponent(window),
 	mPressedCursor = -1;
 	mPressedPoint = Vector2i(-1, -1);
 
+	mHardwareFilterEnabled = false;
+	mCurrentHardwareFilter = "All";
+
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	populate();
 }
@@ -396,6 +399,41 @@ bool SystemView::input(InputConfig* config, Input input)
 		return true;
 	}
 
+	// Hardware filtering controls (when Category Filtering is enabled)
+	if (input.value != 0 && Settings::getInstance()->getBool("CategoryFiltering"))
+	{
+		auto carousel = mCarousel.asCarousel();
+		bool isHorizontal = (carousel != nullptr && carousel->isHorizontalCarousel());
+
+		// For keyboard and gamepad: Use directions based on carousel orientation
+		if (isHorizontal)
+		{
+			if (config->isMappedLike("up", input))
+			{
+				cycleHardwareFilter(-1);
+				return true;
+			}
+			else if (config->isMappedLike("down", input))
+			{
+				cycleHardwareFilter(1);
+				return true;
+			}
+		}
+		else
+		{
+			if (config->isMappedLike("left", input))
+			{
+				cycleHardwareFilter(-1);
+				return true;
+			}
+			else if (config->isMappedLike("right", input))
+			{
+				cycleHardwareFilter(1);
+				return true;
+			}
+		}
+	}
+
 	// Move selection fast using group (manufacturers)
 	if (mCarousel.isCarousel() || mCarousel.isTextList())
 	{
@@ -416,17 +454,21 @@ bool SystemView::input(InputConfig* config, Input input)
 					mCarousel.moveSelectionBy(1);
 					return true;
 				}
-				if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("down", input)) || config->isMappedTo("pagedown", input))
+				if (Settings::getInstance()->getBool("QuickSystemSelect"))
 				{
-					int cursor = moveCursorFast(true);
-					mCarousel.moveSelectionBy(cursor - mCursor);
-					return true;
-				}
-				if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("up", input)) || config->isMappedTo("pageup", input))
-				{
-					int cursor = moveCursorFast(false);
-					mCarousel.moveSelectionBy(cursor - mCursor);
-					return true;
+					bool categoryFiltering = Settings::getInstance()->getBool("CategoryFiltering");
+					if (config->isMappedTo("pagedown", input) || (!categoryFiltering && config->isMappedLike("down", input)))
+					{
+						int cursor = moveCursorFast(true);
+						mCarousel.moveSelectionBy(cursor - mCursor);
+						return true;
+					}
+					if (config->isMappedTo("pageup", input) || (!categoryFiltering && config->isMappedLike("up", input)))
+					{
+						int cursor = moveCursorFast(false);
+						mCarousel.moveSelectionBy(cursor - mCursor);
+						return true;
+					}
 				}
 			}
 			else
@@ -441,17 +483,21 @@ bool SystemView::input(InputConfig* config, Input input)
 					mCarousel.moveSelectionBy(1);
 					return true;
 				}
-				if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("right", input)) || config->isMappedTo("pagedown", input))
+				if (Settings::getInstance()->getBool("QuickSystemSelect"))
 				{
-					int cursor = moveCursorFast(true);
-					mCarousel.moveSelectionBy(cursor - mCursor);
-					return true;
-				}
-				if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike("left", input)) || config->isMappedTo("pageup", input))
-				{
-					int cursor = moveCursorFast(false);
-					mCarousel.moveSelectionBy(cursor - mCursor);
-					return true;
+					bool categoryFiltering = Settings::getInstance()->getBool("CategoryFiltering");
+					if (config->isMappedTo("pagedown", input) || (!categoryFiltering && config->isMappedLike("right", input)))
+					{
+						int cursor = moveCursorFast(true);
+						mCarousel.moveSelectionBy(cursor - mCursor);
+						return true;
+					}
+					if (config->isMappedTo("pageup", input) || (!categoryFiltering && config->isMappedLike("left", input)))
+					{
+						int cursor = moveCursorFast(false);
+						mCarousel.moveSelectionBy(cursor - mCursor);
+						return true;
+					}
 				}
 			}
 		}
@@ -924,6 +970,18 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 
 	if (SystemData::IsManufacturerSupported)
 		prompts.push_back(HelpPrompt("b", _("NAVIGATION BAR"), [&] { showNavigationBar(); }));
+
+	// Add help for hardware filtering (only when CategoryFiltering is enabled)
+	if (!mHardwareTypes.empty() && Settings::getInstance()->getBool("CategoryFiltering"))
+	{
+		auto carousel = mCarousel.asCarousel();
+		bool isHorizontal = (carousel != nullptr && carousel->isHorizontalCarousel());
+
+		if (isHorizontal)
+			prompts.push_back(HelpPrompt("up/down", _("FILTER BY HARDWARE")));
+		else
+			prompts.push_back(HelpPrompt("left/right", _("FILTER BY HARDWARE")));
+	}
 
 #ifdef _ENABLE_FILEMANAGER_
 	if (UIModeController::getInstance()->isUIModeFull()) {
@@ -1659,4 +1717,173 @@ int SystemView::getCursorIndex()
 std::vector<SystemData*> SystemView::getObjects()
 {
 	return mCarousel.getObjects();
+}
+
+std::vector<HardwareCategory> SystemView::getUniqueHardwareTypes()
+{
+	std::unordered_set<std::string> uniqueTypes;
+	std::vector<HardwareCategory> result;
+
+	// Add an "All" option to display all systems
+	result.push_back(HardwareCategory("All"));
+
+	// Collect all unique hardware types
+	for (auto system : SystemData::sSystemVector)
+	{
+		if (system->isVisible())
+		{
+			std::string hwType = system->getSystemMetadata().hardwareType;
+			if (!hwType.empty() && uniqueTypes.find(hwType) == uniqueTypes.end())
+			{
+				uniqueTypes.insert(hwType);
+				result.push_back(HardwareCategory(hwType));
+			}
+		}
+	}
+
+	// Sort hardware types alphabetically
+	std::sort(result.begin() + 1, result.end(), [](const HardwareCategory& a, const HardwareCategory& b) {
+		return a.name < b.name;
+	});
+
+	return result;
+}
+
+void SystemView::updateSystemsForHardwareFilter()
+{
+	if (mHardwareTypes.empty())
+		return;
+
+	if (mCurrentHardwareFilter.empty())
+		mCurrentHardwareFilter = "All";
+
+	// Save all systems when first activating a filter
+	if (!mHardwareFilterEnabled && mCurrentHardwareFilter != "All")
+		mAllEntries = mEntries;
+
+	// If filter is "All", restore all systems
+	if (mCurrentHardwareFilter == "All")
+	{
+		mHardwareFilterEnabled = false;
+
+		if (!mAllEntries.empty())
+		{
+			mEntries = mAllEntries;
+		}
+		else
+		{
+			mEntries.clear();
+			for (auto system : SystemData::sSystemVector)
+			{
+				if (system->isVisible())
+				{
+					SystemViewData data;
+					data.object = system;
+					mEntries.push_back(data);
+				}
+			}
+		}
+
+		mCarousel.clear();
+		for (auto& entry : mEntries)
+		{
+			if (entry.object)
+				mCarousel.add(entry.object->getName(), entry.object, true);
+		}
+
+		if (!mEntries.empty())
+		{
+			mCarousel.setCursor(0);
+			onCursorChanged(CURSOR_STOPPED);
+		}
+
+		return;
+	}
+
+	// Enable filter for other categories
+	mHardwareFilterEnabled = true;
+
+	// Ensure we have a backup of all systems
+	if (mAllEntries.empty())
+		mAllEntries = mEntries;
+
+	// Clear and rebuild entries and carousel
+	mCarousel.clear();
+	mEntries.clear();
+
+	// Add only systems matching the selected hardware type
+	for (auto& entry : mAllEntries)
+	{
+		if (entry.object && entry.object->isVisible())
+		{
+			std::string hwType = entry.object->getSystemMetadata().hardwareType;
+			if (hwType == mCurrentHardwareFilter)
+			{
+				mEntries.push_back(entry);
+				mCarousel.add(entry.object->getName(), entry.object, true);
+			}
+		}
+	}
+
+	// If no systems match, show empty state
+	if (mEntries.empty())
+	{
+		mHardwareFilterEnabled = true;
+
+		if (!mAllEntries.empty())
+		{
+			SystemData* dummySystem = SystemData::getRandomSystem();
+			if (dummySystem)
+			{
+				SystemViewData data;
+				data.object = dummySystem;
+				mEntries.push_back(data);
+
+				std::string message = "No " + mCurrentHardwareFilter + " systems";
+				mCarousel.add(message, dummySystem, true);
+
+				mCarousel.setCursor(0);
+				onCursorChanged(CURSOR_STOPPED);
+			}
+		}
+	}
+}
+
+void SystemView::cycleHardwareFilter(int direction)
+{
+	// Ensure hardware types are loaded
+	if (mHardwareTypes.empty())
+		mHardwareTypes = getUniqueHardwareTypes();
+
+	if (mHardwareTypes.empty())
+		return;
+
+	// Find current filter index
+	int currentIndex = 0;
+	for (size_t i = 0; i < mHardwareTypes.size(); i++)
+	{
+		if (mHardwareTypes[i].name == mCurrentHardwareFilter)
+		{
+			currentIndex = i;
+			break;
+		}
+	}
+
+	// Calculate new index
+	int newIndex = currentIndex + direction;
+
+	// Wrap around
+	if (newIndex < 0)
+		newIndex = mHardwareTypes.size() - 1;
+	else if (newIndex >= (int)mHardwareTypes.size())
+		newIndex = 0;
+
+	std::string newFilter = mHardwareTypes[newIndex].name;
+
+	// Update filter and apply
+	if (newFilter != mCurrentHardwareFilter)
+	{
+		mCurrentHardwareFilter = newFilter;
+		updateSystemsForHardwareFilter();
+	}
 }
