@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-11-17 10:12+0000\n"
+"PO-Revision-Date: 2026-02-20 12:04+0000\n"
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
@@ -55,16 +55,16 @@ msgid "enter game genre"
 msgstr "voer genre van spel in"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "tags"
-msgstr ""
+msgstr "tags"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Sorteer naam"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "Voer de spelnaam in"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -931,10 +931,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "INSTELLINGEN PAD-TO-KEY"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "HANDMATIG SCRAPEN"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "INBEGREPEN SCRAPERS"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1625,15 +1625,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "TAAL (REGIO)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "TOETSENBORDINDELING"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "TOETSENBORDVARIANT"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Selecteer de gewenste toetsenbordindeling. Mogelijk moet de computer opnieuw "
+"worden opgestart om de wijzigingen volledig door te voeren."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECTEER UW TIJDZONE"
@@ -1808,10 +1810,10 @@ msgid "BACKUP USER DATA"
 msgstr "BACKUP GEBRUIKERSDATA"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "VERWIJDER EEN EXTRA SCHIJF"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "EXTRA SCHIJF BESTANDSSYSTEEM TYPE"
 
 msgid "ADVANCED"
 msgstr "GEAVANCEERD"
@@ -2089,7 +2091,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "TOON '..' BOVENLIGGENDE MAP"
 
 msgid "ICONS"
-msgstr ""
+msgstr "ICONEN"
 
 msgid "AFTER NAME"
 msgstr "ACHTER NAAM"
@@ -2098,7 +2100,7 @@ msgid "BEFORE NAME"
 msgstr "VOOR NAAM"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "TOON TAG PICTOGRAMMEN"
 
 msgid "SHOW REGION FLAG"
 msgstr "TOON REGIOVLAG"
@@ -2394,22 +2396,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "WEET U ZEKER DAT U DEZE SCHIJF WILT FORMATTEREN?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "EEN SCHIJF VEILIG UITWERPEN"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "SAMENGEVOEGDE SCHIJF"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "GEEN SAMENGEVOEGDE SCHIJVEN GEVONDEN"
 
 msgid "EJECT"
-msgstr ""
+msgstr "UITWERPEN"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "GEEN SCHIJF GESELECTEERD"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Uitwerpen..."
 
 msgid "Points"
 msgstr "Punten"
@@ -2502,10 +2504,10 @@ msgid ""
 msgstr "DIT ZAL DE BESTANDEN VAN HET SPEL VERWIJDEREN! WEET U HET ZEKER?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "SCHRIJF EEN NFC-TAG VOOR DIT SPEL"
 
 #, c-format
 msgid ""
@@ -2513,15 +2515,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"OM HET STARTCOMMANDO VOOR\n"
+"'%s' TE SCHRIJVEN, DRUKT U OP DE SCHRIJFKNOP EN PLAATST U VERVOLGENS EEN NFC-"
+"TAG OP DE SCHRIJVER."
 
 msgid "WRITE"
-msgstr ""
+msgstr "SCHRIJF"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "PLAATS EEN TAG OP DE SCHRIJVER..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "DE TAG IS SUCCESVOL GESCHREVEN"
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIES"
@@ -2775,7 +2780,7 @@ msgid "EDIT METADATA"
 msgstr "BEWERK METADATA"
 
 msgid "TAGS"
-msgstr ""
+msgstr "TAGS"
 
 msgid "GENRES"
 msgstr "GENRES"
@@ -3338,7 +3343,7 @@ msgid "GENRE"
 msgstr "GENRE"
 
 msgid "TAG"
-msgstr ""
+msgstr "TAG"
 
 msgid "FAMILY"
 msgstr "FAMILIE"
@@ -3407,19 +3412,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPDATE DE SPELLIJSTEN OM WIJZIGINGEN TOE TE PASSEN."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LANGZAAM"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "WERKT NIET"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "BUGGY"
 
 msgid "LIKED"
-msgstr ""
+msgstr "VOND HET LEUK"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "VOND NIET LEUK"
 
 msgid "Loading system config..."
 msgstr "Systeemconfiguratie wordt geladen..."
@@ -3897,67 +3902,67 @@ msgstr ""
 "Vuur op doelen om te kalibreren"
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "De spellijst is opnieuw geladen..."
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "SPEL SCHIJF GEDETECTEERD"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "APPARAAT"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODEL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "GROOTTE"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "KOPPEL"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Spellen van deze schijfpartitie nu samenvoegen?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Dit geldt ook voor toekomstige boots)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Samenvoeging aangevraagd... Even geduld alstublieft."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "SAMENVOEGING MISLUKT"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Controleer de logbestanden."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "NIEUWE SCHIJF GEDETECTEERD"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Deze schijf formatteren en voorbereiden voor spelopslag?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(ALLE BESTAANDE DATA ZAL WORDEN VERWIJDERD)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Het formatteringsproces wordt gestart..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMATTEREN MISLUKT"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NEE, NEGEER DEZE KEER"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NEE, NEGEER ALTIJD"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Schijf toevoegen aan de negeerlijst..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "JA, OPMAKEN & SAMENVOEGEN"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NEE, NEGEER"
