@@ -120,13 +120,13 @@ size_t TextureDataManager::getTotalSize()
 	return total;
 }
 
-size_t TextureDataManager::getCommittedSize()
+size_t TextureDataManager::getCommittedSize(bool cached)
 {
 	std::unique_lock<std::recursive_mutex> lock(mMutex);
 
 	size_t total = 0;
 	for (auto tex : mTextures)
-		total += tex->getVRAMUsage();
+		total += cached ? tex->getRAMUsage() : tex->getVRAMUsage();
 
 	return total;
 }
@@ -271,8 +271,16 @@ TextureLoader::~TextureLoader()
 		t.join();
 }
 
+#if WIN32
+#include <Windows.h>
+#endif
+
 void TextureLoader::threadProc()
 {
+#if WIN32
+	SetThreadDescription(GetCurrentThread(), L"TextureLoader::threadProc");
+#endif
+
 	while (true)
 	{		
 		// Wait for an event to say there is something in the queue
@@ -296,8 +304,19 @@ void TextureLoader::threadProc()
 				lock.unlock();
 				std::this_thread::yield();
 				
-				textureData->load(true);
+				try
+				{
+					textureData->load(true);
+				}
+				catch (const std::exception& e)
+				{
 				
+				}
+				catch (...)
+				{
+
+				}
+
 				std::this_thread::yield();
 				lock.lock();
 

@@ -89,7 +89,7 @@ public:
 	// Get the total size of all textures managed by this object, loaded and unloaded in bytes
 	size_t	getTotalSize();
 	// Get the total size of all committed textures (in VRAM) in bytes
-	size_t	getCommittedSize();
+	size_t	getCommittedSize(bool cached = false);
 	// Get the total size of all load-pending textures in the queue - these will
 	// be committed to VRAM as the queue is processed
 	size_t  getQueueSize();
