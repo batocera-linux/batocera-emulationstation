@@ -105,6 +105,7 @@ public:
 	DEFINE_BOOL_SETTING(SaveGamelistsOnExit)
 	DEFINE_BOOL_SETTING(RemoveMultiDiskContent)	
 	DEFINE_BOOL_SETTING(ParseGamelistOnly)
+	DEFINE_BOOL_SETTING(SkipGameScanAtStartup)
 	DEFINE_BOOL_SETTING(ThreadedLoading)
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)

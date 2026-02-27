@@ -26,6 +26,7 @@
 #include "Paths.h"
 #include "SystemRandomPlaylist.h"
 #include "ThemeData.h"
+#include "GameDatabase.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -95,25 +96,61 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		std::unordered_map<std::string, FileData*> fileMap;
 		fileMap[mEnvData->mStartPath] = mRootFolder;
 
-		if (!Settings::ParseGamelistOnly())
+		bool didScan = false;
+		bool skipScan = Settings::SkipGameScanAtStartup() && !Settings::ParseGamelistOnly();
+
+		// Try loading from database if scanning is disabled
+		if (skipScan)
 		{
-			populateFolder(mRootFolder, fileMap);
-
-			if (!UIModeController::LoadEmptySystems())
+			GameDatabase* db = GameDatabase::getInstance();
+			if (db && db->hasSystemCache(mMetadata.name))
 			{
-				if (mRootFolder->getChildren().size() == 0)
-					return;
-
-				if (mHidden && !Settings::HiddenSystemsShowGames())
-					return;
+				if (db->loadSystem(this, fileMap))
+				{
+					didScan = false; // loaded from cache
+				}
+				else
+				{
+					skipScan = false; // DB load failed, fall back to scan
+				}
+			}
+			else
+			{
+				skipScan = false; // no cache exists yet, must scan
 			}
 		}
 
-		if (!Settings::IgnoreGamelist())
-			parseGamelist(this, fileMap);		
-		
+		if (!skipScan)
+		{
+			if (!Settings::ParseGamelistOnly())
+			{
+				populateFolder(mRootFolder, fileMap);
+				didScan = true;
+
+				if (!UIModeController::LoadEmptySystems())
+				{
+					if (mRootFolder->getChildren().size() == 0)
+						return;
+
+					if (mHidden && !Settings::HiddenSystemsShowGames())
+						return;
+				}
+			}
+
+			if (!Settings::IgnoreGamelist())
+				parseGamelist(this, fileMap);
+		}
+
 		if (Settings::RemoveMultiDiskContent())
 			removeMultiDiskContent(fileMap);
+
+		// Sync to database after a full scan
+		if (didScan)
+		{
+			GameDatabase* db = GameDatabase::getInstance();
+			if (db)
+				db->syncSystem(this);
+		}
 	}
 	else
 	{

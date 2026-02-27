@@ -61,6 +61,7 @@
 #include "Gamelist.h"
 #include "TextToSpeech.h"
 #include "Paths.h"
+#include "GameDatabase.h"
 #include <set> 
 
 #if !WIN32
@@ -967,6 +968,17 @@ void GuiMenu::openDeveloperSettings()
 
 
 	s->addGroup(_("DATA MANAGEMENT"));
+
+	// Skip game scan at startup
+	auto skipScanAtStartup = std::make_shared<SwitchComponent>(mWindow);
+	skipScanAtStartup->setState(Settings::getInstance()->getBool("SkipGameScanAtStartup"));
+	s->addWithDescription(_("SKIP GAME SCAN AT STARTUP"),
+		_("Load games from cache instead of scanning the filesystem. Use 'SCAN FOR NEW GAMES' in Game Settings to find new ROMs."),
+		skipScanAtStartup);
+	s->addSaveFunc([skipScanAtStartup]
+	{
+		Settings::getInstance()->setBool("SkipGameScanAtStartup", skipScanAtStartup->getState());
+	});
 
 	// ExcludeMultiDiskContent
 	auto excludeMultiDiskContent = std::make_shared<SwitchComponent>(mWindow);
@@ -2763,6 +2775,23 @@ void GuiMenu::openGamesSettings()
 	// Game List Update
 	s->addEntry(_("UPDATE GAMELISTS"), false, [this, window] { updateGameLists(window); });
 
+	// Scan for new games (useful when SkipGameScanAtStartup is enabled)
+	if (Settings::SkipGameScanAtStartup())
+	{
+		s->addEntry(_("SCAN FOR NEW GAMES"), false, [this, window]
+		{
+			window->pushGui(new GuiMsgBox(window,
+				_("SCAN ALL SYSTEMS FOR NEW GAMES?"), _("YES"), [window]
+				{
+					// Temporarily disable skip so reload does a full scan
+					Settings::setSkipGameScanAtStartup(false);
+					ViewController::reloadAllGames(window, true, true);
+					Settings::setSkipGameScanAtStartup(true);
+				},
+				_("NO"), nullptr));
+		});
+	}
+
 	if (SystemConf::getInstance()->getBool("global.retroachievements") && !Settings::getInstance()->getBool("RetroachievementsMenuitem") && SystemConf::getInstance()->get("global.retroachievements.username") != "")
 	{
 		s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] 
@@ -3136,15 +3165,22 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 	
 	if (!confirm)
 	{
+		// Force a full scan even if SkipGameScanAtStartup is enabled
+		bool wasSkipping = Settings::SkipGameScanAtStartup();
+		if (wasSkipping) Settings::setSkipGameScanAtStartup(false);
 		ViewController::reloadAllGames(window, true, true);
+		if (wasSkipping) Settings::setSkipGameScanAtStartup(true);
 		return;
 	}
 
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMELISTS?"), _("YES"), [window]
 		{
+			bool wasSkipping = Settings::SkipGameScanAtStartup();
+			if (wasSkipping) Settings::setSkipGameScanAtStartup(false);
 			Scripting::fireEvent("update-gamelists");
 			ViewController::reloadAllGames(window, true, true);
-		}, 
+			if (wasSkipping) Settings::setSkipGameScanAtStartup(true);
+		},
 		_("NO"), nullptr));
 }
 
