@@ -10,6 +10,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include "Genres.h"
 #include "Paths.h"
+#include "GameDatabase.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -441,7 +442,7 @@ void updateGamelist(SystemData* system)
 	}
 
 	// Now write the file
-	if (numUpdated > 0) 
+	if (numUpdated > 0)
 	{
 		//make sure the folders leading up to this path exist (or the write will fail)
 		std::string xmlWritePath(system->getGamelistPath(true));
@@ -456,6 +457,20 @@ void updateGamelist(SystemData* system)
 	}
 	else
 		clearTemporaryGamelistRecovery(system);
+
+	// Sync dirty files to game database
+	if (!dirtyFiles.empty())
+	{
+		GameDatabase* db = GameDatabase::getInstance();
+		if (db)
+		{
+			for (auto* file : dirtyFiles)
+			{
+				if (file->getType() == GAME)
+					db->upsertGame(system->getName(), file);
+			}
+		}
+	}
 }
 
 void resetGamelistUsageData(SystemData* system)
