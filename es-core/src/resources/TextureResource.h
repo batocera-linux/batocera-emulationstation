@@ -47,7 +47,8 @@ public:
 
 	static size_t getTotalMemUsage(bool includeQueueSize = true); // returns an approximation of total VRAM used by textures (in bytes)
 	static size_t getTotalTextureSize(); // returns the number of bytes that would be used if all textures were in memory
-	
+	static size_t getCachedTextureSize();
+
 	virtual bool unload();
 	virtual void reload();
 

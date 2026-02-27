@@ -336,6 +336,20 @@ size_t TextureResource::getTotalMemUsage(bool includeQueueSize)
 	return total;
 }
 
+size_t TextureResource::getCachedTextureSize()
+{
+	size_t total = 0;
+
+	// Count up all textures that manage their own texture data
+	for (auto tex : sNonDynamicTextureResources)
+		total += tex->mTextureData->getRAMUsage();
+
+	// Now get the total memory from the manager
+	total += sTextureDataManager.getCommittedSize(true);
+
+	return total;
+}
+
 size_t TextureResource::getTotalTextureSize()
 {
 	size_t total = 0;

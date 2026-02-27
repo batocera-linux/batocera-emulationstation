@@ -82,6 +82,27 @@ VideoVlcComponent::VideoVlcComponent(Window* window) : VideoComponent(window),
 VideoVlcComponent::~VideoVlcComponent()
 {
 	stopVideo();
+
+	if (mMediaPlayer)
+	{
+		libvlc_video_set_callbacks(mMediaPlayer, nullptr, nullptr, nullptr, nullptr);
+		libvlc_media_player_stop(mMediaPlayer);
+		libvlc_media_player_release(mMediaPlayer);
+		mMediaPlayer = NULL;
+	}
+}
+
+void VideoVlcComponent::onHide()
+{
+	VideoComponent::onHide();
+
+	if (mMediaPlayer && mMedia == NULL)
+	{
+		stopVideo();
+
+		libvlc_media_player_release(mMediaPlayer);
+		mMediaPlayer = NULL;
+	}
 }
 
 Vector2f VideoVlcComponent::getSize() const
@@ -681,7 +702,7 @@ void VideoVlcComponent::init()
 
 void VideoVlcComponent::handleLooping()
 {
-	if (mIsPlaying && mMediaPlayer)
+	if (mIsPlaying && mMediaPlayer && mMedia)
 	{
 		libvlc_state_t state = libvlc_media_player_get_state(mMediaPlayer);
 		if (state == libvlc_Ended)
@@ -856,7 +877,11 @@ void VideoVlcComponent::startVideo()
 				setupContext();
 
 				// Setup the media player
-				mMediaPlayer = libvlc_media_player_new_from_media(mMedia);
+
+				if (mMediaPlayer)
+					libvlc_media_player_set_media(mMediaPlayer, mMedia);
+				else
+					mMediaPlayer = libvlc_media_player_new_from_media(mMedia);
 			
 				if (hasAudioTrack)
 				{
@@ -887,9 +912,11 @@ void VideoVlcComponent::stopVideo()
 	// Release the media player so it stops calling back to us
 	if (mMediaPlayer)
 	{
+		libvlc_video_set_callbacks(mMediaPlayer, nullptr, nullptr, nullptr, nullptr);
 		libvlc_media_player_stop(mMediaPlayer);
-		libvlc_media_player_release(mMediaPlayer);
-		mMediaPlayer = NULL;
+
+		//libvlc_media_player_release(mMediaPlayer);
+		//mMediaPlayer = NULL;
 	}
 
 	// Release the media
@@ -1040,7 +1067,7 @@ void VideoVlcComponent::pauseVideo()
 	mIsWaitingForVideoToStart = false;
 	mStartDelayed = false;
 
-	if (mMediaPlayer == NULL)
+	if (mMediaPlayer == NULL || mMedia == NULL)
 		stopVideo();
 	else
 	{
@@ -1056,7 +1083,7 @@ void VideoVlcComponent::resumeVideo()
 	if (mIsPlaying)
 		return;
 
-	if (mMediaPlayer == NULL)
+	if (mMediaPlayer == NULL || mMedia == NULL)
 	{
 		startVideoWithDelay();
 		return;
@@ -1070,7 +1097,7 @@ void VideoVlcComponent::resumeVideo()
 
 bool VideoVlcComponent::isPaused()
 {
-	return !mIsPlaying && !mIsWaitingForVideoToStart && !mStartDelayed && mMediaPlayer != NULL;
+	return !mIsPlaying && !mIsWaitingForVideoToStart && !mStartDelayed && mMedia != NULL;
 }
 
 void VideoVlcComponent::setSaturation(float saturation)

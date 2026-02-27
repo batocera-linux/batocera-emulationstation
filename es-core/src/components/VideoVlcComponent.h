@@ -78,6 +78,7 @@ public:
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
 	virtual void update(int deltaTime);
+	virtual void onHide() override;
 
 	void	setColorShift(unsigned int color);
 

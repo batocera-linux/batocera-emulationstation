@@ -53,6 +53,7 @@ public:
 	// Get the amount of VRAM currenty used by this texture
 	inline size_t getEstimatedVRAMUsage() { return mSize.x() * mSize.y() * 4; }
 	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
+	inline size_t getRAMUsage() { return mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
 
 	const 	Vector2i& getSize() const { return mSize; }
 	const 	Vector2f& getPhysicalSize() const { return mPhysicalSize; }

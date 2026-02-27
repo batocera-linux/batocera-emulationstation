@@ -58,7 +58,8 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 			if (fiBitmap != nullptr)
 			{
 				//loaded. convert to 32bit if necessary
-				if (FreeImage_GetBPP(fiBitmap) != 32)
+				const int bitsPerPixel = FreeImage_GetBPP(fiBitmap);
+				if ((fiMultiBitmap != nullptr && bitsPerPixel != 32) || (fiMultiBitmap == nullptr && bitsPerPixel != 32 && bitsPerPixel != 24 && bitsPerPixel != 8))
 				{
 					FIBITMAP * fiConverted = FreeImage_ConvertTo32Bits(fiBitmap);
 					if (fiConverted != nullptr)
@@ -121,17 +122,59 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 					}
 
 					unsigned char* tempData = new unsigned char[width * height * 4];
+											
+					const size_t w = width;
+					const size_t h = height;
+					const int pitch = FreeImage_GetPitch(fiBitmap);
+					const unsigned char* bits = FreeImage_GetBits(fiBitmap);
+					const int bpp = FreeImage_GetBPP(fiBitmap);
 
-					int w = (int)width;
-
-					for (int y = (int)height; --y >= 0; )
+					if (bpp == 32)
 					{
-						unsigned int* argb = (unsigned int*)FreeImage_GetScanLine(fiBitmap, y);
-						unsigned int* abgr = (unsigned int*)(tempData + (y * width * 4));
-						for (int x = w; --x >= 0;)
+						for (size_t y = 0; y < h; y++)
 						{
-							unsigned int c = argb[x];
-							abgr[x] = (c & 0xFF00FF00) | ((c & 0xFF) << 16) | ((c >> 16) & 0xFF);
+							const unsigned int* argb = (const unsigned int*)(bits + y * pitch);
+							unsigned int* abgr = (unsigned int*)(tempData + y * w * 4);
+
+							for (size_t x = 0; x < w; x++)
+							{
+								const unsigned int c = argb[x];
+								abgr[x] = (c & 0xFF00FF00) | ((c & 0xFF) << 16) | ((c >> 16) & 0xFF);
+							}
+						}
+					}
+					else if (bpp == 24)
+					{
+						for (size_t y = 0; y < h; y++)
+						{
+							const unsigned char* src = bits + y * pitch;
+							unsigned int* abgr = (unsigned int*)(tempData + y * w * 4);
+							for (size_t x = 0; x < w; x++)
+							{
+								const unsigned char r = src[x * 3 + 0];
+								const unsigned char g = src[x * 3 + 1];
+								const unsigned char b = src[x * 3 + 2];
+								abgr[x] = (0xFF << 24) | (r << 16) | (g << 8) | b;
+							}
+						}
+					}
+					else if (bpp == 8)
+					{
+						RGBQUAD* palette = FreeImage_GetPalette(fiBitmap);
+						BOOL hasTransparency = FreeImage_IsTransparent(fiBitmap);
+						BYTE* transTable = FreeImage_GetTransparencyTable(fiBitmap); // alpha par index de palette
+
+						for (size_t y = 0; y < h; y++)
+						{
+							const unsigned char* src = bits + y * pitch;
+							unsigned int* abgr = (unsigned int*)(tempData + y * w * 4);
+							for (size_t x = 0; x < w; x++)
+							{
+								const BYTE idx = src[x];
+								const RGBQUAD& color = palette[idx];
+								const BYTE alpha = (hasTransparency && transTable) ? transTable[idx] : 0xFF;
+								abgr[x] = (alpha << 24) | (color.rgbBlue << 16) | (color.rgbGreen << 8) | color.rgbRed;
+							}
 						}
 					}
 
