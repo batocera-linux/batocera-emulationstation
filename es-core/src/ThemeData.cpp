@@ -764,6 +764,7 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["themePath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["region"] = mRegion;
+	mVariables["root"] = Utils::FileSystem::getParent(mPaths.back());
 	
 	for (auto name : Settings::getInstance()->getSettingsNames())
 	{
@@ -1484,10 +1485,15 @@ void ThemeData::parseSubsetsDefaults(const pugi::xml_node& root)
 {
 	for (pugi::xml_node node = root.child("subset"); node; node = node.next_sibling("subset"))
 	{
-		if (!parseFilterAttributes(root))
-			return;
-
 		const std::string name = node.attribute("name").as_string();
+		if (name.empty())
+			continue;
+
+		if (!parseFilterAttributes(node))
+		{
+			mSubsetDefault[name] = "undefined";
+			break;
+		}
 
 		for (pugi::xml_node child = node.child("include"); child; child = child.next_sibling("include"))
 		{
