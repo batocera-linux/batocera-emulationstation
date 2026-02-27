@@ -136,6 +136,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ZaparooSupport.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Win32ApiSystem.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/GameDatabase.h
 )
 
 set(ES_SOURCES
@@ -237,6 +238,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ZaparooSupport.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Win32ApiSystem.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/GameDatabase.cpp
 )
 
 #-------------------------------------------------------------------------------
