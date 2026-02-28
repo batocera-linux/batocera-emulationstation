@@ -1492,7 +1492,7 @@ void ThemeData::parseSubsetsDefaults(const pugi::xml_node& root)
 		if (!parseFilterAttributes(node))
 		{
 			mSubsetDefault[name] = "undefined";
-			break;
+			continue;
 		}
 
 		for (pugi::xml_node child = node.child("include"); child; child = child.next_sibling("include"))
