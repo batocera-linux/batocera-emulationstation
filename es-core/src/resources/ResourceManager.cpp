@@ -143,7 +143,11 @@ ResourceData ResourceManager::loadFile(const std::string& path, size_t size) con
 {
 	HANDLE hFile = CreateFileW(WINSTRINGW(path).c_str(), GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, nullptr);
 	if (hFile == INVALID_HANDLE_VALUE)
-		throw std::runtime_error("Failed to open file: " + path);
+	{
+		int err = errno;
+		LOG(LogError) << "Failed to open file: '" << path << "': " << std::strerror(err);
+		return { NULL, 0 };
+	}
 
 	if (size == 0 || size == SIZE_MAX)
 	{
