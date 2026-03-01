@@ -228,7 +228,7 @@ namespace Renderer
 		{
 			windowFlags |= SDL_WINDOW_RESIZABLE;
 
-			if (Settings::getInstance()->getInt("WindowWidth") == 0)
+			if (Settings::getInstance()->getInt("WindowWidth") == 0 && Settings::getInstance()->getInt("ScreenWidth") == 0)
 			{
 				windowWidth = 1280; windowHeight = 720;
 				windowFlags |= SDL_WINDOW_MAXIMIZED;
