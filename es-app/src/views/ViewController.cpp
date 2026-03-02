@@ -551,7 +551,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		return;
 	}
 
-	if (!SystemConf::getInstance()->getBool("global.netplay") || ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED" || !game->isNetplaySupported())
+	if (!SystemConf::getInstance()->getBool("global.netplay") || (ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED" && !SystemConf::getInstance()->getBool("global.netplay.hotspot")) || !game->isNetplaySupported())
 		options.netPlayMode = DISABLED;
 	else if (options.netPlayMode == DISABLED && Settings::getInstance()->getBool("NetPlayAutomaticallyCreateLobby"))
 		options.netPlayMode = SERVER;
