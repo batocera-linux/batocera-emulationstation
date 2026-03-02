@@ -195,7 +195,7 @@ namespace Utils
 #ifdef WIN32 // windows
 			return system("shutdown -s -t 0");
 #else // osx / linux
-			return system("shutdown -h now");
+		return system("shutdown -P -h now");
 #endif
 		}
 
