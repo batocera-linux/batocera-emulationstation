@@ -4329,11 +4329,13 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
         auto country_codes = getCountryCodes();
         auto country = std::make_shared<OptionListComponent<std::string>>(mWindow, _("WIFI COUNTRY"), false);
 
+		country->add(_("N/A"), "", baseCountry.empty());
+
         for (auto it = country_codes.cbegin(); it != country_codes.cend(); ++it)
             country->add(it->second, it->first, baseCountry == it->first);
 
         if (country->getSelectedObjects().size() == 0)
-            country->add("N/A", "", true);
+            country->selectFirstItem();
 
         s->addWithLabel(_("WIFI COUNTRY"), country);
         s->addSaveFunc([country] { SystemConf::getInstance()->set("wifi.country", country->getSelected()); });
