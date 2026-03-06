@@ -125,6 +125,7 @@ void Settings::setDefaults()
 
 	mBoolMap["BackgroundJoystickInput"] = false;
 	mBoolMap["ParseGamelistOnly"] = false;
+	mBoolMap["SkipGameScanAtStartup"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["ShowParentFolder"] = true;
 	mBoolMap["IgnoreLeadingArticles"] = Settings::_IgnoreLeadingArticles;

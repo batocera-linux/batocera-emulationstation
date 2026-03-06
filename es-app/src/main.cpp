@@ -43,6 +43,7 @@
 #include "HttpReq.h"
 #include <thread>
 #include "ZaparooSupport.h"
+#include "GameDatabase.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -569,6 +570,11 @@ int main(int argc, char* argv[])
 
 	MameNames::init();
 
+	// Initialize game database
+	{
+		std::string dbPath = Paths::getUserEmulationStationPath() + "/gamedatabase.db";
+		GameDatabase::getInstance()->init(dbPath);
+	}
 
 	const char* errorMsg = NULL;
 	if(!loadSystemConfigFile(splashScreen && splashScreenProgress ? &window : nullptr, &errorMsg))
@@ -829,6 +835,7 @@ int main(int argc, char* argv[])
 	MameNames::deinit();
 	ViewController::saveState();
 	CollectionSystemManager::deinit();
+	GameDatabase::getInstance()->deinit();
 	SystemData::deleteSystems();
 	Scripting::exitScriptingEngine();
 
