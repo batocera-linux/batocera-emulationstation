@@ -33,7 +33,7 @@ public:
 
 	void fitTo(Vector2f size, Vector3f position = Vector3f::Zero(), Vector2f padding = Vector2f::Zero());
 
-	void setImagePath(const std::string& path);
+	void setImagePath(const std::string& path, bool asyncLoading = true);
 	void setEdgeColor(unsigned int edgeColor); // Apply a color shift to the "edge" parts of the ninepatch.
 	void setCenterColor(unsigned int centerColor); // Apply a color shift to the "center" part of the ninepatch.
 
@@ -70,6 +70,7 @@ private:
 	unsigned int mEdgeColor;
 	unsigned int mCenterColor;
 	std::shared_ptr<TextureResource> mTexture;
+	bool mTextureLoaded;
 	
 	Vector2f mPreviousSize;
 

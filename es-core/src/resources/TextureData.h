@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include "ImageIO.h"
+#include "TextureDataManager.h"
 
 class TextureResource;
 
@@ -33,7 +34,7 @@ public:
 	bool initFromRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool copyData = true);
 
 	// Read the data into memory if necessary
-	bool load(bool updateCache = false);
+	bool load();
 	bool loadFromCbz();
 	bool loadFromPdf(int pageIndex = 1);
 	bool loadFromVideo();
@@ -51,32 +52,31 @@ public:
 	void releaseRAM();
 
 	// Get the amount of VRAM currenty used by this texture
-	inline size_t getEstimatedVRAMUsage() { return mSize.x() * mSize.y() * 4; }
-	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
-	inline size_t getRAMUsage() { return mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
+	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated)
+	{ 
+		if (type == MemoryUsageType::RAM)
+			return mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0;
+
+		if (type == MemoryUsageType::VRAM)
+			return mTextureID != 0 ? mSize.x() * mSize.y() * 4 : 0;
+
+		if (type == MemoryUsageType::Estimated)
+			return mSize.x() * mSize.y() * 4;
+
+		return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0;
+	}
 
 	const 	Vector2i& getSize() const { return mSize; }
 	const 	Vector2f& getPhysicalSize() const { return mPhysicalSize; }
-	/*
-	size_t width();
-	size_t height();
-	float sourceWidth();
-	float sourceHeight();*/
 
 	bool rasterizeAt(float width, float height);
 
 	bool tiled() { return mTile; }
 
-	unsigned char* getDataRGBA() {
-		return mDataRGBA;
-	}
-
-	void setStoredSize(float width, float height);
-	void setPhysicalSize(int width, int height) { mPhysicalSize.x() = width; mPhysicalSize.y() = height; }
+	unsigned char* getDataRGBA() { return mDataRGBA; }
 
 	void setMaxSize(const MaxSizeInfo& maxSize);
 	bool isMaxSizeValid();
-
 
 	inline const std::string& getPath() { return mPath; };
 
@@ -112,12 +112,6 @@ private:
 
 	bool			mScalable;
 	Vector2f		mScalableMinimumSize;
-/*
-	size_t			mWidth;
-	size_t			mHeight;
-	float			mSourceWidth;
-	float			mSourceHeight;
-*/
 
 	bool			mIsExternalDataRGBA;
 };

@@ -1870,12 +1870,6 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 
 			if (ResourceManager::getInstance()->fileExists(path))
 			{
-				if (Utils::FileSystem::isImage(path) && Settings::getInstance()->getBool("AsyncImages"))
-				{
-					unsigned int x, y;
-					ImageIO::loadImageSize(path, &x, &y);
-				}
-
 				element.properties[name] = path;
 				break;
 			}
@@ -1884,12 +1878,6 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
 				if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
 				{
-					if (Utils::FileSystem::isImage(path) && Settings::getInstance()->getBool("AsyncImages"))
-					{
-						unsigned int x, y;
-						ImageIO::loadImageSize(rootPath, &x, &y);
-					}
-
 					element.properties[name] = rootPath;
 					break;
 				}

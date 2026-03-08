@@ -473,13 +473,13 @@ void Window::update(int deltaTime)
 			ss << std::fixed << std::setprecision(2) << ((float)mFrameTimeElapsed / (float)mFrameCountElapsed) << "ms";
 
 			// vram
-			float textureVramUsageMb = TextureResource::getTotalMemUsage(false) / 1024.0f / 1024.0f;
-			float textureTotalUsageMb = TextureResource::getTotalTextureSize() / 1024.0f / 1024.0f;
-			float textureCacheUsageMb = TextureResource::getCachedTextureSize() / 1024.0f / 1024.0f;
+			float textureVramUsageMb = TextureResource::getMemoryUsage(MemoryUsageType::VRAM) / 1024.0f / 1024.0f;
+			float textureKnownUsageMb = TextureResource::getMemoryUsage(MemoryUsageType::Estimated) / 1024.0f / 1024.0f;
+			float textureCacheUsageMb = TextureResource::getMemoryUsage(MemoryUsageType::RAM) / 1024.0f / 1024.0f;
 			float fontVramUsageMb = Font::getTotalMemUsage() / 1024.0f / 1024.0f;
 			size_t max_texture = Settings::getInstance()->getInt("MaxVRAM");
 
-			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << (textureVramUsageMb - textureCacheUsageMb) << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureTotalUsageMb << " Max VRAM: " << max_texture;
+			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureKnownUsageMb << " Max VRAM: " << max_texture;
 
 			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));			
 		}

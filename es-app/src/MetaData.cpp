@@ -540,15 +540,6 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 			continue;
 
 		set(mdd.id, source.get(mdd.id));
-
-
-		if (mdd.type == MetaDataType::MD_PATH)
-		{
-			ImageIO::removeImageCache(source.get(mdd.id));
-
-			unsigned int x, y;
-			ImageIO::loadImageSize(source.get(mdd.id).c_str(), &x, &y);
-		}
 	}
 
 	if (Utils::String::startsWith(source.getName(), "ZZZ(notgame)"))

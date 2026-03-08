@@ -16,6 +16,8 @@ class TextureDataManager;
 class TextureData;
 class TextureResource;
 
+enum class MemoryUsageType { Allocated, VRAM, RAM, Estimated };
+
 class TextureLoader
 {
 public:
@@ -86,19 +88,17 @@ public:
 	std::shared_ptr<TextureData> get(const TextureResource* key, TextureLoadMode enableLoading = TextureLoadMode::ENABLED);
 	bool bind(const TextureResource* key);
 
-	// Get the total size of all textures managed by this object, loaded and unloaded in bytes
-	size_t	getTotalSize();
 	// Get the total size of all committed textures (in VRAM) in bytes
-	size_t	getCommittedSize(bool cached = false);
-	// Get the total size of all load-pending textures in the queue - these will
-	// be committed to VRAM as the queue is processed
+	size_t	getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
+	// Get the total size of all load-pending textures in the queue
 	size_t  getQueueSize();
+
 	// Load a texture, freeing resources as necessary to make space
 	void load(std::shared_ptr<TextureData> tex, bool block = false);
 
 	void clearQueue();
 	
-	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);
+	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);	
 
 private:
 
