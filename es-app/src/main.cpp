@@ -285,8 +285,6 @@ bool loadSystemConfigFile(Window* window, const char** errorString)
 
 	StopWatch stopWatch("loadSystemConfigFile :", LogDebug);
 
-	ImageIO::loadImageCache();
-
 	if(!SystemData::loadConfig(window))
 	{
 		LOG(LogError) << "Error while parsing systems configuration file!";
@@ -825,7 +823,6 @@ int main(int argc, char* argv[])
 	if (SystemData::hasDirtySystems())
 		window.renderSplashScreen(_("SAVING METADATA. PLEASE WAIT..."));
 
-	ImageIO::saveImageCache();
 	MameNames::deinit();
 	ViewController::saveState();
 	CollectionSystemManager::deinit();

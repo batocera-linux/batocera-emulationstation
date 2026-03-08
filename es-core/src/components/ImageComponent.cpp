@@ -12,10 +12,10 @@
 
 Vector2i ImageComponent::getTextureSize() const
 {
-	if(mTexture)
-		return mTexture->getSize();
-	else
-		return Vector2i::Zero();
+	if (mTexture && mTexture->isLoaded())
+		return mTexture->getSize();	
+
+	return Vector2i::Zero();
 }
 
 Vector2f ImageComponent::getSize() const
@@ -39,6 +39,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f), mSharedTexture(true), mCustomShaderEnabled(true)
 {
+	mTextureLoaded = false;
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
 	mCheckClipping = true;
@@ -82,7 +83,7 @@ void ImageComponent::setSize(float w, float h)
 
 void ImageComponent::resize()
 {
-	if (!mTexture)
+	if (!mTexture || !mTexture->isLoaded())
 		return;
 
 	const Vector2f textureSize = mTexture->getPhysicalSize();
@@ -191,7 +192,7 @@ void ImageComponent::resize()
 
 void ImageComponent::updateVertices()
 {
-	if (!mTexture)
+	if (mTexture == nullptr || !mTexture->isLoaded())
 		return;
 
 	Vector2f     topLeft = mSize * mTopLeftCrop;
@@ -388,6 +389,8 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		mTexture->setRequired(true);
 	}
 
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	if (mLoadingTexture == nullptr && !mTargetSize.empty())
 		resize();
 }
@@ -406,6 +409,7 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 		mTexture->initFromMemory(path, length);
 	}
 
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 	resize();
 }
 
@@ -415,6 +419,7 @@ void ImageComponent::setImage(const std::shared_ptr<TextureResource>& texture)
 		mTexture->setRequired(false);
 
 	mTexture = texture;
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
@@ -614,20 +619,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible)
 		return;
 
-	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
-	{
-		if (mTexture != nullptr)
-			mTexture->setRequired(false);
-
-		mTexture = mLoadingTexture;
-
-		if (isShowing() && mTexture != nullptr)
-			mTexture->setRequired(true);
-
-		mLoadingTexture.reset();
-		resize();
-		updateColors();
-	}
+	if (!watchTextureLoading())
+		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
 	
@@ -753,6 +746,41 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	}
 	else
 		GuiComponent::renderChildren(trans);
+}
+
+bool ImageComponent::watchTextureLoading()
+{
+	if (!mTextureLoaded && mTexture != nullptr && !mTexture->isLoaded() && !mTexture->bind())
+		return false;
+
+	if (mLoadingTexture && mLoadingTexture->isLoaded())
+	{
+		if (mTexture != nullptr)
+			mTexture->setRequired(false);
+
+		mTexture = mLoadingTexture;
+		mTexture->setRequired(isShowing());
+		mLoadingTexture.reset();
+
+		resize();
+		updateVertices();
+		updateColors();
+
+		mTextureLoaded = true;
+	}
+
+	if (!mTextureLoaded && mTexture && mTexture->isLoaded())
+	{
+		mTexture->setRequired(isShowing());
+
+		resize();
+		updateVertices();
+		updateColors();
+
+		mTextureLoaded = true;
+	}
+
+	return true;
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)

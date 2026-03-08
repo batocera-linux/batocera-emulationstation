@@ -109,24 +109,14 @@ bool TextureDataManager::bind(const TextureResource* key)
 	return bound;
 }
 
-size_t TextureDataManager::getTotalSize()
+size_t TextureDataManager::getMemoryUsage(MemoryUsageType type)
 {
 	std::unique_lock<std::recursive_mutex> lock(mMutex);
 
 	size_t total = 0;
+
 	for (auto tex : mTextures)
-		total += tex->getEstimatedVRAMUsage();
-
-	return total;
-}
-
-size_t TextureDataManager::getCommittedSize(bool cached)
-{
-	std::unique_lock<std::recursive_mutex> lock(mMutex);
-
-	size_t total = 0;
-	for (auto tex : mTextures)
-		total += cached ? tex->getRAMUsage() : tex->getVRAMUsage();
+		total += tex->getMemoryUsage(type);
 
 	return total;
 }
@@ -151,76 +141,69 @@ void TextureDataManager::cleanupVRAM(std::shared_ptr<TextureData> exclude)
 {
 	std::unique_lock<std::recursive_mutex> lock(mMutex);
 
-	size_t max_texture = (size_t)Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
+	size_t maxVRAM = (size_t)Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
 
-	size_t size = TextureResource::getTotalMemUsage(false);
+	size_t size = TextureResource::getMemoryUsage(MemoryUsageType::Allocated);
 	size_t queuesize = getQueueSize();
 
 	if (exclude)
-		size += exclude->getEstimatedVRAMUsage();
-
-	if (size >= max_texture)
+		size += exclude->getMemoryUsage(MemoryUsageType::Estimated);
+	
+	if (size >= maxVRAM)
 	{
-		// First Perform cleanup on textures without considering the queue
-		for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
+		int pass = 0;
+		while (true)
 		{
-			if (size < max_texture)
+			// First Perform cleanup on textures without considering the queue
+			for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
+			{
+				auto tex = *it;
+				if (tex == exclude || !tex->isReloadable() || tex->isRequired() || !tex->isLoaded())
+					continue;
+
+				auto textureSize = tex->getMemoryUsage(pass == 0 ? MemoryUsageType::RAM : MemoryUsageType::VRAM);
+				if (textureSize == 0)
+					continue;
+
+				LOG(LogDebug) << "Cleanup VRAM\tReleased : " << tex->getPath().c_str() << ", " << std::to_string(tex->getSize().x()) << "x" << std::to_string(tex->getSize().y());
+
+				tex->releaseVRAM();
+				tex->releaseRAM();
+
+				size -= textureSize;
+				if (size < maxVRAM)
+					break;
+			}
+
+			pass++;
+			if (pass == 2)
 				break;
-
-			auto tex = *it;
-			if (tex == exclude || !tex->isReloadable() || tex->isRequired() || !tex->isLoaded())
-				continue;
-
-			auto textureSize = tex->getEstimatedVRAMUsage();
-			if (textureSize == 0)
-				continue;
-
-			LOG(LogDebug) << "Cleanup VRAM\tReleased : " << tex->getPath().c_str();
-
-			tex->releaseVRAM();
-			tex->releaseRAM();
-
-			size -= textureSize;
 		}
 	}
-
+	
 	// Perform cleanup including the queue
 	size += queuesize;
-	if (size < max_texture)
+	if (size < maxVRAM)
 		return;
 
 	for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
 	{
-		if (size < max_texture)
+		if (size < maxVRAM)
 			break;
 
 		auto tex = *it;
 		if (tex == exclude || !tex->isReloadable() || tex->isRequired())
 			continue;
 
-		auto textureSize = tex->getEstimatedVRAMUsage();
+		auto textureSize = tex->getMemoryUsage(MemoryUsageType::Estimated);
 		if (textureSize == 0)
 			continue;
-
-		if (tex->isLoaded())
+		
+		if (mLoader->remove(tex))
 		{
-			LOG(LogDebug) << "Cleanup VRAM\tReleased : " << tex->getPath().c_str();
-
-			tex->releaseVRAM();
-			tex->releaseRAM();
-
+			LOG(LogDebug) << "Cleanup VRAM\tRemoved from queue : " << tex->getPath().c_str() << ", " << std::to_string(tex->getSize().x()) << "x" << std::to_string(tex->getSize().y());
 			size -= textureSize;
 		}
-		else if (mLoader->remove(tex))
-		{
-			LOG(LogDebug) << "Cleanup VRAM\tRemoved from queue : " << tex->getPath().c_str();
-			size -= textureSize;
-		}
-	}
-
-	if (size > max_texture)
-	{
-		LOG(LogDebug) << "Cleanup VRAM\tRemoved from queue";
 	}
 }
 
@@ -251,8 +234,8 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 TextureLoader::TextureLoader(TextureDataManager* mgr) : mManager(mgr), mExit(false)
 {
 	int num_threads = std::thread::hardware_concurrency() / 2;
-	if (num_threads == 0)
-		num_threads = 1;
+	if (num_threads < 2)
+		num_threads = 2;
 
 	for (size_t i = 0; i < num_threads; i++)
 		mThreads.push_back(std::thread(&TextureLoader::threadProc, this));
@@ -306,7 +289,7 @@ void TextureLoader::threadProc()
 				
 				try
 				{
-					textureData->load(true);
+					textureData->load();
 				}
 				catch (const std::exception& e)
 				{
@@ -387,10 +370,10 @@ size_t TextureLoader::getQueueSize()
 	size_t mem = 0;
 
 	for (auto tex : mTextureDataQ)
-		mem += tex->getEstimatedVRAMUsage();
+		mem += tex->getMemoryUsage(MemoryUsageType::Estimated);
 
 	for (auto tex : mProcessingTextureDataQ)
-		mem += tex->getEstimatedVRAMUsage();
+		mem += tex->getMemoryUsage(MemoryUsageType::Estimated);
 	
 	return mem;
 }

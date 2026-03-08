@@ -30,7 +30,8 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	mCheevos = nullptr;
 	mImageOverlay = nullptr;
 	mIsDefaultImage = false;
-	
+	mImageLoaded = false;
+
 	mLabelMerged = false;
 
 	resetProperties();
@@ -357,9 +358,21 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 	if (!mVisible)
 		return;
 
+	bool isMaxSizing = getCurrentProperties().Image.sizeMode == "maxSize";
+
+	if (!mImageLoaded && mImage != nullptr && mImage->getTextureSize() != Vector2i::Zero())
+	{
+		if (isMaxSizing)
+		{
+			mImage->onPaddingChanged();
+			resize();
+		}
+		mImageLoaded = true;
+	}
+
 	Transform4x4f trans = parentTrans * getTransform();
 
-	if (renderBackground)
+	if (renderBackground && ((isMaxSizing && mImageLoaded) || !isMaxSizing))
 		mBackground.render(trans);
 
 	auto rect = Renderer::getScreenRect(trans, mSize);
@@ -1023,6 +1036,7 @@ void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 	else
 		mImage->setImage(path, false, MaxSizeInfo(mSize, mSelectedProperties.Image.sizeMode != "maxSize"), false);
 
+	mImageLoaded = mImage->getTextureSize() != Vector2i::Zero();
 	resize();
 }
 

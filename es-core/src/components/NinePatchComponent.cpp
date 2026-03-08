@@ -9,6 +9,7 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	mEdgeColor(edgeColor), mCenterColor(centerColor),
 	mVertices(NULL), mCustomShaderIsPostProcess(false), mCustomShaderIsCacheable(true), mPostProcessTextureId(-1)
 {
+	mTextureLoaded = false;
 	mTimer = 0;
 	mAnimateTiming = 0;
 	mAnimateColor = 0xFFFFFFFF;
@@ -84,13 +85,13 @@ void NinePatchComponent::updateColors()
 
 void NinePatchComponent::buildVertices()
 {
-	if(mTexture == nullptr)
+	if (mTexture == nullptr || !mTexture->isLoaded())
 		return;
 
-	if(mVertices != NULL)
+	if (mVertices != NULL)
 		delete[] mVertices;	
 
-	if(mTexture->getSize() == Vector2i::Zero())
+	if (mTexture->getSize() == Vector2i::Zero())
 	{
 		mVertices = NULL;
 		LOG(LogWarning) << "NinePatchComponent missing texture!";
@@ -145,8 +146,25 @@ void NinePatchComponent::buildVertices()
 
 void NinePatchComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!mVisible || mTexture == nullptr || mVertices == nullptr)
+	if (!mVisible || mTexture == nullptr)
 		return;
+
+	if (!mTextureLoaded && mTexture && mTexture->isLoaded())
+	{
+		mTextureLoaded = true;
+		mTexture->setRequired(isShowing());
+
+		buildVertices();
+		updateColors();
+	}
+
+	if (mVertices == nullptr)
+	{
+		if (mTexture)
+			mTexture->bind();
+
+		return;
+	}
 
 	Transform4x4f trans = parentTrans * getTransform();
 
@@ -294,7 +312,7 @@ void NinePatchComponent::fitTo(Vector2f size, Vector3f position, Vector2f paddin
 				position.y() + Math::lerp(-mCornerSize.y(), mCornerSize.y(), mOrigin.y()));
 }
 
-void NinePatchComponent::setImagePath(const std::string& path)
+void NinePatchComponent::setImagePath(const std::string& path, bool asyncLoading)
 {
 	if (mPath == path)
 		return;
@@ -305,7 +323,8 @@ void NinePatchComponent::setImagePath(const std::string& path)
 		mTexture->setRequired(false);
 
 	auto prev = mTexture;
-	mTexture = TextureResource::get(mPath, false, true);
+	mTexture = TextureResource::get(mPath, false, true, !asyncLoading);
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
