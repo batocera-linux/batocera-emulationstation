@@ -168,18 +168,8 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	addGroup(_("DISPLAY OPTIONS"));
 
 	// CONTROLLER NOTIFICATION
-	auto notification = std::make_shared<SwitchComponent>(mWindow);
-	notification->setState(Settings::getInstance()->getBool("ShowControllerNotifications"));
-	addWithLabel(_("SHOW CONTROLLER NOTIFICATIONS"), notification, autoSel == 1);
-	notification->setOnChangedCallback([this, window, notification]
-									   {
-		if (Settings::getInstance()->setBool("ShowControllerNotifications", notification->getState()))
-		{
-			Window* parent = window;
-			delete this;
-			openControllersSettings(parent, 1);
-		} });
-		
+	addSwitch(_("SHOW CONTROLLER NOTIFICATIONS"), "ShowControllerNotifications", true);
+
 	// CONTROLLER ACTIVITY
 	auto activity = std::make_shared<SwitchComponent>(mWindow);
 	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));
@@ -197,6 +187,7 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
+	addSwitch(_("SHOW GUN NOTIFICATIONS"), "ShowGunsNotifications", true);	
 	addSwitch(_("DRAW GUN CROSSHAIR"), "DrawGunCrosshair", true);
 
 #ifdef BATOCERA

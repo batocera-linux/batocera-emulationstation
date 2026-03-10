@@ -621,7 +621,7 @@ void GunManager::updateGuns(Window* window)
 					newgun->mX = newgun->m_internalX = x;
 					newgun->mY = newgun->m_internalY = y;
 				}
-				else if (window != NULL && !newgun->mName.empty())
+				else if (window != NULL && !newgun->mName.empty() && Settings::getInstance()->getBool("ShowGunsNotifications"))
 					window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
 
 				mGuns.push_back(newgun);
@@ -638,7 +638,7 @@ void GunManager::updateGuns(Window* window)
 				iter++;
 			else
 			{
-				if (window != NULL && !gun->m_isMouse)
+				if (window != NULL && !gun->m_isMouse && Settings::getInstance()->getBool("ShowGunsNotifications"))
 					window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
 
 				LOG(LogInfo) << "Gun removed found at " << gun->mPath;
@@ -659,7 +659,7 @@ void GunManager::updateGuns(Window* window)
 
 			mGuns.push_back(newgun);
 
-			if (window != NULL)
+			if (window != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
 				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
 		}
 		else if (!hasWiimoteGun && mGuns.size())
@@ -669,7 +669,7 @@ void GunManager::updateGuns(Window* window)
 				Gun* gun = *it;
 				if (gun->mName == WIIMOTE_GUN)
 				{
-					if (window != NULL)
+					if (window != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
 						window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
 
 					mGuns.erase(it);
@@ -931,7 +931,7 @@ bool GunManager::udev_addGun(struct udev_device *dev, Window* window, bool needG
 	newgun->mNeedBorders = needGunBorder;
 	newgun->m_lastTick = SDL_GetTicks();
 
-	if (!newgun->mName.empty() && window != NULL)
+	if (!newgun->mName.empty() && window != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
 		window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
 
 	mGuns.push_back(newgun);
@@ -958,7 +958,7 @@ bool GunManager::udev_removeGun(struct udev_device *dev, Window* window)
 		if ((*iter)->devpath == devnode)
 		{
 			LOG(LogInfo) << "Gun removed found at " << devnode;
-			if (window != NULL)
+			if (window != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
 				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim((*iter)->mName).c_str()));
 
 			udev_closeGun(*iter);
