@@ -955,7 +955,12 @@ void Window::renderSplashScreen(std::string text, float percent, float opacity)
 		mSplash = std::make_shared<Splash>(this, getCustomSplashScreenImage());
 
 	mSplash->update(text, percent);
-	mSplash->render(opacity);	
+	mSplash->render(opacity);
+
+#if WIN32
+	SDL_Event evt;
+	SDL_PollEvent(&evt);
+#endif
 }
 
 void Window::renderSplashScreen(float opacity, bool swapBuffers)
