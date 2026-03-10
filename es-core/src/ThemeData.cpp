@@ -765,7 +765,7 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	mVariables["themePath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["region"] = mRegion;
 	mVariables["root"] = Utils::FileSystem::getParent(mPaths.back());
-	
+
 	for (auto name : Settings::getInstance()->getSettingsNames())
 	{
 		if (name.find(".") != std::string::npos)
@@ -1187,6 +1187,12 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 		return;
 
 	std::string val = node.text().as_string();
+
+	if (key == "variable" && node.attribute("name") && node.attribute("value"))
+	{
+		key = node.attribute("name").as_string();
+		val = resolvePlaceholders(node.attribute("value").as_string());
+	}
 
 	if (val == "true" || val == "false")
 	{
