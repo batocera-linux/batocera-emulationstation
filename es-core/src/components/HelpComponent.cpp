@@ -52,6 +52,7 @@ void HelpComponent::setPrompts(const std::vector<HelpPrompt>& prompts)
 
 void HelpComponent::setStyle(const HelpStyle& style)
 {
+
 	mGrid.reset();
 	mStyle = style;
 	updateGrid();
@@ -91,7 +92,7 @@ void HelpComponent::updateGrid()
 	const float height = Math::round(font->getLetterHeight() * 1.25f);
 	for (auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
 	{
-		auto icon = std::make_shared<ImageComponent>(mWindow);
+		auto icon = std::make_shared<ImageComponent>(mWindow, true);
 		icon->setIsLinear(true);
 
 		auto label = InputConfig::buttonLabel(it->first);
