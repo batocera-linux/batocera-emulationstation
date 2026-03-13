@@ -134,6 +134,7 @@ public:
 	void			sortChildren();
 	unsigned int	getChildCount() const;
 	GuiComponent*	getChild(unsigned int i) const;
+	std::vector<GuiComponent*>& getChildren() { return mChildren; }
 	bool			isChild(GuiComponent* cmp);
 
 	// Theming
