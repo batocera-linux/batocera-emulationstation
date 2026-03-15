@@ -1529,7 +1529,10 @@
     <game id="GhostBusters">
       <gun/>
     </game>
-    <game id="ghostsev" name="Ghost Squad Evolution">
+    <game id="ghostsev" name="Ghost Squad Evolution (Export)">
+      <gun/>
+    </game>
+    <game id="ghostsevj" name="Ghost Squad Evolution (Japan)">
       <gun/>
     </game>
     <game id="ghostsqo">
