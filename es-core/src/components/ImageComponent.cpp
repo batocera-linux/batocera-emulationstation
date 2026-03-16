@@ -12,7 +12,7 @@
 
 Vector2i ImageComponent::getTextureSize() const
 {
-	if (mTexture && mTexture->isLoaded())
+	if (mTexture/* && mTexture->isLoaded()*/)
 		return mTexture->getSize();	
 
 	return Vector2i::Zero();
@@ -83,7 +83,7 @@ void ImageComponent::setSize(float w, float h)
 
 void ImageComponent::resize()
 {
-	if (!mTexture || !mTexture->isLoaded())
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero()) // !mTexture->isLoaded())
 		return;
 
 	const Vector2f textureSize = mTexture->getPhysicalSize();
@@ -192,7 +192,8 @@ void ImageComponent::resize()
 
 void ImageComponent::updateVertices()
 {
-	if (mTexture == nullptr || !mTexture->isLoaded())
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero())
+	//if (mTexture == nullptr || !mTexture->isLoaded())
 		return;
 
 	Vector2f     topLeft = mSize * mTopLeftCrop;
@@ -619,8 +620,11 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible)
 		return;
 
-	if (!watchTextureLoading())
+	if (!mTextureLoaded && mTexture && !mTexture->isLoaded())
+	{
+		mTexture->bind();
 		return;
+	}
 
 	Transform4x4f trans = parentTrans * getTransform();
 	
@@ -750,8 +754,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 bool ImageComponent::watchTextureLoading()
 {
-	if (!mTextureLoaded && mTexture != nullptr && !mTexture->isLoaded() && !mTexture->bind())
-		return false;
+	if (mTextureLoaded)
+		return true;
 
 	if (mLoadingTexture && mLoadingTexture->isLoaded())
 	{
@@ -769,7 +773,10 @@ bool ImageComponent::watchTextureLoading()
 		mTextureLoaded = true;
 	}
 
-	if (!mTextureLoaded && mTexture && mTexture->isLoaded())
+	if (mTexture == nullptr)
+		return false;
+
+	if (!mTextureLoaded && mTexture && mTexture->getSize() != Vector2i::Zero())
 	{
 		mTexture->setRequired(isShowing());
 
@@ -778,9 +785,11 @@ bool ImageComponent::watchTextureLoading()
 		updateColors();
 
 		mTextureLoaded = true;
+
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)
@@ -1056,6 +1065,8 @@ void ImageComponent::onHide()
 void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	watchTextureLoading();
 
 	if (mPlaylist && isShowing())
 	{
