@@ -44,7 +44,8 @@ public:
 
 	bool bind();
 
-	static size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated); // returns an approximation of memory used by textures
+	static size_t getTotalMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated); // returns an approximation of memory used by textures
+	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
 
 	virtual bool unload();
 	virtual void reload();

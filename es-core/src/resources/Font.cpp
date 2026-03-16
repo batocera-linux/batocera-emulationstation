@@ -52,7 +52,7 @@ void Font::initLibrary()
 	}
 }
 
-size_t Font::getMemUsage() const
+size_t Font::getMemoryUsage() const
 {
 	size_t memUsage = 0;
 	
@@ -65,7 +65,7 @@ size_t Font::getMemUsage() const
 	return memUsage;
 }
 
-size_t Font::getTotalMemUsage()
+size_t Font::getTotalMemoryUsage()
 {
 	size_t total = 0;
 
@@ -78,7 +78,7 @@ size_t Font::getTotalMemUsage()
 			continue;
 		}
 
-		total += it->second.lock()->getMemUsage();
+		total += it->second.lock()->getMemoryUsage();
 		it++;
 	}
 

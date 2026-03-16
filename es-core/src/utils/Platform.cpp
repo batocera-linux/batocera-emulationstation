@@ -4,6 +4,7 @@
 
 #if WIN32
 #include <codecvt>
+#include <windows.h>
 #else
 #include <sys/types.h>
 #include <unistd.h>
@@ -12,6 +13,7 @@
 #include <sys/stat.h>
 #include <arpa/inet.h>
 #include <sys/wait.h>
+#include <unistd.h>
 #endif
 
 #include <fcntl.h>
@@ -689,6 +691,25 @@ namespace Utils
 #endif
 
 			return "";
+		}
+
+		unsigned long long getTotalSystemMemory() 
+		{
+#ifdef WIN32
+			MEMORYSTATUSEX status;
+			status.dwLength = sizeof(status);
+			if (GlobalMemoryStatusEx(&status))
+				return status.ullTotalPhys;
+			
+			return 0;
+#else
+			long pages = sysconf(_SC_PHYS_PAGES);
+			long page_size = sysconf(_SC_PAGE_SIZE);
+			if (pages == -1 || page_size == -1)
+				return 0;
+			
+			return (unsigned long long)pages * (unsigned long long)page_size;
+#endif
 		}
 	}
 }

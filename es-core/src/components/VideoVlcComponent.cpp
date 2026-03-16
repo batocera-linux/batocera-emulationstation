@@ -912,11 +912,16 @@ void VideoVlcComponent::stopVideo()
 	// Release the media player so it stops calling back to us
 	if (mMediaPlayer)
 	{
+		libvlc_media_player_set_media(mMediaPlayer, nullptr);
 		libvlc_video_set_callbacks(mMediaPlayer, nullptr, nullptr, nullptr, nullptr);
-		libvlc_media_player_stop(mMediaPlayer);
-
-		//libvlc_media_player_release(mMediaPlayer);
-		//mMediaPlayer = NULL;
+		libvlc_media_player_stop(mMediaPlayer);		
+	
+		// Reuse mMediaPlayer instance, only if there's no audio -> There's a bug in Vlc where the Audio doen't with another media on the same MediaPlayer instance
+		if (getPlayAudio() && (!mScreensaverMode && Settings::getInstance()->getBool("VideoAudio")) || (mScreensaverMode && !Settings::getInstance()->getBool("ScreenSaverVideoMute")))
+		{
+			libvlc_media_player_release(mMediaPlayer);
+			mMediaPlayer = NULL;
+		}
 	}
 
 	// Release the media

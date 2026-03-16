@@ -1491,16 +1491,18 @@ void ThemeData::parseSubsetsDefaults(const pugi::xml_node& root)
 {
 	for (pugi::xml_node node = root.child("subset"); node; node = node.next_sibling("subset"))
 	{
-		const std::string name = node.attribute("name").as_string();
+		const std::string name = node.attribute("name").as_string();		
 		if (name.empty())
 			continue;
 
 		if (!parseFilterAttributes(node))
 		{
-			mSubsetDefault[name] = "undefined";
+			if (mSubsetDefault.find(name) == mSubsetDefault.cend())
+				mSubsetDefault[name] = "undefined";
+
 			continue;
 		}
-
+		
 		for (pugi::xml_node child = node.child("include"); child; child = child.next_sibling("include"))
 		{
 			if (!parseFilterAttributes(child))
