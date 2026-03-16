@@ -148,15 +148,18 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 				parseGamelist(this, fileMap);
 		}
 
-		if (Settings::RemoveMultiDiskContent())
+		if (Settings::RemoveMultiDiskContent() && !skipScan)
 			removeMultiDiskContent(fileMap);
 
 		// Sync to database after a full scan
 		if (didScan)
 		{
 			GameDatabase* db = GameDatabase::getInstance();
-			if (db)
+			if (db && db->isInitialized())
+			{
+				LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: Syncing scan results to database";
 				db->syncSystem(this);
+			}
 		}
 	}
 	else

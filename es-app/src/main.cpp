@@ -569,9 +569,15 @@ int main(int argc, char* argv[])
 	MameNames::init();
 
 	// Initialize game database
+	if (Settings::SkipGameScanAtStartup())
 	{
 		std::string dbPath = Paths::getUserEmulationStationPath() + "/gamedatabase.db";
+		LOG(LogInfo) << "GameDatabase: SkipGameScanAtStartup is enabled, initializing database at " << dbPath;
 		GameDatabase::getInstance()->init(dbPath);
+	}
+	else
+	{
+		LOG(LogInfo) << "GameDatabase: SkipGameScanAtStartup is disabled, skipping database initialization";
 	}
 
 	const char* errorMsg = NULL;

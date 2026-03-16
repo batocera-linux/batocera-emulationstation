@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <mutex>
 
 struct sqlite3;
 struct sqlite3_stmt;
@@ -20,6 +21,7 @@ public:
 
 	bool init(const std::string& dbPath);
 	void deinit();
+	bool isInitialized() const { return mDb != nullptr; }
 
 	// Core operations
 	bool hasSystemCache(const std::string& systemName);
@@ -48,6 +50,7 @@ private:
 
 	sqlite3* mDb;
 	std::string mDbPath;
+	std::mutex mMutex;
 
 	static GameDatabase* sInstance;
 };

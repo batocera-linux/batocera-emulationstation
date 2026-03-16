@@ -462,8 +462,9 @@ void updateGamelist(SystemData* system)
 	if (!dirtyFiles.empty())
 	{
 		GameDatabase* db = GameDatabase::getInstance();
-		if (db)
+		if (db && db->isInitialized())
 		{
+			LOG(LogInfo) << "GameDatabase: Syncing " << dirtyFiles.size() << " dirty files for " << system->getName();
 			for (auto* file : dirtyFiles)
 			{
 				if (file->getType() == GAME)

@@ -383,6 +383,8 @@ bool GameDatabase::syncSystem(SystemData* system)
 	if (mDb == nullptr)
 		return false;
 
+	std::lock_guard<std::mutex> lock(mMutex);
+
 	const std::string& systemName = system->getName();
 	FolderData* root = system->getRootFolder();
 	if (root == nullptr)
@@ -452,10 +454,10 @@ bool GameDatabase::syncSystem(SystemData* system)
 
 	sqlite3_finalize(stmt);
 
+	exec("COMMIT");
+
 	// Remove games no longer on disk
 	removeStaleGames(systemName, validPaths);
-
-	exec("COMMIT");
 
 	LOG(LogInfo) << "GameDatabase: Synced " << games.size() << " games for " << systemName;
 	return true;
@@ -559,6 +561,8 @@ void GameDatabase::bindGameData(sqlite3_stmt* stmt, const std::string& systemNam
 
 bool GameDatabase::upsertGame(const std::string& systemName, FileData* game)
 {
+	std::lock_guard<std::mutex> lock(mMutex);
+
 	if (mDb == nullptr || game == nullptr)
 		return false;
 
@@ -614,6 +618,8 @@ bool GameDatabase::upsertGame(const std::string& systemName, FileData* game)
 
 bool GameDatabase::removeGame(const std::string& systemName, const std::string& path)
 {
+	std::lock_guard<std::mutex> lock(mMutex);
+
 	if (mDb == nullptr)
 		return false;
 
