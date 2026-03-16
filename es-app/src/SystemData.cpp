@@ -99,23 +99,29 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		bool didScan = false;
 		bool skipScan = Settings::SkipGameScanAtStartup() && !Settings::ParseGamelistOnly();
 
+		LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: SkipGameScanAtStartup=" << Settings::SkipGameScanAtStartup() << ", skipScan=" << skipScan;
+
 		// Try loading from database if scanning is disabled
 		if (skipScan)
 		{
 			GameDatabase* db = GameDatabase::getInstance();
 			if (db && db->hasSystemCache(mMetadata.name))
 			{
+				LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: Loading from database cache";
 				if (db->loadSystem(this, fileMap))
 				{
+					LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: Loaded from cache successfully";
 					didScan = false; // loaded from cache
 				}
 				else
 				{
+					LOG(LogWarning) << "SystemData[" << mMetadata.name << "]: Cache load failed, falling back to filesystem scan";
 					skipScan = false; // DB load failed, fall back to scan
 				}
 			}
 			else
 			{
+				LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: No cache exists, falling back to filesystem scan";
 				skipScan = false; // no cache exists yet, must scan
 			}
 		}
@@ -124,6 +130,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		{
 			if (!Settings::ParseGamelistOnly())
 			{
+				LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: Scanning filesystem";
 				populateFolder(mRootFolder, fileMap);
 				didScan = true;
 
