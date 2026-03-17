@@ -140,7 +140,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 	}
 
 	std::string relativeTo = system->getStartPath();
-	bool trustGamelist = Settings::ParseGamelistOnly();
+	bool trustGamelist = Settings::GameLoadingMode() == GAME_LOADING_GAMELIST_ONLY;
 
 	for (pugi::xml_node fileNode : root.children())
 	{

@@ -159,7 +159,7 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 	std::string relativeTo = mRelativeTo->getStartPath();
 
 	bool preloadMedias = Settings::PreloadMedias();
-	if (preloadMedias && Settings::ParseGamelistOnly())
+	if (preloadMedias && Settings::GameLoadingMode() == GAME_LOADING_GAMELIST_ONLY)
 		preloadMedias = false;
 
 	for (pugi::xml_node xelement : node.children())

@@ -97,9 +97,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		fileMap[mEnvData->mStartPath] = mRootFolder;
 
 		bool didScan = false;
-		bool skipScan = Settings::SkipGameScanAtStartup() && !Settings::ParseGamelistOnly();
+		bool skipScan = Settings::GameLoadingMode() == GAME_LOADING_DATABASE;
 
-		LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: SkipGameScanAtStartup=" << Settings::SkipGameScanAtStartup() << ", skipScan=" << skipScan;
+		LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: GameLoadingMode=" << Settings::GameLoadingMode() << ", skipScan=" << skipScan;
 
 		// Try loading from database if scanning is disabled
 		if (skipScan)
@@ -128,7 +128,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 		if (!skipScan)
 		{
-			if (!Settings::ParseGamelistOnly())
+			if (Settings::GameLoadingMode() != GAME_LOADING_GAMELIST_ONLY)
 			{
 				LOG(LogInfo) << "SystemData[" << mMetadata.name << "]: Scanning filesystem";
 				populateFolder(mRootFolder, fileMap);
