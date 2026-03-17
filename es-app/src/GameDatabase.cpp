@@ -9,6 +9,9 @@
 #include "utils/StringUtil.h"
 
 #include <sqlite3/sqlite3.h>
+#include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
 
 GameDatabase* GameDatabase::sInstance = nullptr;
 
@@ -48,7 +51,6 @@ bool GameDatabase::init(const std::string& dbPath)
 	// Enable WAL mode for better concurrent read performance
 	exec("PRAGMA journal_mode=WAL");
 	exec("PRAGMA synchronous=NORMAL");
-	exec("PRAGMA foreign_keys=ON");
 
 	if (!createTables())
 	{
@@ -95,7 +97,6 @@ bool GameDatabase::createTables()
 			{
 				LOG(LogInfo) << "GameDatabase: Schema version changed (" << version << " -> " << CURRENT_SCHEMA_VERSION << "), rebuilding cache";
 				sqlite3_finalize(stmt);
-				exec("DROP TABLE IF EXISTS game_metadata");
 				exec("DROP TABLE IF EXISTS games");
 				exec("DELETE FROM db_meta");
 			}
@@ -118,21 +119,13 @@ bool GameDatabase::createTables()
 			system TEXT NOT NULL,
 			path TEXT NOT NULL,
 			type INTEGER NOT NULL DEFAULT 0,
+			metadata TEXT,
 			last_synced TEXT DEFAULT CURRENT_TIMESTAMP,
 			UNIQUE(system, path)
 		);
 
 		CREATE INDEX IF NOT EXISTS idx_games_system ON games(system);
-
-		CREATE TABLE IF NOT EXISTS game_metadata (
-			game_id INTEGER NOT NULL,
-			key TEXT NOT NULL,
-			value TEXT NOT NULL,
-			PRIMARY KEY(game_id, key),
-			FOREIGN KEY(game_id) REFERENCES games(id) ON DELETE CASCADE
-		);
-
-		CREATE INDEX IF NOT EXISTS idx_gm_game_id ON game_metadata(game_id);
+		CREATE INDEX IF NOT EXISTS idx_games_system_path ON games(system, path);
 	)");
 
 	if (ok)
@@ -198,6 +191,60 @@ static std::string getColumnText(sqlite3_stmt* stmt, int col)
 	return text ? std::string(reinterpret_cast<const char*>(text)) : std::string();
 }
 
+// Serialize metadata to JSON string
+static std::string metadataToJson(FileData* game)
+{
+	const MetaDataList& md = game->getMetadata();
+	const auto& mdd = MetaDataList::getMDD();
+
+	rapidjson::StringBuffer sb;
+	rapidjson::Writer<rapidjson::StringBuffer> writer(sb);
+	writer.StartObject();
+
+	for (const auto& decl : mdd)
+	{
+		std::string val = md.get(decl.id, false);
+		if (val.empty() || val == decl.defaultValue)
+			continue;
+
+		writer.Key(decl.key.c_str());
+		writer.String(val.c_str());
+	}
+
+	writer.EndObject();
+	return sb.GetString();
+}
+
+// Deserialize JSON string into metadata
+static void jsonToMetadata(const std::string& json, MetaDataList& md, SystemData* system)
+{
+	md.setRelativeTo(system);
+
+	if (json.empty())
+		return;
+
+	rapidjson::Document doc;
+	doc.Parse(json.c_str());
+	if (doc.HasParseError() || !doc.IsObject())
+		return;
+
+	const auto& mdd = MetaDataList::getMDD();
+
+	for (const auto& decl : mdd)
+	{
+		auto it = doc.FindMember(decl.key.c_str());
+		if (it != doc.MemberEnd() && it->value.IsString())
+		{
+			std::string val = it->value.GetString();
+			if (!val.empty())
+				md.set(decl.id, val);
+		}
+	}
+
+	Genres::convertGenreToGenreIds(&md);
+	md.resetChangedFlag();
+}
+
 bool GameDatabase::loadSystem(SystemData* system, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	if (mDb == nullptr)
@@ -206,71 +253,34 @@ bool GameDatabase::loadSystem(SystemData* system, std::unordered_map<std::string
 	FolderData* root = system->getRootFolder();
 	const std::string& systemName = system->getName();
 
-	// Step 1: Load all games for this system
-	sqlite3_stmt* gameStmt = prepare(
-		"SELECT id, path, type FROM games WHERE system = ? ORDER BY path");
-	if (!gameStmt)
+	sqlite3_stmt* stmt = prepare(
+		"SELECT path, type, metadata FROM games WHERE system = ? ORDER BY path");
+	if (!stmt)
 		return false;
 
-	sqlite3_bind_text(gameStmt, 1, systemName.c_str(), -1, SQLITE_STATIC);
+	sqlite3_bind_text(stmt, 1, systemName.c_str(), -1, SQLITE_STATIC);
 
-	struct GameRow { int64_t id; std::string path; int type; };
-	std::vector<GameRow> gameRows;
-
-	while (sqlite3_step(gameStmt) == SQLITE_ROW)
-	{
-		GameRow row;
-		row.id = sqlite3_column_int64(gameStmt, 0);
-		row.path = getColumnText(gameStmt, 1);
-		row.type = sqlite3_column_int(gameStmt, 2);
-		gameRows.push_back(std::move(row));
-	}
-	sqlite3_finalize(gameStmt);
-
-	if (gameRows.empty())
-		return false;
-
-	// Step 2: Load all metadata for these games in one query
-	// Build a map of game_id -> vector of key/value pairs
-	std::unordered_map<int64_t, std::vector<std::pair<std::string, std::string>>> metadataMap;
-
-	// Load metadata for all games of this system via a join
-	sqlite3_stmt* metaStmt = prepare(
-		"SELECT gm.game_id, gm.key, gm.value FROM game_metadata gm "
-		"INNER JOIN games g ON gm.game_id = g.id "
-		"WHERE g.system = ? ORDER BY gm.game_id");
-	if (metaStmt)
-	{
-		sqlite3_bind_text(metaStmt, 1, systemName.c_str(), -1, SQLITE_STATIC);
-
-		while (sqlite3_step(metaStmt) == SQLITE_ROW)
-		{
-			int64_t gameId = sqlite3_column_int64(metaStmt, 0);
-			std::string key = getColumnText(metaStmt, 1);
-			std::string value = getColumnText(metaStmt, 2);
-			metadataMap[gameId].emplace_back(std::move(key), std::move(value));
-		}
-		sqlite3_finalize(metaStmt);
-	}
-
-	// Step 3: Create FileData objects
 	int count = 0;
-	for (const auto& row : gameRows)
+	while (sqlite3_step(stmt) == SQLITE_ROW)
 	{
-		FileData* game = loadGameFromRow(row.id, row.path, row.type, metadataMap, system, root, fileMap);
+		FileData* game = loadGameFromRow(stmt, system, root, fileMap);
 		if (game)
 			count++;
 	}
+
+	sqlite3_finalize(stmt);
 
 	LOG(LogInfo) << "GameDatabase: Loaded " << count << " games for " << systemName << " from cache";
 	return count > 0;
 }
 
-FileData* GameDatabase::loadGameFromRow(int64_t gameId, const std::string& path, int type,
-	const std::unordered_map<int64_t, std::vector<std::pair<std::string, std::string>>>& metadataMap,
-	SystemData* system, FolderData* root,
-	std::unordered_map<std::string, FileData*>& fileMap)
+FileData* GameDatabase::loadGameFromRow(sqlite3_stmt* stmt, SystemData* system, FolderData* root,
+										std::unordered_map<std::string, FileData*>& fileMap)
 {
+	std::string path = getColumnText(stmt, 0);    // path
+	int type = sqlite3_column_int(stmt, 1);        // type
+	std::string metadata = getColumnText(stmt, 2); // metadata JSON
+
 	if (path.empty())
 		return nullptr;
 
@@ -322,23 +332,9 @@ FileData* GameDatabase::loadGameFromRow(int64_t gameId, const std::string& path,
 			fileMap[key] = game;
 			treeNode->addChild(game);
 
-			// Set metadata from key-value pairs
+			// Deserialize metadata from JSON
 			MetaDataList& md = game->getMetadata();
-			md.setRelativeTo(system);
-
-			auto it = metadataMap.find(gameId);
-			if (it != metadataMap.end())
-			{
-				for (const auto& kv : it->second)
-				{
-					MetaDataId id = md.getId(kv.first);
-					if (id != MetaDataId::Name || !kv.second.empty()) // getId returns Name for unknown keys
-						md.set(id, kv.second);
-				}
-			}
-
-			Genres::convertGenreToGenreIds(&md);
-			md.resetChangedFlag();
+			jsonToMetadata(metadata, md, system);
 
 			return game;
 		}
@@ -371,88 +367,47 @@ bool GameDatabase::syncSystem(SystemData* system)
 		return false;
 
 	auto games = root->getFilesRecursive(GAME, false, nullptr, true);
-	const auto& mdd = MetaDataList::getMDD();
 
 	exec("BEGIN TRANSACTION");
 
 	std::vector<std::string> validPaths;
 	validPaths.reserve(games.size());
 
-	// Prepared statements
-	sqlite3_stmt* gameStmt = prepare(R"(
-		INSERT INTO games (system, path, type, last_synced)
-		VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+	sqlite3_stmt* stmt = prepare(R"(
+		INSERT INTO games (system, path, type, metadata, last_synced)
+		VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
 		ON CONFLICT(system, path) DO UPDATE SET
 			type=excluded.type,
+			metadata=excluded.metadata,
 			last_synced=CURRENT_TIMESTAMP
-		RETURNING id
 	)");
 
-	sqlite3_stmt* deleteMetaStmt = prepare("DELETE FROM game_metadata WHERE game_id = ?");
-
-	sqlite3_stmt* metaStmt = prepare(
-		"INSERT INTO game_metadata (game_id, key, value) VALUES (?, ?, ?)");
-
-	if (!gameStmt || !deleteMetaStmt || !metaStmt)
+	if (!stmt)
 	{
-		if (gameStmt) sqlite3_finalize(gameStmt);
-		if (deleteMetaStmt) sqlite3_finalize(deleteMetaStmt);
-		if (metaStmt) sqlite3_finalize(metaStmt);
 		exec("ROLLBACK");
 		return false;
 	}
 
 	for (auto* game : games)
 	{
-		const MetaDataList& md = game->getMetadata();
+		std::string json = metadataToJson(game);
 
-		// Upsert game row and get id
-		sqlite3_bind_text(gameStmt, 1, systemName.c_str(), -1, SQLITE_TRANSIENT);
-		sqlite3_bind_text(gameStmt, 2, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
-		sqlite3_bind_int(gameStmt, 3, game->getType());
+		sqlite3_bind_text(stmt, 1, systemName.c_str(), -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(stmt, 2, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
+		sqlite3_bind_int(stmt, 3, game->getType());
+		sqlite3_bind_text(stmt, 4, json.c_str(), -1, SQLITE_TRANSIENT);
 
-		int64_t gameId = -1;
-		if (sqlite3_step(gameStmt) == SQLITE_ROW)
-			gameId = sqlite3_column_int64(gameStmt, 0);
-
-		sqlite3_reset(gameStmt);
-		sqlite3_clear_bindings(gameStmt);
-
-		if (gameId < 0)
-			continue;
-
-		// Delete old metadata for this game
-		sqlite3_bind_int64(deleteMetaStmt, 1, gameId);
-		sqlite3_step(deleteMetaStmt);
-		sqlite3_reset(deleteMetaStmt);
-		sqlite3_clear_bindings(deleteMetaStmt);
-
-		// Insert metadata key-value pairs
-		for (const auto& decl : mdd)
-		{
-			std::string val = md.get(decl.id, false);
-			if (val.empty() || val == decl.defaultValue)
-				continue;
-
-			sqlite3_bind_int64(metaStmt, 1, gameId);
-			sqlite3_bind_text(metaStmt, 2, decl.key.c_str(), -1, SQLITE_STATIC);
-			sqlite3_bind_text(metaStmt, 3, val.c_str(), -1, SQLITE_TRANSIENT);
-			sqlite3_step(metaStmt);
-			sqlite3_reset(metaStmt);
-			sqlite3_clear_bindings(metaStmt);
-		}
-
+		sqlite3_step(stmt);
+		sqlite3_reset(stmt);
+		sqlite3_clear_bindings(stmt);
 		validPaths.push_back(game->getPath());
 	}
 
-	sqlite3_finalize(gameStmt);
-	sqlite3_finalize(deleteMetaStmt);
-	sqlite3_finalize(metaStmt);
+	sqlite3_finalize(stmt);
 
 	exec("COMMIT");
 
 	// Remove games no longer on disk (outside transaction to avoid temp table conflicts)
-	// CASCADE will clean up game_metadata automatically
 	removeStaleGames(systemName, validPaths);
 
 	LOG(LogInfo) << "GameDatabase: Synced " << games.size() << " games for " << systemName;
@@ -466,76 +421,29 @@ bool GameDatabase::upsertGame(const std::string& systemName, FileData* game)
 	if (mDb == nullptr || game == nullptr)
 		return false;
 
-	const MetaDataList& md = game->getMetadata();
-	const auto& mdd = MetaDataList::getMDD();
-
-	exec("BEGIN TRANSACTION");
-
-	// Upsert game row
-	sqlite3_stmt* gameStmt = prepare(R"(
-		INSERT INTO games (system, path, type, last_synced)
-		VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+	sqlite3_stmt* stmt = prepare(R"(
+		INSERT INTO games (system, path, type, metadata, last_synced)
+		VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
 		ON CONFLICT(system, path) DO UPDATE SET
 			type=excluded.type,
+			metadata=excluded.metadata,
 			last_synced=CURRENT_TIMESTAMP
-		RETURNING id
 	)");
 
-	if (!gameStmt)
-	{
-		exec("ROLLBACK");
+	if (!stmt)
 		return false;
-	}
 
-	sqlite3_bind_text(gameStmt, 1, systemName.c_str(), -1, SQLITE_TRANSIENT);
-	sqlite3_bind_text(gameStmt, 2, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
-	sqlite3_bind_int(gameStmt, 3, game->getType());
+	std::string json = metadataToJson(game);
 
-	int64_t gameId = -1;
-	if (sqlite3_step(gameStmt) == SQLITE_ROW)
-		gameId = sqlite3_column_int64(gameStmt, 0);
+	sqlite3_bind_text(stmt, 1, systemName.c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_text(stmt, 2, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_int(stmt, 3, game->getType());
+	sqlite3_bind_text(stmt, 4, json.c_str(), -1, SQLITE_TRANSIENT);
 
-	sqlite3_finalize(gameStmt);
+	int rc = sqlite3_step(stmt);
+	sqlite3_finalize(stmt);
 
-	if (gameId < 0)
-	{
-		exec("ROLLBACK");
-		return false;
-	}
-
-	// Delete old metadata
-	sqlite3_stmt* deleteStmt = prepare("DELETE FROM game_metadata WHERE game_id = ?");
-	if (deleteStmt)
-	{
-		sqlite3_bind_int64(deleteStmt, 1, gameId);
-		sqlite3_step(deleteStmt);
-		sqlite3_finalize(deleteStmt);
-	}
-
-	// Insert new metadata
-	sqlite3_stmt* metaStmt = prepare(
-		"INSERT INTO game_metadata (game_id, key, value) VALUES (?, ?, ?)");
-
-	if (metaStmt)
-	{
-		for (const auto& decl : mdd)
-		{
-			std::string val = md.get(decl.id, false);
-			if (val.empty() || val == decl.defaultValue)
-				continue;
-
-			sqlite3_bind_int64(metaStmt, 1, gameId);
-			sqlite3_bind_text(metaStmt, 2, decl.key.c_str(), -1, SQLITE_STATIC);
-			sqlite3_bind_text(metaStmt, 3, val.c_str(), -1, SQLITE_TRANSIENT);
-			sqlite3_step(metaStmt);
-			sqlite3_reset(metaStmt);
-			sqlite3_clear_bindings(metaStmt);
-		}
-		sqlite3_finalize(metaStmt);
-	}
-
-	exec("COMMIT");
-	return true;
+	return rc == SQLITE_DONE;
 }
 
 bool GameDatabase::removeGame(const std::string& systemName, const std::string& path)
@@ -545,7 +453,6 @@ bool GameDatabase::removeGame(const std::string& systemName, const std::string& 
 	if (mDb == nullptr)
 		return false;
 
-	// CASCADE will delete game_metadata rows automatically
 	sqlite3_stmt* stmt = prepare("DELETE FROM games WHERE system = ? AND path = ?");
 	if (!stmt)
 		return false;
@@ -581,7 +488,7 @@ int GameDatabase::removeStaleGames(const std::string& systemName, const std::vec
 	}
 	sqlite3_finalize(insertStmt);
 
-	// Delete games not in the valid paths set (CASCADE handles game_metadata)
+	// Delete games not in the valid paths set
 	sqlite3_stmt* deleteStmt = prepare(
 		"DELETE FROM games WHERE system = ? AND path NOT IN (SELECT path FROM valid_paths)");
 	if (!deleteStmt)

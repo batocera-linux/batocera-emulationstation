@@ -44,10 +44,8 @@ private:
 	bool exec(const std::string& sql);
 	sqlite3_stmt* prepare(const std::string& sql);
 
-	FileData* loadGameFromRow(int64_t gameId, const std::string& path, int type,
-		const std::unordered_map<int64_t, std::vector<std::pair<std::string, std::string>>>& metadataMap,
-		SystemData* system, FolderData* root,
-		std::unordered_map<std::string, FileData*>& fileMap);
+	FileData* loadGameFromRow(sqlite3_stmt* stmt, SystemData* system, FolderData* root,
+							  std::unordered_map<std::string, FileData*>& fileMap);
 
 	sqlite3* mDb;
 	std::string mDbPath;
