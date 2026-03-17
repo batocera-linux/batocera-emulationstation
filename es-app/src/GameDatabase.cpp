@@ -9,6 +9,9 @@
 #include "utils/StringUtil.h"
 
 #include <sqlite3/sqlite3.h>
+#include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
 
 GameDatabase* GameDatabase::sInstance = nullptr;
 
@@ -70,72 +73,65 @@ void GameDatabase::deinit()
 	}
 }
 
+static const char* CURRENT_SCHEMA_VERSION = "1";
+
 bool GameDatabase::createTables()
 {
-	return exec(R"(
+	// Create db_meta table first (if it doesn't exist)
+	exec(R"(
+		CREATE TABLE IF NOT EXISTS db_meta (
+			key TEXT PRIMARY KEY,
+			value TEXT
+		);
+	)");
+
+	// Check schema version — if outdated, drop and recreate
+	sqlite3_stmt* stmt = prepare("SELECT value FROM db_meta WHERE key = 'schema_version'");
+	if (stmt)
+	{
+		if (sqlite3_step(stmt) == SQLITE_ROW)
+		{
+			const unsigned char* text = sqlite3_column_text(stmt, 0);
+			std::string version = text ? std::string(reinterpret_cast<const char*>(text)) : std::string();
+			if (version != CURRENT_SCHEMA_VERSION)
+			{
+				LOG(LogInfo) << "GameDatabase: Schema version changed (" << version << " -> " << CURRENT_SCHEMA_VERSION << "), rebuilding cache";
+				sqlite3_finalize(stmt);
+				exec("DROP TABLE IF EXISTS games");
+				exec("DELETE FROM db_meta");
+			}
+			else
+			{
+				sqlite3_finalize(stmt);
+				return true; // schema is current, tables exist
+			}
+		}
+		else
+		{
+			sqlite3_finalize(stmt);
+		}
+	}
+
+	// Create tables
+	bool ok = exec(R"(
 		CREATE TABLE IF NOT EXISTS games (
 			id INTEGER PRIMARY KEY AUTOINCREMENT,
 			system TEXT NOT NULL,
 			path TEXT NOT NULL,
 			type INTEGER NOT NULL DEFAULT 0,
-			name TEXT,
-			sortname TEXT,
-			desc TEXT,
-			emulator TEXT,
-			core TEXT,
-			image TEXT,
-			video TEXT,
-			marquee TEXT,
-			thumbnail TEXT,
-			fanart TEXT,
-			titleshot TEXT,
-			cartridge TEXT,
-			boxart TEXT,
-			boxback TEXT,
-			wheel TEXT,
-			mix TEXT,
-			manual TEXT,
-			magazine TEXT,
-			map TEXT,
-			bezel TEXT,
-			rating TEXT,
-			releasedate TEXT,
-			developer TEXT,
-			publisher TEXT,
-			genre TEXT,
-			genre_ids TEXT,
-			arcade_system TEXT,
-			players TEXT,
-			favorite INTEGER DEFAULT 0,
-			hidden INTEGER DEFAULT 0,
-			kidgame INTEGER DEFAULT 0,
-			playcount INTEGER DEFAULT 0,
-			lastplayed TEXT,
-			crc32 TEXT,
-			md5 TEXT,
-			gametime INTEGER DEFAULT 0,
-			lang TEXT,
-			region TEXT,
-			cheevos_hash TEXT,
-			cheevos_id TEXT,
-			scraper_id TEXT,
-			family TEXT,
-			tags TEXT,
+			metadata TEXT,
 			last_synced TEXT DEFAULT CURRENT_TIMESTAMP,
 			UNIQUE(system, path)
 		);
 
 		CREATE INDEX IF NOT EXISTS idx_games_system ON games(system);
 		CREATE INDEX IF NOT EXISTS idx_games_system_path ON games(system, path);
-
-		CREATE TABLE IF NOT EXISTS db_meta (
-			key TEXT PRIMARY KEY,
-			value TEXT
-		);
-
-		INSERT OR IGNORE INTO db_meta (key, value)
-			VALUES ('schema_version', '1');
 	)");
+
+	if (ok)
+		exec("INSERT OR REPLACE INTO db_meta (key, value) VALUES ('schema_version', '" + std::string(CURRENT_SCHEMA_VERSION) + "')");
+
+	return ok;
 }
 
 bool GameDatabase::exec(const std::string& sql)
@@ -195,6 +191,60 @@ static std::string getColumnText(sqlite3_stmt* stmt, int col)
 	return text ? std::string(reinterpret_cast<const char*>(text)) : std::string();
 }
 
+// Serialize metadata to JSON string
+static std::string metadataToJson(FileData* game)
+{
+	const MetaDataList& md = game->getMetadata();
+	const auto& mdd = MetaDataList::getMDD();
+
+	rapidjson::StringBuffer sb;
+	rapidjson::Writer<rapidjson::StringBuffer> writer(sb);
+	writer.StartObject();
+
+	for (const auto& decl : mdd)
+	{
+		std::string val = md.get(decl.id, false);
+		if (val.empty() || val == decl.defaultValue)
+			continue;
+
+		writer.Key(decl.key.c_str());
+		writer.String(val.c_str());
+	}
+
+	writer.EndObject();
+	return sb.GetString();
+}
+
+// Deserialize JSON string into metadata
+static void jsonToMetadata(const std::string& json, MetaDataList& md, SystemData* system)
+{
+	md.setRelativeTo(system);
+
+	if (json.empty())
+		return;
+
+	rapidjson::Document doc;
+	doc.Parse(json.c_str());
+	if (doc.HasParseError() || !doc.IsObject())
+		return;
+
+	const auto& mdd = MetaDataList::getMDD();
+
+	for (const auto& decl : mdd)
+	{
+		auto it = doc.FindMember(decl.key.c_str());
+		if (it != doc.MemberEnd() && it->value.IsString())
+		{
+			std::string val = it->value.GetString();
+			if (!val.empty())
+				md.set(decl.id, val);
+		}
+	}
+
+	Genres::convertGenreToGenreIds(&md);
+	md.resetChangedFlag();
+}
+
 bool GameDatabase::loadSystem(SystemData* system, std::unordered_map<std::string, FileData*>& fileMap)
 {
 	if (mDb == nullptr)
@@ -204,14 +254,7 @@ bool GameDatabase::loadSystem(SystemData* system, std::unordered_map<std::string
 	const std::string& systemName = system->getName();
 
 	sqlite3_stmt* stmt = prepare(
-		"SELECT path, type, name, sortname, desc, emulator, core, "
-		"image, video, marquee, thumbnail, fanart, titleshot, cartridge, "
-		"boxart, boxback, wheel, mix, manual, magazine, map, bezel, "
-		"rating, releasedate, developer, publisher, genre, genre_ids, "
-		"arcade_system, players, favorite, hidden, kidgame, playcount, "
-		"lastplayed, crc32, md5, gametime, lang, region, "
-		"cheevos_hash, cheevos_id, scraper_id, family, tags "
-		"FROM games WHERE system = ? ORDER BY path");
+		"SELECT path, type, metadata FROM games WHERE system = ? ORDER BY path");
 	if (!stmt)
 		return false;
 
@@ -236,6 +279,7 @@ FileData* GameDatabase::loadGameFromRow(sqlite3_stmt* stmt, SystemData* system, 
 {
 	std::string path = getColumnText(stmt, 0);    // path
 	int type = sqlite3_column_int(stmt, 1);        // type
+	std::string metadata = getColumnText(stmt, 2); // metadata JSON
 
 	if (path.empty())
 		return nullptr;
@@ -288,77 +332,9 @@ FileData* GameDatabase::loadGameFromRow(sqlite3_stmt* stmt, SystemData* system, 
 			fileMap[key] = game;
 			treeNode->addChild(game);
 
-			// Set all metadata from DB columns
+			// Deserialize metadata from JSON
 			MetaDataList& md = game->getMetadata();
-
-			std::string name = getColumnText(stmt, 2);
-			if (!name.empty())
-				md.set(MetaDataId::Name, name);
-
-			auto setIfNotEmpty = [&](MetaDataId id, int col) {
-				std::string val = getColumnText(stmt, col);
-				if (!val.empty())
-					md.set(id, val);
-			};
-
-			setIfNotEmpty(MetaDataId::SortName,         3);
-			setIfNotEmpty(MetaDataId::Desc,             4);
-			setIfNotEmpty(MetaDataId::Emulator,         5);
-			setIfNotEmpty(MetaDataId::Core,             6);
-			setIfNotEmpty(MetaDataId::Image,            7);
-			setIfNotEmpty(MetaDataId::Video,            8);
-			setIfNotEmpty(MetaDataId::Marquee,          9);
-			setIfNotEmpty(MetaDataId::Thumbnail,        10);
-			setIfNotEmpty(MetaDataId::FanArt,           11);
-			setIfNotEmpty(MetaDataId::TitleShot,        12);
-			setIfNotEmpty(MetaDataId::Cartridge,        13);
-			setIfNotEmpty(MetaDataId::BoxArt,           14);
-			setIfNotEmpty(MetaDataId::BoxBack,          15);
-			setIfNotEmpty(MetaDataId::Wheel,            16);
-			setIfNotEmpty(MetaDataId::Mix,              17);
-			setIfNotEmpty(MetaDataId::Manual,           18);
-			setIfNotEmpty(MetaDataId::Magazine,         19);
-			setIfNotEmpty(MetaDataId::Map,              20);
-			setIfNotEmpty(MetaDataId::Bezel,            21);
-			setIfNotEmpty(MetaDataId::Rating,           22);
-			setIfNotEmpty(MetaDataId::ReleaseDate,      23);
-			setIfNotEmpty(MetaDataId::Developer,        24);
-			setIfNotEmpty(MetaDataId::Publisher,        25);
-			setIfNotEmpty(MetaDataId::Genre,            26);
-			setIfNotEmpty(MetaDataId::GenreIds,         27);
-			setIfNotEmpty(MetaDataId::ArcadeSystemName, 28);
-			setIfNotEmpty(MetaDataId::Players,          29);
-
-			// Bool/int fields
-			if (sqlite3_column_int(stmt, 30))
-				md.set(MetaDataId::Favorite, "true");
-			if (sqlite3_column_int(stmt, 31))
-				md.set(MetaDataId::Hidden, "true");
-			if (sqlite3_column_int(stmt, 32))
-				md.set(MetaDataId::KidGame, "true");
-
-			int playcount = sqlite3_column_int(stmt, 33);
-			if (playcount > 0)
-				md.set(MetaDataId::PlayCount, std::to_string(playcount));
-
-			setIfNotEmpty(MetaDataId::LastPlayed,  34);
-			setIfNotEmpty(MetaDataId::Crc32,       35);
-			setIfNotEmpty(MetaDataId::Md5,         36);
-
-			int gametime = sqlite3_column_int(stmt, 37);
-			if (gametime > 0)
-				md.set(MetaDataId::GameTime, std::to_string(gametime));
-
-			setIfNotEmpty(MetaDataId::Language,    38);
-			setIfNotEmpty(MetaDataId::Region,      39);
-			setIfNotEmpty(MetaDataId::CheevosHash, 40);
-			setIfNotEmpty(MetaDataId::CheevosId,   41);
-			setIfNotEmpty(MetaDataId::ScraperId,   42);
-			setIfNotEmpty(MetaDataId::Family,      43);
-			setIfNotEmpty(MetaDataId::Tags,        44);
-
-			Genres::convertGenreToGenreIds(&md);
-			md.resetChangedFlag();
+			jsonToMetadata(metadata, md, system);
 
 			return game;
 		}
@@ -398,42 +374,11 @@ bool GameDatabase::syncSystem(SystemData* system)
 	validPaths.reserve(games.size());
 
 	sqlite3_stmt* stmt = prepare(R"(
-		INSERT INTO games (system, path, type, name, sortname, desc,
-			emulator, core, image, video, marquee, thumbnail,
-			fanart, titleshot, cartridge, boxart, boxback, wheel, mix,
-			manual, magazine, map, bezel,
-			rating, releasedate, developer, publisher, genre,
-			genre_ids, arcade_system, players,
-			favorite, hidden, kidgame, playcount, lastplayed,
-			crc32, md5, gametime, lang, region,
-			cheevos_hash, cheevos_id, scraper_id, family, tags,
-			last_synced)
-		VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
-				?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
-				CURRENT_TIMESTAMP)
+		INSERT INTO games (system, path, type, metadata, last_synced)
+		VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
 		ON CONFLICT(system, path) DO UPDATE SET
 			type=excluded.type,
-			name=excluded.name, sortname=excluded.sortname,
-			desc=excluded.desc, emulator=excluded.emulator, core=excluded.core,
-			image=excluded.image, video=excluded.video, marquee=excluded.marquee,
-			thumbnail=excluded.thumbnail, fanart=excluded.fanart,
-			titleshot=excluded.titleshot, cartridge=excluded.cartridge,
-			boxart=excluded.boxart, boxback=excluded.boxback,
-			wheel=excluded.wheel, mix=excluded.mix,
-			manual=excluded.manual, magazine=excluded.magazine,
-			map=excluded.map, bezel=excluded.bezel,
-			rating=excluded.rating, releasedate=excluded.releasedate,
-			developer=excluded.developer, publisher=excluded.publisher,
-			genre=excluded.genre, genre_ids=excluded.genre_ids,
-			arcade_system=excluded.arcade_system, players=excluded.players,
-			favorite=excluded.favorite, hidden=excluded.hidden,
-			kidgame=excluded.kidgame, playcount=excluded.playcount,
-			lastplayed=excluded.lastplayed,
-			crc32=excluded.crc32, md5=excluded.md5,
-			gametime=excluded.gametime, lang=excluded.lang, region=excluded.region,
-			cheevos_hash=excluded.cheevos_hash, cheevos_id=excluded.cheevos_id,
-			scraper_id=excluded.scraper_id, family=excluded.family,
-			tags=excluded.tags,
+			metadata=excluded.metadata,
 			last_synced=CURRENT_TIMESTAMP
 	)");
 
@@ -445,7 +390,13 @@ bool GameDatabase::syncSystem(SystemData* system)
 
 	for (auto* game : games)
 	{
-		bindGameData(stmt, systemName, game);
+		std::string json = metadataToJson(game);
+
+		sqlite3_bind_text(stmt, 1, systemName.c_str(), -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(stmt, 2, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
+		sqlite3_bind_int(stmt, 3, game->getType());
+		sqlite3_bind_text(stmt, 4, json.c_str(), -1, SQLITE_TRANSIENT);
+
 		sqlite3_step(stmt);
 		sqlite3_reset(stmt);
 		sqlite3_clear_bindings(stmt);
@@ -456,107 +407,11 @@ bool GameDatabase::syncSystem(SystemData* system)
 
 	exec("COMMIT");
 
-	// Remove games no longer on disk
+	// Remove games no longer on disk (outside transaction to avoid temp table conflicts)
 	removeStaleGames(systemName, validPaths);
 
 	LOG(LogInfo) << "GameDatabase: Synced " << games.size() << " games for " << systemName;
 	return true;
-}
-
-void GameDatabase::bindGameData(sqlite3_stmt* stmt, const std::string& systemName, FileData* game)
-{
-	const MetaDataList& md = game->getMetadata();
-
-	int col = 1;
-
-	// system, path, type
-	sqlite3_bind_text(stmt, col++, systemName.c_str(), -1, SQLITE_TRANSIENT);
-	sqlite3_bind_text(stmt, col++, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
-	sqlite3_bind_int(stmt, col++, game->getType());
-
-	// Helper to bind text (use false for resolveRelativePaths to store relative paths)
-	auto bindText = [&](MetaDataId id) {
-		std::string val = md.get(id, false);
-		if (val.empty())
-			sqlite3_bind_null(stmt, col++);
-		else
-			sqlite3_bind_text(stmt, col++, val.c_str(), -1, SQLITE_TRANSIENT);
-	};
-
-	auto bindName = [&]() {
-		std::string val = md.getName();
-		if (val.empty())
-			sqlite3_bind_null(stmt, col++);
-		else
-			sqlite3_bind_text(stmt, col++, val.c_str(), -1, SQLITE_TRANSIENT);
-	};
-
-	// name
-	bindName();
-
-	// sortname, desc, emulator, core
-	bindText(MetaDataId::SortName);
-	bindText(MetaDataId::Desc);
-	bindText(MetaDataId::Emulator);
-	bindText(MetaDataId::Core);
-
-	// Media paths (store as relative)
-	bindText(MetaDataId::Image);
-	bindText(MetaDataId::Video);
-	bindText(MetaDataId::Marquee);
-	bindText(MetaDataId::Thumbnail);
-	bindText(MetaDataId::FanArt);
-	bindText(MetaDataId::TitleShot);
-	bindText(MetaDataId::Cartridge);
-	bindText(MetaDataId::BoxArt);
-	bindText(MetaDataId::BoxBack);
-	bindText(MetaDataId::Wheel);
-	bindText(MetaDataId::Mix);
-	bindText(MetaDataId::Manual);
-	bindText(MetaDataId::Magazine);
-	bindText(MetaDataId::Map);
-	bindText(MetaDataId::Bezel);
-
-	// rating, releasedate, developer, publisher, genre, genre_ids, arcade_system, players
-	bindText(MetaDataId::Rating);
-	bindText(MetaDataId::ReleaseDate);
-	bindText(MetaDataId::Developer);
-	bindText(MetaDataId::Publisher);
-	bindText(MetaDataId::Genre);
-	bindText(MetaDataId::GenreIds);
-	bindText(MetaDataId::ArcadeSystemName);
-	bindText(MetaDataId::Players);
-
-	// favorite, hidden, kidgame (as int 0/1)
-	sqlite3_bind_int(stmt, col++, md.get(MetaDataId::Favorite) == "true" ? 1 : 0);
-	sqlite3_bind_int(stmt, col++, md.get(MetaDataId::Hidden) == "true" ? 1 : 0);
-	sqlite3_bind_int(stmt, col++, md.get(MetaDataId::KidGame) == "true" ? 1 : 0);
-
-	// playcount
-	sqlite3_bind_int(stmt, col++, md.getInt(MetaDataId::PlayCount));
-
-	// lastplayed
-	bindText(MetaDataId::LastPlayed);
-
-	// crc32, md5
-	bindText(MetaDataId::Crc32);
-	bindText(MetaDataId::Md5);
-
-	// gametime
-	sqlite3_bind_int(stmt, col++, md.getInt(MetaDataId::GameTime));
-
-	// lang, region
-	bindText(MetaDataId::Language);
-	bindText(MetaDataId::Region);
-
-	// cheevos_hash, cheevos_id, scraper_id
-	bindText(MetaDataId::CheevosHash);
-	bindText(MetaDataId::CheevosId);
-	bindText(MetaDataId::ScraperId);
-
-	// family, tags
-	bindText(MetaDataId::Family);
-	bindText(MetaDataId::Tags);
 }
 
 bool GameDatabase::upsertGame(const std::string& systemName, FileData* game)
@@ -567,49 +422,24 @@ bool GameDatabase::upsertGame(const std::string& systemName, FileData* game)
 		return false;
 
 	sqlite3_stmt* stmt = prepare(R"(
-		INSERT INTO games (system, path, type, name, sortname, desc,
-			emulator, core, image, video, marquee, thumbnail,
-			fanart, titleshot, cartridge, boxart, boxback, wheel, mix,
-			manual, magazine, map, bezel,
-			rating, releasedate, developer, publisher, genre,
-			genre_ids, arcade_system, players,
-			favorite, hidden, kidgame, playcount, lastplayed,
-			crc32, md5, gametime, lang, region,
-			cheevos_hash, cheevos_id, scraper_id, family, tags,
-			last_synced)
-		VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
-				?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
-				CURRENT_TIMESTAMP)
+		INSERT INTO games (system, path, type, metadata, last_synced)
+		VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
 		ON CONFLICT(system, path) DO UPDATE SET
 			type=excluded.type,
-			name=excluded.name, sortname=excluded.sortname,
-			desc=excluded.desc, emulator=excluded.emulator, core=excluded.core,
-			image=excluded.image, video=excluded.video, marquee=excluded.marquee,
-			thumbnail=excluded.thumbnail, fanart=excluded.fanart,
-			titleshot=excluded.titleshot, cartridge=excluded.cartridge,
-			boxart=excluded.boxart, boxback=excluded.boxback,
-			wheel=excluded.wheel, mix=excluded.mix,
-			manual=excluded.manual, magazine=excluded.magazine,
-			map=excluded.map, bezel=excluded.bezel,
-			rating=excluded.rating, releasedate=excluded.releasedate,
-			developer=excluded.developer, publisher=excluded.publisher,
-			genre=excluded.genre, genre_ids=excluded.genre_ids,
-			arcade_system=excluded.arcade_system, players=excluded.players,
-			favorite=excluded.favorite, hidden=excluded.hidden,
-			kidgame=excluded.kidgame, playcount=excluded.playcount,
-			lastplayed=excluded.lastplayed,
-			crc32=excluded.crc32, md5=excluded.md5,
-			gametime=excluded.gametime, lang=excluded.lang, region=excluded.region,
-			cheevos_hash=excluded.cheevos_hash, cheevos_id=excluded.cheevos_id,
-			scraper_id=excluded.scraper_id, family=excluded.family,
-			tags=excluded.tags,
+			metadata=excluded.metadata,
 			last_synced=CURRENT_TIMESTAMP
 	)");
 
 	if (!stmt)
 		return false;
 
-	bindGameData(stmt, systemName, game);
+	std::string json = metadataToJson(game);
+
+	sqlite3_bind_text(stmt, 1, systemName.c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_text(stmt, 2, game->getPath().c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_int(stmt, 3, game->getType());
+	sqlite3_bind_text(stmt, 4, json.c_str(), -1, SQLITE_TRANSIENT);
+
 	int rc = sqlite3_step(stmt);
 	sqlite3_finalize(stmt);
 

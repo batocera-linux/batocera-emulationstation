@@ -44,7 +44,6 @@ private:
 	bool exec(const std::string& sql);
 	sqlite3_stmt* prepare(const std::string& sql);
 
-	void bindGameData(sqlite3_stmt* stmt, const std::string& systemName, FileData* game);
 	FileData* loadGameFromRow(sqlite3_stmt* stmt, SystemData* system, FolderData* root,
 							  std::unordered_map<std::string, FileData*>& fileMap);
 
