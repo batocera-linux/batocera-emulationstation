@@ -31,6 +31,11 @@
 #include "Win32ApiSystem.h"
 #endif
 
+#include <rapidjson/rapidjson.h>
+#include <rapidjson/document.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/writer.h>
+
 using namespace Utils;
 
 static std::map<std::string, std::function<BindableProperty(SystemData*)>> properties =
@@ -179,12 +184,59 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 		FolderData* current = stack.top();
 		stack.pop();
 
+		bool parseGamelistOnly = Settings::ParseGamelistOnly();
+
+		auto relativeTo = mRootFolder->getPath();
+
 		for (auto it : current->getChildren())
 		{
 			if (it->getType() == GAME && it->hasContentFiles())
 			{
-				for (auto ct : it->getContentFiles())
-					files.push_back(ct);
+				std::string json = parseGamelistOnly ? it->getMetadata().get("multidisk") : "";
+				if (!json.empty())
+				{
+					rapidjson::Document doc;
+					doc.Parse(json.c_str());
+
+					if (doc.IsArray())
+					{
+						for (auto& v : doc.GetArray())
+						{
+							if (v.IsString())
+							{
+								std::string file = v.GetString();
+								file = Utils::FileSystem::getAbsolutePath(file, relativeTo);
+								files.push_back(file);
+							}
+						}
+					}
+				}
+				else
+				{
+					rapidjson::Document doc;
+					doc.SetArray();
+
+					auto& allocator = doc.GetAllocator();
+
+					for (auto ct : it->getContentFiles())
+					{
+						auto relativePath = Utils::FileSystem::createRelativePath(ct, relativeTo, true);
+						doc.PushBack(rapidjson::Value(relativePath.c_str(), allocator), allocator);
+
+						files.push_back(ct);
+					}
+
+					rapidjson::StringBuffer buffer;
+					rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+					doc.Accept(writer);
+
+					std::string multidisk = buffer.GetString();
+					if (it->getMetadata().get("multidisk") != multidisk)
+					{
+						it->getMetadata().set("multidisk", multidisk);
+						it->getMetadata().setDirty();
+					}
+				}
 			}
 			else if (it->getType() == FOLDER)
 			{
