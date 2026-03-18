@@ -43,6 +43,7 @@
 #include "HttpReq.h"
 #include <thread>
 #include "ZaparooSupport.h"
+#include "GameDatabase.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -150,9 +151,26 @@ bool parseArgs(int argc, char* argv[])
 			int rotate = atoi(argv[i + 1]);
 			++i; // skip the argument value
 			Settings::getInstance()->setInt("ScreenRotate", rotate);
+		}else if(strcmp(argv[i], "--loading-mode") == 0)
+		{
+			if (i >= argc - 1)
+			{
+				std::cerr << "Invalid loading-mode supplied.";
+				return false;
+			}
+
+			std::string mode = argv[i + 1];
+			if (mode != GAME_LOADING_NORMAL && mode != GAME_LOADING_GAMELIST_ONLY && mode != GAME_LOADING_DATABASE)
+			{
+				std::cerr << "Invalid loading-mode value: " << mode << ". Must be normal, gamelistonly, or database.";
+				return false;
+			}
+
+			Settings::setGameLoadingMode(mode);
+			++i;
 		}else if(strcmp(argv[i], "--gamelist-only") == 0)
 		{
-			Settings::getInstance()->setBool("ParseGamelistOnly", true);
+			Settings::setGameLoadingMode(GAME_LOADING_GAMELIST_ONLY);
 		}else if(strcmp(argv[i], "--ignore-gamelist") == 0)
 		{
 			Settings::getInstance()->setBool("IgnoreGamelist", true);
@@ -237,7 +255,8 @@ bool parseArgs(int argc, char* argv[])
 				"Version " << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING << "\n\n"
 				"Command line arguments:\n"
 				"--resolution [width] [height]	try and force a particular resolution\n"
-				"--gamelist-only			skip automatic game search, only read from gamelist.xml\n"
+				"--loading-mode [normal|gamelistonly|database]	set game loading mode\n"
+				"--gamelist-only			skip automatic game search, only read from gamelist.xml (deprecated, use --loading-mode gamelistonly)\n"
 				"--ignore-gamelist		ignore the gamelist (useful for troubleshooting)\n"
 				"--draw-framerate		display the framerate\n"
 				"--no-exit			don't show the exit option in the menu\n"
@@ -567,6 +586,17 @@ int main(int argc, char* argv[])
 
 	MameNames::init();
 
+	// Initialize game database (only when using database cache mode)
+	if (Settings::GameLoadingMode() == GAME_LOADING_DATABASE)
+	{
+		std::string dbPath = Paths::getUserEmulationStationPath() + "/gamedatabase.db";
+		LOG(LogInfo) << "GameDatabase: GameLoadingMode is " << GAME_LOADING_DATABASE << ", initializing database at " << dbPath;
+		GameDatabase::getInstance()->init(dbPath);
+	}
+	else
+	{
+		LOG(LogInfo) << "GameDatabase: GameLoadingMode is " << Settings::GameLoadingMode() << ", skipping database initialization";
+	}
 
 	const char* errorMsg = NULL;
 	if(!loadSystemConfigFile(splashScreen && splashScreenProgress ? &window : nullptr, &errorMsg))
@@ -826,6 +856,7 @@ int main(int argc, char* argv[])
 	MameNames::deinit();
 	ViewController::saveState();
 	CollectionSystemManager::deinit();
+	GameDatabase::getInstance()->deinit();
 	SystemData::deleteSystems();
 	Scripting::exitScriptingEngine();
 

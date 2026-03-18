@@ -14,6 +14,11 @@
 #define DEFINE_FLOAT_SETTING(XX) static float XX() { return Settings::getInstance()->getFloat(#XX); }; static bool set##XX(float val) { return Settings::getInstance()->setFloat(#XX, val); };
 #define DEFINE_STRING_SETTING(XX) static std::string XX() { return Settings::getInstance()->getString(#XX); }; static bool set##XX(const std::string& val) { return Settings::getInstance()->setString(#XX, val); };
 
+// Game loading modes
+#define GAME_LOADING_NORMAL        "normal"
+#define GAME_LOADING_GAMELIST_ONLY "gamelistonly"
+#define GAME_LOADING_DATABASE      "database"
+
 // Cached static settings macros
 #define DECLARE_STATIC_BOOL_SETTING(XX) \
 private: \
@@ -104,7 +109,7 @@ public:
 	DEFINE_BOOL_SETTING(IgnoreGamelist)
 	DEFINE_BOOL_SETTING(SaveGamelistsOnExit)
 	DEFINE_BOOL_SETTING(RemoveMultiDiskContent)	
-	DEFINE_BOOL_SETTING(ParseGamelistOnly)
+	DEFINE_STRING_SETTING(GameLoadingMode)
 	DEFINE_BOOL_SETTING(ThreadedLoading)
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
