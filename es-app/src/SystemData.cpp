@@ -115,9 +115,14 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		}
 
 		if (!Settings::IgnoreGamelist())
-			parseGamelist(this, fileMap);		
+		{
+			if (!mHidden && Settings::PackGamelists())
+				packGamelist(this);
+
+			parseGamelist(this, fileMap);
+		}
 		
-		if (Settings::RemoveMultiDiskContent())
+		if (Settings::RemoveMultiDiskContent() || Settings::BuildMultiDiskContentCache())
 			removeMultiDiskContent(fileMap);
 	}
 	else
@@ -184,7 +189,7 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 		FolderData* current = stack.top();
 		stack.pop();
 
-		bool parseGamelistOnly = Settings::ParseGamelistOnly();
+		bool loadFromJson = !Settings::BuildMultiDiskContentCache();
 
 		auto relativeTo = mRootFolder->getPath();
 
@@ -192,7 +197,7 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 		{
 			if (it->getType() == GAME && it->hasContentFiles())
 			{
-				std::string json = parseGamelistOnly ? it->getMetadata().get("multidisk") : "";
+				std::string json = loadFromJson ? it->getMetadata().get("multidisk") : "";
 				if (!json.empty())
 				{
 					rapidjson::Document doc;
@@ -647,29 +652,29 @@ bool SystemData::loadFeatures()
 			emul.features = it->second.features;
 			emul.customFeatures = it->second.customFeatures;			
 
-			for (auto essystem : it->second.systemFeatures)
+			for (auto& essystem : it->second.systemFeatures)
 			{
 				if (essystem.name != systemName)
 					continue;
 
 				emul.features = emul.features | essystem.features;
-				for (auto feat : essystem.customFeatures)
+				for (auto& feat : essystem.customFeatures)
 					emul.customFeatures.push_back(feat);
 			}
 
 			for (auto& core : emul.cores)
 			{
-				for (auto escore : it->second.cores)
+				for (auto& escore : it->second.cores)
 				{
 					if (core.name != escore.name)
 						continue;
 					
 					core.features = core.features | escore.features;
 
-					for (auto feat : escore.customFeatures)
+					for (auto& feat : escore.customFeatures)
 						core.customFeatures.push_back(feat);
 
-					for (auto essystem : escore.systemFeatures)
+					for (auto& essystem : escore.systemFeatures)
 					{
 						if (essystem.name != systemName)
 							continue;
@@ -857,8 +862,16 @@ bool SystemData::loadConfig(Window* window)
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
+	auto buffer = Utils::FileSystem::readAllBytes(path);
+	if (!buffer.size())
+	{
+		LOG(LogError) << "Could not open es_systems.cfg file!";
+		return false;
+	}
+
+	//	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
+	pugi::xml_parse_result res = doc.load_buffer_inplace(buffer.data(), buffer.size(), pugi::parse_default);
 	if (!res)
 	{
 		LOG(LogError) << "Could not parse es_systems.cfg file!";

@@ -114,6 +114,8 @@ public:
 	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_BOOL_SETTING(HideUniqueGroups)
 	DEFINE_BOOL_SETTING(DrawGunCrosshair)
+	DEFINE_BOOL_SETTING(PackGamelists)
+	DEFINE_BOOL_SETTING(BuildMultiDiskContentCache)
 	DEFINE_STRING_SETTING(HiddenSystems)
 	DEFINE_STRING_SETTING(TransitionStyle)
 	DEFINE_STRING_SETTING(GameTransitionStyle)		

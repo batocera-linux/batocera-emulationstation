@@ -711,14 +711,14 @@ ThemeData::ThemeData(bool temporary)
 
 ThemeFileCache* ThemeFileCache::_instance;
 
-pugi::xml_document& ThemeFileCache::getXmlDocument(const std::string& path)
+std::string& ThemeFileCache::getXmlDocument(const std::string& path)
 {
 	std::unique_lock<std::mutex> lock(_lock);
 
 	auto it = _cache.find(path);
 	if (it != _cache.cend())
-		return *it->second;
-	
+		return it->second;
+	/*
 	pugi::xml_document* doc = new pugi::xml_document();
 	pugi::xml_parse_result res = doc->load_file(WINSTRINGW(path).c_str());
 	if (!res)
@@ -726,17 +726,18 @@ pugi::xml_document& ThemeFileCache::getXmlDocument(const std::string& path)
 		ThemeException error;
 		throw error << "XML parsing error: \n    " << res.description();
 	}
-
-	_cache[path] = doc;
-	return *doc;
+	*/
+	_cache[path] = Utils::FileSystem::readAllText(path);
+	std::string& buffer = _cache[path];	
+	return buffer;
 }
 
 void ThemeFileCache::clear()
 {
 	std::unique_lock<std::mutex> lock(_lock);
 	
-	for (auto& item : _cache)
-		delete item.second;
+//	for (auto& item : _cache)
+//		delete item.second;
 
 	_cache.clear();
 }
@@ -805,8 +806,8 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	
 	if (fromFile)
 	{
-		pugi::xml_document& cached = ThemeFileCache::getInstance().getXmlDocument(path);
-		doc.reset(cached);
+		const std::string& xmlData = ThemeFileCache::getInstance().getXmlDocument(path);
+		doc.load_buffer(xmlData.c_str(), xmlData.size());
 	}
 	else
 	{
@@ -2767,8 +2768,8 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 
 	try
 	{
-		pugi::xml_document& cached = ThemeFileCache::getInstance().getXmlDocument(path);
-		includeDoc.reset(cached);
+		const std::string& xmlData = ThemeFileCache::getInstance().getXmlDocument(path);
+		includeDoc.load_buffer(xmlData.c_str(), xmlData.size());
 	}
 	catch (ThemeException& e)
 	{

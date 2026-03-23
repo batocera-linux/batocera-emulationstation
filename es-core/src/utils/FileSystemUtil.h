@@ -66,6 +66,8 @@ namespace Utils
 
 		std::string	readAllText(const std::string& fileName);
 		stringList	readAllLines(const std::string& fileName);
+		std::vector<char> readAllBytes(const std::string& fileName);
+
 		void		writeAllText(const std::string& fileName, const std::string& text);
 		bool		copyFile(const std::string src, const std::string dst);
 		void		deleteDirectoryFiles(const std::string path, bool deleteDirectory = false);
