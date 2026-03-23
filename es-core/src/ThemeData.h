@@ -271,7 +271,7 @@ public:
 
 		};
 
-		std::map<std::string, Property> properties;
+		std::unordered_map<std::string, Property> properties;
 
 		template<typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0> 
 		const T get(const std::string& prop) const
@@ -585,11 +585,11 @@ public:
 	}
 
 public:
-	pugi::xml_document& getXmlDocument(const std::string& path);
+	std::string& getXmlDocument(const std::string& path);
 	void clear();
 
 private:
-	std::map<std::string, pugi::xml_document*> _cache;
+	std::unordered_map<std::string, std::string> _cache;
 	std::mutex _lock;
 
 	static ThemeFileCache* _instance;

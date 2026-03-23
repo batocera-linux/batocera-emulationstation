@@ -100,6 +100,8 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenOffsetY" },
 	{ "ScreenRotate" },
 	{ "MonitorID" },
+	{ "PackGamelists" },
+	{ "BuildMultiDiskContentCache" }
 };
 
 Settings::Settings() : mLoaded(false)
@@ -191,6 +193,8 @@ void Settings::setDefaults()
 	mStringMap["ShowBattery"] = "text";
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	mBoolMap["RemoveMultiDiskContent"] = true;
+	mBoolMap["PackGamelists"] = false;
+	mBoolMap["BuildMultiDiskContentCache"] = false;	
 
 	mBoolMap["ShowNetworkIndicator"] = Settings::_ShowNetworkIndicator;
 

@@ -3102,7 +3102,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMELISTS?"), _("YES"), [window]
 		{
 			Scripting::fireEvent("update-gamelists");
-			ViewController::reloadAllGames(window, true, true);
+			ViewController::reloadAllGames(window, true, true, true);
 		}, 
 		_("NO"), nullptr));
 }

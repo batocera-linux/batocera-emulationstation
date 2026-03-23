@@ -31,6 +31,7 @@
 #include "TextToSpeech.h"
 #include "VolumeControl.h"
 #include "guis/GuiNetPlay.h"
+#include "Gamelist.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -1332,10 +1333,24 @@ void ViewController::onScreenSaverDeactivate()
 		mCurrentView->onScreenSaverDeactivate();
 }
 
-void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool doCallExternalTriggers)
+void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool doCallExternalTriggers, bool updateGameLists)
 {
 	if (sInstance == nullptr)
 		return;
+
+	bool parseGamelistOnly = Settings::ParseGamelistOnly();
+	bool ignoreGamelist = Settings::IgnoreGamelist();
+	bool removeMultiDiskContent = Settings::RemoveMultiDiskContent();
+
+	if (updateGameLists)
+	{
+		Settings::setParseGamelistOnly(false);
+		Settings::setIgnoreGamelist(false);
+		Settings::setRemoveMultiDiskContent(true);
+		
+		Settings::setPackGamelists(parseGamelistOnly);
+		Settings::setBuildMultiDiskContentCache(true);
+	}
 
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
@@ -1368,7 +1383,7 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 		ApiSystem::getInstance()->callBatoceraPreGameListsHook();
 
 	ViewController::init(window);
-	
+
 	CollectionSystemManager::init(window);		
 	SystemData::loadConfig(window);
 	
@@ -1377,6 +1392,15 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 
 	window->closeSplashScreen();
 	window->pushGui(ViewController::get());
+
+	if (updateGameLists)
+	{
+		Settings::setParseGamelistOnly(parseGamelistOnly);
+		Settings::setIgnoreGamelist(ignoreGamelist);
+		Settings::setRemoveMultiDiskContent(removeMultiDiskContent);		
+		Settings::setPackGamelists(false);
+		Settings::setBuildMultiDiskContentCache(false);
+	}
 }
 
 void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)

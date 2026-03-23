@@ -229,32 +229,31 @@ namespace Utils
 					FINDEX_INFO_LEVELS::FindExInfoBasic, &findData, FINDEX_SEARCH_OPS::FindExSearchNameMatch
 					, NULL, FIND_FIRST_EX_LARGE_FETCH);
 
-				if(hFind != INVALID_HANDLE_VALUE)
+				if (hFind != INVALID_HANDLE_VALUE)
 				{
+					std::string pathPrefix = path + "/";
+
 					// loop over all files in the directory
 					do
 					{
-						std::string name = Utils::String::convertFromWideString(findData.cFileName);
-
-						// ignore "." and ".."
-						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && name == "." || name == "..")
+						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && 
+							(findData.cFileName[0] == L'.' && (findData.cFileName[1] == L'\0' || (findData.cFileName[1] == L'.' && findData.cFileName[2] == L'\0'))))
 							continue;
 
-						std::string fullName(getGenericPath(path + "/" + name));
+						std::string fullName = getGenericPath(pathPrefix + Utils::String::convertFromWideString(findData.cFileName));
 						FileCache::add(fullName, std::move(FileCache((DWORD)findData.dwFileAttributes)));
 
 						if (!includeHidden && (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN)
 							continue;
 
-						contentList.push_back(fullName);						
+						contentList.push_back(fullName);
 
 						if (_recursive && (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
 						{
 							for (auto item : getDirContent(fullName, true, includeHidden))
 								contentList.push_back(item);
 						}
-					}
-					while(FindNextFileW(hFind, &findData));
+					} while (FindNextFileW(hFind, &findData));
 
 					FindClose(hFind);
 				}
@@ -338,11 +337,11 @@ namespace Utils
 					{
 						if (uDriveMask & 1)
 						{
-							FileInfo fi;
+							contentList.emplace_back();
+							FileInfo& fi = contentList.back();												
 							fi.path = std::string(1, drive) + ":";
 							fi.hidden = false;
-							fi.directory = true;
-							contentList.push_back(std::move(fi));
+							fi.directory = true;							
 						}
 
 						drive++;
@@ -351,9 +350,6 @@ namespace Utils
 
 					return contentList;
 				}
-
-
-
 
 				WIN32_FIND_DATAW findData;
 				std::string      wildcard = path + "/*";
@@ -364,6 +360,8 @@ namespace Utils
 
 				if (hFind != INVALID_HANDLE_VALUE)
 				{
+					std::string pathPrefix = path + "/";
+
 					// loop over all files in the directory
 					do
 					{
@@ -374,15 +372,14 @@ namespace Utils
 							(findData.cFileName[0] == '.' && (findData.cFileName[1] == '.' || findData.cFileName[1] == 0)))
 							continue;
 
-						FileInfo fi;
-						fi.path = path + "/" + Utils::String::convertFromWideString(findData.cFileName);
+						contentList.emplace_back();
+						FileInfo& fi = contentList.back();						
+						fi.path = pathPrefix + Utils::String::convertFromWideString(findData.cFileName);
 						fi.hidden = (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN;
 						fi.directory = (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY;
 						fi.lastWriteTime = to_time_t(findData.ftLastWriteTime);						
 
-						FileCache::add(fi.path, std::move(FileCache((DWORD)findData.dwFileAttributes)));
-
-						contentList.push_back(std::move(fi));
+						FileCache::add(fi.path, std::move(FileCache((DWORD)findData.dwFileAttributes)));						
 					} 
 					while (FindNextFileW(hFind, &findData));
 
@@ -1220,6 +1217,25 @@ namespace Utils
 				return;
 			
 			file.seekg(0);
+		}
+
+		std::vector<char> readAllBytes(const std::string& fileName)
+		{
+			std::ifstream file(WINSTRINGW(fileName), std::ios::binary | std::ios::ate);
+			if (!file.is_open())
+				return {};
+
+			std::streamsize size = file.tellg();
+			if (size <= 0)
+				return {};
+
+			file.seekg(0, std::ios::beg);
+			
+			std::vector<char> buffer(size);			
+			if (!file.read(buffer.data(), size))
+				return {};
+
+			return buffer;
 		}
 
 		std::list<std::string> readAllLines(const std::string& fileName)

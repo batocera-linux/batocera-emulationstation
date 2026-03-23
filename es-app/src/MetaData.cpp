@@ -146,7 +146,7 @@ MetaDataId MetaDataList::getId(const std::string& key) const
 
 MetaDataList::MetaDataList(MetaDataListType type) : mType(type), mWasChanged(false), mRelativeTo(nullptr)
 {
-
+	memset(mIndices, -1, sizeof(mIndices));
 }
 
 void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system)
@@ -294,16 +294,18 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 		if (mddIter->id == MetaDataId::GenreIds)
 			continue;
 
-		auto mapIter = mMap.find(mddIter->id);
-		if(mapIter != mMap.cend())
+		auto idx = mIndices[mddIter->id];
+		//auto mapIter = mMap.find(mddIter->id);
+		//if(mapIter != mMap.cend())
+		if (idx >= 0)
 		{
 			// we have this value!
 			// if it's just the default (and we ignore defaults), don't write it
-			if (ignoreDefaults && mapIter->second == mddIter->defaultValue)
+			if (ignoreDefaults && mValues[idx] == mddIter->defaultValue) // mapIter->second 
 				continue;
 
 			// try and make paths relative if we can
-			std::string value = mapIter->second;
+			std::string value = mValues[idx]; // mapIter->second;
 			if (mddIter->type == MD_PATH)
 			{
 				if (fullPaths && mRelativeTo != nullptr)
@@ -365,21 +367,40 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 		return;
 	}
 
-	// Players -> remove "1-"
-	// if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
-	// {
-	// 	mMap[id] = Utils::String::replace(value, "1-", "");
-	// 	return;
-	// }
-
-	auto prev = mMap.find(id);
-	if (prev != mMap.cend() && prev->second == value)
+	auto idx = mIndices[id];
+	if (idx >= 0 && mValues[idx] == value)
+//	auto prev = mMap.find(id);
+	// if (prev != mMap.cend() && prev->second == value)
 		return;
 
-	if (mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-		mMap[id] = Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
+	#define IS_TRIMCHAR(c) (c == ' ' || c == '\t' || c == '\r' || c == '\n')
+
+	if (mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths	
+	{
+		if (idx < 0)
+		{
+			if (value.size())
+			{
+				mIndices[id] = (int8_t)mValues.size();
+				mValues.push_back(value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true));
+			}
+		}
+		else
+			mValues[idx] = value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
+	}
 	else
-		mMap[id] = Utils::String::trim(value);
+	{
+		if (idx < 0)
+		{
+			if (value.size())
+			{
+				mIndices[id] = (int8_t)mValues.size();
+				mValues.push_back(value.size() && IS_TRIMCHAR(value[0]) && IS_TRIMCHAR(value.back()) ? Utils::String::trim(value) : value);
+			}
+		}
+		else
+			mValues[idx] = value.size() && IS_TRIMCHAR(value[0]) && IS_TRIMCHAR(value.back()) ? Utils::String::trim(value) : value;
+	}
 
 	mWasChanged = true;
 }
@@ -389,13 +410,16 @@ const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) co
 	if (id == MetaDataId::Name)
 		return mName;
 
-	auto it = mMap.find(id);
-	if (it != mMap.end())
+	auto idx = mIndices[id];
+	if (idx >= 0)
+//	auto it = mMap.find(id);
+//	if (it != mMap.end())
 	{
+		
 		if (resolveRelativePaths && mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-			return Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true);
+			return Utils::FileSystem::resolveRelativePath(mValues[idx]/*it->second*/, mRelativeTo->getStartPath(), true);
 
-		return it->second;
+		return mValues[idx]; // it->second;
 	}
 
 	return mDefaultGameMap[id];
