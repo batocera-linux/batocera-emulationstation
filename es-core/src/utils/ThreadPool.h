@@ -6,6 +6,9 @@
 #include <queue>
 #include <atomic>
 #include <functional>
+#include <memory>
+#include <vector>
+#include <initializer_list>
 
 namespace Utils
 {
