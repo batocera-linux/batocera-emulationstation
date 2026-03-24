@@ -40,6 +40,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mReflection(0.0f, 0.0f), mSharedTexture(true), mCustomShaderEnabled(true)
 {
 	mTextureLoaded = false;
+	mLoadingTextureLoaded = false;
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
 	mCheckClipping = true;
@@ -390,6 +391,7 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		mTexture->setRequired(true);
 	}
 
+	mLoadingTextureLoaded = mLoadingTexture != nullptr && mLoadingTexture->isLoaded();
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (mLoadingTexture == nullptr && !mTargetSize.empty())
@@ -411,6 +413,7 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 	}
 
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	resize();
 }
 
@@ -754,10 +757,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 bool ImageComponent::watchTextureLoading()
 {
-	if (mTextureLoaded)
-		return true;
-
-	if (mLoadingTexture && mLoadingTexture->isLoaded())
+	if (!mLoadingTextureLoaded && mLoadingTexture && mLoadingTexture->isLoaded())
 	{
 		if (mTexture != nullptr)
 			mTexture->setRequired(false);
@@ -770,13 +770,15 @@ bool ImageComponent::watchTextureLoading()
 		updateVertices();
 		updateColors();
 
+		mLoadingTextureLoaded = true;
 		mTextureLoaded = true;
+		return true;
 	}
 
 	if (mTexture == nullptr)
 		return false;
 
-	if (!mTextureLoaded && mTexture && mTexture->getSize() != Vector2i::Zero())
+	if (!mTextureLoaded && mTexture->getSize() != Vector2i::Zero())
 	{
 		mTexture->setRequired(isShowing());
 
