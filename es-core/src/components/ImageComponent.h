@@ -132,9 +132,11 @@ public:
 
 protected:
 	std::shared_ptr<TextureResource> mTexture;
-	std::shared_ptr<TextureResource> mLoadingTexture;
 	bool mTextureLoaded;
 
+	std::shared_ptr<TextureResource> mLoadingTexture;
+	bool mLoadingTextureLoaded;
+	
 	Vector2f mTargetSize;
 
 	void	recalcLayout() override;
