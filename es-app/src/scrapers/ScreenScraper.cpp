@@ -139,6 +139,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 
 	// Misc
 	{ VIC20, 73 },
+	{ ELEKTRONIKA_BK, 93 },
 	{ ORICATMOS, 131 },
 	{ CHANNELF, 80 },
 	{ THOMSON_TO_MO, 141 },
