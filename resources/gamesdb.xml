@@ -132,6 +132,9 @@
     <game id="amerdart3">
       <trackball/>
     </game>
+    <game id="AmericaArmy">
+      <gun/>
+    </game>
     <game id="amerug">
       <trackball/>
     </game>
@@ -1094,6 +1097,9 @@
     <game id="dblaxleul">
       <wheel rotation="360"/>
     </game>
+    <game id="DCOP">
+      <gun/>
+    </game>
     <game id="dday">
       <spinner/>
     </game>
@@ -1197,6 +1203,9 @@
       <gun/>
     </game>
     <game id="Drakons">
+      <gun/>
+    </game>
+    <game id="DreamRaiders">
       <gun/>
     </game>
     <game id="drivedge">
@@ -1570,6 +1579,9 @@
     </game>
     <game id="goindolu">
       <spinner/>
+    </game>
+    <game id="GoldenGun">
+      <gun/>
     </game>
     <game id="golgo13">
       <gun/>
@@ -2186,6 +2198,9 @@
     <game id="IDZv2TP">
       <wheel/>
     </game>
+    <game id="InfiniteBlade">
+      <gun/>
+    </game>
     <game id="imolagp">
       <wheel rotation="270"/>
     </game>
@@ -2465,6 +2480,9 @@
     <game id="lethalj">
       <gun/>
     </game>
+    <game id="LetsGoIsland">
+      <gun/>
+    </game>
     <game id="letsgoju" name="Let's Go Jungle!: Lost on the Island of Spice (Export)">
       <gun/>
     </game>
@@ -2563,6 +2581,9 @@
     <game id="lupinshoo">
       <gun/>
     </game>
+    <game id="MadBullets">
+      <gun/>
+    </game>
     <game id="maddog">
       <gun/>
     </game>
@@ -2631,6 +2652,9 @@
     </game>
     <game id="marinedt">
       <trackball/>
+    </game>
+    <game id="MarsSortie">
+      <gun/>
     </game>
     <game id="maxf_102">
       <gun/>
@@ -2776,8 +2800,14 @@
     <game id="MusicGunGun2">
       <gun/>
     </game>
+    <game id="NerfArcade">
+      <gun/>
+    </game>
     <game id="NicktoonsNitro">
       <wheel/>
+    </game>
+    <game id="NightHunter">
+      <gun/>
     </game>
     <game id="ninjaslt">
       <gun/>
@@ -2875,6 +2905,9 @@
       <gun/>
     </game>
     <game id="optiger">
+      <gun/>
+    </game>
+    <game id="OperationGhost">
       <gun/>
     </game>
     <game id="opwolf">
@@ -4461,6 +4494,9 @@
     <game id="timecris">
       <gun/>
     </game>
+    <game id="TimeCrisis5">
+      <gun/>
+    </game>
     <game id="timecrisa">
       <gun/>
     </game>
@@ -4934,6 +4970,9 @@
       <gun/>
     </game>
     <game id="wildplt">
+      <gun/>
+    </game>
+    <game id="WildWestShootout">
       <gun/>
     </game>
     <game id="windheat">
