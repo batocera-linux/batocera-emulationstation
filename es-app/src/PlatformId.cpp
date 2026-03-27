@@ -171,6 +171,7 @@ namespace PlatformIds
 		{ "astrocade",				ASTROCADE },
 		{ "archimedes",				ARCHIMEDES },			
 		{ "adam",					ADAM },
+		{ "bk",						ELEKTRONIKA_BK },
 
 		{ "fmtowns",				FMTOWNS },
 		{ "cdi",					PHILIPS_CDI },			
