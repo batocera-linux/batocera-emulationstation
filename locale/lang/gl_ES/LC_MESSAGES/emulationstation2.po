@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-11-26 23:32+0100\n"
+"PO-Revision-Date: 2026-03-22 19:57+0100\n"
 "Last-Translator: ninjum, enfeitizador\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -11,6 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BUSCANDO BLUETOOTH"
@@ -52,16 +53,16 @@ msgid "enter game genre"
 msgstr "insire xénero do xogo"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetas"
 
 msgid "tags"
-msgstr ""
+msgstr "etiquetas"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Nome de ordenación"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "introducir nome de ordenación do xogo"
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -928,10 +929,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AXUSTES MANDO A TECLA"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "AUDITADOR MANUAL"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "AUDITADORES INCLUÍDOS"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -1617,15 +1618,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "IDIOMA (REXIÓN)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "DISPOSICIÓN DO TECLADO"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "VARIANTE DO TECLADO"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Selecciona a disposición do teclado físico. Pode ser preciso reiniciar para "
+"cos trocos teñan efecto completo."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECCIONA A TÚA ZONA HORARIA"
@@ -1797,10 +1800,10 @@ msgid "BACKUP USER DATA"
 msgstr "COPIA DE SEGURANZA DOS DATOS DE USUARIO"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "EXPULSAR UN DISCO ADICIONAL"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TIPO DE SISTEMA DE FICHEIROS DA UNIDADE EXTRA"
 
 msgid "ADVANCED"
 msgstr "AVANZADO"
@@ -2076,7 +2079,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "AMOSAR '..' CARTAFOL PADRÓN"
 
 msgid "ICONS"
-msgstr ""
+msgstr "ICONAS"
 
 msgid "AFTER NAME"
 msgstr "DESPOIS DO NOME"
@@ -2085,7 +2088,7 @@ msgid "BEFORE NAME"
 msgstr "ANTES DO NOME"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "AMOSAR ICONAS DE ETIQUETAS"
 
 msgid "SHOW REGION FLAG"
 msgstr "AMOSAR BANDEIRA DA REXIÓN"
@@ -2380,22 +2383,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "SEGURO DE QUERER FORMATAR ESTA UNIDADE?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "EXPULSAR UN DISCO DE FORMA SEGURA"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "UNIDADE COMBINADA"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "NON SE ATOPARON UNIDADES COMBINADAS"
 
 msgid "EJECT"
-msgstr ""
+msgstr "EXPULSAR"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "NINGUNHA UNIDADE SELECCIONADA"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Expulsando..."
 
 msgid "Points"
 msgstr "Puntos"
@@ -2490,7 +2493,7 @@ msgstr ""
 "SEGURO?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ESCRIBIR UNHA ETIQUETA NFC PARA ESTE XOGO"
@@ -2501,6 +2504,9 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"PARA ESCRIBIR O COMANDO DE INICIO PARA\n"
+"'%s'\n"
+"PREME O BOTÓN DE ESCRITURA E DESPOIS COLOCA UNHA ETIQUETA NFC NO ESCRITOR"
 
 msgid "WRITE"
 msgstr "ESCRIBIR"
@@ -2763,7 +2769,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR METADATOS"
 
 msgid "TAGS"
-msgstr ""
+msgstr "ETIQUETAS"
 
 msgid "GENRES"
 msgstr "XÉNEROS"
@@ -3326,7 +3332,7 @@ msgid "GENRE"
 msgstr "XÉNERO"
 
 msgid "TAG"
-msgstr ""
+msgstr "ETIQUETA"
 
 msgid "FAMILY"
 msgstr "FAMILIA"
@@ -3395,19 +3401,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ACTUALIZAR LISTAS DE XOGOS PARA APLICAR CAMBIOS."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LENTO"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NON FUNCIONA"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "DEFECTUOSO"
 
 msgid "LIKED"
-msgstr ""
+msgstr "GUSTA"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "NON GUSTA"
 
 msgid "Loading system config..."
 msgstr "Cargando configuración do sistema..."
@@ -3885,70 +3891,70 @@ msgstr ""
 "Dispara aos obxectivos para calibrar"
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Lista de xogos recargada..."
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "UNIDADE DE XOGOS DETECTADA"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "DISPOSITIVO"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODELO"
 
 msgid "SIZE"
-msgstr ""
+msgstr "TAMAÑO"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MONTAR"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Combinar xogos desta partición da unidade agora?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Isto tamén se aplicará nos vindeiros inicios)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Combinación solicitada... Agarda, por favor."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "ERRO AO COMBINAR"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Por favor, revisa os rexistros."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "NOVA UNIDADE DETECTADA"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Formatar e preparar esta unidade para almacenar xogos?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(TODOS OS DATOS EXISTENTES SERÁN ELIMINADOS)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Iniciando proceso de formatado..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "ERRO AO FORMATAR"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NON, IGNORAR ESTA VEZ"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NON, IGNORAR PARA SEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Engadindo a unidade á lista de ignorados..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "SI, FORMATAR E COMBINAR"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NON, IGNORAR"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR TIPO DE HARDWARE"

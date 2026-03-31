@@ -1794,10 +1794,10 @@ msgid "BACKUP USER DATA"
 msgstr "KULLANICI VERİLERİNİ YEDEKLE"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "EKSTRA BİR DİSKİ ÇIKARIN"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "EKSTRA SÜRÜCÜ DOSYA SİSTEMİ TÜRÜ"
 
 msgid "ADVANCED"
 msgstr "GELİŞMİŞ"
@@ -2493,7 +2493,7 @@ msgstr ""
 "EMİN MİSİN?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "BU OYUN İÇİN BİR NFC ETİKETİ YAZ"
@@ -3918,16 +3918,16 @@ msgid "SIZE"
 msgstr "BOYUT"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "BAĞLA"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Bu sürücü bölümündeki oyunları şimdi birleştirelim mi?"
 
 msgid "(This will also apply on future boots)"
 msgstr "(Bu aynı zamanda gelecekteki botlar için de geçerli olacaktır)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Birleştirme isteği yapıldı... Lütfen bekleyin."
 
 msgid "MERGE FAILED"
 msgstr "BİRLEŞTİRME BAŞARISIZ"
@@ -3981,8 +3981,7 @@ msgstr "HAYIR, YOKSAY"
 #~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr ""
-#~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
+#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"
