@@ -210,6 +210,9 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 							if (v.IsString())
 							{
 								std::string file = v.GetString();
+								if (Utils::String::endsWith(file, "/"))
+									continue;
+
 								file = Utils::FileSystem::getAbsolutePath(file, relativeTo);
 								files.push_back(file);
 							}
@@ -254,7 +257,7 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 	for (auto file : files)
 	{
 		auto it = fileMap.find(file);
-		if (it != fileMap.cend())
+		if (it != fileMap.cend() && it->second->getType() == GAME)
 		{
 			delete it->second;
 			fileMap.erase(it);
