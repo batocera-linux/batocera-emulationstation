@@ -903,7 +903,7 @@ std::set<std::string> FileData::getContentFiles()
 				while (std::getline(m3u, line))
 				{
 					auto trim = Utils::String::trim(line);
-					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/')
+					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/' || trim[0] == '\0')
 						continue;
 
 					files.insert(path + "/" + trim);
