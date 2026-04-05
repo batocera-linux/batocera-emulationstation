@@ -903,27 +903,12 @@ std::set<std::string> FileData::getContentFiles()
 				while (std::getline(m3u, line))
 				{
 					auto trim = Utils::String::trim(line);
-
-					if (trim.empty())
-						continue;
-
 					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/')
 						continue;
 
-					// Skip lines with no file extension
-					if (Utils::FileSystem::getExtension(trim).empty())
-						continue;
-
-					// Only include files that actually exist on disk
-					std::string fullPath = path + "/" + trim;
-					if (!Utils::FileSystem::exists(fullPath))
-					{
-						LOG(LogWarning) << "m3u entry does not exist, skipping: " << fullPath;
-						continue;
-					}
-
-					files.insert(fullPath);
+					files.insert(path + "/" + trim);
 				}
+
 				m3u.close();
 			}
 		}

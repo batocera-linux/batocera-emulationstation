@@ -116,30 +116,14 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 		if (!Settings::IgnoreGamelist())
 		{
-			try
-			{
-				if (!mHidden && Settings::PackGamelists())
-					packGamelist(this);
+			if (!mHidden && Settings::PackGamelists())
+				packGamelist(this);
 
-				parseGamelist(this, fileMap);
-			}
-			catch (...)
-			{
-				LOG(LogError) << "Exception while parsing gamelist for system \""
-							<< getName() << "\", skipping gamelist.";
-			}
+			parseGamelist(this, fileMap);
 		}
-
-		try
-		{
-			if (Settings::RemoveMultiDiskContent() || Settings::BuildMultiDiskContentCache())
-				removeMultiDiskContent(fileMap);
-		}
-		catch (...)
-		{
-			LOG(LogError) << "Exception in removeMultiDiskContent for system \""
-						<< getName() << "\".";
-		}
+		
+		if (Settings::RemoveMultiDiskContent() || Settings::BuildMultiDiskContentCache())
+			removeMultiDiskContent(fileMap);
 	}
 	else
 	{
