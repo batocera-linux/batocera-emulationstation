@@ -17,6 +17,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 #ifdef WIN32
 #include <time.h>
@@ -189,9 +190,9 @@ void AudioManager::addLastPlayed(const std::string& newSong, int totalMusic)
 		return;
 	}
 	
-	while (mLastPlayed.size() > historySize) {
+	while (mLastPlayed.size() > historySize)
 		mLastPlayed.pop_back();
-	}
+
 	mLastPlayed.push_front(newSong);
 	
 	LOG(LogDebug) << "Adding " << newSong << " to last played, " << mLastPlayed.size() << " in history";
@@ -246,6 +247,9 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
         }
     }
 
+	if (mCurrentMusic != nullptr && continueIfPlaying)
+		return;
+
     std::vector<std::string> musics;
 
     if (!mCurrentThemeMusicDirectory.empty())
@@ -262,24 +266,34 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
     if (musics.empty())
         return;
+retry:
 
     int randomIndex = Randomizer::random(musics.size());
-    while (songWasPlayedRecently(musics.at(randomIndex)))
+
+	int maxRecent = musics.size() - 1; // Security for retry goto
+    while (maxRecent > 0 && songWasPlayedRecently(musics[randomIndex]))
     {
         LOG(LogDebug) << "Music "" << musics.at(randomIndex) << "" was played recently, trying again";
         randomIndex = Randomizer::random(musics.size());
+
+		maxRecent--;
     }
 
-    if (mCurrentMusic != nullptr && continueIfPlaying)
-        return;
+	std::string path = musics[randomIndex];
+    playMusic(path);
 
-    playMusic(musics.at(randomIndex));
-    playSong(musics.at(randomIndex));
-    addLastPlayed(musics.at(randomIndex), musics.size());
+	if (mInitialized && mCurrentMusic == nullptr && Settings::BackgroundMusic() && musics.size() > 1)
+	{
+		musics.erase(std::remove(musics.begin(), musics.end(), path), musics.end());		
+		goto retry;
+	}
+
+    playSong(path);
+    addLastPlayed(path, musics.size());
     mPlayingSystemThemeSong = "";
 }
 
-void AudioManager::playMusic(std::string path)
+void AudioManager::playMusic(const std::string& path)
 {
 	if (!mInitialized)
 		return;

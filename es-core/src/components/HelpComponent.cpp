@@ -52,8 +52,11 @@ void HelpComponent::setPrompts(const std::vector<HelpPrompt>& prompts)
 
 void HelpComponent::setStyle(const HelpStyle& style)
 {
-
 	mGrid.reset();
+
+	if (mStyle.iconMap != style.iconMap)
+		mIconCache.clear();
+
 	mStyle = style;
 	updateGrid();
 }
@@ -92,13 +95,22 @@ void HelpComponent::updateGrid()
 	const float height = Math::round(font->getLetterHeight() * 1.25f);
 	for (auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
 	{
-		auto icon = std::make_shared<ImageComponent>(mWindow, true);
+		auto icon = std::make_shared<ImageComponent>(mWindow, false);
 		icon->setIsLinear(true);
 
 		auto label = InputConfig::buttonLabel(it->first);
 
-		if (mStyle.iconMap.find(label) != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(mStyle.iconMap[label]))
-			icon->setImage(mStyle.iconMap[label]);
+		auto inst = mIconCache.find(label);
+		if (inst != mIconCache.cend())
+		{
+			icon->setImage(inst->second);
+		}
+		else if (mStyle.iconMap.find(label) != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(mStyle.iconMap[label]))
+		{
+			auto tex = TextureResource::get(mStyle.iconMap[label]);
+			mIconCache[label] = tex;
+			icon->setImage(tex);
+		}
 		else
 			icon->setImage(getIconTexture(label.c_str()));
 

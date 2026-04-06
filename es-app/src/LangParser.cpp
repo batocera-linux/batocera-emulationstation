@@ -30,7 +30,7 @@ std::string LangInfo::getLanguageString()
 	return data;
 }
 
-void LangInfo::extractLang(std::string val)
+void LangInfo::extractLang(const std::string& val)
 {
 	static std::vector<LangData> langDatas =
 	{
@@ -141,7 +141,7 @@ void LangInfo::extractLang(std::string val)
 	}
 }
 
-LangInfo LangInfo::parse(std::string rom, SystemData* system)
+LangInfo LangInfo::parse(const std::string& rom, SystemData* system)
 {
 	LangInfo info;
 	if (rom.empty() || (system && system->hasPlatformId(PlatformIds::IMAGEVIEWER)))
@@ -200,7 +200,7 @@ LangInfo LangInfo::parse(std::string rom, SystemData* system)
 	return info;
 }
 
-std::string LangInfo::getFlag(const std::string lang, const std::string region)
+std::string LangInfo::getFlag(const std::string& lang, const std::string& region)
 {	
 	if (lang.empty() && region.empty())
 		return "us";

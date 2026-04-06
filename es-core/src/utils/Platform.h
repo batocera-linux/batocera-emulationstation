@@ -71,6 +71,8 @@ namespace Utils
 
 #if WIN32
 		bool isWindows11();
+#else
+		bool isBuildroot();
 #endif
 	}
 }

@@ -907,8 +907,6 @@ bool SystemData::loadConfig(Window* window)
 		return false;
 	}
 
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	CustomFeatures::loadEsFeaturesFile();
 
 	int currentSystem = 0;

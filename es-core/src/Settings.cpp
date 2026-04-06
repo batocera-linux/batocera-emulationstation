@@ -23,6 +23,7 @@ IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerBattery, true)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawClock, true)
 IMPLEMENT_STATIC_BOOL_SETTING(ClockMode12, false)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawFramerate, false)
+IMPLEMENT_STATIC_BOOL_SETTING(UseFileCache, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VolumePopup, true)
 IMPLEMENT_STATIC_BOOL_SETTING(BackgroundMusic, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VSync, true)
@@ -51,6 +52,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(DrawClock)
 	UPDATE_STATIC_BOOL_SETTING(ClockMode12)
 	UPDATE_STATIC_BOOL_SETTING(DrawFramerate)
+	UPDATE_STATIC_BOOL_SETTING(UseFileCache)
 	UPDATE_STATIC_BOOL_SETTING(ScrollLoadMedias)
 	UPDATE_STATIC_BOOL_SETTING(VolumePopup)
 	UPDATE_STATIC_BOOL_SETTING(VSync)
@@ -142,7 +144,8 @@ void Settings::setDefaults()
 	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "lastsystem";
 	mStringMap["ShowTags"] = "";
-	
+	mBoolMap["UseFileCache"] = true;
+
 #if WIN32
 	mBoolMap["HidJoysticks"] = true;
 	mBoolMap["ShowOnlyExit"] = true;

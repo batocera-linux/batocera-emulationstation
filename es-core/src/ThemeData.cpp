@@ -2396,6 +2396,23 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 	return sets;
 }
 
+std::string ThemeData::getCurrentThemeRootPath()
+{
+	auto themeSets = ThemeData::getThemeSets();
+	if (themeSets.empty())
+		return "";
+
+	std::map<std::string, ThemeSet>::const_iterator set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+	if (set == themeSets.cend())
+	{
+		// currently selected theme set is missing, so just pick the first available set
+		set = themeSets.cbegin();
+		Settings::getInstance()->setString("ThemeSet", set->first);
+	}
+
+	return set->second.path;
+}
+
 std::string ThemeData::getThemeFromCurrentSet(const std::string& system)
 {
 	std::map<std::string, ThemeSet> themeSets = ThemeData::getThemeSets();

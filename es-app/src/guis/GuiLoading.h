@@ -42,7 +42,7 @@ public:
 
 		mBusyAnim.setOpacity(0);
 		auto fadeFunc = [this](float t) { mBusyAnim.setOpacity((unsigned char) (Math::easeOutCubic(t) * 255.0f)); };
-		setAnimation(new LambdaAnimation(fadeFunc, 450), 0, [this] { mBusyAnim.setOpacity(255); });
+		setAnimation(new LambdaAnimation(fadeFunc, 250), 0, [this] { mBusyAnim.setOpacity(255); });
 	}
 	
 	~GuiLoading()
@@ -68,10 +68,10 @@ public:
 	{
 		if (!mRunning || !mVisible)
 			return;
-
+	
 		Transform4x4f trans = parentTrans * getTransform();
 		renderChildren(trans);
-
+	
 		Renderer::setMatrix(trans);
 		mBusyAnim.render(trans);
 	}

@@ -191,7 +191,7 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 				float xM = 0.0f;
 				float yM = 0.0f;
 
-				unsigned int color = 0xFFFFFF00 | getOpacity();
+				unsigned int color = Renderer::convertColor(0xFFFFFF00 | getOpacity());
 
 				Renderer::Vertex vertices[4];
 				vertices[0] = { { (float)x    , (float)y       }, { xM,        1.0f - yM }, color };
