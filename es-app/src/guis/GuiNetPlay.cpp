@@ -168,7 +168,9 @@ GuiNetPlay::GuiNetPlay(Window* window)
 	mGrid(window, Vector2i(1, 3)),
 	mList(nullptr),
 	mLanLobbySocket(-1),
-	mLanLobbySocketTimeout(0)
+	mLanLobbySocketTimeout(0),
+	mPopulateThread(nullptr),
+	mThreadFinished(false)
 {	
 	addChild(&mBackground);
 	addChild(&mGrid);
@@ -292,11 +294,31 @@ void GuiNetPlay::startRequest()
 void GuiNetPlay::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
-		
-	if (mLanLobbySocketTimeout < 20000) // allow receiving answers from the LAN for 20 seconds
+
+	if (mLanLobbySocketTimeout < 20000 && mPopulateThread == nullptr) // allow receiving answers from the LAN for 20 seconds
 	{
 		mLanLobbySocketTimeout += deltaTime;
 		populateFromLan();
+	}
+
+	if (mPopulateThread != nullptr)
+	{
+		mBusyAnim.update(deltaTime);
+
+		if (mThreadFinished)
+		{
+			populateList();
+
+			if (mList->size() != 0)
+				mList->setCursorIndex(0, true);
+
+			mLobbyRequest.reset();
+
+			mPopulateThread->join();
+			delete mPopulateThread;
+			mPopulateThread = nullptr;
+		}
+		return;
 	}
 
 	if (!mLobbyRequest)
@@ -309,16 +331,19 @@ void GuiNetPlay::update(int deltaTime)
 		return;
 	}
 
-	if (status == HttpReq::REQ_SUCCESS)
-		populateFromJson(mLobbyRequest->getContent());
-
 	if (status != HttpReq::REQ_SUCCESS)
+	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("FAILED") + std::string(" : ") + mLobbyRequest->getErrorMsg()));
+		mLobbyRequest.reset();
+		return;
+	}
 
-	if (mList->size() != 0)
-		mList->setCursorIndex(0, true);
-
-	mLobbyRequest.reset();
+	if (status == HttpReq::REQ_SUCCESS && mPopulateThread == nullptr)
+	{
+		auto content = mLobbyRequest->getContent();
+		mThreadFinished = false;
+		mPopulateThread = new std::thread([&, content]() { populateFromJson(content); });
+	}
 }
 
 #if WIN32
@@ -476,9 +501,9 @@ std::vector<HelpPrompt> GuiNetPlay::getHelpPrompts()
 }
 
 
-FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string coreName)
+FileData* GuiNetPlay::getFileData(const std::string& gameInfo, bool crc, const std::string& coreName)
 {
-	auto normalizeName = [](const std::string name)
+	auto normalizeName = [](const std::string& name)
 	{
 		auto ret = Utils::String::toLower(name);
 		ret = Utils::String::replace(ret, "_", " ");
@@ -720,10 +745,10 @@ bool GuiNetPlay::populateList()
 
 		if (!groupAvailable)
 		{
-			if (mLanEntries.size() > 0)
-				mList->addGroup(_("ONLINE GAMES"), true);
-			else if (netPlayShowMissingGames)
+			if (netPlayShowMissingGames)
 				mList->addGroup(_("AVAILABLE GAMES"), true);
+			else 
+				mList->addGroup(_("ONLINE GAMES"), true);
 
 			groupAvailable = true;
 		}
@@ -893,8 +918,9 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		});
 
 	mLobbyEntries = entries;
-	populateList();
+//	populateList();
 
+	mThreadFinished = true;
 	return true;
 }
 

@@ -1126,7 +1126,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	if (reloadTheme)
 		Renderer::resetCache();
 
-	Utils::FileSystem::FileSystemCacheActivator fsc;
+	Utils::FileSystem::FileSystemCache::reset();
 
 	if (mCurrentView != nullptr)
 	{
@@ -1352,7 +1352,7 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 		Settings::setBuildMultiDiskContentCache(true);
 	}
 
-	Utils::FileSystem::FileSystemCacheActivator fsc;
+	Utils::FileSystem::FileSystemCache::reset();
 
 	auto viewMode = ViewController::get()->getViewMode();
 	auto systemName = ViewController::get()->getSelectedSystem()->getName();

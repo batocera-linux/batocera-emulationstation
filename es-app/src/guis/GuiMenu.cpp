@@ -30,7 +30,7 @@
 #include <SDL_events.h>
 #include <algorithm>
 #include "utils/Platform.h"
-
+#include "utils/FileSystemUtil.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -1115,7 +1115,9 @@ void GuiMenu::openDeveloperSettings()
 	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
 	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USAGE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
-	
+
+	s->addSwitch(_("USE FILESYSTEM CACHE"), "UseFileCache", true, [s] { Utils::FileSystem::FileSystemCache::reset(); });
+
 	s->onFinalize([s, window]
 	{					
 		if (s->getVariable("reboot"))

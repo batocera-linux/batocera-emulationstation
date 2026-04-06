@@ -409,6 +409,8 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after";
 
+	Utils::FileSystem::FileSystemCache::reset();
+
 	window->init();
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
@@ -2102,8 +2104,6 @@ void ApiSystem::updateBatoceraStorePackageList()
 
 std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	for (auto folder : { Paths::getUserShadersPath(), Paths::getShadersPath() })
@@ -2128,8 +2128,6 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName,
 
 std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getVideoFilterList";
@@ -2153,8 +2151,6 @@ std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& system
 
 std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievementsSoundsList";

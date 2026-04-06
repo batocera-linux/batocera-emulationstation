@@ -9,6 +9,8 @@
 #include <memory>
 #include <unordered_set>
 #include <vector>
+#include <thread>
+#include <atomic>
 
 class HttpReq;
 class FileData;
@@ -90,7 +92,7 @@ private:
 	void launchGame(LobbyAppEntry entry);
 	void lanLobbyRequest();
 
-	FileData* getFileData(const std::string gameInfo, bool crc = true, std::string coreName = "");
+	FileData* getFileData(const std::string& gameInfo, bool crc = true, const std::string& coreName = "");
 	bool coreExists(FileData* file, std::string core_name);
 
 	int								mLanLobbySocket;
@@ -113,4 +115,7 @@ private:
 
 	std::vector<LobbyAppEntry>		mLanEntries;
 	std::vector<LobbyAppEntry>		mLobbyEntries;
+
+	std::thread*					mPopulateThread;
+	std::atomic<bool>				mThreadFinished;
 };

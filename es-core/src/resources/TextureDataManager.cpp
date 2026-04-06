@@ -133,6 +133,10 @@ bool compareTextures(const std::shared_ptr<TextureData>& first, const std::share
 
 void TextureDataManager::cleanupVRAM(std::shared_ptr<TextureData> exclude)
 {
+	std::unique_lock<std::mutex> cleanupVRAMLock(mCleanupVRAMMutex, std::try_to_lock);
+	if (!cleanupVRAMLock.owns_lock())
+		return;
+
 	std::unique_lock<std::recursive_mutex> lock(mMutex);
 
 	size_t maxVRAM = (size_t)Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
@@ -144,36 +148,54 @@ void TextureDataManager::cleanupVRAM(std::shared_ptr<TextureData> exclude)
 	if (size < maxVRAM)
 		return;
 
-	int pass = 0;
-	while (true)
-	{		
-		int maxSize = (pass == 0 && sizeof(void*) == 4) ? 120 * 1024 * 1024 : size; // With 1st pass, on 32bits ES, limit RAM cache usage to 120 mb
+	// Perform cleanup on textures
+	for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
+	{
+		auto tex = *it;
+		if (tex == exclude || !tex->isReloadable() || tex->isRequired() || !tex->isLoaded())
+			continue;
 
-		// First Perform cleanup on textures without considering the queue
-		for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
-		{
-			auto tex = *it;
-			if (tex == exclude || !tex->isReloadable() || tex->isRequired() || !tex->isLoaded())
-				continue;
+		auto textureSize = tex->getMemoryUsage(MemoryUsageType::Allocated); // pass == 0 ? MemoryUsageType::RAM : MemoryUsageType::VRAM);
+		if (textureSize == 0)
+			continue;
 
-			auto textureSize = tex->getMemoryUsage(pass == 0 ? MemoryUsageType::RAM : MemoryUsageType::VRAM);
-			if (textureSize == 0)
-				continue;			
+		LOG(LogDebug) << "Cleanup VRAM\tReleased : " << tex->getPath().c_str() << ", " << std::to_string(tex->getSize().x()) << "x" << std::to_string(tex->getSize().y());
 
-			LOG(LogDebug) << "Cleanup VRAM\tReleased : " << tex->getPath().c_str() << ", " << std::to_string(tex->getSize().x()) << "x" << std::to_string(tex->getSize().y());
+		tex->releaseVRAM();
+		tex->releaseRAM();
 
-			tex->releaseVRAM();
-			tex->releaseRAM();
-
-			size -= textureSize;
-			maxSize -= textureSize;
-			if (maxSize < maxVRAM)
-				break;
-		}
-
-		pass++;
-		if (maxSize < maxVRAM || pass == 2)
+		size -= textureSize;
+		if (size <= maxVRAM)
 			break;
+	}
+
+	// On x86 platforms, perform cleanup on textures stored in RAM, limit to 250Mb
+	if (sizeof(void*) == 4)
+	{
+		size_t maxRAM = 250 * 1024 * 1024;
+		size = TextureResource::getTotalMemoryUsage(MemoryUsageType::RAM);
+
+		if (size > maxRAM)
+		{
+			for (auto it = mTextures.crbegin(); it != mTextures.crend(); ++it)
+			{
+				auto tex = *it;
+				if (tex == exclude || !tex->isReloadable() || tex->isRequired() || !tex->isLoaded())
+					continue;
+
+				auto textureSize = tex->getMemoryUsage(MemoryUsageType::RAM);
+				if (textureSize == 0)
+					continue;
+
+				LOG(LogDebug) << "Cleanup RAM\tReleased : " << tex->getPath().c_str() << ", " << std::to_string(tex->getSize().x()) << "x" << std::to_string(tex->getSize().y());
+
+				tex->releaseRAM();
+
+				size -= textureSize;
+				if (size <= maxRAM)
+					break;
+			}
+		}
 	}
 }
 
@@ -204,7 +226,7 @@ void TextureDataManager::load(std::shared_ptr<TextureData> tex, bool block)
 
 TextureLoader::TextureLoader(TextureDataManager* mgr) : mManager(mgr), mExit(false)
 {
-	int num_threads = std::thread::hardware_concurrency() / 2;
+	int num_threads = std::thread::hardware_concurrency(); // / 2;
 	if (num_threads < 2)
 		num_threads = 2;
 
@@ -285,7 +307,7 @@ void TextureLoader::threadProc()
 	}
 }
 
-bool TextureLoader::paused = false;
+std::atomic<bool> TextureLoader::paused = false;
 
 void TextureLoader::load(std::shared_ptr<TextureData> textureData)
 {
@@ -343,12 +365,23 @@ void TextureLoader::clearQueue()
 	mTextureDataQ.clear();	
 }
 
+int TextureLoader::getQueueSize()
+{
+	std::unique_lock<std::mutex> lock(mLoaderLock);
+	return mTextureDataQSet.size();
+}
+
 void TextureDataManager::clearQueue()
 {
 	mBlank = nullptr;
 
 	if (mLoader != nullptr)
 		mLoader->clearQueue();
+}
+
+int TextureDataManager::getQueueSize()
+{
+	return mLoader ? mLoader->getQueueSize() : 0;
 }
 
 std::shared_ptr<TextureData> TextureDataManager::getBlankTexture()

@@ -609,13 +609,13 @@ void GuiGamelistOptions::createNewCollectionFilter()
 	std::string defName = Utils::String::toLower(mSystem->getIndex(false)->getTextFilter());
 
 	if (Settings::getInstance()->getBool("UseOSK"))
-		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("New Collection Name"), defName, [this](std::string val) { createCollection(val); }, false));
+		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("New Collection Name"), defName, [this](const std::string& val) { createCollection(val); }, false));
 	else
-		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), defName, [this](std::string val) { createCollection(val); }, false));
+		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), defName, [this](const std::string& val) { createCollection(val); }, false));
 
 }
 
-void GuiGamelistOptions::createCollection(std::string inName)
+void GuiGamelistOptions::createCollection(const std::string& inName)
 {
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 

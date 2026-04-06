@@ -309,7 +309,7 @@ bool TextureResource::unload()
 	return false;
 }
 
-void TextureResource::reload()
+void TextureResource::reload(TextureLoadMode mode)
 {
 	// For dynamically loaded textures the texture manager will load them on demand.
 	// For manually loaded textures we have to reload them here
@@ -319,12 +319,17 @@ void TextureResource::reload()
 			mTextureData->load();
 	}
 	else
-		sTextureDataManager.get(this, TextureLoadMode::LOADNOMOVETOTOP);
+		sTextureDataManager.get(this, mode);
 }
 
 void TextureResource::clearQueue()
 {
 	sTextureDataManager.clearQueue();
+}
+
+int TextureResource::getQueueSize()
+{
+	return sTextureDataManager.getQueueSize();
 }
 
 const Vector2i TextureResource::getSize() const

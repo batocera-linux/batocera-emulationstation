@@ -127,58 +127,21 @@ const ResourceData ResourceManager::getFileData(const std::string& path) const
 	//check if its a resource
 	const std::string respath = getResourcePath(path);
 
-	auto size = Utils::FileSystem::getFileSize(respath);
-	if (size > 0)
-		return loadFile(respath, size);
+	//auto size = Utils::FileSystem::getFileSize(respath);
+	//if (size > 0)
+	if (Utils::FileSystem::exists(respath))
+		return loadFile(respath, SIZE_MAX);
 
 	//if the file doesn't exist, return an "empty" ResourceData
 	ResourceData data = {NULL, 0};
 	return data;
 }
 
-#if WIN32
-#include <windows.h>
-
 ResourceData ResourceManager::loadFile(const std::string& path, size_t size) const
 {
-	HANDLE hFile = CreateFileW(WINSTRINGW(path).c_str(), GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, nullptr);
-	if (hFile == INVALID_HANDLE_VALUE)
+	std::ifstream stream(WINSTRINGW(path), size == 0 || size == SIZE_MAX ? std::ios::binary | std::ios::ate : std::ios::binary);
+	if (!stream || !stream.is_open())
 	{
-		int err = errno;
-		LOG(LogError) << "Failed to open file: '" << path << "': " << std::strerror(err);
-		return { NULL, 0 };
-	}
-
-	if (size == 0 || size == SIZE_MAX)
-	{
-		LARGE_INTEGER fileSize;
-		GetFileSizeEx(hFile, &fileSize);
-		size = static_cast<size_t>(fileSize.QuadPart);
-	}
-
-	try
-	{
-		unsigned char* bytes = new unsigned char[size];
-
-		DWORD bytesRead = 0;
-		ReadFile(hFile, bytes, static_cast<DWORD>(size), &bytesRead, nullptr);	
-		CloseHandle(hFile);
-
-		std::shared_ptr<unsigned char> data(bytes, array_deleter);
-		return { data, size };
-	}
-	catch (const std::exception& e)
-	{
-		CloseHandle(hFile);
-		throw e;
-	}
-}
-#else
-ResourceData ResourceManager::loadFile(const std::string& path, size_t size) const
-{
-	std::ifstream stream(WINSTRINGW(path), std::ios::binary);
-
-	if (!stream) {
 		int err = errno;
 		LOG(LogError) << "Failed to open file: '" << path << "': " << std::strerror(err);
 		return {NULL, 0};
@@ -199,7 +162,6 @@ ResourceData ResourceManager::loadFile(const std::string& path, size_t size) con
 	ResourceData ret = {data, size};
 	return ret;
 }
-#endif
 
 bool ResourceManager::fileExists(const std::string& path) const
 {

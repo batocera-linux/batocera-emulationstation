@@ -440,10 +440,11 @@ const bool MetaDataList::exists(const std::string& key) const
 
 const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
 {
-	if (mGameIdMap.find(key) == mGameIdMap.cend())
+	auto it = mGameIdMap.find(key);
+	if (it == mGameIdMap.cend())
 		return "";
-
-	return get(getId(key), resolveRelativePaths);
+		
+	return get(it->second, resolveRelativePaths);
 }
 
 int MetaDataList::getInt(MetaDataId id) const

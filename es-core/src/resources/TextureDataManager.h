@@ -11,6 +11,7 @@
 #include <vector>
 #include <set>
 #include <unordered_map>
+#include <atomic>
 
 class TextureDataManager;
 class TextureData;
@@ -28,8 +29,9 @@ public:
 	void load(std::shared_ptr<TextureData> textureData);
 	bool remove(std::shared_ptr<TextureData> textureData);
 	void clearQueue();
+	int getQueueSize();
 
-	static bool paused;
+	static std::atomic<bool> paused;
 
 	std::mutex& Mutex() { return mLoaderLock; }
 
@@ -43,7 +45,7 @@ private:
 	std::vector<std::thread>	mThreads;
 	std::mutex					mLoaderLock;
 	std::condition_variable		mEvent;
-	bool 						mExit;
+	std::atomic<bool>			mExit;
 
 	TextureDataManager*			mManager;
 };
@@ -87,14 +89,16 @@ public:
 	void load(std::shared_ptr<TextureData> tex, bool block = false);
 
 	void clearQueue();
-	
+	int getQueueSize();
+
 	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);	
 
 private:
 
 	std::shared_ptr<TextureData> getBlankTexture();
 
-	std::recursive_mutex					mMutex;
+	std::recursive_mutex	mMutex;
+	std::mutex				mCleanupVRAMMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
 	std::unordered_map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;
