@@ -577,6 +577,25 @@ namespace Utils
 
 			return false;
 		}
+#else
+		bool isBuildroot() 
+		{
+			static const bool cached = []() 
+			{
+				std::ifstream f("/etc/os-release");
+				if (!f)
+					return false;
+
+				std::string line;
+				while (std::getline(f, line))
+					if (line == "ID=buildroot")
+						return true;
+
+				return false;
+			}();
+
+			return cached;
+		}
 #endif
 
 		std::string getArchString()
