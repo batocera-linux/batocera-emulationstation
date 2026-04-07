@@ -34,8 +34,6 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 		}
 		else
 		{
-			sTextureDataManager.cleanupVRAM();
-
 			mTextureData = std::make_shared<TextureData>(tile, linear);
 
 			if (maxSize != nullptr)
@@ -342,4 +340,9 @@ const Vector2f TextureResource::getPhysicalSize() const
 { 
 	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data && data->isLoaded() ? data->getPhysicalSize() : Vector2f::Zero(); // mPhysicalSize;
+}
+
+void TextureResource::cleanupVRAM()
+{
+	sTextureDataManager.cleanupVRAM();
 }

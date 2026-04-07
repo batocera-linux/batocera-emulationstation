@@ -1120,17 +1120,19 @@ void SystemView::preloadExtraNeighbours(int cursor)
 		if (index < 0)
 			index += (int)mEntries.size();
 
+		TextureLoadMode loadMode = abs(distances[dx]) <= 1 ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP;
+
 		auto carousel = mCarousel.asCarousel();
 		if (carousel)
 		{
 			auto logo = carousel->getLogo(index);
 			if (logo)
-				ensureTexture(logo.get(), dx > 1 ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP);
+				ensureTexture(logo.get(), loadMode);
 		}
 
 		SystemViewData& entry = mEntries.at(index);
 		for (auto extra : entry.backgroundExtras)
-			ensureTexture(extra, dx > 1 ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP);
+			ensureTexture(extra, loadMode);
 	}
 }
 
