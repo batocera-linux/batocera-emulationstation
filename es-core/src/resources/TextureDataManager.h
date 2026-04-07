@@ -91,14 +91,13 @@ public:
 	void clearQueue();
 	int getQueueSize();
 
-	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);	
+	void cleanupVRAM();
 
 private:
 
 	std::shared_ptr<TextureData> getBlankTexture();
 
 	std::recursive_mutex	mMutex;
-	std::mutex				mCleanupVRAMMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
 	std::unordered_map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;

@@ -43,6 +43,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window) : GuiComponent(wi
 	// selected result thumbnail
 	mResultThumbnail = std::make_shared<WebImageComponent>(mWindow, 86400); // 24 hours
 	mResultThumbnail->setAllowFading(false);	
+	mResultThumbnail->setIsLinear(true);
 	mResultThumbnail->setOnImageLoaded([this]() { mGrid.onSizeChanged(); });
 
 	mGrid.setEntry(mResultThumbnail, Vector2i(2, 1), false, false);

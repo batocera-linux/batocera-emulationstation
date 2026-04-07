@@ -15,7 +15,8 @@
 // space between [text] and next [icon] (px)
 #define ENTRY_SPACING (ICON_TEXT_SPACING * 2.0f)
 
-static const std::map<std::string, const char*> ICON_PATH_MAP{
+static const std::map<std::string, std::string> ICON_PATH_MAP
+{
 	{ "up/down", ":/help/dpad_updown.svg" },
 	{ "left/right", ":/help/dpad_leftright.svg" },
 	{ "up/down/left/right", ":/help/dpad_all.svg" },
@@ -100,20 +101,7 @@ void HelpComponent::updateGrid()
 
 		auto label = InputConfig::buttonLabel(it->first);
 
-		auto inst = mIconCache.find(label);
-		if (inst != mIconCache.cend())
-		{
-			icon->setImage(inst->second);
-		}
-		else if (mStyle.iconMap.find(label) != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(mStyle.iconMap[label]))
-		{
-			auto tex = TextureResource::get(mStyle.iconMap[label]);
-			mIconCache[label] = tex;
-			icon->setImage(tex);
-		}
-		else
-			icon->setImage(getIconTexture(label.c_str()));
-
+		icon->setImage(getIconTexture(label));
 		icon->setColorShift(mStyle.iconColor);
 		icon->setResize(0, height);		
 
@@ -167,11 +155,19 @@ void HelpComponent::updateGrid()
 	mGrid->setOrigin(mStyle.origin);
 }
 
-std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const char* name)
+std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const std::string& name)
 {
 	auto it = mIconCache.find(name);
 	if (it != mIconCache.cend())
 		return it->second;
+
+	auto itMap = mStyle.iconMap.find(name);
+	if (itMap != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(itMap->second))
+	{
+		auto tmp = TextureResource::get(itMap->second, false, false, true);
+		mIconCache[name] = tmp;
+		return tmp;
+	}
 
 	auto pathLookup = ICON_PATH_MAP.find(name);
 	if (pathLookup == ICON_PATH_MAP.cend())
@@ -186,8 +182,8 @@ std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const char* name)
 		return nullptr;
 	}
 
-	std::shared_ptr<TextureResource> tex = TextureResource::get(pathLookup->second);
-	mIconCache[std::string(name)] = tex;
+	std::shared_ptr<TextureResource> tex = TextureResource::get(pathLookup->second, false, false, true);
+	mIconCache[name] = tex;
 	return tex;
 }
 

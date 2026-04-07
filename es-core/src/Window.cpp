@@ -432,6 +432,8 @@ void Window::processSongTitleNotifications()
 
 void Window::update(int deltaTime)
 {
+	TextureResource::cleanupVRAM();
+
 	if (mLastShowCursor >= 0)
 	{
 		mLastShowCursor += deltaTime;

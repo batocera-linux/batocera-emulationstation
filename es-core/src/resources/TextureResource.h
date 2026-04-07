@@ -55,6 +55,8 @@ public:
 	static void clearQueue();
 	static int getQueueSize();
 
+	static void cleanupVRAM();
+
 private:
 	// mTextureData is used for textures that are not loaded from a file - these ones
 	// are permanently allocated and cannot be loaded and unloaded based on resources
