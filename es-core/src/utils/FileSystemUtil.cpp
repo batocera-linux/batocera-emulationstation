@@ -1726,6 +1726,9 @@ namespace Utils
 			if (path.empty())
 				return;
 
+			if (!Settings::UseFileCache())
+				return;
+
 			static std::set<std::string> preloaded;
 
 			if (preloaded.find(path) != preloaded.cend())
@@ -1733,25 +1736,19 @@ namespace Utils
 
 			preloaded.insert(path);
 
-			auto doWork = [&](std::string* path)
+			auto doWork = [&](std::string* dir)
 			{
 				if (trySaveStates)
 				{
-					std::string systemName = Utils::FileSystem::getFileName(*path);
-					for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName)))
-						Utils::FileSystem::exists(file);
+					std::string systemName = Utils::FileSystem::getFileName(*dir);
+					Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName));
 				}
 
-				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/images")))
-					Utils::FileSystem::exists(file);
+				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/images"));
+				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/videos"));
+				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/manuals"));
 
-				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/videos")))
-					Utils::FileSystem::exists(file);
-
-				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/manuals")))
-					Utils::FileSystem::exists(file);
-
-				delete path;
+				delete dir;
 			};
 
 			std::thread thread(doWork, new std::string(path));
