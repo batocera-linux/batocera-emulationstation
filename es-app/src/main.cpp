@@ -346,6 +346,8 @@ void signalHandler(int signum)
 	else
 		LOG(LogError) << "Interrupt signal (" << signum << ") received.\n";
 
+	Log::flush();
+
 	// cleanup and close up stuff here  
 	exit(signum);
 }
