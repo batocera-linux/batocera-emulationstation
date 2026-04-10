@@ -4,8 +4,9 @@
 
 #include <sstream>
 #include <exception>
-	
-#define LOG(level) if(!Log::enabled() || level > Log::getReportingLevel()) ; else Log().get(level)
+#include <atomic>
+
+#define LOG(level) if(!Log::enabled() || level > Log::getReportingLevel()) ; else Log(level).stream()
 
 #define TRYCATCH(m, x) { try { x; } \
 catch (const std::exception& e) { LOG(LogError) << m << " Exception " << e.what(); Log::flush(); throw e; } \
@@ -16,24 +17,28 @@ enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 class Log
 {
 public:
-	~Log();
-	std::ostringstream& get(LogLevel level = LogInfo);
-
-	static inline LogLevel& getReportingLevel() { return mReportingLevel; }
-	static inline bool enabled() { return mFile != NULL; }
+	static LogLevel getReportingLevel() { return mReportingLevel.load(std::memory_order_relaxed); }
+	static bool     enabled() { return mEnabled.load(std::memory_order_relaxed); }
 
 	static void init();
 	static void flush();
 	static void close();
-	
-private:
-	static LogLevel     mReportingLevel;
-	static bool         mDirty;
-	static FILE*        mFile;
 
-protected:
-	std::ostringstream  mStream;
-	LogLevel		    mMessageLevel;
+private:
+	static std::atomic<LogLevel> mReportingLevel;
+	static std::atomic<bool>     mEnabled;
+
+public:
+	Log(LogLevel level);
+	~Log();
+
+	std::ostringstream& stream();
+
+	Log(const Log&) = delete;
+	Log& operator=(const Log&) = delete;
+
+protected:	
+	LogLevel		    mLevel;
 };
 
 class StopWatch
@@ -45,7 +50,7 @@ public:
 private:
 	std::string mMessage;
 	LogLevel    mLevel;
-	int         mStartTicks;
+	int         mStartTicks;	
 };
 
 #endif // ES_CORE_LOG_H
