@@ -265,19 +265,16 @@ void TextureLoader::threadProc()
 				mProcessingTextureDataQ.insert(textureData);
 
 				lock.unlock();
-				std::this_thread::yield();
 
 				try { textureData->load(); }
 				catch (...) { }
 
-				std::this_thread::yield();
 				lock.lock();
 
 				mProcessingTextureDataQ.erase(textureData);
 			}
 
-			lock.unlock();
-			std::this_thread::yield();
+			lock.unlock();			
 		}		
 	}
 }
