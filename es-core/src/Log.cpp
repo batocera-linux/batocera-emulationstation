@@ -13,6 +13,9 @@
 #include <iomanip>
 #include <csignal>
 
+#include <thread>
+#include <condition_variable>
+
 #if WIN32
 #include <Windows.h>
 #endif
