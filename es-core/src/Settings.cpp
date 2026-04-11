@@ -128,7 +128,6 @@ void Settings::setDefaults()
 	mIntMap.clear();
 
 	mBoolMap["BackgroundJoystickInput"] = false;
-	mBoolMap["ParseGamelistOnly"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["ShowParentFolder"] = true;
 	mBoolMap["IgnoreLeadingArticles"] = Settings::_IgnoreLeadingArticles;
@@ -139,6 +138,7 @@ void Settings::setDefaults()
 	mBoolMap["ExitOnRebootRequired"] = false;
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
+	mStringMap["GameLoadingMode"] = GAME_LOADING_NORMAL;
 	mStringMap["AlternateSplashScreen"] = "";
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
@@ -520,6 +520,16 @@ void Settings::loadFile()
 			mStringMap["UseCustomCollectionsSystemEx"] = "false";
 
 		mBoolMap.erase(it);
+	}
+
+	// Migrate old ParseGamelistOnly bool to GameLoadingMode string
+	auto itParse = mBoolMap.find("ParseGamelistOnly");
+	if (itParse != mBoolMap.cend())
+	{
+		if (itParse->second && mStringMap["GameLoadingMode"] == GAME_LOADING_NORMAL)
+			mStringMap["GameLoadingMode"] = GAME_LOADING_GAMELIST_ONLY;
+
+		mBoolMap.erase(itParse);
 	}
 
 	mWasChanged = false;

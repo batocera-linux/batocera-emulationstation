@@ -383,7 +383,8 @@ set(COMMON_LIBRARIES
     pugixml
     nanosvg
     id3v2
-	libcheevos	
+	libcheevos
+    sqlite3
 )
 
 if(UDEV_FOUND)

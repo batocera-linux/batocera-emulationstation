@@ -10,6 +10,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include "Genres.h"
 #include "Paths.h"
+#include "GameDatabase.h"
 #include "utils/ThreadPool.h"
 
 #ifdef WIN32
@@ -158,7 +159,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 	}
 
 	std::string relativeTo = system->getStartPath();
-	bool trustGamelist = Settings::ParseGamelistOnly();
+	bool trustGamelist = Settings::GameLoadingMode() == GAME_LOADING_GAMELIST_ONLY;
 
 	for (pugi::xml_node fileNode : root.children())
 	{
@@ -460,7 +461,7 @@ void updateGamelist(SystemData* system)
 	}
 
 	// Now write the file
-	if (numUpdated > 0) 
+	if (numUpdated > 0)
 	{
 		//make sure the folders leading up to this path exist (or the write will fail)
 		std::string xmlWritePath(system->getGamelistPath(true));
@@ -475,6 +476,21 @@ void updateGamelist(SystemData* system)
 	}
 	else
 		clearTemporaryGamelistRecovery(system);
+
+	// Sync dirty files to game database
+	if (!dirtyFiles.empty())
+	{
+		GameDatabase* db = GameDatabase::getInstance();
+		if (db && db->isInitialized())
+		{
+			LOG(LogInfo) << "GameDatabase: Syncing " << dirtyFiles.size() << " dirty files for " << system->getName();
+			for (auto* file : dirtyFiles)
+			{
+				if (file->getType() == GAME)
+					db->upsertGame(system->getName(), file);
+			}
+		}
+	}
 }
 
 void resetGamelistUsageData(SystemData* system)
