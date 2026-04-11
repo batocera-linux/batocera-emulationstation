@@ -44,6 +44,7 @@
 #include <thread>
 #include "ZaparooSupport.h"
 #include "GameDatabase.h"
+#include "utils/ThreadPool.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -364,6 +365,8 @@ void signalHandler(int signum)
 	else
 		LOG(LogError) << "Interrupt signal (" << signum << ") received.\n";
 
+	Log::flush();
+
 	// cleanup and close up stuff here  
 	exit(signum);
 }
@@ -457,11 +460,11 @@ void launchStartupGame()
 	}	
 }
 
-#include "utils/MathExpr.h"
+// #include "utils/MathExpr.h"
 
 int main(int argc, char* argv[])
 {	
-	Utils::MathExpr::performUnitTests();
+	// Utils::MathExpr::performUnitTests();
 
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
@@ -543,48 +546,43 @@ int main(int argc, char* argv[])
 	}
 #endif
 
-	Scripting::fireEvent("start");
-
-	// metadata init
-	HttpReq::resetCookies();
-	Genres::init();
-	MetaDataList::initMetadata();
-	Zaparoo::checkZaparooEnabledAsync();
+	// Threaded initializations
+	auto threadPool = new Utils::ThreadPool();
+	auto vlcInit = threadPool->queueWorkItem([] { VideoVlcComponent::init(); });
+	threadPool->queueWorkItem([] { ApiSystem::getInstance()->getIpAddress(); });
+	threadPool->queueWorkItem([] { MetaDataList::initMetadata(); });
+	threadPool->queueWorkItem([] { MameNames::init(); });
+	threadPool->queueWorkItem([] { Genres::init(); });
+	threadPool->queueWorkItem([] { HttpReq::resetCookies(); });
+	threadPool->start();
 
 	Window window;
-	SystemScreenSaver screensaver(&window);
 	ViewController::init(&window);
-	CollectionSystemManager::init(&window);
-	
-	window.setReloadGamelistsCallback([&window] {
-		ViewController::reloadAllGames(&window, true, true);
-	});
-	
-	VideoVlcComponent::init();
 
+	window.setReloadGamelistsCallback([&window] { ViewController::reloadAllGames(&window, true, true); });	
 	window.pushGui(ViewController::get());
-	if(!window.init(true, false))
+	if (!window.init(true, false))
 	{
 		LOG(LogError) << "Window failed to initialize!";
 		return 1;
 	}
 
 	Renderer::setWindowResizable(false);
-	PowerSaver::init();
 
 	bool splashScreen = Settings::getInstance()->getBool("SplashScreen");
 	bool splashScreenProgress = Settings::getInstance()->getBool("SplashScreenProgress");
 
 	if (splashScreen)
-	{
-		std::string progressText = _("Loading...");
-		if (splashScreenProgress)
-			progressText = _("Loading system config...");
+		window.renderSplashScreen(splashScreenProgress ? _("Loading system config...") : _("Loading..."));
 
-		window.renderSplashScreen(progressText);
-	}
+	Scripting::fireEvent("start");
 
-	MameNames::init();
+	SystemScreenSaver screensaver(&window);
+	CollectionSystemManager::init(&window);
+	
+	Zaparoo::checkZaparooEnabledAsync();
+	PowerSaver::init();
+	InputConfig::AssignActionButtons();
 
 	// Initialize game database (only when using database cache mode)
 	if (Settings::GameLoadingMode() == GAME_LOADING_DATABASE)
@@ -597,12 +595,16 @@ int main(int argc, char* argv[])
 	{
 		LOG(LogInfo) << "GameDatabase: GameLoadingMode is " << Settings::GameLoadingMode() << ", skipping database initialization";
 	}
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PDFEXTRACTION))
+		TextureData::PdfHandler = ApiSystem::getInstance();
+	
+	threadPool->waitAllExcept(vlcInit); // Wait for what's necessary for loadSystemConfigFile
 
 	const char* errorMsg = NULL;
-	if(!loadSystemConfigFile(splashScreen && splashScreenProgress ? &window : nullptr, &errorMsg))
+	if (!loadSystemConfigFile(splashScreen && splashScreenProgress ? &window : nullptr, &errorMsg))
 	{
 		// something went terribly wrong
-		if(errorMsg == NULL)
+		if (errorMsg == NULL)
 		{
 			LOG(LogError) << "Unknown error occured while parsing system config file.";
 			Renderer::deinit();
@@ -631,17 +633,11 @@ int main(int argc, char* argv[])
 	}
 #endif
 
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PDFEXTRACTION))
-		TextureData::PdfHandler = ApiSystem::getInstance();
-
-	ApiSystem::getInstance()->getIpAddress();
-
 	// preload what we can right away instead of waiting for the user to select it
 	// this makes for no delays when accessing content, but a longer startup time
 	ViewController::get()->preload();
 
 	// Initialize input
-	InputConfig::AssignActionButtons();
 	InputManager::getInstance()->init();
 	SDL_StopTextInput();
 
@@ -658,6 +654,9 @@ int main(int argc, char* argv[])
 
 		ViewController::get()->goToStart(true);
 	}
+
+	threadPool->wait();
+	delete threadPool;
 
 	window.closeSplashScreen();
 

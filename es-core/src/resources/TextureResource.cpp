@@ -41,9 +41,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 
 			mTextureData->setDynamic(false);
 			mTextureData->initFromPath(path);
-			mTextureData->load();
-
-			sTextureDataManager.cleanupVRAM(mTextureData);
+			mTextureData->load();			
 		}
 	}
 	else
@@ -115,7 +113,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 				if (rc->mTextureData != nullptr)
 					dt = rc->mTextureData;
 				else
-					dt = sTextureDataManager.get(rc.get(), TextureDataManager::TextureLoadMode::DISABLED);
+					dt = sTextureDataManager.get(rc.get(), TextureLoadMode::NOLOAD);
 
 				if (dt != nullptr)
 				{
@@ -140,7 +138,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	std::shared_ptr<TextureResource> tex;
 	tex = std::make_shared<TextureResource>(std::get<0>(key), tile, linear, dynamic, !forceLoad, maxSize);
 
-	auto loadMode = forceLoad ? TextureDataManager::TextureLoadMode::ENABLED : TextureDataManager::TextureLoadMode::DISABLED;
+	auto loadMode = forceLoad ? TextureLoadMode::STANDARD: TextureLoadMode::NOLOAD;
 	std::shared_ptr<TextureData> data = sTextureDataManager.get(tex.get(), loadMode);
 
 	if (asReloadable)
@@ -207,20 +205,20 @@ void TextureResource::initFromMemory(const char* data, size_t length)
 
 bool TextureResource::isTiled() const
 {
-	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data ? data->tiled() : false;
 }
 
 bool TextureResource::isScalable() const
 {
-	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data ? data->isScalable() : false;
 }
 
 void TextureResource::prioritize() const
 {
 	if (mTextureData == nullptr)
-		sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::MOVETOTOPONLY);
+		sTextureDataManager.get(this, TextureLoadMode::MOVETOTOPONLY);
 }
 
 void TextureResource::setRequired(bool value) const
@@ -228,7 +226,7 @@ void TextureResource::setRequired(bool value) const
 	if (mTextureData != nullptr)
 		return;
 	
-	auto data = sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	if (data != nullptr)
 		data->setRequired(value);	
 }
@@ -257,7 +255,7 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 	if (width < 0) width = -width;
 	if (height < 0) height = -height;
 
-	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	if (data != nullptr)
 		data->rasterizeAt((float)width, (float)height);
 }
@@ -267,14 +265,14 @@ bool TextureResource::isLoaded() const
 	if (mTextureData != nullptr)
 		return mTextureData->isLoaded();
 
-	auto data = sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED); 
+	auto data = sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	if (data != nullptr)
 		return data->isLoaded();
 
 	return true;
 }
 
-size_t TextureResource::getMemoryUsage(MemoryUsageType type)
+size_t TextureResource::getTotalMemoryUsage(MemoryUsageType type)
 {
 	size_t total = 0;
 
@@ -283,15 +281,21 @@ size_t TextureResource::getMemoryUsage(MemoryUsageType type)
 		total += tex->mTextureData->getMemoryUsage(type);
 
 	// Now get the committed memory from the manager
-	total += sTextureDataManager.getMemoryUsage(type);
+	total += sTextureDataManager.getTotalMemoryUsage(type);
 
 	return total;
+}
+
+size_t TextureResource::getMemoryUsage(MemoryUsageType type)
+{
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
+	return data != nullptr ? data->getMemoryUsage(type) : 0;
 }
 
 bool TextureResource::unload()
 {
 	// Release the texture's resources
-	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	if (data != nullptr && data->isLoaded())
 	{
 		data->releaseVRAM();
@@ -303,7 +307,7 @@ bool TextureResource::unload()
 	return false;
 }
 
-void TextureResource::reload()
+void TextureResource::reload(TextureLoadMode mode)
 {
 	// For dynamically loaded textures the texture manager will load them on demand.
 	// For manually loaded textures we have to reload them here
@@ -313,7 +317,7 @@ void TextureResource::reload()
 			mTextureData->load();
 	}
 	else
-		sTextureDataManager.get(this);
+		sTextureDataManager.get(this, mode);
 }
 
 void TextureResource::clearQueue()
@@ -321,14 +325,24 @@ void TextureResource::clearQueue()
 	sTextureDataManager.clearQueue();
 }
 
+int TextureResource::getQueueSize()
+{
+	return sTextureDataManager.getQueueSize();
+}
+
 const Vector2i TextureResource::getSize() const
 { 	
-	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data && data->isLoaded() ? data->getSize() : Vector2i::Zero(); //	mSize;
 }
 
 const Vector2f TextureResource::getPhysicalSize() const 
 { 
-	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data && data->isLoaded() ? data->getPhysicalSize() : Vector2f::Zero(); // mPhysicalSize;
+}
+
+void TextureResource::cleanupVRAM()
+{
+	sTextureDataManager.cleanupVRAM();
 }

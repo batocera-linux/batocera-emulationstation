@@ -1056,6 +1056,17 @@ namespace Renderer
 		if (sdlWindow == nullptr || !Settings::getInstance()->getBool("Windowed"))
 			return;
 
+#if WIN32
+		SDL_SysWMinfo wmInfo;
+		SDL_VERSION(&wmInfo.version);
+		SDL_GetWindowWMInfo(sdlWindow, &wmInfo);
+		HWND hWnd = wmInfo.info.win.window;
+
+		DWORD windowThreadId = GetWindowThreadProcessId(hWnd, nullptr);
+		if (GetCurrentThreadId() != windowThreadId)
+			return;
+#endif
+
 		SDL_SetWindowResizable(sdlWindow, resizable ? SDL_bool::SDL_TRUE : SDL_bool::SDL_FALSE);
 	}
 

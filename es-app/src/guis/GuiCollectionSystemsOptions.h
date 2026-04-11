@@ -20,9 +20,9 @@ private:
 	void initializeMenu();	
 	void addSystemsToMenu();
 	
-	void updateSettings(std::string newAutoSettings, std::string newCustomSettings);
-	void createCollection(std::string inName);
-	void createFilterCollection(std::string inName, bool editFilters);
+	void updateSettings(const std::string& newAutoSettings, const std::string& newCustomSettings);
+	void createCollection(const std::string& inName);
+	void createFilterCollection(const std::string& inName, bool editFilters);
 	
 	std::shared_ptr< OptionListComponent<std::string> > autoOptionList;
 	std::shared_ptr< OptionListComponent<std::string> > customOptionList;

@@ -52,7 +52,7 @@ void Font::initLibrary()
 	}
 }
 
-size_t Font::getMemUsage() const
+size_t Font::getMemoryUsage() const
 {
 	size_t memUsage = 0;
 	
@@ -65,7 +65,7 @@ size_t Font::getMemUsage() const
 	return memUsage;
 }
 
-size_t Font::getTotalMemUsage()
+size_t Font::getTotalMemoryUsage()
 {
 	size_t total = 0;
 
@@ -78,7 +78,7 @@ size_t Font::getTotalMemUsage()
 			continue;
 		}
 
-		total += it->second.lock()->getMemUsage();
+		total += it->second.lock()->getMemoryUsage();
 		it++;
 	}
 
@@ -681,7 +681,7 @@ std::string tryFastBidi(const std::string& text)
     return ret;
 }
 
-Vector2f Font::sizeText(std::string text, float lineSpacing)
+Vector2f Font::sizeText(const std::string& text, float lineSpacing)
 {
 	float lineWidth = 0.0f;
 	float highestWidth = 0.0f;
@@ -791,13 +791,13 @@ std::string Font::wrapText(std::string text, float maxWidth)
 	return out;
 }
 
-Vector2f Font::sizeWrappedText(std::string text, float xLen, float lineSpacing)
+Vector2f Font::sizeWrappedText(const std::string& text, float xLen, float lineSpacing)
 {
-	text = wrapText(text, xLen);
-	return sizeText(text, lineSpacing);
+	auto wrapped = wrapText(text, xLen);
+	return sizeText(wrapped, lineSpacing);
 }
 
-Vector2f Font::getWrappedTextCursorOffset(std::string text, float xLen, size_t stop, float lineSpacing)
+Vector2f Font::getWrappedTextCursorOffset(const std::string& text, float xLen, size_t stop, float lineSpacing)
 {
 	std::string wrappedText = wrapText(text, xLen);
 

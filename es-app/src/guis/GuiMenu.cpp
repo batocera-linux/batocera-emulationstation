@@ -30,7 +30,7 @@
 #include <SDL_events.h>
 #include <algorithm>
 #include "utils/Platform.h"
-
+#include "utils/FileSystemUtil.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -1125,7 +1125,9 @@ void GuiMenu::openDeveloperSettings()
 	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
 	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USAGE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
-	
+
+	s->addSwitch(_("USE FILESYSTEM CACHE"), "UseFileCache", true, [s] { Utils::FileSystem::FileSystemCache::reset(); });
+
 	s->onFinalize([s, window]
 	{					
 		if (s->getVariable("reboot"))
@@ -3135,7 +3137,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 			std::string prevMode = Settings::GameLoadingMode();
 			if (prevMode == GAME_LOADING_DATABASE) Settings::setGameLoadingMode(GAME_LOADING_NORMAL);
 			Scripting::fireEvent("update-gamelists");
-			ViewController::reloadAllGames(window, true, true);
+			ViewController::reloadAllGames(window, true, true, true);
 			if (prevMode == GAME_LOADING_DATABASE) Settings::setGameLoadingMode(prevMode);
 		},
 		_("NO"), nullptr));

@@ -44,12 +44,18 @@ public:
 
 	bool bind();
 
-	static size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated); // returns an approximation of memory used by textures
+	static size_t getTotalMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated); // returns an approximation of memory used by textures
+	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
 
 	virtual bool unload();
-	virtual void reload();
+	virtual void reload() { reload(TextureLoadMode::STANDARD); }
+
+	void reload(TextureLoadMode mode);
 
 	static void clearQueue();
+	static int getQueueSize();
+
+	static void cleanupVRAM();
 
 private:
 	// mTextureData is used for textures that are not loaded from a file - these ones

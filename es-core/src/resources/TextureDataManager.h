@@ -11,12 +11,14 @@
 #include <vector>
 #include <set>
 #include <unordered_map>
+#include <atomic>
 
 class TextureDataManager;
 class TextureData;
 class TextureResource;
 
 enum class MemoryUsageType { Allocated, VRAM, RAM, Estimated };
+enum class TextureLoadMode { STANDARD, NOLOAD, MOVETOTOPONLY, LOADNOMOVETOTOP };
 
 class TextureLoader
 {
@@ -27,10 +29,9 @@ public:
 	void load(std::shared_ptr<TextureData> textureData);
 	bool remove(std::shared_ptr<TextureData> textureData);
 	void clearQueue();
+	int getQueueSize();
 
-	size_t getQueueSize();
-
-	static bool paused;
+	static std::atomic<bool> paused;
 
 	std::mutex& Mutex() { return mLoaderLock; }
 
@@ -44,7 +45,7 @@ private:
 	std::vector<std::thread>	mThreads;
 	std::mutex					mLoaderLock;
 	std::condition_variable		mEvent;
-	bool 						mExit;
+	std::atomic<bool>			mExit;
 
 	TextureDataManager*			mManager;
 };
@@ -70,13 +71,6 @@ public:
 	TextureDataManager();
 	~TextureDataManager();
 
-	enum TextureLoadMode : int
-	{
-		ENABLED = 0,
-		DISABLED = 1,
-		MOVETOTOPONLY = 2
-	};
-
 	std::shared_ptr<TextureData> add(const TextureResource* key, bool tiled, bool linear);
 
 	// The texturedata being removed may be loading in a different thread. However it will
@@ -85,26 +79,25 @@ public:
 	void remove(const TextureResource* key);
 
 	void cancelAsync(const TextureResource* key);
-	std::shared_ptr<TextureData> get(const TextureResource* key, TextureLoadMode enableLoading = TextureLoadMode::ENABLED);
+	std::shared_ptr<TextureData> get(const TextureResource* key, TextureLoadMode enableLoading = TextureLoadMode::STANDARD);
 	bool bind(const TextureResource* key);
 
 	// Get the total size of all committed textures (in VRAM) in bytes
-	size_t	getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
-	// Get the total size of all load-pending textures in the queue
-	size_t  getQueueSize();
+	size_t	getTotalMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
 
 	// Load a texture, freeing resources as necessary to make space
 	void load(std::shared_ptr<TextureData> tex, bool block = false);
 
 	void clearQueue();
-	
-	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);	
+	int getQueueSize();
+
+	void cleanupVRAM();
 
 private:
 
 	std::shared_ptr<TextureData> getBlankTexture();
 
-	std::recursive_mutex					mMutex;
+	std::recursive_mutex	mMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
 	std::unordered_map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;

@@ -1022,8 +1022,6 @@ std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 
 std::vector<std::string> Win32ApiSystem::getShaderList(const std::string& system, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	std::vector<std::string> folderList;

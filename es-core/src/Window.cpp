@@ -138,6 +138,7 @@ bool Window::init(bool initRenderer, bool initInputManager)
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_SMALL));
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_MEDIUM));
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_LARGE));
+		mDefaultFonts.push_back(Font::get(FONT_SIZE_MINI));
 	}
 
 	mBackgroundOverlay->setImage(":/scroll_gradient.png");
@@ -431,6 +432,8 @@ void Window::processSongTitleNotifications()
 
 void Window::update(int deltaTime)
 {
+	TextureResource::cleanupVRAM();
+
 	if (mLastShowCursor >= 0)
 	{
 		mLastShowCursor += deltaTime;
@@ -460,7 +463,7 @@ void Window::update(int deltaTime)
 
 	mFrameTimeElapsed += deltaTime;
 	mFrameCountElapsed++;
-	if (mFrameTimeElapsed > 500)
+	if (mFrameTimeElapsed > 250)
 	{
 		mAverageDeltaTime = mFrameTimeElapsed / mFrameCountElapsed;
 
@@ -473,15 +476,17 @@ void Window::update(int deltaTime)
 			ss << std::fixed << std::setprecision(2) << ((float)mFrameTimeElapsed / (float)mFrameCountElapsed) << "ms";
 
 			// vram
-			float textureVramUsageMb = TextureResource::getMemoryUsage(MemoryUsageType::VRAM) / 1024.0f / 1024.0f;
-			float textureKnownUsageMb = TextureResource::getMemoryUsage(MemoryUsageType::Estimated) / 1024.0f / 1024.0f;
-			float textureCacheUsageMb = TextureResource::getMemoryUsage(MemoryUsageType::RAM) / 1024.0f / 1024.0f;
-			float fontVramUsageMb = Font::getTotalMemUsage() / 1024.0f / 1024.0f;
+			float textureVramUsageMb = TextureResource::getTotalMemoryUsage(MemoryUsageType::VRAM) / 1024.0f / 1024.0f;
+			float textureKnownUsageMb = TextureResource::getTotalMemoryUsage(MemoryUsageType::Estimated) / 1024.0f / 1024.0f;
+			float textureCacheUsageMb = TextureResource::getTotalMemoryUsage(MemoryUsageType::RAM) / 1024.0f / 1024.0f;
+			float fontVramUsageMb = Font::getTotalMemoryUsage() / 1024.0f / 1024.0f;
 			size_t max_texture = Settings::getInstance()->getInt("MaxVRAM");
 
-			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureKnownUsageMb << " Max VRAM: " << max_texture;
+			int queueSize = TextureResource::getQueueSize();
 
-			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));			
+			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureKnownUsageMb << " Max VRAM: " << max_texture << " Queued : " << queueSize;
+			
+			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts[3]->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));
 		}
 
 		mFrameTimeElapsed = 0;
@@ -1489,6 +1494,7 @@ void Window::processStorageRequest(std::string line)
 		std::string deviceModel = parts[2];
 		std::string deviceSize  = parts[3];
 		std::string mountPoint  = parts[4];
+		std::string uniqueId    = (parts.size() > 5 && !parts[5].empty()) ? parts[5] : "";
 
 		std::string message = _("GAME DRIVE DETECTED") + "\n\n" +
 							  _("DEVICE") + ": " + deviceName + "\n" +
@@ -1498,8 +1504,7 @@ void Window::processStorageRequest(std::string line)
 							  _("Merge games from this drive partition now?") + "\n" + 
 							  _("(This will also apply on future boots)");
 
-		auto* msg = new GuiMsgBox(this, message,
-			_("YES"), [this, mountPoint, processNext] {
+		auto mergeLambda = [this, mountPoint, processNext] {
 				this->displayNotificationMessage(_("Merge requested... Please wait."));
 				needReload = true;
 
@@ -1513,10 +1518,31 @@ void Window::processStorageRequest(std::string line)
 						}
 					});
 				}).detach();
-			}, 
-			_("NO"), [processNext] { processNext(); }
-		);
-		pushGui(msg);
+		};
+
+		if (!uniqueId.empty())
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("NO, IGNORE THIS TIME"), [processNext] { processNext(); },
+				_("NO, IGNORE FOREVER"), [this, uniqueId, processNext] {
+					this->displayNotificationMessage(_("Adding drive to ignore list..."));
+					std::thread([uniqueId, processNext, this]() {
+						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
+						this->postToUiThread([processNext] { processNext(); });
+					}).detach();
+				},
+				_("YES, MERGE DRIVE"), mergeLambda
+			);
+			pushGui(msg);
+		}
+		else
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("YES"), mergeLambda, 
+				_("NO"), [processNext] { processNext(); }
+			);
+			pushGui(msg);
+		}
 	}
 	else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
 	{

@@ -4,29 +4,41 @@
 
 std::string ThemeVariables::resolvePlaceholders(const char* in) const
 {
-	if (in == nullptr || in[0] == 0)
-		return in;
+    if (in == nullptr || in[0] == 0) 
+        return "";
 
-	auto begin = strstr(in, "${");
-	if (begin == nullptr)
-		return in;
+    std::string result;
+    result.reserve(strlen(in));
 
-	auto end = strstr(begin, "}");
-	if (end == nullptr)
-		return in;
+    std::string_view view(in);
+    size_t pos = 0;
 
-	std::string inStr(in);
+    while (true)
+    {
+        size_t start = view.find("${", pos);
+        if (start == std::string_view::npos) 
+        {
+            result.append(view.substr(pos));
+            break;
+        }
 
-	const size_t variableBegin = begin - in;
-	const size_t variableEnd = end - in;
+        result.append(view.substr(pos, start - pos));
 
-	std::string prefix = inStr.substr(0, variableBegin);
-	std::string replace = inStr.substr(variableBegin + 2, variableEnd - (variableBegin + 2));
-	std::string suffix = resolvePlaceholders(end + 1);
+        size_t end = view.find('}', start + 2);
+        if (end == std::string_view::npos) 
+        {
+            result.append(view.substr(start));
+            break;
+        }
 
-	auto it = this->find(replace);
-	if (it != this->cend())
-		return prefix + it->second + suffix;
-	
-	return prefix + "" + suffix;
+        std::string_view varName = view.substr(start + 2, end - (start + 2));
+
+        auto it = this->find(varName);
+        if (it != this->cend())
+            result.append(it->second);        
+
+        pos = end + 1;
+    }
+
+    return result;    
 }

@@ -123,6 +123,7 @@ namespace PlatformIds
 
 		// Misc systems
 		CHANNELF,
+		ELEKTRONIKA_BK,
 		ORICATMOS,
 		THOMSON_TO_MO,
 		SAMCOUPE,

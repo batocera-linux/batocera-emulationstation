@@ -346,7 +346,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 
 	float y = 0;
 
-	std::map<unsigned int, float> rowHeights;
+	std::vector<float> rowHeights(mEntries.size(), -1.0f);
 	std::vector<GuiComponent*> drawAfterCursor;
 
 	for (unsigned int i = 0; i < mEntries.size(); i++)
@@ -425,10 +425,10 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 		y = 0;
 		for (unsigned int i = 0; i < mEntries.size(); i++)
 		{
-			auto it = rowHeights.find(i);
-			if (it != rowHeights.cend())
+			auto height = rowHeights[i];
+			if (height >= 0)
 			{
-				if (y - mCameraOffset + it->second >= 0)
+				if (y - mCameraOffset + height >= 0)
 				{
 					if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
 						Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor & 0xFFFFFF00 | (unsigned char)((menuTheme->Group.separatorColor & 0xFF) * opacity));
@@ -436,7 +436,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 						Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 				}
 
-				y += it->second; // getRowHeight(mEntries.at(i).data);
+				y += height; // getRowHeight(mEntries.at(i).data);
 				if (y - mCameraOffset > mSize.y())
 					break;
 			}

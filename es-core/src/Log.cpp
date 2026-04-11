@@ -2,152 +2,326 @@
 
 #include "utils/FileSystemUtil.h"
 #include "utils/Platform.h"
+#include "Settings.h"
+#include "Paths.h"
+
 #include <iostream>
 #include <mutex>
-#include "Settings.h"
-#include <iomanip> 
 #include <SDL_timer.h>
-#include "Paths.h"
+#include <iomanip> 
+#include <fstream>
+#include <iomanip>
+#include <csignal>
+
+#include <thread>
+#include <condition_variable>
 
 #if WIN32
 #include <Windows.h>
 #endif
 
-static std::mutex mLogLock;
+std::atomic<LogLevel> Log::mReportingLevel = (LogLevel) -1;
+std::atomic<bool>     Log::mEnabled = false;
 
-LogLevel Log::mReportingLevel = (LogLevel) -1;
-bool     Log::mDirty          = false;
-FILE*    Log::mFile           = NULL;
+static thread_local std::ostringstream tl_stream;
 
-void Log::init()
-{		
-	mReportingLevel = (LogLevel)-1;
+class AsyncLogger
+{
+public:
+    static AsyncLogger& instance()
+    {
+        static AsyncLogger inst;
+        return inst;
+    }
 
-	close();
+    struct Entry
+    {
+        LogLevel    level;
+        std::string msg;  
+    };
 
-	LogLevel lvl = LogInfo;
+    void open(const std::string& path, LogLevel level, bool debugToStderr)
+    {
+        mFile.open(path, std::ios::out | std::ios::trunc);
+        if (!mFile.is_open()) 
+        {
+            std::cerr << "[Log] Cannot open: " << path << "\n";
+            return;
+        }
 
-	if (Settings::getInstance()->getBool("Debug"))
-		lvl = LogDebug;
-	else
-	{
-		auto level = Settings::getInstance()->getString("LogLevel");
-		if (level == "debug")
-			lvl = LogDebug;
-		else if (level == "information")
-			lvl = LogInfo;
-		else if (level == "warning")
-			lvl = LogWarning;
-		else if (level == "error" || level.empty())
-			lvl = LogError;
-		else
-			lvl = (LogLevel) -1; // Disabled
-	}
+        mBufA.reserve(256);
+        mBufB.reserve(256);
 
-	auto logPath = Paths::getUserEmulationStationPath() + "/es_log.txt";
-	auto bakPath = logPath + ".bak";
+        mLevel.store(level, std::memory_order_relaxed);
+        mDebugToStderr = debugToStderr;
+        mShutdown = false;
+        mEnabled.store(true, std::memory_order_release);
+        mThread = std::thread(&AsyncLogger::workerLoop, this);
+    }
 
-	if ((int)lvl < 0) 
-	{		
-		Utils::FileSystem::removeFile(logPath);
-		return;
-	}
-	
-	Utils::FileSystem::removeFile(bakPath);
-	Utils::FileSystem::renameFile(logPath, bakPath);
+    void close()
+    {
+        if (!mEnabled.load(std::memory_order_acquire)) 
+            return;
 
-	bool locked = mLogLock.try_lock();
+        mEnabled.store(false, std::memory_order_release);
+        {
+            std::lock_guard<std::mutex> lk(mMutex);
+            mShutdown = true;
+        }
 
-	mFile = fopen(logPath.c_str(), "w");
-	mDirty = false;
-	mReportingLevel = lvl;
+        mCV.notify_one();
 
-	if (locked)
-		mLogLock.unlock();
+        if (mThread.joinable()) 
+            mThread.join();
+
+        drainBuffer();
+        mFile.flush();
+        mFile.close();
+    }
+
+    void emergencyFlush()
+    {
+        mEmergency.store(true, std::memory_order_release);
+        mCV.notify_one();
+
+        for (int i = 0; i < 200 && mEmergency.load(std::memory_order_acquire); ++i)
+            std::this_thread::sleep_for(std::chrono::microseconds(50));
+
+        if (mFile.is_open())
+            mFile.flush();
+    }
+
+    void enqueue(LogLevel level, std::string&& msg)
+    {
+        {
+            std::lock_guard<std::mutex> lk(mMutex);
+            mWriteBuf->push_back({ level, std::move(msg) });
+        }
+        mCV.notify_one();
+    }
+
+    void     setLevel(LogLevel l) { mLevel.store(l, std::memory_order_relaxed); }
+    LogLevel getLevel()     const { return mLevel.load(std::memory_order_relaxed); }
+    bool     isEnabled()    const { return mEnabled.load(std::memory_order_relaxed); }
+
+private:
+    AsyncLogger() : mWriteBuf(&mBufA), mDrainBuf(&mBufB) {}
+
+    void workerLoop()
+    {
+        while (true)
+        {
+            {
+                std::unique_lock<std::mutex> lk(mMutex);
+                mCV.wait(lk, [this] 
+                    {
+                    return !mWriteBuf->empty()
+                        || mShutdown
+                        || mEmergency.load(std::memory_order_acquire);
+                    });
+                
+                std::swap(mWriteBuf, mDrainBuf);
+            }
+
+            drainBuffer();
+
+            if (mEmergency.load(std::memory_order_acquire)) 
+            {
+                mFile.flush();
+                mEmergency.store(false, std::memory_order_release);
+            }
+                        
+            if (++mBatchCount % kFsyncEveryNBatches == 0)
+                mFile.flush();
+
+            if (mShutdown) break;
+        }
+    }
+
+    void drainBuffer()
+    {
+        for (const auto& e : *mDrainBuf)
+            writeLine(e);
+
+        mDrainBuf->clear();
+    }
+
+    void writeLine(const Entry& e)
+    {
+        mFile << e.msg << '\n';
+
+        if (e.level == LogError || mDebugToStderr) 
+        {
+#if WIN32
+            OutputDebugStringA(e.msg.c_str());
+            OutputDebugStringA("\n");
+#else
+            std::cerr << e.msg << '\n';
+#endif
+        }
+    }
+
+    static const char* levelTag(LogLevel l) 
+    {
+        switch (l) 
+        {
+        case LogError:   
+            return "ERROR";
+        case LogWarning: 
+            return "WARNING";
+        case LogDebug:   
+            return "DEBUG";
+        default:         
+            return "INFO";
+        }
+    }
+
+    std::ofstream  mFile;
+    std::thread    mThread;
+
+    // Double buffer
+    std::vector<Entry>  mBufA, mBufB;
+    std::vector<Entry>* mWriteBuf;
+    std::vector<Entry>* mDrainBuf;
+
+    std::mutex              mMutex;
+    std::condition_variable mCV;
+    bool                    mShutdown{ false };
+    bool                    mDebugToStderr{ false };
+
+    std::atomic<LogLevel>   mLevel{ LogInfo };
+    std::atomic<bool>       mEnabled{ false };
+    std::atomic<bool>       mEmergency{ false };
+
+    uint32_t mBatchCount{ 0 };
+ 
+    static constexpr uint32_t kFsyncEveryNBatches = 8;
+};
+
+static inline uint64_t getOsThreadId()
+{
+#if defined(_WIN32)
+    return static_cast<uint64_t>(GetCurrentThreadId());
+#elif defined(__linux__)
+    return static_cast<uint64_t>(::gettid());
+#elif defined(__APPLE__)
+    uint64_t tid;
+    pthread_threadid_np(nullptr, &tid);
+    return tid;
+#else
+    return static_cast<uint64_t>(::pthread_self());
+#endif
 }
 
-std::ostringstream& Log::get(LogLevel level)
+std::ostringstream& Log::stream()
 {
-	time_t t = time(nullptr);
-	mStream << std::put_time(localtime(&t), "%F %T\t");
+    auto now = std::chrono::system_clock::now();
+    auto tt = std::chrono::system_clock::to_time_t(now);
+    struct tm tm_buf {};
+#if WIN32
+    localtime_s(&tm_buf, &tt);
+#else
+    localtime_r(&tt, &tm_buf);
+#endif
+    tl_stream << std::put_time(&tm_buf, "%F %T") << '\t';
 
-	switch (level)
-	{
-	case LogError:
-		mStream << "ERROR\t";
-		break;
-	case LogWarning:
-		mStream << "WARNING\t";
-		break;
-	case LogDebug:
-		mStream << "DEBUG\t";
-		break;
-	default:
-		mStream << "INFO\t";
-		break;
-	}
+    tl_stream << "[" << std::to_string(getOsThreadId()) << "]\t";
 
-	mMessageLevel = level;
+    switch (mLevel) 
+    {
+    case LogError:   tl_stream << "ERROR\t";   break;
+    case LogWarning: tl_stream << "WARNING\t"; break;
+    case LogDebug:   tl_stream << "DEBUG\t";   break;
+    default:         tl_stream << "INFO\t";    break;
+    }
+    return tl_stream;
+}
 
-	return mStream;
+Log::Log(LogLevel level) : mLevel(level)
+{
+    tl_stream.str("");
+    tl_stream.clear();    
+}
+
+static void crashHandler(int sig)
+{
+    AsyncLogger::instance().emergencyFlush();
+    signal(sig, SIG_DFL);
+    raise(sig);
+}
+
+void Log::init()
+{
+    AsyncLogger::instance().close();
+
+    LogLevel lvl = LogInfo;
+    if (Settings::getInstance()->getBool("Debug"))
+    {
+        lvl = LogDebug;
+    }
+    else
+    {
+        auto level = Settings::getInstance()->getString("LogLevel");
+        if (level == "debug")       lvl = LogDebug;
+        else if (level == "information") lvl = LogInfo;
+        else if (level == "warning")     lvl = LogWarning;
+        else if (level == "error")       lvl = LogError;
+        else if (level.empty())          lvl = LogError;
+        else                             lvl = (LogLevel)-1;  // disabled
+    }
+
+    auto base = Paths::getUserEmulationStationPath() + "/es_log";
+    auto logPath = base + ".txt";
+
+    if ((int)lvl < 0)
+    {
+        Utils::FileSystem::removeFile(logPath);
+        mEnabled.store(false, std::memory_order_release);
+        return;
+    }
+
+    static constexpr int kMaxArchives = 4; // Keep 5 logs ( current + 4 latest )
+
+    Utils::FileSystem::removeFile(base + "." + std::to_string(kMaxArchives - 1) + ".txt");
+
+    for (int i = kMaxArchives - 2; i >= 0; --i)
+    {
+        Utils::FileSystem::renameFile(
+            base + "." + std::to_string(i) + ".txt",
+            base + "." + std::to_string(i + 1) + ".txt", true);
+    }
+
+    Utils::FileSystem::renameFile(logPath, base + ".0.txt", true);
+
+    // signal(SIGSEGV, crashHandler); // It's already managed by main()
+    signal(SIGABRT, crashHandler);
+
+#ifndef WIN32
+    signal(SIGTERM, crashHandler);
+#endif
+
+    bool debugToStderr = (lvl >= LogDebug);
+    AsyncLogger::instance().open(logPath, lvl, debugToStderr);
+
+    mReportingLevel.store(lvl, std::memory_order_relaxed);
+    mEnabled.store(true, std::memory_order_release);
 }
 
 void Log::flush()
 {
-	if (!mDirty)
-		return;
-
-	if (mLogLock.try_lock())
-	{
-		if (mFile != nullptr)
-			fflush(mFile);
-
-		mDirty = false;
-		mLogLock.unlock();
-	}
+    AsyncLogger::instance().emergencyFlush();
 }
 
 void Log::close()
 {
-	bool locked = mLogLock.try_lock();
-
-	if (mFile != NULL)
-	{
-		fflush(mFile);
-		fclose(mFile);
-		mFile = NULL;
-	}
-
-	mDirty = false;
-	
-	if (locked)
-		mLogLock.unlock();
+    mEnabled.store(false, std::memory_order_release);
+    AsyncLogger::instance().close();
 }
 
 Log::~Log()
 {
-	bool locked = mLogLock.try_lock();
-
-	if (mFile != NULL)
-	{
-		mStream << std::endl;
-		fprintf(mFile, "%s", mStream.str().c_str());
-		mDirty = true;
-	}
-	
-	// If it's an error, also print to console
-	// print all messages if using --debug
-	if (mMessageLevel == LogError || mReportingLevel >= LogDebug)
-	{
-#if WIN32
-		OutputDebugStringA(mStream.str().c_str());
-#else
-		fprintf(stderr, "%s", mStream.str().c_str());
-#endif
-	}
-
-	if (locked)
-		mLogLock.unlock();
+    AsyncLogger::instance().enqueue(mLevel, tl_stream.str());
 }
 
 StopWatch::StopWatch(const std::string& elapsedMillisecondsMessage, LogLevel level)

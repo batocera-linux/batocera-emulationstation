@@ -12,7 +12,7 @@
 
 Vector2i ImageComponent::getTextureSize() const
 {
-	if (mTexture && mTexture->isLoaded())
+	if (mTexture/* && mTexture->isLoaded()*/)
 		return mTexture->getSize();	
 
 	return Vector2i::Zero();
@@ -40,6 +40,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mReflection(0.0f, 0.0f), mSharedTexture(true), mCustomShaderEnabled(true)
 {
 	mTextureLoaded = false;
+	mLoadingTextureLoaded = false;
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
 	mCheckClipping = true;
@@ -83,7 +84,7 @@ void ImageComponent::setSize(float w, float h)
 
 void ImageComponent::resize()
 {
-	if (!mTexture || !mTexture->isLoaded())
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero()) // !mTexture->isLoaded())
 		return;
 
 	const Vector2f textureSize = mTexture->getPhysicalSize();
@@ -192,7 +193,8 @@ void ImageComponent::resize()
 
 void ImageComponent::updateVertices()
 {
-	if (mTexture == nullptr || !mTexture->isLoaded())
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero())
+	//if (mTexture == nullptr || !mTexture->isLoaded())
 		return;
 
 	Vector2f     topLeft = mSize * mTopLeftCrop;
@@ -282,7 +284,7 @@ void ImageComponent::onSizeChanged()
 	recalcChildrenLayout();
 }
 
-void ImageComponent::setDefaultImage(std::string path)
+void ImageComponent::setDefaultImage(const std::string& path)
 {
 	mDefaultPath = path;
 }
@@ -389,6 +391,7 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		mTexture->setRequired(true);
 	}
 
+	mLoadingTextureLoaded = mLoadingTexture != nullptr && mLoadingTexture->isLoaded();
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (mLoadingTexture == nullptr && !mTargetSize.empty())
@@ -410,6 +413,7 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 	}
 
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	resize();
 }
 
@@ -619,8 +623,13 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible)
 		return;
 
-	if (!watchTextureLoading())
+	watchTextureLoading(); // Required when hosted in a grid/list
+
+	if (!mTextureLoaded && mTexture && !mTexture->isLoaded())
+	{
+		mTexture->bind();
 		return;
+	}
 
 	Transform4x4f trans = parentTrans * getTransform();
 	
@@ -750,10 +759,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 bool ImageComponent::watchTextureLoading()
 {
-	if (!mTextureLoaded && mTexture != nullptr && !mTexture->isLoaded() && !mTexture->bind())
-		return false;
-
-	if (mLoadingTexture && mLoadingTexture->isLoaded())
+	if (!mLoadingTextureLoaded && mLoadingTexture && mLoadingTexture->isLoaded())
 	{
 		if (mTexture != nullptr)
 			mTexture->setRequired(false);
@@ -766,10 +772,15 @@ bool ImageComponent::watchTextureLoading()
 		updateVertices();
 		updateColors();
 
+		mLoadingTextureLoaded = true;
 		mTextureLoaded = true;
+		return true;
 	}
 
-	if (!mTextureLoaded && mTexture && mTexture->isLoaded())
+	if (mTexture == nullptr)
+		return false;
+
+	if (!mTextureLoaded && mTexture->getSize() != Vector2i::Zero())
 	{
 		mTexture->setRequired(isShowing());
 
@@ -778,9 +789,11 @@ bool ImageComponent::watchTextureLoading()
 		updateColors();
 
 		mTextureLoaded = true;
+
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)
@@ -1056,6 +1069,8 @@ void ImageComponent::onHide()
 void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	watchTextureLoading(); // Required when preloading
 
 	if (mPlaylist && isShowing())
 	{

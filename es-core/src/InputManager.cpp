@@ -563,11 +563,11 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 
 	case SDL_MOUSEMOTION:
 #if !WIN32
-	  if (ev.motion.which == SDL_TOUCH_MOUSEID)
+	  if (!Utils::Platform::isBuildroot() || ev.motion.which == SDL_TOUCH_MOUSEID)
 #endif
 		if (!getGunManager()->isReplacingMouse())
 			window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
-
+	  
 		return true;
 
 	case SDL_MOUSEWHEEL:

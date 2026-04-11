@@ -5,6 +5,8 @@
 #endif
 
 #include <stdlib.h>
+#include <algorithm>
+#include <chrono>
 
 namespace Utils
 {
@@ -22,6 +24,8 @@ namespace Utils
 		auto doWork = [&](size_t id)
 		{
 #if WIN32
+			SetThreadDescription(GetCurrentThread(), L"ThreadPool::thread");
+
 			auto mask = (static_cast<DWORD_PTR>(1) << id);
 			SetThreadAffinityMask(GetCurrentThread(), mask);
 #endif
@@ -31,16 +35,17 @@ namespace Utils
 				_mutex.lock();
 				if (!mWorkQueue.empty())
 				{
-					auto work = mWorkQueue.front();
+					auto entry = mWorkQueue.front();
 					mWorkQueue.pop();
 					_mutex.unlock();
 
 					try
 					{
-						work();
+						entry.fn();
 					}
 					catch (...) {}
-					
+
+					entry.item->mDone.store(true);
 					mNumWork--;
 				}
 				else
@@ -72,14 +77,19 @@ namespace Utils
 				t.join();
 	}
 
-	void ThreadPool::queueWorkItem(work_function work)
+	WorkItemPtr  ThreadPool::queueWorkItem(work_function work)
 	{
+		auto item = std::make_shared<WorkItem>();
+
 		_mutex.lock();
-		mWorkQueue.push(work);
+		mWorkQueue.push({ work, item });
+		mAllItems.push_back(item);
 		mNumWork++;
 		_mutex.unlock();
-	}
 
+		return item;
+	}
+	
 	void ThreadPool::wait()
 	{
 		if (!mRunning)
@@ -88,6 +98,10 @@ namespace Utils
 		mWaiting = true;
 		while (mNumWork.load() > 0)
 			std::this_thread::yield();
+
+		_mutex.lock();
+		mAllItems.clear();
+		_mutex.unlock();
 	}
 
 	void ThreadPool::wait(work_function work, int delay)
@@ -103,7 +117,79 @@ namespace Utils
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+		}		
+
+		_mutex.lock();
+		mAllItems.clear();
+		_mutex.unlock();
+
+	}
+
+	void WorkItem::wait() const
+	{
+		while (!mDone.load())
+		{
+			std::this_thread::yield();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 		}
+	}
+
+	void ThreadPool::cleanupDoneItems()
+	{
+		_mutex.lock();
+
+		mAllItems.erase(
+			std::remove_if(mAllItems.begin(), mAllItems.end(), [](const std::shared_ptr<WorkItem>& item) { return item->isDone(); }), 
+			mAllItems.end());
+
+		_mutex.unlock();
+	}
+
+	void ThreadPool::waitAll(std::initializer_list<WorkItemPtr> items)
+	{
+		if (!mRunning)
+			start();
+
+		for (const auto& item : items)
+			item->wait();
+
+		cleanupDoneItems();
+	}
+
+	void ThreadPool::waitAllExcept(WorkItemPtr excluded)
+	{
+		waitAllExcept({ excluded });
+	}
+
+	void ThreadPool::waitAllExcept(std::initializer_list<WorkItemPtr> excluded)
+	{
+		if (!mRunning)
+			start();
+
+		std::vector<WorkItemPtr> toWait;
+
+		_mutex.lock();
+		for (auto& item : mAllItems)
+		{
+			bool isExcluded = false;
+			for (const auto& ex : excluded)
+			{
+				if (ex == item)
+				{
+					isExcluded = true; 
+					break;
+				}
+			}
+
+			if (!isExcluded)
+				toWait.push_back(item);
+		}
+		_mutex.unlock();
+
+		for (const auto& item : toWait)
+			item->wait();
+
+		cleanupDoneItems();
 	}
 
 	void ThreadPool::stop()

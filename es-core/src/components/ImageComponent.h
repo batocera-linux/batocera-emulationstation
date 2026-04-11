@@ -29,7 +29,7 @@ public:
 
 	std::string getValue() const override { return mPath.empty() ? mDefaultPath : mPath; }
 
-	void setDefaultImage(std::string path);
+	void setDefaultImage(const std::string& path);
 
 	//Loads the image at the given filepath. Will tile if tile is true (retrieves texture as tiling, creates vertices accordingly).
 	virtual void setImage(const std::string& path, bool tile = false, const MaxSizeInfo& maxSize = MaxSizeInfo::Empty, bool checkFileExists = true, bool allowMultiImagePlaylist = true);
@@ -132,9 +132,11 @@ public:
 
 protected:
 	std::shared_ptr<TextureResource> mTexture;
-	std::shared_ptr<TextureResource> mLoadingTexture;
 	bool mTextureLoaded;
 
+	std::shared_ptr<TextureResource> mLoadingTexture;
+	bool mLoadingTextureLoaded;
+	
 	Vector2f mTargetSize;
 
 	void	recalcLayout() override;
