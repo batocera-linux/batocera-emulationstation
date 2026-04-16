@@ -1025,6 +1025,7 @@ void ViewController::preload()
 		}
 
 		(*it)->resetFilters();
+		Utils::FileSystem::preloadFileSystemCache((*it)->getRootFolder()->getMediaDirectories());
 		getGameListView(*it);
 	}
 }
