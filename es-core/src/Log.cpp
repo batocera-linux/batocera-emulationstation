@@ -20,8 +20,8 @@
 #include <Windows.h>
 #endif
 
-std::atomic<LogLevel> Log::mReportingLevel = (LogLevel) -1;
-std::atomic<bool>     Log::mEnabled = false;
+LogLevel Log::mReportingLevel = (LogLevel) -1;
+bool     Log::mEnabled = false;
 
 static thread_local std::ostringstream tl_stream;
 
@@ -82,14 +82,19 @@ public:
 
     void emergencyFlush()
     {
+        if (!mEnabled.load(std::memory_order_acquire))
+            return;
+
+        if (!mFile.is_open())
+            return;
+
         mEmergency.store(true, std::memory_order_release);
         mCV.notify_one();
 
         for (int i = 0; i < 200 && mEmergency.load(std::memory_order_acquire); ++i)
             std::this_thread::sleep_for(std::chrono::microseconds(50));
 
-        if (mFile.is_open())
-            mFile.flush();
+        mFile.flush();
     }
 
     void enqueue(LogLevel level, std::string&& msg)
@@ -277,7 +282,7 @@ void Log::init()
     if ((int)lvl < 0)
     {
         Utils::FileSystem::removeFile(logPath);
-        mEnabled.store(false, std::memory_order_release);
+        mEnabled = false;
         return;
     }
 
@@ -304,8 +309,8 @@ void Log::init()
     bool debugToStderr = (lvl >= LogDebug);
     AsyncLogger::instance().open(logPath, lvl, debugToStderr);
 
-    mReportingLevel.store(lvl, std::memory_order_relaxed);
-    mEnabled.store(true, std::memory_order_release);
+    mReportingLevel = lvl;
+    mEnabled = true;
 }
 
 void Log::flush()
@@ -315,7 +320,7 @@ void Log::flush()
 
 void Log::close()
 {
-    mEnabled.store(false, std::memory_order_release);
+    mEnabled = false;
     AsyncLogger::instance().close();
 }
 

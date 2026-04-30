@@ -17,16 +17,16 @@ enum LogLevel { LogError, LogWarning, LogInfo, LogDebug };
 class Log
 {
 public:
-	static LogLevel getReportingLevel() { return mReportingLevel.load(std::memory_order_relaxed); }
-	static bool     enabled() { return mEnabled.load(std::memory_order_relaxed); }
+	static LogLevel getReportingLevel() { return mReportingLevel; }
+	static bool     enabled() { return mEnabled; }
 
 	static void init();
 	static void flush();
 	static void close();
 
 private:
-	static std::atomic<LogLevel> mReportingLevel;
-	static std::atomic<bool>     mEnabled;
+	static LogLevel mReportingLevel;
+	static bool     mEnabled;
 
 public:
 	Log(LogLevel level);

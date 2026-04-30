@@ -802,9 +802,7 @@ int main(int argc, char* argv[])
 #endif
 */
 
-		Renderer::swapBuffers();
-
-		Log::flush();
+		Renderer::swapBuffers();		
 	}
 
 	if (Utils::Platform::isFastShutdown())
@@ -842,6 +840,8 @@ int main(int argc, char* argv[])
 	Utils::Platform::processQuitMode();
 
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
+
+	Log::flush();
 
 	return 0;
 }
