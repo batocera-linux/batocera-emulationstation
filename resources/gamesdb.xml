@@ -2084,6 +2084,9 @@
     <game id="hotd3">
       <gun/>
     </game>
+    <game id="HOTD3">
+      <gun/>
+    </game>
     <game id="hotd4" name="The House of the Dead 4 (Rev C)">
       <gun/>
     </game>
@@ -4715,6 +4718,9 @@
     </game>
     <game id="vbowlj">
       <trackball/>
+    </game>
+    <game id="vc3">
+      <gun/>
     </game>
     <game id="vcombat">
       <gun/>
