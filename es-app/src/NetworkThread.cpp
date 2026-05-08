@@ -2,6 +2,7 @@
 #include "ApiSystem.h"
 #include "SystemConf.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiUpdate.h"
 #include "LocaleES.h"
 #include "Log.h"
 #include <chrono>
@@ -20,7 +21,10 @@ NetworkThread::NetworkThread(Window* window) : mWindow(window)
 	mgr->RegisterComponent(new NetworkStateWatcher());
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
+	{
 		mgr->RegisterComponent(&mCheckUpdatesComponent);
+		mgr->RegisterComponent(&mCheckManualUpdateComponent);
+	}
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO))
 		mgr->RegisterComponent(&mCheckPadsBatteryLevelComponent);
@@ -102,6 +106,31 @@ bool CheckCheevosTokenComponent::enabled()
 	return SystemConf::getInstance()->getBool("global.retroachievements");
 };
 
+bool CheckManualUpdateComponent::enabled()
+{
+	return ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE);
+}
+
+bool CheckManualUpdateComponent::check()
+{
+	std::string path = ApiSystem::findManualUpdateFile();
+
+	// Reset notification if the previously notified file is gone
+	if (path.empty())
+	{
+		mNotifiedPath = "";
+		return false;
+	}
+
+	// Only notify once per unique path
+	if (path == mNotifiedPath)
+		return false;
+
+	mFoundPath = path;
+	mNotifiedPath = path;
+	return true;
+}
+
 bool CheckCheevosTokenComponent::check()
 {
 	if (!enabled())
@@ -161,11 +190,29 @@ void NetworkThread::OnWatcherChanged(IWatcher* component)
 	{
 		auto token = mCheckCheevosTokenComponent.getLastToken();
 
-		mWindow->postToUiThread([token]() 
-			{ 
+		mWindow->postToUiThread([token]()
+			{
 				SystemConf::getInstance()->set("global.retroachievements.token", token);
 				SystemConf::getInstance()->saveSystemConf();
 			});
+
+		return;
+	}
+
+	if (component == &mCheckManualUpdateComponent)
+	{
+		std::string path = mCheckManualUpdateComponent.getFoundPath();
+		mWindow->postToUiThread([this, path]()
+		{
+			if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
+				return;
+
+			mWindow->pushGui(new GuiMsgBox(mWindow,
+				_("A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"),
+				_("YES"), [this, path] { GuiUpdate::startUpdate(mWindow, path); },
+				_("LATER"), nullptr,
+				ICON_QUESTION));
+		});
 
 		return;
 	}

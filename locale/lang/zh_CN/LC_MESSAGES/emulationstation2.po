@@ -1579,6 +1579,15 @@ msgstr "应用更新"
 msgid "START UPDATE"
 msgstr "开始更新"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新程序已经运行"
 

@@ -16,10 +16,12 @@ namespace GuiUpdateState
 	};
 }
 
-class GuiUpdate : public GuiComponent 
+class GuiUpdate : public GuiComponent
 {
 public:
 	static GuiUpdateState::State state;
+
+	static void startUpdate(Window* window, const std::string& sourceFile = "");
 
     GuiUpdate(Window *window);
     virtual ~GuiUpdate();

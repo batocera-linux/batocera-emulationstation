@@ -1600,6 +1600,15 @@ msgstr "GÜNCELLEMEYİ UYGULA"
 msgid "START UPDATE"
 msgstr "GÜNCELLE"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "GÜNCELLEYİCİ ZATEN ÇALIŞIYOR"
 

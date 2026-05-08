@@ -1570,6 +1570,15 @@ msgstr ""
 msgid "START UPDATE"
 msgstr "START OPPDATERING"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr ""
 

@@ -230,12 +230,34 @@ bool ApiSystem::setOverclock(std::string mode)
 	return executeScript("batocera-overclock set " + mode);
 }
 
+std::string ApiSystem::findManualUpdateFile()
+{
+	// Check external devices first (USB plugged in with boot.tar.xz at root)
+	auto mediaDirs = Utils::FileSystem::getDirContent("/media", false);
+	for (const auto& dir : mediaDirs)
+	{
+		if (dir == "/media/SHARE" || dir == "/media/BATOCERA")
+			continue;
+
+		std::string candidate = dir + "/boot.tar.xz";
+		if (Utils::FileSystem::exists(candidate))
+			return candidate;
+	}
+
+	// Fallback: file already placed in the upgrade directory
+	const std::string upgradePath = "/userdata/system/upgrade/boot.tar.xz";
+	if (Utils::FileSystem::exists(upgradePath))
+		return upgradePath;
+
+	return "";
+}
+
 // BusyComponent* ui
-std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
+std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(const std::string)>& func, bool manual)
 {
 	LOG(LogDebug) << "ApiSystem::updateSystem";
 
-	std::string updatecommand = "batocera-upgrade";
+	std::string updatecommand = manual ? "batocera-upgrade manual" : "batocera-upgrade";
 
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	if (pipe == nullptr)

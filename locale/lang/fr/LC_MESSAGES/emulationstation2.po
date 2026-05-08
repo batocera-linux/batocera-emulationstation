@@ -1606,6 +1606,15 @@ msgstr "APPLIQUER LA MISE À JOUR"
 msgid "START UPDATE"
 msgstr "LANCER LA MISE À JOUR"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
 

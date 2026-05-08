@@ -1605,6 +1605,15 @@ msgstr "APLICAR ATUALIZAÇÃO"
 msgid "START UPDATE"
 msgstr "INICIAR ATUALIZAÇÃO"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO JÁ ESTÁ EM CURSO"
 

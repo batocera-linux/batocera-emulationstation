@@ -1599,6 +1599,15 @@ msgstr "更新を適用"
 msgid "START UPDATE"
 msgstr "更新 開始"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新は既に実行中です"
 

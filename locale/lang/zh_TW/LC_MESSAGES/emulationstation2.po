@@ -1581,6 +1581,15 @@ msgstr "套用更新"
 msgid "START UPDATE"
 msgstr "開始更新"
 
+msgid "APPLY MANUAL UPDATE"
+msgstr ""
+
+msgid "A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"
+msgstr ""
+
+msgid "LATER"
+msgstr ""
+
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新已經在進行了"
 

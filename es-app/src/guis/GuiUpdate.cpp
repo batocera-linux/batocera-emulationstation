@@ -6,6 +6,7 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 #include "utils/Platform.h"
+#include "utils/FileSystemUtil.h"
 #include "LocaleES.h"
 #include "components/AsyncNotificationComponent.h"
 
@@ -14,7 +15,7 @@ GuiUpdateState::State GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
 class ThreadedUpdater
 {
 public:
-	ThreadedUpdater(Window* window) : mWindow(window)
+	ThreadedUpdater(Window* window, const std::string& sourceFile = "") : mWindow(window), mSourceFile(sourceFile)
 	{
 		GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
 
@@ -34,12 +35,30 @@ public:
 
 	void threadUpdate()
 	{
+		static const std::string kUpgradePath = "/userdata/system/upgrade/boot.tar.xz";
+
+		if (!mSourceFile.empty() && mSourceFile != kUpgradePath)
+		{
+			mWndNotification->updateText(_("COPYING UPDATE FILE..."));
+
+			Utils::FileSystem::createDirectory("/userdata/system/upgrade");
+			std::string copyCmd = "cp -- '" + mSourceFile + "' '" + kUpgradePath + "'";
+			if (system(copyCmd.c_str()) != 0)
+			{
+				GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
+				mWindow->displayNotificationMessage(_("AN ERROR OCCURRED") + std::string(": ") + _("FAILED TO COPY UPDATE FILE"));
+				delete this;
+				return;
+			}
+		}
+
+		bool manual = !mSourceFile.empty();
 		std::pair<std::string, int> updateStatus = ApiSystem::getInstance()->updateSystem([this](const std::string info)
 		{
 			auto pos = info.find(">>>");
 			if (pos != std::string::npos)
 			{
-				std::string percent(info.substr(pos));		
+				std::string percent(info.substr(pos));
 				percent = Utils::String::replace(percent, ">", "");
 				percent = Utils::String::replace(percent, "%", "");
 				percent = Utils::String::replace(percent, " ", "");
@@ -57,7 +76,7 @@ public:
 				mWndNotification->updatePercent(-1);
 				mWndNotification->updateText(info);
 			}
-		});
+		}, manual);
 
 		if (updateStatus.second == 0)
 		{
@@ -84,8 +103,13 @@ private:
 	std::thread*				mHandle;
 	AsyncNotificationComponent* mWndNotification;
 	Window*						mWindow;
+	std::string					mSourceFile;
 };
 
+void GuiUpdate::startUpdate(Window* window, const std::string& sourceFile)
+{
+	new ThreadedUpdater(window, sourceFile);
+}
 
 GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
 {

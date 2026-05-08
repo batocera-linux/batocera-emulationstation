@@ -1224,6 +1224,24 @@ void GuiMenu::openUpdatesSettings()
 				mWindow->pushGui(new GuiUpdate(mWindow));
 			}
 		});
+
+		std::string manualUpdateFile = ApiSystem::findManualUpdateFile();
+		if (!manualUpdateFile.empty())
+		{
+			updateGui->addEntry(_("APPLY MANUAL UPDATE"), true, [this, manualUpdateFile]
+			{
+				if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
+				{
+					mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATER IS ALREADY RUNNING")));
+					return;
+				}
+				mWindow->pushGui(new GuiMsgBox(mWindow,
+					_("A MANUAL UPDATE FILE WAS FOUND.\nDO YOU WANT TO APPLY IT NOW?"),
+					_("YES"), [this, manualUpdateFile] { GuiUpdate::startUpdate(mWindow, manualUpdateFile); },
+					_("NO"), nullptr,
+					ICON_QUESTION));
+			});
+		}
 	}
 
 	mWindow->pushGui(updateGui);

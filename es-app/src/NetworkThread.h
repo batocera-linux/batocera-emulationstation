@@ -60,6 +60,24 @@ private:
 	std::string mLastToken;
 };
 
+class CheckManualUpdateComponent : public IWatcher
+{
+public:
+	CheckManualUpdateComponent() {}
+
+	const std::string& getFoundPath() const { return mFoundPath; }
+
+protected:
+	bool enabled() override;
+	int  updateTime() override { return 60 * 1000; } // 1 minute
+	int  initialUpdateTime() override { return 5 * 1000; } // 5s after startup
+	bool check() override;
+
+private:
+	std::string mFoundPath;
+	std::string mNotifiedPath;
+};
+
 class NetworkThread : public IJoystickChangedEvent, public IWatcherNotify
 {
 public:
@@ -74,6 +92,7 @@ private:
 	CheckPadsBatteryLevelComponent					mCheckPadsBatteryLevelComponent;
 	CheckUpdatesComponent							mCheckUpdatesComponent;
 	CheckCheevosTokenComponent						mCheckCheevosTokenComponent;
+	CheckManualUpdateComponent						mCheckManualUpdateComponent;
 	Window* mWindow;
 };
 
