@@ -138,7 +138,7 @@ void SystemScreenSaver::startScreenSaver()
 
 		if (!path.empty() && Utils::FileSystem::exists(path))
 		{
-			LOG(LogDebug) << "VideoScreenSaver::startScreenSaver " << path.c_str();
+			LOG(LogDebug) << "VideoScreenSaver::startScreenSaver " << path.c_str() << " (remaining: " << countGameListNodes(true) << ")";
 
 			mVideoScreensaver = std::make_shared<VideoScreenSaver>(mWindow, this);
 			mVideoScreensaver->setGame(mCurrentGame);
@@ -182,7 +182,7 @@ void SystemScreenSaver::startScreenSaver()
 
 		if (!path.empty() && Utils::FileSystem::exists(path))
 		{
-			LOG(LogDebug) << "ImageScreenSaver::startScreenSaver " << path.c_str();
+			LOG(LogDebug) << "ImageScreenSaver::startScreenSaver " << path.c_str() << " (remaining: " << countGameListNodes(false) << ")";
 
 			mImageScreensaver = std::make_shared<ImageScreenSaver>(mWindow);
 			mImageScreensaver->setGame(mCurrentGame);
@@ -314,6 +314,8 @@ unsigned long SystemScreenSaver::countGameListNodes(bool video)
 		mGamesWithImages.clear();
 	}
 
+	std::unordered_set<FileData*> seen;
+
 	for (auto system : SystemData::sSystemVector)
 	{
 		// We only want nodes from game systems that are not collections
@@ -323,6 +325,9 @@ unsigned long SystemScreenSaver::countGameListNodes(bool video)
 		auto games = system->getRootFolder()->getFilesRecursive(GAME, true);
 		for (auto game : games)
 		{
+			if (!seen.insert(game).second)
+				continue;
+
 			if (video && !game->getVideoPath().empty())
 			{
 				mGamesWithVideos.push_back(game);
@@ -368,38 +373,36 @@ std::string  SystemScreenSaver::selectGameMedia(FileData* game, bool video)
 
 std::string SystemScreenSaver::pickRandomGameMedia(bool video)
 {
-	mCurrentGame = NULL;
+	mCurrentGame = nullptr;
 
 	int count = countGameListNodes(video);
 	if (count == 0)
 		return "";
 
-	std::vector<FileData*>* games = &mGamesWithImages;
-	if (video)
-		games = &mGamesWithVideos;	
+	std::vector<FileData*>* games = video ? &mGamesWithVideos : &mGamesWithImages;
 
-	int randomValue = Randomizer::random(count) % count;
-	int index = randomValue;
+	int index = Randomizer::random(count) % count;
 
-	while (true)
+	while (!games->empty())
 	{
 		auto path = selectGameMedia(games->at(index), video);
+		games->erase(games->begin() + index);
+
 		if (!path.empty())
+		{
+			if (games->empty())
+			{
+				(video ? mGamesWithVideosLoaded : mGamesWithImagesLoaded) = false;
+				if (video)
+					LOG(LogDebug) << "VideoScreenSaver::pickRandomGameMedia - All videos used, resetting list.";
+				else
+					LOG(LogDebug) << "ImageScreenSaver::pickRandomGameMedia - All images used, resetting list.";
+			}
 			return path;
-		
-		games->erase(std::next(games->begin(), index));
-		
-		count = games->size();
-		if (count == 0)
-			break;
+		}
 
-		index--;
-
-		if (index < 0)
-			index = count - 1;
-
-		if (index == randomValue)
-			break;
+		// move index one step backward with wrap-around
+		index = (index + games->size() - 1) % games->size();
 	}
 
 	return "";

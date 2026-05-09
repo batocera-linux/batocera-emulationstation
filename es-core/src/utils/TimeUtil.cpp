@@ -1,7 +1,7 @@
 #include "utils/TimeUtil.h"
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
-#include "Settings.h";
+#include "Settings.h"
 
 #if WIN32
 #include <Windows.h>

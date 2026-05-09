@@ -224,10 +224,37 @@ namespace Renderer
 		windowFlags |= SDL_WINDOW_ALLOW_HIGHDPI;
 #endif
 
+		if (Settings::getInstance()->getBool("Windowed"))
+		{
+			windowFlags |= SDL_WINDOW_RESIZABLE;
+
+			if (Settings::getInstance()->getInt("WindowWidth") == 0 && Settings::getInstance()->getInt("ScreenWidth") == 0)
+			{
+				windowWidth = 1280; windowHeight = 720;
+				windowFlags |= SDL_WINDOW_MAXIMIZED;
+			}
+		}
+
 		if((sdlWindow = SDL_CreateWindow("EmulationStation", sdlWindowPosition.x(), sdlWindowPosition.y(), windowWidth, windowHeight, windowFlags)) == nullptr)
 		{
 			LOG(LogError) << "Error creating SDL window!\n\t" << SDL_GetError();
 			return false;
+		}
+
+		if (Settings::getInstance()->getBool("Windowed"))
+			SDL_SetWindowMinimumSize(sdlWindow, 320, 200);
+
+		if (windowFlags & SDL_WINDOW_MAXIMIZED)
+		{
+			SDL_Event event;
+			while (SDL_PollEvent(&event));
+
+			int width, height;
+			SDL_GetWindowSize(sdlWindow, &width, &height);
+
+			windowWidth = screenWidth = width;
+			windowHeight = screenHeight = height;
+
 		}
 
 		createContext();
@@ -307,9 +334,62 @@ namespace Renderer
 
 	} // destroyWindow
 
+#if WIN32	
 	void activateWindow()
 	{
-		SDL_RestoreWindow(sdlWindow);
+		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
+			SDL_RestoreWindow(sdlWindow);
+
+		SDL_SysWMinfo wmInfo;
+		SDL_VERSION(&wmInfo.version);
+		SDL_GetWindowWMInfo(sdlWindow, &wmInfo);
+		HWND hWnd = wmInfo.info.win.window;
+		if (!IsWindow(hWnd))
+			return;
+
+		HWND hWndParent = GetParent(hWnd);
+		while (hWndParent != NULL && hWndParent != GetDesktopWindow())
+		{
+			hWnd = hWndParent;
+			hWndParent = GetParent(hWnd);
+		}
+
+		DWORD currentThread = GetCurrentThreadId();
+
+		HWND activeWindow = GetForegroundWindow();
+		DWORD activeProcess;
+		DWORD activeThread = GetWindowThreadProcessId(activeWindow, &activeProcess);
+
+		DWORD windowProcess;
+		DWORD windowThread = GetWindowThreadProcessId(hWnd, &windowProcess);
+
+		if (currentThread != activeThread)
+			AttachThreadInput(currentThread, activeThread, true);
+		if (windowThread != currentThread)
+			AttachThreadInput(windowThread, currentThread, true);
+
+		DWORD oldTimeout = 0, newTimeout = 0;
+		SystemParametersInfo(SPI_GETFOREGROUNDLOCKTIMEOUT, 0, &oldTimeout, 0);
+		SystemParametersInfo(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, &newTimeout, 0);
+		LockSetForegroundWindow(LSFW_UNLOCK);
+		AllowSetForegroundWindow(ASFW_ANY);
+
+		SetForegroundWindow(hWnd);
+		ShowWindowAsync(hWnd, SW_SHOW);
+
+		SystemParametersInfo(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, &oldTimeout, 0);
+
+		if (currentThread != activeThread)
+			AttachThreadInput(currentThread, activeThread, false);
+		if (windowThread != currentThread)
+			AttachThreadInput(windowThread, currentThread, false);
+	}
+#else 
+	void activateWindow()
+	{
+		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
+			SDL_RestoreWindow(sdlWindow);
+
 		SDL_RaiseWindow(sdlWindow);
 
 		if (Settings::getInstance()->getBool("Windowed"))
@@ -326,7 +406,7 @@ namespace Renderer
 		
 		SDL_SetWindowInputFocus(sdlWindow);		
 	}
-
+#endif
 
 	void updateProjection()
 	{
@@ -626,7 +706,7 @@ namespace Renderer
 
 	bool isVisibleOnScreen(float x, float y, float w, float h)
 	{
-		static Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
 		if (w > 0 && x + w <= 0)
 			return false;
@@ -969,6 +1049,39 @@ namespace Renderer
 	size_t getTotalMemUsage()
 	{
 		return Instance()->getTotalMemUsage();
+	}
+
+	void setWindowResizable(bool resizable)
+	{
+		if (sdlWindow == nullptr || !Settings::getInstance()->getBool("Windowed"))
+			return;
+
+#if WIN32
+		SDL_SysWMinfo wmInfo;
+		SDL_VERSION(&wmInfo.version);
+		SDL_GetWindowWMInfo(sdlWindow, &wmInfo);
+		HWND hWnd = wmInfo.info.win.window;
+
+		DWORD windowThreadId = GetWindowThreadProcessId(hWnd, nullptr);
+		if (GetCurrentThreadId() != windowThreadId)
+			return;
+#endif
+
+		SDL_SetWindowResizable(sdlWindow, resizable ? SDL_bool::SDL_TRUE : SDL_bool::SDL_FALSE);
+	}
+
+	bool onScreenSizeChanged(int width, int height)
+	{
+		if (screenWidth == width && screenHeight == height)
+			return false;
+
+		windowWidth = screenWidth = width;
+		windowHeight = screenHeight = height;
+
+		resetCache();
+		updateProjection();
+		swapBuffers();
+		return true;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

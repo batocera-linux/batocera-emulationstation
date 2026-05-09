@@ -76,7 +76,7 @@ WebImageComponent::~WebImageComponent()
 
 	if (mBusyAnim != nullptr)
 		delete mBusyAnim;
-
+	
 	if (mKeepInCacheDuration == 0 && Utils::FileSystem::exists(mLocalFile))
 	{
 		Utils::FileSystem::removeFile(mLocalFile);
@@ -129,7 +129,7 @@ void WebImageComponent::setImage(const std::string& path, bool tile, const MaxSi
 		queryCrc = "-" + Utils::String::toHexString(file_crc32);
 	}
 
-	std::string localFile = Paths::getUserEmulationStationPath() + "/tmp/" + uri.host + "/" + uri.path + queryCrc;
+	std::string localFile = Paths::getUserEmulationStationPath() + "/tmp/" + uri.host + "/" + uri.path + queryCrc;	
 	if (Utils::FileSystem::exists(localFile))
 	{
 		bool keepLoadingLocal = true;

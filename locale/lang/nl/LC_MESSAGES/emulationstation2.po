@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-04-14 10:27+0000\n"
+"PO-Revision-Date: 2026-02-20 12:04+0000\n"
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
@@ -47,6 +47,24 @@ msgstr "Omschrijving"
 
 msgid "this game's description"
 msgstr "omschrijving van dit spel"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "enter game genre"
+msgstr "voer genre van spel in"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "tags"
+msgstr "tags"
+
+msgid "Sort name"
+msgstr "Sorteer naam"
+
+msgid "enter game sort name"
+msgstr "Voer de spelnaam in"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -173,12 +191,6 @@ msgstr "Uitgever"
 
 msgid "this game's publisher"
 msgstr "uitgever van dit spel"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "voer genre van spel in"
 
 msgid "Game family"
 msgstr "Spel Familie"
@@ -503,11 +515,23 @@ msgstr "GEBRUIK SCHIJFRUIMTE VAN USER"
 msgid "SYSTEM DISK USAGE"
 msgstr "GEBRUIK SCHIJFRUIMTE VAN SYSTEEM"
 
+msgid "DISK USAGE"
+msgstr "SCHIJFGEBRUIK"
+
 msgid "SYSTEM"
 msgstr "SYSTEEM"
 
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
+
+msgid "PARIS"
+msgstr "PARIJS"
+
+msgid "OSAKA"
+msgstr "OSAKA"
+
+msgid "SEOUL"
+msgstr "SEOUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY"
@@ -526,30 +550,6 @@ msgstr "OPTIES"
 
 msgid "PORT"
 msgstr "POORT"
-
-msgid "USE RELAY SERVER"
-msgstr "RELAY SERVER GEBRUIKEN"
-
-msgid "NONE"
-msgstr "GEEN"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "AANGEPAST"
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "AANGEPASTE RELAY SERVER"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "AUTOMATISCH EEN LOBBY MAKEN"
@@ -577,6 +577,30 @@ msgstr "INDEXEER NIEUWE SPELLEN BIJ HET OPSTARTEN"
 
 msgid "INDEX GAMES"
 msgstr "INDEXEER SPELLEN"
+
+msgid "USE RELAY SERVER"
+msgstr "RELAY SERVER GEBRUIKEN"
+
+msgid "NONE"
+msgstr "GEEN"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "AANGEPAST"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "AANGEPASTE RELAY SERVER"
 
 msgid "INPUT"
 msgstr "INVOER"
@@ -670,6 +694,12 @@ msgstr ""
 "Laat iconen zien rechts-onder wanneer beschikbare prestaties verdiend kunnen "
 "worden."
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr "ONOFFICIËLE PRESTATIES"
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr "Maak het ontgrendelen van onofficiële prestaties mogelijk."
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROPRESTATIE GELUID ONTGRENDELEN"
 
@@ -753,6 +783,15 @@ msgstr "ER IS GEEN UPDATE BESCHIKBAAR"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPEN"
+
+msgid "ACCOUNTS"
+msgstr "ACCOUNTS"
+
+msgid "go back"
+msgstr "ga terug"
+
 msgid "SCRAPING DATABASE"
 msgstr "SCRAPE DATABASE"
 
@@ -761,9 +800,6 @@ msgstr "BRON"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VAN"
-
-msgid "SCRAPER SETTINGS"
-msgstr "INSTELLINGEN SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTERS"
@@ -810,8 +846,107 @@ msgstr "NU SCRAPEN"
 msgid "START"
 msgstr "START"
 
-msgid "go back"
-msgstr "ga terug"
+msgid "IMAGE SOURCE"
+msgstr "AFBEELDINGSBRON"
+
+msgid "SCREENSHOT"
+msgstr "SCREENSHOT"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITEL SCREENSHOT"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "DOOS 2D"
+
+msgid "BOX 3D"
+msgstr "DOOS 3D"
+
+msgid "FAN ART"
+msgstr "FANART"
+
+msgid "BOX SOURCE"
+msgstr "DOOS BRON"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO BRON"
+
+msgid "HD WHEEL"
+msgstr "HD WIEL"
+
+msgid "WHEEL"
+msgstr "STUURWIEL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "VOORKEURSREGIO"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "OVERWRITE NAMES"
+msgstr "OVERSCHRIJF NAMEN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "OVERSCHRIJF MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "SCRAPEN NAAR"
+
+msgid "SHORT NAME"
+msgstr "KORTE NAAM"
+
+msgid "COMMUNITY RATING"
+msgstr "COMMUNITY BEOORDELING"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "Schermrand (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "DOOS ACHTERKANT"
+
+msgid "MAP"
+msgstr "MAP"
+
+msgid "MANUAL"
+msgstr "HANDLEIDING"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "INSTELLINGEN PAD-TO-KEY"
+
+msgid "MANUAL SCRAPE"
+msgstr "HANDMATIG SCRAPEN"
+
+msgid "INCLUDED SCRAPERS"
+msgstr "INBEGREPEN SCRAPERS"
+
+msgid "SCREENSCRAPER"
+msgstr "SCREENSCRAPER"
+
+msgid "IGDB"
+msgstr "IGDB"
+
+msgid "CLIENT ID"
+msgstr "CLIENT ID"
+
+msgid "CLIENT SECRET"
+msgstr "CLIENT SECRET"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -827,6 +962,98 @@ msgstr "BEZIG MET SCRAPEN. WILT U DIT STOPPEN?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "GEEN SPELLEN DIE AAN DIE CRITERIA VOLDOEN."
+
+msgid "KEYBOARDTOPADS"
+msgstr "KEYBOARDTOPADS"
+
+msgid "HOTKEYS"
+msgstr "SNELTOETSEN"
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr "TOETSEN GEDEFINIEERD MAAR JOYSTICK GEEN NAAM"
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr "JOYSTICK MET NAAM MAAR GEEN TOETSEN GEDEFINIEERD"
+
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr ""
+"HAAL DE STEKKER UIT HET APPARAAT EN SLUIT HET DAARNA WEER AAN OM TOE TE "
+"PASSEN"
+
+msgid "JOYSTICK NAME"
+msgstr "JOYSTICK NAAM"
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr "DRUK OP EEN TOETS OF WACHT 4 SECONDEN OM TE WISSEN"
+
+msgid "OVERLAYS"
+msgstr "OVERLAYS"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "HELDERHEIDSCYCLUS"
+
+msgid "COIN"
+msgstr "COIN"
+
+msgid "EXIT"
+msgstr "AFSLUITEN"
+
+msgid "FAST FORWARD"
+msgstr "SNEL VOORUIT"
+
+msgid "MENU"
+msgstr "MENU"
+
+msgid "FILES"
+msgstr "BESTANDEN"
+
+msgid "NEXT DISK"
+msgstr "VOLGENDE SCHIJF"
+
+msgid "NEXT SLOT"
+msgstr "VOLGENDE SLOT"
+
+msgid "PAUSE"
+msgstr "PAUZE"
+
+msgid "PREVIOUS SLOT"
+msgstr "VORIG SLOT"
+
+msgid "RESET"
+msgstr "RESET"
+
+msgid "RESTORE STATE"
+msgstr "HERSTEL STAAT"
+
+msgid "REWIND"
+msgstr "TERUGSPOELEN"
+
+msgid "SAVE STATE"
+msgstr "STAAT OPSLAAN"
+
+msgid "SCREEN LAYOUT"
+msgstr "SCHERM LAY-OUT"
+
+msgid "SWAP SCREEN"
+msgstr "SWAP SCHERM"
+
+msgid "TRANSLATION"
+msgstr "VERTALING"
+
+msgid "VOLUME DOWN"
+msgstr "VOLUME ONLAAG"
+
+msgid "VOLUME MUTE"
+msgstr "VOLUME MUTE"
+
+msgid "VOLUME UP"
+msgstr "VOLUME OMHOOG"
+
+msgid "CONTROL CENTER"
+msgstr "CONTROLE CENTRUM"
+
+msgid "KEY ASSIGNED TWICE"
+msgstr "TOETS TWEE KEER TOEGEWEZEN"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALLEER OP EEN NIEUWE SCHIJF"
@@ -1031,9 +1258,6 @@ msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
 msgid "CHOOSE"
 msgstr "KIES"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "DE UI MODUS IS NU ONTGRENDELD"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "VOER NU DE CODE IN OM TE ONTGRENDELEN"
 
@@ -1060,9 +1284,6 @@ msgstr "dmd server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd matrix grootte"
@@ -1403,6 +1624,19 @@ msgstr "TAAL"
 msgid "LANGUAGE (REGION)"
 msgstr "TAAL (REGIO)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr "TOETSENBORDINDELING"
+
+msgid "KEYBOARD VARIANT"
+msgstr "TOETSENBORDVARIANT"
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+"Selecteer de gewenste toetsenbordindeling. Mogelijk moet de computer opnieuw "
+"worden opgestart om de wijzigingen volledig door te voeren."
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECTEER UW TIJDZONE"
 
@@ -1551,6 +1785,9 @@ msgstr "OVERCLOCK"
 msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
+msgid "ENABLE LED"
+msgstr "LED INSCHAKELEN"
+
 msgid "RED"
 msgstr "ROOD"
 
@@ -1571,6 +1808,12 @@ msgstr "OPSLAGMEDIUM"
 
 msgid "BACKUP USER DATA"
 msgstr "BACKUP GEBRUIKERSDATA"
+
+msgid "EJECT AN EXTRA DISK"
+msgstr "VERWIJDER EEN EXTRA SCHIJF"
+
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr "EXTRA SCHIJF BESTANDSSYSTEEM TYPE"
 
 msgid "ADVANCED"
 msgstr "GEAVANCEERD"
@@ -1636,9 +1879,6 @@ msgstr "Huidige instelling"
 msgid "UPDATE GAMELISTS"
 msgstr "UPDATE DE SPELLIJSTEN"
 
-msgid "ACCOUNTS"
-msgstr "ACCOUNTS"
-
 msgid "BIOS SETTINGS"
 msgstr "INSTELLINGEN BIOS"
 
@@ -1703,9 +1943,6 @@ msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SPELLEN GLADDER MAKEN (BILINEAR FILTERING)"
-
-msgid "REWIND"
-msgstr "TERUGSPOELEN"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
@@ -1853,11 +2090,17 @@ msgstr "heeft meerdere spellen"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "TOON '..' BOVENLIGGENDE MAP"
 
-msgid "BEFORE NAME"
-msgstr "VOOR NAAM"
+msgid "ICONS"
+msgstr "ICONEN"
 
 msgid "AFTER NAME"
 msgstr "ACHTER NAAM"
+
+msgid "BEFORE NAME"
+msgstr "VOOR NAAM"
+
+msgid "SHOW TAGS ICONS"
+msgstr "TOON TAG PICTOGRAMMEN"
 
 msgid "SHOW REGION FLAG"
 msgstr "TOON REGIOVLAG"
@@ -1979,6 +2222,12 @@ msgstr "SPEEL SYSTEEM-SPECIFIEKE MUZIEK"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "DEMP MUZIEK ALS VIDEO SPEELT"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "ALLEEN NUMMERS VAN JE FAVORIETENAFSPEELLIJST AFSPELEN"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "SELECTIE VAN FAVORIETE NUMMERS"
+
 msgid "SOUNDS"
 msgstr "GELUIDEN"
 
@@ -2012,6 +2261,9 @@ msgstr "WIFI SSID"
 msgid "WIFI KEY"
 msgstr "WIFI KEY"
 
+msgid "WIFI COUNTRY"
+msgstr "WIFI LAND"
+
 msgid "WIFI ENABLED"
 msgstr "WIFI IS INGESCHAKELD"
 
@@ -2026,6 +2278,12 @@ msgstr "SKIP NAAR HET VOLGENDE NUMMER"
 
 msgid "NOW PLAYING"
 msgstr "SPEELT NU"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "HUIDIG NUMMER VERWIJDEREN UIT DE FAVORIETENAFSPEELLIJST"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "HUIDIG NUMMER OPSLAAN IN DE FAVORIETENAFSPEELLIJST"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "START DE SCHERMBEVEILIGING"
@@ -2137,6 +2395,24 @@ msgstr "GESELECTEERDE OPTIES ZIJN ONGELDIG"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "WEET U ZEKER DAT U DEZE SCHIJF WILT FORMATTEREN?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr "EEN SCHIJF VEILIG UITWERPEN"
+
+msgid "MERGED DRIVE"
+msgstr "SAMENGEVOEGDE SCHIJF"
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr "GEEN SAMENGEVOEGDE SCHIJVEN GEVONDEN"
+
+msgid "EJECT"
+msgstr "UITWERPEN"
+
+msgid "NO DRIVE SELECTED"
+msgstr "GEEN SCHIJF GESELECTEERD"
+
+msgid "Ejecting..."
+msgstr "Uitwerpen..."
+
 msgid "Points"
 msgstr "Punten"
 
@@ -2227,6 +2503,31 @@ msgid ""
 "ARE YOU SURE?"
 msgstr "DIT ZAL DE BESTANDEN VAN HET SPEL VERWIJDEREN! WEET U HET ZEKER?"
 
+msgid "NFC"
+msgstr "NFC"
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr "SCHRIJF EEN NFC-TAG VOOR DIT SPEL"
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+"OM HET STARTCOMMANDO VOOR\n"
+"'%s' TE SCHRIJVEN, DRUKT U OP DE SCHRIJFKNOP EN PLAATST U VERVOLGENS EEN NFC-"
+"TAG OP DE SCHRIJVER."
+
+msgid "WRITE"
+msgstr "SCHRIJF"
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr "PLAATS EEN TAG OP DE SCHRIJVER..."
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr "DE TAG IS SUCCESVOL GESCHREVEN"
+
 msgid "COLLECTIONS"
 msgstr "COLLECTIES"
 
@@ -2247,9 +2548,6 @@ msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
 msgid "DELETE COLLECTION"
 msgstr "VERWIJDER COLLECTIE"
 
-msgid "SCRAPE"
-msgstr "SCRAPEN"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "GEAVANCEERDE SPELOPTIES"
 
@@ -2262,9 +2560,6 @@ msgstr "BEWERK DE METADATA VAN DIT SPEL"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "BEKIJK PAD-TO-KEY INFORMATIE"
 
-msgid "RESET"
-msgstr "RESET"
-
 msgid "ADD COMBINATION KEY"
 msgstr "COMBINATIE KNOP TOEVOEGEN"
 
@@ -2273,90 +2568,6 @@ msgstr "EEN BLUETOOTH APPARAAT KOPPELEN"
 
 msgid "PAIR"
 msgstr "KOPPELEN"
-
-msgid "IMAGE SOURCE"
-msgstr "AFBEELDINGSBRON"
-
-msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITEL SCREENSHOT"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "DOOS 2D"
-
-msgid "BOX 3D"
-msgstr "DOOS 3D"
-
-msgid "FAN ART"
-msgstr "FANART"
-
-msgid "BOX SOURCE"
-msgstr "DOOS BRON"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO BRON"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "STUURWIEL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr "VOORKEURSREGIO"
-
-msgid "OVERWRITE NAMES"
-msgstr "OVERSCHRIJF NAMEN"
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
-
-msgid "OVERWRITE MEDIAS"
-msgstr "OVERSCHRIJF MEDIA"
-
-msgid "SCRAPE FOR"
-msgstr "SCRAPEN NAAR"
-
-msgid "SHORT NAME"
-msgstr "KORTE NAAM"
-
-msgid "COMMUNITY RATING"
-msgstr "COMMUNITY BEOORDELING"
-
-msgid "VIDEO"
-msgstr "VIDEO"
-
-msgid "FANART"
-msgstr "FANART"
-
-msgid "BEZEL (16:9)"
-msgstr "Schermrand (16:9)"
-
-msgid "BOX BACKSIDE"
-msgstr "DOOS ACHTERKANT"
-
-msgid "MAP"
-msgstr "MAP"
-
-msgid "MANUAL"
-msgstr "HANDLEIDING"
-
-msgid "PADTOKEY SETTINGS"
-msgstr "INSTELLINGEN PAD-TO-KEY"
-
-msgid "ACCOUNT"
-msgstr "ACCOUNT"
 
 msgid "NO DEVICE FOUND"
 msgstr "GEEN APPARAAT GEVONDEN"
@@ -2397,8 +2608,11 @@ msgstr "ALFABETISCH"
 msgid "BY MANUFACTURER"
 msgstr "OP FABRIKANT"
 
-msgid "BY HARDWARE TYPE"
-msgstr "OP HARDWARE TYPE"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr "OP HARDWARETYPE EN DAN ALFABETISCH"
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr "OP HARDWARETYPE EN DAN JAAR"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "PER FABRIKANT EN TYPE"
@@ -2565,6 +2779,9 @@ msgstr "ZOOM"
 msgid "EDIT METADATA"
 msgstr "BEWERK METADATA"
 
+msgid "TAGS"
+msgstr "TAGS"
+
 msgid "GENRES"
 msgstr "GENRES"
 
@@ -2574,6 +2791,9 @@ msgid ""
 msgstr ""
 "SOMMIGE GELINKTE BESTANDEN BEVINDEN ZICH BUITEN HET PAD VAN DE SPELLIJST.\n"
 "WILT U EEN KOPIE GEBRUIKEN VAN DEZE BESTANDEN REALITIEF AAN DE SPEELLIJST?"
+
+msgid "FAVORITE SONGS"
+msgstr "FAVORIETE NUMMERS"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "VERBIND MET NETPLAY"
@@ -2688,11 +2908,77 @@ msgstr "TEKEN PISTOOL KRUIS"
 msgid "BEHAVIOR"
 msgstr "GEDRAG"
 
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "BEPERK SNELTOETSEN OM AF TE SLUITEN"
+msgid "JOYSTICKS HOTKEYS"
+msgstr "JOYSTICKS SNELTOETSEN"
+
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr "BEPERK JOYSTICKS SNELTOETSEN OM AF TE SLUITEN"
+
+msgid "GLOBAL HOTKEYS"
+msgstr "GLOBALE SNELTOETSEN"
 
 msgid "default"
 msgstr "standaard"
+
+msgid "SOUTH"
+msgstr "ZUID"
+
+msgid "EAST"
+msgstr "OOST"
+
+msgid "NORTH"
+msgstr "NOORD"
+
+msgid "WEST"
+msgstr "WEST"
+
+msgid "D-PAD UP"
+msgstr "D-PAD OMHOOG"
+
+msgid "D-PAD DOWN"
+msgstr "D-PAD OMLAAG"
+
+msgid "D-PAD LEFT"
+msgstr "D-PAD LINKS"
+
+msgid "D-PAD RIGHT"
+msgstr "D-PAD RECHTS"
+
+msgid "LEFT SHOULDER"
+msgstr "LINKER SCHOUDER"
+
+msgid "RIGHT SHOULDER"
+msgstr "RECHTER SCHOUDER"
+
+msgid "LEFT TRIGGER"
+msgstr "LINKER TREKKER"
+
+msgid "RIGHT TRIGGER"
+msgstr "RECHTER TREKKER"
+
+msgid "LEFT STICK PRESS"
+msgstr "LINKER STICK DRUKKEN"
+
+msgid "RIGHT STICK PRESS"
+msgstr "RECHTER STICK DRUKKEN"
+
+msgid "HOTKEY"
+msgstr "SNELTOETS"
+
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr "GEEN APPARAAT GEVONDEN (JAMMASD, IPAC, ...)"
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr "WIJS EEN NIEUWE GLOBALE SNELTOETS AAN"
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr "U HEBT 4 SECONDEN OM PRECIES 2 KEER OP DE GLOBALE SNELTOETS TE DRUKKEN"
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr "GEEN GLOBALE SNELTOETS GEDETECTEERD"
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr "MEER DAN ÉÉN GLOBALE SNELTOETS GEDETECTEERD"
 
 msgid "BORDER SIZE"
 msgstr "RAND MAAT"
@@ -3026,9 +3312,6 @@ msgstr[1] "%i SPELLEN"
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATIEBALK"
 
-msgid "FILES"
-msgstr "BESTANDEN"
-
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -3056,11 +3339,11 @@ msgstr "Thema wordt geladen"
 msgid "Loading gamelists"
 msgstr "Spellijsten worden geladen"
 
-msgid "MENU"
-msgstr "MENU"
-
 msgid "GENRE"
 msgstr "GENRE"
+
+msgid "TAG"
+msgstr "TAG"
 
 msgid "FAMILY"
 msgstr "FAMILIE"
@@ -3113,6 +3396,9 @@ msgstr "ONTBREKENDE MEDIA"
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "WILT U VAN SCHERM VERANDEREN?"
 
+msgid "INVALID CREDENTIALS"
+msgstr "ONGELDIGE INLOGGEGEVENS"
+
 msgid "SCRAPING"
 msgstr "SCRAPEN"
 
@@ -3124,6 +3410,21 @@ msgstr "KLAAR MET SCRAPEN"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPDATE DE SPELLIJSTEN OM WIJZIGINGEN TOE TE PASSEN."
+
+msgid "SLOW"
+msgstr "LANGZAAM"
+
+msgid "NOT WORKING"
+msgstr "WERKT NIET"
+
+msgid "BUGGY"
+msgstr "BUGGY"
+
+msgid "LIKED"
+msgstr "VOND HET LEUK"
+
+msgid "DISLIKED"
+msgstr "VOND NIET LEUK"
 
 msgid "Loading system config..."
 msgstr "Systeemconfiguratie wordt geladen..."
@@ -3599,3 +3900,69 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+msgid "Reloaded the games list..."
+msgstr "De spellijst is opnieuw geladen..."
+
+msgid "GAME DRIVE DETECTED"
+msgstr "SPEL SCHIJF GEDETECTEERD"
+
+msgid "DEVICE"
+msgstr "APPARAAT"
+
+msgid "MODEL"
+msgstr "MODEL"
+
+msgid "SIZE"
+msgstr "GROOTTE"
+
+msgid "MOUNT"
+msgstr "KOPPEL"
+
+msgid "Merge games from this drive partition now?"
+msgstr "Spellen van deze schijfpartitie nu samenvoegen?"
+
+msgid "(This will also apply on future boots)"
+msgstr "(Dit geldt ook voor toekomstige boots)"
+
+msgid "Merge requested... Please wait."
+msgstr "Samenvoeging aangevraagd... Even geduld alstublieft."
+
+msgid "MERGE FAILED"
+msgstr "SAMENVOEGING MISLUKT"
+
+msgid "Please check the logs."
+msgstr "Controleer de logbestanden."
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "NEW DRIVE DETECTED"
+msgstr "NIEUWE SCHIJF GEDETECTEERD"
+
+msgid "Format and prepare this drive for game storage?"
+msgstr "Deze schijf formatteren en voorbereiden voor spelopslag?"
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr "(ALLE BESTAANDE DATA ZAL WORDEN VERWIJDERD)"
+
+msgid "Starting format process..."
+msgstr "Het formatteringsproces wordt gestart..."
+
+msgid "FORMAT FAILED"
+msgstr "FORMATTEREN MISLUKT"
+
+msgid "NO, IGNORE THIS TIME"
+msgstr "NEE, NEGEER DEZE KEER"
+
+msgid "NO, IGNORE FOREVER"
+msgstr "NEE, NEGEER ALTIJD"
+
+msgid "Adding drive to ignore list..."
+msgstr "Schijf toevoegen aan de negeerlijst..."
+
+msgid "YES, FORMAT & MERGE"
+msgstr "JA, OPMAKEN & SAMENVOEGEN"
+
+msgid "NO, IGNORE"
+msgstr "NEE, NEGEER"

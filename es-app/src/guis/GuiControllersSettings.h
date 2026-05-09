@@ -33,6 +33,11 @@ private:
 	void openControllersSpecificSettings_sindengun();
 	void openControllersSpecificSettings_wiigun();
 	void openControllersSpecificSettings_steamdeckgun();
+	void openControllersHotkeys();
+  	void openGlobalHotkeys();
+  	void openKeyboardtopads();
+  	void initializeGlobalHotkeys(Window* window, GuiSettings* s);
+  	void declareGlobalHotkey(Window* window, GuiSettings* s);
 
 	std::vector<InputConfigInfo*> mLoadedInput;
 	void clearLoadedInput();

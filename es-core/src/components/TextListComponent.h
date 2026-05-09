@@ -397,13 +397,14 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 			{
 				if (mSelectorImage.hasImage())
 				{
-					mSelectorImage.setPosition(0.f, y, 0.f);
+					//mSelectorImage.setPosition(0.f, y, 0.f);
+					mSelectorImage.setPosition(0.f, y + mSelectorOffsetY, 0.f);
 					mSelectorImage.render(trans);
 				}
 				else
 				{
 					Renderer::setMatrix(trans);
-					Renderer::drawRect(0.0f, y, mSize.x(), mSelectorHeight,
+					Renderer::drawRect(0.0f, y + mSelectorOffsetY, mSize.x(), mSelectorHeight,
 						mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity),
 						mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity),
 						mSelectorColorGradientHorizontal);
@@ -414,7 +415,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 				Renderer::setMatrix(trans);
 
 				float hotOpacity = 0.1f;
-				Renderer::drawRect(0.0f, y, mSize.x(), entrySize,
+				Renderer::drawRect(0.0f, y + mSelectorOffsetY, mSize.x(), entrySize,
 					mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity * hotOpacity),
 					mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity * hotOpacity),
 					mSelectorColorGradientHorizontal);

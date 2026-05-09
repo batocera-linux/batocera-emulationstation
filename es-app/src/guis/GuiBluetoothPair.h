@@ -29,5 +29,7 @@ private:
 
 	BusyComponent mBusyAnim;
 
+	bool mIsPairing;
+
 	static GuiBluetoothPair*	Instance;
 };

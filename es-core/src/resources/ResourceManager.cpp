@@ -127,12 +127,10 @@ const ResourceData ResourceManager::getFileData(const std::string& path) const
 	//check if its a resource
 	const std::string respath = getResourcePath(path);
 
-	auto size = Utils::FileSystem::getFileSize(respath);
-	if (size > 0)
-	{
-		ResourceData data = loadFile(respath, size);
-		return data;
-	}
+	//auto size = Utils::FileSystem::getFileSize(respath);
+	//if (size > 0)
+	if (Utils::FileSystem::exists(respath))
+		return loadFile(respath, SIZE_MAX);
 
 	//if the file doesn't exist, return an "empty" ResourceData
 	ResourceData data = {NULL, 0};
@@ -141,7 +139,13 @@ const ResourceData ResourceManager::getFileData(const std::string& path) const
 
 ResourceData ResourceManager::loadFile(const std::string& path, size_t size) const
 {
-	std::ifstream stream(WINSTRINGW(path), std::ios::binary);
+	std::ifstream stream(WINSTRINGW(path), size == 0 || size == SIZE_MAX ? std::ios::binary | std::ios::ate : std::ios::binary);
+	if (!stream || !stream.is_open())
+	{
+		int err = errno;
+		LOG(LogError) << "Failed to open file: '" << path << "': " << std::strerror(err);
+		return {NULL, 0};
+	}
 
 	if (size == 0 || size == SIZE_MAX)
 	{

@@ -47,7 +47,7 @@ public:
 	ThemeData::ThemeElement::Property from;
 	ThemeData::ThemeElement::Property to;
 	
-	virtual ThemeData::ThemeElement::Property computeValue(float value) = 0;
+	virtual ThemeData::ThemeElement::Property computeValue(double value) = 0;
 
 	void ensureInitialValue(const ThemeData::ThemeElement::Property& initialValue)
 	{
@@ -61,15 +61,15 @@ public:
 
 class ThemeFloatAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
-		return from.f * (1.0f - value) + to.f * value;
+		return from.f * (1.0 - value) + to.f * value;
 	}	
 };
 
 class ThemeColorAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		return Renderer::mixColors(from.i, to.i, value);
 	}
@@ -77,7 +77,7 @@ class ThemeColorAnimation : public ThemeAnimation
 
 class ThemeVector2Animation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		auto ret = Vector2f(
 			from.v.x() * (1.0f - value) + to.v.x() * value,
@@ -89,7 +89,7 @@ class ThemeVector2Animation : public ThemeAnimation
 
 class ThemeVector4Animation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		return Vector4f(
 			from.r.x() * (1.0f - value) + to.r.x() * value,
@@ -101,7 +101,7 @@ class ThemeVector4Animation : public ThemeAnimation
 
 class ThemeStringAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		if (value >= 0.9999)
 			return to.s;
@@ -112,7 +112,7 @@ class ThemeStringAnimation : public ThemeAnimation
 
 class ThemePathAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		if (value >= 0.9999)
 			return to.s;
@@ -124,7 +124,7 @@ class ThemePathAnimation : public ThemeAnimation
 
 class ThemeBoolAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		if (value >= 0.9999)
 			return to.b;
@@ -136,7 +136,7 @@ class ThemeBoolAnimation : public ThemeAnimation
 
 class ThemeSoundAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(float value) override
+	ThemeData::ThemeElement::Property computeValue(double value) override
 	{
 		if (value >= 0.9999)
 			return to.s;

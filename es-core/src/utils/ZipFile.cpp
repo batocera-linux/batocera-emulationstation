@@ -288,7 +288,7 @@ namespace Utils
 				w.opaque = pOpaque;
 				w.callback = pCallback;
 
-				mz_file_write_func func = [](void *pOpaque, mz_uint64 file_ofs, const void *pBuf, size_t n)
+				mz_file_write_func func = [](void *pOpaque, uint64_t file_ofs, const void *pBuf, size_t n)
 				{
 					OpaqueWrapper* wrapper = (OpaqueWrapper*)pOpaque;
 					return wrapper->callback(wrapper->opaque, file_ofs, pBuf, n);
@@ -335,7 +335,7 @@ namespace Utils
 				return "";
 
 			MD5 md5 = MD5();
-			Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
+			Utils::Zip::zip_callback func = [](void *pOpaque, uint64_t ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
 			if (readBuffered(name, func, &md5))
 			{
 				md5.finalize();
@@ -351,7 +351,7 @@ namespace Utils
 				return "";
 
 			MD5 md5 = MD5();
-			Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
+			Utils::Zip::zip_callback func = [](void *pOpaque, uint64_t ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
 
 			auto fileList = namelist();
 			std::sort(fileList.begin(), fileList.end());

@@ -23,6 +23,7 @@ IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerBattery, true)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawClock, true)
 IMPLEMENT_STATIC_BOOL_SETTING(ClockMode12, false)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawFramerate, false)
+IMPLEMENT_STATIC_BOOL_SETTING(UseFileCache, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VolumePopup, true)
 IMPLEMENT_STATIC_BOOL_SETTING(BackgroundMusic, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VSync, true)
@@ -51,6 +52,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(DrawClock)
 	UPDATE_STATIC_BOOL_SETTING(ClockMode12)
 	UPDATE_STATIC_BOOL_SETTING(DrawFramerate)
+	UPDATE_STATIC_BOOL_SETTING(UseFileCache)
 	UPDATE_STATIC_BOOL_SETTING(ScrollLoadMedias)
 	UPDATE_STATIC_BOOL_SETTING(VolumePopup)
 	UPDATE_STATIC_BOOL_SETTING(VSync)
@@ -58,6 +60,15 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(IgnoreLeadingArticles)		
 	UPDATE_STATIC_BOOL_SETTING(ShowFoldersFirst)
 	UPDATE_STATIC_INT_SETTING(ScreenSaverTime)
+
+	if (name == "HiddenSystems")
+	{
+		mHiddenSystems.clear();
+
+		for (auto hiddenSystem : Utils::String::split(mStringMap["HiddenSystems"], ';'))
+			if (mHiddenSystems.find(hiddenSystem) == mHiddenSystems.cend())
+				mHiddenSystems.insert(hiddenSystem);
+	}
 
 	if (mLoaded)
 		settingChanged.invoke([name](ISettingsChangedEvent* c) { c->onSettingChanged(name); });
@@ -91,6 +102,8 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenOffsetY" },
 	{ "ScreenRotate" },
 	{ "MonitorID" },
+	{ "PackGamelists" },
+	{ "BuildMultiDiskContentCache" }
 };
 
 Settings::Settings() : mLoaded(false)
@@ -130,6 +143,8 @@ void Settings::setDefaults()
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "lastsystem";
+	mStringMap["ShowTags"] = "";
+	mBoolMap["UseFileCache"] = true;
 
 #if WIN32
 	mBoolMap["HidJoysticks"] = true;
@@ -147,6 +162,7 @@ void Settings::setDefaults()
     mBoolMap["DrawClock"] = Settings::_DrawClock;
 	mBoolMap["ClockMode12"] = Settings::_ClockMode12;
 	mBoolMap["ShowControllerNotifications"] = true;	
+	mBoolMap["ShowGunsNotifications"] = true;
 	mBoolMap["ShowControllerActivity"] = Settings::_ShowControllerActivity;
 	mBoolMap["ShowControllerBattery"] = Settings::_ShowControllerBattery;
     mIntMap["SystemVolume"] = 95;
@@ -180,6 +196,8 @@ void Settings::setDefaults()
 	mStringMap["ShowBattery"] = "text";
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	mBoolMap["RemoveMultiDiskContent"] = true;
+	mBoolMap["PackGamelists"] = false;
+	mBoolMap["BuildMultiDiskContentCache"] = false;	
 
 	mBoolMap["ShowNetworkIndicator"] = Settings::_ShowNetworkIndicator;
 
@@ -348,6 +366,10 @@ void Settings::setDefaults()
 	mStringMap["INPUT P6NAME"] = "DEFAULT";
 	mStringMap["INPUT P7NAME"] = "DEFAULT";
 	mStringMap["INPUT P8NAME"] = "DEFAULT";
+
+#ifdef BATOCERA
+	mStringMap["HOTKEY_CONTROLCENTER"] = "a";
+#endif
 
 	// Audio settings
 	mBoolMap["audio.bgmusic"] = Settings::_BackgroundMusic;

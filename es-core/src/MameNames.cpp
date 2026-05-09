@@ -352,7 +352,7 @@ const bool MameNames::isLightgun(const std::string& _nameName, const std::string
 		if (it != mArcadeRoms.cend())
 			return hasFlag(it->second.type, ArcadeRomType::LIGHTGUN);
 
-		return false;
+		// if none is found : test on non normed names (aka triforce, teknoparrot)
 	}
 
 	auto it = mNonArcadeGunGames.find(systemName);
@@ -381,7 +381,7 @@ const bool MameNames::isWheel(const std::string& _nameName, const std::string& s
 		if (it != mArcadeRoms.cend())
 			return hasFlag(it->second.type, ArcadeRomType::WHEEL);
 
-		return false;
+		// if none is found : test on non normed names (aka triforce, teknoparrot)
 	}
 
 	auto it = mNonArcadeWheelGames.find(systemName);
@@ -410,7 +410,7 @@ const bool MameNames::isTrackball(const std::string& _nameName, const std::strin
 		if (it != mArcadeRoms.cend())
 			return hasFlag(it->second.type, ArcadeRomType::TRACKBALL);
 
-		return false;
+		// if none is found : test on non normed names (aka triforce, teknoparrot)
 	}
 
 	auto it = mNonArcadeTrackballGames.find(systemName);
@@ -439,7 +439,7 @@ const bool MameNames::isSpinner(const std::string& _nameName, const std::string&
 		if (it != mArcadeRoms.cend())
 			return hasFlag(it->second.type, ArcadeRomType::SPINNER);
 
-		return false;
+		// if none is found : test on non normed names (aka triforce, teknoparrot)
 	}
 
 	auto it = mNonArcadeSpinnerGames.find(systemName);

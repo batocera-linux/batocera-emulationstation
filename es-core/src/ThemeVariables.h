@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 
-class ThemeVariables : public std::map<std::string, std::string>
+class ThemeVariables : public std::map<std::string, std::string, std::less<>>
 {
 public:
 	std::string resolvePlaceholders(const char* in) const;

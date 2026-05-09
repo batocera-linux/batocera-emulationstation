@@ -428,7 +428,19 @@ namespace Renderer
 
 				GL_CHECK_ERROR(glUniform4f(location, red / 255.0f, green / 255.0f, blue / 255.0f, alpha / 255.0f));
 			}
-			else 
+			else  if (value.find(".00") != std::string::npos)
+			{
+				// It's a float
+				auto clr = (int) Utils::String::toDouble(value);
+
+				unsigned char red = (clr >> 24) & 0xFF;
+				unsigned char green = (clr >> 16) & 0xFF;
+				unsigned char blue = (clr >> 8) & 0xFF;
+				unsigned char alpha = clr & 0xFF;
+
+				GL_CHECK_ERROR(glUniform4f(location, red / 255.0f, green / 255.0f, blue / 255.0f, alpha / 255.0f));
+			}
+			else
 			{
 				// Coordinates
 				auto size = Vector4f::parseString(value);

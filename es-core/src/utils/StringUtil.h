@@ -44,6 +44,7 @@ namespace Utils
 
 		int			toInteger(const std::string& string);
 		float		toFloat(const std::string& string);
+		double		toDouble(const std::string& string);
 		bool		toBoolean(const std::string& string);
 
 		std::string decodeXmlString(const std::string& string);
@@ -77,8 +78,8 @@ namespace Utils
 		// end Korean text input
 
 #if defined(_WIN32)
-		const std::string convertFromWideString(const std::wstring wstring);
-		const std::wstring convertToWideString(const std::string string);
+		const std::string convertFromWideString(const std::wstring& wstring);
+		const std::wstring convertToWideString(const std::string& string);
 #endif
 	} // String::
 

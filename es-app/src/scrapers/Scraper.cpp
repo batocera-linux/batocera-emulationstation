@@ -14,6 +14,7 @@
 #include <thread>
 #include <SDL_timer.h>
 #include "HfsDBScraper.h"
+#include "IGDBScraper.h"
 #include "utils/Uri.h"
 
 #define OVERQUOTA_RETRY_DELAY 15000
@@ -33,6 +34,7 @@ std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
 	{ "HfsDB", new HfsDBScraper() },
 #endif
 
+	{ "IGDB", new IGDBScraper() },
 	{ "ArcadeDB", new ArcadeDBScraper() }
 };
 
@@ -261,8 +263,9 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 
 	if (options != nullptr)
 		mOptions = *options;
-
+	
 	mRequest = new HttpReq(url, &mOptions);
+	mUrl = url;
 	mRetryCount = 0;
 	mOverQuotaPendingTime = 0;
 	mOverQuotaRetryDelay = OVERQUOTA_RETRY_DELAY;
@@ -272,6 +275,15 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 ScraperHttpRequest::~ScraperHttpRequest()
 {
 	delete mRequest;	
+}
+
+std::string ScraperHttpRequest::getDependencyResponse(const std::string& id) const
+{
+	auto it = mResponses.find(id);
+	if (it == mResponses.cend())
+		return "";
+
+	return it->second;
 }
 
 void ScraperHttpRequest::update()
@@ -299,10 +311,30 @@ void ScraperHttpRequest::update()
 	if (status == HttpReq::REQ_IN_PROGRESS)
 		return;
 
-	if(status == HttpReq::REQ_SUCCESS)
+	if (status == HttpReq::REQ_SUCCESS)
 	{
+		std::string body = mRequest->getContent();
+		mResponses[mDependencyId] = body;
+
+		if (mDependencyId.empty())
+			preProcess(body);
+
+		if (!mDependencyQueue.empty())
+		{
+			status = HttpReq::REQ_IN_PROGRESS;
+				
+			auto item = mDependencyQueue.front();
+			mDependencyQueue.pop();
+
+			mDependencyId = item.first;
+			std::string url = item.second;	
+			delete mRequest;
+			mRequest = new HttpReq(url, &mOptions);
+			return;
+		}
+
 		setStatus(ASYNC_DONE); // if process() has an error, status will be changed to ASYNC_ERROR
-		process(mRequest, mResults);
+		process(mResponses[""], mResults);
 		return;
 	}
 

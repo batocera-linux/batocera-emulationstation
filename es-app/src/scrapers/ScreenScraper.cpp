@@ -139,6 +139,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 
 	// Misc
 	{ VIC20, 73 },
+	{ ELEKTRONIKA_BK, 93 },
 	{ ORICATMOS, 131 },
 	{ CHANNELF, 80 },
 	{ THOMSON_TO_MO, 141 },
@@ -151,6 +152,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ DAPHNE, 49 },
 	{ SOLARUS, 223 },
 	{ PICO8, 234 },
+	{ CASSETTE_VISION, 300 },
 	{ SUPER_CASSETTE_VISION, 67 },
 	{ EASYRPG, 231 },
 	{ SONIC, 0 }, // All systems
@@ -337,22 +339,19 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 }
 
 // Process should return false only when we reached a maximum scrap by minute, to retry
-bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& results)
+bool ScreenScraperRequest::process(const std::string& response, std::vector<ScraperSearchResult>& results)
 {
-	assert(request->status() == HttpReq::REQ_SUCCESS);
-
-	auto content = request->getContent();
-	if (content.empty())
+	if (response.empty())
 		return false;
 
-	if (content.find("<html") == 0)
+	if (response.find("<html") == 0)
 	{
-		setError(Utils::String::removeHtmlTags(content));
+		setError(Utils::String::removeHtmlTags(response));
 		return false;
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result parseResult = doc.load_string(content.c_str());
+	pugi::xml_parse_result parseResult = doc.load_string(response.c_str());
 
 	if (!parseResult)
 	{
@@ -362,7 +361,7 @@ bool ScreenScraperRequest::process(HttpReq* request, std::vector<ScraperSearchRe
 		//setError(err); Don't consider it an error -> Request is a success. Simply : Game is not found		
 		LOG(LogWarning) << err;
 				
-		if (Utils::String::toLower(content).find("maximum threads per minute reached") != std::string::npos)
+		if (Utils::String::toLower(response).find("maximum threads per minute reached") != std::string::npos)
 			return false;
 		
 		return true;

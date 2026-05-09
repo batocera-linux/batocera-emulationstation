@@ -413,7 +413,12 @@ namespace Utils
 			if(strBegin == std::string::npos)
 				return "";
 
-			const size_t strEnd = _string.find_last_not_of(" \t\r\n");			
+			const size_t strEnd = _string.find_last_not_of(" \t\r\n");		
+
+			const size_t len = strEnd - strBegin + 1;
+			if (strBegin == 0 && len == _string.length())
+				return _string;
+
 			return _string.substr(strBegin, strEnd - strBegin + 1);
 
 		} // trim
@@ -912,6 +917,57 @@ namespace Utils
 			return neg ? -value : value;
 		}
 
+		double toDouble(const std::string& string)
+		{
+			if (string.empty())
+				return 0.0f;
+
+			const char* str = string.c_str();
+			while (*str == ' ')
+				str++;
+
+			bool neg = false;
+			if (*str == '-')
+			{
+				neg = true;
+				++str;
+			}
+			else if (*str == '+')
+				++str;
+
+			int64_t value = 0;
+			for (; *str && *str != '.' && *str != ' '; str++)
+			{
+				if (*str < '0' || *str > '9')
+					return 0;
+
+				value *= 10;
+				value += *str - '0';
+			}
+
+			if (*str == '.')
+			{
+				str++;
+
+				int64_t decimal = 0, weight = 1;
+
+				for (; *str && *str != ' '; str++)
+				{
+					if (*str < '0' || *str > '9')
+						return 0;
+
+					decimal *= 10;
+					decimal += *str - '0';
+					weight *= 10;
+				}
+
+				double ret = value + (decimal / (double)weight);
+				return neg ? -ret : ret;
+			}
+
+			return neg ? -value : value;
+		}
+
 		std::string decodeXmlString(const std::string& string)
 		{
 			std::string ret = string;
@@ -1246,7 +1302,7 @@ namespace Utils
 		// koreanTextInput
 
 #if defined(_WIN32)
-		const std::string convertFromWideString(const std::wstring wstring)
+		const std::string convertFromWideString(const std::wstring& wstring)
 		{
 			int numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
 			
@@ -1256,7 +1312,7 @@ namespace Utils
 			return string;
 		}
 
-		const std::wstring convertToWideString(const std::string string)
+		const std::wstring convertToWideString(const std::string& string)
 		{
 			int numBytes = MultiByteToWideChar(CP_UTF8, 0, string.c_str(), (int)string.length(), nullptr, 0);
 

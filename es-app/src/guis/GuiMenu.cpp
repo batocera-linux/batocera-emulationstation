@@ -19,7 +19,6 @@
 #include "guis/GuiNetPlaySettings.h"
 #include "guis/GuiRetroAchievementsSettings.h"
 #include "guis/GuiSystemInformation.h"
-#include "guis/GuiScraperSettings.h"
 #include "guis/GuiControllersSettings.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
@@ -31,12 +30,15 @@
 #include <SDL_events.h>
 #include <algorithm>
 #include "utils/Platform.h"
-
+#include "utils/FileSystemUtil.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
 #include "InputManager.h"
 #include "AudioManager.h"
+#include "FavoriteMusicManager.h"
+#include "guis/GuiFavoriteMusicSelector.h"
+
 #include <LibretroRatio.h>
 #include "guis/GuiUpdate.h"
 #include "guis/GuiInstallStart.h"
@@ -61,6 +63,17 @@
 #include "Paths.h"
 #include "guis/GuiAiGraphics.h"
 #include <sys/wait.h>
+#include <set> 
+
+#if !WIN32
+#include <vector>
+#include <string>
+#include <utility>
+#include <array>
+#include <memory>
+#include <sstream>
+#include <cstdio>
+#endif
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -117,7 +130,7 @@
 #define fake_gettext_resolution_max_1K  _("maximum 1920x1080")
 #define fake_gettext_resolution_max_640 _("maximum 640x480")
 
-GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
+GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str())
 {
 	// MAIN MENU
 	bool isFullUI = !UIModeController::getInstance()->isUIModeKid() && !UIModeController::getInstance()->isUIModeKiosk();
@@ -234,7 +247,6 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
 	}
 }
-
 void GuiMenu::openScraperSettings()
 {		
 	mWindow->pushGui(new GuiScraperStart(mWindow));
@@ -255,10 +267,11 @@ void GuiMenu::addVersionInfo()
 
 	auto theme = ThemeData::getMenuTheme();
 
-	mVersion.setFont(theme->Footer.font);
-	mVersion.setColor(theme->Footer.color);
+	mVersion = std::make_shared<TextComponent>(mWindow);
+	mVersion->setFont(theme->Footer.font);
+	mVersion->setColor(theme->Footer.color);
 
-	mVersion.setLineSpacing(0);
+	mVersion->setLineSpacing(0);
 
 	std::string label;
 
@@ -282,13 +295,12 @@ void GuiMenu::addVersionInfo()
 		}
 		else
 		{
-			mVersion.setText(label);
+			mVersion->setHorizontalAlignment(ALIGN_CENTER);
+			mVersion->setVerticalAlignment(ALIGN_CENTER);
+			mVersion->setText(label);
+			mMenu.setButtonGrid(mVersion);
 		}
 	}
-
-	mVersion.setHorizontalAlignment(ALIGN_CENTER);
-	mVersion.setVerticalAlignment(ALIGN_CENTER);
-	addChild(&mVersion);
 }
 
 void GuiMenu::openScreensaverOptions() 
@@ -305,16 +317,6 @@ void GuiMenu::openCollectionSystemSettings()
 	}
 
 	mWindow->pushGui(new GuiCollectionSystemsOptions(mWindow));
-}
-
-void GuiMenu::onSizeChanged()
-{
-	GuiComponent::onSizeChanged();
-
-	float h = mMenu.getButtonGridHeight();
-
-	mVersion.setSize(mSize.x(), h);
-	mVersion.setPosition(0, mSize.y() - h);
 }
 
 void GuiMenu::addEntry(const std::string& name, bool add_arrow, const std::function<void()>& func, const std::string iconName)
@@ -376,17 +378,10 @@ class ExitKidModeMsgBox : public GuiSettings
 
 	bool input(InputConfig* config, Input input) override
 	{
+		Window* window = mWindow;
 		if (UIModeController::getInstance()->listen(config, input))
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("THE USER INTERFACE MODE IS NOW UNLOCKED"),
-				_("OK"), [this] 
-				{
-					Window* window = mWindow;
-					while (window->peekGui() && window->peekGui() != ViewController::get())
-						delete window->peekGui();
-				}));
-
-
+			// window->pushGui(new GuiMsgBox(window, _("THE USER INTERFACE MODE IS NOW UNLOCKED"), _("OK")));
 			return true;
 		}
 
@@ -397,13 +392,7 @@ class ExitKidModeMsgBox : public GuiSettings
 void GuiMenu::exitKidMode()
 {
 	if (Settings::getInstance()->getString("UIMode") == "Basic")
-	{
 		Settings::getInstance()->setString("UIMode", "Full");
-
-		Window* window = mWindow;
-		while (window->peekGui() && window->peekGui() != ViewController::get())
-			delete window->peekGui();
-	}
 	else
 		mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK USER INTERFACE MODE"), _("ENTER THE CODE NOW TO UNLOCK")));
 }
@@ -905,8 +894,6 @@ void GuiMenu::openDeveloperSettings()
 
 	s->addEntry(_("CLEAR CACHES"), true, [this, s]
 		{
-			ImageIO::clearImageCache();
-
 			auto rootPath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath());
 
 			Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
@@ -914,45 +901,6 @@ void GuiMenu::openDeveloperSettings()
 			Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getPdfTempPath());
 
 			ViewController::reloadAllGames(mWindow, false);
-		});
-
-	s->addEntry(_("BUILD IMAGE CACHE"), true, [this, s]
-		{
-			unsigned int x;
-			unsigned int y;
-
-			int idx = 0;
-			for (auto sys : SystemData::sSystemVector)
-			{
-				if (sys->isCollection())
-				{
-					idx++;
-					continue;
-				}
-
-				mWindow->renderSplashScreen(_("Building image cache") + ": " + sys->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
-
-				for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
-				{
-					for (auto mdd : MetaDataList::getMDD())
-					{
-						if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
-							continue;
-
-						auto value = file->getMetadata(mdd.id);
-						if (value.empty())
-							continue;
-
-						auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(value));
-						if (ext == ".jpg" || ext == ".png")
-							ImageIO::loadImageSize(value.c_str(), &x, &y);
-					}
-				}
-
-				idx++;
-			}
-
-			mWindow->closeSplashScreen();
 		});
 
 	s->addGroup(_("DISPLAY SETTINGS"));
@@ -1171,7 +1119,9 @@ void GuiMenu::openDeveloperSettings()
 	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
 	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USAGE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
-	
+
+	s->addSwitch(_("USE FILESYSTEM CACHE"), "UseFileCache", true, [s] { Utils::FileSystem::FileSystemCache::reset(); });
+
 	s->onFinalize([s, window]
 	{					
 		if (s->getVariable("reboot"))
@@ -1294,6 +1244,47 @@ bool GuiMenu::checkNetwork()
 	return true;
 }
 
+// Keyboard helper function that parses output "code Description" into a pair { "code", "Description" }
+#if !WIN32
+static std::vector<std::pair<std::string, std::string>> getScriptOutput(const std::string& command)
+{
+	std::vector<std::pair<std::string, std::string>> results;
+	std::array<char, 128> buffer;
+	std::string result;
+	std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(), "r"), pclose);
+	if (!pipe) return results;
+
+	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+		result += buffer.data();
+	}
+
+	std::stringstream ss(result);
+	std::string line;
+	while (std::getline(ss, line))
+	{
+		// Trim newline chars
+		if (!line.empty() && line.back() == '\n') line.pop_back();
+		if (!line.empty() && line.back() == '\r') line.pop_back();
+		if (line.empty()) continue;
+
+		// Find first space: split "code" and "Description"
+		size_t splitPos = line.find(' ');
+		if (splitPos != std::string::npos)
+		{
+			std::string code = line.substr(0, splitPos);
+			std::string name = line.substr(splitPos + 1);
+			
+			// Trim potential leading whitespace from name
+			size_t first = name.find_first_not_of(' ');
+			if (first != std::string::npos) name = name.substr(first);
+
+			results.push_back({ code, name });
+		}
+	}
+	return results;
+}
+#endif
+
 void GuiMenu::openSystemSettings() 
 {
 	Window *window = mWindow;
@@ -1364,6 +1355,92 @@ void GuiMenu::openSystemSettings()
 			s->setVariable("reloadGuiMenu", true);
 		}		
 	});
+
+	// Keyboard layout & variant
+#if !WIN32
+	
+	std::string curLayout = SystemConf::getInstance()->get("system.kblayout");
+	if (curLayout.empty()) curLayout = "us";
+
+	std::string curVariant = SystemConf::getInstance()->get("system.kbvariant");
+	if (curVariant.empty()) curVariant = "none";
+
+	auto keyboard_layout = std::make_shared<OptionListComponent<std::string>>(window, _("KEYBOARD LAYOUT"), false);
+	auto keyboard_variant = std::make_shared<OptionListComponent<std::string>>(window, _("KEYBOARD VARIANT"), false);
+
+	// Populate Layouts
+	auto layouts = getScriptOutput("/usr/bin/batocera-keyboard list-layouts");
+	bool layoutFound = false;
+	
+	for (const auto& l : layouts)
+	{
+		bool isSelected = (l.first == curLayout);
+		if (isSelected) layoutFound = true;
+		keyboard_layout->add(l.second, l.first, isSelected);
+	}
+	if (!layoutFound) {
+		keyboard_layout->add(curLayout, curLayout, true);
+	}
+
+	// Populate Variants
+	auto populateVariants = [keyboard_variant, curVariant](std::string layoutCode) {
+		keyboard_variant->clear();
+		bool noneSelected = (curVariant == "none" || curVariant.empty());
+		keyboard_variant->add(_("NONE"), "none", noneSelected);
+
+		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + layoutCode);
+		bool variantFound = false;
+		for (const auto& v : variants)
+		{
+			bool isSelected = (v.first == curVariant);
+			if (isSelected) variantFound = true;
+			keyboard_variant->add(v.second, v.first, isSelected);
+		}
+
+		if (!variantFound && !noneSelected) {
+			keyboard_variant->selectFirstItem(); 
+		}
+		keyboard_variant->invalidate();
+	};
+
+	populateVariants(curLayout);
+
+	// Callback for layout change
+	keyboard_layout->setSelectedChangedCallback([populateVariants, keyboard_variant](std::string newLayout) {
+		keyboard_variant->clear();
+		keyboard_variant->add(_("NONE"), "none", true);
+		
+		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + newLayout);
+		for (const auto& v : variants)
+		{
+			keyboard_variant->add(v.second, v.first, false);
+		}
+		keyboard_variant->selectFirstItem();
+		keyboard_variant->invalidate();
+	});
+
+	std::string kbHelpText = _("Select the physical keyboard layout. A reboot may be required for changes to take full effect.");
+	
+	s->addWithDescription(_("KEYBOARD LAYOUT"), kbHelpText, keyboard_layout);
+	s->addWithDescription(_("KEYBOARD VARIANT"), kbHelpText, keyboard_variant);
+
+	s->addSaveFunc([keyboard_layout, keyboard_variant, s] {
+		if (keyboard_layout->changed() || keyboard_variant->changed())
+		{
+			std::string selLayout = keyboard_layout->getSelected();
+			std::string selVariant = keyboard_variant->getSelected();
+			
+			std::string cmd = "/usr/bin/batocera-keyboard set \"" + selLayout + "\" \"" + selVariant + "\"";
+			if (system(cmd.c_str()) == 0) {
+				SystemConf::getInstance()->set("system.kblayout", selLayout);
+				SystemConf::getInstance()->set("system.kbvariant", selVariant);
+				
+				// Trigger the standard "Reboot Required" notification on menu exit
+				s->setVariable("reboot", true);
+			}
+		}
+	});
+#endif
 
 	// Timezone
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::TIMEZONES))
@@ -1467,21 +1544,36 @@ void GuiMenu::openSystemSettings()
 	s->addGroup(_("HARDWARE"));
 #endif
 
-	// brighness
-	int brighness;
-	if (ApiSystem::getInstance()->getBrightness(brighness))
+	// brightness
+	std::vector<BrightnessDevice> brightnesses;
+	if (ApiSystem::getInstance()->getBrightness(brightnesses))
 	{
-		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 1.f, "%");
-		brightnessComponent->setValue(brighness);
-		brightnessComponent->setOnValueChanged([](const float &newVal)
-		{
-			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
-#if !WIN32
-			SystemConf::getInstance()->set("display.brightness", std::to_string((int)Math::round(newVal)));
-#endif
-		});
+	  int n = 0;
+	  for (auto brightness : brightnesses) {
+	    n++;
+	    auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 1.f, "%");
+	    brightnessComponent->setValue(brightness.value);
+	    brightnessComponent->setOnValueChanged([n, brightness](const float &newVal)
+	    {
+	      BrightnessDevice brightness_new = brightness;
+	      brightness_new.value = (int)Math::round(newVal);
 
-		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
+	      ApiSystem::getInstance()->setBrightness(brightness_new);
+#if !WIN32
+	      std::string nstr = "";
+	      if(n > 1) {
+		nstr = std::to_string(n);
+	      }
+	      SystemConf::getInstance()->set("display.brightness"+nstr, std::to_string((int)Math::round(newVal)));
+#endif
+	    });
+
+	    std::string lnstr = "";
+	    if(n > 1) {
+	      lnstr = " " + std::to_string(n);
+	    }
+	    s->addWithLabel(_("BRIGHTNESS") + lnstr, brightnessComponent);
+	  }
 	}
 
 #ifdef BATOCERA
@@ -1838,49 +1930,68 @@ void GuiMenu::openSystemSettings()
 #endif
 
 #ifdef BATOCERA
-#ifdef X86_64
 	int red, green, blue;
-	if (ApiSystem::getInstance()->getLED(red, green, blue)) {
+	bool ledSupported = ApiSystem::getInstance()->getLED(red, green, blue);
+
+	if (ledSupported) {
 		s->addGroup(_("LED HARDWARE"));
 
+		auto led_enabled_switch = std::make_shared<SwitchComponent>(mWindow);
+		bool isEnabled = ApiSystem::getInstance()->isLEDEnabled();
+		led_enabled_switch->setState(isEnabled);
+		s->addWithLabel(_("ENABLE LED"), led_enabled_switch);
+		
+		std::string colourString = SystemConf::getInstance()->get("led.colour");
+		if (colourString.empty())
+			colourString = "255 0 165";
+
+		std::stringstream ss(colourString);
+		ss >> red >> green >> blue; 
+
 		auto redLEDComponent = std::make_shared<SliderComponent>(mWindow, 0.f, 255.f, 1.f);
+		auto greenLEDComponent = std::make_shared<SliderComponent>(mWindow, 0.f, 255.f, 1.f);
+		auto blueLEDComponent = std::make_shared<SliderComponent>(mWindow, 0.f, 255.f, 1.f);
+
 		redLEDComponent->setValue(red);
-		redLEDComponent->setOnValueChanged([](const float &newVal) {
-			int red, green, blue;
-			ApiSystem::getInstance()->getLEDColours(red, green, blue);
+		redLEDComponent->setOnValueChanged([greenLEDComponent, blueLEDComponent](const float &newVal) {
 			int redInt = static_cast<int>(newVal);
-			ApiSystem::getInstance()->setLEDColours(redInt, green, blue);
-			std::string colourString = std::to_string(redInt) + " " + std::to_string(green) + " " + std::to_string(blue);
+			int greenInt = static_cast<int>(greenLEDComponent->getValue());
+			int blueInt = static_cast<int>(blueLEDComponent->getValue());
+			ApiSystem::getInstance()->setLEDColours(redInt, greenInt, blueInt);
+			std::string colourString = std::to_string(redInt) + " " + std::to_string(greenInt) + " " + std::to_string(blueInt);
 			SystemConf::getInstance()->set("led.colour", colourString);
 		});
-
 		s->addWithLabel(_("RED"), redLEDComponent);
 
-		auto greenLEDComponent = std::make_shared<SliderComponent>(mWindow, 0.f, 255.f, 1.f);
 		greenLEDComponent->setValue(green);
-		greenLEDComponent->setOnValueChanged([](const float &newVal) {
-			int red, green, blue;
-			ApiSystem::getInstance()->getLEDColours(red, green, blue);
+		greenLEDComponent->setOnValueChanged([redLEDComponent, blueLEDComponent](const float &newVal) {
+			int redInt = static_cast<int>(redLEDComponent->getValue());
 			int greenInt = static_cast<int>(newVal);
-			ApiSystem::getInstance()->setLEDColours(red, greenInt, blue);
-			std::string colourString = std::to_string(red) + " " + std::to_string(greenInt) + " " + std::to_string(blue);
+			int blueInt = static_cast<int>(blueLEDComponent->getValue());
+			ApiSystem::getInstance()->setLEDColours(redInt, greenInt, blueInt);
+			std::string colourString = std::to_string(redInt) + " " + std::to_string(greenInt) + " " + std::to_string(blueInt);
 			SystemConf::getInstance()->set("led.colour", colourString);
 		});
-
 		s->addWithLabel(_("GREEN"), greenLEDComponent);
 
-		auto blueLEDComponent = std::make_shared<SliderComponent>(mWindow, 0.f, 255.f, 1.f);
 		blueLEDComponent->setValue(blue);
-		blueLEDComponent->setOnValueChanged([](const float &newVal) {
-			int red, green, blue;
-			ApiSystem::getInstance()->getLEDColours(red, green, blue);
+		blueLEDComponent->setOnValueChanged([redLEDComponent, greenLEDComponent](const float &newVal) {
+			int redInt = static_cast<int>(redLEDComponent->getValue());
+			int greenInt = static_cast<int>(greenLEDComponent->getValue());
 			int blueInt = static_cast<int>(newVal);
-			ApiSystem::getInstance()->setLEDColours(red, green, blueInt);
-			std::string colourString = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blueInt);
+			ApiSystem::getInstance()->setLEDColours(redInt, greenInt, blueInt);
+			std::string colourString = std::to_string(redInt) + " " + std::to_string(greenInt) + " " + std::to_string(blueInt);
 			SystemConf::getInstance()->set("led.colour", colourString);
 		});
-
 		s->addWithLabel(_("BLUE"), blueLEDComponent);
+
+		s->addSaveFunc([led_enabled_switch] {
+			bool state = led_enabled_switch->getState();
+			if (state != (SystemConf::getInstance()->get("led.enabled") != "0")) {
+				ApiSystem::getInstance()->setLEDEnabled(state);
+			}
+		});
+
 	}
 	
 	// LED brightness
@@ -1896,7 +2007,6 @@ void GuiMenu::openSystemSettings()
 
 		s->addWithLabel(_("LED BRIGHTNESS"), ledBrightnessComponent);
 	}
-#endif
 #endif
 
 #ifdef BATOCERA
@@ -1957,6 +2067,35 @@ void GuiMenu::openSystemSettings()
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::INSTALL))
 		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
+
+	s->addEntry(_("EJECT AN EXTRA DISK"), true, [this] { openUnmountDriveSettings(); });
+
+    auto diskFormat = std::make_shared<OptionListComponent<std::string>>(window, _("EXTRA DRIVE FILESYSTEM TYPE"), false);
+    
+    // Load saved preference (default to btrfs)
+    std::string selectedFormat = SystemConf::getInstance()->get("system.external_disk_format");
+    
+    if (selectedFormat.empty()) selectedFormat = "btrfs";
+
+    std::vector<std::string> fstypes = ApiSystem::getInstance()->getFormatFileSystems();
+    if (fstypes.empty()) fstypes = { "ext4", "btrfs", "exfat" };
+
+    for (const auto& fs : fstypes) {
+        diskFormat->add(Utils::String::toUpper(fs), fs, selectedFormat == fs);
+    }
+    
+    if (!diskFormat->hasSelection()) {
+         diskFormat->selectFirstItem();
+    }
+
+    s->addWithLabel(_("EXTRA DRIVE FILESYSTEM TYPE"), diskFormat);
+    
+    s->addSaveFunc([diskFormat] {
+        if (diskFormat->changed()) {
+            SystemConf::getInstance()->set("system.external_disk_format", diskFormat->getSelected());
+            SystemConf::getInstance()->saveSystemConf();
+        }
+    });
 	
 	s->addGroup(_("ADVANCED"));
 
@@ -2105,13 +2244,13 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 			
 	if (feat.preset == "input")
 	{
-		settings->addInputTextRow(pgettext("game_options", feat.name.c_str()), storageName, false);
+		settings->addInputTextConfigRow(pgettext("game_options", feat.name.c_str()), storageName, false);
 		return;
 	}
 	
 	if (feat.preset == "password")
 	{
-		settings->addInputTextRow(pgettext("game_options", feat.name.c_str()), storageName, true);
+		settings->addInputTextConfigRow(pgettext("game_options", feat.name.c_str()), storageName, true);
 		return;
 	}
 	
@@ -2799,7 +2938,7 @@ void GuiMenu::openGamesSettings()
 						SystemConf::getInstance()->saveSystemConf();
 						}
 						});
-				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
+				decorations_window->addInputTextConfigRow(_("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
 
 				auto bezel_resize_tattoo = std::make_shared<SwitchComponent>(mWindow);
 				bezel_resize_tattoo->setState(SystemConf::getInstance()->getBool("global.bezel.resize_tattoo"));
@@ -2858,7 +2997,7 @@ void GuiMenu::openGamesSettings()
 			lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
 			lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
 			lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
-			lang_choices->add("POLISH", "Po", currentLang == "Po");
+			lang_choices->add("POLISH", "Pl", currentLang == "Pl");
 			lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
 			lang_choices->add("РУССКИЙ", "Ru", currentLang == "Ru");
 			lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
@@ -2867,7 +3006,7 @@ void GuiMenu::openGamesSettings()
 			ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
 
 			// Service  URL
-			ai_service->addInputTextRow(_("AI TRANSLATION SERVICE URL"), "global.ai_service_url", false);
+			ai_service->addInputTextConfigRow(_("AI TRANSLATION SERVICE URL"), "global.ai_service_url", false);
 
 			// Pause game for translation?
 			auto ai_service_pause = std::make_shared<SwitchComponent>(mWindow);
@@ -2968,7 +3107,8 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMELISTS?"), _("YES"), [window]
 		{
-		ViewController::reloadAllGames(window, true, true);
+			Scripting::fireEvent("update-gamelists");
+			ViewController::reloadAllGames(window, true, true, true);
 		}, 
 		_("NO"), nullptr));
 }
@@ -3411,8 +3551,30 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
-		// Show flags
+		themeconfig->addGroup(_("ICONS"));
 
+		// Tags
+		auto defShowTag = Settings::getInstance()->getString("ShowTags");
+		if (defShowTag == "1")
+			defShowTag = _("AFTER NAME");
+		else if (defShowTag == "2")
+			defShowTag = _("NO");
+		else
+			defShowTag = _("BEFORE NAME");
+
+		auto curShowTag = Settings::getInstance()->getString(system->getName() + ".ShowTags");
+		auto showTags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW TAGS ICONS"), false);
+		showTags->addRange({ { _("AUTO"), "auto" }, { _("BEFORE NAME"), "0" }, { _("AFTER NAME"), "1" }, { _("NO") , "2" } }, curShowTag);
+
+		themeconfig->addWithDescription(_("SHOW TAGS ICONS"), _("DEFAULT VALUE") + " : " + defShowTag, showTags);
+		themeconfig->addSaveFunc([themeconfig, showTags, system]
+			{
+				if (Settings::getInstance()->setString(system->getName() + ".ShowTags", showTags->getSelected()))
+					themeconfig->setVariable("reloadAll", true);
+			});
+
+
+		// Show flags
 		auto defSF = Settings::getInstance()->getString("ShowFlags");
 		if (defSF == "1")
 			defSF = _("BEFORE NAME");
@@ -3437,7 +3599,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			if (Settings::getInstance()->setString(system->getName() + ".ShowFlags", showRegionFlags->getSelected()))
 				themeconfig->setVariable("reloadAll", true);
 		});
-		
+
 		// Show SaveStates
 		auto defSS = Settings::getInstance()->getBool("ShowSaveStates") ? _("YES") : _("NO");
 		auto curSS = Settings::getInstance()->getString(system->getName() + ".ShowSaveStates");
@@ -3870,6 +4032,18 @@ void GuiMenu::openUISettings()
 	s->addOptionList(_("SHOW FOLDERS"), { { _("always"), "always" },{ _("never") , "never" },{ _("having multiple games"), "having multiple games" } }, "FolderViewMode", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW FOLDERS FIRST"), "ShowFoldersFirst", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW '..' PARENT FOLDER"), "ShowParentFolder", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW FILENAMES INSTEAD"), "ShowFilenames", true, [s]
+		{
+			SystemData::resetSettings();
+			FileData::resetSettings();
+
+			s->setVariable("reloadCollections", true);
+			s->setVariable("reloadAll", true);
+		});
+	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), _("Ignore 'The' and 'A' if at the start."), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
+
+	s->addGroup(_("ICONS"));
+	s->addOptionList(_("SHOW TAGS ICONS"), { { _("BEFORE NAME"), "auto" },{ _("AFTER NAME") , "1" },{ _("NO"), "2" } }, "ShowTags", true, [s] { s->setVariable("reloadAll", true); });
 	s->addOptionList(_("SHOW REGION FLAG"), { { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, "ShowFlags", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW SAVESTATE ICON"), "ShowSaveStates", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW MANUAL ICON"), "ShowManualIcon", true, [s] { s->setVariable("reloadAll", true); });	
@@ -3878,16 +4052,7 @@ void GuiMenu::openUISettings()
 	s->addSwitch(_("SHOW WHEEL ICON"), "ShowWheelIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW TRACKBALL ICON"), "ShowTrackballIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW SPINNER ICON"), "ShowSpinnerIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
-	s->addSwitch(_("SHOW FILENAMES INSTEAD"), "ShowFilenames", true, [s] 
-		{
-			SystemData::resetSettings();
-			FileData::resetSettings();
 
-			s->setVariable("reloadCollections", true);
-			s->setVariable("reloadAll", true); 
-		});
-	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), _("Ignore 'The' and 'A' if at the start."), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
-	
 	s->onFinalize([s, pthis, window]
 	{
 		if (s->getVariable("reloadCollections"))
@@ -4017,7 +4182,7 @@ void GuiMenu::openSoundSettings()
 	});
 	
 	s->addSwitch(_("DISPLAY SONG TITLES"), "audio.display_titles", true);
-
+ 
 	// how long to display the song titles?
 	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 120.f, 2.f, "s");
 	titles_time->setValue(Settings::getInstance()->getInt("audio.display_titles_time"));
@@ -4029,6 +4194,39 @@ void GuiMenu::openSoundSettings()
 	s->addSwitch(_("ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"), "audio.persystem", true, [] { AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true); } );
 	s->addSwitch(_("PLAY SYSTEM-SPECIFIC MUSIC"), "audio.thememusics", true, [] { AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true); });	
 	s->addSwitch(_("LOWER MUSIC WHEN PLAYING VIDEO"), "VideoLowersMusic", true);
+
+
+    auto favoriteSwitch = std::make_shared<SwitchComponent>(mWindow);
+    std::string favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath();
+    bool hasFavorites = false;
+    if (Utils::FileSystem::exists(favoritesFile))
+    {
+        auto favorites = FavoriteMusicManager::loadFavoriteSongs(favoritesFile);
+        hasFavorites = !favorites.empty();
+    }
+    bool shouldUseFavorites = Settings::getInstance()->getBool("audio.useFavoriteMusic") && hasFavorites;
+    if (Settings::getInstance()->getBool("audio.useFavoriteMusic") && !hasFavorites)
+    {
+        Settings::getInstance()->setBool("audio.useFavoriteMusic", false);
+        Settings::getInstance()->saveFile();
+    }
+    favoriteSwitch->setState(shouldUseFavorites);
+    s->addWithDescription(_("PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"), "", favoriteSwitch, nullptr);
+    s->addSaveFunc([favoriteSwitch, hasFavorites]() 
+    {
+        bool useFavorite = favoriteSwitch->getState();
+        if (useFavorite && !hasFavorites)
+        {
+            useFavorite = false;
+        }
+        Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
+        Settings::getInstance()->saveFile();
+        AudioManager::getInstance()->playRandomMusic(useFavorite);
+    });
+
+    s->addEntry(_("SELECTION OF FAVORITE SONGS"), true, [this] {
+        GuiFavoriteMusicSelector::openSelectFavoriteSongs(mWindow, false, true);
+    });
 
 	s->addGroup(_("SOUNDS"));
 
@@ -4044,6 +4242,63 @@ void GuiMenu::openSoundSettings()
 	s->addSwitch(_("ENABLE VIDEO PREVIEW AUDIO"), "VideoAudio", true);
 	
 	mWindow->pushGui(s);
+}
+
+// Provides a complete list of ISO 3166-1 alpha-2 country codes.
+std::vector<std::pair<std::string, std::string>> getCountryCodes()
+{
+    return {
+        { "AF", "Afghanistan" }, { "AX", "Åland Islands" }, { "AL", "Albania" }, { "DZ", "Algeria" }, { "AS", "American Samoa" },
+        { "AD", "Andorra" }, { "AO", "Angola" }, { "AI", "Anguilla" }, { "AQ", "Antarctica" }, { "AG", "Antigua and Barbuda" },
+        { "AR", "Argentina" }, { "AM", "Armenia" }, { "AW", "Aruba" }, { "AU", "Australia" }, { "AT", "Austria" },
+        { "AZ", "Azerbaijan" }, { "BS", "Bahamas" }, { "BH", "Bahrain" }, { "BD", "Bangladesh" }, { "BB", "Barbados" },
+        { "BY", "Belarus" }, { "BE", "Belgium" }, { "BZ", "Belize" }, { "BJ", "Benin" }, { "BM", "Bermuda" },
+        { "BT", "Bhutan" }, { "BO", "Bolivia" }, { "BQ", "Bonaire, Sint Eustatius and Saba" }, { "BA", "Bosnia and Herzegovina" }, { "BW", "Botswana" },
+        { "BV", "Bouvet Island" }, { "BR", "Brazil" }, { "IO", "British Indian Ocean Territory" }, { "BN", "Brunei Darussalam" }, { "BG", "Bulgaria" },
+        { "BF", "Burkina Faso" }, { "BI", "Burundi" }, { "CV", "Cabo Verde" }, { "KH", "Cambodia" }, { "CM", "Cameroon" },
+        { "CA", "Canada" }, { "KY", "Cayman Islands" }, { "CF", "Central African Republic" }, { "TD", "Chad" }, { "CL", "Chile" },
+        { "CN", "China" }, { "CX", "Christmas Island" }, { "CC", "Cocos (Keeling) Islands" }, { "CO", "Colombia" }, { "KM", "Comoros" },
+        { "CG", "Congo" }, { "CD", "Congo, Democratic Republic of the" }, { "CK", "Cook Islands" }, { "CR", "Costa Rica" }, { "CI", "Côte d'Ivoire" },
+        { "HR", "Croatia" }, { "CU", "Cuba" }, { "CW", "Curaçao" }, { "CY", "Cyprus" }, { "CZ", "Czechia" },
+        { "DK", "Denmark" }, { "DJ", "Djibouti" }, { "DM", "Dominica" }, { "DO", "Dominican Republic" }, { "EC", "Ecuador" },
+        { "EG", "Egypt" }, { "SV", "El Salvador" }, { "GQ", "Equatorial Guinea" }, { "ER", "Eritrea" }, { "EE", "Estonia" },
+        { "SZ", "Eswatini" }, { "ET", "Ethiopia" }, { "FK", "Falkland Islands (Malvinas)" }, { "FO", "Faroe Islands" }, { "FJ", "Fiji" },
+        { "FI", "Finland" }, { "FR", "France" }, { "GF", "French Guiana" }, { "PF", "French Polynesia" }, { "TF", "French Southern Territories" },
+        { "GA", "Gabon" }, { "GM", "Gambia" }, { "GE", "Georgia" }, { "DE", "Germany" }, { "GH", "Ghana" },
+        { "GI", "Gibraltar" }, { "GR", "Greece" }, { "GL", "Greenland" }, { "GD", "Grenada" }, { "GP", "Guadeloupe" },
+        { "GU", "Guam" }, { "GT", "Guatemala" }, { "GG", "Guernsey" }, { "GN", "Guinea" }, { "GW", "Guinea-Bissau" },
+        { "GY", "Guyana" }, { "HT", "Haiti" }, { "HM", "Heard Island and McDonald Islands" }, { "VA", "Holy See" }, { "HN", "Honduras" },
+        { "HK", "Hong Kong" }, { "HU", "Hungary" }, { "IS", "Iceland" }, { "IN", "India" }, { "ID", "Indonesia" },
+        { "IR", "Iran" }, { "IQ", "Iraq" }, { "IE", "Ireland" }, { "IM", "Isle of Man" }, { "IL", "Israel" },
+        { "IT", "Italy" }, { "JM", "Jamaica" }, { "JP", "Japan" }, { "JE", "Jersey" }, { "JO", "Jordan" },
+        { "KZ", "Kazakhstan" }, { "KE", "Kenya" }, { "KI", "Kiribati" }, { "KP", "Korea, Democratic People's Republic of" }, { "KR", "Korea, Republic of" },
+        { "KW", "Kuwait" }, { "KG", "Kyrgyzstan" }, { "LA", "Lao People's Democratic Republic" }, { "LV", "Latvia" }, { "LB", "Lebanon" },
+        { "LS", "Lesotho" }, { "LR", "Liberia" }, { "LY", "Libya" }, { "LI", "Liechtenstein" }, { "LT", "Lithuania" },
+        { "LU", "Luxembourg" }, { "MO", "Macao" }, { "MG", "Madagascar" }, { "MW", "Malawi" }, { "MY", "Malaysia" },
+        { "MV", "Maldives" }, { "ML", "Mali" }, { "MT", "Malta" }, { "MH", "Marshall Islands" }, { "MQ", "Martinique" },
+        { "MR", "Mauritania" }, { "MU", "Mauritius" }, { "YT", "Mayotte" }, { "MX", "Mexico" }, { "FM", "Micronesia" },
+        { "MD", "Moldova" }, { "MC", "Monaco" }, { "MN", "Mongolia" }, { "ME", "Montenegro" }, { "MS", "Montserrat" },
+        { "MA", "Morocco" }, { "MZ", "Mozambique" }, { "MM", "Myanmar" }, { "NA", "Namibia" }, { "NR", "Nauru" },
+        { "NP", "Nepal" }, { "NL", "Netherlands" }, { "NC", "New Caledonia" }, { "NZ", "New Zealand" }, { "NI", "Nicaragua" },
+        { "NE", "Niger" }, { "NG", "Nigeria" }, { "NU", "Niue" }, { "NF", "Norfolk Island" }, { "MK", "North Macedonia" },
+        { "MP", "Northern Mariana Islands" }, { "NO", "Norway" }, { "OM", "Oman" }, { "PK", "Pakistan" }, { "PW", "Palau" },
+        { "PS", "Palestine, State of" }, { "PA", "Panama" }, { "PG", "Papua New Guinea" }, { "PY", "Paraguay" }, { "PE", "Peru" },
+        { "PH", "Philippines" }, { "PN", "Pitcairn" }, { "PL", "Poland" }, { "PT", "Portugal" }, { "PR", "Puerto Rico" },
+        { "QA", "Qatar" }, { "RE", "Réunion" }, { "RO", "Romania" }, { "RU", "Russian Federation" }, { "RW", "Rwanda" },
+        { "BL", "Saint Barthélemy" }, { "SH", "Saint Helena, Ascension and Tristan da Cunha" }, { "KN", "Saint Kitts and Nevis" }, { "LC", "Saint Lucia" }, { "MF", "Saint Martin (French part)" },
+        { "PM", "Saint Pierre and Miquelon" }, { "VC", "Saint Vincent and the Grenadines" }, { "WS", "Samoa" }, { "SM", "San Marino" }, { "ST", "Sao Tome and Principe" },
+        { "SA", "Saudi Arabia" }, { "SN", "Senegal" }, { "RS", "Serbia" }, { "SC", "Seychelles" }, { "SL", "Sierra Leone" },
+        { "SG", "Singapore" }, { "SX", "Sint Maarten (Dutch part)" }, { "SK", "Slovakia" }, { "SI", "Slovenia" }, { "SB", "Solomon Islands" },
+        { "SO", "Somalia" }, { "ZA", "South Africa" }, { "GS", "South Georgia and the South Sandwich Islands" }, { "SS", "South Sudan" }, { "ES", "Spain" },
+        { "LK", "Sri Lanka" }, { "SD", "Sudan" }, { "SR", "Suriname" }, { "SJ", "Svalbard and Jan Mayen" }, { "SE", "Sweden" },
+        { "CH", "Switzerland" }, { "SY", "Syrian Arab Republic" }, { "TW", "Taiwan" }, { "TJ", "Tajikistan" }, { "TZ", "Tanzania" },
+        { "TH", "Thailand" }, { "TL", "Timor-Leste" }, { "TG", "Togo" }, { "TK", "Tokelau" }, { "TO", "Tonga" },
+        { "TT", "Trinidad and Tobago" }, { "TN", "Tunisia" }, { "TR", "Turkey" }, { "TM", "Turkmenistan" }, { "TC", "Turks and Caicos Islands" },
+        { "TV", "Tuvalu" }, { "UG", "Uganda" }, { "UA", "Ukraine" }, { "AE", "United Arab Emirates" }, { "GB", "United Kingdom" },
+        { "US", "United States of America" }, { "UM", "United States Minor Outlying Islands" }, { "UY", "Uruguay" }, { "UZ", "Uzbekistan" }, { "VU", "Vanuatu" },
+        { "VE", "Venezuela" }, { "VN", "Viet Nam" }, { "VG", "Virgin Islands (British)" }, { "VI", "Virgin Islands (U.S.)" }, { "WF", "Wallis and Futuna" },
+        { "EH", "Western Sahara" }, { "YE", "Yemen" }, { "ZM", "Zambia" }, { "ZW", "Zimbabwe" }
+    };
 }
 
 void GuiMenu::openWifiSettings(Window* win, std::string title, std::string data, const std::function<void(std::string)>& onsave)
@@ -4080,47 +4335,82 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 
 #if !WIN32
 	// Hostname
-	s->addInputTextRow(_("HOSTNAME"), "system.hostname", false);
+	s->addInputTextConfigRow(_("HOSTNAME"), "system.hostname", false);
 #endif
 
 	// Wifi enable
-	auto enable_wifi = std::make_shared<SwitchComponent>(mWindow);	
+	auto enable_wifi = std::make_shared<SwitchComponent>(mWindow);
 	enable_wifi->setState(baseWifiEnabled);
 	s->addWithLabel(_("ENABLE WIFI"), enable_wifi, selectWifiEnable);
 
 	// window, title, settingstring,
 	const std::string baseSSID = SystemConf::getInstance()->get("wifi.ssid");
 	const std::string baseKEY = SystemConf::getInstance()->get("wifi.key");
+#if !WIN32
+	const std::string baseCountry = SystemConf::getInstance()->get("wifi.country");
+#endif
 
 	if (baseWifiEnabled)
 	{
-		s->addInputTextRow(_("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
-		s->addInputTextRow(_("WIFI KEY"), "wifi.key", true);
+		s->addInputTextConfigRow(_("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
+		s->addInputTextConfigRow(_("WIFI KEY"), "wifi.key", true);
+
+#if !WIN32
+        // Batocera-specific WIFI COUNTRY option
+        auto country_codes = getCountryCodes();
+        auto country = std::make_shared<OptionListComponent<std::string>>(mWindow, _("WIFI COUNTRY"), false);
+
+		country->add(_("N/A"), "", baseCountry.empty());
+
+        for (auto it = country_codes.cbegin(); it != country_codes.cend(); ++it)
+            country->add(it->second, it->first, baseCountry == it->first);
+
+        if (country->getSelectedObjects().size() == 0)
+            country->selectFirstItem();
+
+        s->addWithLabel(_("WIFI COUNTRY"), country);
+        s->addSaveFunc([country] { SystemConf::getInstance()->set("wifi.country", country->getSelected()); });
+#endif
 	}
-	
-	s->addSaveFunc([baseWifiEnabled, baseSSID, baseKEY, enable_wifi, window]
+
+	s->addSaveFunc([baseWifiEnabled, baseSSID, baseKEY,
+#if !WIN32
+	baseCountry,
+#endif
+	enable_wifi, window]
 	{
 		bool wifienabled = enable_wifi->getState();
 
 		SystemConf::getInstance()->setBool("wifi.enabled", wifienabled);
 
-		if (wifienabled) 
+		if (wifienabled)
 		{
 			std::string newSSID = SystemConf::getInstance()->get("wifi.ssid");
 			std::string newKey = SystemConf::getInstance()->get("wifi.key");
+#if !WIN32
+			std::string newCountry = SystemConf::getInstance()->get("wifi.country");
 
-			if (baseSSID != newSSID || baseKEY != newKey || !baseWifiEnabled)
+			if (baseSSID != newSSID || baseKEY != newKey || baseCountry != newCountry || !baseWifiEnabled)
 			{
-				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey)) 
+				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey, newCountry))
 					window->pushGui(new GuiMsgBox(window, _("WIFI ENABLED")));
-				else 
+				else
 					window->pushGui(new GuiMsgBox(window, _("WIFI CONFIGURATION ERROR")));
 			}
+#else
+			if (baseSSID != newSSID || baseKEY != newKey || !baseWifiEnabled)
+			{
+				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey))
+					window->pushGui(new GuiMsgBox(window, _("WIFI ENABLED")));
+				else
+					window->pushGui(new GuiMsgBox(window, _("WIFI CONFIGURATION ERROR")));
+			}
+#endif
 		}
 		else if (baseWifiEnabled)
 			ApiSystem::getInstance()->disableWifi();
 	});
-	
+
 
 	enable_wifi->setOnChangedCallback([this, s, baseWifiEnabled, enable_wifi]()
 	{
@@ -4130,7 +4420,14 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 			SystemConf::getInstance()->setBool("wifi.enabled", wifienabled);
 
 			if (wifienabled)
+			{
+#if !WIN32
+				std::string country = SystemConf::getInstance()->get("wifi.country");
+				ApiSystem::getInstance()->enableWifi(SystemConf::getInstance()->get("wifi.ssid"), SystemConf::getInstance()->get("wifi.key"), country);
+#else
 				ApiSystem::getInstance()->enableWifi(SystemConf::getInstance()->get("wifi.ssid"), SystemConf::getInstance()->get("wifi.key"));
+#endif
+			}
 			else
 				ApiSystem::getInstance()->disableWifi();
 
@@ -4160,26 +4457,84 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUICK ACCESS") : _("QUIT")).c_str());
 	s->setCloseButton("select");
 
+	
 	if (quickAccessMenu)
 	{
-		s->addGroup(_("QUICK ACCESS"));
+    		s->addGroup(_("QUICK ACCESS"));
+            if (AudioManager::getInstance()->isSongPlaying())
+            {
+                std::string songName = AudioManager::getInstance()->getSongName();
+                std::string currentSongPath = AudioManager::getInstance()->getCurrentSongPath();
 
-		// Don't like one of the songs? Press next
-		if (AudioManager::getInstance()->isSongPlaying())
-		{
-			auto sname = AudioManager::getInstance()->getSongName();
-			if (!sname.empty())
-			{
-				s->addWithDescription(_("SKIP TO THE NEXT SONG"), _("NOW PLAYING") + ": " + sname, nullptr, [s, window]
-					{
-						Window* w = window;
-						AudioManager::getInstance()->playRandomMusic(false);
-						delete s;
-						openQuitMenu_static(w, true, false);
-					}, "iconSound");
-			}
-		}
+                if (!songName.empty())
+                {
+                    s->addWithDescription(_("SKIP TO THE NEXT SONG"),
+                                          _("NOW PLAYING") + ": " + songName,
+                                          nullptr,
+                                          [s, window]()
+                                          {
+                                              Window* w = window;
+                                              AudioManager::getInstance()->playRandomMusic(false);
+                                              delete s;
+                                              GuiMenu::openQuitMenu_static(w, true, false);
+                                          },
+                                          "iconSound");
 
+                    std::string favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath();
+                    auto favorites = FavoriteMusicManager::loadFavoriteSongs(favoritesFile);
+
+                    bool inFavorites = false;
+                    for (const auto& fav : favorites)
+                    {
+                        if (fav.first == currentSongPath)
+                        {
+                            inFavorites = true;
+                            break;
+                        }
+                    }
+
+                    std::string fileNameWithoutExt = Utils::FileSystem::getFileName(currentSongPath);
+                    size_t lastDot = fileNameWithoutExt.find_last_of('.');
+                    if (lastDot != std::string::npos) {
+                        fileNameWithoutExt = fileNameWithoutExt.substr(0, lastDot);
+                    }
+
+                    if (inFavorites)
+                    {
+                        s->addWithDescription(_("REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"), "",
+                                          nullptr,
+                                          [s, window, currentSongPath, fileNameWithoutExt]()
+                                          {
+                                              Window* w = window;
+                                              if (FavoriteMusicManager::getInstance().removeSongFromFavorites(currentSongPath, fileNameWithoutExt, window))
+                                              {
+                                                  AudioManager::getInstance()->playRandomMusic(true);
+                                                  delete s;
+                                                  GuiMenu::openQuitMenu_static(w, true, false);
+                                              }
+                                          },
+                                          "iconSound");
+                    }
+                    else
+                    {
+                        s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"), "",
+                                          nullptr,
+                                          [s, window, currentSongPath, fileNameWithoutExt]()
+                                          {
+                                              Window* w = window;
+                                              if (FavoriteMusicManager::getInstance().saveSongToFavorites(currentSongPath, fileNameWithoutExt, window))
+                                              {
+                                                  Settings::getInstance()->saveFile();
+                                                  AudioManager::getInstance()->playRandomMusic(true);
+                                                  delete s;
+                                                  GuiMenu::openQuitMenu_static(w, true, false);
+                                              }
+                                          },
+                                          "iconSound");
+                    }
+                }
+            }
+					
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 			{
 				Window* w = window;
@@ -4221,7 +4576,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			}
 		}
 	}
-
+	
 	if (quickAccessMenu)
 		s->addGroup(_("QUIT"));
 
@@ -4246,7 +4601,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconShutdown");
 
-	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"), _("Shutdown without saving metadata."), nullptr, [window] {
+	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"),_("Shutdown without saving metadata."), nullptr, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
 			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));
@@ -4562,7 +4917,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 				std::string tatpath = configName + ".bezel.tattoo_file";
 				const char *bezelpath = const_cast<char*>(tatpath.data());
-				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), bezelpath, false);
+				decorations_window->addInputTextConfigRow(_("CUSTOM .PNG IMAGE PATH"), bezelpath, false);
 
 				mWindow->pushGui(decorations_window);
 			});
@@ -5169,3 +5524,77 @@ bool GuiMenu::onMouseClick(int button, bool pressed, int x, int y)
 
 	return (button == 1);
 }
+
+#ifdef BATOCERA
+void GuiMenu::openUnmountDriveSettings()
+{
+	Window *window = mWindow;
+	auto s = new GuiSettings(mWindow, _("SAFELY EJECT A DISK").c_str());
+	auto optionsStorage = std::make_shared<OptionListComponent<std::string>>(window, _("MERGED DRIVE"), false);
+
+	// Ask the manager for a list of merged drives that can be ejected
+	std::vector<std::string> merged_drives = ApiSystem::getInstance()->getEjectableDrives();
+    
+	bool found = false;
+	for(const auto& line : merged_drives)
+	{
+		size_t delimiter = line.find(":");
+		if (delimiter != std::string::npos)
+		{
+			std::string name = line.substr(0, delimiter);
+			std::string path = line.substr(delimiter + 1);
+			optionsStorage->add(name, path, false);
+			found = true;
+		}
+	}
+	
+	if (!found) {
+		optionsStorage->add(_("NO MERGED DRIVES FOUND"), "", true);
+	} else {
+		optionsStorage->selectFirstItem();
+	}
+
+	s->addWithLabel(_("MERGED DRIVE"), optionsStorage);
+
+	s->addEntry(_("EJECT"), false, [s, optionsStorage, window]
+	{
+		std::string path = optionsStorage->getSelected();
+		if (path.empty()) {
+			window->pushGui(new GuiMsgBox(window, _("NO DRIVE SELECTED")));
+			return;
+		}
+
+		window->pushGui(new GuiMsgBox(window, "ARE YOU SURE YOU WANT TO EJECT THIS DRIVE?\n\nThis will unmount the drive and remove it from the boot configuration.",
+			"YES, EJECT", [s, window, path]
+			{
+				auto* ac = window->createAsyncNotificationComponent();
+				ac->updateText(_("Ejecting..."));
+
+				window->postToUiThread([window, ac, path, s]() {
+					bool success = ApiSystem::getInstance()->ejectDrive(path);
+					
+					window->postToUiThread([window, ac, success, s]() {
+						ac->close();
+
+						if (success) {
+							window->pushGui(new GuiMsgBox(window, "DEVICE EJECTED SAFELY.\nGAME LISTS WILL REFRESH WHEN YOU CLICK OK.", "OK", [window, s] {
+								s->close(); 
+                                if (ViewController::get()) {
+                                    if (ThreadedScraper::isRunning() || ThreadedHasher::isRunning()) {
+                                        return;
+                                    }
+                                    Scripting::fireEvent("update-gamelists");
+                                    ViewController::reloadAllGames(window, true, true);
+                                }
+							}));
+						} else {
+							window->pushGui(new GuiMsgBox(window, "FAILED TO EJECT DEVICE.", "OK"));
+						}
+					});
+				});
+			}, "NO", nullptr));
+	});
+
+	mWindow->pushGui(s);
+}
+#endif

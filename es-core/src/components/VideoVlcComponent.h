@@ -17,11 +17,22 @@ struct VideoContext
 	{
 		surfaces[0] = nullptr;
 		surfaces[1] = nullptr;
-		component = nullptr;
-		valid = false;
+		component = nullptr;		
 		hasFrame[0] = false;
 		hasFrame[1] = false;
 		surfaceId = 0;
+	}
+
+	~VideoContext()
+	{
+		if (surfaces[0])
+			delete[] surfaces[0];
+
+		if (surfaces[1])
+			delete[] surfaces[1];
+
+		surfaces[0] = nullptr;
+		surfaces[1] = nullptr;
 	}
 
 	int					surfaceId;
@@ -29,8 +40,7 @@ struct VideoContext
 	std::mutex			mutexes[2];
 	bool				hasFrame[2];
 
-	VideoComponent*		component;
-	bool				valid;	
+	VideoComponent*		component;	
 };
 
 
@@ -77,7 +87,7 @@ public:
 	void setMinSize(float width, float height);
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
-	virtual void update(int deltaTime);
+	virtual void update(int deltaTime);	
 
 	void	setColorShift(unsigned int color);
 
@@ -117,8 +127,10 @@ private:
 
 	virtual void onVideoStarted();
 
-	void setupContext();
-	void freeContext();
+	VideoContext* createContext();
+
+	void onMediaParsed();
+	bool mIsParsing;
 
 private:
 	void crop(float left, float top, float right, float bot);
@@ -126,7 +138,7 @@ private:
 	static libvlc_instance_t*		mVLC;
 	libvlc_media_t*					mMedia;
 	libvlc_media_player_t*			mMediaPlayer;
-	VideoContext					mContext;
+	VideoContext*					mContext;
 	std::shared_ptr<TextureResource> mTexture;
 
 	std::string					    mSubtitlePath;

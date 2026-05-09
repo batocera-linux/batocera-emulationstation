@@ -123,7 +123,9 @@ private:
 	void getCarouselFromTheme(const ThemeData::ThemeElement* elem);
 
 	void renderCarousel(const Transform4x4f& parentTrans);	
+	
 	void ensureLogo(IList<CarouselComponentData, IBindable*>::Entry& entry);
+	void ensureLogos();
 
 	// unit is list index
 	float mCamOffset;
@@ -144,6 +146,7 @@ private:
 	std::string					mThemeClass;
 
 	int mLastCursor;	
+	CursorState mLastCursorState;
 
 	CarouselType			mType;
 	CarouselImageSource		mImageSource;

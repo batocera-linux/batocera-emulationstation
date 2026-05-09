@@ -25,6 +25,9 @@
 #include "Splash.h"
 #include "PowerSaver.h"
 #include "renderers/Renderer.h"
+#include <thread>
+#include "../es-app/src/ApiSystem.h"
+#include "utils/StringUtil.h"
 
 #if WIN32
 #include <SDL_syswm.h>
@@ -135,6 +138,7 @@ bool Window::init(bool initRenderer, bool initInputManager)
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_SMALL));
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_MEDIUM));
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_LARGE));
+		mDefaultFonts.push_back(Font::get(FONT_SIZE_MINI));
 	}
 
 	mBackgroundOverlay->setImage(":/scroll_gradient.png");
@@ -428,6 +432,8 @@ void Window::processSongTitleNotifications()
 
 void Window::update(int deltaTime)
 {
+	TextureResource::cleanupVRAM();
+
 	if (mLastShowCursor >= 0)
 	{
 		mLastShowCursor += deltaTime;
@@ -457,7 +463,7 @@ void Window::update(int deltaTime)
 
 	mFrameTimeElapsed += deltaTime;
 	mFrameCountElapsed++;
-	if (mFrameTimeElapsed > 500)
+	if (mFrameTimeElapsed > 250)
 	{
 		mAverageDeltaTime = mFrameTimeElapsed / mFrameCountElapsed;
 
@@ -470,14 +476,17 @@ void Window::update(int deltaTime)
 			ss << std::fixed << std::setprecision(2) << ((float)mFrameTimeElapsed / (float)mFrameCountElapsed) << "ms";
 
 			// vram
-			float textureVramUsageMb = TextureResource::getTotalMemUsage(false) / 1024.0f / 1024.0f;
-			float textureTotalUsageMb = TextureResource::getTotalTextureSize() / 1024.0f / 1024.0f;
-			float fontVramUsageMb = Font::getTotalMemUsage() / 1024.0f / 1024.0f;
+			float textureVramUsageMb = TextureResource::getTotalMemoryUsage(MemoryUsageType::VRAM) / 1024.0f / 1024.0f;
+			float textureKnownUsageMb = TextureResource::getTotalMemoryUsage(MemoryUsageType::Estimated) / 1024.0f / 1024.0f;
+			float textureCacheUsageMb = TextureResource::getTotalMemoryUsage(MemoryUsageType::RAM) / 1024.0f / 1024.0f;
+			float fontVramUsageMb = Font::getTotalMemoryUsage() / 1024.0f / 1024.0f;
 			size_t max_texture = Settings::getInstance()->getInt("MaxVRAM");
 
-			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Known Tex: " << textureTotalUsageMb << " Max VRAM: " << max_texture;
+			int queueSize = TextureResource::getQueueSize();
 
-			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));			
+			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureKnownUsageMb << " Max VRAM: " << max_texture << " Queued : " << queueSize;
+			
+			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts[3]->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));
 		}
 
 		mFrameTimeElapsed = 0;
@@ -951,7 +960,12 @@ void Window::renderSplashScreen(std::string text, float percent, float opacity)
 		mSplash = std::make_shared<Splash>(this, getCustomSplashScreenImage());
 
 	mSplash->update(text, percent);
-	mSplash->render(opacity);	
+	mSplash->render(opacity);
+
+#if WIN32
+	SDL_Event evt;
+	SDL_PollEvent(&evt);
+#endif
 }
 
 void Window::renderSplashScreen(float opacity, bool swapBuffers)
@@ -1260,7 +1274,10 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	std::stable_sort(mScreenExtras.begin(), mScreenExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
 
 	if (mBackgroundOverlay)
+	{
 		mBackgroundOverlay->setImage(ThemeData::getMenuTheme()->Background.fadePath);
+		mBackgroundOverlay->setResize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	}
 
 	if (mClock)
 	{
@@ -1423,4 +1440,174 @@ bool Window::processMouseButton(int button, bool down, int x, int y)
 			return true;
 
 	return false;
+}
+
+void Window::setReloadGamelistsCallback(const std::function<void()>& func)
+{
+    mReloadGamelistsCallback = func;
+}
+
+void Window::processStorageRequest(std::string line)
+{
+	static std::vector<std::string> storageQueue;
+	static bool isProcessing = false;
+	static bool needReload = false;
+
+	// Helper function to process the next item in the queue
+	auto processNext = [this]() {
+		if (storageQueue.empty()) {
+			isProcessing = false;
+			if (needReload && mReloadGamelistsCallback) {
+				mReloadGamelistsCallback();
+				this->displayNotificationMessage(_("Reloaded the games list..."));
+				needReload = false;
+			}
+			return;
+		}
+		
+		// Trigger the logic for the next item
+		this->processStorageRequest(""); 
+	};
+
+	// Add new incoming API request to the queue
+	if (!line.empty()) {
+		LOG(LogInfo) << "Storage Request Received via API: " << line;
+		storageQueue.push_back(line);
+		if (isProcessing) return;
+	}
+
+	if (storageQueue.empty()) return;
+
+	// Start processing the front of the queue
+	isProcessing = true;
+	std::string currentTask = storageQueue.front();
+	storageQueue.erase(storageQueue.begin());
+
+	std::vector<std::string> parts = Utils::String::split(currentTask, ':');
+	if (parts.empty()) { processNext(); return; }
+
+	std::string type = parts[0];
+	
+	if (type == "REQUEST_MERGE" && parts.size() >= 5)
+	{
+		std::string deviceName  = parts[1];
+		std::string deviceModel = parts[2];
+		std::string deviceSize  = parts[3];
+		std::string mountPoint  = parts[4];
+		std::string uniqueId    = (parts.size() > 5 && !parts[5].empty()) ? parts[5] : "";
+
+		std::string message = _("GAME DRIVE DETECTED") + "\n\n" +
+							  _("DEVICE") + ": " + deviceName + "\n" +
+							  _("MODEL")  + ": " + deviceModel + "\n" +
+							  _("SIZE")   + ": " + deviceSize + "\n" +
+							  _("MOUNT")  + ": " + mountPoint + "\n\n" +
+							  _("Merge games from this drive partition now?") + "\n" + 
+							  _("(This will also apply on future boots)");
+
+		auto mergeLambda = [this, mountPoint, processNext] {
+				this->displayNotificationMessage(_("Merge requested... Please wait."));
+				needReload = true;
+
+				std::thread([this, mountPoint, processNext]() {
+					bool success = ApiSystem::getInstance()->mergeDrive(mountPoint);
+					this->postToUiThread([this, success, processNext]() {
+						if (!success) {
+							this->pushGui(new GuiMsgBox(this, _("MERGE FAILED") + "\n" + _("Please check the logs."), _("OK"), [processNext] { processNext(); }));
+						} else {
+							processNext(); 
+						}
+					});
+				}).detach();
+		};
+
+		if (!uniqueId.empty())
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("NO, IGNORE THIS TIME"), [processNext] { processNext(); },
+				_("NO, IGNORE FOREVER"), [this, uniqueId, processNext] {
+					this->displayNotificationMessage(_("Adding drive to ignore list..."));
+					std::thread([uniqueId, processNext, this]() {
+						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
+						this->postToUiThread([processNext] { processNext(); });
+					}).detach();
+				},
+				_("YES, MERGE DRIVE"), mergeLambda
+			);
+			pushGui(msg);
+		}
+		else
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("YES"), mergeLambda, 
+				_("NO"), [processNext] { processNext(); }
+			);
+			pushGui(msg);
+		}
+	}
+	else if (type == "REQUEST_FORMAT" && parts.size() >= 2)
+	{
+		std::string deviceName = parts[1];
+		std::string deviceModel = (parts.size() > 2 && !parts[2].empty()) ? parts[2] : _("N/A");
+		std::string deviceSize = (parts.size() > 3 && !parts[3].empty()) ? parts[3] : _("N/A");
+		std::string uniqueId = (parts.size() > 4 && !parts[4].empty()) ? parts[4] : "";
+
+		std::string message = _("NEW DRIVE DETECTED") + "\n\n" +
+							_("DEVICE") + ": " + deviceName + "\n" +
+							_("MODEL") + ": " + deviceModel + "\n" +
+							_("SIZE") + ": " + deviceSize + "\n\n" +
+							_("Format and prepare this drive for game storage?") + "\n" +
+							_("(ALL EXISTING DATA WILL BE ERASED)");
+		
+		auto formatLambda = [this, deviceName, processNext] {
+			this->displayNotificationMessage(_("Starting format process..."));
+			needReload = true;
+
+			std::thread([this, deviceName, processNext]() {
+				std::string fsType = SystemConf::getInstance()->get("system.external_disk_format");
+				if (fsType.empty()) fsType = "btrfs";
+				bool success = ApiSystem::getInstance()->prepareDrive(deviceName, fsType);
+				this->postToUiThread([this, success, processNext]() {
+					if (!success) {
+						this->pushGui(new GuiMsgBox(this, _("FORMAT FAILED") + "\n" + _("Please check the logs."), _("OK"), [processNext] { processNext(); }));
+					} else {
+						processNext();
+					}
+				});
+			}).detach(); 
+		};
+
+		auto confirmLambda = [this, formatLambda, processNext] {
+			this->pushGui(new GuiMsgBox(this, _("ARE YOU SURE?"), 
+				_("NO"), [processNext] { processNext(); }, 
+				_("YES"), formatLambda));
+		};
+
+		if (!uniqueId.empty())
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("NO, IGNORE THIS TIME"), [processNext] { processNext(); },
+				_("NO, IGNORE FOREVER"), [this, uniqueId, processNext] {
+					this->displayNotificationMessage(_("Adding drive to ignore list..."));
+					std::thread([uniqueId, processNext, this]() {
+						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
+						this->postToUiThread([processNext] { processNext(); });
+					}).detach();
+				},
+				_("YES, FORMAT & MERGE"), confirmLambda
+			);
+			pushGui(msg);
+		}
+		else
+		{
+			auto* msg = new GuiMsgBox(this, message,
+				_("NO, IGNORE"), [processNext] { processNext(); },
+				_("YES, FORMAT & MERGE"), confirmLambda
+			);
+			pushGui(msg);
+		}
+	}
+	else {
+		// Cleanup
+		processNext();
+	}
 }

@@ -13,21 +13,21 @@ ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
 	for (auto anim : src.animations)
 	{
 		if (dynamic_cast<ThemeFloatAnimation*>(anim) != nullptr)
-			animations.push_back(new ThemeFloatAnimation((const ThemeFloatAnimation&)(*anim)));
+			animations.push_back(std::move(new ThemeFloatAnimation((const ThemeFloatAnimation&)(*anim))));
 		else if (dynamic_cast<ThemeColorAnimation*>(anim) != nullptr)
-			animations.push_back(new ThemeColorAnimation((const ThemeColorAnimation&)(*anim)));
+			animations.push_back(std::move(new ThemeColorAnimation((const ThemeColorAnimation&)(*anim))));
 		else if (dynamic_cast<ThemeVector2Animation*>(anim) != nullptr)
-			animations.push_back(new ThemeVector2Animation((const ThemeVector2Animation&)(*anim)));
+			animations.push_back(std::move(new ThemeVector2Animation((const ThemeVector2Animation&)(*anim))));
 		else if (dynamic_cast<ThemeVector4Animation*>(anim) != nullptr)
-			animations.push_back(new ThemeVector4Animation((const ThemeVector4Animation&)(*anim)));
+			animations.push_back(std::move(new ThemeVector4Animation((const ThemeVector4Animation&)(*anim))));
 		else if (dynamic_cast<ThemeStringAnimation*>(anim) != nullptr)
-			animations.push_back(new ThemeStringAnimation((const ThemeStringAnimation&)(*anim)));
+			animations.push_back(std::move(new ThemeStringAnimation((const ThemeStringAnimation&)(*anim))));
 		else if (dynamic_cast<ThemePathAnimation*>(anim) != nullptr)
-			animations.push_back(new ThemePathAnimation((const ThemePathAnimation&)(*anim)));
+			animations.push_back(std::move(new ThemePathAnimation((const ThemePathAnimation&)(*anim))));
 		else if (dynamic_cast<ThemeBoolAnimation*>(anim) != nullptr)
-			animations.push_back(new ThemeBoolAnimation((const ThemeBoolAnimation&)(*anim)));
+			animations.push_back(std::move(new ThemeBoolAnimation((const ThemeBoolAnimation&)(*anim))));
 		else if (dynamic_cast<ThemeSoundAnimation*>(anim) != nullptr)
-			animations.push_back(new ThemeSoundAnimation((const ThemeSoundAnimation&)(*anim)));
+			animations.push_back(std::move(new ThemeSoundAnimation((const ThemeSoundAnimation&)(*anim))));
 	}
 }
 
@@ -196,7 +196,7 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 			else
 				anim->easingMode = ThemeAnimation::EasingMode::Linear;
 
-			animations.push_back(anim);
+			animations.push_back(std::move(anim));
 		}
 	}
 
@@ -235,7 +235,7 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 			}
 		}
 
-		animations.push_back(sound);
+		animations.push_back(std::move(sound));
 	}
 
 	return animations.size() > 0;

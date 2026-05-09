@@ -47,6 +47,24 @@ msgstr "Disgrifiad"
 msgid "this game's description"
 msgstr ""
 
+msgid "Genre"
+msgstr "Genre"
+
+msgid "enter game genre"
+msgstr "gosod genre gemau"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "Efelychwr"
 
@@ -172,12 +190,6 @@ msgstr "Cyhoeddwr"
 
 msgid "this game's publisher"
 msgstr ""
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "gosod genre gemau"
 
 msgid "Game family"
 msgstr ""
@@ -506,10 +518,22 @@ msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEM DISG A DEFNYDDIWYD"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "SYSTEM"
 
 msgid "VIDEO DRIVER"
+msgstr ""
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
+
+msgid "SEOUL"
 msgstr ""
 
 msgid "NETPLAY SETTINGS"
@@ -529,30 +553,6 @@ msgstr "OPSIYNAU"
 
 msgid "PORT"
 msgstr "PORTH"
-
-msgid "USE RELAY SERVER"
-msgstr "DEFNYDDIO GWEINYDD RELAY"
-
-msgid "NONE"
-msgstr "DIM"
-
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -579,6 +579,30 @@ msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
 msgid "INDEX GAMES"
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr "DEFNYDDIO GWEINYDD RELAY"
+
+msgid "NONE"
+msgstr "DIM"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
 msgid "INPUT"
@@ -667,6 +691,12 @@ msgid ""
 "earned."
 msgstr ""
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
@@ -745,6 +775,15 @@ msgstr "DIM DIWEDDARIAD AR GAEL"
 msgid "SCRAPER"
 msgstr "CRAFWR"
 
+msgid "SCRAPE"
+msgstr "CRAFU"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "go back"
+msgstr "mynd yn ôl"
+
 msgid "SCRAPING DATABASE"
 msgstr ""
 
@@ -753,9 +792,6 @@ msgstr ""
 
 msgid "SCRAPE FROM"
 msgstr "CRAFU O"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
 
 msgid "FILTERS"
 msgstr ""
@@ -802,8 +838,107 @@ msgstr "CRAFU NAWR"
 msgid "START"
 msgstr "DECHRAU"
 
-msgid "go back"
-msgstr "mynd yn ôl"
+msgid "IMAGE SOURCE"
+msgstr "FFYNHONNELL DELWEDD"
+
+msgid "SCREENSHOT"
+msgstr "SGRINLUN"
+
+msgid "TITLE SCREENSHOT"
+msgstr "SGRINLUN TEITL"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOCS 2D"
+
+msgid "BOX 3D"
+msgstr "BOCS 3D"
+
+msgid "FAN ART"
+msgstr "CELF FFAN"
+
+msgid "BOX SOURCE"
+msgstr "FFYNHONNELL BOCS"
+
+msgid "LOGO SOURCE"
+msgstr "FFYNHONNELL LOGO"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "OLWYN"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AWTO"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr ""
+
+msgid "COMMUNITY RATING"
+msgstr ""
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -816,6 +951,96 @@ msgstr "MAE CRAFU YN RHEDEG. A YDYCH AM STOPIO?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "DIM GEMAU SY'N FFITIO'R MEINI PRAWF YNA."
+
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "DEWISLEN"
+
+msgid "FILES"
+msgstr "FFEILIAU"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "AIL GYCHWYN"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "AILDDIRWYN"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "CONTROL CENTER"
+msgstr ""
+
+msgid "KEY ASSIGNED TWICE"
+msgstr ""
 
 msgid "INSTALL ON A NEW DISK"
 msgstr ""
@@ -1020,9 +1245,6 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "DEWIS"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
@@ -1049,9 +1271,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AWTO"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1371,6 +1590,17 @@ msgstr "IAITH"
 msgid "LANGUAGE (REGION)"
 msgstr ""
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1509,6 +1739,9 @@ msgstr "TROSGLOCIO"
 msgid "LED HARDWARE"
 msgstr ""
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr ""
 
@@ -1529,6 +1762,12 @@ msgstr "DYFAIS STORIO"
 
 msgid "BACKUP USER DATA"
 msgstr "DATA DEFNYDDIWR WRTH GEFN"
+
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
+
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "UWCH"
@@ -1588,9 +1827,6 @@ msgid "Current setting"
 msgstr ""
 
 msgid "UPDATE GAMELISTS"
-msgstr ""
-
-msgid "ACCOUNTS"
 msgstr ""
 
 msgid "BIOS SETTINGS"
@@ -1653,9 +1889,6 @@ msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
-
-msgid "REWIND"
-msgstr "AILDDIRWYN"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
@@ -1801,10 +2034,16 @@ msgstr "cael gemau lluosog"
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "DANGOS '..' FFOLDER RHIENI"
 
-msgid "BEFORE NAME"
+msgid "ICONS"
 msgstr ""
 
 msgid "AFTER NAME"
+msgstr ""
+
+msgid "BEFORE NAME"
+msgstr ""
+
+msgid "SHOW TAGS ICONS"
 msgstr ""
 
 msgid "SHOW REGION FLAG"
@@ -1927,6 +2166,12 @@ msgstr "CHWARAE CERDDORIAETH THEMA"
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "LLEIHAU LEFEL SAIN CERDDORIAETH PAN YN CHWARAE FIDEO"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "CHWARAE DIM OND CANIADAU O'R RESTR HOFF GANIADAU"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "DEWIS O HOFF GANIADAU"
+
 msgid "SOUNDS"
 msgstr "SEINIAU"
 
@@ -1960,6 +2205,9 @@ msgstr "SSID WIFI"
 msgid "WIFI KEY"
 msgstr "ALLWEDD WIFI"
 
+msgid "WIFI COUNTRY"
+msgstr ""
+
 msgid "WIFI ENABLED"
 msgstr "GALLUOGI WIFI"
 
@@ -1974,6 +2222,12 @@ msgstr ""
 
 msgid "NOW PLAYING"
 msgstr ""
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "TYNNU'R GANIAD PRESENNOL O'R RESTR HOFF GANIADAU"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "CADW'R GANIAD PRESENNOL YN Y RESTR HOFF GANIADAU"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSIO ARBEDYDD SGRIN"
@@ -2083,6 +2337,24 @@ msgstr "MAE OPSIYNAU WEDI'I DDEWIS YN ANNILYS"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "A YDYCH CHI'N SIWR EICH BOD EISIAU FFORMATIO'R GYRRWR HWN?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "Pwyntiau"
 
@@ -2175,6 +2447,28 @@ msgstr ""
 "BYDD HYN YN DILEU'R FFEIL(IAU) GÊM GWIRIONEDDOL!\n"
 "WYT TI'N SIWR?"
 
+msgid "NFC"
+msgstr ""
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
+
 msgid "COLLECTIONS"
 msgstr "CASGLIADAU"
 
@@ -2195,9 +2489,6 @@ msgstr ""
 msgid "DELETE COLLECTION"
 msgstr "DILEU CASGLIAD"
 
-msgid "SCRAPE"
-msgstr "CRAFU"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPSIYNAU GÊM UWCH"
 
@@ -2210,9 +2501,6 @@ msgstr "GOLYGU METADATA Y GÊM HWN"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
 
-msgid "RESET"
-msgstr "AIL GYCHWYN"
-
 msgid "ADD COMBINATION KEY"
 msgstr "YCHWANEGU ALLWEDD CYFUNO"
 
@@ -2220,90 +2508,6 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "PAIR"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "FFYNHONNELL DELWEDD"
-
-msgid "SCREENSHOT"
-msgstr "SGRINLUN"
-
-msgid "TITLE SCREENSHOT"
-msgstr "SGRINLUN TEITL"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "BOCS 2D"
-
-msgid "BOX 3D"
-msgstr "BOCS 3D"
-
-msgid "FAN ART"
-msgstr "CELF FFAN"
-
-msgid "BOX SOURCE"
-msgstr "FFYNHONNELL BOCS"
-
-msgid "LOGO SOURCE"
-msgstr "FFYNHONNELL LOGO"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "OLWYN"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "PREFERED REGION"
-msgstr ""
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr ""
-
-msgid "COMMUNITY RATING"
-msgstr ""
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr ""
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
 msgstr ""
 
 msgid "NO DEVICE FOUND"
@@ -2345,8 +2549,11 @@ msgstr "YN NHREFN YR WYDDOR"
 msgid "BY MANUFACTURER"
 msgstr "GAN GYNHYRCHWR"
 
-msgid "BY HARDWARE TYPE"
-msgstr "GAN Y FATH O GALEDWEDD"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr ""
@@ -2513,6 +2720,9 @@ msgstr "CHWYDDO"
 msgid "EDIT METADATA"
 msgstr "GOLYGU METADATA"
 
+msgid "TAGS"
+msgstr ""
+
 msgid "GENRES"
 msgstr ""
 
@@ -2520,6 +2730,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+
+msgid "FAVORITE SONGS"
+msgstr "HOFF GANIADAU"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CYSYLLTWCH Â RHWYDWAITH"
@@ -2629,11 +2842,77 @@ msgstr ""
 msgid "BEHAVIOR"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
 msgstr ""
 
 msgid "default"
 msgstr "rhagosodiad"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "BYSELL FRYS"
+
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr ""
@@ -2982,9 +3261,6 @@ msgstr[5] "%i GEMAU"
 msgid "NAVIGATION BAR"
 msgstr ""
 
-msgid "FILES"
-msgstr "FFEILIAU"
-
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -3006,11 +3282,11 @@ msgstr "Llwytho thema"
 msgid "Loading gamelists"
 msgstr "Llwytho rhestr gemau"
 
-msgid "MENU"
-msgstr "DEWISLEN"
-
 msgid "GENRE"
 msgstr "GENRE"
+
+msgid "TAG"
+msgstr ""
 
 msgid "FAMILY"
 msgstr ""
@@ -3063,6 +3339,9 @@ msgstr ""
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "YN CRAFU"
 
@@ -3073,6 +3352,21 @@ msgid "SCRAPING FINISHED"
 msgstr "WEDI GORFFEN CRAFU"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
 msgstr ""
 
 msgid "Loading system config..."
@@ -3578,6 +3872,75 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merge requested... Please wait."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "GAN Y FATH O GALEDWEDD"
+
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
 
@@ -3735,9 +4098,6 @@ msgstr ""
 
 #~ msgid "RIGHT ANALOG RIGHT"
 #~ msgstr "ANALOG DDE DDE"
-
-#~ msgid "HOTKEY"
-#~ msgstr "BYSELL FRYS"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "SGIPIO I'R GÂN NESAF"

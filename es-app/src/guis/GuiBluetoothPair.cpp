@@ -16,7 +16,7 @@
 GuiBluetoothPair* GuiBluetoothPair::Instance = nullptr;
 
 GuiBluetoothPair::GuiBluetoothPair(Window* window)
-	: MenuComponent(window, _("PAIR A BLUETOOTH DEVICE")), mBusyAnim(window)
+	: MenuComponent(window, _("PAIR A BLUETOOTH DEVICE")), mBusyAnim(window), mIsPairing(false)
 {
 	auto theme = ThemeData::getMenuTheme();
 		
@@ -33,7 +33,7 @@ GuiBluetoothPair::GuiBluetoothPair(Window* window)
 		setSize(getSize().x(), Renderer::getScreenHeight() * 0.60f);
 	}
 
-	mBusyAnim.setText(_("PLEASE WAIT"));
+	mBusyAnim.setText(_("SCANNING BLUETOOTH"));
 	mBusyAnim.setSize(getSize());
 
 	Instance = this;
@@ -57,7 +57,7 @@ void GuiBluetoothPair::render(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = parentTrans * getTransform();		
 
-	if (size() == 0)
+	if (size() == 0 && !mIsPairing)
 		mBusyAnim.render(trans);
 }
 
@@ -82,7 +82,7 @@ void GuiBluetoothPair::loadDevicesAsync()
 
 			window->postToUiThread([id, name, status, type]
 			{
-				if (Instance == nullptr)
+				if (Instance == nullptr || Instance->mIsPairing)
 					return;
 
 				if (status == "removed")
@@ -125,17 +125,18 @@ std::vector<HelpPrompt> GuiBluetoothPair::getHelpPrompts()
 
 void GuiBluetoothPair::onPairDevice(const std::string& macAddress)
 {
+	mIsPairing = true;
+
 	Window* window = mWindow;
 
-	window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"),
-		[this, window, macAddress](auto gui)
+	window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"), [this, window, macAddress](auto gui)
 	{
 		return ApiSystem::getInstance()->pairBluetoothDevice(macAddress);
-	},
-		[this](bool ret)
+	}, [this](bool ret)
 	{
+		mIsPairing = false;
+
 		if (ret)
 			delete this;
 	}));
-
 }

@@ -298,48 +298,52 @@ bool CustomFeatures::loadEsFeaturesFile()
 						if (!systemNode.attribute("name"))
 							continue;
 
-						std::string systemName = systemNode.attribute("name").value();
-
-						EmulatorFeatures::Features systemFeatures = systemNode.attribute("features") ? EmulatorFeatures::parseFeatures(systemNode.attribute("features").value()) : EmulatorFeatures::Features::none;
-						auto customSystemFeatures = loadCustomFeatures(systemNode);
-
-						if (customSystemFeatures.any([](auto x) { return x.value == "autosave"; })) // Watch if autosave is provided as shared
-							systemFeatures = systemFeatures | EmulatorFeatures::Features::autosave;
-
-						if (systemFeatures == EmulatorFeatures::Features::none && customSystemFeatures.size() == 0)
-							continue;
-
-						for (auto it = EmulatorFeatures.begin(); it != EmulatorFeatures.end(); it++)
+						std::string systemNames = systemNode.attribute("name").value();
+						for (auto tmpSystemName : Utils::String::split(systemNames, ','))
 						{
-							auto& emul = it->second;
-							if (emul.name != emulatorName)
+							std::string systemName = Utils::String::trim(tmpSystemName);
+
+							EmulatorFeatures::Features systemFeatures = systemNode.attribute("features") ? EmulatorFeatures::parseFeatures(systemNode.attribute("features").value()) : EmulatorFeatures::Features::none;
+							auto customSystemFeatures = loadCustomFeatures(systemNode);
+
+							if (customSystemFeatures.any([](auto x) { return x.value == "autosave"; })) // Watch if autosave is provided as shared
+								systemFeatures = systemFeatures | EmulatorFeatures::Features::autosave;
+
+							if (systemFeatures == EmulatorFeatures::Features::none && customSystemFeatures.size() == 0)
 								continue;
 
-							for (auto& core : emul.cores)
+							for (auto it = EmulatorFeatures.begin(); it != EmulatorFeatures.end(); it++)
 							{
-								if (core.name == coreName)
+								auto& emul = it->second;
+								if (emul.name != emulatorName)
+									continue;
+
+								for (auto& core : emul.cores)
 								{
-									bool systemFound = false;
-
-									for (auto& systemFeature : core.systemFeatures)
+									if (core.name == coreName)
 									{
-										if (systemFeature.name == systemName)
+										bool systemFound = false;
+
+										for (auto& systemFeature : core.systemFeatures)
 										{
-											systemFound = true;
-											systemFeature.features = systemFeature.features | systemFeatures;
+											if (systemFeature.name == systemName)
+											{
+												systemFound = true;
+												systemFeature.features = systemFeature.features | systemFeatures;
 
-											for (auto feat : customSystemFeatures)
-												systemFeature.customFeatures.push_back(feat);
+												for (auto feat : customSystemFeatures)
+													systemFeature.customFeatures.push_back(feat);
+											}
 										}
-									}
 
-									if (!systemFound)
-									{
-										SystemFeature sysF;
-										sysF.name = systemName;
-										sysF.features = systemFeatures;
-										sysF.customFeatures = customSystemFeatures;
-										core.systemFeatures.push_back(sysF);
+										if (!systemFound)
+										{
+											SystemFeature sysF;
+											sysF.name = systemName;
+											sysF.features = systemFeatures;
+											sysF.customFeatures = customSystemFeatures;
+											core.systemFeatures.push_back(sysF);
+										}
 									}
 								}
 							}
@@ -357,35 +361,39 @@ bool CustomFeatures::loadEsFeaturesFile()
 				if (!systemNode.attribute("name"))
 					continue;
 
-				std::string systemName = systemNode.attribute("name").value();
-
-				EmulatorFeatures::Features systemFeatures = systemNode.attribute("features") ? EmulatorFeatures::parseFeatures(systemNode.attribute("features").value()) : EmulatorFeatures::Features::none;
-				auto customSystemFeatures = loadCustomFeatures(systemNode);
-
-				auto it = EmulatorFeatures.find(emulatorName);
-				if (it != EmulatorFeatures.cend())
+				std::string systemNames = systemNode.attribute("name").value();
+				for (auto tmpSystemName : Utils::String::split(systemNames, ','))
 				{
-					auto& emul = it->second;
-					bool systemFound = false;
-					for (auto& systemFeature : emul.systemFeatures)
+					std::string systemName = Utils::String::trim(tmpSystemName);
+
+					EmulatorFeatures::Features systemFeatures = systemNode.attribute("features") ? EmulatorFeatures::parseFeatures(systemNode.attribute("features").value()) : EmulatorFeatures::Features::none;
+					auto customSystemFeatures = loadCustomFeatures(systemNode);
+
+					auto it = EmulatorFeatures.find(emulatorName);
+					if (it != EmulatorFeatures.cend())
 					{
-						if (systemFeature.name == systemName)
+						auto& emul = it->second;
+						bool systemFound = false;
+						for (auto& systemFeature : emul.systemFeatures)
 						{
-							systemFound = true;
-							systemFeature.features = systemFeature.features | systemFeatures;
+							if (systemFeature.name == systemName)
+							{
+								systemFound = true;
+								systemFeature.features = systemFeature.features | systemFeatures;
 
-							for (auto feat : customSystemFeatures)
-								systemFeature.customFeatures.push_back(feat);
+								for (auto feat : customSystemFeatures)
+									systemFeature.customFeatures.push_back(feat);
+							}
 						}
-					}
 
-					if (!systemFound)
-					{
-						SystemFeature sysF;
-						sysF.name = systemName;
-						sysF.features = systemFeatures;
-						sysF.customFeatures = customSystemFeatures;
-						emul.systemFeatures.push_back(sysF);
+						if (!systemFound)
+						{
+							SystemFeature sysF;
+							sysF.name = systemName;
+							sysF.features = systemFeatures;
+							sysF.customFeatures = customSystemFeatures;
+							emul.systemFeatures.push_back(sysF);
+						}
 					}
 				}
 			}

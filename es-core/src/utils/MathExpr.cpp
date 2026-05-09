@@ -68,6 +68,22 @@ namespace Utils
 		{ { "startswith", 2 },    [](const Args& args) { return Utils::String::startsWith(removeStringQuotes(args[0]), removeStringQuotes(args[1])) ? "1" : "0"; } },
 		{ { "endswith", 2 },      [](const Args& args) { return Utils::String::endsWith(removeStringQuotes(args[0]), removeStringQuotes(args[1])) ? "1" : "0"; } },
 
+		{ { "inlist", 2 },        [](const Args& args) 
+			{ 
+				auto list = Utils::String::split(Utils::String::toUpper(removeStringQuotes(args[0])), ',', true);
+				return (std::find(list.cbegin(), list.cend(), Utils::String::toUpper(removeStringQuotes(args[1]))) != list.cend()) ? "1" : "0";
+			} },
+
+		{ { "translatelist", 1 },  [](const Args& args)
+			{
+				Utils::String::stringVector ret;
+				auto list = Utils::String::split(Utils::String::toUpper(removeStringQuotes(args[0])), ',', true);
+				for (auto item : list)
+					ret.push_back(_(removeStringQuotes(args[0]).c_str()));
+
+				return addStringQuotes(Utils::String::join(ret, ","));
+			} },
+		
 		// Math
 		{ { "min", 2 },           [](const Args& args) { return std::to_string(Math::min(Utils::String::toFloat(removeStringQuotes(args[0])), Utils::String::toFloat(removeStringQuotes(args[1])))); } },
 		{ { "max", 2 },           [](const Args& args) { return std::to_string(Math::max(Utils::String::toFloat(removeStringQuotes(args[0])), Utils::String::toFloat(removeStringQuotes(args[1])))); } },
@@ -77,17 +93,17 @@ namespace Utils
 		// Misc
 		{ { "default", 1 },       [](const Args& args) { auto dataAsString = removeStringQuotes(args[0]);
 														 return addStringQuotes(dataAsString.empty() ? _("Unknown") : dataAsString == "0" ? _("None") : dataAsString); } },
-		{ { "year", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "year", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%Y")); } },
-		{ { "month", 1 },         [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "month", 1 },         [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%m")); } },
-		{ { "day", 1 },           [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
+		{ { "day", 1 },           [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%d")); } },
-		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true)); 
+		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%dT%H%M%S");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::getElapsedSinceString(time)); } },
-		{ { "date", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true));
+		{ { "date", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%d");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, Utils::Time::getSystemDateFormat())); } },															 
-		{ { "time", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat(true));
+		{ { "time", 1 },          [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), "%Y%m%dT%H%M%S");
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, Settings::ClockMode12() ? "%I:%M %p" : "%H:%M")); } },
 		{ { "expandseconds", 1 }, [](const Args& args) { auto seconds = Utils::String::toInteger(removeStringQuotes(args[0])); 
 														 return addStringQuotes(seconds == 0 ? "" : Utils::Time::secondsToString(seconds)); } },
@@ -98,7 +114,7 @@ namespace Utils
 	static std::map<std::string, int> opPrecedence =
 	{
 		{ "(", -10 }, { "&&", -2 }, { "||", -3 }, { ">", -1 }, { ">=", -1 }, { "<", -1 }, { "<=", -1 }, { "==", -1 },
-		{ "!=", -1 }, { "<<", 1 }, { ">>", 1 }, { "+", 2 }, { "-", 2 }, { "*", 3 }, { "/", 3 }, { "^", 4 }, { "!", 5 }
+		{ "!=", -1 }, { "<<", 1 }, { ">>", 1 }, { "+", 2 }, { "-", 2 }, { "*", 3 }, { "/", 3 }, { "^", 4 }, { "!", 5 }, { "&", -2 }, { "|", -3 }
 	};
 
 	#define isvariablechar(c) (isalpha(c) || c == '_')
@@ -564,7 +580,7 @@ namespace Utils
 		return evalxp;
 	}
 
-	float MathExpr::Value::toNumber()
+	double MathExpr::Value::toNumber()
 	{
 		if (isToken()) return 0;
 		if (isNumber()) return number;
@@ -617,8 +633,8 @@ namespace Utils
 
 		return Utils::HtmlColor::isHtmlColor(colorEndPos);		
 	}
-
-	MathExpr::ValuePtrQueue MathExpr::toRPN(const char* expr, ValueMap* vars)
+	
+	MathExpr::ValuePtrQueue MathExpr::toRPN(const char* expr, ValueMap* vars, bool asColor)
 	{
 		ValuePtrQueue rpnQueue; std::stack<std::string> operatorStack;
 		bool lastTokenWasOp = true;
@@ -630,10 +646,10 @@ namespace Utils
 		while (*expr)
 		{
 			char* colorEnd;
-			if (iscolor(expr, &colorEnd))
+			if (asColor && iscolor(expr, &colorEnd))
 			{
 				const char* colorEndPos = strstr(expr, colorEnd);
-				int color = (int) Utils::HtmlColor::parse(colorEndPos);
+				int color = (int)Utils::HtmlColor::parse(colorEndPos);
 				rpnQueue.push(new Value(color));
 				expr = colorEnd;
 				lastTokenWasOp = false;
@@ -642,12 +658,12 @@ namespace Utils
 			{
 				// If the token is a number, add it to the output queue.
 				char* nextChar = 0;
-				float digit = strtod(expr, &nextChar);
+				double digit = strtod(expr, &nextChar);
 
 				rpnQueue.push(new Value(digit));
 				expr = nextChar;
 				lastTokenWasOp = false;
-			}
+			}			
 			else if (isvariablechar(*expr) || *expr == '{' || *expr == '$')
 			{
 				// If the function is a variable, resolve it and
@@ -688,11 +704,45 @@ namespace Utils
 					rpnQueue.push(new Value(1));
 				else if (key == "false")
 					rpnQueue.push(new Value(0));
-				else {
+				else 
+				{
 					ValueMap::iterator it = vars->find(key);
 					if (it == vars->end())
-						throw std::domain_error("Unable to find the variable '" + key + "'.");
+					{
+						if (key == "and")
+						{
+							if (lastTokenWasOp)
+								rpnQueue.push(new Value(0));
 
+							while (!operatorStack.empty() && opPrecedence["&&"] <= opPrecedence[operatorStack.top()])
+							{
+								rpnQueue.push(new Value(operatorStack.top(), TOKEN));
+								operatorStack.pop();
+							}
+							operatorStack.push("&&");
+							lastTokenWasOp = true;
+
+							continue;
+						} 
+						else if (key == "or")
+						{
+							if (lastTokenWasOp)
+								rpnQueue.push(new Value(0));
+
+							while (!operatorStack.empty() && opPrecedence["||"] <= opPrecedence[operatorStack.top()])
+							{
+								rpnQueue.push(new Value(operatorStack.top(), TOKEN));
+								operatorStack.pop();
+							}
+							operatorStack.push("||");
+							lastTokenWasOp = true;
+
+							continue;
+						}
+
+						throw std::domain_error("Unable to find the variable '" + key + "'.");
+					}
+					
 					rpnQueue.push(new Value(it->second));
 				}
 
@@ -760,6 +810,9 @@ namespace Utils
 					std::string str;
 					ss >> str;
 
+					if (str.empty())
+						continue;
+
 					if (lastTokenWasOp)
 					{
 						// Convert unary operators to binary in the RPN.
@@ -790,7 +843,7 @@ namespace Utils
 		return rpnQueue;
 	}
 
-	MathExpr::Value MathExpr::evaluate(const char* expr, ValueMap* vars)
+	MathExpr::Value MathExpr::evaluate(const char* expr, ValueMap* vars, bool asColor)
 	{
 		std::string evalxp = evaluateMethods(expr, vars);
 		
@@ -804,7 +857,7 @@ namespace Utils
 			return MathExpr::Value("");
 
 		// Convert to RPN with Dijkstra's Shunting-yard algorithm.
-		ValuePtrQueue rpn = toRPN(evalxp.c_str(), vars);
+		ValuePtrQueue rpn = toRPN(evalxp.c_str(), vars, asColor);
 
 		// Evaluate the expression in RPN form.
 		ValueStack evaluation;
@@ -834,7 +887,7 @@ namespace Utils
 					evaluation.push(left.toNumber() - right.toNumber());
 				else if (!str.compare("/"))
 				{
-					float r = right.toNumber();
+					double r = right.toNumber();
 					if (r == 0)
 						evaluation.push(0);
 					else
@@ -856,8 +909,12 @@ namespace Utils
 					evaluation.push(left.toNumber() <= right.toNumber());
 				else if (!str.compare("&&"))
 					evaluation.push(left.toNumber() && right.toNumber());
+				else if (!str.compare("&"))
+					evaluation.push((double)((int)left.toNumber() & (int) right.toNumber()));
 				else if (!str.compare("||"))
 					evaluation.push(left.toNumber() || right.toNumber());
+				else if (!str.compare("|"))
+					evaluation.push((double)((int) left.toNumber() | (int) right.toNumber()));
 				else if (!str.compare("=="))
 				{
 					if (left.isNumber() && right.isNumber())

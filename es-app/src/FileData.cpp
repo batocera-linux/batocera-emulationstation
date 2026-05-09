@@ -33,6 +33,7 @@
 #include "guis/GuiMsgBox.h"
 #include "Paths.h"
 #include "resources/TextureData.h"
+#include "views/gamelist/GameNameFormatter.h"
 
 using namespace Utils::Platform;
 
@@ -51,12 +52,15 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "kidGame",			[](FileData* file) { return file->getKidGame(); } },
 	{ "gunGame",			[](FileData* file) { return file->isLightGunGame(); } },
 	{ "wheelGame",			[](FileData* file) { return file->isWheelGame(); } },
-	{ "trackballGame",			[](FileData* file) { return file->isTrackballGame(); } },
-	{ "spinnerGame",			[](FileData* file) { return file->isSpinnerGame(); } },
+	{ "trackballGame",		[](FileData* file) { return file->isTrackballGame(); } },
+	{ "spinnerGame",		[](FileData* file) { return file->isSpinnerGame(); } },
 	{ "cheevos",			[](FileData* file) { return file->hasCheevos(); } },
 	{ "genre",			    [](FileData* file) { return file->getGenre(); } },
 	{ "hasKeyboardMapping", [](FileData* file) { return file->hasKeyboardMapping(); } },	
 	{ "systemName",			[](FileData* file) { return file->getSourceFileData()->getSystem()->getFullName(); } },
+	{ "fullName",			[](FileData* file) { return GameNameFormatter(file->getSystem()).getDisplayName(file); } },
+	{ "fullNameNoFavorite",	[](FileData* file) { return GameNameFormatter(file->getSystem()).getDisplayName(file, false, false); } },
+	{ "fullNameNoTags",		[](FileData* file) { return GameNameFormatter(file->getSystem()).getDisplayName(file, false, false, false); } },
 };
 
 FileData* FileData::mRunningGame = nullptr;
@@ -727,6 +731,8 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	mRunningGame = nullptr;
 
+	Utils::FileSystem::FileSystemCache::reset();
+
 	if (SaveStateRepository::isEnabled(this))
 	{
 		if (options.saveStateInfo != nullptr)
@@ -739,7 +745,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		Utils::FileSystem::removeFile(p2kConv);
 
 	Scripting::fireEvent("game-end");
-	
+
 	if (!hideWindow && Settings::getInstance()->getBool("HideWindowFullReinit"))
 	{
 		ResourceManager::getInstance()->reloadAll();
@@ -749,7 +755,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	}
 	else
 		window->init(hideWindow);
-
+	
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
 
@@ -899,7 +905,7 @@ std::set<std::string> FileData::getContentFiles()
 				while (std::getline(m3u, line))
 				{
 					auto trim = Utils::String::trim(line);
-					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/')
+					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/' || trim[0] == '\0')
 						continue;
 
 					files.insert(path + "/" + trim);
@@ -931,21 +937,30 @@ std::set<std::string> FileData::getContentFiles()
 
 void FileData::deleteGameFiles()
 {
+	if (mType != FileType::GAME)
+		return;
+
+	std::string path = getPath();
+	if (path.empty() || getSystemEnvData()->mStartPath == path)
+		return;
+
 	for (auto mdd : mMetadata.getMDD())
 	{
 		if (mMetadata.getType(mdd.id) != MetaDataType::MD_PATH)
 			continue;
 
-		Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
+		std::string path = mMetadata.get(mdd.id);
+		if (Utils::FileSystem::exists(path) && !Utils::FileSystem::isDirectory(path))
+			Utils::FileSystem::removeFile(mMetadata.get(mdd.id));
 	}
 
-	if (Utils::FileSystem::isDirectory(getPath()))
+	if (Utils::FileSystem::isDirectory(path))
 	{
-		Utils::FileSystem::deleteDirectoryFiles(getPath(), true);
+		Utils::FileSystem::deleteDirectoryFiles(path, true);
 		return;
 	}
 
-	Utils::FileSystem::removeFile(getPath());
+	Utils::FileSystem::removeFile(path);
 
 	for (auto contentFile : getContentFiles())
 		Utils::FileSystem::removeFile(contentFile);
@@ -1238,7 +1253,7 @@ void FolderData::getFilesRecursiveWithContext(std::vector<FileData*>& out, unsig
 					if (!filter->showHiddenFiles && it->getHidden())
 						continue;
 
-					if (filter->filterKidGame && it->getKidGame())
+					if (filter->filterKidGame && !it->getKidGame())
 						continue;
 
 					if (typeMask == GAME && filter->hiddenExtensions.size() > 0)
@@ -1358,19 +1373,26 @@ void FolderData::bulkRemoveChildren(std::vector<FileData*>& mChildren, const std
 
 FileData* FolderData::FindByPath(const std::string& path)
 {
-	std::vector<FileData*> children = getChildren();
+	std::stack<FileData*> stack;	
+	for (FileData* c : mChildren)
+		if (c != nullptr)
+			stack.push(c);
 
-	for (std::vector<FileData*>::const_iterator it = children.cbegin(); it != children.cend(); ++it)
+	while (!stack.empty())
 	{
-		if ((*it)->getPath() == path)
-			return (*it);
+		FileData* item = stack.top();
+		stack.pop();
 
-		if ((*it)->getType() != FOLDER)
-			continue;
-		
-		auto item = ((FolderData*)(*it))->FindByPath(path);
-		if (item != nullptr)
+		if (item->getPath() == path)
 			return item;
+
+		if (item->getType() != FOLDER)
+			continue;
+
+		const auto& sub = static_cast<FolderData*>(item)->mChildren;
+		for (FileData* s : sub)
+			if (s != nullptr)
+				stack.push(s);
 	}
 
 	return nullptr;
@@ -1819,6 +1841,18 @@ std::string FileData::getGenre()
 	return genre;
 }
 
+std::string FileData::getSortName() const
+{
+	// Try to get sortname first to get precedence over (scraped) name
+	std::string sortName = getMetadata().get(MetaDataId::SortName);
+
+	// If empty, fallback to the standard display name
+	if (sortName.empty())
+		sortName = const_cast<FileData*>(this)->getName();
+
+	return sortName;
+}
+
 BindableProperty FileData::getProperty(const std::string& name)
 {
 	auto it = properties.find(name);
@@ -2019,7 +2053,7 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return finalValue == "1" || finalValue == "true";
 	case MetaDataType::MD_TIME:
 	case MetaDataType::MD_DATE:
-		return finalValue.empty() ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), Utils::Time::getSystemDateFormat(type == MetaDataType::MD_TIME));
+		return finalValue.empty() || finalValue == "0" ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), type == MetaDataType::MD_TIME ? "%Y%m%dT%H%M%S" : "%Y%m%d");
 	}
 
 	return finalValue;
