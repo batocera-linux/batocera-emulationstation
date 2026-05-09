@@ -83,27 +83,29 @@ public:
 	inline std::map<std::string, CollectionSystemData> getCustomCollectionSystems() { return mCustomCollectionSystemsData; };
 	inline SystemData* getCustomCollectionsBundle() { return mCustomCollectionsBundle; };
 	std::vector<std::string> getUnusedSystemsFromTheme();
-	SystemData* addNewCustomCollection(std::string name, bool needSave = true);
+	SystemData* addNewCustomCollection(const std::string& name, bool needSave = true);
 
-	std::string getValidNewCollectionName(std::string name, int index = 0);
+	std::string getValidNewCollectionName(const std::string& name, int index = 0);
 			
 	bool toggleGameInCollection(FileData* file, const std::string& collectionName = "");
 
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);
 
-	void reloadCollection(const std::string collectionName, bool repopulateGamelist = true);
+	void reloadCollection(const std::string& collectionName, bool repopulateGamelist = true);
     void populateAutoCollection(CollectionSystemData* sysData);
 	bool deleteCustomCollection(CollectionSystemData* data);
 
-	bool isCustomCollection(const std::string collectionName);
-	bool isDynamicCollection(const std::string collectionName);
+	bool isCustomCollection(const std::string& collectionName);
+	bool isDynamicCollection(const std::string& collectionName);
 	
-	bool inInCustomCollection(FileData* file, const std::string collectionName);
+	bool inInCustomCollection(FileData* file, const std::string& collectionName);
 
 	SystemData* getArcadeCollection();
 
 private:
+	void repopulateGameListView(const std::string& collectionName);
+
 	static CollectionSystemManager* sInstance;
 	SystemEnvironmentData* mCollectionEnvData;
 	std::map<std::string, CollectionSystemDecl> mCollectionSystemDeclsIndex;
@@ -115,7 +117,7 @@ private:
 	void initCustomCollectionSystems();
 		
 	SystemData* getAllGamesCollection();
-	SystemData* createNewCollectionEntry(std::string name, CollectionSystemDecl sysDecl, bool index = true, bool needSave = true);
+	SystemData* createNewCollectionEntry(const std::string& name, CollectionSystemDecl sysDecl, bool index = true, bool needSave = true);
 
 	void populateCustomCollection(CollectionSystemData* sysData, std::unordered_map<std::string, FileData*>* pMap = nullptr);
 
@@ -130,7 +132,7 @@ private:
 	void trimCollectionCount(FolderData* rootFolder, int limit);
 	void sortLastPlayed(SystemData* system);
 
-	bool themeFolderExists(std::string folder);
+	bool themeFolderExists(const std::string& folder);
 
 	bool includeFileInAutoCollections(FileData* file);
 
@@ -140,9 +142,8 @@ private:
 	SystemData* mCustomCollectionsBundle;
 };
 
-std::string getCustomCollectionConfigPath(std::string collectionName);
-std::string getFilteredCollectionPath(std::string collectionName);
+std::string getCustomCollectionConfigPath(const std::string& collectionName);
+std::string getFilteredCollectionPath(const std::string& collectionName);
 std::string getCollectionsFolder();
-bool systemSort(SystemData* sys1, SystemData* sys2);
 
 #endif // ES_APP_COLLECTION_SYSTEM_MANAGER_H

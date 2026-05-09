@@ -12,10 +12,10 @@
 
 Vector2i ImageComponent::getTextureSize() const
 {
-	if(mTexture)
-		return mTexture->getSize();
-	else
-		return Vector2i::Zero();
+	if (mTexture/* && mTexture->isLoaded()*/)
+		return mTexture->getSize();	
+
+	return Vector2i::Zero();
 }
 
 Vector2f ImageComponent::getSize() const
@@ -37,8 +37,10 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mTargetIsMax(false), mTargetIsMin(false), mFlipX(false), mFlipY(false), mTargetSize(0, 0), mColorShift(0xFFFFFFFF),
 	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
-	mReflection(0.0f, 0.0f), mSharedTexture(true)
+	mReflection(0.0f, 0.0f), mSharedTexture(true), mCustomShaderEnabled(true)
 {
+	mTextureLoaded = false;
+	mLoadingTextureLoaded = false;
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
 	mCheckClipping = true;
@@ -82,7 +84,7 @@ void ImageComponent::setSize(float w, float h)
 
 void ImageComponent::resize()
 {
-	if (!mTexture)
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero()) // !mTexture->isLoaded())
 		return;
 
 	const Vector2f textureSize = mTexture->getPhysicalSize();
@@ -191,7 +193,8 @@ void ImageComponent::resize()
 
 void ImageComponent::updateVertices()
 {
-	if (!mTexture)
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero())
+	//if (mTexture == nullptr || !mTexture->isLoaded())
 		return;
 
 	Vector2f     topLeft = mSize * mTopLeftCrop;
@@ -281,7 +284,7 @@ void ImageComponent::onSizeChanged()
 	recalcChildrenLayout();
 }
 
-void ImageComponent::setDefaultImage(std::string path)
+void ImageComponent::setDefaultImage(const std::string& path)
 {
 	mDefaultPath = path;
 }
@@ -388,6 +391,9 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		mTexture->setRequired(true);
 	}
 
+	mLoadingTextureLoaded = mLoadingTexture != nullptr && mLoadingTexture->isLoaded();
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	if (mLoadingTexture == nullptr && !mTargetSize.empty())
 		resize();
 }
@@ -406,6 +412,8 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 		mTexture->initFromMemory(path, length);
 	}
 
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	resize();
 }
 
@@ -415,6 +423,7 @@ void ImageComponent::setImage(const std::shared_ptr<TextureResource>& texture)
 		mTexture->setRequired(false);
 
 	mTexture = texture;
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
@@ -614,19 +623,12 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible)
 		return;
 
-	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
+	watchTextureLoading(); // Required when hosted in a grid/list
+
+	if (!mTextureLoaded && mTexture && !mTexture->isLoaded())
 	{
-		if (mTexture != nullptr)
-			mTexture->setRequired(false);
-
-		mTexture = mLoadingTexture;
-
-		if (isShowing() && mTexture != nullptr)
-			mTexture->setRequired(true);
-
-		mLoadingTexture.reset();
-		resize();
-		updateColors();
+		mTexture->bind();
+		return;
 	}
 
 	Transform4x4f trans = parentTrans * getTransform();
@@ -691,7 +693,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		fadeIn(true);
 
 		mVertices->saturation = mSaturation;
-		mVertices->customShader = mCustomShader.path.empty() ? nullptr : &mCustomShader;						
+		mVertices->customShader = !mCustomShaderEnabled || mCustomShader.path.empty() ? nullptr : &mCustomShader;
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 		{
@@ -753,6 +755,45 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	}
 	else
 		GuiComponent::renderChildren(trans);
+}
+
+bool ImageComponent::watchTextureLoading()
+{
+	if (!mLoadingTextureLoaded && mLoadingTexture && mLoadingTexture->isLoaded())
+	{
+		if (mTexture != nullptr)
+			mTexture->setRequired(false);
+
+		mTexture = mLoadingTexture;
+		mTexture->setRequired(isShowing());
+		mLoadingTexture.reset();
+
+		resize();
+		updateVertices();
+		updateColors();
+
+		mLoadingTextureLoaded = true;
+		mTextureLoaded = true;
+		return true;
+	}
+
+	if (mTexture == nullptr)
+		return false;
+
+	if (!mTextureLoaded && mTexture->getSize() != Vector2i::Zero())
+	{
+		mTexture->setRequired(isShowing());
+
+		resize();
+		updateVertices();
+		updateColors();
+
+		mTextureLoaded = true;
+
+		return true;
+	}
+
+	return false;
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)
@@ -942,6 +983,21 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		else if (!mDefaultPath.empty() && mPlaylist == nullptr)
 			setImage("");
 	}
+
+	for (auto child : elem->children)
+	{
+		if (child.second.type != "shader")
+			continue;
+
+		if (child.second.has("enabled"))
+			mCustomShaderEnabled = child.second.get<bool>("enabled");
+
+		for (auto prop : child.second.properties)
+		{
+			if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
+				mBindingExpressions["shader." + Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;				
+		}
+	}	
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
@@ -1014,6 +1070,8 @@ void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
+	watchTextureLoading(); // Required when preloading
+
 	if (mPlaylist && isShowing())
 	{
 		mPlaylistTimer += deltaTime;
@@ -1059,6 +1117,8 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 		return mSaturation;
 	else if (name == "autoFade")
 		return mAllowFading;
+	else if (name == "shader.enabled")
+		return mCustomShaderEnabled;
 	else if (Utils::String::startsWith(name, "shader."))
 	{
 		auto prop = name.substr(7);
@@ -1127,13 +1187,21 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 		setImage(value.s); // , false, getMaxSizeInfo()
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "saturation")
 		setSaturation(value.f);
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Bool && name == "shader.enabled")
+		mCustomShaderEnabled = (bool)(int)value.b;
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && Utils::String::startsWith(name, "shader."))
 	{
 		auto prop = name.substr(7);
 
-		auto it = mCustomShader.parameters.find(prop);
-		if (it != mCustomShader.parameters.cend())
-			mCustomShader.parameters[prop] = std::to_string(value.f);
+		if (prop == "enabled")
+			mCustomShaderEnabled = (bool) (int) value.f;
+		else
+		{
+			 auto it = mCustomShader.parameters.find(prop);
+			 if (it != mCustomShader.parameters.cend())
+				 it->second = std::to_string(value.f);
+			// mCustomShader.parameters[prop] = std::to_string(value.f);
+		}
 	}
 	else
 		GuiComponent::setProperty(name, value);
@@ -1150,7 +1218,25 @@ void ImageComponent::setRoundCorners(float value)
 
 void ImageComponent::setCustomShader(const Renderer::ShaderInfo& customShader)
 { 
+	Renderer::ShaderInfo sav = mCustomShader;
 	mCustomShader = customShader; 
+
+	// Restore property values that were set by evaluator
+	if (sav.path == customShader.path)
+	{
+		for (auto param : customShader.parameters)
+		{
+			if (param.second.empty())
+			{
+				auto it = sav.parameters.find(param.first);
+				if (it != sav.parameters.cend() && !it->second.empty())
+				{
+					mCustomShader.parameters[it->first] = it->second;
+				}
+			}
+		}
+	}
+
 	updateRoundCorners();
 }
 

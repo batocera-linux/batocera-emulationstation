@@ -102,14 +102,17 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 			std::sort(systemNames.begin(), systemNames.end());
 
-			int count = 0;
-			for (auto systemName : systemNames)
-				if (systemName != groupName)
-					count++;
-	
-			// Don't group if system count is only 1
-			if (count == 1 && Settings::getInstance()->HideUniqueGroups())
-				continue;
+			// Don't group if system count is only 1 ?
+			if (Settings::getInstance()->HideUniqueGroups())
+			{
+				int count = std::count_if(systemNames.cbegin(), systemNames.cend(), [&groupName](const std::string& name) { return name != groupName; });
+				if (count == 1)
+				{
+					auto groupSys = SystemData::getSystem(groupName);
+					if (groupSys == nullptr)
+						continue;
+				}
+			}
 
 			SystemData* pSystem = SystemData::getSystem(groupName);
 			if (pSystem != nullptr)
@@ -235,7 +238,8 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	if (SystemData::IsManufacturerSupported)
 	{
 		sortType->add(_("BY MANUFACTURER"), "manufacturer", sortMode == "manufacturer");
-		sortType->add(_("BY HARDWARE TYPE"), "hardware", sortMode == "hardware");
+		sortType->add(_("BY HARDWARE TYPE THEN ALPHABETICALLY"), "hardware", sortMode == "hardware");
+		sortType->add(_("BY HARDWARE TYPE THEN YEAR"), "hardware-year", sortMode == "hardware-year");
 		sortType->add(_("BY MANUFACTURER AND TYPE"), "subgroup", sortMode == "subgroup");
 		sortType->add(_("BY RELEASE YEAR"), "releaseDate", sortMode == "releaseDate");
 	}
@@ -415,7 +419,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 }
 
-void GuiCollectionSystemsOptions::createCollection(std::string inName) 
+void GuiCollectionSystemsOptions::createCollection(const std::string& inName) 
 {
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 	SystemData* newSys = CollectionSystemManager::get()->addNewCustomCollection(name);
@@ -442,7 +446,7 @@ void GuiCollectionSystemsOptions::createCollection(std::string inName)
 	window->closeSplashScreen();
 }
 
-void GuiCollectionSystemsOptions::createFilterCollection(std::string inName, bool editFilters)
+void GuiCollectionSystemsOptions::createFilterCollection(const std::string& inName, bool editFilters)
 {
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 	if (name.empty())
@@ -591,7 +595,7 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 		addWithLabel(_("CUSTOM GAME COLLECTIONS"), customOptionList);
 }
 
-void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, std::string newCustomSettings)
+void GuiCollectionSystemsOptions::updateSettings(const std::string& newAutoSettings, const std::string& newCustomSettings)
 {
 	bool dirty = Settings::getInstance()->setString("CollectionSystemsAuto", newAutoSettings);
 	dirty |= Settings::getInstance()->setString("CollectionSystemsCustom", newCustomSettings);

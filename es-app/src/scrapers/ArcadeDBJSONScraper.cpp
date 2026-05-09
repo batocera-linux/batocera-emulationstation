@@ -30,10 +30,18 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 
 	std::string cleanName = params.nameOverride;
 	if (!cleanName.empty())
+	{
+		cleanName = Utils::String::replace(cleanName, " ", "");
+		cleanName = Utils::String::replace(cleanName, ".", "");
+
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
+	}
 	else
 	{
 		cleanName = Utils::String::removeParenthesis(Utils::FileSystem::getStem(params.game->getPath()));
+		cleanName = Utils::String::replace(cleanName, " ", "");
+		cleanName = Utils::String::replace(cleanName, ".", "");
+
 		path += "/service_scraper.php?ajax=query_mame&lang=en&use_parent=1&game_name=" + HttpReq::urlEncode(cleanName);
 	}
 
@@ -42,6 +50,9 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 
 bool ArcadeDBScraper::isSupportedPlatform(SystemData* system)
 {
+	if (system && system->getName() == "teknoparrot")
+		return false;
+
 	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO) || system->hasPlatformId(PlatformIds::LCD_GAMES);
 }
 
@@ -186,12 +197,10 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 } // namespace
 
   // Process should return false only when we reached a maximum scrap by minute, to retry
-bool ArcadeDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& results)
+bool ArcadeDBJSONRequest::process(const std::string& response, std::vector<ScraperSearchResult>& results)
 {
-	assert(request->status() == HttpReq::REQ_SUCCESS);
-
 	Document doc;
-	doc.Parse(request->getContent().c_str());
+	doc.Parse(response.c_str());
 
 	if (doc.HasParseError())
 	{

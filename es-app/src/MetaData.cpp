@@ -31,8 +31,12 @@ void MetaDataList::initMetadata()
 	{
 		// key,             type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
 		{ Name,             "name",        MD_STRING,              "",                 false,      _("Name"),                 _("this game's name"),			true },
-	//	{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("sortname"),             _("enter game sort name"),	true },
 		{ Desc,             "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("this game's description"),		true },
+
+		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false },
+
+		{ Tags,             "tags",        MD_STRING,              "",                 false,      _("Tags"),                 _("tags"),		true },
+		{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("Sort name"),             _("enter game sort name"),	true },
 
 #if WIN32 && !_DEBUG
 		{ Emulator,         "emulator",    MD_LIST,				 "",                 false,       _("Emulator"),			 _("emulator"),					false },
@@ -67,8 +71,6 @@ void MetaDataList::initMetadata()
 		{ Developer,        "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("this game's developer"),	false },
 		{ Publisher,        "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("this game's publisher"),	false },
 
-
-		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false }, 
 		{ Family,           "family",      MD_STRING,              "",                 false,      _("Game family"),		  _("this game's game family"),		false },
 
 		// GenreIds is not serialized
@@ -94,7 +96,9 @@ void MetaDataList::initMetadata()
 		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
 		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false },
 
-		{ ScraperId,        "id",		   MD_INT,                 "",				   true,       _("Screenscraper Game ID"), _("Screenscraper Game ID"),	false, true }
+		{ ScraperId,        "id",		   MD_INT,                 "",				   true,       _("Screenscraper Game ID"), _("Screenscraper Game ID"),	false, true },
+
+		{ MultiDisk,        "multidisk",   MD_STRING,              "",				   true,       _("MultiDisk"),             _("MultiDisk"),	false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
@@ -142,7 +146,7 @@ MetaDataId MetaDataList::getId(const std::string& key) const
 
 MetaDataList::MetaDataList(MetaDataListType type) : mType(type), mWasChanged(false), mRelativeTo(nullptr)
 {
-
+	memset(mIndices, -1, sizeof(mIndices));
 }
 
 void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system)
@@ -190,7 +194,7 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 
 			value = xelement.text().get();
 			if (!value.empty())
-				mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, true));
+				mUnKnownElements.emplace_back(name, value, true);
 
 			continue;
 		}
@@ -235,7 +239,7 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 		{
 			value = xattr.value();
 			if (!value.empty())
-				mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, false));
+				mUnKnownElements.emplace_back(name, value, false);
 
 			continue;
 		}
@@ -290,16 +294,18 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 		if (mddIter->id == MetaDataId::GenreIds)
 			continue;
 
-		auto mapIter = mMap.find(mddIter->id);
-		if(mapIter != mMap.cend())
+		auto idx = mIndices[mddIter->id];
+		//auto mapIter = mMap.find(mddIter->id);
+		//if(mapIter != mMap.cend())
+		if (idx >= 0)
 		{
 			// we have this value!
 			// if it's just the default (and we ignore defaults), don't write it
-			if (ignoreDefaults && mapIter->second == mddIter->defaultValue)
+			if (ignoreDefaults && mValues[idx] == mddIter->defaultValue) // mapIter->second 
 				continue;
 
 			// try and make paths relative if we can
-			std::string value = mapIter->second;
+			std::string value = mValues[idx]; // mapIter->second;
 			if (mddIter->type == MD_PATH)
 			{
 				if (fullPaths && mRelativeTo != nullptr)
@@ -361,21 +367,40 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 		return;
 	}
 
-	// Players -> remove "1-"
-	// if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
-	// {
-	// 	mMap[id] = Utils::String::replace(value, "1-", "");
-	// 	return;
-	// }
-
-	auto prev = mMap.find(id);
-	if (prev != mMap.cend() && prev->second == value)
+	auto idx = mIndices[id];
+	if (idx >= 0 && mValues[idx] == value)
+//	auto prev = mMap.find(id);
+	// if (prev != mMap.cend() && prev->second == value)
 		return;
 
-	if (mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-		mMap[id] = Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
+	#define IS_TRIMCHAR(c) (c == ' ' || c == '\t' || c == '\r' || c == '\n')
+
+	if (mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths	
+	{
+		if (idx < 0)
+		{
+			if (value.size())
+			{
+				mIndices[id] = (int8_t)mValues.size();
+				mValues.push_back(value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true));
+			}
+		}
+		else
+			mValues[idx] = value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
+	}
 	else
-		mMap[id] = Utils::String::trim(value);
+	{
+		if (idx < 0)
+		{
+			if (value.size())
+			{
+				mIndices[id] = (int8_t)mValues.size();
+				mValues.push_back(value.size() && IS_TRIMCHAR(value[0]) && IS_TRIMCHAR(value.back()) ? Utils::String::trim(value) : value);
+			}
+		}
+		else
+			mValues[idx] = value.size() && IS_TRIMCHAR(value[0]) && IS_TRIMCHAR(value.back()) ? Utils::String::trim(value) : value;
+	}
 
 	mWasChanged = true;
 }
@@ -385,13 +410,16 @@ const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) co
 	if (id == MetaDataId::Name)
 		return mName;
 
-	auto it = mMap.find(id);
-	if (it != mMap.end())
+	auto idx = mIndices[id];
+	if (idx >= 0)
+//	auto it = mMap.find(id);
+//	if (it != mMap.end())
 	{
+		
 		if (resolveRelativePaths && mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-			return Utils::FileSystem::resolveRelativePath(it->second, mRelativeTo->getStartPath(), true);
+			return Utils::FileSystem::resolveRelativePath(mValues[idx]/*it->second*/, mRelativeTo->getStartPath(), true);
 
-		return it->second;
+		return mValues[idx]; // it->second;
 	}
 
 	return mDefaultGameMap[id];
@@ -412,10 +440,11 @@ const bool MetaDataList::exists(const std::string& key) const
 
 const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
 {
-	if (mGameIdMap.find(key) == mGameIdMap.cend())
+	auto it = mGameIdMap.find(key);
+	if (it == mGameIdMap.cend())
 		return "";
-
-	return get(getId(key), resolveRelativePaths);
+		
+	return get(it->second, resolveRelativePaths);
 }
 
 int MetaDataList::getInt(MetaDataId id) const
@@ -483,7 +512,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (mdd.isStatistic && mdd.id != MetaDataId::ScraperId)
 			continue;
 
-		if (mdd.id == MetaDataId::KidGame) // Not scrapped yet
+		if (mdd.id == MetaDataId::KidGame || mdd.id == MetaDataId::Tags) // Not scrapped yet
 			continue;
 
 		if (mdd.id == MetaDataId::Name && !scapeNames)
@@ -538,15 +567,6 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 			continue;
 
 		set(mdd.id, source.get(mdd.id));
-
-
-		if (mdd.type == MetaDataType::MD_PATH)
-		{
-			ImageIO::removeImageCache(source.get(mdd.id));
-
-			unsigned int x, y;
-			ImageIO::loadImageSize(source.get(mdd.id).c_str(), &x, &y);
-		}
 	}
 
 	if (Utils::String::startsWith(source.getName(), "ZZZ(notgame)"))

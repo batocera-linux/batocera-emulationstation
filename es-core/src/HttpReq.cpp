@@ -152,6 +152,16 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 		return;
 	}
 
+#ifndef WIN32
+	err = curl_easy_setopt(mHandle, CURLOPT_BUFFERSIZE, 102400L); // Batocera - 100kB instead of 16
+	if(err != CURLE_OK)
+	{
+		mStatus = REQ_IO_ERROR;
+		onError(curl_easy_strerror(err));
+		return;
+	}
+#endif
+
 	if (options != nullptr && !options->dataToPost.empty())
 	{
 		curl_easy_setopt(mHandle, CURLOPT_POST, 1L);
@@ -181,8 +191,8 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 	// Ignore expired SSL certificates
 	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
 
-	//set curl to handle redirects
-	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, 10L);
+	//set curl to connection timeout
+	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT_MS, options != nullptr ? options->connectTimeout : 10000L);
 	if (err != CURLE_OK)
 	{
 		mStatus = REQ_IO_ERROR;

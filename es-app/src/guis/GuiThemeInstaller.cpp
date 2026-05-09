@@ -54,7 +54,7 @@ GuiThemeInstaller::GuiThemeInstaller(Window* window)
 		}
 	});
 
-	mGrid.setEntry(mTabs, Vector2i(0, 1), false, true);
+	mGrid.setEntry(mTabs, Vector2i(0, 1), false, true, Vector2i(1, 1), GridFlags::BORDER_BOTTOM);
 
 	// Entries
 	mList = std::make_shared<ComponentList>(mWindow);
@@ -67,7 +67,7 @@ GuiThemeInstaller::GuiThemeInstaller(Window* window)
 	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("BACK"), _("BACK"), [this] { delete this; }));
 
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
-	mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false);
+	mGrid.setEntry(mButtonGrid, Vector2i(0, 3), true, false, Vector2i(1, 1), GridFlags::BORDER_TOP);
 
 	mGrid.setUnhandledInputCallback([this](InputConfig* config, Input input) -> bool
 	{

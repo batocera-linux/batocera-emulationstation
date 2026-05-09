@@ -9,6 +9,7 @@
 #include "LocaleES.h"
 #include "SaveStateRepository.h"
 #include "CollectionSystemManager.h"
+#include "FileTag.h"
 
 #define FOLDERICON	 _U("\uF07C ")
 #define FAVORITEICON _U("\uF006 ")
@@ -77,6 +78,7 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 	mShowSpinnerIcon = system->getName() != "spinner" && system->getBoolSetting("ShowSpinnerIconOnGames");
 
 	mShowFlags = system->getShowFlags();
+	mShowTags = system->getShowTags();
 
 	mShowYear =
 		mSortId == FileSorts::RELEASEDATE_ASCENDING ||
@@ -116,7 +118,7 @@ std::string valueOrDefault(const std::string value, const std::string defaultVal
 	return value;
 }
 
-std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
+std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon, bool favoriteIcon, bool tagIcons)
 {
 	std::string name = fd->getName();
 
@@ -196,7 +198,19 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	if (mShowFlags == 1)
 		lang = getLangFlag(LangInfo::getFlag(fd->getMetadata(MetaDataId::Language), fd->getMetadata(MetaDataId::Region))) + " ";
 
+	std::vector<std::string> before;
 	std::vector<std::string> after;
+
+	if (tagIcons && (mShowTags == 0 || mShowTags == 1))
+	{
+		for (auto tag : FileTag::getDisplayIcons(fd->getSourceFileData()->getMetadata(MetaDataId::Tags)))
+		{
+			if (mShowTags == 0)
+				before.push_back(tag);
+			else
+				after.push_back(tag);
+		}
+	}
 
 	if (mShowGunIcon && fd->getSourceFileData()->isLightGunGame())
 		after.push_back(GUN);
@@ -226,7 +240,13 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 
 	std::string langAfter = "  " + Utils::String::join(after, " ");
 
-	if (mShowFavoriteIcon && fd->getFavorite())
+	if (before.size())
+	{
+		std::string items = Utils::String::join(before, " ");
+		name = items + " " + name;
+	}
+
+	if (favoriteIcon && mShowFavoriteIcon && fd->getFavorite())
 	{
 	//	if (mShowCheevosIcon && fd->hasCheevos())
 	//		return lang + FAVORITEICON + name + CHEEVOSICON + langAfter;

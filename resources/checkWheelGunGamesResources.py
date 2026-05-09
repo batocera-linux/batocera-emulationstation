@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import xml.etree.ElementTree as ET
-
+import os
 
 def xml2systemsArrays(path):
     res = dict()
@@ -33,7 +33,7 @@ def checkSystemGames(system, games):
 
 hasError = False
 
-for file in ["resources/gamesdb.xml"]:
+for file in [os.path.join(os.path.dirname(__file__), 'gamesdb.xml')]:
     systems = xml2systemsArrays(file)
     for system in systems:
         if checkSystemGames(system, systems[system]) == False:

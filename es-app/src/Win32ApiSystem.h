@@ -47,6 +47,7 @@ public:
 
 	virtual bool isPlaneMode() override;
 	virtual bool setPlaneMode(bool enable) override;
+	virtual bool forgetBluetoothControllers() override;
 
 protected:
 

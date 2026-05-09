@@ -79,6 +79,7 @@
 ApiSystem::ApiSystem() { }
 
 ApiSystem* ApiSystem::instance = nullptr;
+ApiSystem::LED_TYPE ApiSystem::mSystemLedType = ApiSystem::LED_TYPE_NONE;
 
 ApiSystem *ApiSystem::getInstance() 
 {
@@ -353,18 +354,18 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 
 bool ApiSystem::ping() 
 {
-	// ping Google, if it fails then move on, if succeeds exit loop and return "true"
-	if (!executeScript("timeout 1 ping -c 1 -t 255 google.com"))
-	{
-		// ping Google DNS
-		if (!executeScript("timeout 1 ping -c 1 -t 255 dns.google"))
-		{
-			// ping Cloudflare DNS & give 2 seconds, return this one's status
-			return executeScript("timeout 2 ping -c 1 -t 255 one.one.one.one");
-		}
-	}
+    // Google DNS
+    if (!executeScript("ping -c 1 -W 2 -t 255 8.8.8.8"))
+    {
+        // Cloudflare DNS
+        if (!executeScript("ping -c 1 -W 2 -t 255 1.1.1.1"))
+        {
+            // Quad9 DNS
+            return executeScript("ping -c 1 -W 2 -t 255 9.9.9.9");
+        }
+    }
 
-	return true;
+    return true;
 }
 
 bool ApiSystem::canUpdate(std::vector<std::string>& output) 
@@ -408,6 +409,8 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after";
 
+	Utils::FileSystem::FileSystemCache::reset();
+
 	window->init();
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
@@ -418,6 +421,12 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after OK";
 }
+
+#ifdef BATOCERA
+void ApiSystem::launchControlcenter() {
+  system("batocera-controlcenter");
+}
+#endif
 
 bool ApiSystem::launchKodi(Window *window) 
 {
@@ -469,10 +478,17 @@ bool ApiSystem::launchFileManager(Window *window)
 	return exitCode == 0;
 }
 
+#if !WIN32
+bool ApiSystem::enableWifi(std::string ssid, std::string key, std::string country) 
+{
+	return executeScript("batocera-wifi enable \"" + ssid + "\" \"" + key + "\" \"" + country + "\"");
+}
+#else
 bool ApiSystem::enableWifi(std::string ssid, std::string key) 
 {
 	return executeScript("batocera-wifi enable \"" + ssid + "\" \"" + key + "\"");
 }
+#endif
 
 bool ApiSystem::disableWifi() 
 {
@@ -1287,80 +1303,60 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	return ret;
 }
 
-static std::string BACKLIGHT_BRIGHTNESS_NAME;
-static std::string BACKLIGHT_BRIGHTNESS_MAX_NAME;
-
-bool ApiSystem::getBrightness(int& value)
+bool ApiSystem::getBrightness(std::vector<BrightnessDevice>& values)
 {	
 	#if WIN32
 	return false;
 	#endif
 
-	if (BACKLIGHT_BRIGHTNESS_NAME == "notfound")
-		return false;
+	auto files = Utils::FileSystem::getDirContent("/sys/class/backlight");
 
-	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
-	{
-		for (auto file : Utils::FileSystem::getDirContent("/sys/class/backlight"))
-		{				
-			std::string brightnessPath = file + "/brightness";
-			std::string maxBrightnessPath = file + "/max_brightness";
+	// sort to have a chance to keep always the same values
+	files.sort();
 
-			if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
-			{
-				BACKLIGHT_BRIGHTNESS_NAME = brightnessPath;
-				BACKLIGHT_BRIGHTNESS_MAX_NAME = maxBrightnessPath;
+	for (auto file : files)
+	  {				
+	    std::string brightnessPath = file + "/brightness";
+	    std::string maxBrightnessPath = file + "/max_brightness";
 
-				LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << file;
-				break;
-			}
+	    if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
+	      {
+		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << file;
+		
+		BrightnessDevice b;
+		b.path = brightnessPath;
+		b.pathmax = maxBrightnessPath;
+
+		int max = Utils::String::toInteger(Utils::FileSystem::readAllText(maxBrightnessPath));
+		if (max != 0) {
+		  int value = Utils::String::toInteger(Utils::FileSystem::readAllText(brightnessPath));
+		  b.value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
+		  values.push_back(b);
 		}
-	}
-
-	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
-	{
-		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path is not resolved";
-
-		BACKLIGHT_BRIGHTNESS_NAME = "notfound";
-		return false;
-	}
-
-	value = 0;
-
-	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_MAX_NAME));
-	if (max == 0)
-		return false;
-
-	if (Utils::FileSystem::exists(BACKLIGHT_BRIGHTNESS_NAME))
-		value = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_NAME));
-
-	value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
-	return true;
+	      }
+	  }
+	return values.size() > 0;
 }
 
-void ApiSystem::setBrightness(int value)
+void ApiSystem::setBrightness(BrightnessDevice bd)
 {
 #if WIN32	
 	return;
 #endif 
+	if (bd.value < 1)
+		bd.value = 1;
 
-	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_NAME == "notfound")
-		return;
+	if (bd.value > 100)
+		bd.value = 100;
 
-	if (value < 1)
-		value = 1;
-
-	if (value > 100)
-		value = 100;
-
-	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_MAX_NAME));
+	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(bd.pathmax));
 	if (max == 0)
-		return;
+	  return;
 
-	float percent = (value / 100.0f * (float)max) + 0.5f;
+	float percent = (bd.value / 100.0f * (float)max) + 0.5f;
 		
 	std::string content = std::to_string((uint32_t) percent) + "\n";
-	Utils::FileSystem::writeAllText(BACKLIGHT_BRIGHTNESS_NAME, content);
+	Utils::FileSystem::writeAllText(bd.path, content);
 }
 
 static std::string LED_COLOUR_NAME;
@@ -1369,47 +1365,49 @@ static std::string LED_MAX_BRIGHTNESS_VALUE;
 
 bool ApiSystem::getLED(int& red, int& green, int& blue)
 {	
-	#if WIN32
+#if WIN32
 	return false;
-	#endif
+#endif
 
-	if (LED_COLOUR_NAME == "notfound")
-		return false;
+	if (mSystemLedType != LED_TYPE_NONE)
+		return true;
 
-	if (LED_COLOUR_NAME.empty())
+	auto entries = Utils::FileSystem::getDirContent("/sys/class/leds");
+	bool found_addressable = false;
+
+	for (const auto& entry : entries)
 	{
-		auto directories = Utils::FileSystem::getDirContent("/sys/class/leds");
-
-        for (const auto& directory : directories)
-        {
-            if (directory.find("multicolor") != std::string::npos)
-            {
-				std::string ledColourPath = directory + "/multi_intensity";
-				
-				if (Utils::FileSystem::exists(ledColourPath))
-				{
-					LED_COLOUR_NAME = ledColourPath;
-
-					LOG(LogInfo) << "ApiSystem::getLED > LED path resolved to " << directory;
-					break;
-				}
+		if (entry.find("multicolor") != std::string::npos || entry.find(":rgb:joystick_rings") != std::string::npos)
+		{
+			std::string ledColourPath = entry + "/multi_intensity";				
+			if (Utils::FileSystem::exists(ledColourPath))
+			{
+				LED_COLOUR_NAME = ledColourPath;
+				mSystemLedType = LED_TYPE_UNIFIED;
+				LOG(LogInfo) << "ApiSystem::getLED > Found UNIFIED LED at " << entry;
+				break;
 			}
+		}
+		if (entry.find("l:b1") != std::string::npos)
+		{
+			found_addressable = true;
 		}
 	}
 
-	if (LED_COLOUR_NAME.empty())
-	{
-		LOG(LogInfo) << "ApiSystem::getLED > LED path is not resolved";
+	if (mSystemLedType == LED_TYPE_NONE && found_addressable) {
+		mSystemLedType = LED_TYPE_ADDRESSABLE;
+		LOG(LogInfo) << "ApiSystem::getLED > Found ADDRESSABLE LED type";
+	}
 
+	if (mSystemLedType == LED_TYPE_NONE) {
 		LED_COLOUR_NAME = "notfound";
 		return false;
 	}
 
-    if (Utils::FileSystem::exists(LED_COLOUR_NAME)) {
+    if (mSystemLedType == LED_TYPE_UNIFIED && Utils::FileSystem::exists(LED_COLOUR_NAME)) {
         std::string colourValue = Utils::FileSystem::readAllText(LED_COLOUR_NAME);
         std::stringstream ss(colourValue);
         std::string token;
-
         // Extract red value
         std::getline(ss, token, ' ');
         red = std::stoi(token);
@@ -1427,31 +1425,37 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 
         return true;
     }
+	else if (mSystemLedType == LED_TYPE_ADDRESSABLE) {
+		getLEDColours(red, green, blue);
+        executeScript("batocera-led-handheld block_color_changes");
+		return true;
+	}
 
 	return false;
 }
 
 void ApiSystem::getLEDColours(int& red, int& green, int& blue)
 {
-	if (Utils::FileSystem::exists(LED_COLOUR_NAME)) {
-        std::string colourValue = Utils::FileSystem::readAllText(LED_COLOUR_NAME);
-        std::stringstream ss(colourValue);
-        std::string token;
+	std::string colourValue = SystemConf::getInstance()->get("led.colour");
+	if (colourValue.empty())
+		colourValue = "255 0 165";
 
-        // Extract red value
-        std::getline(ss, token, ' ');
-        red = std::stoi(token);
+    std::stringstream ss(colourValue);
+    std::string token;
 
-        // Extract green value
-        std::getline(ss, token, ' ');
-        green = std::stoi(token);
+	// Extract red value
+    std::getline(ss, token, ' ');
+    red = std::stoi(token);
 
-        // Extract blue value
-        std::getline(ss, token);
-        blue = std::stoi(token);
+	// Extract green value
+    std::getline(ss, token, ' ');
+    green = std::stoi(token);
 
-		LOG(LogInfo) << "ApiSystem::getLEDColours > LED colours are: " << red << " " << green << " " << blue;
-    }
+	// Extract blue value
+    std::getline(ss, token);
+    blue = std::stoi(token);
+
+	LOG(LogInfo) << "ApiSystem::getLEDColours > LED colours are: " << red << " " << green << " " << blue;
 }
 
 void ApiSystem::setLEDColours(int red, int green, int blue)
@@ -1460,8 +1464,8 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
     return;
 #endif 
 
-    if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound")
-        return;
+	if (mSystemLedType == LED_TYPE_NONE)
+		return;
 
     // Ensure RGB values are within valid range
 	if (red < 0) red = 0;
@@ -1471,20 +1475,35 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
     if (blue < 0) blue = 0;
     if (blue > 255) blue = 255;
 
-    std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+	if (mSystemLedType == LED_TYPE_UNIFIED)
+	{
+		if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound") return;
+		std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+		Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
+	}
+	else if (mSystemLedType == LED_TYPE_ADDRESSABLE)
+	{
+		static std::vector<std::string> r_files, g_files, b_files;
+		if (r_files.empty()) {
+			auto all_files = Utils::FileSystem::getDirContent("/sys/class/leds");
+			for(const auto& file : all_files) {
+				if (file.find(":r") != std::string::npos) r_files.push_back(file + "/brightness");
+				if (file.find(":g") != std::string::npos) g_files.push_back(file + "/brightness");
+				if (file.find(":b") != std::string::npos) b_files.push_back(file + "/brightness");
+			}
+		}
 
-    // Write LED color values to file
-    Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
+		for(const auto& file : r_files) Utils::FileSystem::writeAllText(file, std::to_string(red));
+		for(const auto& file : g_files) Utils::FileSystem::writeAllText(file, std::to_string(green));
+		for(const auto& file : b_files) Utils::FileSystem::writeAllText(file, std::to_string(blue));
+	}
 }
 
 bool ApiSystem::getLEDBrightness(int& value)
 {   
-    #if WIN32
+#if WIN32
     return false;
-    #endif
-
-    if (LED_BRIGHTNESS_VALUE == "notfound")
-        return false;
+#endif
 
     if (LED_BRIGHTNESS_VALUE.empty() || LED_MAX_BRIGHTNESS_VALUE.empty())
     {
@@ -1492,7 +1511,9 @@ bool ApiSystem::getLEDBrightness(int& value)
 
         for (const auto& directory : directories)
         {
-            if (directory.find("multicolor") != std::string::npos)
+            if (directory.find("multicolor") != std::string::npos || 
+                directory.find(":rgb:joystick_rings") != std::string::npos ||
+                directory.find("l:r1") != std::string::npos) 
             {
                 std::string ledBrightnessPath = directory + "/brightness";
                 std::string ledMaxBrightnessPath = directory + "/max_brightness";
@@ -1502,6 +1523,9 @@ bool ApiSystem::getLEDBrightness(int& value)
                     LED_BRIGHTNESS_VALUE = ledBrightnessPath;
                     LED_MAX_BRIGHTNESS_VALUE = ledMaxBrightnessPath;
 
+                    // FORCE ENABLE: If we found a valid path, we MUST be in Unified mode
+                    mSystemLedType = LED_TYPE_UNIFIED;
+
                     LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path resolved to " << directory;
                     break;
                 }
@@ -1509,46 +1533,134 @@ bool ApiSystem::getLEDBrightness(int& value)
         }
     }
 
-    if (LED_BRIGHTNESS_VALUE.empty() || LED_MAX_BRIGHTNESS_VALUE.empty())
-    {
-        LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path is not resolved";
-
-        LED_BRIGHTNESS_VALUE = "notfound";
+    if (mSystemLedType != LED_TYPE_UNIFIED)
         return false;
-    }
+
+    if (LED_BRIGHTNESS_VALUE == "notfound" || LED_BRIGHTNESS_VALUE.empty())
+        return false;
 
     value = 0;
 
     int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
-    if (max == 0)
-        return false;
+    if (max <= 0) return false;
 
     if (Utils::FileSystem::exists(LED_BRIGHTNESS_VALUE))
         value = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_BRIGHTNESS_VALUE));
 
-    value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
+    // Convert raw hardware value (0-255) to percentage (0-100)
+    value = (uint32_t)((value / (float)max * 100.0f) + 0.5f);
     return true;
 }
 
-void ApiSystem::setLEDBrightness(int value) {
+void ApiSystem::setLEDBrightness(int value) 
+{
 #if WIN32
     return;
 #endif
+    // If we haven't resolved the path yet, try to do it now
+    int dummy;
+    if (LED_BRIGHTNESS_VALUE.empty()) getLEDBrightness(dummy);
 
-    if (LED_BRIGHTNESS_VALUE.empty() || LED_BRIGHTNESS_VALUE == "notfound")
+    if (mSystemLedType != LED_TYPE_UNIFIED || LED_BRIGHTNESS_VALUE == "notfound")
         return;
 
     if (value < 0) value = 0;
-	if (value > 100) value = 100;
+    if (value > 100) value = 100;
 
-    int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
-    if (max == 0)
-        return;
+    std::string colorStr = SystemConf::getInstance()->get("led.colour");
+    if (colorStr.empty()) colorStr = "255 255 255"; // Default to white if not set
 
-    float percent = static_cast<float>(value) / 100.0f;
-	int brightnessValue = static_cast<int>(percent * max + 0.5f);
-    std::string content = std::to_string(brightnessValue) + "\n";
-    Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, content);
+    int rBase = 255, gBase = 255, bBase = 255;
+    
+    // Simple parser for "R G B" or "RRGGBB" formats
+    if (colorStr.find(" ") != std::string::npos) {
+        std::vector<std::string> parts = Utils::String::split(colorStr, ' ');
+        if (parts.size() >= 3) {
+            rBase = Utils::String::toInteger(parts[0]);
+            gBase = Utils::String::toInteger(parts[1]);
+            bBase = Utils::String::toInteger(parts[2]);
+        }
+    } else if (colorStr.length() == 6) {
+        rBase = std::stoul(colorStr.substr(0, 2), nullptr, 16);
+        gBase = std::stoul(colorStr.substr(2, 2), nullptr, 16);
+        bBase = std::stoul(colorStr.substr(4, 2), nullptr, 16);
+    }
+
+    float factor = static_cast<float>(value) / 100.0f;
+    int rOut = static_cast<int>(rBase * factor + 0.5f);
+    int gOut = static_cast<int>(gBase * factor + 0.5f);
+    int bOut = static_cast<int>(bBase * factor + 0.5f);
+
+    // Check if we are on an addressable device (Retroid/Ayn style)
+    // These paths typically look like /sys/class/leds/l:r1
+    if (LED_BRIGHTNESS_VALUE.find("/l:") != std::string::npos || 
+        LED_BRIGHTNESS_VALUE.find("/r:") != std::string::npos) 
+    {
+        // Batch update all addressable LED channels
+        auto directories = Utils::FileSystem::getDirContent("/sys/class/leds");
+        for (const auto& directory : directories)
+        {
+            // Identify if this is an addressable LED folder
+            if (directory.find("/l:") != std::string::npos || directory.find("/r:") != std::string::npos)
+            {
+                std::string path = directory + "/brightness";
+                if (!Utils::FileSystem::exists(path)) continue;
+
+                // Check the channel suffix to apply the correct scaled color
+                if (directory.find(":r") != std::string::npos)
+                    Utils::FileSystem::writeAllText(path, std::to_string(rOut) + "\n");
+                else if (directory.find(":g") != std::string::npos)
+                    Utils::FileSystem::writeAllText(path, std::to_string(gOut) + "\n");
+                else if (directory.find(":b") != std::string::npos)
+                    Utils::FileSystem::writeAllText(path, std::to_string(bOut) + "\n");
+            }
+        }
+    }
+    else 
+    {
+        // Fallback for standard devices (multicolor/joystick_rings handles scaling internally)
+        int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
+        int brightnessValue = static_cast<int>(factor * max + 0.5f);
+        Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, std::to_string(brightnessValue) + "\n");
+    }
+}
+
+bool ApiSystem::isLEDEnabled()
+{
+#if WIN32
+	return false;
+#else
+	// Check batocera.conf for "led.enabled" setting, default to "1" (true) if not found
+	return SystemConf::getInstance()->get("led.enabled") != "0";
+#endif
+}
+
+void ApiSystem::setLEDEnabled(bool enabled)
+{
+#if WIN32
+    return;
+#else
+	SystemConf::getInstance()->set("led.enabled", enabled ? "1" : "0");
+
+	if (!enabled)
+	{
+		setLEDColours(0, 0, 0);
+	}
+	else
+	{
+		std::string lastColorStr = SystemConf::getInstance()->get("led.colour");
+		if (lastColorStr.empty())
+			lastColorStr = "255 0 165";
+
+		std::stringstream ss(lastColorStr);
+		int r, g, b;
+		ss >> r >> g >> b;
+
+		setLEDColours(r, g, b);
+	}
+
+	SystemConf::getInstance()->saveSystemConf();
+#endif
 }
 
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)
@@ -1701,6 +1813,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::BACKGLASS:
 		executables.push_back("batocera-backglass");
+		break;
+	case ApiSystem::NFC:
+		executables.push_back("batocera-nfc");
 		break;
 	}
 
@@ -1989,8 +2104,6 @@ void ApiSystem::updateBatoceraStorePackageList()
 
 std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	for (auto folder : { Paths::getUserShadersPath(), Paths::getShadersPath() })
@@ -2015,8 +2128,6 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName,
 
 std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getVideoFilterList";
@@ -2040,8 +2151,6 @@ std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& system
 
 std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievementsSoundsList";
@@ -2211,7 +2320,7 @@ bool ApiSystem::emuKill()
 void ApiSystem::suspend()
 {
 	LOG(LogDebug) << "ApiSystem::suspend";
-	executeScript("/usr/sbin/pm-suspend");
+	executeScript("/usr/bin/batocera-shutdown gui");
 }
 
 void ApiSystem::replugControllers_sindenguns()
@@ -2274,6 +2383,459 @@ std::vector<Service> ApiSystem::getServices()
 	return services;
 }
 
+std::vector<Hotkey> ApiSystem::getJoysticksHotkeys() {
+  std::vector<Hotkey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getJoysticksHotkeys";
+
+  auto res = executeEnumerationScript("batocera-joysticks-hotkeys");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("hotkeys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <hotkeys> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node hotkey = root.child("hotkey"); hotkey; hotkey = hotkey.next_sibling("hotkey"))
+    {
+      Hotkey hk;
+
+      if (hotkey.attribute("button"))
+	hk.button = hotkey.attribute("button").as_string();
+      
+      if (hotkey.attribute("action"))
+	hk.action = hotkey.attribute("action").as_string();
+
+      if (hotkey.attribute("default"))
+	hk.default_action = hotkey.attribute("default").as_string();
+
+      hotkeys.push_back(hk);
+    }
+  return hotkeys;
+}
+
+std::vector<std::string> ApiSystem::getJoysticksHotkeysValues() {
+  return executeEnumerationScript("batocera-joysticks-hotkeys --values");
+}
+
+std::vector<std::string> ApiSystem::getGlobalHotkeysValues() {
+  std::vector<std::string> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getGlobalHotkeysValues";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --values");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys values";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("mapping");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <mapping> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+
+      if (key.attribute("name")) {
+	std::string key_name = key.attribute("name").as_string();
+	hotkeys.push_back(key_name);
+      }
+    }
+
+  return hotkeys;
+}
+
+void ApiSystem::setJoysticksHotkeys(const std::vector<Hotkey>& hotkeys) {
+  LOG(LogDebug) << "ApiSystem::setJoysticksHotkeys";
+
+  std::string params;
+  for(unsigned int h = 0; h < hotkeys.size(); h++) {
+    params = params + " --" + hotkeys[h].button + " " + hotkeys[h].action;
+  }
+  executeScript("batocera-joysticks-hotkeys " + params);
+}
+
+std::vector<GlobalHotkey> ApiSystem::detectGlobalHotkeys() {
+  std::vector<GlobalHotkey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::detectGlobalHotkey";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --detect");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("keys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keys> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+      GlobalHotkey hk;
+
+      if (key.attribute("key"))
+	hk.key = key.attribute("key").as_string();
+      
+      if (key.attribute("config"))
+	hk.device_config = key.attribute("config").as_string();
+
+      hotkeys.push_back(hk);
+    }
+  return hotkeys;
+}
+
+std::vector<GlobalHotkey> ApiSystem::getGlobalHotkeys() {
+  std::vector<GlobalHotkey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getGlobalHotkeys";
+
+  auto res = executeEnumerationScript("batocera-hotkeys");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("hotkeys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <hotkeys> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node device = root.child("device"); device; device = device.next_sibling("device"))
+    {
+
+      for (pugi::xml_node hotkey = device.child("hotkey"); hotkey; hotkey = hotkey.next_sibling("hotkey"))
+	{
+      
+	  GlobalHotkey hk;
+
+	  if (device.attribute("fancy_name"))
+	  	hk.device_fancy_name = device.attribute("fancy_name").as_string();
+
+	  if (device.attribute("config"))
+	  	hk.device_config = device.attribute("config").as_string();
+
+	  if (hotkey.attribute("key"))
+	  	hk.key = hotkey.attribute("key").as_string();
+
+	  if (hotkey.attribute("action"))
+	  	hk.action = hotkey.attribute("action").as_string();
+
+	  hotkeys.push_back(hk);
+	}
+    }
+
+  return hotkeys;
+}
+
+std::vector<Keyboardtopad> ApiSystem::getKeyboardtopads() {
+  std::vector<Keyboardtopad> keyboardtopads;
+
+  LOG(LogDebug) << "ApiSystem::getKeyboardtopads";
+
+  auto res = executeEnumerationScript("keyboardToPads --search");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return keyboardtopads;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse keyboardtopads";
+      return keyboardtopads;
+    }
+
+  pugi::xml_node root = doc.child("keyboardtopads");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keyboardtopads> node";
+      return keyboardtopads;
+    }
+
+  for (pugi::xml_node device = root.child("device"); device; device = device.next_sibling("device"))
+    {
+      Keyboardtopad ktp;
+
+      if (device.attribute("name"))
+	ktp.name = device.attribute("name").as_string();
+
+      if (device.attribute("config"))
+	ktp.config = device.attribute("config").as_string();
+
+      if (device.attribute("device"))
+	ktp.device_path = device.attribute("device").as_string();
+
+      keyboardtopads.push_back(ktp);
+    }
+
+  return keyboardtopads;
+}
+
+std::vector<KeyboardtopadDevice> ApiSystem::getKeyboardtopadDevices(std::string config) {
+  std::vector<KeyboardtopadDevice> devices;
+
+  LOG(LogDebug) << "ApiSystem::getKeyboardtopadDevices";
+
+  auto res = executeEnumerationScript("keyboardToPads --config \""+config+"\" --get-config");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return devices;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse getKeyboardtopadDevices";
+      return devices;
+    }
+
+  pugi::xml_node root = doc.child("keyboardtopad");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keyboardtopad> node";
+      return devices;
+    }
+
+  for (pugi::xml_node device = root.child("device"); device; device = device.next_sibling("device"))
+    {
+      KeyboardtopadDevice dev;
+
+      if (device.attribute("name"))
+	dev.name = device.attribute("name").as_string();
+
+      if (device.attribute("type"))
+	dev.type = device.attribute("type").as_string();
+
+      for (pugi::xml_node key = device.child("key"); key; key = key.next_sibling("key"))
+	{
+	  KeyboardtopadKey k;
+
+	  if (key.attribute("name"))
+	    k.name = key.attribute("name").as_string();
+
+	  if (key.attribute("value"))
+	    k.value = key.attribute("value").as_string();
+
+	  dev.keys.push_back(k);
+	}
+
+      devices.push_back(dev);
+    }
+
+  return devices;
+}
+
+void ApiSystem::setGlobalHotkey(const std::string& config, const std::string& key, const std::string& action) {
+  LOG(LogDebug) << "ApiSystem::setGlobalHotkey";
+  executeScript("batocera-hotkeys --set --config " + config + " --key " + key + " --action " + action);
+}
+
+void ApiSystem::removeGlobalHotkey(const std::string& config, const std::string& key) {
+  LOG(LogDebug) << "ApiSystem::removeGlobalHotkey";
+  executeScript("batocera-hotkeys --remove --config " + config + " --key " + key);
+}
+
+std::vector<KeyboardtopadKey> ApiSystem::getKeyboardtopadKeyValues() {
+  std::vector<KeyboardtopadKey> hotkeys;
+
+  LOG(LogDebug) << "ApiSystem::getKeyboardtopadValues";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --values");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return hotkeys;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys values";
+      return hotkeys;
+    }
+
+  pugi::xml_node root = doc.child("mapping");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <mapping> node";
+      return hotkeys;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+      KeyboardtopadKey vkey;
+
+      if (key.attribute("name")) {
+	vkey.name = key.attribute("name").as_string();
+      }
+
+      if (key.attribute("evcode")) {
+	vkey.value = key.attribute("evcode").as_string();
+      }
+
+      hotkeys.push_back(vkey);
+    }
+
+  return hotkeys;
+}
+
+void ApiSystem::saveKeyboardtopads(Keyboardtopad ktp, const std::vector<KeyboardtopadDevice>& ktp_devices) {
+  LOG(LogDebug) << "ApiSystem::saveKeyboardtopads";
+
+  std::string cmd = "keyboardToPads --set --config \"" + ktp.config + "\"";
+  std::string cmd_dev;
+
+  int njoys = 0;
+  int nhotkeys = 0;
+  bool stopjoy = false;
+
+  for(int d=0; d<ktp_devices.size(); d++) {
+    bool enabled = (ktp_devices[d].name != "" || ktp_devices[d].type != "joystick") && ktp_devices[d].keys.size() > 0;
+
+    // don't continue on joysticks if one is disabled
+    if(ktp_devices[d].type == "joystick" && enabled == false && !stopjoy) {
+      stopjoy = true;
+      cmd_dev  = " --device-type "   + ktp_devices[d].type;
+      cmd_dev += " --device-keep " + std::to_string(d);
+      //printf("cmd: %s\n", (cmd + cmd_dev).c_str());
+      executeScript(cmd + cmd_dev);
+    }
+    if(ktp_devices[d].type == "joystick" && enabled && stopjoy) {
+      enabled = false;
+    }
+
+    if(enabled) {
+      int ndev = 0;
+      if(ktp_devices[d].type == "joystick") ndev = njoys;
+      if(ktp_devices[d].type == "hotkeys")  ndev = nhotkeys;
+
+      cmd_dev = "";
+      cmd_dev += " --device-number " +  std::to_string(ndev);
+      cmd_dev += " --device-name \"" + ktp_devices[d].name + "\"";
+      cmd_dev += " --device-type "   + ktp_devices[d].type;
+
+      cmd_dev += " --set-values \"";
+      for(unsigned int k=0; k<ktp_devices[d].keys.size(); k++) {
+	if(k != 0) cmd_dev += ",";
+	cmd_dev += ktp_devices[d].keys[k].value + "=" + ktp_devices[d].keys[k].name;
+      }
+      cmd_dev += "\"";
+
+      //printf("cmd: %s\n", (cmd + cmd_dev).c_str());
+      executeScript(cmd + cmd_dev);
+    }
+    if(ktp_devices[d].type == "joystick") njoys++;
+    if(ktp_devices[d].type == "hotkeys")  nhotkeys++;
+  }
+}
+
+std::string ApiSystem::detectEvKey(const std::string& device_path) {
+  std::string vkey = "";
+
+  LOG(LogDebug) << "ApiSystem::detectEvKey";
+
+  auto res = executeEnumerationScript("batocera-hotkeys --detect --count 1 --nowait --evformat --device " + device_path);
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return vkey;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse hotkeys";
+      return vkey;
+    }
+
+  pugi::xml_node root = doc.child("keys");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <keys> node";
+      return vkey;
+    }
+
+  for (pugi::xml_node key = root.child("key"); key; key = key.next_sibling("key"))
+    {
+      if (key.attribute("key"))
+	vkey = key.attribute("key").as_string();
+    }
+
+  return vkey;
+}
+
 std::vector<std::string> ApiSystem::backglassThemes() {
   std::vector<std::string> themes;
 
@@ -2306,4 +2868,42 @@ bool ApiSystem::enableService(std::string name, bool enable)
 		res = executeScript("batocera-services " + std::string(enable ? "start" : "stop") + " " + serviceName);
 	
 	return res;
+}
+
+std::vector<std::string> ApiSystem::getEjectableDrives()
+{
+    return executeEnumerationScript("batocera-storage-manager list_ejectable");
+}
+
+bool ApiSystem::ejectDrive(const std::string& mountPath)
+{
+    std::string cmd = "batocera-storage-manager eject \"" + mountPath + "\"";
+    return executeScript(cmd);
+}
+
+bool ApiSystem::mergeDrive(const std::string& mountPath)
+{
+    std::string cmd = "batocera-storage-manager merge \"" + mountPath + "\"";
+    return executeScript(cmd);
+}
+
+bool ApiSystem::prepareDrive(const std::string& device, const std::string& fsType)
+{
+    std::string cmd = "batocera-storage-manager format \"" + device + "\" \"" + fsType + "\"";
+    return executeScript(cmd);
+}
+
+bool ApiSystem::ignoreDevicePermanently(const std::string& deviceId)
+{
+    std::string cmd = "batocera-storage-manager ignore \"" + deviceId + "\"";
+    return executeScript(cmd);
+}
+
+bool ApiSystem::nfc_is_available() {
+  return Utils::FileSystem::exists("/var/run/batocera-nfc.running");
+}
+
+bool ApiSystem::nfc_write(const std::string& game) {
+  std::string cmd = "batocera-nfc --write \"" + game + "\"";
+  return executeScript(cmd);
 }

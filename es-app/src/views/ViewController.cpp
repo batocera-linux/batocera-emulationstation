@@ -33,6 +33,7 @@
 #include "TextToSpeech.h"
 #include "VolumeControl.h"
 #include "guis/GuiNetPlay.h"
+#include "Gamelist.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -110,10 +111,8 @@ void ViewController::goToStart(bool forceImmediate)
 
 void ViewController::ReloadAndGoToStart()
 {
-	mWindow->renderSplashScreen(_("Loading..."));
-	ViewController::get()->reloadAll();
+	ViewController::reloadAllGames(mWindow, true);
 	ViewController::get()->goToStart(true);
-	mWindow->closeSplashScreen();
 }
 
 int ViewController::getSystemId(SystemData* system)
@@ -573,7 +572,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		transition_style = "instant";
 
 	if(transition_style == "auto")
-		transition_style = "slide";
+		transition_style = "fast slide";
 
 	if (Settings::PowerSaverMode() == "instant")
 		transition_style = "instant";
@@ -1121,7 +1120,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	if (reloadTheme)
 		Renderer::resetCache();
 
-	Utils::FileSystem::FileSystemCacheActivator fsc;
+	Utils::FileSystem::FileSystemCache::reset();
 
 	if (mCurrentView != nullptr)
 	{
@@ -1151,9 +1150,9 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	mGameListViews.clear();
 	
 	// If preloaded is disabled
-	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
-		if (cursorMap.find((*it)) == cursorMap.end())
-			cursorMap[(*it)] = NULL;
+	for (auto sys : SystemData::sSystemVector)
+		if (cursorMap.find(sys) == cursorMap.end())
+			cursorMap[sys] = NULL;
 	
 	if (reloadTheme && cursorMap.size() > 0)
 	{
@@ -1169,6 +1168,11 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 		for (auto it = cursorMap.cbegin(); it != cursorMap.cend(); it++)
 		{
 			SystemData* pooledSystem = it->first;
+			if (pooledSystem->getTheme() == nullptr) // Ignore hidden systems
+			{
+				processedSystem++;
+				continue;
+			}
 
 			pool.queueWorkItem([pooledSystem, &processedSystem]
 			{ 
@@ -1250,6 +1254,8 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	if(mState.viewing == GAME_LIST)
 	{
 		mCurrentView = getGameListView(mState.getSystem());
+		if (mCurrentView != nullptr)
+			goToGameList(mState.getSystem(), true);
 	}
 	else if(mState.viewing == SYSTEM_SELECT && system != nullptr)
 	{
@@ -1259,6 +1265,9 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	}
 	else
 		goToSystemView(SystemData::getFirstVisibleSystem());
+
+	if (reloadTheme)
+		ThemeFileCache::getInstance().clear();
 
 	if (mCurrentView != nullptr)
 		mCurrentView->onShow();
@@ -1318,12 +1327,26 @@ void ViewController::onScreenSaverDeactivate()
 		mCurrentView->onScreenSaverDeactivate();
 }
 
-void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool doCallExternalTriggers)
+void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool doCallExternalTriggers, bool updateGameLists)
 {
 	if (sInstance == nullptr)
 		return;
 
-	Utils::FileSystem::FileSystemCacheActivator fsc;
+	bool parseGamelistOnly = Settings::ParseGamelistOnly();
+	bool ignoreGamelist = Settings::IgnoreGamelist();
+	bool removeMultiDiskContent = Settings::RemoveMultiDiskContent();
+
+	if (updateGameLists)
+	{
+		Settings::setParseGamelistOnly(false);
+		Settings::setIgnoreGamelist(false);
+		Settings::setRemoveMultiDiskContent(true);
+		
+		Settings::setPackGamelists(parseGamelistOnly);
+		Settings::setBuildMultiDiskContentCache(true);
+	}
+
+	Utils::FileSystem::FileSystemCache::reset();
 
 	auto viewMode = ViewController::get()->getViewMode();
 	auto systemName = ViewController::get()->getSelectedSystem()->getName();
@@ -1354,7 +1377,7 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 		ApiSystem::getInstance()->callBatoceraPreGameListsHook();
 
 	ViewController::init(window);
-	
+
 	CollectionSystemManager::init(window);		
 	SystemData::loadConfig(window);
 	
@@ -1363,6 +1386,15 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 
 	window->closeSplashScreen();
 	window->pushGui(ViewController::get());
+
+	if (updateGameLists)
+	{
+		Settings::setParseGamelistOnly(parseGamelistOnly);
+		Settings::setIgnoreGamelist(ignoreGamelist);
+		Settings::setRemoveMultiDiskContent(removeMultiDiskContent);		
+		Settings::setPackGamelists(false);
+		Settings::setBuildMultiDiskContentCache(false);
+	}
 }
 
 void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)

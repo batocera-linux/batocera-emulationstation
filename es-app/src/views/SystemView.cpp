@@ -137,9 +137,6 @@ void SystemView::loadExtras(SystemData* system)
 
 		it->backgroundExtras.clear();
 	}
-	
-	size_t vram = Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
-	size_t size = TextureResource::getTotalMemUsage();
 
 	// make background extras
 	auto extras = ThemeData::makeExtras(system->getTheme(), "system", mWindow);
@@ -158,18 +155,6 @@ void SystemView::loadExtras(SystemData* system)
 		
 		if (extra->isKindOf<ImageComponent>())
 		{
-			// Preload image if there's enough VRAM space				
-			auto tex = ((ImageComponent*)extra)->getTexture();
-			if (tex && !tex->isLoaded())
-			{
-				auto texSize = tex->getEstimatedVRAMUsage();
-				if (size + texSize < vram)
-				{
-					tex->reload();
-					size += texSize;
-				}
-			}
-
 			auto elem = system->getTheme()->getElement("system", extra->getTag(), "image");
 			if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
 			{
@@ -233,7 +218,7 @@ void SystemView::populate()
 			{
 				auto logo = carousel->getLogo(mCarousel.size() - 1);
 				if (logo)
-					ensureTexture(logo.get(), true);
+					ensureTexture(logo.get(), TextureLoadMode::STANDARD);
 			}
 		}
 	}
@@ -320,7 +305,8 @@ int SystemView::moveCursorFast(bool forward)
 			_moveCursorInRange(cursor, 1, mEntries.size());
 		}
 	}
-	else if (SystemData::IsManufacturerSupported && Settings::getInstance()->getString("SortSystems") == "hardware" && cursor >= 0 && cursor < mEntries.size())
+	else if (SystemData::IsManufacturerSupported && (Settings::getInstance()->getString("SortSystems") == "hardware"
+			|| Settings::getInstance()->getString("SortSystems") == "hardware-year") && cursor >= 0 && cursor < mEntries.size())
 	{
 		std::string hwt = mEntries[mCursor].object->getSystemMetadata().hardwareType;
 
@@ -543,7 +529,7 @@ bool SystemView::showNavigationBar()
 		showNavigationBar(_("GO TO MANUFACTURER"), [](SystemData* meta) { return meta->getSystemMetadata().manufacturer; });
 		return true;
 	}
-	else if (sortMode == "hardware")
+	else if (sortMode == "hardware" || sortMode == "hardware-year")
 	{
 		showNavigationBar(_("GO TO HARDWARE"), [](SystemData* meta) { return meta->getSystemMetadata().hardwareType; });
 		return true;
@@ -563,7 +549,7 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
 
 	int mCursor = mCarousel.getCursorIndex();
 
-	GuiSettings* gs = new GuiSettings(mWindow, title, "-----");
+	GuiSettings* gs = new GuiSettings(mWindow, title, "-----", nullptr, false, false);
 
 	int idx = 0;
 	std::string sel = selector(getSelected());
@@ -761,15 +747,15 @@ void SystemView::onCursorChanged(const CursorState& state)
 	if (endPos == mCamOffset && endPos == mExtrasCamOffset)
 		return;
 
-	if (mLastCursor == mCursor)
-		return;
-
 	// tts
 	if (state == CURSOR_STOPPED)
 	{
 		TextToSpeech::getInstance()->say(getSelected()->getFullName());
 		Scripting::fireEvent("system-selected", getSelected()->getName());
 	}
+
+	if (mLastCursor == mCursor)
+		return;
 
 	int oldCursor = mLastCursor;
 	mLastCursor = mCursor;
@@ -1093,7 +1079,7 @@ void SystemView::setExtraRequired(SystemViewData& data, bool required)
 		setTexture(extra, [required](std::shared_ptr<TextureResource> x) { x->setRequired(required); });
 }
 
-void SystemView::ensureTexture(GuiComponent* extra, bool reload)
+void SystemView::ensureTexture(GuiComponent* extra, TextureLoadMode mode)
 {
 	if (extra == nullptr)
 		return;
@@ -1102,13 +1088,10 @@ void SystemView::ensureTexture(GuiComponent* extra, bool reload)
 	if (image != nullptr)
 	{
 		auto tex = image->getTexture();
-		if (tex == nullptr)
+		if (tex == nullptr || tex->isLoaded())
 			return;
 
-		if (reload)
-			tex->reload();
-		else
-			tex->prioritize();
+		tex->reload(mode);
 	}
 
 	for (auto child : extra->enumerateExtraChildrens())
@@ -1120,27 +1103,15 @@ void SystemView::ensureTexture(GuiComponent* extra, bool reload)
 			if (tex == nullptr)
 				return;
 
-			if (reload)
-				tex->reload();
-			else
-				tex->prioritize();
+			tex->reload(mode);
 		}
 	}
-};
+}
 
 void SystemView::preloadExtraNeighbours(int cursor)
 {
 	// Make sure near textures are in at top position & will be released last if VRAM is required
-	int distancesStatic[] = { -2, 2, -1, 1, 0 };
-	int distancesRight[] = { 3, -1, 2, 1, 0 };
-	int distancesLeft[] = { -3, 1, -2, -1, 0 };
-
-	int* distances = &distancesStatic[0];
-
-	if (mCarousel.getScrollingVelocity() > 0)
-		distances = &distancesRight[0];
-	else if (mCarousel.getScrollingVelocity() < 0)
-		distances = &distancesLeft[0];
+	int distances[] = { -2, 2, -1, 1, 0 };
 
 	for (int dx = 0; dx < 5; dx++)
 	{
@@ -1149,18 +1120,19 @@ void SystemView::preloadExtraNeighbours(int cursor)
 		if (index < 0)
 			index += (int)mEntries.size();
 
-		SystemViewData& entry = mEntries.at(index);
+		TextureLoadMode loadMode = abs(distances[dx]) <= 1 ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP;
 
 		auto carousel = mCarousel.asCarousel();
 		if (carousel)
 		{
-			auto logo = carousel->getLogo(dx);
+			auto logo = carousel->getLogo(index);
 			if (logo)
-				ensureTexture(logo.get(), dx > 1);
+				ensureTexture(logo.get(), loadMode);
 		}
 
+		SystemViewData& entry = mEntries.at(index);
 		for (auto extra : entry.backgroundExtras)
-			ensureTexture(extra, dx > 1);
+			ensureTexture(extra, loadMode);
 	}
 }
 
@@ -1520,7 +1492,11 @@ void SystemView::activateExtras(int cursor, bool activate)
 	if (cursor < 0 || cursor >= mEntries.size())
 		return;
 
+
 	bool show = activate && isShowing() && !mScreensaverActive && !mDisable;
+
+	if (show)
+		preloadExtraNeighbours(cursor);
 
 	SystemViewData& data = mEntries.at(cursor);
 	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
@@ -1528,15 +1504,16 @@ void SystemView::activateExtras(int cursor, bool activate)
 		GuiComponent* extra = data.backgroundExtras[j];
 
 		if (show && activate)
+		{
+			ensureTexture(extra, TextureLoadMode::STANDARD);
 			extra->onShow();
+		}
 		else
 			extra->onHide();
 	}
 
 	setExtraRequired(data, activate);
 
-	if (activate)
-		preloadExtraNeighbours(cursor);
 }
 
 SystemData* SystemView::getActiveSystem()

@@ -47,6 +47,24 @@ msgstr "תיאור"
 msgid "this game's description"
 msgstr ":תיאור"
 
+msgid "Genre"
+msgstr "ז'אנר"
+
+msgid "enter game genre"
+msgstr "הזן ז'אנר משחקים"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
 msgid "Emulator"
 msgstr "אמולטור (חַקַּאי)"
 
@@ -172,12 +190,6 @@ msgstr "מפרסם"
 
 msgid "this game's publisher"
 msgstr ":מפרסם המשחק"
-
-msgid "Genre"
-msgstr "ז'אנר"
-
-msgid "enter game genre"
-msgstr "הזן ז'אנר משחקים"
 
 msgid "Game family"
 msgstr "משפחת משחקים"
@@ -504,11 +516,23 @@ msgstr "שימוש משתמש ב'דיסק'"
 msgid "SYSTEM DISK USAGE"
 msgstr "שימוש מערכת ב'דיסק'"
 
+msgid "DISK USAGE"
+msgstr ""
+
 msgid "SYSTEM"
 msgstr "מערכת"
 
 msgid "VIDEO DRIVER"
 msgstr "מנהל התקן וידאו"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
+
+msgid "SEOUL"
+msgstr ""
 
 msgid "NETPLAY SETTINGS"
 msgstr "הגדרות NETPLAY"
@@ -527,30 +551,6 @@ msgstr "אפשרויות"
 
 msgid "PORT"
 msgstr "יציאה"
-
-msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "NONE"
-msgstr "ללא"
-
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -577,6 +577,30 @@ msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
 msgid "INDEX GAMES"
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "NONE"
+msgstr "ללא"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
 msgid "INPUT"
@@ -665,6 +689,12 @@ msgid ""
 "earned."
 msgstr ""
 
+msgid "UNOFFICIAL ACHIEVEMENTS"
+msgstr ""
+
+msgid "Enable unlocking of unofficial achievements."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
@@ -743,6 +773,15 @@ msgstr "אין עדכון זמין"
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
+msgid "SCRAPE"
+msgstr "SCRAPE"
+
+msgid "ACCOUNTS"
+msgstr "חשבונות"
+
+msgid "go back"
+msgstr "חזרה"
+
 msgid "SCRAPING DATABASE"
 msgstr ""
 
@@ -751,9 +790,6 @@ msgstr "מקור"
 
 msgid "SCRAPE FROM"
 msgstr "SCARPE מתוך יעד"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
 
 msgid "FILTERS"
 msgstr "סינון"
@@ -800,8 +836,107 @@ msgstr "הפעל SCRAPE"
 msgid "START"
 msgstr "התחלה"
 
-msgid "go back"
-msgstr "חזרה"
+msgid "IMAGE SOURCE"
+msgstr "מקור תמונה"
+
+msgid "SCREENSHOT"
+msgstr "צילום מסך"
+
+msgid "TITLE SCREENSHOT"
+msgstr "צילום מסך מנצח"
+
+msgid "MIX V1"
+msgstr "עירבול 1"
+
+msgid "MIX V2"
+msgstr "עירבול 2"
+
+msgid "BOX 2D"
+msgstr "קופסה דו מימדית"
+
+msgid "BOX 3D"
+msgstr "קופסה תלת מימדית"
+
+msgid "FAN ART"
+msgstr "אומנות מעריצים"
+
+msgid "BOX SOURCE"
+msgstr "מקור קופסה"
+
+msgid "LOGO SOURCE"
+msgstr "מקור סמל"
+
+msgid "HD WHEEL"
+msgstr ""
+
+msgid "WHEEL"
+msgstr "גלגל"
+
+msgid "MARQUEE"
+msgstr "דגל"
+
+msgid "PREFERED REGION"
+msgstr "איזור מועדף"
+
+msgid "AUTO"
+msgstr "אוטומטי"
+
+msgid "OVERWRITE NAMES"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
+msgid "SCRAPE FOR"
+msgstr ""
+
+msgid "SHORT NAME"
+msgstr "שם מקוצר"
+
+msgid "COMMUNITY RATING"
+msgstr "דירוג קהילה"
+
+msgid "VIDEO"
+msgstr ""
+
+msgid "FANART"
+msgstr ""
+
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr "ידני"
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "MANUAL SCRAPE"
+msgstr ""
+
+msgid "INCLUDED SCRAPERS"
+msgstr ""
+
+msgid "SCREENSCRAPER"
+msgstr ""
+
+msgid "IGDB"
+msgstr ""
+
+msgid "CLIENT ID"
+msgstr ""
+
+msgid "CLIENT SECRET"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -814,6 +949,96 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "אין משחק שמתאים לקריטריון."
+
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr ""
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "MENU"
+msgstr "תפריט"
+
+msgid "FILES"
+msgstr "קבצים"
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "איפוס"
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "החזרה לאחור"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "CONTROL CENTER"
+msgstr ""
+
+msgid "KEY ASSIGNED TWICE"
+msgstr ""
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "התקנה על כונן חדש"
@@ -1018,9 +1243,6 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "בחירה"
 
-msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "הזן את הקוד בכדי לשחרר את הנעילה"
 
@@ -1047,9 +1269,6 @@ msgstr ""
 
 msgid "FORMAT"
 msgstr ""
-
-msgid "AUTO"
-msgstr "אוטומטי"
 
 msgid "dmd matrix size"
 msgstr ""
@@ -1369,6 +1588,17 @@ msgstr "שפה"
 msgid "LANGUAGE (REGION)"
 msgstr "שפה(איזור)"
 
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+msgid "KEYBOARD VARIANT"
+msgstr ""
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "בחר איזור זמן"
 
@@ -1507,6 +1737,9 @@ msgstr "המהרה OVERCLOCK"
 msgid "LED HARDWARE"
 msgstr ""
 
+msgid "ENABLE LED"
+msgstr ""
+
 msgid "RED"
 msgstr ""
 
@@ -1527,6 +1760,12 @@ msgstr "התקן איחסון"
 
 msgid "BACKUP USER DATA"
 msgstr "גיבוי מידע משתמש"
+
+msgid "EJECT AN EXTRA DISK"
+msgstr ""
+
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr ""
 
 msgid "ADVANCED"
 msgstr "מתקדם"
@@ -1588,9 +1827,6 @@ msgstr "הגדרות נוכחיות"
 msgid "UPDATE GAMELISTS"
 msgstr "עדכן רשימת משחקים"
 
-msgid "ACCOUNTS"
-msgstr "חשבונות"
-
 msgid "BIOS SETTINGS"
 msgstr "הגדרות BIOS"
 
@@ -1651,9 +1887,6 @@ msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
-
-msgid "REWIND"
-msgstr "החזרה לאחור"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
@@ -1799,11 +2032,17 @@ msgstr ""
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "הצגת '..' תיקיית אם"
 
-msgid "BEFORE NAME"
-msgstr "שם קודם"
+msgid "ICONS"
+msgstr ""
 
 msgid "AFTER NAME"
 msgstr "שם נוסף"
+
+msgid "BEFORE NAME"
+msgstr "שם קודם"
+
+msgid "SHOW TAGS ICONS"
+msgstr ""
 
 msgid "SHOW REGION FLAG"
 msgstr "הצג דגל איזור"
@@ -1925,6 +2164,12 @@ msgstr ""
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "הנמכת מוזיקה בעת ניגון וידאו"
 
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "נגן רק שירים מרשימת המועדפים שלך"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "בחירת שירים מועדפים"
+
 msgid "SOUNDS"
 msgstr "צלילים"
 
@@ -1958,6 +2203,9 @@ msgstr "שם רשת (WIFI SSID)"
 msgid "WIFI KEY"
 msgstr "סיסמה (WIFI KEY)"
 
+msgid "WIFI COUNTRY"
+msgstr ""
+
 msgid "WIFI ENABLED"
 msgstr "WIFI זמין"
 
@@ -1972,6 +2220,12 @@ msgstr "דילוג על השיר הבא"
 
 msgid "NOW PLAYING"
 msgstr "מנגן"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "הסר את השיר הנוכחי מרשימת המועדפים"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "שמור את השיר הנוכחי לרשימת המועדפים"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
@@ -2081,6 +2335,24 @@ msgstr "האפשרויות שנבחרו אינן תקפות"
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "האם אתה בטוח שאתה רוצה לאתחל את הכונן?"
 
+msgid "SAFELY EJECT A DISK"
+msgstr ""
+
+msgid "MERGED DRIVE"
+msgstr ""
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr ""
+
+msgid "EJECT"
+msgstr ""
+
+msgid "NO DRIVE SELECTED"
+msgstr ""
+
+msgid "Ejecting..."
+msgstr ""
+
 msgid "Points"
 msgstr "נקודות"
 
@@ -2171,6 +2443,28 @@ msgid ""
 "ARE YOU SURE?"
 msgstr "פעולה זו תמחק את קובצי המשחק סופית, האם להמשיך בפעולה ?"
 
+msgid "NFC"
+msgstr ""
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
+
 msgid "COLLECTIONS"
 msgstr "אוספים"
 
@@ -2191,9 +2485,6 @@ msgstr "הוסף לאוסף מותאם אישית..."
 msgid "DELETE COLLECTION"
 msgstr "מחיקת אוסף"
 
-msgid "SCRAPE"
-msgstr "SCRAPE"
-
 msgid "ADVANCED GAME OPTIONS"
 msgstr "אפשרויות משחק מתקדמות"
 
@@ -2206,9 +2497,6 @@ msgstr "ערוך METADATA של משחק זה"
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "צפייה במידע משטח למקלדת"
 
-msgid "RESET"
-msgstr "איפוס"
-
 msgid "ADD COMBINATION KEY"
 msgstr "הוסף מקש צירופים"
 
@@ -2217,90 +2505,6 @@ msgstr "הצמדת בתקן בלו-טות'"
 
 msgid "PAIR"
 msgstr "חבר"
-
-msgid "IMAGE SOURCE"
-msgstr "מקור תמונה"
-
-msgid "SCREENSHOT"
-msgstr "צילום מסך"
-
-msgid "TITLE SCREENSHOT"
-msgstr "צילום מסך מנצח"
-
-msgid "MIX V1"
-msgstr "עירבול 1"
-
-msgid "MIX V2"
-msgstr "עירבול 2"
-
-msgid "BOX 2D"
-msgstr "קופסה דו מימדית"
-
-msgid "BOX 3D"
-msgstr "קופסה תלת מימדית"
-
-msgid "FAN ART"
-msgstr "אומנות מעריצים"
-
-msgid "BOX SOURCE"
-msgstr "מקור קופסה"
-
-msgid "LOGO SOURCE"
-msgstr "מקור סמל"
-
-msgid "HD WHEEL"
-msgstr ""
-
-msgid "WHEEL"
-msgstr "גלגל"
-
-msgid "MARQUEE"
-msgstr "דגל"
-
-msgid "PREFERED REGION"
-msgstr "איזור מועדף"
-
-msgid "OVERWRITE NAMES"
-msgstr ""
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
-
-msgid "OVERWRITE MEDIAS"
-msgstr ""
-
-msgid "SCRAPE FOR"
-msgstr ""
-
-msgid "SHORT NAME"
-msgstr "שם מקוצר"
-
-msgid "COMMUNITY RATING"
-msgstr "דירוג קהילה"
-
-msgid "VIDEO"
-msgstr ""
-
-msgid "FANART"
-msgstr ""
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-msgid "MAP"
-msgstr ""
-
-msgid "MANUAL"
-msgstr "ידני"
-
-msgid "PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "ACCOUNT"
-msgstr "חשבון"
 
 msgid "NO DEVICE FOUND"
 msgstr "לא נמצאו התקנים"
@@ -2341,8 +2545,11 @@ msgstr "בסדר אָלֶפְבֵּיתִי"
 msgid "BY MANUFACTURER"
 msgstr "לפי  יצרן"
 
-msgid "BY HARDWARE TYPE"
-msgstr "לפי סוג חומרה"
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "לפי יצרן וסוג חומרה"
@@ -2509,6 +2716,9 @@ msgstr ""
 msgid "EDIT METADATA"
 msgstr ""
 
+msgid "TAGS"
+msgstr ""
+
 msgid "GENRES"
 msgstr ""
 
@@ -2516,6 +2726,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+
+msgid "FAVORITE SONGS"
+msgstr "שירים מועדפים"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "התחברות לרשת NETPLAY"
@@ -2625,11 +2838,77 @@ msgstr ""
 msgid "BEHAVIOR"
 msgstr ""
 
-msgid "RESTRICT HOTKEYS TO EXIT"
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
 msgstr ""
 
 msgid "default"
 msgstr "ברירת מחדל"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr ""
+
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
 
 msgid "BORDER SIZE"
 msgstr ""
@@ -2969,9 +3248,6 @@ msgstr[3] ""
 msgid "NAVIGATION BAR"
 msgstr ""
 
-msgid "FILES"
-msgstr "קבצים"
-
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -2993,11 +3269,11 @@ msgstr "טוען ערכת נושא"
 msgid "Loading gamelists"
 msgstr "טוען רשימת משחקים"
 
-msgid "MENU"
-msgstr "תפריט"
-
 msgid "GENRE"
 msgstr "ז'אנר"
+
+msgid "TAG"
+msgstr ""
 
 msgid "FAMILY"
 msgstr ""
@@ -3050,6 +3326,9 @@ msgstr ""
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr ""
 
@@ -3060,6 +3339,21 @@ msgid "SCRAPING FINISHED"
 msgstr ""
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
 msgstr ""
 
 msgid "Loading system config..."
@@ -3548,6 +3842,78 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+msgid "Reloaded the games list..."
+msgstr ""
+
+msgid "GAME DRIVE DETECTED"
+msgstr ""
+
+msgid "DEVICE"
+msgstr ""
+
+msgid "MODEL"
+msgstr ""
+
+msgid "SIZE"
+msgstr ""
+
+msgid "MOUNT"
+msgstr ""
+
+msgid "Merge games from this drive partition now?"
+msgstr ""
+
+msgid "(This will also apply on future boots)"
+msgstr ""
+
+msgid "Merge requested... Please wait."
+msgstr ""
+
+msgid "MERGE FAILED"
+msgstr ""
+
+msgid "Please check the logs."
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr ""
+
+msgid "Format and prepare this drive for game storage?"
+msgstr ""
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr ""
+
+msgid "Starting format process..."
+msgstr ""
+
+msgid "FORMAT FAILED"
+msgstr ""
+
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, FORMAT & MERGE"
+msgstr ""
+
+msgid "NO, IGNORE"
+msgstr ""
+
+#~ msgid "BY HARDWARE TYPE"
+#~ msgstr "לפי סוג חומרה"
+
+#~ msgid "ACCOUNT"
+#~ msgstr "חשבון"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "שכח התקן בלו-טות'"

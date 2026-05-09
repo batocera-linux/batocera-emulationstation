@@ -32,6 +32,7 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mScreensaverActive = false;
 	mDisable = false;		
 	mLastCursor = 0;
+	mLastCursorState = CursorState::CURSOR_SCROLLING;
 		
 	mPressedPoint = Vector2i(-1, -1);
 	mPressedCursor = -1;
@@ -202,6 +203,17 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 
 	cancelAnimation(1);
 	cancelAnimation(2);
+	
+	if (mLastCursor == mCursor)
+	{
+		if (state == CURSOR_STOPPED && mLastCursorState != state && mCursorChangedCallback)
+			mCursorChangedCallback(state);
+
+		mLastCursorState = state;
+		return;
+	}
+	else 
+		mLastCursorState = state;
 
 	std::string transition_style = Settings::TransitionStyle();
 	if (transition_style == "auto")
@@ -211,16 +223,14 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		else
 			transition_style = "slide";
 	}
-
-	// no need to animate transition, we're not going anywhere (probably mEntries.size() == 1)
-	//if(endPos == mCamOffset)
-		//return;
-
+	
 	if (mLastCursor == mCursor)
 		return;
 
 	if (!mScrollSound.empty())
 		Sound::get(mScrollSound)->play();
+
+	ensureLogos();
 
 	int oldCursor = mLastCursor;
 	
@@ -314,13 +324,9 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		mCursorChangedCallback(state);
 
 	mLastCursor = mCursor;
+	mLastCursorState = state;
 
-	auto curState = state;
-	setAnimation(anim, 0, [this, curState]
-	{
-		if (curState == CURSOR_SCROLLING && mCursorChangedCallback)
-			mCursorChangedCallback(curState);
-	}, false, 0);
+	setAnimation(anim, 0);
 }
 
 void CarouselComponent::render(const Transform4x4f& parentTrans)
@@ -362,6 +368,33 @@ void CarouselComponent::setDefaultBackground(unsigned int color, unsigned int co
 	mColor = color;
 	mColorEnd = colorEnd;
 	mColorGradientHorizontal = gradientHorizontal;
+}
+
+//  Render system carousel
+void CarouselComponent::ensureLogos()
+{
+	if (mEntries.size() == 0)
+		return;
+
+	int center = mCursor;
+	int logoCount = Math::min(mMaxLogoCount, (int)mEntries.size());
+	int bufferLeft = logoBuffersLeft[0];
+	int bufferRight = logoBuffersRight[0];
+
+	if (logoCount == 1)
+	{
+		bufferLeft = 0;
+		bufferRight = 0;
+	}
+
+	for (int i = center - logoCount / 2 + bufferLeft; i <= center + logoCount / 2 + bufferRight; i++)
+	{
+		int index = i % (int)mEntries.size();
+		if (index < 0)
+			index += (int)mEntries.size();
+
+		ensureLogo(mEntries.at(index));
+	}
 }
 
 //  Render system carousel
@@ -851,6 +884,7 @@ bool CarouselComponent::onMouseClick(int button, bool pressed, int x, int y)
 		if (mCamOffset != mCursor)
 		{
 			mLastCursor = -1;
+			mLastCursorState = CursorState::CURSOR_STOPPED;
 			onCursorChanged(CursorState::CURSOR_STOPPED);
 		}
 

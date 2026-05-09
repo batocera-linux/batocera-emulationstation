@@ -1,8 +1,37 @@
 project("emulationstation")
 
+if(WIN32)
+
+	option(INJECT_VERSION "Inject Version" OFF)
+
+	if(INJECT_VERSION)
+	
+		# Main version number
+		set(VERSION_MAJOR 42)
+	
+		# Create version.h at configure/build time
+		string(TIMESTAMP BUILD_YEAR   "%Y")
+		string(TIMESTAMP BUILD_MONTH  "%m")
+		string(TIMESTAMP BUILD_DAY    "%d")
+		string(TIMESTAMP BUILD_HOUR   "%H")
+		string(TIMESTAMP BUILD_MINUTE "%M")
+
+		# Format into your desired scheme		
+		set(VERSION_DATE   "${BUILD_MONTH}${BUILD_DAY}") # e.g. 1004
+		set(VERSION_TIME   "${BUILD_HOUR}${BUILD_MINUTE}") # e.g. 2041
+
+		configure_file(
+			${CMAKE_CURRENT_SOURCE_DIR}/EmulationStation.h.in
+			${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.h
+			@ONLY
+		)
+	endif()
+endif()
+
 set(ES_HEADERS	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EmulationStation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/FileTag.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/MetaData.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.h    
@@ -41,8 +70,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGeneralScreensaverOptions.h 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMenu.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.h    
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.h	
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperSettings.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.h		
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiHashStart.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistFilter.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiCollectionSystemsOptions.h
@@ -69,7 +97,8 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiImageViewer.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBatoceraStore.h # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBios.h # batocera	
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControllersSettings.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControllersSettings.h # batocera
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardtopads.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameAchievements.h		
@@ -78,12 +107,16 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAiGraphics.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFirstBootSetup.h # batocera-ai
 	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFileBrowser.h	
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFavoriteMusicSelector.h	
+
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraper.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraperResources.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ArcadeDBJSONScraper.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/HfsDBScraper.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/IGDBScraper.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScreenScraper.h    
 
     # Views
@@ -105,12 +138,14 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/animations/MoveCameraAnimation.h
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ZaparooSupport.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Win32ApiSystem.h # batocera
 )
 
 set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileData.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/FileTag.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileSorts.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/MetaData.cpp
@@ -149,8 +184,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGeneralScreensaverOptions.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMenu.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSettings.cpp    
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.cpp	
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperSettings.cpp	
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiScraperStart.cpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiHashStart.cpp	
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGamelistFilter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiCollectionSystemsOptions.cpp
@@ -174,6 +208,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBatoceraStore.cpp # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBios.cpp # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControllersSettings.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardtopads.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameAchievements.cpp
@@ -181,6 +216,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFileBrowser.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiAiGraphics.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFirstBootSetup.cpp # batocera-ai
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiFavoriteMusicSelector.cpp
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp
@@ -188,6 +224,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraperResources.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ArcadeDBJSONScraper.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/HfsDBScraper.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/IGDBScraper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScreenScraper.cpp	
 
     # Views
@@ -205,6 +242,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.cpp # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ZaparooSupport.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Win32ApiSystem.cpp # batocera
 )

@@ -26,10 +26,15 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
-private:
-	void onShowScraperSettings();
+private:	
 	void pressedStart();
 	void start();
+	
+	void loadActivePage();
+
+	void loadScrapPage();
+	void loadSettingsPage();
+	void loadAccountsPage();
 
 	std::queue<ScraperSearchParams> getSearches(std::vector<SystemData*> systems, FilterFunc mediaSelector, FilterFunc dateSelector, IGuiLoadingHandler* handler = nullptr);
 

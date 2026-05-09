@@ -75,7 +75,12 @@ enum MetaDataId
 	Magazine = 38,
 	GenreIds = 39,
 	Family = 40,
-	Bezel = 41
+	Bezel = 41,
+	Tags = 42,
+	MultiDisk = 43,
+
+	// Important : Control value
+	MetaDataIdCount
 };
 
 namespace MetaDataImportType
@@ -181,9 +186,12 @@ private:
 
 	std::string		mName;
 	MetaDataListType mType;
-	std::map<MetaDataId, std::string> mMap;
+//	std::map<MetaDataId, std::string> mMap;
 	bool mWasChanged;
 	SystemData*		mRelativeTo;
+	
+	int8_t mIndices[MetaDataIdCount];
+	std::vector<std::string> mValues;
 
 	static std::vector<MetaDataDecl> mMetaDataDecls;
 

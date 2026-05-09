@@ -10,6 +10,7 @@
 #include <set>
 #include <unordered_map>
 #include <memory>
+#include <mutex>
 #include <sstream>
 #include <vector>
 #include <pugixml/src/pugixml.hpp>
@@ -94,7 +95,7 @@ struct ThemeSet
 
 struct Subset
 {
-	Subset(const std::string set, const std::string nm, const std::string dn, const std::string ssdn)
+	Subset(const std::string& set, const std::string& nm, const std::string& dn, const std::string& ssdn)
 	{
 		subset = set;
 		name = nm;
@@ -110,6 +111,12 @@ struct Subset
 	std::vector<std::string> appliesTo;
 
 	std::string subSetDisplayName;
+};
+
+struct GridElement
+{
+	bool hasSeparatorColor;
+	unsigned int separatorColor;
 };
 
 struct MenuElement 
@@ -190,6 +197,7 @@ public:
 		MenuGroupElement Group{ 0x777777FF, 0x00000010, 0xC6C7C6FF, 2.0, "", nullptr, 0 /*ALIGN_LEFT*/, false };
 		IconElement Icons { ":/on.svg", ":/off.svg", ":/auto.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg", ":/textinput_ninepatch.png", ":/textinput_ninepatch_active.png" };
 		ButtonElement Button { ":/button.png", ":/button_filled.png", Vector2f(16,16) };
+		GridElement Grid { false, 0xC6C7C6FF };
 
 		std::string getMenuIcon(const std::string name)
 		{
@@ -224,7 +232,7 @@ public:
 			{
 				String,
 				Int,
-				Float,				
+				Float,
 				Bool,
 				Pair,
 				Rect,
@@ -236,6 +244,7 @@ public:
 			Property(const Vector2f& value) { v = value; type = PropertyType::Pair; };
 			Property(const std::string& value) { s = value; type = PropertyType::String; };
 			Property(const unsigned int& value) { i = value; type = PropertyType::Int; };
+			Property(const double& value) { f = value; type = PropertyType::Float; };
 			Property(const float& value) { f = value; type = PropertyType::Float; };
 			Property(const bool& value) { b = value; type = PropertyType::Bool; };
 			Property(const Vector4f& value) { r = value; v = Vector2f(value.x(), value.y()); type = PropertyType::Rect; };
@@ -243,6 +252,7 @@ public:
 			void operator= (const Vector2f& value)     { v = value; type = PropertyType::Pair; }
 			void operator= (const std::string& value)  { s = value; type = PropertyType::String; }
 			void operator= (const unsigned int& value) { i = value; type = PropertyType::Int; }
+			void operator= (const double& value)       { f = value; type = PropertyType::Float; }
 			void operator= (const float& value)        { f = value; type = PropertyType::Float; }
 			void operator= (const bool& value)         { b = value; type = PropertyType::Bool; }
 			void operator= (const Vector4f& value)     { r = value; v = Vector2f(value.x(), value.y()); type = PropertyType::Rect; }
@@ -250,7 +260,7 @@ public:
 			union
 			{
 				unsigned int i;
-				float        f;
+				double       f;
 				bool         b;
 			};
 
@@ -261,18 +271,48 @@ public:
 
 		};
 
-		std::map< std::string, Property > properties;
+		std::unordered_map<std::string, Property> properties;
 
-		template<typename T>
+		template<typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0> 
 		const T get(const std::string& prop) const
 		{
-			if(     std::is_same<T, Vector2f>::value)     return *(const T*)&properties.at(prop).v;
-			else if(std::is_same<T, std::string>::value)  return *(const T*)&properties.at(prop).s;
-			else if(std::is_same<T, unsigned int>::value) return *(const T*)&properties.at(prop).i;
-			else if(std::is_same<T, float>::value)        return *(const T*)&properties.at(prop).f;
-			else if(std::is_same<T, bool>::value)         return *(const T*)&properties.at(prop).b;
-			else if (std::is_same<T, Vector4f>::value)         return *(const T*)&properties.at(prop).r;
-			return T();
+			return static_cast<float>(properties.at(prop).f);
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, double>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).f;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, std::string>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).s;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, bool>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).b;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, Vector2f>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).v;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, Vector4f>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).r;
+		}
+
+		template<typename T, typename std::enable_if<std::is_same<T, unsigned int>::value, int>::type = 0>
+		const T get(const std::string& prop) const
+		{
+			return properties.at(prop).i;
 		}
 
 		inline bool has(const std::string& prop) const { return (properties.find(prop) != properties.cend()); }
@@ -343,7 +383,8 @@ public:
 
 	static std::map<std::string, ThemeSet> getThemeSets();
 	static std::string getThemeFromCurrentSet(const std::string& system);
-	
+	static std::string getCurrentThemeRootPath();
+
 	bool hasSubsets() { return mSubsets.size() > 0; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
 
@@ -409,10 +450,11 @@ private:
 	bool parseLanguage(const pugi::xml_node& node);
 	bool parseFilterAttributes(const pugi::xml_node& node);
 	void parseSubsetElement(const pugi::xml_node& root);
+	void parseSubsetsDefaults(const pugi::xml_node& root);
 
 	void processElement(const pugi::xml_node& root, ThemeElement& element, const std::string& name, const std::string& value, ElementPropertyType type);
 
-	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
+	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, const std::string& baseClass);
 	bool findPropertyFromBaseClass(const std::string& typeName, const std::string& propertyName, ElementPropertyType& type);
 
 	static GuiComponent* createExtraComponent(Window* window, const ThemeElement& elem, bool forceLoad = false);
@@ -432,52 +474,97 @@ private:
 	std::string mRegion;
 
 	ThemeVariables mVariables;
-	
-	class UnsortedViewMap : public std::vector<std::pair<std::string, ThemeView>>
+
+	template<typename Key, typename Value>
+	class UnsortedViewMap //: public std::vector<std::pair<std::string, ThemeView>>
 	{
-	public:		
-		UnsortedViewMap() : std::vector<std::pair<std::string, ThemeView>>() {}
-		UnsortedViewMap(std::initializer_list<std::pair<std::string, ThemeView>> initList) : std::vector<std::pair<std::string, ThemeView>>(initList) { }
+	private:
+		std::vector<std::pair<Key, Value>> items;
+		std::unordered_map<Key, size_t> index_map;
 
-		std::vector<std::pair<std::string, ThemeView>>::const_iterator find(std::string view) const
+	public:
+		UnsortedViewMap() = default;
+		UnsortedViewMap(std::initializer_list<std::pair<Key, Value>> initList)
 		{
-			for (std::vector<std::pair<std::string, ThemeView>>::const_iterator it = cbegin(); it != cend(); it++)
-				if (it->first == view)
-					return it;
-
-			return cend();
-		}
-	
-		std::vector<std::pair<std::string, ThemeView>>::iterator find(std::string view)
-		{
-			for (std::vector<std::pair<std::string, ThemeView>>::iterator it = begin(); it != end(); it++)
-				if (it->first == view)
-					return it;
-
-			return end();
+			items.reserve(initList.size());
+			for (const auto& pair : initList)
+				insert(pair.first, pair.second);
 		}
 
-		std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> insert(std::pair<std::string, ThemeView> item)
-		{			
-			std::pair<std::vector<std::pair<std::string, ThemeView>>::iterator, bool> ret;
+		void clear()
+		{
+			items.clear();
+			index_map.clear();
+		}
 
-			ret.first = find(item.first);
-			ret.second = ret.first != cend();
+		size_t size() const { return items.size(); }
+		bool empty() const { return items.empty(); }
 
-			if (ret.first == cend())
+		std::pair<typename std::vector<std::pair<Key, Value>>::iterator, bool> insert(const std::pair<Key, Value>& pair) 
+		{
+			return insert(pair.first, pair.second);
+		}
+
+		std::pair<typename std::vector<std::pair<Key, Value>>::iterator, bool> insert(const Key& key, const Value& value) 
+		{
+			auto it = index_map.find(key);
+			if (it != index_map.end()) 
+				return { items.begin() + it->second, false };
+
+			index_map[key] = items.size();
+			items.emplace_back(key, value);
+			return { items.end() - 1, true };			
+		}
+
+		auto begin() { return items.begin(); }
+		auto end() { return items.end(); }
+		auto begin() const { return items.cbegin(); }
+		auto end() const { return items.cend(); }
+		auto cbegin() const { return items.cbegin(); }
+		auto cend() const { return items.cend(); }
+
+		typename std::vector<std::pair<Key, Value>>::iterator find(const Key& key) 
+		{
+			auto it = index_map.find(key);
+			if (it == index_map.end())
+				return items.end();
+		
+			return items.begin() + it->second;
+		}
+
+		typename std::vector<std::pair<Key, Value>>::const_iterator find(const Key& key) const
+		{
+			auto it = index_map.find(key);
+			if (it == index_map.end())
+				return items.end();
+			
+			return items.begin() + it->second;
+		}		
+
+		void erase(const Key& key) 
+		{
+			auto it = index_map.find(key);
+			if (it == index_map.end())
+				return;			
+
+			size_t idx = it->second;
+
+			if (idx != items.size() - 1)
 			{
-				push_back(item);
-				ret.first = find(item.first);
+				std::swap(items[idx], items.back());
+				index_map[items[idx].first] = idx;
 			}
 
-			return ret;			
+			items.pop_back();
+			index_map.erase(it);
 		}
+
 	};
 
-	UnsortedViewMap mViews;
-	//	std::map<std::string, ThemeView> mViews;
+	UnsortedViewMap<std::string, ThemeView> mViews;
 
 	std::vector<Subset> mSubsets;
+	std::map<std::string, std::string> mSubsetDefault;
 
 	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
 	static ThemeData* mDefaultTheme;	
@@ -485,6 +572,28 @@ private:
 	bool mPerGameOverrideTmp;
 
 	Utils::MathExpr::ValueMap mEvaluatorVariables;
+};
+
+class ThemeFileCache
+{
+public:
+	static ThemeFileCache& getInstance()
+	{
+		if (_instance == nullptr)
+			_instance = new ThemeFileCache();
+
+		return *_instance;
+	}
+
+public:
+	std::string& getXmlDocument(const std::string& path);
+	void clear();
+
+private:
+	std::unordered_map<std::string, std::string> _cache;
+	std::mutex _lock;
+
+	static ThemeFileCache* _instance;
 };
 
 #endif // ES_CORE_THEME_DATA_H

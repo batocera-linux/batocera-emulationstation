@@ -30,7 +30,7 @@
     <game id="2Spicy" name="2 Spicy">
       <gun/>
     </game>
-    <game id="38ambushalley">
+    <game id="38ambushalley" name=".38 Ambush Alley">
       <gun/>
     </game>
     <game id="500gp">
@@ -202,6 +202,45 @@
       <spinner/>
     </game>
     <game id="arkangc2">
+      <spinner/>
+    </game>
+    <game id="arknoid">
+      <spinner/>
+    </game>
+    <game id="arknoid2">
+      <spinner/>
+    </game>
+    <game id="arknoid2b">
+      <spinner/>
+    </game>
+    <game id="arknoid2j">
+      <spinner/>
+    </game>
+    <game id="arknoid2u">
+      <spinner/>
+    </game>
+    <game id="arknoidj">
+      <spinner/>
+    </game>
+    <game id="arknoidja">
+      <spinner/>
+    </game>
+    <game id="arknoidjb">
+      <spinner/>
+    </game>
+    <game id="arknoidjbl">
+      <spinner/>
+    </game>
+    <game id="arknoidjbl2">
+      <spinner/>
+    </game>
+    <game id="arknoidpe">
+      <spinner/>
+    </game>
+    <game id="arknoidu">
+      <spinner/>
+    </game>
+    <game id="arknoiduo">
       <spinner/>
     </game>
     <game id="arkanoid">
@@ -456,7 +495,7 @@
     <game id="BlockKing">
       <gun/>
     </game>
-    <game id="bluethunder">
+    <game id="bluethunder" name="Blue Thunder">
       <gun/>
     </game>
     <game id="blstroid">
@@ -1197,10 +1236,10 @@
       <trackball/>
     </game>
     <game id="eca">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game id="ecaj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game id="ecap">
       <wheel rotation="270"/>
@@ -1490,7 +1529,10 @@
     <game id="GhostBusters">
       <gun/>
     </game>
-    <game id="ghostsev" name="Ghost Squad Evolution">
+    <game id="ghostsev" name="Ghost Squad Evolution (Export)">
+      <gun/>
+    </game>
+    <game id="ghostsevj" name="Ghost Squad Evolution (Japan)">
       <gun/>
     </game>
     <game id="ghostsqo">
@@ -2042,6 +2084,9 @@
     <game id="hotd3">
       <gun/>
     </game>
+    <game id="HOTD3">
+      <gun/>
+    </game>
     <game id="hotd4" name="The House of the Dead 4 (Rev C)">
       <gun/>
     </game>
@@ -2111,7 +2156,7 @@
     <game id="hummerextreme">
       <wheel/>
     </game>
-    <game id="hydrosub2021">
+    <game id="hydrosub2021" name="Hydrosub: 2021">
       <gun/>
     </game>
     <game id="ID4Exp">
@@ -2584,6 +2629,9 @@
     <game id="marble5">
       <trackball/>
     </game>
+    <game id="marbvice" name="Marbella Vice">
+      <gun/>
+    </game>
     <game id="marinedt">
       <trackball/>
     </game>
@@ -2673,6 +2721,9 @@
     </game>
     <game id="missile2a">
       <trackball/>
+    </game>
+    <game id="MissionImpossible">
+      <gun/>
     </game>
     <game id="moonwar">
       <spinner/>
@@ -3123,7 +3174,7 @@
     <game id="policetr13b">
       <gun/>
     </game>
-    <game id="popsghostly">
+    <game id="popsghostly" name="The Rescue of Pops Ghostly">
       <gun/>
     </game>
     <game id="pong">
@@ -3927,7 +3978,7 @@
     <game id="sonicp">
       <trackball/>
     </game>
-    <game id="sonicfury">
+    <game id="sonicfury" name="Sonic Fury">
       <gun/>
     </game>
     <game id="spacegun">
@@ -4410,6 +4461,9 @@
     <game id="tickee">
       <gun/>
     </game>
+    <game id="tierras" name="Tierras Salvajes">
+      <gun/>
+    </game>
     <game id="timecris">
       <gun/>
     </game>
@@ -4664,6 +4718,9 @@
     </game>
     <game id="vbowlj">
       <trackball/>
+    </game>
+    <game id="vc3">
+      <gun/>
     </game>
     <game id="vcombat">
       <gun/>
@@ -4964,6 +5021,9 @@
       <gun/>
     </game>
     <game id="wsjr">
+      <gun/>
+    </game>
+    <game id="wsjr-hd" name="Who Shot Johnny Rock?">
       <gun/>
     </game>
     <game id="WSJR_HD" name="Who Shot Johnny Rock?">
@@ -6216,6 +6276,10 @@
     <game id="extremeg">
       <controller rumble="true"/>
       <wheel wheel="joystick1left" rotation="180" accelerate="z" brake="b" downshift="a"/>
+    </game>
+    <game id="mariokart64ampedup">
+      <video widescreen="true"/>
+      <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="25" midzone="1"/>
     </game>
     <game id="mariokart64">
       <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="25" midzone="1"/>
@@ -8099,6 +8163,29 @@
     </game>
     <game id="macsbasicriflemarksmanship">
       <gun type="macsrifle"/>
+    </game>
+  </system>
+  <system id="triforce">
+    <game id="fzeroaxmonsterride">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="fzeroax">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartgp1">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartgp2">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartarcadegp2dolrelseur">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartarcadegp2">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartarcadegp">
+      <wheel type="Steering Wheel" rotation="200"/>
     </game>
   </system>
   <system id="wii">

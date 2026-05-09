@@ -67,9 +67,12 @@ namespace Utils
 
 		std::string queryIPAddress();
 		std::string getArchString();
+		unsigned long long getTotalSystemMemory();
 
 #if WIN32
 		bool isWindows11();
+#else
+		bool isBuildroot();
 #endif
 	}
 }

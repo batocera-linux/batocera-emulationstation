@@ -37,7 +37,7 @@ public:
 
 protected:
 	bool enabled() override;
-	int  updateTime() override { return 60 * 60 * 1000; } // 60 minutes
+	int  updateTime() override { return 24 * 60 * 60 * 1000; } // 24 * 60 minutes
 	bool check() override;
 
 private:

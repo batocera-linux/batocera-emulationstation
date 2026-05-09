@@ -4,6 +4,7 @@
 
 #if WIN32
 #include <codecvt>
+#include <windows.h>
 #else
 #include <sys/types.h>
 #include <unistd.h>
@@ -12,6 +13,7 @@
 #include <sys/stat.h>
 #include <arpa/inet.h>
 #include <sys/wait.h>
+#include <unistd.h>
 #endif
 
 #include <fcntl.h>
@@ -23,6 +25,7 @@
 #include "Paths.h"
 #include <fstream>
 #include <string>
+#include "renderers/Renderer.h"
 
 // #define DEVTEST
 
@@ -31,8 +34,8 @@ namespace Utils
 	namespace Platform
 	{
 		ProcessStartInfo::ProcessStartInfo()
-		{ 			
-			window = nullptr; 
+		{
+			window = nullptr;
 			waitForExit = true;
 			showWindow = true;
 #ifndef WIN32
@@ -42,9 +45,9 @@ namespace Utils
 		}
 
 		ProcessStartInfo::ProcessStartInfo(const std::string& cmd)
-		{ 
+		{
 			command = cmd;
-			window = nullptr; 
+			window = nullptr;
 			waitForExit = true;
 			showWindow = true;
 #ifndef WIN32
@@ -94,9 +97,9 @@ namespace Utils
 			lpExecInfo.hwnd = NULL;
 			lpExecInfo.lpVerb = L"open"; // to open  program
 			lpExecInfo.lpDirectory = NULL;
-			lpExecInfo.nShow = showWindow ? SW_SHOW : SW_HIDE;  // show command prompt with normal window size 
+			lpExecInfo.nShow = showWindow ? SW_SHOW : SW_HIDE;  // show command prompt with normal window size
 			lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;   //WINSHELLAPI BOOL WINAPI result;
-			lpExecInfo.lpParameters = wargs.c_str(); //  file name as an argument	
+			lpExecInfo.lpParameters = wargs.c_str(); //  file name as an argument
 
 			std::wstring wpath;
 
@@ -106,6 +109,9 @@ namespace Utils
 				wpath = Utils::String::convertToWideString(Utils::FileSystem::getAbsolutePath(Utils::FileSystem::getParent(exe)));
 				lpExecInfo.lpDirectory = wpath.c_str();
 			}
+
+			if (waitForExit)
+				Renderer::setWindowResizable(false);
 
 			ShellExecuteExW(&lpExecInfo);
 
@@ -118,6 +124,8 @@ namespace Utils
 					WaitForSingleObject(lpExecInfo.hProcess, INFINITE);
 				else
 				{
+				
+
 					while (WaitForSingleObject(lpExecInfo.hProcess, 50) == 0x00000102L)
 					{
 						bool polled = false;
@@ -128,19 +136,23 @@ namespace Utils
 
 						if (window != nullptr && polled)
 							window->renderSplashScreen();
-					}
+					}				
 				}
 
 				DWORD dwExitCode;
-				if (GetExitCodeProcess(lpExecInfo.hProcess, &dwExitCode))
-				{
-					CloseHandle(lpExecInfo.hProcess);
-					return dwExitCode;
-				}
+				if (!GetExitCodeProcess(lpExecInfo.hProcess, &dwExitCode))
+					dwExitCode = 0;
 
-				CloseHandle(lpExecInfo.hProcess);
-				return 0;
+				CloseHandle(lpExecInfo.hProcess); 
+				
+				if (waitForExit)
+					Renderer::setWindowResizable(true);
+
+				return dwExitCode;
 			}
+
+			if (waitForExit)
+				Renderer::setWindowResizable(true);
 
 			return 1;
 #else
@@ -157,7 +169,7 @@ namespace Utils
 
 			// fork the current process
 			pid_t ret = fork();
-			if (ret == 0) 
+			if (ret == 0)
 			{
 				ret = fork();
 				if (ret == 0)
@@ -184,16 +196,16 @@ namespace Utils
 		{
 #ifdef WIN32 // windows
 			return system("shutdown -s -t 0");
-#else // osx / linux	
-			return system("shutdown -h now");
+#else // osx / linux
+		return system("shutdown -P -h now");
 #endif
 		}
 
 		int runRestartCommand()
 		{
-#ifdef WIN32 // windows	
+#ifdef WIN32 // windows
 			return system("shutdown -r -t 0");
-#else // osx / linux	
+#else // osx / linux
 			return system("shutdown -r now");
 #endif
 		}
@@ -233,7 +245,7 @@ namespace Utils
 				close(fd);
 
 			// system(("touch " + filename).c_str());
-#endif	
+#endif
 		}
 
 		void processQuitMode()
@@ -344,6 +356,10 @@ namespace Utils
 						char addressBuffer[INET6_ADDRSTRLEN];
 						inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
 
+						// Skip IPv6 link-local address
+						if (strncmp(addressBuffer, "fe80:", 5) == 0)
+							continue;
+
 						std::string ifName = ifa->ifa_name;
 						if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("mlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos || ifName.find("usb") != std::string::npos)
 						{
@@ -405,6 +421,7 @@ namespace Utils
 			static std::string batteryCapacityPath;
 			static std::string batteryCurrChargePath;
 			static std::string batteryMaxChargePath;
+			static std::string batteryCurrentPath;
 
 			// Find battery path - only at the first call
 			if (batteryStatusPath.empty())
@@ -438,6 +455,7 @@ namespace Utils
 						batteryCurrChargePath = fuelgaugeRootPath + "/charge_now";
 						batteryMaxChargePath = fuelgaugeRootPath + "/charge_full";
 						batteryCapacityPath = ".";
+						batteryCurrentPath = ".";
 						// If there's a fuel gauge without "charge_now" or "charge_full" property, don't poll it
 						if ((!Utils::FileSystem::exists(batteryCurrChargePath)) || (!Utils::FileSystem::exists(batteryMaxChargePath)))
 						{
@@ -454,6 +472,7 @@ namespace Utils
 				{
 					batteryStatusPath = batteryRootPath + "/status";
 					batteryCapacityPath = batteryRootPath + "/capacity";
+					batteryCurrentPath = batteryRootPath + "/current_avg";
 				}
 			}
 
@@ -469,6 +488,14 @@ namespace Utils
 				std::string chargerStatus;
 				chargerStatus = Utils::String::replace(Utils::FileSystem::readAllText(batteryStatusPath), "\n", "");
 				ret.isCharging = ((chargerStatus != "Not charging") && (chargerStatus != "Discharging"));
+
+				if (batteryCurrentPath.length() > 1 && Utils::FileSystem::exists(batteryCurrentPath))
+				{
+					int currentVal = Utils::String::toInteger(Utils::FileSystem::readAllText(batteryCurrentPath));
+					if (currentVal > 0)
+						ret.isCharging = true;
+				}
+
 				// If reading from fuel gauge, we have to calculate remaining charge
 				if (batteryCapacityPath.length() <= 1)
 				{
@@ -549,6 +576,25 @@ namespace Utils
 				return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
 
 			return false;
+		}
+#else
+		bool isBuildroot() 
+		{
+			static const bool cached = []() 
+			{
+				std::ifstream f("/etc/os-release");
+				if (!f)
+					return false;
+
+				std::string line;
+				while (std::getline(f, line))
+					if (line == "ID=buildroot")
+						return true;
+
+				return false;
+			}();
+
+			return cached;
 		}
 #endif
 
@@ -664,6 +710,25 @@ namespace Utils
 #endif
 
 			return "";
+		}
+
+		unsigned long long getTotalSystemMemory() 
+		{
+#ifdef WIN32
+			MEMORYSTATUSEX status;
+			status.dwLength = sizeof(status);
+			if (GlobalMemoryStatusEx(&status))
+				return status.ullTotalPhys;
+			
+			return 0;
+#else
+			long pages = sysconf(_SC_PHYS_PAGES);
+			long page_size = sysconf(_SC_PAGE_SIZE);
+			if (pages == -1 || page_size == -1)
+				return 0;
+			
+			return (unsigned long long)pages * (unsigned long long)page_size;
+#endif
 		}
 	}
 }

@@ -11,7 +11,7 @@ ComponentGrid::ComponentGrid(Window* window, const Vector2i& gridDimensions) : G
 {
 	assert(gridDimensions.x() > 0 && gridDimensions.y() > 0);
 
-	mSeparatorColor = ThemeData::getMenuTheme()->Text.separatorColor;
+	mSeparatorColor = ThemeData::getMenuTheme()->Grid.hasSeparatorColor ? ThemeData::getMenuTheme()->Grid.separatorColor : ThemeData::getMenuTheme()->Text.separatorColor;
 	mCells.reserve(gridDimensions.x() * gridDimensions.y());
 
 	for(int x = 0; x < gridDimensions.x(); x++)

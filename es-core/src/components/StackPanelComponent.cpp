@@ -219,6 +219,8 @@ void StackPanelComponent::update(int deltaTime)
 		if (child->isVisible())
 			szAfter += child->getSize();
 
-	if (szBefore != szAfter)
+	if ((szBefore != szAfter) || (mLastSize != Vector2f::Zero() && mLastSize != szAfter))
 		performLayout();
+
+	mLastSize = szAfter;
 }

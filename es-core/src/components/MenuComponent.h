@@ -7,6 +7,7 @@
 #include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
 #include "utils/StringUtil.h"
+#include "components/ComponentTab.h"
 
 class ButtonComponent;
 class ImageComponent;
@@ -23,7 +24,7 @@ class MenuComponent : public GuiComponent
 public:
 	MenuComponent(Window* window, 
 		const std::string& title, const std::shared_ptr<Font>& titleFont = Font::get(FONT_SIZE_LARGE),
-		const std::string& subTitle = "");
+		const std::string& subTitle = "", bool tabbedUI = true);
 
 	void onSizeChanged() override;
 
@@ -40,6 +41,8 @@ public:
 	void removeEntry(const std::string& userData, bool doUpdateSize = true) { mList->remove(userData); if (doUpdateSize) updateSize(); }
 
 	void addButton(const std::string& label, const std::string& helpText, const std::function<void()>& callback);
+
+	void setButtonGrid(std::shared_ptr<GuiComponent> grid);
 
 	void setTitle(const std::string& title, const std::shared_ptr<Font>& font = nullptr);
 	void setSubTitle(const std::string& text);
@@ -78,6 +81,15 @@ public:
 	
 	static void addMenuIcon(Window* window, ComponentListRow& row, const std::string& iconName);
 
+	void addTab(const std::string label, const std::string value = "", bool setCursorHere = false);
+	inline void setOnTabIndexChanged(const std::function<void()>& callback) { mOnTabIndexChanged = callback; };
+	int getTabIndex() { return mTabIndex; }
+
+	bool input(InputConfig* config, Input input) override;
+
+protected:
+	virtual void OnTabChanged(int newIndex) { if (mOnTabIndexChanged != nullptr) mOnTabIndexChanged();  };
+
 private:
 	void updateGrid();
 
@@ -89,10 +101,13 @@ private:
 	std::shared_ptr<TextComponent> mSubtitle;
 	std::shared_ptr<ImageComponent> mTitleImage;
 	std::shared_ptr<ComponentList> mList;
-	std::shared_ptr<ComponentGrid> mButtonGrid;
+	std::shared_ptr<GuiComponent>  mButtonGrid;
+	std::shared_ptr<ComponentTab>	mTabs;
+	int mTabIndex;
 	std::vector< std::shared_ptr<ButtonComponent> > mButtons;
 
 	float mMaxHeight;
+	std::function<void()> mOnTabIndexChanged;
 };
 
 #endif // ES_CORE_COMPONENTS_MENU_COMPONENT_H

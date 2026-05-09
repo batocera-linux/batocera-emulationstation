@@ -13,12 +13,14 @@
 #include "LocaleES.h"
 #include "guis/GuiMenu.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiLoading.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "scrapers/ThreadedScraper.h"
 #include "ThreadedHasher.h"
 #include "guis/GuiMenu.h"
 #include "ApiSystem.h"
+#include "ZaparooSupport.h"
 #include "guis/GuiImageViewer.h"
 #include "views/SystemView.h"
 #include "GuiGameAchievements.h"
@@ -54,6 +56,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasVideo = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Video));
 	bool hasAlternateMedias = game->getSourceFileData()->getFileMedias().size() > 0;
 	bool hasCheevos = game->hasCheevos();
+	bool hasZaparoo = Zaparoo::isZaparooEnabled();
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
 	{
@@ -192,8 +195,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					msgBox->addSaveFunc([public_announce] { SystemConf::getInstance()->setBool("global.netplay_public_announce", public_announce->getState()); });
 
 					// passwords
-					msgBox->addInputTextRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
-					msgBox->addInputTextRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
+					msgBox->addInputTextConfigRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
+					msgBox->addInputTextConfigRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
 					mWindow->pushGui(msgBox);
 					close();
 				});
@@ -239,6 +242,42 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 			});
 		}
+	}
+
+	if (hasZaparoo || (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::NFC) && ApiSystem::getInstance()->nfc_is_available())) {
+	  if(hasZaparoo) {
+	    mMenu.addGroup("ZAPAROO");
+	  } else {
+	    mMenu.addGroup(_("NFC"));
+	  }
+		mMenu.addEntry(_("WRITE AN NFC TAG FOR THIS GAME"), false, [this, game, hasZaparoo]
+		{
+			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::format(_("IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER").c_str(), game->getName().c_str()), _("WRITE"),
+				[this, game, hasZaparoo]
+				{
+					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER..."),
+					[this, game, hasZaparoo](auto gui)
+					{
+					  if(hasZaparoo) {
+					    return Zaparoo::writeZaparooCard(game->getFullPath());
+					  } else {
+					    return ApiSystem::getInstance()->nfc_write(game->getFullPath());
+					  }
+					},
+					[this](bool ok)
+					{
+						if (!ok) {
+							mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURRED"),
+							_("CLOSE"), nullptr, ICON_ERROR)); 
+						} else {
+							mWindow->pushGui(new GuiMsgBox(mWindow, _("THE TAG WAS WRITTEN SUCCESSFULLY"),
+							_("OK"), nullptr, ICON_INFORMATION)); 
+						}
+					}));
+					return;
+				}, 
+				_("CANCEL"), nullptr));
+		});
 	}
 
 	bool isCustomCollection = (mSystem->isCollection() && game->getType() == FOLDER && CollectionSystemManager::get()->isCustomCollection(mSystem->getName()));
