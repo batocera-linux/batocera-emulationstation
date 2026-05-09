@@ -15,13 +15,14 @@ class GuiFirstBootSetup : public GuiComponent
 public:
     GuiFirstBootSetup(Window* window);
 
-    // GuiComponent overrides – this container itself is invisible;
+    // GuiComponent overrides - this container itself is invisible;
     // each step pushes its own GUI on the window stack.
     bool input(InputConfig* config, Input input) override { return false; }
     std::vector<HelpPrompt> getHelpPrompts() override { return {}; }
 
-private:
     void showStepName();
+
+private:
     void showStepWifi(const std::string& error = "");
     void showStepModels();
     void finalize();

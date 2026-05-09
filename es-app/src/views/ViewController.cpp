@@ -99,7 +99,11 @@ ViewController::~ViewController()
 void ViewController::goToStart(bool forceImmediate)
 {
 	if (SystemConf::getInstance()->get("system.firstboot") != "done")
-		mWindow->pushGui(new GuiFirstBootSetup(mWindow));
+	{
+		auto* setup = new GuiFirstBootSetup(mWindow);
+		mWindow->pushGui(setup);
+		setup->showStepName();
+	}
 	else
 		mWindow->pushGui(new GuiAiGraphics(mWindow));
 }

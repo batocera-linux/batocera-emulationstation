@@ -102,7 +102,9 @@ HelpStyle GuiSettings::getHelpStyle()
 {
 	HelpStyle style = HelpStyle();
 
-	if (ViewController::get()->getState().getSystem() != nullptr)
+	auto viewMode = ViewController::get()->getState().viewing;
+	if ((viewMode == ViewController::GAME_LIST || viewMode == ViewController::SYSTEM_SELECT) &&
+	    ViewController::get()->getState().getSystem() != nullptr)
 		style.applyTheme(ViewController::get()->getState().getSystem()->getTheme(), "system");
 
 	return style;

@@ -19,11 +19,10 @@ GuiFirstBootSetup::GuiFirstBootSetup(Window* window)
     : GuiComponent(window)
 {
     setSize(0, 0);
-    showStepName();
 }
 
 // ---------------------------------------------------------------------------
-// Step 1 – User name
+// Step 1 - User name
 // ---------------------------------------------------------------------------
 void GuiFirstBootSetup::showStepName()
 {
@@ -44,7 +43,7 @@ void GuiFirstBootSetup::showStepName()
 }
 
 // ---------------------------------------------------------------------------
-// Step 2 – WiFi setup
+// Step 2 - WiFi setup
 // ---------------------------------------------------------------------------
 void GuiFirstBootSetup::showStepWifi(const std::string& error)
 {
@@ -101,7 +100,7 @@ void GuiFirstBootSetup::showStepWifi(const std::string& error)
         s->addRow(row);
     }
 
-    // SSID row – tapping opens GuiWifi (network list), matching main settings.
+    // SSID row - tapping opens GuiWifi (network list), matching main settings.
     auto openWifi = [](Window* win, std::string title, std::string data,
                        const std::function<void(std::string)>& onsave)
     {
@@ -109,10 +108,10 @@ void GuiFirstBootSetup::showStepWifi(const std::string& error)
     };
     s->addInputTextRow(_("WIFI SSID"), "wifi.ssid", /*password=*/false, /*storeInSettings=*/false, openWifi);
 
-    // Password row – opens on-screen keyboard / text popup with masking.
+    // Password row - opens on-screen keyboard / text popup with masking.
     s->addInputTextRow(_("WIFI KEY"), "wifi.key", /*password=*/true);
 
-    // SKIP button – skips WiFi and model download, goes straight to finish.
+    // SKIP button - skips WiFi and model download, goes straight to finish.
     s->getMenu().addButton(_("SKIP"), "skip wifi setup", [this, s]()
     {
         s->setSave(false);
@@ -124,7 +123,7 @@ void GuiFirstBootSetup::showStepWifi(const std::string& error)
 }
 
 // ---------------------------------------------------------------------------
-// Step 3 – AI model install
+// Step 3 - AI model install
 // ---------------------------------------------------------------------------
 void GuiFirstBootSetup::showStepModels()
 {
@@ -136,7 +135,7 @@ void GuiFirstBootSetup::showStepModels()
         {
             // Use std::string as result: empty = success, non-empty = error message.
             window->pushGui(new GuiLoading<std::string>(window,
-                _("DOWNLOADING AI MODELS — THIS MAY TAKE A WHILE..."),
+                _("DOWNLOADING AI MODELS - THIS MAY TAKE A WHILE..."),
                 [](IGuiLoadingHandler* handler) -> std::string
                 {
                     LOG(LogInfo) << "GuiFirstBootSetup: running local-llm-setup-models";
@@ -191,7 +190,7 @@ void GuiFirstBootSetup::showStepModels()
 }
 
 // ---------------------------------------------------------------------------
-// Finalize – mark first-boot done and launch the main screen
+// Finalize - mark first-boot done and launch the main screen
 // ---------------------------------------------------------------------------
 void GuiFirstBootSetup::finalize()
 {

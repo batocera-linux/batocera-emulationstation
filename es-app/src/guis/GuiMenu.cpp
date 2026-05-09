@@ -3925,7 +3925,7 @@ void GuiMenu::openAISettings()
 			_("YES"), [this]()
 			{
 				mWindow->pushGui(new GuiLoading<std::string>(mWindow,
-					_("DOWNLOADING AI MODELS — THIS MAY TAKE A WHILE..."),
+					_("DOWNLOADING AI MODELS - THIS MAY TAKE A WHILE..."),
 					[](IGuiLoadingHandler* handler) -> std::string
 					{
 						LOG(LogInfo) << "GuiMenu: running local-llm-setup-models";
