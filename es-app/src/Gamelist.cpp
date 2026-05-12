@@ -243,10 +243,13 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 
 	auto files = Utils::FileSystem::getDirContent(getGamelistRecoveryPath(system), true);
 	for (auto file : files)
-		loadGamelistFile(file, system, fileMap, size, true);
+	  {
+	    if (Utils::String::toLower(Utils::FileSystem::getExtension(file)) == ".xml")
+	      loadGamelistFile(file, system, fileMap, size, true);
+	  }
 
 	if (size != SIZE_MAX)
-		system->setGamelistHash(size);	
+		system->setGamelistHash(size);
 }
 
 bool addFileDataNode(pugi::xml_node& parent, FileData* file, const char* tag, SystemData* system, bool fullPaths = false)

@@ -33,6 +33,8 @@
 
 #include <fstream>
 #include <sstream>
+#include <filesystem>
+
 #include <unordered_map>
 #include <optional>
 
@@ -1377,6 +1379,10 @@ namespace Utils
 
 		std::vector<char> readAllBytes(const std::string& fileName)
 		{
+			if(std::filesystem::is_directory(fileName)) {
+			  return {};
+			}
+
 			std::ifstream file(WINSTRINGW(fileName), std::ios::binary | std::ios::ate);
 			if (!file.is_open())
 				return {};
