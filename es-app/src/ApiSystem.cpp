@@ -1929,7 +1929,7 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string& fileName
 			int pc = getPdfPageCount(fileName);
 			if (pc > 0)
 			{
-				Utils::ThreadPool pool(1);
+				Utils::ThreadPool pool("extractPdfImages", 1);
 
 				for (int i = 0; i < pc; i += numberOfPagesToProcess)
 					pool.queueWorkItem([this, fileName, i, numberOfPagesToProcess] { extractPdfImages(fileName, i + 1, numberOfPagesToProcess); });

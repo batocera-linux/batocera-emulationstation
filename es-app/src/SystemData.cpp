@@ -921,7 +921,7 @@ bool SystemData::loadConfig(Window* window)
 	// Allow threaded loading only if processor threads > 1 so it does not apply on machines like Pi0.
 	if (std::thread::hardware_concurrency() > 1 && Settings::ThreadedLoading())
 	{
-		pThreadPool = new ThreadPool();
+		pThreadPool = new ThreadPool("loadConfig");
 
 		systems = new SystemDataPtr[systemCount];
 		for (int i = 0; i < systemCount; i++)

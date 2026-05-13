@@ -35,6 +35,7 @@
 #include <sstream>
 #include <unordered_map>
 #include <optional>
+#include <climits>
 
 #include "Paths.h"
 
@@ -1381,8 +1382,8 @@ namespace Utils
 			if (!file.is_open())
 				return {};
 
-			std::streamsize size = file.tellg();
-			if (size <= 0)
+			std::streampos size = file.tellg();			
+			if (size <= 0 || size == LLONG_MAX)
 				return {};
 
 			file.seekg(0, std::ios::beg);
@@ -1754,7 +1755,6 @@ namespace Utils
 #endif
 		void preloadFileSystemCache(const std::string& path, bool trySaveStates)
 		{
-#if WIN32		
 			if (path.empty())
 				return;
 
@@ -1773,7 +1773,7 @@ namespace Utils
 				if (trySaveStates)
 				{
 					std::string systemName = Utils::FileSystem::getFileName(*dir);
-					Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName));
+					Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName), true);
 				}
 
 				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/images"));
@@ -1785,10 +1785,12 @@ namespace Utils
 
 			std::thread thread(doWork, new std::string(path));
 
+#if WIN32		
 			::SetThreadDescription(thread.native_handle(), L"PreloadFileSystemCache");
 			::SetThreadPriority(thread.native_handle(), THREAD_PRIORITY_LOWEST);
-			thread.detach();
 #endif
+
+			thread.detach();
 		}
 
 	} // FileSystem::

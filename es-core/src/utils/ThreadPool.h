@@ -32,7 +32,7 @@ namespace Utils
 	public:
 		typedef std::function<void(void)> work_function;
 
-		ThreadPool(int threadByCore = 2);
+		ThreadPool(const std::string& poolName = "", int threadByCore = 2);
 		~ThreadPool();
 
 		void start();
@@ -65,6 +65,7 @@ namespace Utils
 		std::atomic<size_t> mNumWork;
 		std::mutex _mutex;
 		std::vector<std::thread> mThreads;
+		std::string mPoolName;
 		int mThreadByCore;
 
 		std::vector<std::shared_ptr<WorkItem>> mAllItems;

@@ -528,7 +528,7 @@ int main(int argc, char* argv[])
 #endif
 
 	// Threaded initializations
-	auto threadPool = new Utils::ThreadPool();
+	auto threadPool = new Utils::ThreadPool("main()", -3);
 	auto vlcInit = threadPool->queueWorkItem([] { VideoVlcComponent::init(); });
 	threadPool->queueWorkItem([] { ApiSystem::getInstance()->getIpAddress(); });
 	threadPool->queueWorkItem([] { MetaDataList::initMetadata(); });
