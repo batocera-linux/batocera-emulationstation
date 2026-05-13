@@ -113,6 +113,9 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 {	
 	std::vector<FileData*> ret;
 
+	if (Utils::String::toLower(Utils::FileSystem::getExtension(xmlpath)) != ".xml" || !Utils::FileSystem::isRegularFile(xmlpath))
+		return ret;
+
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
