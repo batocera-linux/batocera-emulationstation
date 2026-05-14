@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-20 17:52+0300\n"
+"PO-Revision-Date: 2026-05-04 22:10+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SE SCANEAZĂ BLUETOOTH"
@@ -54,16 +54,16 @@ msgid "enter game genre"
 msgstr "introdu genul jocului"
 
 msgid "Tags"
-msgstr ""
+msgstr "Etichete"
 
 msgid "tags"
-msgstr ""
+msgstr "etichete"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Nume sortare"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "introdu numele pentru sortare"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -934,10 +934,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "SETĂRI PADTOKEY"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "PRELUARE MANUALĂ"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "SURSE INCLUSE"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -967,25 +967,25 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NICIUN JOC NU SE POTRIVEȘTE CU CRITERIUL."
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "KEYBOARDTOPADS"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "SCURTĂTURI"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "TASTE DEFINITE DAR JOYSTICK NEDENUMIT"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "JOYSTICK DENUMIT DAR NICIO TASTĂ DEFINITĂ"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "RECONECTEAZĂ DISPOZITIVUL PENTRU A APLICA"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "NUME JOYSTICK"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "APASĂ O TASTĂ SAU AȘTEAPTĂ 4 SECUNDE PENTRU A ELIBERA"
 
 msgid "OVERLAYS"
 msgstr "OVERLAY-URI"
@@ -1051,10 +1051,10 @@ msgid "VOLUME UP"
 msgstr "CREȘTERE VOLUM"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "CENTRU DE CONTROL"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "TASTĂ ASOCIATĂ DE 2 ORI"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALEAZĂ PE UN DISC NOU"
@@ -1622,15 +1622,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "LIMBĂ (REGIUNE)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "ASPECT TASTATURĂ"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "VARIANTĂ TASTATURĂ"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Alege aspectul fizic al tastaturii. O repornire poate fi necesară ca "
+"schimbările să fie aplicate pe deplin."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "ALEGE FUSUL TĂU ORAR"
@@ -1804,10 +1806,10 @@ msgid "BACKUP USER DATA"
 msgstr "COPIAZĂ DATELE UTILIZATORULUI"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "SCOATE UN DISC EXTRA"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "SISTEM DE FIȘIERE DRIVE EXTRA"
 
 msgid "ADVANCED"
 msgstr "AVANSAT"
@@ -2083,7 +2085,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "ARATĂ DOSARUL PĂRINTE „..”"
 
 msgid "ICONS"
-msgstr ""
+msgstr "PICTOGRAME"
 
 msgid "AFTER NAME"
 msgstr "DUPĂ NUME"
@@ -2092,7 +2094,7 @@ msgid "BEFORE NAME"
 msgstr "ÎNAINTEA NUMELUI"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "ARATĂ PICTOGRAME ETICHETE"
 
 msgid "SHOW REGION FLAG"
 msgstr "ARATĂ STEAGUL REGIUNII"
@@ -2385,25 +2387,25 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "OPȚIUNILE SELECTATE SUNT INVALIDE"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ FORMATEZI ACEST DISPOZITIV?"
+msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ FORMATEZI ACEASTĂ UNITATE?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "SCOATE ÎN SIGURANȚĂ UN DISC"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "UNITATE COMBINATĂ"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "NICIO UNITATE COMBINATĂ GĂSIT"
 
 msgid "EJECT"
-msgstr ""
+msgstr "SCOATE"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "NICIO UNITATE SELECTATĂ"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Se scoate..."
 
 msgid "Points"
 msgstr "Puncte"
@@ -2498,7 +2500,7 @@ msgstr ""
 "EȘTI SIGUR?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "SCRIE UN TAG NFC PENTRU ACEST JOC"
@@ -2603,10 +2605,10 @@ msgid "BY MANUFACTURER"
 msgstr "DUPĂ PRODUCĂTOR"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "DUPĂ TIPUL HARDWARE APOI ALFABETIC"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "DUPĂ TIPUL HARDWARE APOI AN"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "DUPĂ PRODUCĂTOR ȘI TIP"
@@ -2774,7 +2776,7 @@ msgid "EDIT METADATA"
 msgstr "EDITEAZĂ METADATELE"
 
 msgid "TAGS"
-msgstr ""
+msgstr "ETICHETE"
 
 msgid "GENRES"
 msgstr "GENURI"
@@ -2906,10 +2908,10 @@ msgid "JOYSTICKS HOTKEYS"
 msgstr "TASTE RAPIDE JOYSTICK"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRICȚIONEAZĂ SCURTĂTURILE JOYSTICK LA IEȘIRE"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "SCURTĂTURI GLOBALE"
 
 msgid "default"
 msgstr "implicit"
@@ -2960,19 +2962,19 @@ msgid "HOTKEY"
 msgstr "TASTĂ RAPIDĂ"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "NICIUN DISPOZITIV GĂSIT (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "DECLARĂ O SCURTĂTURĂ GLOBALĂ"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "AI 4 SECUNDE SĂ APEȘI DE EXACT 2 ORI SCURTĂTURA GLOBALĂ"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "NICIO SCURTĂTURĂ GLOBALĂ DETECTATĂ"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "MAI MULT DE O SCURTĂTURĂ GLOBALĂ DETECTATĂ"
 
 msgid "BORDER SIZE"
 msgstr "MĂRIME CHENAR"
@@ -3341,7 +3343,7 @@ msgid "GENRE"
 msgstr "GEN"
 
 msgid "TAG"
-msgstr ""
+msgstr "ETICHETĂ"
 
 msgid "FAMILY"
 msgstr "FAMILIE"
@@ -3410,19 +3412,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI PENTRU A APLICA MODIFICĂRILE."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LENT"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "NEFUNCȚIONAL"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "CU BUG-URI"
 
 msgid "LIKED"
-msgstr ""
+msgstr "PLĂCUT"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "NEPLĂCUT"
 
 msgid "Loading system config..."
 msgstr "Se încarcă configurația de sistem..."
@@ -3909,70 +3911,70 @@ msgstr ""
 "Trage în ținte pentru a-l calibra"
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "S-a reîncărcat lista de jocuri..."
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "UNITATE CU JOCURI DETECTATĂ"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "DISPOZITIV"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODEL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "MĂRIME"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MONTEAZĂ"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Combini jocurile din această partiție a unității acum?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Acest lucru va fi aplicat și la pornirile ulterioare)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Combinare solicitată... Te rog așteaptă."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "COMBINARE EȘUATĂ"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Te rog verifică jurnalele."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "UNITATE NOUĂ DETECTATĂ"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Formatezi și pregătești această unitate pentru stocare de jocuri?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(TOATE DATELE EXISTENTE VOR FI ȘTERSE)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Se începe procesul de formatare..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMATAREA A EȘUAT"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "NU, IGNORĂ DE ACEASTĂ DATĂ"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "NU, IGNORĂ ÎNTOTDEAUNA"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Se adaugă unitatea la lista de ignorate..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "DA, FORMATEAZĂ ȘI COMBINĂ"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "NU, IGNORĂ"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "DUPĂ TIPUL DE HARDWARE"

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: batocera-es v35beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2025-03-01 02:48+0700\n"
-"Last-Translator: cicag <riiiooooo13@gmail.com>\n"
+"PO-Revision-Date: 2026-04-25 02:48+0700\n"
+"Last-Translator: pwn.liangtae <pwn.liangtae@gmail.com>\n"
 "Language-Team: Batocera Indonesia Army ( Comunity )\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -53,16 +53,16 @@ msgid "enter game genre"
 msgstr "masukkan jenis game"
 
 msgid "Tags"
-msgstr ""
+msgstr "Label"
 
 msgid "tags"
-msgstr ""
+msgstr "label"
 
 msgid "Sort name"
-msgstr ""
+msgstr "Urutkan nama"
 
 msgid "enter game sort name"
-msgstr ""
+msgstr "masukkan nama urutan game"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -515,7 +515,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "PENGGUNAAN DISK SISTEM"
 
 msgid "DISK USAGE"
-msgstr ""
+msgstr "PENGGUNAAN DISK"
 
 msgid "SYSTEM"
 msgstr "SISTEM"
@@ -524,13 +524,13 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER VIDEO"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
-msgstr ""
+msgstr "SEOUL"
 
 msgid "NETPLAY SETTINGS"
 msgstr "PENGATURAN NETPLAY"
@@ -554,7 +554,7 @@ msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
+msgstr "Otomatis membuat lobby Netplay saat memulai permainan."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
@@ -691,10 +691,10 @@ msgid ""
 msgstr "Menampilkan ikon di pojok kanan bawah saat pencapaian memenuhi syarat."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "PENCAPAIAN TIDAK RESMI"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Aktifkan pembukaan pencapaian tidak resmi."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "MEMBUKA PERINGKAT SUARA RETRO"
@@ -873,7 +873,7 @@ msgid "LOGO SOURCE"
 msgstr "SUMBER LOGO"
 
 msgid "HD WHEEL"
-msgstr ""
+msgstr "RODA HD"
 
 msgid "WHEEL"
 msgstr "WHEEL"
@@ -927,22 +927,22 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PENGATURAN PADTOKEY"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "SCRAPE MANUAL"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "SCRAPER YANG TERSEDIA"
 
 msgid "SCREENSCRAPER"
-msgstr ""
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
-msgstr ""
+msgstr "IGDB"
 
 msgid "CLIENT ID"
-msgstr ""
+msgstr "ID KLIEN"
 
 msgid "CLIENT SECRET"
-msgstr ""
+msgstr "RAHASIA KLIEN"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -960,40 +960,40 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "TIDAK ADA GAME YANG COCOK DENGAN KRITERIA ITU."
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "KEYBOARD KE PAD"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "TOMBOL PINTAS"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "TOMBOL DITETAPKAN TAPI JOYSTICK TANPA NAMA"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "JOYSTICK BERNAMA TAPI TOMBOL BELUM DITETAPKAN"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "CABUT DAN PASANG KEMBALI PERANGKAT UNTUK MENERAPKAN"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "NAMA JOYSTICK"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "TEKAN TOMBOL ATAU TUNGGU 4 DETIK UNTUK MENGHAPUS"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "OVERLAY"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "SIKLUS KECERAHAN"
 
 msgid "COIN"
-msgstr ""
+msgstr "KOIN"
 
 msgid "EXIT"
-msgstr ""
+msgstr "KELUAR"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "PERCEPAT (FAST FORWARD)"
 
 msgid "MENU"
 msgstr "MENU"
@@ -1002,22 +1002,22 @@ msgid "FILES"
 msgstr "FILE"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "DISK BERIKUTNYA"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "SLOT BERIKUTNYA"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "JEDA"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "SLOT SEBELUMNYA"
 
 msgid "RESET"
 msgstr "MENGATUR ULANG"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "MUAT STATE (RESTORE)"
 
 msgid "REWIND"
 msgstr "MEMUTAR ULANG"
@@ -1026,28 +1026,28 @@ msgid "SAVE STATE"
 msgstr ""
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "TATA LETAK LAYAR"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "TUKAR LAYAR"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "TERJEMAHAN"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "KECILKAN VOLUME"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "BISUKAN VOLUME"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "BESARKAN VOLUME"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "PUSAT KONTROL"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "TOMBOL DITETAPKAN DUA KALI"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "INSTALL PADA DISK BARU"
@@ -1516,7 +1516,7 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Tekan Sebentar △ ( Segitiga ) untuk Penyimpanandan tekan lama × untuk "
+"Tekan Sebentar â–³ ( Segitiga ) untuk Penyimpanandan tekan lama Ã— untuk "
 "pengaturan game"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1611,15 +1611,15 @@ msgid "LANGUAGE (REGION)"
 msgstr "BAHASA (WILAYAH)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "TATA LETAK KEYBOARD"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "VARIAN KEYBOARD"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
-msgstr ""
+msgstr "Pilih tata letak fisik keyboard. Mulai ulang (reboot) mungkin diperlukan agar perubahan diterapkan sepenuhnya."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "PILIH ZONA WAKTU ANDA"
@@ -1765,7 +1765,7 @@ msgid "LED HARDWARE"
 msgstr "PERANGKAT LED"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "AKTIFKAN LED"
 
 msgid "RED"
 msgstr "MERAH"
@@ -1789,10 +1789,10 @@ msgid "BACKUP USER DATA"
 msgstr "CADANGKAN DATA PENGGUNA"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "KELUARKAN DISK TAMBAHAN"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "TIPE SISTEM FILE DRIVE TAMBAHAN"
 
 msgid "ADVANCED"
 msgstr "LANJUTAN"
@@ -2065,7 +2065,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "TAMPILKAN '..' FOLDER INDUK"
 
 msgid "ICONS"
-msgstr ""
+msgstr "IKON"
 
 msgid "AFTER NAME"
 msgstr "NAMA SETELAHNYA"
@@ -2074,7 +2074,7 @@ msgid "BEFORE NAME"
 msgstr "NAMA SEBELUMNYA"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "TAMPILKAN IKON LABEL"
 
 msgid "SHOW REGION FLAG"
 msgstr "TAMPILKAN BENDERA WILAYAH"
@@ -2236,7 +2236,7 @@ msgid "WIFI KEY"
 msgstr "PASSWORD WIFI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "NEGARA WIFI"
 
 msgid "WIFI ENABLED"
 msgstr "WIFI AKTIF"
@@ -2368,22 +2368,22 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "YAKIN MAU FORMAT DRIVE INI?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "KELUARKAN DISK DENGAN AMAN"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "DRIVE TERGABUNG"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "TIDAK ADA DRIVE TERGABUNG YANG DITEMUKAN"
 
 msgid "EJECT"
-msgstr ""
+msgstr "KELUARKAN (EJECT)"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "TIDAK ADA DRIVE YANG DIPILIH"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Mengeluarkan..."
 
 msgid "Points"
 msgstr "Poin"
@@ -2478,26 +2478,30 @@ msgstr ""
 "KAU YAKIN?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "TULIS LABEL NFC UNTUK GAME INI"
 
 #, c-format
 msgid ""
 "IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
-msgstr ""
+msgstr "
+"UNTUK MENULIS PERINTAH JALANKAN\n"
+"'%s'\n"
+"TEKAN TOMBOL TULIS LALU TEMPATKAN LABEL NFC PADA ALAT PENULIS"
+"
 
 msgid "WRITE"
-msgstr ""
+msgstr "TULIS"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "TEMPATKAN LABEL PADA ALAT PENULIS..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "LABEL BERHASIL DITULIS"
 
 msgid "COLLECTIONS"
 msgstr "KOLEKSI"
@@ -2580,10 +2584,10 @@ msgid "BY MANUFACTURER"
 msgstr "BERDASARKAN PRODUSEN"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "BERDASARKAN TIPE PERANGKAT LALU ALFABET"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "BERDASARKAN TIPE PERANGKAT LALU TAHUN"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "BERDASARKAN PRODUSEN DAN TIPE"
@@ -2751,7 +2755,7 @@ msgid "EDIT METADATA"
 msgstr "UBAH METADATA"
 
 msgid "TAGS"
-msgstr ""
+msgstr "LABEL"
 
 msgid "GENRES"
 msgstr "GENRE"
@@ -2879,76 +2883,76 @@ msgid "BEHAVIOR"
 msgstr "PERILAKU"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "TOMBOL PINTAS JOYSTICK"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "BATASI TOMBOL PINTAS JOYSTICK HANYA UNTUK KELUAR"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "TOMBOL PINTAS GLOBAL"
 
 msgid "default"
 msgstr "standar"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "SELATAN (BAWAH)"
 
 msgid "EAST"
-msgstr ""
+msgstr "TIMUR (KANAN)"
 
 msgid "NORTH"
-msgstr ""
+msgstr "UTARA (ATAS)"
 
 msgid "WEST"
-msgstr ""
+msgstr "BARAT (KIRI)"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD ATAS"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD BAWAH"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD KIRI"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD KANAN"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "BAHU KIRI (L1/LB)"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "BAHU KANAN (R1/RB)"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "PEMICU KIRI (L2/LT)"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "PEMICU KANAN (R2/RT)"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "TEKAN STIK KIRI (L3)"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "TEKAN STIK KANAN (R3)"
 
 msgid "HOTKEY"
-msgstr ""
+msgstr "TOMBOL PINTAS"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "PERANGKAT TIDAK DITEMUKAN (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "TETAPKAN TOMBOL PINTAS GLOBAL BARU"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "ANDA PUNYA 4 DETIK UNTUK MENEKAN TOMBOL PINTAS GLOBAL TEPAT 2 KALI"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "TIDAK ADA TOMBOL PINTAS GLOBAL TERDETEKSI"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "LEBIH DARI SATU TOMBOL PINTAS GLOBAL TERDETEKSI"
 
 msgid "BORDER SIZE"
 msgstr "UKURAN"
@@ -3308,7 +3312,7 @@ msgid "GENRE"
 msgstr "GENRE"
 
 msgid "TAG"
-msgstr ""
+msgstr "LABEL"
 
 msgid "FAMILY"
 msgstr "KELUARGA"
@@ -3362,7 +3366,7 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "APAKAH INGIN BERALIH LAYAR?"
 
 msgid "INVALID CREDENTIALS"
-msgstr ""
+msgstr "KREDENSIAL TIDAK VALID"
 
 msgid "SCRAPING"
 msgstr "HIMPUN"
@@ -3377,19 +3381,19 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPDATE LISTGAME UNTUK MENERAPKAN PERUBAHAN."
 
 msgid "SLOW"
-msgstr ""
+msgstr "LAMBAT"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "TIDAK BERFUNGSI"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "BERMASALAH (BUGGY)"
 
 msgid "LIKED"
-msgstr ""
+msgstr "DISUKAI"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "TIDAK DISUKAI"
 
 msgid "Loading system config..."
 msgstr "Memuat konfigurasi sistem..."
@@ -3859,70 +3863,70 @@ msgstr ""
 "Sesuaikan Target untuk Melakukan Kalibrasi"
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Memuat ulang daftar game..."
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "DRIVE GAME TERDETEKSI"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "PERANGKAT"
 
 msgid "MODEL"
-msgstr ""
+msgstr "MODEL"
 
 msgid "SIZE"
-msgstr ""
+msgstr "UKURAN"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "MOUNT (KAITKAN)"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Gabungkan game dari partisi drive ini sekarang?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Ini juga akan diterapkan pada proses booting mendatang)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Penggabungan diminta... Mohon tunggu."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "PENGGABUNGAN GAGAL"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Silakan periksa log."
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "DRIVE BARU TERDETEKSI"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Format dan siapkan drive ini untuk penyimpanan game?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(SEMUA DATA YANG ADA AKAN DIHAPUS)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Memulai proses format..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "FORMAT GAGAL"
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "TIDAK, ABAIKAN KALI INI"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "TIDAK, ABAIKAN SELAMANYA"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Menambahkan drive ke daftar abaikan..."
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "YA, FORMAT & GABUNGKAN"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "TIDAK, ABAIKAN"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "BERDASARKAN TIPE HARDWARE"
