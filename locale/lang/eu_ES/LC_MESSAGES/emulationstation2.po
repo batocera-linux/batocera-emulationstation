@@ -10,326 +10,32 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "SCANNING BLUETOOTH"
-msgstr "BLUETOOTH-a BILATZEN"
-
-msgid "Searching for devices..."
-msgstr "Gailuak bilatzen..."
-
-msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "BLUETOOTH BILAKETA JADANIK ABIAN DA."
-
-msgid "FORMATTING DEVICE"
-msgstr "GAILUA FORMATEATEZN"
-
-msgid "Formatting"
-msgstr "Formateatzen"
-
-msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "ERAGIKETA AMAITZEKO BERABIARAZTEA BEHARREZKOA DA"
-
-msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "IRAKURLE BAT FORMATEATUA IZATEN ARI DA JADA"
-
-msgid "Name"
-msgstr "Izena"
-
-msgid "this game's name"
-msgstr "joku honen izena"
-
-msgid "Description"
-msgstr "Deskribapena"
-
-msgid "this game's description"
-msgstr "joku honen deskribapena"
-
-msgid "Genre"
-msgstr "Generoa"
-
-msgid "enter game genre"
-msgstr "sartu jokoaren generoa"
-
-msgid "Tags"
-msgstr ""
-
-msgid "tags"
-msgstr ""
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
-
-msgid "Emulator"
-msgstr "Emulatzaile"
-
-msgid "emulator"
-msgstr "emulatzaile"
-
-msgid "Core"
-msgstr "Nukleoa"
-
-msgid "core"
-msgstr "nukleoa"
-
-msgid "Image"
-msgstr "Irudia"
-
-msgid "enter path to image"
-msgstr "Sartu irudirako bidea"
-
-msgid "Video"
-msgstr "Bideoa"
-
-msgid "enter path to video"
-msgstr "sartu bideorako bidea"
-
-msgid "Logo"
-msgstr "Logoa"
-
-msgid "enter path to logo"
-msgstr "sartu logorako bidea"
-
-msgid "Box"
-msgstr "Kutxa"
-
-msgid "enter path to box"
-msgstr "sartu kutxarako bidea"
-
-msgid "Fan art"
-msgstr "Zale artea"
-
-msgid "enter path to fanart"
-msgstr "sartu zale arterako bidea"
-
-msgid "Title shot"
-msgstr "Izenburu argazkia"
-
-msgid "enter path to title shot"
-msgstr "sartu izenburu argazkirako bidea"
-
-msgid "Manual"
-msgstr "Eskuliburua"
-
-msgid "enter path to manual"
-msgstr "sartu eskulibururako bidea"
-
-msgid "Magazine"
-msgstr "Aldizkaria"
-
-msgid "enter path to magazine"
-msgstr "sartu aldizkarirako bidea"
-
-msgid "Map"
-msgstr "Mapa"
-
-msgid "enter path to map"
-msgstr "sartu maparako bidea"
-
-msgid "Bezel (16:9)"
-msgstr "Bezel-a (16:9)"
-
-msgid "enter path to bezel (16:9)"
-msgstr "sartu bezel-erako bidea (16:9)"
-
-msgid "Cartridge"
-msgstr "Kartutxoa"
-
-msgid "enter path to cartridge"
-msgstr "sartu kartutxorako bidea"
-
-msgid "Alt BoxArt"
-msgstr "Kutxa arte alternatiboa"
-
-msgid "enter path to alt boxart"
-msgstr "sartu kutxa arte alternatiborako bidea"
-
-msgid "Box backside"
-msgstr "Kutxa atzealdea"
-
-msgid "enter path to box background"
-msgstr "sartu kutxa atzealderako bidea"
-
-msgid "Wheel"
-msgstr "Gurpila"
-
-msgid "enter path to wheel"
-msgstr "sartu gurpilerako bidea"
-
-msgid "Mix"
-msgstr "Nahasketa"
-
-msgid "enter path to mix"
-msgstr "sartu nahasketarako bidea"
-
-msgid "Rating"
-msgstr "Puntuazioa"
-
-msgid "enter rating"
-msgstr "Sartu puntuazioa"
-
-msgid "Release date"
-msgstr "Argitaratze data"
-
-msgid "enter release date"
-msgstr "sartu argitaratze data"
-
-msgid "Developer"
-msgstr "Garatzailea"
-
-msgid "this game's developer"
-msgstr "joku honen garatzailea"
+msgid "Searching"
+msgstr "Bilatzen"
 
 msgid "Publisher"
 msgstr "Argitaratzailea"
 
-msgid "this game's publisher"
-msgstr "joku honen argitaratzailea"
+msgid "Developer"
+msgstr "Garatzailea"
 
-msgid "Game family"
-msgstr "Joku familia"
-
-msgid "this game's game family"
-msgstr "joku honen joku familia"
-
-msgid "Genres"
-msgstr "Mota"
-
-msgid "enter game genres"
-msgstr "joku honen mota"
-
-msgid "Arcade system"
-msgstr "Arkade sistema"
-
-msgid "this game's arcade system"
-msgstr "joku honen arkade sistema"
+msgid "Genre"
+msgstr "Generoa"
 
 msgid "Players"
 msgstr "Jokalariak"
 
-msgid "this game's number of players"
-msgstr "joku honen jokalari kopurua"
-
-msgid "Favorite"
-msgstr "Gogokoa"
-
-msgid "enter favorite"
-msgstr "gogokoa gehitu"
-
-msgid "Hidden"
-msgstr "Ezkutatua"
-
-msgid "enter hidden"
-msgstr "sartu ezkutatua"
-
-msgid "Kidgame"
-msgstr "Umeentzako jokua"
-
-msgid "enter kidgame"
-msgstr "sartu umeentzako jokua"
-
-msgid "Play count"
-msgstr "Partida zenbatekoa"
-
-msgid "enter number of times played"
-msgstr "sartu jokatutako partida zenbatekoa"
-
-msgid "Last played"
-msgstr "Azken jokatutakoa"
-
-msgid "enter last played date"
-msgstr "sartu azken jokatutako data"
-
-msgid "Crc32"
-msgstr "Crc32"
-
-msgid "Crc32 checksum"
-msgstr "Crc32 konprobaketa batura"
-
-msgid "Md5"
-msgstr "Md5"
-
-msgid "Md5 checksum"
-msgstr "Md5 konprobaketa batura"
-
-msgid "Game time"
-msgstr "Joko denbora"
-
-msgid "how long the game has been played in total (seconds)"
-msgstr "zenbat denbora jolastu da jokua guztira (segunduak)"
-
-msgid "Languages"
-msgstr "Hizkuntzak"
-
-msgid "this game's languages"
-msgstr "joku honen hizkuntzak"
-
-msgid "Region"
-msgstr "Herrialde"
-
-msgid "this game's region"
-msgstr "joku honen herrialdea"
-
-msgid "Cheevos Hash"
-msgstr "Cheevos Hash funtzioa"
-
-msgid "Cheevos checksum"
-msgstr "Cheevos koprobaketa batura"
-
-msgid "Cheevos Game ID"
-msgstr "Cheevos joko IDa"
-
-msgid "Screenscraper Game ID"
-msgstr "Screenscraper Joko IDa"
-
-#, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Kolekzio honek %i jokoa dauka:%s"
-msgstr[1] "Kolekzio honek %i jokoak dauzka, %s barne"
-
-msgid "Collections"
-msgstr "Kolekzioak"
-
-msgid "Unknown"
-msgstr "Ezezaguna"
-
-msgid "Extracting"
-msgstr "Erauzten"
-
-msgid "DOWNLOADING"
-msgstr "DESKARGATZEN"
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "GAIA ONDO INSTALATU DA"
-
-msgid "AN ERROR OCCURRED"
-msgstr "ERRORE BAT GERTATU DA"
-
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "GAIA ONDO DESINSTALATU DA"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BEZEL-AK ONDO INSTALATU DIRA"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "BEZEL-AK ONDO DESINSTALATU DIRA"
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "PAKETEA ONDO INSTALATU DA"
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "PAKETEA ONDO KENDU DA"
-
-msgid "Searching"
-msgstr "Bilatzen"
-
 msgid "Released"
 msgstr "Argitaratuta"
 
+msgid "Rating"
+msgstr "Puntuazioa"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "EZ DIRA JOKUAK AURKITU - TXANDAPASA"
+
+msgid "AN ERROR OCCURRED"
+msgstr "ERRORE BAT GERTATU DA"
 
 msgid "RETRY"
 msgstr "BERRIRO SAIATU"
@@ -349,86 +55,26 @@ msgstr "BILATU:"
 msgid "ACCEPT RESULT"
 msgstr "ONARTU EMAITZA"
 
-msgid "THEMES DOWNLOADER"
-msgstr "GAI DESKARGATZAILEA"
+msgid "Full"
+msgstr "Osoa"
 
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "AUKERATU INSTALATU/KENDU NAHI DUZUN GAIA"
+msgid "Kiosk"
+msgstr "Kioskoa"
 
-msgid "All"
-msgstr "Denak"
+msgid "Kid"
+msgstr "Haurra"
 
-msgid "Installed"
-msgstr "Instalatuta"
+msgid "Basic"
+msgstr "Oinarrizkoa"
 
-msgid "Available"
-msgstr "Eskuragarri"
-
-msgid "BACK"
-msgstr "ATZERA"
-
-msgid "No items"
-msgstr "Artikulurik ez"
-
-msgid "PLEASE WAIT"
-msgstr "ITXARON MESEDEZ"
-
-msgid "UPDATE"
-msgstr "EGUNERATU"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%S' GEHITUTA DESKARGA LERROAN"
-
-msgid "REMOVE"
-msgstr "KENDU"
-
-msgid "INSTALL"
-msgstr "INSTALATU"
-
-msgid "CLOSE"
-msgstr "ITXI"
-
-msgid "CURRENT THEME"
-msgstr "UNEKO GAIA"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "DAGOENEKO DESKARGA LERROAN"
-
-msgid "FINISHED"
-msgstr "AMAITUTA"
-
-msgid "OK"
-msgstr "ADOS"
-
-msgid "REFRESH"
-msgstr "FRESKATU"
-
-msgid "INPUT MANUALLY"
-msgstr "ESKUZKO SARRERA"
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "HARI GABEKO SARERIK EZ DA AURKITU"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "HARI GABEKO SAREAK BILATZEN"
-
-msgid "DEVICE OPTIONS"
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-
-msgid "DISCONNECT"
-msgstr ""
-
-msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+"KONTUZ: UNE HONETAN AUKERATUTAKO EMULADOREA/NUKLEOAK EZ DU AUKERATUTAKO "
+"JOKOAREN FORMATUA JASATEN.\n"
+"EXEKUTATU NAHI AL DUZU HALA ERE?"
 
 msgid "YES"
 msgstr "BAI"
@@ -436,13 +82,159 @@ msgstr "BAI"
 msgid "NO"
 msgstr "EZ"
 
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
+"KONTUZ: SISTEMAK BIOS FITXATEGIA(K) FALTA DITU ETA BALITEKEJOKUEK ONDO EZ "
+"FUNTZIONATZEAEZEKUTATU NAHI AL DUZU HALA ERE?"
+
+msgid "Preloading UI"
+msgstr "UI-a aurretik kargatu"
+
+msgid "Loading theme"
+msgstr "Gaia kargatzen"
+
+msgid "Loading gamelists"
+msgstr "Joko listak kargatzen"
+
+msgid "Loading..."
+msgstr "Kargatzen..."
+
+msgid "MENU"
+msgstr "MENUA"
+
+msgid "SYSTEM INFO"
+msgstr "SISTEMAREN INFORMAZIOA"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr ""
+"ERROREA: SISTEMA GUZTIAK EZKUTUAN DAUDE, GUZTIAK BERRIRO ERAKUSTEN ORAIN"
+
+msgid "OK"
+msgstr "ADOS"
+
+msgid "QUICK SEARCH"
+msgstr "BILAKETA AZKARRA"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "EZ ZAUDE SARE BATETARA KONEKTATUTA"
+
+msgid "GO TO LETTER"
+msgstr "JOAN LETRARA"
+
+msgid "COLLECTIONS"
+msgstr "KOLEKZIOAK"
+
+msgid "GO TO MANUFACTURER"
+msgstr "JOAN FABRIKATZAILERA"
+
+msgid "GO TO HARDWARE"
+msgstr "JOAN HARDWARE-ERA"
+
+msgid "GO TO DECADE"
+msgstr "JOAN HAMARKADARA"
+
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+msgid "CONFIGURATION"
+msgstr "KONFIGURAZIOA"
 
 #, c-format
-msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i KOLEKZIOA"
+msgstr[1] "%i KOLEKZIOAK"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i ARTIKULUA"
+msgstr[1] "%i ARTIKULUAK"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i JOKOA"
+msgstr[1] "%i JOKOAK"
+
+msgid "SELECT"
+msgstr "AUKERATU"
+
+msgid "NETPLAY"
+msgstr "SARE JOKOA"
+
+msgid "SEARCH"
+msgstr "BILATU"
+
+msgid "RANDOM"
+msgstr "AUSAZKOA"
+
+msgid "NAVIGATION BAR"
+msgstr "NABIGAZIO BARRA"
+
+msgid "FILES"
+msgstr "FITXATEGIAK"
+
+msgid "Last played"
+msgstr "Azken jokatutakoa"
+
+msgid "Times played"
+msgstr "Zenbat aldiz jokatua"
+
+msgid "Game time"
+msgstr "Joko denbora"
+
+msgid "Favorite"
+msgstr "Gogokoa"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "Karpeta honek %i jokoa dauka, %s barne"
+msgstr[1] "Karpeta honek %i jokoak dauzka, %s barne"
+
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTRATU JOKOAK TESTUAREN ARABERA"
+
+msgid "Games similar to"
+msgstr "Honakoaren antzeko jokoak"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "CHOOSE"
+msgstr "HAUTATU"
+
+msgid "BACK"
+msgstr "ATZERA"
+
+msgid "SAVE STATES (HOLD)"
+msgstr "GORDETAKO EGOERAK (MANTENDU)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "JOKU AUKERAK (MANTENDU)"
+
+msgid "OPTIONS"
+msgstr "AUKERAK"
+
+msgid "GAME OPTIONS"
+msgstr "JOKU AUKERAK"
+
+msgid "FAVORITE"
+msgstr "GOGOKOAK"
+
+msgid "SAVE STATES"
+msgstr "GORDETAKO EGOERAK"
+
+#, c-format
+msgid "Back to %s"
 msgstr ""
+
+msgid "No Entries Found"
+msgstr "Ez da Sarrerarik Aurkitu"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD-ETIK TEKLATURAKO KONFIGURAZIOA"
@@ -455,6 +247,9 @@ msgstr "GORDE"
 
 msgid "DELETE"
 msgstr "EZABATU"
+
+msgid "CLOSE"
+msgstr "ITXI"
 
 msgid "PLAYER 1"
 msgstr "1 JOKALARIA"
@@ -498,143 +293,14 @@ msgstr "ALDAKETAK GORDE?"
 msgid "ARE YOU SURE?"
 msgstr "ZIUR AL ZAUDE?"
 
-msgid "INFORMATION"
-msgstr "INFORMAZIOA"
-
-msgid "VERSION"
-msgstr "BERTSIOA"
-
-msgid "USER DISK USAGE"
-msgstr "ERABILTZAILE DISKO ERABILERA"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "SISTEMAREN DISKO ERABILERA"
-
-msgid "DISK USAGE"
-msgstr "DISKO ERABILERA"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "VIDEO DRIVER"
-msgstr "BIDEO DRIVER-A"
-
-msgid "PARIS"
-msgstr ""
-
-msgid "OSAKA"
-msgstr ""
-
-msgid "SEOUL"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "SARE JOKO KONFIGURAZIOA"
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "RETROACHIEVEMENT KONFIGURAZIOA"
 
 msgid "SETTINGS"
 msgstr "KONFIGURAZIOA"
 
-msgid "ENABLE NETPLAY"
-msgstr "GAITU SARE JOKOA"
-
-msgid "NICKNAME"
-msgstr "EZIZENA"
-
-msgid "OPTIONS"
-msgstr "AUKERAK"
-
-msgid "PORT"
-msgstr "PORTUA"
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "ERAKUTSI ESKURAGARRI EZ DAUDEN JOKOAK"
-
-msgid "Show rooms for games not present on this machine."
-msgstr "Erakutsi makinan eskuragarri ez dauden jokuen gelak"
-
-msgid "GAME INDEXES"
-msgstr "JOKO INDIZEAK"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXATU JOKO BERRIAK ABIARAZTEAN"
-
-msgid "INDEX GAMES"
-msgstr "INDEXATU JOKOAK"
-
-msgid "USE RELAY SERVER"
-msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
-
-msgid "NONE"
-msgstr "BAT ERE EZ"
-
-msgid "NEW YORK"
-msgstr "NEW YORK"
-
-msgid "MADRID"
-msgstr "MADRID"
-
-msgid "MONTREAL"
-msgstr "MONTREAL"
-
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
-
-msgid "INPUT"
-msgstr "EDITATU"
-
-msgid "SEARCH"
-msgstr "BILATU"
-
-#, c-format
-msgid "%d of %d softcore points"
-msgstr ""
-
-#, c-format
-msgid "%d of %d hardcore points"
-msgstr ""
-
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d %d-tik)"
-
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIVEMENTS"
-
-msgid "Softcore points"
-msgstr "Ez amorratu moduko puntuaketa"
-
-msgid "Points (hardcore)"
-msgstr "Puntuaketa (amorratu modua)"
-
-msgid "Rank"
-msgstr "Maila"
-
-msgid "VIEW DETAILS"
-msgstr "IKUSI XEHETASUNAK"
-
-msgid "LAUNCH"
-msgstr "ABIARAZI"
-
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT KONFIGURAZIOA"
 
 msgid "USERNAME"
 msgstr "ERABILTZAILE IZENA"
@@ -709,8 +375,158 @@ msgstr "ERAKUTSI RETROACHIEVMENT SARRERA MENU NAGUSIAN"
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "Ikusi zure RetroAchivement egoera menu nagusitik zuzenean!"
 
+msgid "GAME INDEXES"
+msgstr "JOKO INDIZEAK"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXATU JOKO BERRIAK ABIARAZTEAN"
+
+msgid "INDEX GAMES"
+msgstr "INDEXATU JOKOAK"
+
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "EZIN IZAN DA RETROACHIVEMENTS AKTIBATU:"
+
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr ""
+
+msgid "go back"
+msgstr "atzera egin"
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "CONTROL CENTER"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "BEREZARRI"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "ATZERA ERAMAN"
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr "PANTAILA KAPTURA"
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "START RECORDING"
+msgstr ""
+
+msgid "STOP RECORDING"
+msgstr ""
+
+msgid "KEYBOARD TOGGLE"
+msgstr ""
+
+msgid "KEY ASSIGNED TWICE"
+msgstr ""
+
+msgid "ZOOM OUT"
+msgstr "KANPORAKO ZOOM-A"
+
+msgid "ZOOM IN"
+msgstr "BARNERAKO ZOOM-A"
+
+msgid "MOVE"
+msgstr "MUGITU"
+
+msgid "ZOOM"
+msgstr "ZOOM-A"
+
+msgid "PLEASE WAIT"
+msgstr "ITXARON MESEDEZ"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d %d-tik)"
+
+msgid "Softcore points"
+msgstr "Ez amorratu moduko puntuaketa"
+
+msgid "Points (hardcore)"
+msgstr "Puntuaketa (amorratu modua)"
+
+msgid "Rank"
+msgstr "Maila"
+
+msgid "VIEW DETAILS"
+msgstr "IKUSI XEHETASUNAK"
+
+msgid "LAUNCH"
+msgstr "ABIARAZI"
 
 msgid "BLUETOOTH DEVICE LIST"
 msgstr ""
@@ -724,6 +540,9 @@ msgstr "EZ DA BLUETOOTH GAILURIK AURKITU"
 msgid " (Connected)"
 msgstr ""
 
+msgid "REMOVE"
+msgstr "KENDU"
+
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH GAILUAK KENDU DIRA"
 
@@ -731,11 +550,41 @@ msgstr "BLUETOOTH GAILUAK KENDU DIRA"
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr "ZIUR AL ZAUDE '%s' KENDU NAHI DUZULA"
 
-msgid "THE BEZEL PROJECT"
-msgstr "BEZEL PROIEKTUA"
+msgid "NO MISSING BIOS FILES"
+msgstr "EZ DA BIOS FITXATEGIRIK FALTA"
 
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "AUKERATU INSTALATU/KENDU NAHI DITUZUN BEZEL-AL"
+msgid "MISSING BIOS CHECK"
+msgstr "FALTAN DAUDEN BIOS-EN KONPROBAKETA"
+
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Denak"
+
+msgid "REFRESH"
+msgstr "FRESKATU"
+
+msgid "refresh"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr "EZ DA BIOS-IK FALTA"
+
+msgid "GAMES TO INDEX"
+msgstr "INDEXATU BEHARREKO JOKOAK"
+
+msgid "ALL"
+msgstr "GUZTIAK"
+
+msgid "ONLY MISSING"
+msgstr "BAKARRIK FALTA DIRA"
+
+msgid "SYSTEMS INCLUDED"
+msgstr "KONTUAN HARTUTAKO SISTEMAK"
+
+msgid "START"
+msgstr "HASI"
 
 #, c-format
 msgid "UPDATING %s"
@@ -774,17 +623,830 @@ msgstr "SARE KONEXIO BAT BEHARREZKOA DA"
 msgid "NO UPDATE AVAILABLE"
 msgstr "EZ DAGO EGUNERAKETARIK ERABILGARRI"
 
-msgid "SCRAPER"
-msgstr "DATU LORTZAILEA"
+msgid "CONNECT TO NETPLAY"
+msgstr "KONEKTATU SARE JOKORA"
+
+msgid "Select a game lobby to join"
+msgstr "Aukeratu zein joko gelara batu nahi duzun"
+
+msgid "FAILED"
+msgstr "HUTS EGIN DU"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "ROM BERTSIO EZEZAGUNA"
+
+msgid "DIFFERENT ROM"
+msgstr "ROM DESBERDINA"
+
+msgid "SAME ROM"
+msgstr "ROM BERDINA"
+
+msgid "UNAVAILABLE CORE"
+msgstr "NUKLEO ESKURAEZINA"
+
+msgid "LAN GAMES"
+msgstr ""
+
+msgid "AVAILABLE GAMES"
+msgstr "JOKO ESKURAGARRIAK"
+
+msgid "ONLINE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr "JOKO ESKURAEZINAK"
+
+msgid "NO GAMES FOUND"
+msgstr "EZ DA JOKORIK AURKITU"
+
+msgid "JOIN GAME"
+msgstr "BATU JOKORA"
+
+msgid "WATCH GAME"
+msgstr "IKUSI JOKOA"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "EDUKI DEKSARGATZAILEA"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "AUKERATU INSTALATU/EZABATU NAHI DUZUN EDUKIA"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "EGUNERATU INSTALATUTAKO EDUKIA"
+
+msgid "No items"
+msgstr "Artikulurik ez"
+
+msgid "MISC"
+msgstr "ASKOTARIKOA"
+
+msgid "UPDATE"
+msgstr "EGUNERATU"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%S' GEHITUTA DESKARGA LERROAN"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "DESINSTALAZIOA GEHITUTA LERROAN"
+
+msgid "INSTALL"
+msgstr "INSTALATU"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "DAGOENEKO DESKARGA LERROAN"
+
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "BLUETOOTH GAILUA PAREKATU"
+
+msgid "SCANNING BLUETOOTH"
+msgstr "BLUETOOTH-a BILATZEN"
+
+msgid "PAIR"
+msgstr "PAREKATU"
+
+msgid "FINISHED"
+msgstr "AMAITUTA"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FILTRATU JOKO LISTA HONEN ARABERA "
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "EDITATU KOLEKZIO FILTRO DINAMIKOAK"
+
+msgid "RESET ALL FILTERS"
+msgstr "BEREZARRI FILTRO GUZTIAK"
+
+msgid "FIND GAMES"
+msgstr "BILATU JOKOAK"
+
+msgid "SYSTEMS"
+msgstr "SISTEMAK"
+
+msgid "INSTALL ON A NEW DISK"
+msgstr "INSTALATU DISKO BERRI BATEAN"
+
+msgid "TARGET DEVICE"
+msgstr "HELBURU GAILUA"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "HELBURU ARKITEKTURA"
+
+msgid "NETWORK REQUIRED"
+msgstr "SAREA BEHARREZKOA DA"
+
+msgid "INVALID PARAMETERS"
+msgstr "PARAMETRO EZEGOKIAK"
+
+msgid "VIEW OPTIONS"
+msgstr "ERAKUTSI AUKERAK"
+
+msgid "NAVIGATION"
+msgstr "NABIGAZIOA"
+
+msgid "OTHER FILTERS"
+msgstr "BESTE FILTROAK"
+
+msgid "SELECT RANDOM GAME"
+msgstr "AUKERATU JOKOA AUSAZ"
+
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "EGIN SALTO JOKU HASERARA LETRA BATEZ"
+
+msgid "SORT GAMES BY"
+msgstr "JOKUAN ORDENATU:"
+
+msgid "DYNAMIC COLLECTION"
+msgstr "KOLEKZIO DINAMIKOA"
+
+msgid "CUSTOM COLLECTION"
+msgstr "NEURRIRA EGINDAKO KOLEKZIOA"
+
+msgid "DELETE COLLECTION"
+msgstr "EZABATU KOLEKZIOA"
+
+msgid "COLLECTION"
+msgstr "KOLEKZIOA"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "SORTU KOLEKZIO DINAMIKO BERRIA"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "JOKO LISTA IKUSTEKO ESTILOA"
+
+msgid "automatic"
+msgstr "automatikoa"
+
+msgid "VIEW CUSTOMIZATION"
+msgstr "ERAKUTSI NEURRIRATZEA"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "IKUSI PAD-ETK TEKLATURAKO INFORMAZIOA"
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "SISTEMAREN AUKERA AURRERATIAK"
+
+msgid "RESET FILTERS"
+msgstr "FILTROAK BEREZARRI"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "FUNTIZO HAU DESGAITUTA DAGO SCRAPER-A MARTXAN DAGOEN BITARTENA"
+
+msgid "New Collection Name"
+msgstr "Kolekzio Berri Izena"
+
+msgid "THEMES DOWNLOADER"
+msgstr "GAI DESKARGATZAILEA"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "AUKERATU INSTALATU/KENDU NAHI DUZUN GAIA"
+
+msgid "Installed"
+msgstr "Instalatuta"
+
+msgid "Available"
+msgstr "Eskuragarri"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "GAIA ONDO DESINSTALATU DA"
+
+msgid "CURRENT THEME"
+msgstr "UNEKO GAIA"
+
+msgid "Points"
+msgstr "Puntuak"
+
+msgid "Unlocked on"
+msgstr "Desklokeatuta hemen"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "JOKO HONEK EZ DU LORPENIK ORAINDIK"
+
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr "%d%% osatuta"
+
+msgid "GAME MEDIA"
+msgstr "JOKO MEDIA"
+
+msgid "VIEW GAME MANUAL"
+msgstr "IKUSI JOKO MANUALA"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "IKUSI JOKO ALDIZKARIA"
+
+msgid "VIEW GAME MAP"
+msgstr "IKUSI JOKO MAPA"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "IKUSI PANTAILA OSOKO BIDEOA"
+
+msgid "VIEW GAME MEDIA"
+msgstr "IKUSI JOKO MEDIA"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "UNEKO NUKLEOA EZ DA BATERAGARRIA"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "NUKLEO BATERAGARRIA(K)"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "IKUSI JOKU HONEN LORPENAK"
+
+msgid "GAME"
+msgstr "JOKOA"
+
+msgid "OPEN"
+msgstr "IREKI"
+
+msgid "START A NETPLAY GAME"
+msgstr "HASI SARE JOKO BERRI BAT"
+
+msgid "START GAME"
+msgstr "HASI JOKOA"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "SARE JOKO BATEN ANFITRIOIA IZAN"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "JOKOA PUBLIKOKI IRAGARRI"
+
+msgid "PLAYER PASSWORD"
+msgstr "JOKALARI PASAHITZA"
+
+msgid "VIEWER PASSWORD"
+msgstr "IKUSI PASAHITZA"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "AURKITU ANTZEKO JOKOAK..."
+
+msgid "DELETE ITEM"
+msgstr "EZABATU ARTIKULUA"
+
+msgid "DELETE GAME"
+msgstr "EZABATU JOKOA"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ERAGIKETA HONEK ZURE UNEKO JOKO FITXATEGIA(K) EZABATUKO D(IT)U!\n"
+"ZIUR AL ZAUDE?"
+
+msgid "NFC"
+msgstr ""
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "EZABATU %s-TIK"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "GEHITU %s-RI"
+
+msgid "FAVORITES"
+msgstr "GOGOKOAK"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI..."
 
 msgid "SCRAPE"
 msgstr "DATUAK LORTU"
 
-msgid "ACCOUNTS"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "EDITATU PAD-ETIK TEKLATURAKO PROFILA"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "SORTU PAD-ETIK TEKLATURAKO PROFILA"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "JOKO AUKERA AURRERATUAK"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "EDITATU METADATU KARPETA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "JOKU HONEN DATUAK EDITATU"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "JOKO KOLEKZIO KONFIGURAZIOA"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "ERAKUTSI BEHARREKO KOLEKZIOAK"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "ERAKUTSITAKO SISTEMAK"
+
+msgid "GROUPED SYSTEMS"
+msgstr "TALDEKATUTAKO SISTEMAK"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "SORTU NEURRIRA EGINDAKO KOLEKZIOA"
+
+msgid "ENTER NAME"
 msgstr ""
 
-msgid "go back"
-msgstr "atzera egin"
+msgid "CREATE FROM THEME"
+msgstr ""
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "SORTU KOLEKZIO EDITAGARRI BERRIA"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "ORDENATU KOLEKZIOAK ETA SISTEMAK"
+
+msgid "ALPHABETICALLY"
+msgstr "ALFABETIKOKI"
+
+msgid "BY MANUFACTURER"
+msgstr "EGILAREN ARABERA"
+
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr "FABRIKATZAILE ETA MOTAREN ARABERA"
+
+msgid "BY RELEASE YEAR"
+msgstr "PUBLIKAZIO URTEAREN ARABERA"
+
+msgid "SORT SYSTEMS"
+msgstr "ORDENATU SISTEMAK"
+
+msgid "START ON SYSTEM"
+msgstr "HASI SISTEMATIK"
+
+msgid "NONE"
+msgstr "BAT ERE EZ"
+
+msgid "RESTORE LAST SELECTED"
+msgstr "BEREZARRI AUKERATUTAKO AZKENA"
+
+msgid "START ON GAMELIST"
+msgstr "HONAKO JOKO LISTAN HASI"
+
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "ERAKUTIS SISTEMA IZENA KOLEKZIO BERRIETAN"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "ERAKUTIS IKUSGAI EZ DIREN JOKOAK KOLEKZIOETAN "
+
+msgid "SHOW EMPTY SYSTEMS"
+msgstr "ERAKUTIS SISTEMA HUTSAK"
+
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
+msgid "UPDATE GAMELISTS"
+msgstr "EGUNERATU JOKO LISTAK"
+
+msgid "SELECT COLLECTIONS"
+msgstr "AUKERATU KOLEKZIOAK"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr "KOLEKZIO AUTOMATIKOAK"
+
+msgid "PER GENRE"
+msgstr "MOTAREN ARABERA"
+
+msgid "ARCADE SYSTEMS"
+msgstr "ARKADE SISTEMAK"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "JOKU KOLKEZIO AUTOMATIKOAK"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "KOLEKZIO EDITAGARRIAK"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "KOLEKZIO DINAMIKOAK"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "NEURRIRA EGINDAKO JOKO KOLEKZIOAK"
+
+msgid "ADD COMBINATION KEY"
+msgstr "GEHITU KONBINAZIO TEKLA"
+
+msgid "BACKUP USER DATA"
+msgstr "ERABILTZAILE DATUEN SEGURTASUN KOPIA EGIN"
+
+msgid "NO DEVICE FOUND"
+msgstr "EZ DA GAILURIK AURKITU"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "KONTROLATZAILE KONFIGURAZIOA"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "AGINTE & BLUETOOTH KONFIGURAZIOAK"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "AGINTE KONTROL PRIORITATEA"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "JOKALARI ASIGNAZIOAK"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "#%i ANGINTE KONTROLA"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "%i-REN KONTORLATZAILEA"
+
+msgid "CONTROLLER MAPPING"
+msgstr "KONTROLATZAILE MAPEATZEA"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"KONTROLATZAILE BAT MAPEATZERA ZOAZ. MAPEATZERAKOAN BOTOIEN POSIZIOA HARTU "
+"KONTUTAN, EZ BOTOIEN IZEN FISIKOA. EZ BADAUKAZI BOTOI FISIKORIK HOTKEY-"
+"ARENTZAT, ERABILI SELECT BOTOIA. SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK "
+"EDOZEIN BOTOI SAKATUTA MANTENDUZ. SAKATU HEGO BOTOIAK KONFIRMATZEKO "
+"AMAITUTAKOAN."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN PISTOLA EZARPENAK"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "WIIMOTE PISTOLA EZARPENAK"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK XAGU/PISTOLA"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "BLUETOOTH PAD-AK AUTOMATIKOKI PAREKATU"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "BLUETOOTH PAD-AK ESKUZ PAREKATU"
+
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
+msgstr "BLUETOOTH BILAKETA JADANIK ABIAN DA."
+
+msgid "DISPLAY OPTIONS"
+msgstr "IKUSKATZE AUKERAK"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ERAKUTSI KONTROLATZAILE AKTIBITATEA"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ERAKUTSI KONTROLATZAILE BATERIA MAILA"
+
+msgid "SHOW GUN NOTIFICATIONS"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
+
+msgid "default"
+msgstr "defektuz"
+
+msgid "NOT CONNECTED"
+msgstr "KONEKTATU GABE"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "HOTKEY"
+
+msgid "DEFAULT"
+msgstr "BESTERIK EZEKO AUKERA"
+
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "BORDER SIZE"
+msgstr "ERTZ TAMAINA"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "THIN"
+msgstr "MEHEA"
+
+msgid "MEDIUM"
+msgstr "ERTAINA"
+
+msgid "BIG"
+msgstr "ZABALA"
+
+msgid "BORDER MODE"
+msgstr "ERTZ MODUA"
+
+msgid "NORMAL"
+msgstr "ARRUNTA"
+
+msgid "IN GAME ONLY"
+msgstr "JOKOAN BAKARRIK"
+
+msgid "HIDDEN"
+msgstr "EZKUTATUA"
+
+msgid "BORDER COLOR"
+msgstr "ERTZ KOLOREA"
+
+msgid "WHITE"
+msgstr "ZURIA"
+
+msgid "RED"
+msgstr "GORRIA"
+
+msgid "GREEN"
+msgstr "BERDEA"
+
+msgid "BLUE"
+msgstr "URDINA"
+
+msgid "BORDER RATIO"
+msgstr ""
+
+msgid "CAMERA CONTRAST"
+msgstr "KAMERAREN KONTRASTEA"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Eguna/Eguzki argia (40)"
+
+msgid "Default (50)"
+msgstr "Defektuz (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Pantaila ahula/Arratsaldea (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "KAMERAREN ARGITASUNA"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Eguna/Eguzki argia (80)"
+
+msgid "Default (100)"
+msgstr "Defektuz (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Pantaila ahula/Arratsaldea (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "KAMERAREN ESPOSIZIOA"
+
+msgid "Projector/CRT (-5)"
+msgstr "Proiektorea/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Proiektorea/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Defektuz (-7"
+
+msgid "Other (-8)"
+msgstr "Bestela (-8)"
+
+msgid "Other (-9)"
+msgstr "Bestela (-9)"
+
+msgid "RECOIL"
+msgstr "ATZERA JOTZEA"
+
+msgid "DISABLED"
+msgstr "EZGAITUTA"
+
+msgid "GUN"
+msgstr "PISTOLA"
+
+msgid "MACHINE GUN"
+msgstr "METRAILADOREA"
+
+msgid "QUIET GUN"
+msgstr "PISTOLA ISILA"
+
+msgid "QUIET MACHINE GUN"
+msgstr "AMETRALLADORE ISILA"
+
+msgid "MODE"
+msgstr "MODUA"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr "XAGUA BAKARRIK"
+
+msgid "HAND"
+msgstr "ESKUA"
+
+msgid "LEFT"
+msgstr "EZKER"
+
+msgid "RIGHT"
+msgstr "ESKUIN"
+
+msgid "FAVORITE SONGS"
+msgstr "GOGOKO ABESTIAK"
+
+msgid "SAVESTATE MANAGER"
+msgstr "GORDETAKO EGOERA KUDEATZAILEA"
+
+msgid "START NEW GAME"
+msgstr "HASI JOKO BERRIA"
+
+msgid "START NEW AUTO SAVE"
+msgstr "HASI AUTOMATIKOKI GORDETZE BERRIA"
+
+msgid "AUTO SAVE"
+msgstr "AUTOMATIKOKI GORDETZEA"
+
+msgid "SLOT"
+msgstr "ARTEKA"
+
+msgid "COPY TO FREE SLOT"
+msgstr "KOPIATU ARTEKA LIBRERA"
+
+msgid "INPUT"
+msgstr "EDITATU"
+
+msgid "INPUT MANUALLY"
+msgstr "ESKUZKO SARRERA"
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "HARI GABEKO SARERIK EZ DA AURKITU"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "HARI GABEKO SAREAK BILATZEN"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
+
+msgid "SEOUL"
+msgstr ""
+
+msgid "NETPLAY SETTINGS"
+msgstr "SARE JOKO KONFIGURAZIOA"
+
+msgid "ENABLE NETPLAY"
+msgstr "GAITU SARE JOKOA"
+
+msgid "NICKNAME"
+msgstr "EZIZENA"
+
+msgid "PORT"
+msgstr "PORTUA"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "ERAKUTSI ESKURAGARRI EZ DAUDEN JOKOAK"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "Erakutsi makinan eskuragarri ez dauden jokuen gelak"
+
+msgid "USE RELAY SERVER"
+msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
+msgid "SCRAPER"
+msgstr "DATU LORTZAILEA"
+
+msgid "ACCOUNTS"
+msgstr ""
 
 msgid "SCRAPING DATABASE"
 msgstr "DATU BASEAREN DATUAK LORTZEN"
@@ -800,9 +1462,6 @@ msgstr "FILTROAK"
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr "JOKUA HAUENTZAT DATUAK LORTZEN"
-
-msgid "ALL"
-msgstr "GUZTIAK"
 
 msgid "GAMES MISSING ANY MEDIA"
 msgstr "MEDIA-REN BAT FALTA DUTEN JOKUAK"
@@ -831,20 +1490,11 @@ msgstr "AZKEN 3 HILABETEAK"
 msgid "LAST YEAR"
 msgstr "AZKEN URTEA"
 
-msgid "SYSTEMS INCLUDED"
-msgstr "KONTUAN HARTUTAKO SISTEMAK"
-
 msgid "SCRAPE NOW"
 msgstr "DATUAK LORTU"
 
-msgid "START"
-msgstr "HASI"
-
 msgid "IMAGE SOURCE"
 msgstr "IRUDI ITURRIA"
-
-msgid "SCREENSHOT"
-msgstr "PANTAILA KAPTURA"
 
 msgid "TITLE SCREENSHOT"
 msgstr "IZENBURU PANTAILA KAPTURA"
@@ -881,9 +1531,6 @@ msgstr "MARKESINA"
 
 msgid "PREFERED REGION"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AUTO"
 
 msgid "OVERWRITE NAMES"
 msgstr ""
@@ -947,8 +1594,8 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"KONTUZ: AUKERATU DITUZUN SISTEMETAKO BATZUK EZ DUTE PLATAFORMA EZARRITA."
-"EMAITZAK BESTE SISTEMA BATENTZAT IZAN DAITEZKE!\n"
+"KONTUZ: AUKERATU DITUZUN SISTEMETAKO BATZUK EZ DUTE PLATAFORMA "
+"EZARRITA.EMAITZAK BESTE SISTEMA BATENTZAT IZAN DAITEZKE!\n"
 "JARRAITU HALA ERE?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -957,113 +1604,143 @@ msgstr "DATU LORTZEA ABIAN DA. GELDITZEA NAHI DUZU?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "EZ DAGO JOKORIK IRIZPIDE HORI BETETZEN DUENIK"
 
-msgid "KEYBOARDTOPADS"
+msgid "INFORMATION"
+msgstr "INFORMAZIOA"
+
+msgid "VERSION"
+msgstr "BERTSIOA"
+
+msgid "USER DISK USAGE"
+msgstr "ERABILTZAILE DISKO ERABILERA"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SISTEMAREN DISKO ERABILERA"
+
+msgid "DISK USAGE"
+msgstr "DISKO ERABILERA"
+
+msgid "VIDEO DRIVER"
+msgstr "BIDEO DRIVER-A"
+
+msgid "THE BEZEL PROJECT"
+msgstr "BEZEL PROIEKTUA"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr "AUKERATU INSTALATU/KENDU NAHI DITUZUN BEZEL-AL"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "BEZEL-AK ONDO DESINSTALATU DIRA"
+
+msgid "dim"
+msgstr "arindu"
+
+msgid "black"
+msgstr "beltza"
+
+msgid "random video"
+msgstr "ausazko bideoa"
+
+msgid "slideshow"
+msgstr "aurkezpena"
+
+msgid "suspend"
+msgstr "suspenditu"
+
+msgid "always"
+msgstr "beti"
+
+msgid "start & end"
+msgstr "hasi eta bukatu"
+
+msgid "never"
+msgstr "inoiz"
+
+msgid "systems"
+msgstr "sistemak"
+
+msgid "random"
+msgstr "ausaz"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "PANTAILA BABESLE KONFIGURAZIOA"
+
+msgid "START SCREENSAVER AFTER"
+msgstr "PANTAILA BABESLEA ZENBAT SEGUNDU ONDOREN:"
+
+msgid "SCREENSAVER TYPE"
+msgstr "PANTAILA BABESLEAREN PORTAERA"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "GELDITU MUSIKA PANTIALA BABESLEAN"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "AUSAZKO BIDEO PANTAILA BABESLE KONFIGURAZIOA"
+
+msgid "VIDEO DURATION (SECS)"
+msgstr "BIDEO LUZERA (SEG)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "ERABILI OMX IRAKURGAILUA PANTAILA BABESLEARENTZAT"
+
+msgid "SHOW GAME INFO"
+msgstr "ERAKUTSI JOKO INFORMAZIOA"
+
+msgid "SHOW DATE TIME"
 msgstr ""
 
-msgid "HOTKEYS"
+msgid "DATE FORMAT"
 msgstr ""
 
-msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgid "TIME FORMAT"
 msgstr ""
 
-msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "ERABILI MARKESINA JOKO INFORMAZIO BEZALA"
 
-msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgid "DECORATION SET USED"
+msgstr "DEKORAZIO TALDEA ERABILITA"
 
-msgid "JOYSTICK NAME"
-msgstr ""
+msgid "STRETCH VIDEOS"
+msgstr "LUZATU BIDEOAK"
 
-msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgid "MUTE VIDEO AUDIO"
+msgstr "ISILDU BIDEOAREN AUDIOA"
 
-msgid "OVERLAYS"
-msgstr ""
+msgid "SCREENSAVER CONTROLS"
+msgstr "PANTAILA BABESLE KONTROLAK"
 
-msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgid "USE CUSTOM VIDEOS"
+msgstr "ERABILI NEURRIRA EGINDAKO BIDEOAK"
 
-msgid "COIN"
-msgstr ""
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr "NEURRIRA EGINDAKO BIDEOEN KARPETA"
 
-msgid "EXIT"
-msgstr ""
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "ERABILI AZPIKARPETAN DAUDEN BIDEOAK NEURRIRA EDINGADKO KARPETETATIK"
 
-msgid "FAST FORWARD"
-msgstr ""
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr "NEURRIRA EGINDAKO BIDEO FITXATEGIEN LUZAPENAK"
 
-msgid "MENU"
-msgstr "MENUA"
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "PANTAILA BABESLE PRESENTAZIO KONPIGURAZIOA"
 
-msgid "FILES"
-msgstr "FITXATEGIAK"
+msgid "IMAGE DURATION (SECS)"
+msgstr "IRUDI LUZERA (SEG)"
 
-msgid "NEXT DISK"
-msgstr ""
+msgid "STRETCH IMAGES"
+msgstr "LUZATU IRUDIAK"
 
-msgid "NEXT SLOT"
-msgstr ""
+msgid "USE CUSTOM IMAGES"
+msgstr "ERABILI NEURRIRA HARTUTAKO IRUDIAK"
 
-msgid "PAUSE"
-msgstr ""
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr "ERABILI NEURRIRA EGINDAKO IRUDI DIREKTORIOAK"
 
-msgid "PREVIOUS SLOT"
-msgstr ""
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "ERABILI NEURRIRA EGINDAKO PARKETETAKO AZPIKARPETETAN DAUDEN IRUDIAK"
 
-msgid "RESET"
-msgstr "BEREZARRI"
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "REWIND"
-msgstr "ATZERA ERAMAN"
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
-msgid "CONTROL CENTER"
-msgstr ""
-
-msgid "KEY ASSIGNED TWICE"
-msgstr ""
-
-msgid "INSTALL ON A NEW DISK"
-msgstr "INSTALATU DISKO BERRI BATEAN"
-
-msgid "TARGET DEVICE"
-msgstr "HELBURU GAILUA"
-
-msgid "SELECT"
-msgstr "AUKERATU"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "HELBURU ARKITEKTURA"
-
-msgid "NETWORK REQUIRED"
-msgstr "SAREA BEHARREZKOA DA"
-
-msgid "INVALID PARAMETERS"
-msgstr "PARAMETRO EZEGOKIAK"
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr "NEURRIRA EGINDAKO IRUDI FITXATEGI LUZAPENAK"
 
 msgid "fade"
 msgstr "ahuldu"
@@ -1214,9 +1891,6 @@ msgstr "JOKO EZARPENAK"
 msgid "USER INTERFACE SETTINGS"
 msgstr "ERABILTZAILE INTERFAZE EZARPENAK"
 
-msgid "GAME COLLECTION SETTINGS"
-msgstr "JOKO KOLEKZIO KONFIGURAZIOA"
-
 msgid "SOUND SETTINGS"
 msgstr "SOINU EZARPENAK"
 
@@ -1244,12 +1918,6 @@ msgstr "IRTEN"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "ZIUR AL ZAUDE SARRERA KONFIGURATU NAHI DUZULA?"
 
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "FUNTIZO HAU DESGAITUTA DAGO SCRAPER-A MARTXAN DAGOEN BITARTENA"
-
-msgid "CHOOSE"
-msgstr "HAUTATU"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SARTU DESBLOKEATZEKO KODEA ORAIN"
 
@@ -1261,9 +1929,6 @@ msgstr ""
 
 msgid "SERVER"
 msgstr ""
-
-msgid "DISABLED"
-msgstr "EZGAITUTA"
 
 msgid "DMDSERVER (for real dmd)"
 msgstr ""
@@ -1418,12 +2083,6 @@ msgstr "BILATU SARE JOKO/LORPENAK DITUZTEN JOKU GUZTIAK"
 msgid "CLEAR CACHES"
 msgstr "HUSTU KATXEAK"
 
-msgid "BUILD IMAGE CACHE"
-msgstr "ERAIKI IRUDI KATXEA"
-
-msgid "Building image cache"
-msgstr "IRUDI KATXEA ERAIKITZEN"
-
 msgid "DISPLAY SETTINGS"
 msgstr ""
 
@@ -1569,14 +2228,14 @@ msgstr "IRUDIEN VRAM ERABILERA OPTIMIZATU"
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "BIDEO VRAM ERABILERA OPTIMIZATU"
 
+msgid "USE FILESYSTEM CACHE"
+msgstr ""
+
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "BERABIARAZPENA BEHARREZKOA DA KONFIGURAZIO BERRIA EZARTZEKO"
 
 msgid "DOWNLOADS"
 msgstr "DESKARGAK"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "EDUKI DEKSARGATZAILEA"
 
 msgid "THEMES"
 msgstr "GAIAK"
@@ -1598,9 +2257,6 @@ msgstr "EGUNERAKETA HASI"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "EGUNERATZAILEA DAGOENEKO MARTXAN DAGO"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "EZ ZAUDE SARE BATETARA KONEKTATUTA"
 
 msgid "LANGUAGE"
 msgstr "HIZKUNTZA"
@@ -1630,9 +2286,6 @@ msgstr "ERAKUTSI ORDULARIA 12 ORDUKO FORMATUAN"
 
 msgid "POWER SAVING MODE"
 msgstr "ENERGIA AURREZTE MODUA"
-
-msgid "DEFAULT"
-msgstr "BESTERIK EZEKO AUKERA"
 
 msgid "ENHANCED"
 msgstr "HOBETUTA"
@@ -1706,9 +2359,6 @@ msgstr "BATOCERA ABIARAZTE IRUDIA"
 msgid "SPLASH SETTING"
 msgstr "ABIARAZTE PANTAILA"
 
-msgid "MISSING BIOS CHECK"
-msgstr "FALTAN DAUDEN BIOS-EN KONPROBAKETA"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "KONPROBATU BIOS FITXATEGIAK JOKO BAT EXEKUTATU AURRETIK"
 
@@ -1766,15 +2416,6 @@ msgstr ""
 msgid "ENABLE LED"
 msgstr ""
 
-msgid "RED"
-msgstr "GORRIA"
-
-msgid "GREEN"
-msgstr "BERDEA"
-
-msgid "BLUE"
-msgstr "URDINA"
-
 msgid "LED BRIGHTNESS"
 msgstr ""
 
@@ -1783,9 +2424,6 @@ msgstr "BILTEGIRATZEA"
 
 msgid "STORAGE DEVICE"
 msgstr "MEMORIA"
-
-msgid "BACKUP USER DATA"
-msgstr "ERABILTZAILE DATUEN SEGURTASUN KOPIA EGIN"
 
 msgid "EJECT AN EXTRA DISK"
 msgstr ""
@@ -1853,9 +2491,6 @@ msgstr "DEKORAZIOA"
 
 msgid "Current setting"
 msgstr "Uneko ezarpena"
-
-msgid "UPDATE GAMELISTS"
-msgstr "EGUNERATU JOKO LISTAK"
 
 msgid "BIOS SETTINGS"
 msgstr ""
@@ -2008,23 +2643,20 @@ msgstr "JOKOEK HASH FUNTZIOAK EXEKUTATZEN ARI DIRA. GELDITZEA NAHI AL DUZU?"
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "BENETAN EGUNERATU JOKO LISTAK?"
 
+msgid "Emulator"
+msgstr "Emulatzaile"
+
+msgid "Core"
+msgstr "Nukleoa"
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "GAIA EZARRI BEHAR DUZU EZARPENAK EDITATU AURRETIK"
 
 msgid "THEME CONFIGURATION"
 msgstr "GAI KONFIGURAZIOA"
 
-msgid "VIEW CUSTOMIZATION"
-msgstr "ERAKUTSI NEURRIRATZEA"
-
 msgid "GAMELIST STYLE"
 msgstr "JOKO LISTA ESTILOA"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "JOKO LISTA IKUSTEKO ESTILOA"
-
-msgid "automatic"
-msgstr "automatikoa"
 
 msgid "basic"
 msgstr "oinarrizkoa"
@@ -2055,12 +2687,6 @@ msgstr "ERAKUTSI EZKUTUKO FITXATEGIAK"
 
 msgid "SHOW FOLDERS"
 msgstr "ERAKUTSI KARPETAK"
-
-msgid "always"
-msgstr "beti"
-
-msgid "never"
-msgstr "inoiz"
 
 msgid "having multiple games"
 msgstr "joku anitz dituztenak"
@@ -2124,12 +2750,6 @@ msgstr "bideoa"
 
 msgid "grid"
 msgstr "lauki sarea"
-
-msgid "DISPLAY OPTIONS"
-msgstr "IKUSKATZE AUKERAK"
-
-msgid "SCREENSAVER SETTINGS"
-msgstr "PANTAILA BABESLE KONFIGURAZIOA"
 
 msgid "LIST TRANSITION"
 msgstr "LISTA TRANSIZIOA"
@@ -2221,9 +2841,6 @@ msgstr "IP HELBIDEA"
 msgid "CONNECTED"
 msgstr "KONEKTATUTA"
 
-msgid "NOT CONNECTED"
-msgstr "KONEKTATU GABE"
-
 msgid "INTERNET STATUS"
 msgstr "INTERNET EGOERA"
 
@@ -2240,6 +2857,9 @@ msgid "WIFI KEY"
 msgstr "WIFI GAKOA"
 
 msgid "WIFI COUNTRY"
+msgstr ""
+
+msgid "N/A"
 msgstr ""
 
 msgid "WIFI ENABLED"
@@ -2345,12 +2965,6 @@ msgstr "BATA BESTEAREN ONDOAN"
 msgid "INTERNAL RESOLUTION"
 msgstr "BARNE BEREIZMENA"
 
-msgid "EDIT PADTOKEY PROFILE"
-msgstr "EDITATU PAD-ETIK TEKLATURAKO PROFILA"
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr "SORTU PAD-ETIK TEKLATURAKO PROFILA"
-
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "EXEKUTATU JOKO HAU ABIAARAZTEAN"
 
@@ -2390,368 +3004,6 @@ msgstr ""
 msgid "Ejecting..."
 msgstr ""
 
-msgid "Points"
-msgstr "Puntuak"
-
-msgid "Unlocked on"
-msgstr "Desklokeatuta hemen"
-
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "JOKO HONEK EZ DU LORPENIK ORAINDIK"
-
-msgid "Achievements (softcore)"
-msgstr ""
-
-msgid "Achievements (hardcore)"
-msgstr ""
-
-#, c-format
-msgid "%d%% complete"
-msgstr "%d%% osatuta"
-
-msgid "GAME MEDIA"
-msgstr "JOKO MEDIA"
-
-msgid "VIEW GAME MANUAL"
-msgstr "IKUSI JOKO MANUALA"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr "IKUSI JOKO ALDIZKARIA"
-
-msgid "VIEW GAME MAP"
-msgstr "IKUSI JOKO MAPA"
-
-msgid "VIEW FULLSCREEN VIDEO"
-msgstr "IKUSI PANTAILA OSOKO BIDEOA"
-
-msgid "VIEW GAME MEDIA"
-msgstr "IKUSI JOKO MEDIA"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "UNEKO NUKLEOA EZ DA BATERAGARRIA"
-
-msgid "COMPATIBLE CORE(S)"
-msgstr "NUKLEO BATERAGARRIA(K)"
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "IKUSI JOKU HONEN LORPENAK"
-
-msgid "GAME"
-msgstr "JOKOA"
-
-msgid "SAVE STATES"
-msgstr "GORDETAKO EGOERAK"
-
-msgid "OPEN"
-msgstr "IREKI"
-
-msgid "START A NETPLAY GAME"
-msgstr "HASI SARE JOKO BERRI BAT"
-
-msgid "NETPLAY"
-msgstr "SARE JOKOA"
-
-msgid "START GAME"
-msgstr "HASI JOKOA"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "SARE JOKO BATEN ANFITRIOIA IZAN"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "JOKOA PUBLIKOKI IRAGARRI"
-
-msgid "PLAYER PASSWORD"
-msgstr "JOKALARI PASAHITZA"
-
-msgid "VIEWER PASSWORD"
-msgstr "IKUSI PASAHITZA"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "AURKITU ANTZEKO JOKOAK..."
-
-msgid "DELETE ITEM"
-msgstr "EZABATU ARTIKULUA"
-
-msgid "DELETE GAME"
-msgstr "EZABATU JOKOA"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ERAGIKETA HONEK ZURE UNEKO JOKO FITXATEGIA(K) EZABATUKO D(IT)U!\n"
-"ZIUR AL ZAUDE?"
-
-msgid "NFC"
-msgstr ""
-
-msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
-
-#, c-format
-msgid ""
-"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
-"'%s'\n"
-"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
-msgstr ""
-
-msgid "WRITE"
-msgstr ""
-
-msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
-
-msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
-
-msgid "COLLECTIONS"
-msgstr "KOLEKZIOAK"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "EZABATU %s-TIK"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "GEHITU %s-RI"
-
-msgid "FAVORITES"
-msgstr "GOGOKOAK"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI..."
-
-msgid "DELETE COLLECTION"
-msgstr "EZABATU KOLEKZIOA"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "JOKO AUKERA AURRERATUAK"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "EDITATU METADATU KARPETA"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "JOKU HONEN DATUAK EDITATU"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "IKUSI PAD-ETK TEKLATURAKO INFORMAZIOA"
-
-msgid "ADD COMBINATION KEY"
-msgstr "GEHITU KONBINAZIO TEKLA"
-
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH GAILUA PAREKATU"
-
-msgid "PAIR"
-msgstr "PAREKATU"
-
-msgid "NO DEVICE FOUND"
-msgstr "EZ DA GAILURIK AURKITU"
-
-msgid "COLLECTIONS TO DISPLAY"
-msgstr "ERAKUTSI BEHARREKO KOLEKZIOAK"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "ERAKUTSITAKO SISTEMAK"
-
-msgid "GROUPED SYSTEMS"
-msgstr "TALDEKATUTAKO SISTEMAK"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr "SORTU NEURRIRA EGINDAKO KOLEKZIOA"
-
-msgid "New Collection Name"
-msgstr "Kolekzio Berri Izena"
-
-msgid "ENTER NAME"
-msgstr ""
-
-msgid "CREATE FROM THEME"
-msgstr ""
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "SORTU KOLEKZIO EDITAGARRI BERRIA"
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "SORTU KOLEKZIO DINAMIKO BERRIA"
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr "ORDENATU KOLEKZIOAK ETA SISTEMAK"
-
-msgid "ALPHABETICALLY"
-msgstr "ALFABETIKOKI"
-
-msgid "BY MANUFACTURER"
-msgstr "EGILAREN ARABERA"
-
-msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
-
-msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
-
-msgid "BY MANUFACTURER AND TYPE"
-msgstr "FABRIKATZAILE ETA MOTAREN ARABERA"
-
-msgid "BY RELEASE YEAR"
-msgstr "PUBLIKAZIO URTEAREN ARABERA"
-
-msgid "SORT SYSTEMS"
-msgstr "ORDENATU SISTEMAK"
-
-msgid "START ON SYSTEM"
-msgstr "HASI SISTEMATIK"
-
-msgid "RESTORE LAST SELECTED"
-msgstr "BEREZARRI AUKERATUTAKO AZKENA"
-
-msgid "START ON GAMELIST"
-msgstr "HONAKO JOKO LISTAN HASI"
-
-msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "UNTHEMED"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "ERAKUTIS SISTEMA IZENA KOLEKZIO BERRIETAN"
-
-msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr "ERAKUTIS IKUSGAI EZ DIREN JOKOAK KOLEKZIOETAN "
-
-msgid "SHOW EMPTY SYSTEMS"
-msgstr "ERAKUTIS SISTEMA HUTSAK"
-
-msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
-
-msgid "Loading..."
-msgstr "Kargatzen..."
-
-msgid "SELECT COLLECTIONS"
-msgstr "AUKERATU KOLEKZIOAK"
-
-msgid "AUTOMATIC COLLECTIONS"
-msgstr "KOLEKZIO AUTOMATIKOAK"
-
-msgid "PER GENRE"
-msgstr "MOTAREN ARABERA"
-
-msgid "ARCADE SYSTEMS"
-msgstr "ARKADE SISTEMAK"
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "JOKU KOLKEZIO AUTOMATIKOAK"
-
-msgid "EDITABLE COLLECTIONS"
-msgstr "KOLEKZIO EDITAGARRIAK"
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr "KOLEKZIO DINAMIKOAK"
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "NEURRIRA EGINDAKO JOKO KOLEKZIOAK"
-
-msgid "GAMES TO INDEX"
-msgstr "INDEXATU BEHARREKO JOKOAK"
-
-msgid "ONLY MISSING"
-msgstr "BAKARRIK FALTA DIRA"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "AUKERATU INSTALATU/EZABATU NAHI DUZUN EDUKIA"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "EGUNERATU INSTALATUTAKO EDUKIA"
-
-msgid "MISC"
-msgstr "ASKOTARIKOA"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "DESINSTALAZIOA GEHITUTA LERROAN"
-
-msgid "SAVESTATE MANAGER"
-msgstr "GORDETAKO EGOERA KUDEATZAILEA"
-
-msgid "START NEW GAME"
-msgstr "HASI JOKO BERRIA"
-
-msgid "START NEW AUTO SAVE"
-msgstr "HASI AUTOMATIKOKI GORDETZE BERRIA"
-
-msgid "AUTO SAVE"
-msgstr "AUTOMATIKOKI GORDETZEA"
-
-msgid "SLOT"
-msgstr "ARTEKA"
-
-msgid "COPY TO FREE SLOT"
-msgstr "KOPIATU ARTEKA LIBRERA"
-
-msgid "VIEW OPTIONS"
-msgstr "ERAKUTSI AUKERAK"
-
-msgid "NAVIGATION"
-msgstr "NABIGAZIOA"
-
-msgid "OTHER FILTERS"
-msgstr "BESTE FILTROAK"
-
-msgid "SELECT RANDOM GAME"
-msgstr "AUKERATU JOKOA AUSAZ"
-
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "EGIN SALTO JOKU HASERARA LETRA BATEZ"
-
-msgid "SORT GAMES BY"
-msgstr "JOKUAN ORDENATU:"
-
-msgid "DYNAMIC COLLECTION"
-msgstr "KOLEKZIO DINAMIKOA"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "EDITATU KOLEKZIO FILTRO DINAMIKOAK"
-
-msgid "CUSTOM COLLECTION"
-msgstr "NEURRIRA EGINDAKO KOLEKZIOA"
-
-msgid "COLLECTION"
-msgstr "KOLEKZIOA"
-
-msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "SISTEMAREN AUKERA AURRERATIAK"
-
-msgid "RESET FILTERS"
-msgstr "FILTROAK BEREZARRI"
-
-msgid "FILTER GAMES BY TEXT"
-msgstr "FILTRATU JOKOAK TESTUAREN ARABERA"
-
-msgid "NO MISSING BIOS FILES"
-msgstr "EZ DA BIOS FITXATEGIRIK FALTA"
-
-msgid "Installed systems"
-msgstr ""
-
-msgid "refresh"
-msgstr ""
-
-msgid "NO MISSING BIOS"
-msgstr "EZ DA BIOS-IK FALTA"
-
-msgid "ZOOM OUT"
-msgstr "KANPORAKO ZOOM-A"
-
-msgid "ZOOM IN"
-msgstr "BARNERAKO ZOOM-A"
-
-msgid "MOVE"
-msgstr "MUGITU"
-
-msgid "ZOOM"
-msgstr "ZOOM-A"
-
 msgid "EDIT METADATA"
 msgstr "DATUAK EDITATU"
 
@@ -2770,314 +3022,6 @@ msgstr ""
 "FITXATEGI HORIEN KOIPA BAT JOKO LISTAREKIKO ERLATIBO BEZELA ERABILI NAHI AL "
 "DUZU?"
 
-msgid "FAVORITE SONGS"
-msgstr "GOGOKO ABESTIAK"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "KONEKTATU SARE JOKORA"
-
-msgid "Select a game lobby to join"
-msgstr "Aukeratu zein joko gelara batu nahi duzun"
-
-msgid "FAILED"
-msgstr "HUTS EGIN DU"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "ROM BERTSIO EZEZAGUNA"
-
-msgid "DIFFERENT ROM"
-msgstr "ROM DESBERDINA"
-
-msgid "SAME ROM"
-msgstr "ROM BERDINA"
-
-msgid "UNAVAILABLE CORE"
-msgstr "NUKLEO ESKURAEZINA"
-
-msgid "LAN GAMES"
-msgstr ""
-
-msgid "ONLINE GAMES"
-msgstr ""
-
-msgid "AVAILABLE GAMES"
-msgstr "JOKO ESKURAGARRIAK"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "JOKO ESKURAEZINAK"
-
-msgid "NO GAMES FOUND"
-msgstr "EZ DA JOKORIK AURKITU"
-
-msgid "JOIN GAME"
-msgstr "BATU JOKORA"
-
-msgid "WATCH GAME"
-msgstr "IKUSI JOKOA"
-
-msgid "CONTROLLER SETTINGS"
-msgstr "KONTROLATZAILE KONFIGURAZIOA"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "AGINTE & BLUETOOTH KONFIGURAZIOAK"
-
-msgid "CONTROLLERS PRIORITY"
-msgstr "AGINTE KONTROL PRIORITATEA"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "JOKALARI ASIGNAZIOAK"
-
-#, c-format
-msgid "CONTROLLER #%i"
-msgstr "#%i ANGINTE KONTROLA"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "%i-REN KONTORLATZAILEA"
-
-msgid "CONTROLLER MAPPING"
-msgstr "KONTROLATZAILE MAPEATZEA"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"KONTROLATZAILE BAT MAPEATZERA ZOAZ. MAPEATZERAKOAN BOTOIEN POSIZIOA HARTU "
-"KONTUTAN, EZ BOTOIEN IZEN FISIKOA. EZ BADAUKAZI BOTOI FISIKORIK HOTKEY-"
-"ARENTZAT, ERABILI SELECT BOTOIA. SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK "
-"EDOZEIN BOTOI SAKATUTA MANTENDUZ. SAKATU HEGO BOTOIAK KONFIRMATZEKO "
-"AMAITUTAKOAN."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN PISTOLA EZARPENAK"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE PISTOLA EZARPENAK"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK XAGU/PISTOLA"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "ENABLE BLUETOOTH"
-msgstr ""
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOTH PAD-AK AUTOMATIKOKI PAREKATU"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "BLUETOOTH PAD-AK ESKUZ PAREKATU"
-
-msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ERAKUTSI KONTROLATZAILE AKTIBITATEA"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ERAKUTSI KONTROLATZAILE BATERIA MAILA"
-
-msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "JOYSTICKS HOTKEYS"
-msgstr ""
-
-msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
-
-msgid "GLOBAL HOTKEYS"
-msgstr ""
-
-msgid "default"
-msgstr "defektuz"
-
-msgid "SOUTH"
-msgstr ""
-
-msgid "EAST"
-msgstr ""
-
-msgid "NORTH"
-msgstr ""
-
-msgid "WEST"
-msgstr ""
-
-msgid "D-PAD UP"
-msgstr ""
-
-msgid "D-PAD DOWN"
-msgstr ""
-
-msgid "D-PAD LEFT"
-msgstr ""
-
-msgid "D-PAD RIGHT"
-msgstr ""
-
-msgid "LEFT SHOULDER"
-msgstr ""
-
-msgid "RIGHT SHOULDER"
-msgstr ""
-
-msgid "LEFT TRIGGER"
-msgstr ""
-
-msgid "RIGHT TRIGGER"
-msgstr ""
-
-msgid "LEFT STICK PRESS"
-msgstr ""
-
-msgid "RIGHT STICK PRESS"
-msgstr ""
-
-msgid "HOTKEY"
-msgstr "HOTKEY"
-
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
-
-msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
-
-msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
-
-msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
-
-msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
-
-msgid "BORDER SIZE"
-msgstr "ERTZ TAMAINA"
-
-msgid "THIN"
-msgstr "MEHEA"
-
-msgid "MEDIUM"
-msgstr "ERTAINA"
-
-msgid "BIG"
-msgstr "ZABALA"
-
-msgid "BORDER MODE"
-msgstr "ERTZ MODUA"
-
-msgid "NORMAL"
-msgstr "ARRUNTA"
-
-msgid "IN GAME ONLY"
-msgstr "JOKOAN BAKARRIK"
-
-msgid "HIDDEN"
-msgstr "EZKUTATUA"
-
-msgid "BORDER COLOR"
-msgstr "ERTZ KOLOREA"
-
-msgid "WHITE"
-msgstr "ZURIA"
-
-msgid "BORDER RATIO"
-msgstr ""
-
-msgid "CAMERA CONTRAST"
-msgstr "KAMERAREN KONTRASTEA"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "Eguna/Eguzki argia (40)"
-
-msgid "Default (50)"
-msgstr "Defektuz (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "Pantaila ahula/Arratsaldea (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "KAMERAREN ARGITASUNA"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "Eguna/Eguzki argia (80)"
-
-msgid "Default (100)"
-msgstr "Defektuz (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "Pantaila ahula/Arratsaldea (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "KAMERAREN ESPOSIZIOA"
-
-msgid "Projector/CRT (-5)"
-msgstr "Proiektorea/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "Proiektorea/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "Defektuz (-7"
-
-msgid "Other (-8)"
-msgstr "Bestela (-8)"
-
-msgid "Other (-9)"
-msgstr "Bestela (-9)"
-
-msgid "RECOIL"
-msgstr "ATZERA JOTZEA"
-
-msgid "GUN"
-msgstr "PISTOLA"
-
-msgid "MACHINE GUN"
-msgstr "METRAILADOREA"
-
-msgid "QUIET GUN"
-msgstr "PISTOLA ISILA"
-
-msgid "QUIET MACHINE GUN"
-msgstr "AMETRALLADORE ISILA"
-
-msgid "MODE"
-msgstr "MODUA"
-
-msgid "JOYSTICK"
-msgstr "JOYSTICK"
-
-msgid "MOUSE ONLY"
-msgstr "XAGUA BAKARRIK"
-
-msgid "HAND"
-msgstr "ESKUA"
-
-msgid "LEFT"
-msgstr "EZKER"
-
-msgid "RIGHT"
-msgstr "ESKUIN"
-
-msgid "FILTER GAMELIST BY"
-msgstr "FILTRATU JOKO LISTA HONEN ARABERA "
-
-msgid "RESET ALL FILTERS"
-msgstr "BEREZARRI FILTRO GUZTIAK"
-
-msgid "FIND GAMES"
-msgstr "BILATU JOKOAK"
-
-msgid "SYSTEMS"
-msgstr "SISTEMAK"
-
 msgid "FILE BROWSER"
 msgstr "FITXATEGI NABIGATZAILEA"
 
@@ -3087,421 +3031,35 @@ msgstr "GURASO KARPETA"
 msgid "SCREENSHOTS FOLDER"
 msgstr "PANTAILA KAPTURA KARPETA"
 
-msgid "dim"
-msgstr "arindu"
-
-msgid "black"
-msgstr "beltza"
-
-msgid "random video"
-msgstr "ausazko bideoa"
-
-msgid "slideshow"
-msgstr "aurkezpena"
-
-msgid "suspend"
-msgstr "suspenditu"
-
-msgid "start & end"
-msgstr "hasi eta bukatu"
-
-msgid "systems"
-msgstr "sistemak"
-
-msgid "random"
-msgstr "ausaz"
-
-msgid "START SCREENSAVER AFTER"
-msgstr "PANTAILA BABESLEA ZENBAT SEGUNDU ONDOREN:"
-
-msgid "SCREENSAVER TYPE"
-msgstr "PANTAILA BABESLEAREN PORTAERA"
-
-msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "GELDITU MUSIKA PANTIALA BABESLEAN"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "AUSAZKO BIDEO PANTAILA BABESLE KONFIGURAZIOA"
-
-msgid "VIDEO DURATION (SECS)"
-msgstr "BIDEO LUZERA (SEG)"
-
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "ERABILI OMX IRAKURGAILUA PANTAILA BABESLEARENTZAT"
-
-msgid "SHOW GAME INFO"
-msgstr "ERAKUTSI JOKO INFORMAZIOA"
-
-msgid "SHOW DATE TIME"
+msgid "DEVICE OPTIONS"
 msgstr ""
 
-msgid "DATE FORMAT"
+msgid "DISCONNECT"
 msgstr ""
 
-msgid "TIME FORMAT"
+msgid "CONNECT"
 msgstr ""
 
-msgid "USE MARQUEE AS GAME INFO"
-msgstr "ERABILI MARKESINA JOKO INFORMAZIO BEZALA"
-
-msgid "DECORATION SET USED"
-msgstr "DEKORAZIO TALDEA ERABILITA"
-
-msgid "STRETCH VIDEOS"
-msgstr "LUZATU BIDEOAK"
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "ISILDU BIDEOAREN AUDIOA"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "PANTAILA BABESLE KONTROLAK"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "ERABILI NEURRIRA EGINDAKO BIDEOAK"
-
-msgid "CUSTOM VIDEO DIRECTORY"
-msgstr "NEURRIRA EGINDAKO BIDEOEN KARPETA"
-
-msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "ERABILI AZPIKARPETAN DAUDEN BIDEOAK NEURRIRA EDINGADKO KARPETETATIK"
-
-msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr "NEURRIRA EGINDAKO BIDEO FITXATEGIEN LUZAPENAK"
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "PANTAILA BABESLE PRESENTAZIO KONPIGURAZIOA"
-
-msgid "IMAGE DURATION (SECS)"
-msgstr "IRUDI LUZERA (SEG)"
-
-msgid "STRETCH IMAGES"
-msgstr "LUZATU IRUDIAK"
-
-msgid "USE CUSTOM IMAGES"
-msgstr "ERABILI NEURRIRA HARTUTAKO IRUDIAK"
-
-msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "ERABILI NEURRIRA EGINDAKO IRUDI DIREKTORIOAK"
-
-msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "ERABILI NEURRIRA EGINDAKO PARKETETAKO AZPIKARPETETAN DAUDEN IRUDIAK"
-
-msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr "NEURRIRA EGINDAKO IRUDI FITXATEGI LUZAPENAK"
-
-msgid "INVALID CONTENT"
-msgstr "EDUKI BALIOGABEA"
-
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+msgid "FORGET"
 msgstr ""
-"Baliozko kontu bat behar da. Mesedez izena eman https://retroachievements."
-"org webgunean"
-
-msgid "Full"
-msgstr "Osoa"
-
-msgid "Kiosk"
-msgstr "Kioskoa"
-
-msgid "Kid"
-msgstr "Haurra"
-
-msgid "Basic"
-msgstr "Oinarrizkoa"
-
-msgid "Games similar to"
-msgstr "Honakoaren antzeko jokoak"
-
-msgid "SAVE STATES (HOLD)"
-msgstr "GORDETAKO EGOERAK (MANTENDU)"
-
-msgid "GAME OPTIONS (HOLD)"
-msgstr "JOKU AUKERAK (MANTENDU)"
-
-msgid "GAME OPTIONS"
-msgstr "JOKU AUKERAK"
-
-msgid "FAVORITE"
-msgstr "GOGOKOAK"
-
-msgid "RANDOM"
-msgstr "AUSAZKOA"
 
 #, c-format
-msgid "Back to %s"
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
-
-msgid "No Entries Found"
-msgstr "Ez da Sarrerarik Aurkitu"
-
-msgid "Times played"
-msgstr "Zenbat aldiz jokatua"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Karpeta honek %i jokoa dauka, %s barne"
-msgstr[1] "Karpeta honek %i jokoak dauzka, %s barne"
-
-msgid "SYSTEM INFO"
-msgstr "SISTEMAREN INFORMAZIOA"
-
-msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
 msgstr ""
-"ERROREA: SISTEMA GUZTIAK EZKUTUAN DAUDE, GUZTIAK BERRIRO ERAKUSTEN ORAIN"
-
-msgid "QUICK SEARCH"
-msgstr "BILAKETA AZKARRA"
-
-msgid "GO TO LETTER"
-msgstr "JOAN LETRARA"
-
-msgid "GO TO MANUFACTURER"
-msgstr "JOAN FABRIKATZAILERA"
-
-msgid "GO TO HARDWARE"
-msgstr "JOAN HARDWARE-ERA"
-
-msgid "GO TO DECADE"
-msgstr "JOAN HAMARKADARA"
-
-msgid "CONFIGURATION"
-msgstr "KONFIGURAZIOA"
 
 #, c-format
-msgid "%i COLLECTION"
-msgid_plural "%i COLLECTIONS"
-msgstr[0] "%i KOLEKZIOA"
-msgstr[1] "%i KOLEKZIOAK"
-
-#, c-format
-msgid "%i ITEM"
-msgid_plural "%i ITEMS"
-msgstr[0] "%i ARTIKULUA"
-msgstr[1] "%i ARTIKULUAK"
-
-#, c-format
-msgid "%i GAME"
-msgid_plural "%i GAMES"
-msgstr[0] "%i JOKOA"
-msgstr[1] "%i JOKOAK"
-
-msgid "NAVIGATION BAR"
-msgstr "NABIGAZIO BARRA"
-
-msgid ""
-"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
-"FORMAT.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-"KONTUZ: UNE HONETAN AUKERATUTAKO EMULADOREA/NUKLEOAK EZ DU AUKERATUTAKO "
-"JOKOAREN FORMATUA JASATEN.\n"
-"EXEKUTATU NAHI AL DUZU HALA ERE?"
-
-msgid ""
-"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
-"CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-"KONTUZ: SISTEMAK BIOS FITXATEGIA(K) FALTA DITU ETA BALITEKEJOKUEK ONDO EZ "
-"FUNTZIONATZEAEZEKUTATU NAHI AL DUZU HALA ERE?"
-
-msgid "Preloading UI"
-msgstr "UI-a aurretik kargatu"
-
-msgid "Loading theme"
-msgstr "Gaia kargatzen"
-
-msgid "Loading gamelists"
-msgstr "Joko listak kargatzen"
-
-msgid "GENRE"
-msgstr "GENEROA"
-
-msgid "TAG"
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
 msgstr ""
 
-msgid "FAMILY"
-msgstr "FAMILIA"
-
-msgid "PLAYERS"
-msgstr "JOKALAKIRAK"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr "PUBLIKATZAILEA/GARATZAILEA"
-
-msgid "RATING"
-msgstr "PUNTUAZIOA"
-
-msgid "YEAR"
-msgstr "URTEA"
-
-msgid "REGION"
-msgstr "HERRIALDEA"
-
-msgid "KIDGAME"
-msgstr "HAURJOKOA"
-
-msgid "ALREADY PLAYED"
-msgstr "JADA JOLASTUTA"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "LORPENAK DITU"
-
-msgid "VERTICAL"
-msgstr "BERTIKALA"
-
-msgid "LIGHTGUN"
-msgstr "ARGIZKO PISTOLA"
-
-msgid "STEERING WHEEL"
-msgstr "BOLANTEA"
-
-msgid "TRACKBALL"
-msgstr ""
-
-msgid "SPINNER"
-msgstr ""
-
-msgid "HAVING MEDIAS"
-msgstr ""
-
-msgid "MISSING MEDIAS"
-msgstr ""
-
-msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "PANTAILA ALDATU NAHI DUZU?"
-
-msgid "INVALID CREDENTIALS"
-msgstr ""
-
-msgid "SCRAPING"
-msgstr "DATUAK LORTZEN"
-
-msgid "SCRAPE FAILED"
-msgstr "DATU LORTZEAN ARAZOAK"
-
-msgid "SCRAPING FINISHED"
-msgstr "DATU LORTZEA ONDO AMAITU DA"
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "EGUNERATU JOKO LISTAK ALDAKETAK APLIKATZEKO."
-
-msgid "SLOW"
-msgstr ""
-
-msgid "NOT WORKING"
-msgstr ""
-
-msgid "BUGGY"
-msgstr ""
-
-msgid "LIKED"
-msgstr ""
-
-msgid "DISLIKED"
-msgstr ""
-
-msgid "Loading system config..."
-msgstr "Kargatu sistemaren konfigurazioa..."
-
-msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "EMULADOREA USTEKABEAK IRTEN DA"
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr "KOMANDO LERROKO ARGUMENTU OKERRAK"
-
-msgid "INVALID CONFIGURATION"
-msgstr "KONFIGURAZIO EZEGOKIA"
-
-msgid "UNKNOWN EMULATOR"
-msgstr "EMULADORE EZEZAGUNA"
-
-msgid "EMULATOR IS MISSING"
-msgstr "EMULADOREA EZ DAGO ESKURAGARRI"
-
-msgid "CORE IS MISSING"
-msgstr "NUKLEOA EZ DAGO ESKURAGARRI"
-
-msgid "UKNOWN ERROR"
-msgstr "ERRORE EZEZAGUNA"
+msgid "Extracting"
+msgstr "Erauzten"
 
 msgid "Interlaced"
 msgstr ""
-
-msgid "all games"
-msgstr "joko guztiak"
-
-msgid "last played"
-msgstr "jolastutako azkena"
-
-msgid "favorites"
-msgstr "gogokoak"
-
-msgid "2 players"
-msgstr "2 jokalari"
-
-msgid "4 players"
-msgstr "4 jokalari"
-
-msgid "never played"
-msgstr "sekula jolastu gabe"
-
-msgid "retroachievements"
-msgstr "retroachievements"
-
-msgid "arcade"
-msgstr "arkade"
-
-msgid "vertical arcade"
-msgstr "arkade bertikala"
-
-msgid "lightgun games"
-msgstr "argizko pistola jokoak"
-
-msgid "wheel games"
-msgstr "gurpil jokoak"
-
-msgid "trackball games"
-msgstr ""
-
-msgid "spinner games"
-msgstr ""
-
-msgid "collections"
-msgstr "kolekzioak"
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "'%s' gehitu dira '%s'-ra"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "'%s' kendu dira '%s'-tik"
-
-msgid "This collection is empty."
-msgstr "Kolekzio hau hutsik dago"
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Bat ere ez"
-
-msgid "Various"
-msgstr "Anitzak"
-
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMTNS BILATZEN"
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "SAREKO JOKOAK BILATZEN"
-
-msgid "INDEXING COMPLETED"
-msgstr "INDEXATZEA AMAITU DA"
 
 msgid "FILENAME, ASCENDING"
 msgstr "FITXATEGI IZENA, IGOTZEN"
@@ -3590,77 +3148,480 @@ msgstr "PUBLIKATZE URTEA, SISTEMA, BEHERUNTZ"
 msgid "A,AN,THE"
 msgstr "A,AN,THE"
 
+msgid "INVALID CREDENTIALS"
+msgstr ""
+
+msgid "SCRAPING"
+msgstr "DATUAK LORTZEN"
+
+msgid "SCRAPE FAILED"
+msgstr "DATU LORTZEAN ARAZOAK"
+
+msgid "SCRAPING FINISHED"
+msgstr "DATU LORTZEA ONDO AMAITU DA"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "EGUNERATU JOKO LISTAK ALDAKETAK APLIKATZEKO."
+
+msgid "DOWNLOADING"
+msgstr "DESKARGATZEN"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "GAIA ONDO INSTALATU DA"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "BEZEL-AK ONDO INSTALATU DIRA"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "PAKETEA ONDO INSTALATU DA"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "PAKETEA ONDO KENDU DA"
+
+msgid "Name"
+msgstr "Izena"
+
+msgid "this game's name"
+msgstr "joku honen izena"
+
+msgid "Description"
+msgstr "Deskribapena"
+
+msgid "this game's description"
+msgstr "joku honen deskribapena"
+
+msgid "enter game genre"
+msgstr "sartu jokoaren generoa"
+
+msgid "Tags"
+msgstr ""
+
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
+msgid "emulator"
+msgstr "emulatzaile"
+
+msgid "core"
+msgstr "nukleoa"
+
+msgid "Image"
+msgstr "Irudia"
+
+msgid "enter path to image"
+msgstr "Sartu irudirako bidea"
+
+msgid "Video"
+msgstr "Bideoa"
+
+msgid "enter path to video"
+msgstr "sartu bideorako bidea"
+
+msgid "Logo"
+msgstr "Logoa"
+
+msgid "enter path to logo"
+msgstr "sartu logorako bidea"
+
+msgid "Box"
+msgstr "Kutxa"
+
+msgid "enter path to box"
+msgstr "sartu kutxarako bidea"
+
+msgid "Fan art"
+msgstr "Zale artea"
+
+msgid "enter path to fanart"
+msgstr "sartu zale arterako bidea"
+
+msgid "Title shot"
+msgstr "Izenburu argazkia"
+
+msgid "enter path to title shot"
+msgstr "sartu izenburu argazkirako bidea"
+
+msgid "Manual"
+msgstr "Eskuliburua"
+
+msgid "enter path to manual"
+msgstr "sartu eskulibururako bidea"
+
+msgid "Magazine"
+msgstr "Aldizkaria"
+
+msgid "enter path to magazine"
+msgstr "sartu aldizkarirako bidea"
+
+msgid "Map"
+msgstr "Mapa"
+
+msgid "enter path to map"
+msgstr "sartu maparako bidea"
+
+msgid "Bezel (16:9)"
+msgstr "Bezel-a (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "sartu bezel-erako bidea (16:9)"
+
+msgid "Cartridge"
+msgstr "Kartutxoa"
+
+msgid "enter path to cartridge"
+msgstr "sartu kartutxorako bidea"
+
+msgid "Alt BoxArt"
+msgstr "Kutxa arte alternatiboa"
+
+msgid "enter path to alt boxart"
+msgstr "sartu kutxa arte alternatiborako bidea"
+
+msgid "Box backside"
+msgstr "Kutxa atzealdea"
+
+msgid "enter path to box background"
+msgstr "sartu kutxa atzealderako bidea"
+
+msgid "Wheel"
+msgstr "Gurpila"
+
+msgid "enter path to wheel"
+msgstr "sartu gurpilerako bidea"
+
+msgid "Mix"
+msgstr "Nahasketa"
+
+msgid "enter path to mix"
+msgstr "sartu nahasketarako bidea"
+
+msgid "enter rating"
+msgstr "Sartu puntuazioa"
+
+msgid "Release date"
+msgstr "Argitaratze data"
+
+msgid "enter release date"
+msgstr "sartu argitaratze data"
+
+msgid "this game's developer"
+msgstr "joku honen garatzailea"
+
+msgid "this game's publisher"
+msgstr "joku honen argitaratzailea"
+
+msgid "Game family"
+msgstr "Joku familia"
+
+msgid "this game's game family"
+msgstr "joku honen joku familia"
+
+msgid "Genres"
+msgstr "Mota"
+
+msgid "enter game genres"
+msgstr "joku honen mota"
+
+msgid "Arcade system"
+msgstr "Arkade sistema"
+
+msgid "this game's arcade system"
+msgstr "joku honen arkade sistema"
+
+msgid "this game's number of players"
+msgstr "joku honen jokalari kopurua"
+
+msgid "enter favorite"
+msgstr "gogokoa gehitu"
+
+msgid "Hidden"
+msgstr "Ezkutatua"
+
+msgid "enter hidden"
+msgstr "sartu ezkutatua"
+
+msgid "Kidgame"
+msgstr "Umeentzako jokua"
+
+msgid "enter kidgame"
+msgstr "sartu umeentzako jokua"
+
+msgid "Play count"
+msgstr "Partida zenbatekoa"
+
+msgid "enter number of times played"
+msgstr "sartu jokatutako partida zenbatekoa"
+
+msgid "enter last played date"
+msgstr "sartu azken jokatutako data"
+
+msgid "Crc32"
+msgstr "Crc32"
+
+msgid "Crc32 checksum"
+msgstr "Crc32 konprobaketa batura"
+
+msgid "Md5"
+msgstr "Md5"
+
+msgid "Md5 checksum"
+msgstr "Md5 konprobaketa batura"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "zenbat denbora jolastu da jokua guztira (segunduak)"
+
+msgid "Languages"
+msgstr "Hizkuntzak"
+
+msgid "this game's languages"
+msgstr "joku honen hizkuntzak"
+
+msgid "Region"
+msgstr "Herrialde"
+
+msgid "this game's region"
+msgstr "joku honen herrialdea"
+
+msgid "Cheevos Hash"
+msgstr "Cheevos Hash funtzioa"
+
+msgid "Cheevos checksum"
+msgstr "Cheevos koprobaketa batura"
+
+msgid "Cheevos Game ID"
+msgstr "Cheevos joko IDa"
+
+msgid "Screenscraper Game ID"
+msgstr "Screenscraper Joko IDa"
+
+msgid "MultiDisk"
+msgstr ""
+
+msgid "Loading system config..."
+msgstr "Kargatu sistemaren konfigurazioa..."
+
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "PANTAILA ALDATU NAHI DUZU?"
+
+msgid "all games"
+msgstr "joko guztiak"
+
+msgid "last played"
+msgstr "jolastutako azkena"
+
+msgid "favorites"
+msgstr "gogokoak"
+
+msgid "2 players"
+msgstr "2 jokalari"
+
+msgid "4 players"
+msgstr "4 jokalari"
+
+msgid "never played"
+msgstr "sekula jolastu gabe"
+
+msgid "retroachievements"
+msgstr "retroachievements"
+
+msgid "arcade"
+msgstr "arkade"
+
+msgid "vertical arcade"
+msgstr "arkade bertikala"
+
+msgid "lightgun games"
+msgstr "argizko pistola jokoak"
+
+msgid "wheel games"
+msgstr "gurpil jokoak"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
+
+msgid "collections"
+msgstr "kolekzioak"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "'%s' gehitu dira '%s'-ra"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "'%s' kendu dira '%s'-tik"
+
+msgid "This collection is empty."
+msgstr "Kolekzio hau hutsik dago"
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Bat ere ez"
+
+msgid "Various"
+msgstr "Anitzak"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] "Kolekzio honek %i jokoa dauka:%s"
+msgstr[1] "Kolekzio honek %i jokoak dauzka, %s barne"
+
+msgid "INVALID CONTENT"
+msgstr "EDUKI BALIOGABEA"
+
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Baliozko kontu bat behar da. Mesedez izena eman https://"
+"retroachievements.org webgunean"
+
+msgid "SLOW"
+msgstr ""
+
+msgid "NOT WORKING"
+msgstr ""
+
+msgid "BUGGY"
+msgstr ""
+
+msgid "LIKED"
+msgstr ""
+
+msgid "DISLIKED"
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "EGUNERAKETA ESKURAGARRI"
 
-#, c-format
-msgid "%s connected"
-msgstr "%s konektatuta"
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "EMULADOREA USTEKABEAK IRTEN DA"
 
-#, c-format
-msgid "%s disconnected"
-msgstr "%s deskonektatuta"
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "KOMANDO LERROKO ARGUMENTU OKERRAK"
 
-#, c-format
-msgid "%d d"
-msgstr "%d d"
+msgid "INVALID CONFIGURATION"
+msgstr "KONFIGURAZIO EZEGOKIA"
 
-#, c-format
-msgid "%d h"
-msgstr "%d ordu"
+msgid "UNKNOWN EMULATOR"
+msgstr "EMULADORE EZEZAGUNA"
 
-#, c-format
-msgid "%d mn"
-msgstr "%d min"
+msgid "EMULATOR IS MISSING"
+msgstr "EMULADOREA EZ DAGO ESKURAGARRI"
 
-#, c-format
-msgid "%d sec"
-msgstr "%d seg"
+msgid "CORE IS MISSING"
+msgstr "NUKLEOA EZ DAGO ESKURAGARRI"
 
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgid "UKNOWN ERROR"
+msgstr "ERRORE EZEZAGUNA"
 
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "duela egun %d"
-msgstr[1] "duela %d egun "
+msgid "Collections"
+msgstr "Kolekzioak"
 
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "duela ordu %d"
-msgstr[1] "duela %d ordu"
+msgid "Searching for devices..."
+msgstr "Gailuak bilatzen..."
 
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "duela minutu %d"
-msgstr[1] "duela %d minutu"
+msgid "FORMATTING DEVICE"
+msgstr "GAILUA FORMATEATEZN"
 
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "duela segundu %d"
-msgstr[1] "duela %d segundu"
+msgid "Formatting"
+msgstr "Formateatzen"
 
-msgid "MOVE CURSOR"
-msgstr "MUGITU KRUTSOREA"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "ERAGIKETA AMAITZEKO BERABIARAZTEA BEHARREZKOA DA"
 
-msgid "EDIT"
-msgstr "EDITATU"
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr "IRAKURLE BAT FORMATEATUA IZATEN ARI DA JADA"
 
-msgid "CHANGE"
-msgstr "ALDATU"
+msgid "GENRE"
+msgstr "GENEROA"
 
-msgid "WORKING..."
-msgstr "LANEAN..."
+msgid "TAG"
+msgstr ""
+
+msgid "FAMILY"
+msgstr "FAMILIA"
+
+msgid "PLAYERS"
+msgstr "JOKALAKIRAK"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "PUBLIKATZAILEA/GARATZAILEA"
+
+msgid "RATING"
+msgstr "PUNTUAZIOA"
+
+msgid "YEAR"
+msgstr "URTEA"
+
+msgid "REGION"
+msgstr "HERRIALDEA"
+
+msgid "KIDGAME"
+msgstr "HAURJOKOA"
+
+msgid "ALREADY PLAYED"
+msgstr "JADA JOLASTUTA"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "LORPENAK DITU"
+
+msgid "VERTICAL"
+msgstr "BERTIKALA"
+
+msgid "LIGHTGUN"
+msgstr "ARGIZKO PISTOLA"
+
+msgid "STEERING WHEEL"
+msgstr "BOLANTEA"
+
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMTNS BILATZEN"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "SAREKO JOKOAK BILATZEN"
+
+msgid "INDEXING COMPLETED"
+msgstr "INDEXATZEA AMAITU DA"
+
+msgid "SCREEN READER ENABLED"
+msgstr "PANTAILA IRAKURLEA GAITUTA"
+
+msgid "SCREEN READER DISABLED"
+msgstr "PANTAILA IRAKURLEA EZGAITUTA"
+
+msgid "ENABLED"
+msgstr "GAITUTA"
 
 msgid "up/down"
 msgstr "gora/behera"
+
+msgid "WORKING..."
+msgstr "LANEAN..."
 
 msgid "accept"
 msgstr "ados"
@@ -3683,8 +3644,34 @@ msgid_plural "%i SELECTED"
 msgstr[0] "%i AUKERATUA"
 msgstr[1] "%i AUKERATUAK"
 
-msgid "ENABLED"
-msgstr "GAITUTA"
+msgid "CHANGE"
+msgstr "ALDATU"
+
+msgid "MOVE CURSOR"
+msgstr "MUGITU KRUTSOREA"
+
+msgid "EDIT"
+msgstr "EDITATU"
+
+#, c-format
+msgid "%s connected"
+msgstr "%s konektatuta"
+
+#, c-format
+msgid "%s disconnected"
+msgstr "%s deskonektatuta"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
+
+msgid "ALT GR"
+msgstr "ALT GR"
+
+msgid "SHIFT"
+msgstr "MAIUS"
+
+msgid "SPACE"
+msgstr "HUTSUNEA"
 
 msgid "DISCARD CHANGES"
 msgstr "ALDAKETAK BAZTERTU"
@@ -3709,18 +3696,6 @@ msgstr ""
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
 msgstr ""
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
-
-msgid "ALT GR"
-msgstr "ALT GR"
-
-msgid "SHIFT"
-msgstr "MAIUS"
-
-msgid "SPACE"
-msgstr "HUTSUNEA"
 
 msgctxt "joystick"
 msgid "NORTH"
@@ -3866,12 +3841,6 @@ msgstr "EDOZEIN BOTOI SAKATU"
 msgid "ALREADY TAKEN"
 msgstr "ERABILITA"
 
-msgid "SCREEN READER ENABLED"
-msgstr "PANTAILA IRAKURLEA GAITUTA"
-
-msgid "SCREEN READER DISABLED"
-msgstr "PANTAILA IRAKURLEA EZGAITUTA"
-
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
@@ -3910,7 +3879,16 @@ msgstr ""
 msgid "Please check the logs."
 msgstr ""
 
-msgid "N/A"
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, MERGE DRIVE"
 msgstr ""
 
 msgid "NEW DRIVE DETECTED"
@@ -3928,20 +3906,63 @@ msgstr ""
 msgid "FORMAT FAILED"
 msgstr ""
 
-msgid "NO, IGNORE THIS TIME"
-msgstr ""
-
-msgid "NO, IGNORE FOREVER"
-msgstr ""
-
-msgid "Adding drive to ignore list..."
-msgstr ""
-
 msgid "YES, FORMAT & MERGE"
 msgstr ""
 
 msgid "NO, IGNORE"
 msgstr ""
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d ordu"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d min"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d seg"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "duela egun %d"
+msgstr[1] "duela %d egun "
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "duela ordu %d"
+msgstr[1] "duela %d ordu"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "duela minutu %d"
+msgstr[1] "duela %d minutu"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "duela segundu %d"
+msgstr[1] "duela %d segundu"
+
+#~ msgid "BUILD IMAGE CACHE"
+#~ msgstr "ERAIKI IRUDI KATXEA"
+
+#~ msgid "Building image cache"
+#~ msgstr "IRUDI KATXEA ERAIKITZEN"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARWARE MOTAREN ARABERA"
@@ -4001,9 +4022,9 @@ msgstr ""
 #~ msgstr ""
 #~ "KONTROLATZAILE BAT MAPEATZERA ZOAZ. BOTOIEN POSIZIOAN OINARRITUTA MAPEATU "
 #~ "SNES KONTROLATZAILEAREN BALIOKIDEAN OINARRITUTA, EZ BERE ETIKETA "
-#~ "FISIKOAN. EZ BADAUKAZU TEKLA BEREZIRIK HOTKEY-RAKO ERABILI SELECT BOTOIA."
-#~ "SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK EDOZIEN BOTOI MANTENDUZ. AMAITZEAN "
-#~ "SAKATU HEGO BOTOIA KONFIRMATZEKO"
+#~ "FISIKOAN. EZ BADAUKAZU TEKLA BEREZIRIK HOTKEY-RAKO ERABILI SELECT "
+#~ "BOTOIA.SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK EDOZIEN BOTOI MANTENDUZ. "
+#~ "AMAITZEAN SAKATU HEGO BOTOIA KONFIRMATZEKO"
 
 #~ msgid "SCRAPE RATINGS"
 #~ msgstr "LORTU PUNTUAZIOAK"
