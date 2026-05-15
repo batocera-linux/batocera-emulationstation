@@ -18,6 +18,7 @@
 #include "Paths.h"
 #include "GunManager.h"
 #include "renderers/Renderer.h"
+#include <fstream>
 
 #ifdef HAVE_UDEV
 #include <libudev.h>
@@ -442,11 +443,46 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 			std::string mappingString;
 			
 			if (SDL_IsGameController(idx))
-				mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
-			
+			{
+#if WIN32
+				// Try to find mapping in gamecontrollerdb.txt file dropped near ES executable
+				std::string dbPath = Paths::getEmulationStationPath() + "/gamecontrollerdb.txt";
+				if (Utils::FileSystem::exists(dbPath))
+				{
+					// Normalize device GUID: zero last 4 chars
+					std::string normalizedDeviceGuid = std::string(guid);
+					for (int i = 28; i < 32; i++)
+						normalizedDeviceGuid[i] = '0';
+
+					std::ifstream dbFile(dbPath);
+					std::string line;
+
+					while (std::getline(dbFile, line))
+					{
+						if (line.empty() || line[0] == '#')
+							continue;
+
+						size_t firstComma = line.find(',');
+						if (firstComma == std::string::npos || firstComma < 8)
+							continue;
+
+						std::string entryGuid = line.substr(0, firstComma);
+						if (entryGuid == normalizedDeviceGuid && line.find("platform:Windows") != std::string::npos)
+						{
+							mappingString = line;
+							break;
+						}
+					}
+				}
+#endif
+				// Fall back to SDL's built-in mapping if not found in db file
+				if (mappingString.empty())
+					mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
+			}
+
 			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
 			{
-				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]); // save
+				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]);
 				LOG(LogInfo) << "Creating joystick from SDL Game Controller mapping " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 			}
 			else
