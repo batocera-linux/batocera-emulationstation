@@ -14,330 +14,32 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n==3 ? "
 "3 : n==6 ? 4 : 5);\n"
 
-msgid "SCANNING BLUETOOTH"
-msgstr "SGANIO'R BLUETOOTH"
-
-msgid "Searching for devices..."
-msgstr "Chwilio am rheolyddion..."
-
-msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "SGANIO BLUETOOTH YN BAROD YN RHEDEG."
-
-msgid "FORMATTING DEVICE"
-msgstr ""
-
-msgid "Formatting"
-msgstr ""
-
-msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "ANGEN AILGYCHWYN Y SYSTEM I GWBLHAU'R WEITHRED"
-
-msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr ""
-
-msgid "Name"
-msgstr "Enw"
-
-msgid "this game's name"
-msgstr ""
-
-msgid "Description"
-msgstr "Disgrifiad"
-
-msgid "this game's description"
-msgstr ""
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "enter game genre"
-msgstr "gosod genre gemau"
-
-msgid "Tags"
-msgstr ""
-
-msgid "tags"
-msgstr ""
-
-msgid "Sort name"
-msgstr ""
-
-msgid "enter game sort name"
-msgstr ""
-
-msgid "Emulator"
-msgstr "Efelychwr"
-
-msgid "emulator"
-msgstr "efelychwr"
-
-msgid "Core"
-msgstr "Craidd"
-
-msgid "core"
-msgstr "craidd"
-
-msgid "Image"
-msgstr "Delwedd"
-
-msgid "enter path to image"
-msgstr "gosod llwybr i'r ddelwedd"
-
-msgid "Video"
-msgstr "Fideo"
-
-msgid "enter path to video"
-msgstr "gosod llwybr i'r fideo"
-
-msgid "Logo"
-msgstr "Logo"
-
-msgid "enter path to logo"
-msgstr "gosod llwybr i'r logo"
-
-msgid "Box"
-msgstr "Bocs"
-
-msgid "enter path to box"
-msgstr "gosod llwybr i'r bocs"
-
-msgid "Fan art"
-msgstr "Celf ffan"
-
-msgid "enter path to fanart"
-msgstr "gosod llwybr i'r celf ffan"
-
-msgid "Title shot"
-msgstr "Ciplun Teitl"
-
-msgid "enter path to title shot"
-msgstr "gosod llwybr i'r ciplun teitl"
-
-msgid "Manual"
-msgstr "Llawlyfr"
-
-msgid "enter path to manual"
-msgstr "gosod llwybr i'r llawlyfr"
-
-msgid "Magazine"
-msgstr ""
-
-msgid "enter path to magazine"
-msgstr ""
-
-msgid "Map"
-msgstr "Map"
-
-msgid "enter path to map"
-msgstr "gosod llwybr i'r map"
-
-msgid "Bezel (16:9)"
-msgstr ""
-
-msgid "enter path to bezel (16:9)"
-msgstr ""
-
-msgid "Cartridge"
-msgstr "Cetrisen"
-
-msgid "enter path to cartridge"
-msgstr "gosod llwybr i'r cetris"
-
-msgid "Alt BoxArt"
-msgstr "CelfBocs Arall"
-
-msgid "enter path to alt boxart"
-msgstr "gosod llwybr i celfbocs arall"
-
-msgid "Box backside"
-msgstr ""
-
-msgid "enter path to box background"
-msgstr ""
-
-msgid "Wheel"
-msgstr "Olwyn"
-
-msgid "enter path to wheel"
-msgstr "gosod llwybr i'r olwyn"
-
-msgid "Mix"
-msgstr "Cymysgedd"
-
-msgid "enter path to mix"
-msgstr "gosod llwybr i'r cymysgedd"
-
-msgid "Rating"
-msgstr "Marciau sêr"
-
-msgid "enter rating"
-msgstr "gosod marciau sêr"
-
-msgid "Release date"
-msgstr "Dyddiad rhyddhau"
-
-msgid "enter release date"
-msgstr "gosod dyddiad rhyddhau"
-
-msgid "Developer"
-msgstr "Datblygwr"
-
-msgid "this game's developer"
-msgstr ""
+msgid "Searching"
+msgstr "Yn chwilio"
 
 msgid "Publisher"
 msgstr "Cyhoeddwr"
 
-msgid "this game's publisher"
-msgstr ""
+msgid "Developer"
+msgstr "Datblygwr"
 
-msgid "Game family"
-msgstr ""
-
-msgid "this game's game family"
-msgstr ""
-
-msgid "Genres"
-msgstr ""
-
-msgid "enter game genres"
-msgstr ""
-
-msgid "Arcade system"
-msgstr "System arcêd"
-
-msgid "this game's arcade system"
-msgstr ""
+msgid "Genre"
+msgstr "Genre"
 
 msgid "Players"
 msgstr "Chwaraewyr"
 
-msgid "this game's number of players"
-msgstr ""
-
-msgid "Favorite"
-msgstr "Ffefryn"
-
-msgid "enter favorite"
-msgstr "gosod ffefryn"
-
-msgid "Hidden"
-msgstr "Cudd"
-
-msgid "enter hidden"
-msgstr "gosod cuddio"
-
-msgid "Kidgame"
-msgstr "Gêm plant"
-
-msgid "enter kidgame"
-msgstr "gosod gêm plant"
-
-msgid "Play count"
-msgstr "Cyfrif chwarae"
-
-msgid "enter number of times played"
-msgstr "gosod nifer o weithiau chwaraewyd"
-
-msgid "Last played"
-msgstr "Chwaraewyd olaf"
-
-msgid "enter last played date"
-msgstr "gosod dyddiad chwaraewyd olaf"
-
-msgid "Crc32"
-msgstr "Crc32"
-
-msgid "Crc32 checksum"
-msgstr "Crc32 checksum"
-
-msgid "Md5"
-msgstr "Md5"
-
-msgid "Md5 checksum"
-msgstr "Md5 checksum"
-
-msgid "Game time"
-msgstr "Amser chwarae"
-
-msgid "how long the game has been played in total (seconds)"
-msgstr "cyfanswm yr amser (eiliadau) chwaraewyd o'r gêm"
-
-msgid "Languages"
-msgstr "Ieithoedd"
-
-msgid "this game's languages"
-msgstr ""
-
-msgid "Region"
-msgstr "Rhanbarth"
-
-msgid "this game's region"
-msgstr ""
-
-msgid "Cheevos Hash"
-msgstr "Hash Cheevos"
-
-msgid "Cheevos checksum"
-msgstr "Checksum Cheevos"
-
-msgid "Cheevos Game ID"
-msgstr "ID Gêm Cheevo"
-
-msgid "Screenscraper Game ID"
-msgstr "ID Gêm Screenscraper"
-
-#, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Collections"
-msgstr "Casgliadau"
-
-msgid "Unknown"
-msgstr "Anhysbys"
-
-msgid "Extracting"
-msgstr "Echdynnu"
-
-msgid "DOWNLOADING"
-msgstr "LAWRLWYTHO"
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "THEMA WEDI'I OSOD YN LLWYDDIANNUS"
-
-msgid "AN ERROR OCCURRED"
-msgstr "DIGWYDDODD GWALL"
-
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "THEMA WEDI'I DADOSOD YN LLWYDDIANNUS"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "GWEFLAU WEDI'I OSOD YN LLWYDDIANNUS"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "GWEFLAU WEDI'I DADOSOD"
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "PECYNNAU WEDI'I OSOD YN LLWYDDIANNUS"
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "PECYNNAU WEDI'I DADOSOD YN LLWYDDIANNUS"
-
-msgid "Searching"
-msgstr "Yn chwilio"
-
 msgid "Released"
 msgstr "Rhyddhawyd"
 
+msgid "Rating"
+msgstr "Marciau sêr"
+
 msgid "NO GAMES FOUND - SKIP"
 msgstr "DIM GEMAU WEDI FFEINDIO - SGIPIO"
+
+msgid "AN ERROR OCCURRED"
+msgstr "DIGWYDDODD GWALL"
 
 msgid "RETRY"
 msgstr "CEISIO ETO"
@@ -357,85 +59,22 @@ msgstr ""
 msgid "ACCEPT RESULT"
 msgstr "DERBYN CANLYNIAD"
 
-msgid "THEMES DOWNLOADER"
-msgstr "LAWRLWYTHWR THEMAU"
+msgid "Full"
+msgstr "Llawn"
 
-msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgid "Kiosk"
+msgstr "Ciosg"
+
+msgid "Kid"
+msgstr "Plant"
+
+msgid "Basic"
 msgstr ""
 
-msgid "All"
-msgstr ""
-
-msgid "Installed"
-msgstr ""
-
-msgid "Available"
-msgstr ""
-
-msgid "BACK"
-msgstr "NÔL"
-
-msgid "No items"
-msgstr "Nid oes unrhyw eitemau yn y golwg yma"
-
-msgid "PLEASE WAIT"
-msgstr "ARHOSWCH OS GWELWCH YN DDA"
-
-msgid "UPDATE"
-msgstr "DIWEDDARIAD"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' YCHWANEGWYD I GIW LAWRLWYTHO"
-
-msgid "REMOVE"
-msgstr "DIDDYMU"
-
-msgid "INSTALL"
-msgstr "GOSOD"
-
-msgid "CLOSE"
-msgstr "CAU"
-
-msgid "CURRENT THEME"
-msgstr "THEMA PRESENNOL"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "YN BRESENNOL YN Y CIW LAWRLWYTHO"
-
-msgid "FINISHED"
-msgstr "GORFFENEDIG"
-
-msgid "OK"
-msgstr "IAWN"
-
-msgid "REFRESH"
-msgstr "ADNEWYDDU"
-
-msgid "INPUT MANUALLY"
-msgstr ""
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "CHWILIO RHWYDWEITHIAU WIFI"
-
-msgid "DEVICE OPTIONS"
-msgstr ""
-
-msgid "DISCONNECT"
-msgstr ""
-
-msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid "YES"
@@ -444,13 +83,172 @@ msgstr "IE"
 msgid "NO"
 msgstr "NA"
 
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+
+msgid "Preloading UI"
+msgstr "Rhag-lwytho UI"
+
+msgid "Loading theme"
+msgstr "Llwytho thema"
+
+msgid "Loading gamelists"
+msgstr "Llwytho rhestr gemau"
+
+msgid "Loading..."
+msgstr "Llwytho..."
+
+msgid "MENU"
+msgstr "DEWISLEN"
+
+msgid "SYSTEM INFO"
+msgstr "GWYBODAETH SYSTEM"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr "GWALL: MAE POB SYSTEM WEDI CUDDIO, YN AIL-DDANGOS POB UN OHONYNT NAWR"
+
+msgid "OK"
+msgstr "IAWN"
+
+msgid "QUICK SEARCH"
+msgstr "CHWILIO CYFLYM"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
+
+msgid "GO TO LETTER"
+msgstr "EWCH I LLYTHYR"
+
+msgid "COLLECTIONS"
+msgstr "CASGLIADAU"
+
+msgid "GO TO MANUFACTURER"
+msgstr "EWCH I GYNHYRCHWR"
+
+msgid "GO TO HARDWARE"
+msgstr "EWCH I CALEDWEDD"
+
+msgid "GO TO DECADE"
+msgstr "EWCH I DDEGAWD"
+
+msgid "Unknown"
+msgstr "Anhysbys"
+
+msgid "CONFIGURATION"
+msgstr "FFURFWEDDIAD"
+
 #, c-format
-msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "CASGLIAD %i"
+msgstr[1] "CASGLIAD %i"
+msgstr[2] "CASGLIADAU %i"
+msgstr[3] "CASGLIADAU %i"
+msgstr[4] "CASGLIADAU %i"
+msgstr[5] "CASGLIADAU %i"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i EITEM"
+msgstr[1] "%i EITEM"
+msgstr[2] "%i EITEMAU"
+msgstr[3] "%i EITEMAU"
+msgstr[4] "%i EITEMAU"
+msgstr[5] "%i EITEMAU"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i GÊM"
+msgstr[1] "%i GÊM"
+msgstr[2] "%i GEMAU"
+msgstr[3] "%i GEMAU"
+msgstr[4] "%i GEMAU"
+msgstr[5] "%i GEMAU"
+
+msgid "SELECT"
+msgstr "DETHOL"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "SEARCH"
+msgstr "CHWILIO"
+
+msgid "RANDOM"
+msgstr "AR HAP"
+
+msgid "NAVIGATION BAR"
+msgstr ""
+
+msgid "FILES"
+msgstr "FFEILIAU"
+
+msgid "Last played"
+msgstr "Chwaraewyd olaf"
+
+msgid "Times played"
+msgstr "Nifer o weithiau chwaraewyd"
+
+msgid "Game time"
+msgstr "Amser chwarae"
+
+msgid "Favorite"
+msgstr "Ffefryn"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "FILTER GAMES BY TEXT"
+msgstr "FFILTRO GEMAU GAN DESTUN"
+
+msgid "Games similar to"
+msgstr "Gemau tebyg i"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "CHOOSE"
+msgstr "DEWIS"
+
+msgid "BACK"
+msgstr "NÔL"
+
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
+msgid "OPTIONS"
+msgstr "OPSIYNAU"
+
+msgid "GAME OPTIONS"
+msgstr "OPSIYNAU GÊM"
+
+msgid "FAVORITE"
+msgstr ""
+
+msgid "SAVE STATES"
 msgstr ""
 
 #, c-format
-msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgid "Back to %s"
 msgstr ""
+
+msgid "No Entries Found"
+msgstr "Ni ddarganfuwyd unrhyw gofnodion"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "FFURFWEDDIAD PAD I ALWEDDFWRDD"
@@ -463,6 +261,9 @@ msgstr "ARBED"
 
 msgid "DELETE"
 msgstr "DILEU"
+
+msgid "CLOSE"
+msgstr "CAU"
 
 msgid "PLAYER 1"
 msgstr "CHWARAEWR 1"
@@ -506,143 +307,14 @@ msgstr "ARBED NEWIDIADAU?"
 msgid "ARE YOU SURE?"
 msgstr "WYT TI'N SIWR ?"
 
-msgid "INFORMATION"
-msgstr "GWYBODAETH"
-
-msgid "VERSION"
-msgstr "FERSIWN"
-
-msgid "USER DISK USAGE"
-msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "SYSTEM DISG A DEFNYDDIWYD"
-
-msgid "DISK USAGE"
+msgid "RETROACHIEVEMENT SETTINGS"
 msgstr ""
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "VIDEO DRIVER"
-msgstr ""
-
-msgid "PARIS"
-msgstr ""
-
-msgid "OSAKA"
-msgstr ""
-
-msgid "SEOUL"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "GOSODIADAU NETPLAY"
 
 msgid "SETTINGS"
 msgstr "GOSODIADAU"
 
-msgid "ENABLE NETPLAY"
-msgstr "GALLUOGI NETPLAY"
-
-msgid "NICKNAME"
-msgstr "LLYSENW"
-
-msgid "OPTIONS"
-msgstr "OPSIYNAU"
-
-msgid "PORT"
-msgstr "PORTH"
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
-
-msgid "Show rooms for games not present on this machine."
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "MYNEGAI GÊM"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "USE RELAY SERVER"
-msgstr "DEFNYDDIO GWEINYDD RELAY"
-
-msgid "NONE"
-msgstr "DIM"
-
-msgid "NEW YORK"
-msgstr ""
-
-msgid "MADRID"
-msgstr ""
-
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "CUSTOM"
-msgstr ""
-
-msgid "CUSTOM RELAY SERVER"
-msgstr ""
-
-msgid "INPUT"
-msgstr "MEWNBWN"
-
-msgid "SEARCH"
-msgstr "CHWILIO"
-
-#, c-format
-msgid "%d of %d softcore points"
-msgstr ""
-
-#, c-format
-msgid "%d of %d hardcore points"
-msgstr ""
-
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d of %d)"
-
 msgid "RETROACHIEVEMENTS"
 msgstr "CYFLAWNIADAU-RETRO"
-
-msgid "Softcore points"
-msgstr ""
-
-msgid "Points (hardcore)"
-msgstr ""
-
-msgid "Rank"
-msgstr "Rheng"
-
-msgid "VIEW DETAILS"
-msgstr "GWELD MANYLION"
-
-msgid "LAUNCH"
-msgstr "Lansio"
-
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
 
 msgid "USERNAME"
 msgstr "ENW DEFNYDDIWR"
@@ -712,8 +384,158 @@ msgstr ""
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
+msgid "GAME INDEXES"
+msgstr "MYNEGAI GÊM"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
+
+msgid "KEYBOARDTOPADS"
+msgstr ""
+
+msgid "HOTKEYS"
+msgstr ""
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr ""
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr ""
+
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr ""
+
+msgid "go back"
+msgstr "mynd yn ôl"
+
+msgid "JOYSTICK NAME"
+msgstr ""
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr ""
+
+msgid "OVERLAYS"
+msgstr ""
+
+msgid "BRIGHTNESS CYCLE"
+msgstr ""
+
+msgid "CONTROL CENTER"
+msgstr ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "PAUSE"
+msgstr ""
+
+msgid "COIN"
+msgstr ""
+
+msgid "FAST FORWARD"
+msgstr ""
+
+msgid "NEXT DISK"
+msgstr ""
+
+msgid "NEXT SLOT"
+msgstr ""
+
+msgid "PREVIOUS SLOT"
+msgstr ""
+
+msgid "RESET"
+msgstr "AIL GYCHWYN"
+
+msgid "SAVE STATE"
+msgstr ""
+
+msgid "RESTORE STATE"
+msgstr ""
+
+msgid "REWIND"
+msgstr "AILDDIRWYN"
+
+msgid "SCREEN LAYOUT"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr "SGRINLUN"
+
+msgid "SWAP SCREEN"
+msgstr ""
+
+msgid "TRANSLATION"
+msgstr ""
+
+msgid "VOLUME DOWN"
+msgstr ""
+
+msgid "VOLUME UP"
+msgstr ""
+
+msgid "VOLUME MUTE"
+msgstr ""
+
+msgid "START RECORDING"
+msgstr ""
+
+msgid "STOP RECORDING"
+msgstr ""
+
+msgid "KEYBOARD TOGGLE"
+msgstr ""
+
+msgid "KEY ASSIGNED TWICE"
+msgstr ""
+
+msgid "ZOOM OUT"
+msgstr ""
+
+msgid "ZOOM IN"
+msgstr ""
+
+msgid "MOVE"
+msgstr "SYMUD"
+
+msgid "ZOOM"
+msgstr "CHWYDDO"
+
+msgid "PLEASE WAIT"
+msgstr "ARHOSWCH OS GWELWCH YN DDA"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d of %d)"
+
+msgid "Softcore points"
+msgstr ""
+
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Rank"
+msgstr "Rheng"
+
+msgid "VIEW DETAILS"
+msgstr "GWELD MANYLION"
+
+msgid "LAUNCH"
+msgstr "Lansio"
 
 msgid "BLUETOOTH DEVICE LIST"
 msgstr ""
@@ -727,6 +549,9 @@ msgstr "HEB FFEINDIO DYFEISIAU BLUETOOTH"
 msgid " (Connected)"
 msgstr ""
 
+msgid "REMOVE"
+msgstr "DIDDYMU"
+
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr ""
 
@@ -734,11 +559,41 @@ msgstr ""
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
-msgid "THE BEZEL PROJECT"
-msgstr "Y PROSIECT GWEFL"
-
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgid "NO MISSING BIOS FILES"
 msgstr ""
+
+msgid "MISSING BIOS CHECK"
+msgstr "BIOS AR GOLL"
+
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "REFRESH"
+msgstr "ADNEWYDDU"
+
+msgid "refresh"
+msgstr ""
+
+msgid "NO MISSING BIOS"
+msgstr "DIM BIOS AR GOLL"
+
+msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ALL"
+msgstr ""
+
+msgid "ONLY MISSING"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
+msgstr ""
+
+msgid "START"
+msgstr "DECHRAU"
 
 #, c-format
 msgid "UPDATING %s"
@@ -772,17 +627,825 @@ msgstr "ANGEN CYSWLLT RHWYDWAITH"
 msgid "NO UPDATE AVAILABLE"
 msgstr "DIM DIWEDDARIAD AR GAEL"
 
-msgid "SCRAPER"
-msgstr "CRAFWR"
+msgid "CONNECT TO NETPLAY"
+msgstr "CYSYLLTWCH Â RHWYDWAITH"
+
+msgid "Select a game lobby to join"
+msgstr ""
+
+msgid "FAILED"
+msgstr "METHU"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "FERSIWN ROM ANHYSBYS"
+
+msgid "DIFFERENT ROM"
+msgstr "ROM GWAHANOL"
+
+msgid "SAME ROM"
+msgstr "UN ROM"
+
+msgid "UNAVAILABLE CORE"
+msgstr "CRAIDD ANNERBYNIOL"
+
+msgid "LAN GAMES"
+msgstr ""
+
+msgid "AVAILABLE GAMES"
+msgstr "GEMAU AR GAEL"
+
+msgid "ONLINE GAMES"
+msgstr ""
+
+msgid "UNAVAILABLE GAMES"
+msgstr "GEMAU ANNERBYNIOL"
+
+msgid "NO GAMES FOUND"
+msgstr ""
+
+msgid "JOIN GAME"
+msgstr "YMUNO Â GÊM"
+
+msgid "WATCH GAME"
+msgstr "GWYLIO GÊM"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "LAWRLWYTHWR CYNNWYS"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr ""
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "DIWEDDARU CYNNWYS WEDI'I OSOD"
+
+msgid "No items"
+msgstr "Nid oes unrhyw eitemau yn y golwg yma"
+
+msgid "MISC"
+msgstr "AMRYWIOL"
+
+msgid "UPDATE"
+msgstr "DIWEDDARIAD"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' YCHWANEGWYD I GIW LAWRLWYTHO"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr "GOSOD"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "YN BRESENNOL YN Y CIW LAWRLWYTHO"
+
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "SCANNING BLUETOOTH"
+msgstr "SGANIO'R BLUETOOTH"
+
+msgid "PAIR"
+msgstr ""
+
+msgid "FINISHED"
+msgstr "GORFFENEDIG"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FFILTRO RHESTR GEMAU GAN"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "GOLYGU FFILTERI CASGLIADAU DYNAMIG"
+
+msgid "RESET ALL FILTERS"
+msgstr "AILOSOD HOLL FFILTERI"
+
+msgid "FIND GAMES"
+msgstr "FFEINDIO GEMAU"
+
+msgid "SYSTEMS"
+msgstr "SYSTEMAU"
+
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
+
+msgid "TARGET DEVICE"
+msgstr "DYFAIS TARGED"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "SYSTEM TARGED"
+
+msgid "NETWORK REQUIRED"
+msgstr "ANGEN RHWYDWAITH"
+
+msgid "INVALID PARAMETERS"
+msgstr "PARAMEDRWYR ANNILYS"
+
+msgid "VIEW OPTIONS"
+msgstr "GWELD OPSIYNAU"
+
+msgid "NAVIGATION"
+msgstr "MORDWYO"
+
+msgid "OTHER FILTERS"
+msgstr "FFILTRAU ERAILL"
+
+msgid "SELECT RANDOM GAME"
+msgstr "DEWIS GÊM AR HAP"
+
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
+
+msgid "SORT GAMES BY"
+msgstr "TREFNU GEMAU GAN"
+
+msgid "DYNAMIC COLLECTION"
+msgstr ""
+
+msgid "CUSTOM COLLECTION"
+msgstr ""
+
+msgid "DELETE COLLECTION"
+msgstr "DILEU CASGLIAD"
+
+msgid "COLLECTION"
+msgstr "CASGLIAD"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "CREU CASGLIAD DYNAMIG NEWYDD"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "GOLWG STEIL RHESTR GEMAU"
+
+msgid "automatic"
+msgstr "awtomatig"
+
+msgid "VIEW CUSTOMIZATION"
+msgstr ""
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "OPSIYNAU SYSTEM UWCH"
+
+msgid "RESET FILTERS"
+msgstr "AILOSOD FFILTRAU"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr ""
+
+msgid "New Collection Name"
+msgstr "Enw Casgliad Newydd"
+
+msgid "THEMES DOWNLOADER"
+msgstr "LAWRLWYTHWR THEMAU"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "THEMA WEDI'I DADOSOD YN LLWYDDIANNUS"
+
+msgid "CURRENT THEME"
+msgstr "THEMA PRESENNOL"
+
+msgid "Points"
+msgstr "Pwyntiau"
+
+msgid "Unlocked on"
+msgstr "Datgloi ar"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "NID OES CYFLAWNIAD AR Y GÊM YMA ETO"
+
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr "%d% % yn gyflawn"
+
+msgid "GAME MEDIA"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr "GWELD LLAWLYFR Y GÊM"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr "GWELD MAP Y GÊM"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIA"
+msgstr ""
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "NID YW CRAIDD PRESENNOL YN GYMWYS"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr ""
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr "GÊM"
+
+msgid "OPEN"
+msgstr ""
+
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "START GAME"
+msgstr "DECHRAU GAME"
+
+msgid "HOST A NETPLAY GAME"
+msgstr ""
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "DOD O HYD I GEMAU TEBYG ..."
+
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"BYDD HYN YN DILEU'R FFEIL(IAU) GÊM GWIRIONEDDOL!\n"
+"WYT TI'N SIWR?"
+
+msgid "NFC"
+msgstr ""
+
+msgid "WRITE AN NFC TAG FOR THIS GAME"
+msgstr ""
+
+#, c-format
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+
+msgid "WRITE"
+msgstr ""
+
+msgid "PLACE A TAG ON THE WRITER..."
+msgstr ""
+
+msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
+msgstr ""
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "DIDDYMU O %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "YCHWANEGU I %s"
+
+msgid "FAVORITES"
+msgstr "FFEFRYNNAU"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr ""
 
 msgid "SCRAPE"
 msgstr "CRAFU"
 
-msgid "ACCOUNTS"
+msgid "EDIT PADTOKEY PROFILE"
 msgstr ""
 
-msgid "go back"
-msgstr "mynd yn ôl"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "OPSIYNAU GÊM UWCH"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "GOLYGU FFOLDER METADATA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "GOLYGU METADATA Y GÊM HWN"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "GOSODIADAU CASGLIADAU GEMAU"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "CASGLIADAU I ARDDANGOS"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "SYSTEMAU ARDDANGOSIWYD"
+
+msgid "GROUPED SYSTEMS"
+msgstr "SYSTEMAU GRWPEDIG"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "CREU CASGLIAD WEDI'I ADDASU"
+
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "CREU CASGLIAD NEWYDD SYDD GALLU CAEL EI GOLYGU"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "TREFNU CASGLIADAU A SYSTEMAU"
+
+msgid "ALPHABETICALLY"
+msgstr "YN NHREFN YR WYDDOR"
+
+msgid "BY MANUFACTURER"
+msgstr "GAN GYNHYRCHWR"
+
+msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
+msgstr ""
+
+msgid "BY HARDWARE TYPE THEN YEAR"
+msgstr ""
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
+msgid "BY RELEASE YEAR"
+msgstr "GAN DDYDDIAD RHYDDHAU"
+
+msgid "SORT SYSTEMS"
+msgstr "TREFNU SYSTEMAU"
+
+msgid "START ON SYSTEM"
+msgstr "DECHRAU AR SYSTEM"
+
+msgid "NONE"
+msgstr "DIM"
+
+msgid "RESTORE LAST SELECTED"
+msgstr "ADFER DEWIS DIWETHAF"
+
+msgid "START ON GAMELIST"
+msgstr "DECHRAU AR RHESTR GEMAU"
+
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "DANGOS ENW'R SYSTEM MEWN CASGLIADAU"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "DANGOS ENW'R SYSTEMAU CUDD MEWN CASGLIADAU"
+
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
+msgid "UPDATE GAMELISTS"
+msgstr ""
+
+msgid "SELECT COLLECTIONS"
+msgstr "DEWIS CASGLIADAU"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr "CASGLIADAU AWTOMATIG"
+
+msgid "PER GENRE"
+msgstr ""
+
+msgid "ARCADE SYSTEMS"
+msgstr "SYSTEMAU ARCÊD"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "CASGLIADAU GEMAU AWTOMATIG"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "CASGLIADAU SYDD GALLU CAEL EI GOLYGU"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "CASGLIADAU DYNAMIG"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "CASGLIADAU GEMAU WEDI'I ADDASU"
+
+msgid "ADD COMBINATION KEY"
+msgstr "YCHWANEGU ALLWEDD CYFUNO"
+
+msgid "BACKUP USER DATA"
+msgstr "DATA DEFNYDDIWR WRTH GEFN"
+
+msgid "NO DEVICE FOUND"
+msgstr "DIM DYFAIS WEDI EI DDARGANFOD"
+
+msgid "CONTROLLER SETTINGS"
+msgstr ""
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "GOSODIADAU RHEOLYDDION"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr ""
+
+msgid "CONTROLLER MAPPING"
+msgstr ""
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
+msgstr "SGANIO BLUETOOTH YN BAROD YN RHEDEG."
+
+msgid "DISPLAY OPTIONS"
+msgstr "ARDDANGOS OPSIYNAU"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "SHOW GUN NOTIFICATIONS"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "JOYSTICKS HOTKEYS"
+msgstr ""
+
+msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
+msgstr ""
+
+msgid "GLOBAL HOTKEYS"
+msgstr ""
+
+msgid "default"
+msgstr "rhagosodiad"
+
+msgid "NOT CONNECTED"
+msgstr "HEB EI GYSYLLTU"
+
+msgid "SOUTH"
+msgstr ""
+
+msgid "EAST"
+msgstr ""
+
+msgid "NORTH"
+msgstr ""
+
+msgid "WEST"
+msgstr ""
+
+msgid "D-PAD UP"
+msgstr ""
+
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgid "HOTKEY"
+msgstr "BYSELL FRYS"
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgstr ""
+
+msgid "DECLARE A NEW GLOBAL HOTKEY"
+msgstr ""
+
+msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
+msgstr ""
+
+msgid "NO GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
+msgstr ""
+
+msgid "BORDER SIZE"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AWTO"
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
+msgid "BORDER RATIO"
+msgstr ""
+
+msgid "CAMERA CONTRAST"
+msgstr ""
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr ""
+
+msgid "Default (50)"
+msgstr ""
+
+msgid "Dim Display/Evening (60)"
+msgstr ""
+
+msgid "CAMERA BRIGHTNESS"
+msgstr ""
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr ""
+
+msgid "Default (100)"
+msgstr ""
+
+msgid "Dim Display/Evening (120)"
+msgstr ""
+
+msgid "CAMERA EXPOSURE"
+msgstr ""
+
+msgid "Projector/CRT (-5)"
+msgstr ""
+
+msgid "Projector/CRT (-6)"
+msgstr ""
+
+msgid "Default (-7)"
+msgstr ""
+
+msgid "Other (-8)"
+msgstr ""
+
+msgid "Other (-9)"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
+msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "CHWITH"
+
+msgid "RIGHT"
+msgstr "DDE"
+
+msgid "FAVORITE SONGS"
+msgstr "HOFF GANIADAU"
+
+msgid "SAVESTATE MANAGER"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr "DECHRAU GÊM NEWYDD"
+
+msgid "START NEW AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr "ARBED AWTO"
+
+msgid "SLOT"
+msgstr "SLOT"
+
+msgid "COPY TO FREE SLOT"
+msgstr "COPI I SLOT RHYDD"
+
+msgid "INPUT"
+msgstr "MEWNBWN"
+
+msgid "INPUT MANUALLY"
+msgstr ""
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "CHWILIO RHWYDWEITHIAU WIFI"
+
+msgid "PARIS"
+msgstr ""
+
+msgid "OSAKA"
+msgstr ""
+
+msgid "SEOUL"
+msgstr ""
+
+msgid "NETPLAY SETTINGS"
+msgstr "GOSODIADAU NETPLAY"
+
+msgid "ENABLE NETPLAY"
+msgstr "GALLUOGI NETPLAY"
+
+msgid "NICKNAME"
+msgstr "LLYSENW"
+
+msgid "PORT"
+msgstr "PORTH"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr "DEFNYDDIO GWEINYDD RELAY"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
+msgid "SCRAPER"
+msgstr "CRAFWR"
+
+msgid "ACCOUNTS"
+msgstr ""
 
 msgid "SCRAPING DATABASE"
 msgstr ""
@@ -797,9 +1460,6 @@ msgid "FILTERS"
 msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
-
-msgid "ALL"
 msgstr ""
 
 msgid "GAMES MISSING ANY MEDIA"
@@ -829,20 +1489,11 @@ msgstr ""
 msgid "LAST YEAR"
 msgstr ""
 
-msgid "SYSTEMS INCLUDED"
-msgstr ""
-
 msgid "SCRAPE NOW"
 msgstr "CRAFU NAWR"
 
-msgid "START"
-msgstr "DECHRAU"
-
 msgid "IMAGE SOURCE"
 msgstr "FFYNHONNELL DELWEDD"
-
-msgid "SCREENSHOT"
-msgstr "SGRINLUN"
 
 msgid "TITLE SCREENSHOT"
 msgstr "SGRINLUN TEITL"
@@ -879,9 +1530,6 @@ msgstr "MARQUEE"
 
 msgid "PREFERED REGION"
 msgstr ""
-
-msgid "AUTO"
-msgstr "AWTO"
 
 msgid "OVERWRITE NAMES"
 msgstr ""
@@ -952,113 +1600,143 @@ msgstr "MAE CRAFU YN RHEDEG. A YDYCH AM STOPIO?"
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "DIM GEMAU SY'N FFITIO'R MEINI PRAWF YNA."
 
-msgid "KEYBOARDTOPADS"
+msgid "INFORMATION"
+msgstr "GWYBODAETH"
+
+msgid "VERSION"
+msgstr "FERSIWN"
+
+msgid "USER DISK USAGE"
+msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SYSTEM DISG A DEFNYDDIWYD"
+
+msgid "DISK USAGE"
 msgstr ""
 
-msgid "HOTKEYS"
+msgid "VIDEO DRIVER"
 msgstr ""
 
-msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgid "THE BEZEL PROJECT"
+msgstr "Y PROSIECT GWEFL"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr ""
 
-msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "GWEFLAU WEDI'I DADOSOD"
+
+msgid "dim"
+msgstr "tywyllu"
+
+msgid "black"
+msgstr "du"
+
+msgid "random video"
+msgstr "fideo ar hap"
+
+msgid "slideshow"
+msgstr "sioe sleid"
+
+msgid "suspend"
 msgstr ""
 
-msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgid "always"
+msgstr "bob tro"
+
+msgid "start & end"
+msgstr "dechrau & diwedd"
+
+msgid "never"
+msgstr "byth"
+
+msgid "systems"
+msgstr "systemau"
+
+msgid "random"
+msgstr "ar hap"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "GOSODIADAU ARBEDYDD SGRIN"
+
+msgid "START SCREENSAVER AFTER"
+msgstr "ARBEDYDD SGRIN AR ÔL"
+
+msgid "SCREENSAVER TYPE"
+msgstr "YMDDYGIAD ARBEDYDD SGRIN"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "STOPIO CERDDORIAETH AR ARBEDYDD SGRIN"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "GOSODIADAU ARBEDYDD SGRIN FIDEO AR HAP"
+
+msgid "VIDEO DURATION (SECS)"
 msgstr ""
 
-msgid "JOYSTICK NAME"
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "DEFNYDDIWCH CHWARAEWR OMX AM ARBEDYDD SGRIN"
+
+msgid "SHOW GAME INFO"
+msgstr "DANGOS GWYBODAETH GÊM"
+
+msgid "SHOW DATE TIME"
 msgstr ""
 
-msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgid "DATE FORMAT"
 msgstr ""
 
-msgid "OVERLAYS"
+msgid "TIME FORMAT"
 msgstr ""
 
-msgid "BRIGHTNESS CYCLE"
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "DEFNYDDIWCH MARQUEE FEL GWYBODAETH GÊM"
+
+msgid "DECORATION SET USED"
 msgstr ""
 
-msgid "COIN"
+msgid "STRETCH VIDEOS"
 msgstr ""
 
-msgid "EXIT"
+msgid "MUTE VIDEO AUDIO"
+msgstr "MUDO SAIN FIDEO"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "RHEOLYDDION ARBEDYDD SGRIN"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "DEFNYDDIO FIDEOS WEDI'I ADDASU"
+
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr "CYFEIRIADUR FIDEO WEDI'I ADDASU"
+
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr ""
 
-msgid "FAST FORWARD"
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr ""
 
-msgid "MENU"
-msgstr "DEWISLEN"
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "GOSODIADAU SIOE SLEID ARBEDYDD SGRIN"
 
-msgid "FILES"
-msgstr "FFEILIAU"
+msgid "IMAGE DURATION (SECS)"
+msgstr "NEWID DELWEDD AR ÔL (EILIADAU)"
 
-msgid "NEXT DISK"
+msgid "STRETCH IMAGES"
+msgstr "YMESTYN DELWEDDAU"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "DEFNYDDIO DELWEDDAU WEDI'I ADDASU"
+
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr "CYFEIRIADUR DELWEDD WEDI'I ADDASU"
+
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr ""
 
-msgid "NEXT SLOT"
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr ""
-
-msgid "PAUSE"
-msgstr ""
-
-msgid "PREVIOUS SLOT"
-msgstr ""
-
-msgid "RESET"
-msgstr "AIL GYCHWYN"
-
-msgid "RESTORE STATE"
-msgstr ""
-
-msgid "REWIND"
-msgstr "AILDDIRWYN"
-
-msgid "SAVE STATE"
-msgstr ""
-
-msgid "SCREEN LAYOUT"
-msgstr ""
-
-msgid "SWAP SCREEN"
-msgstr ""
-
-msgid "TRANSLATION"
-msgstr ""
-
-msgid "VOLUME DOWN"
-msgstr ""
-
-msgid "VOLUME MUTE"
-msgstr ""
-
-msgid "VOLUME UP"
-msgstr ""
-
-msgid "CONTROL CENTER"
-msgstr ""
-
-msgid "KEY ASSIGNED TWICE"
-msgstr ""
-
-msgid "INSTALL ON A NEW DISK"
-msgstr ""
-
-msgid "TARGET DEVICE"
-msgstr "DYFAIS TARGED"
-
-msgid "SELECT"
-msgstr "DETHOL"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "SYSTEM TARGED"
-
-msgid "NETWORK REQUIRED"
-msgstr "ANGEN RHWYDWAITH"
-
-msgid "INVALID PARAMETERS"
-msgstr "PARAMEDRWYR ANNILYS"
 
 msgid "fade"
 msgstr "pylu"
@@ -1209,9 +1887,6 @@ msgstr ""
 msgid "USER INTERFACE SETTINGS"
 msgstr ""
 
-msgid "GAME COLLECTION SETTINGS"
-msgstr "GOSODIADAU CASGLIADAU GEMAU"
-
 msgid "SOUND SETTINGS"
 msgstr "GOSODIADAU SAIN"
 
@@ -1239,12 +1914,6 @@ msgstr "GADAEL"
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
 
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr ""
-
-msgid "CHOOSE"
-msgstr "DEWIS"
-
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
@@ -1255,9 +1924,6 @@ msgid "DMD"
 msgstr ""
 
 msgid "SERVER"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 msgid "DMDSERVER (for real dmd)"
@@ -1411,12 +2077,6 @@ msgstr "DOD O HYD I BOB GEM GYDA RHWYDWAITH / CYFLAWNIADAU"
 msgid "CLEAR CACHES"
 msgstr "CLIRIO COF DROS DRO"
 
-msgid "BUILD IMAGE CACHE"
-msgstr "ADEILADU DELWEDD COF DROS DRO"
-
-msgid "Building image cache"
-msgstr "Adeiladu delwedd cof dros dro"
-
 msgid "DISPLAY SETTINGS"
 msgstr ""
 
@@ -1551,14 +2211,14 @@ msgstr "OPTIMEIDDIO DELWEDDAU MAE VRAM YN DEFNYDDIO"
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMEIDDIO FIDEOS MAE VRAM YN DEFNYDDIO"
 
+msgid "USE FILESYSTEM CACHE"
+msgstr ""
+
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
 
 msgid "DOWNLOADS"
 msgstr "LAWRLWYTHIADAU"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "LAWRLWYTHWR CYNNWYS"
 
 msgid "THEMES"
 msgstr "THEMAU"
@@ -1580,9 +2240,6 @@ msgstr "DECHRAU DIWEDDARIAD"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
 
 msgid "LANGUAGE"
 msgstr "IAITH"
@@ -1611,9 +2268,6 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
 
 msgid "POWER SAVING MODE"
-msgstr ""
-
-msgid "DEFAULT"
 msgstr ""
 
 msgid "ENHANCED"
@@ -1682,9 +2336,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "MISSING BIOS CHECK"
-msgstr "BIOS AR GOLL"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "GWIRIO BIOS CYN RHEDEG GÊM"
 
@@ -1742,15 +2393,6 @@ msgstr ""
 msgid "ENABLE LED"
 msgstr ""
 
-msgid "RED"
-msgstr ""
-
-msgid "GREEN"
-msgstr ""
-
-msgid "BLUE"
-msgstr ""
-
 msgid "LED BRIGHTNESS"
 msgstr ""
 
@@ -1759,9 +2401,6 @@ msgstr "STORFA"
 
 msgid "STORAGE DEVICE"
 msgstr "DYFAIS STORIO"
-
-msgid "BACKUP USER DATA"
-msgstr "DATA DEFNYDDIWR WRTH GEFN"
 
 msgid "EJECT AN EXTRA DISK"
 msgstr ""
@@ -1824,9 +2463,6 @@ msgid "DECORATION SET"
 msgstr ""
 
 msgid "Current setting"
-msgstr ""
-
-msgid "UPDATE GAMELISTS"
 msgstr ""
 
 msgid "BIOS SETTINGS"
@@ -1974,23 +2610,20 @@ msgstr "HASHIO GÊM YN RHEDEG. A YDYCH AM EI STOPIO?"
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
+msgid "Emulator"
+msgstr "Efelychwr"
+
+msgid "Core"
+msgstr "Craidd"
+
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr "TRAWSWEDDIAD THEMA"
 
-msgid "VIEW CUSTOMIZATION"
-msgstr ""
-
 msgid "GAMELIST STYLE"
 msgstr "STEIL RHESTR GEMAU"
-
-msgid "GAMELIST VIEW STYLE"
-msgstr "GOLWG STEIL RHESTR GEMAU"
-
-msgid "automatic"
-msgstr "awtomatig"
 
 msgid "basic"
 msgstr "syml"
@@ -2021,12 +2654,6 @@ msgstr "DANGOS FFEILIAU CUDD"
 
 msgid "SHOW FOLDERS"
 msgstr "DANGOS FFOLDERI"
-
-msgid "always"
-msgstr "bob tro"
-
-msgid "never"
-msgstr "byth"
 
 msgid "having multiple games"
 msgstr "cael gemau lluosog"
@@ -2090,12 +2717,6 @@ msgstr "fideo"
 
 msgid "grid"
 msgstr "grid"
-
-msgid "DISPLAY OPTIONS"
-msgstr "ARDDANGOS OPSIYNAU"
-
-msgid "SCREENSAVER SETTINGS"
-msgstr "GOSODIADAU ARBEDYDD SGRIN"
 
 msgid "LIST TRANSITION"
 msgstr ""
@@ -2187,9 +2808,6 @@ msgstr "CYFEIRIAD IP"
 msgid "CONNECTED"
 msgstr "WEDI CYSYLLTU"
 
-msgid "NOT CONNECTED"
-msgstr "HEB EI GYSYLLTU"
-
 msgid "INTERNET STATUS"
 msgstr "STATWS RHYNGRWYD"
 
@@ -2206,6 +2824,9 @@ msgid "WIFI KEY"
 msgstr "ALLWEDD WIFI"
 
 msgid "WIFI COUNTRY"
+msgstr ""
+
+msgid "N/A"
 msgstr ""
 
 msgid "WIFI ENABLED"
@@ -2310,12 +2931,6 @@ msgstr "OCHR WRTH OCHR"
 msgid "INTERNAL RESOLUTION"
 msgstr "CYDRANIAD MEWNOL"
 
-msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
-
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
 
@@ -2355,368 +2970,6 @@ msgstr ""
 msgid "Ejecting..."
 msgstr ""
 
-msgid "Points"
-msgstr "Pwyntiau"
-
-msgid "Unlocked on"
-msgstr "Datgloi ar"
-
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "NID OES CYFLAWNIAD AR Y GÊM YMA ETO"
-
-msgid "Achievements (softcore)"
-msgstr ""
-
-msgid "Achievements (hardcore)"
-msgstr ""
-
-#, c-format
-msgid "%d%% complete"
-msgstr "%d% % yn gyflawn"
-
-msgid "GAME MEDIA"
-msgstr ""
-
-msgid "VIEW GAME MANUAL"
-msgstr "GWELD LLAWLYFR Y GÊM"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr ""
-
-msgid "VIEW GAME MAP"
-msgstr "GWELD MAP Y GÊM"
-
-msgid "VIEW FULLSCREEN VIDEO"
-msgstr ""
-
-msgid "VIEW GAME MEDIA"
-msgstr ""
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "NID YW CRAIDD PRESENNOL YN GYMWYS"
-
-msgid "COMPATIBLE CORE(S)"
-msgstr ""
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr ""
-
-msgid "GAME"
-msgstr "GÊM"
-
-msgid "SAVE STATES"
-msgstr ""
-
-msgid "OPEN"
-msgstr ""
-
-msgid "START A NETPLAY GAME"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "DECHRAU GAME"
-
-msgid "HOST A NETPLAY GAME"
-msgstr ""
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "DOD O HYD I GEMAU TEBYG ..."
-
-msgid "DELETE ITEM"
-msgstr ""
-
-msgid "DELETE GAME"
-msgstr ""
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"BYDD HYN YN DILEU'R FFEIL(IAU) GÊM GWIRIONEDDOL!\n"
-"WYT TI'N SIWR?"
-
-msgid "NFC"
-msgstr ""
-
-msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
-
-#, c-format
-msgid ""
-"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
-"'%s'\n"
-"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
-msgstr ""
-
-msgid "WRITE"
-msgstr ""
-
-msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
-
-msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
-
-msgid "COLLECTIONS"
-msgstr "CASGLIADAU"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "DIDDYMU O %s"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "YCHWANEGU I %s"
-
-msgid "FAVORITES"
-msgstr "FFEFRYNNAU"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
-
-msgid "DELETE COLLECTION"
-msgstr "DILEU CASGLIAD"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "OPSIYNAU GÊM UWCH"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "GOLYGU FFOLDER METADATA"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "GOLYGU METADATA Y GÊM HWN"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
-
-msgid "ADD COMBINATION KEY"
-msgstr "YCHWANEGU ALLWEDD CYFUNO"
-
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
-
-msgid "PAIR"
-msgstr ""
-
-msgid "NO DEVICE FOUND"
-msgstr "DIM DYFAIS WEDI EI DDARGANFOD"
-
-msgid "COLLECTIONS TO DISPLAY"
-msgstr "CASGLIADAU I ARDDANGOS"
-
-msgid "SYSTEMS DISPLAYED"
-msgstr "SYSTEMAU ARDDANGOSIWYD"
-
-msgid "GROUPED SYSTEMS"
-msgstr "SYSTEMAU GRWPEDIG"
-
-msgid "CREATE CUSTOM COLLECTION"
-msgstr "CREU CASGLIAD WEDI'I ADDASU"
-
-msgid "New Collection Name"
-msgstr "Enw Casgliad Newydd"
-
-msgid "ENTER NAME"
-msgstr ""
-
-msgid "CREATE FROM THEME"
-msgstr ""
-
-msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "CREU CASGLIAD NEWYDD SYDD GALLU CAEL EI GOLYGU"
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "CREU CASGLIAD DYNAMIG NEWYDD"
-
-msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr "TREFNU CASGLIADAU A SYSTEMAU"
-
-msgid "ALPHABETICALLY"
-msgstr "YN NHREFN YR WYDDOR"
-
-msgid "BY MANUFACTURER"
-msgstr "GAN GYNHYRCHWR"
-
-msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
-
-msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
-
-msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
-
-msgid "BY RELEASE YEAR"
-msgstr "GAN DDYDDIAD RHYDDHAU"
-
-msgid "SORT SYSTEMS"
-msgstr "TREFNU SYSTEMAU"
-
-msgid "START ON SYSTEM"
-msgstr "DECHRAU AR SYSTEM"
-
-msgid "RESTORE LAST SELECTED"
-msgstr "ADFER DEWIS DIWETHAF"
-
-msgid "START ON GAMELIST"
-msgstr "DECHRAU AR RHESTR GEMAU"
-
-msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
-
-msgid "UNTHEMED"
-msgstr ""
-
-msgid "SHOW SYSTEM NAME IN COLLECTIONS"
-msgstr "DANGOS ENW'R SYSTEM MEWN CASGLIADAU"
-
-msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr "DANGOS ENW'R SYSTEMAU CUDD MEWN CASGLIADAU"
-
-msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
-
-msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
-
-msgid "Loading..."
-msgstr "Llwytho..."
-
-msgid "SELECT COLLECTIONS"
-msgstr "DEWIS CASGLIADAU"
-
-msgid "AUTOMATIC COLLECTIONS"
-msgstr "CASGLIADAU AWTOMATIG"
-
-msgid "PER GENRE"
-msgstr ""
-
-msgid "ARCADE SYSTEMS"
-msgstr "SYSTEMAU ARCÊD"
-
-msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "CASGLIADAU GEMAU AWTOMATIG"
-
-msgid "EDITABLE COLLECTIONS"
-msgstr "CASGLIADAU SYDD GALLU CAEL EI GOLYGU"
-
-msgid "DYNAMIC COLLECTIONS"
-msgstr "CASGLIADAU DYNAMIG"
-
-msgid "CUSTOM GAME COLLECTIONS"
-msgstr "CASGLIADAU GEMAU WEDI'I ADDASU"
-
-msgid "GAMES TO INDEX"
-msgstr ""
-
-msgid "ONLY MISSING"
-msgstr ""
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "DIWEDDARU CYNNWYS WEDI'I OSOD"
-
-msgid "MISC"
-msgstr "AMRYWIOL"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr ""
-
-msgid "SAVESTATE MANAGER"
-msgstr ""
-
-msgid "START NEW GAME"
-msgstr "DECHRAU GÊM NEWYDD"
-
-msgid "START NEW AUTO SAVE"
-msgstr ""
-
-msgid "AUTO SAVE"
-msgstr "ARBED AWTO"
-
-msgid "SLOT"
-msgstr "SLOT"
-
-msgid "COPY TO FREE SLOT"
-msgstr "COPI I SLOT RHYDD"
-
-msgid "VIEW OPTIONS"
-msgstr "GWELD OPSIYNAU"
-
-msgid "NAVIGATION"
-msgstr "MORDWYO"
-
-msgid "OTHER FILTERS"
-msgstr "FFILTRAU ERAILL"
-
-msgid "SELECT RANDOM GAME"
-msgstr "DEWIS GÊM AR HAP"
-
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
-
-msgid "SORT GAMES BY"
-msgstr "TREFNU GEMAU GAN"
-
-msgid "DYNAMIC COLLECTION"
-msgstr ""
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "GOLYGU FFILTERI CASGLIADAU DYNAMIG"
-
-msgid "CUSTOM COLLECTION"
-msgstr ""
-
-msgid "COLLECTION"
-msgstr "CASGLIAD"
-
-msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "OPSIYNAU SYSTEM UWCH"
-
-msgid "RESET FILTERS"
-msgstr "AILOSOD FFILTRAU"
-
-msgid "FILTER GAMES BY TEXT"
-msgstr "FFILTRO GEMAU GAN DESTUN"
-
-msgid "NO MISSING BIOS FILES"
-msgstr ""
-
-msgid "Installed systems"
-msgstr ""
-
-msgid "refresh"
-msgstr ""
-
-msgid "NO MISSING BIOS"
-msgstr "DIM BIOS AR GOLL"
-
-msgid "ZOOM OUT"
-msgstr ""
-
-msgid "ZOOM IN"
-msgstr ""
-
-msgid "MOVE"
-msgstr "SYMUD"
-
-msgid "ZOOM"
-msgstr "CHWYDDO"
-
 msgid "EDIT METADATA"
 msgstr "GOLYGU METADATA"
 
@@ -2731,309 +2984,6 @@ msgid ""
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
-msgid "FAVORITE SONGS"
-msgstr "HOFF GANIADAU"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "CYSYLLTWCH Â RHWYDWAITH"
-
-msgid "Select a game lobby to join"
-msgstr ""
-
-msgid "FAILED"
-msgstr "METHU"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "FERSIWN ROM ANHYSBYS"
-
-msgid "DIFFERENT ROM"
-msgstr "ROM GWAHANOL"
-
-msgid "SAME ROM"
-msgstr "UN ROM"
-
-msgid "UNAVAILABLE CORE"
-msgstr "CRAIDD ANNERBYNIOL"
-
-msgid "LAN GAMES"
-msgstr ""
-
-msgid "ONLINE GAMES"
-msgstr ""
-
-msgid "AVAILABLE GAMES"
-msgstr "GEMAU AR GAEL"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "GEMAU ANNERBYNIOL"
-
-msgid "NO GAMES FOUND"
-msgstr ""
-
-msgid "JOIN GAME"
-msgstr "YMUNO Â GÊM"
-
-msgid "WATCH GAME"
-msgstr "GWYLIO GÊM"
-
-msgid "CONTROLLER SETTINGS"
-msgstr ""
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "GOSODIADAU RHEOLYDDION"
-
-msgid "CONTROLLERS PRIORITY"
-msgstr ""
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr ""
-
-#, c-format
-msgid "CONTROLLER #%i"
-msgstr ""
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr ""
-
-msgid "CONTROLLER MAPPING"
-msgstr ""
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
-
-msgid "BLUETOOTH"
-msgstr ""
-
-msgid "ENABLE BLUETOOTH"
-msgstr ""
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
-
-msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
-
-msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "JOYSTICKS HOTKEYS"
-msgstr ""
-
-msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
-
-msgid "GLOBAL HOTKEYS"
-msgstr ""
-
-msgid "default"
-msgstr "rhagosodiad"
-
-msgid "SOUTH"
-msgstr ""
-
-msgid "EAST"
-msgstr ""
-
-msgid "NORTH"
-msgstr ""
-
-msgid "WEST"
-msgstr ""
-
-msgid "D-PAD UP"
-msgstr ""
-
-msgid "D-PAD DOWN"
-msgstr ""
-
-msgid "D-PAD LEFT"
-msgstr ""
-
-msgid "D-PAD RIGHT"
-msgstr ""
-
-msgid "LEFT SHOULDER"
-msgstr ""
-
-msgid "RIGHT SHOULDER"
-msgstr ""
-
-msgid "LEFT TRIGGER"
-msgstr ""
-
-msgid "RIGHT TRIGGER"
-msgstr ""
-
-msgid "LEFT STICK PRESS"
-msgstr ""
-
-msgid "RIGHT STICK PRESS"
-msgstr ""
-
-msgid "HOTKEY"
-msgstr "BYSELL FRYS"
-
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
-
-msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
-
-msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
-
-msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
-
-msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
-
-msgid "BORDER SIZE"
-msgstr ""
-
-msgid "THIN"
-msgstr ""
-
-msgid "MEDIUM"
-msgstr ""
-
-msgid "BIG"
-msgstr ""
-
-msgid "BORDER MODE"
-msgstr ""
-
-msgid "NORMAL"
-msgstr ""
-
-msgid "IN GAME ONLY"
-msgstr ""
-
-msgid "HIDDEN"
-msgstr ""
-
-msgid "BORDER COLOR"
-msgstr ""
-
-msgid "WHITE"
-msgstr ""
-
-msgid "BORDER RATIO"
-msgstr ""
-
-msgid "CAMERA CONTRAST"
-msgstr ""
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
-
-msgid "Default (50)"
-msgstr ""
-
-msgid "Dim Display/Evening (60)"
-msgstr ""
-
-msgid "CAMERA BRIGHTNESS"
-msgstr ""
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
-
-msgid "Default (100)"
-msgstr ""
-
-msgid "Dim Display/Evening (120)"
-msgstr ""
-
-msgid "CAMERA EXPOSURE"
-msgstr ""
-
-msgid "Projector/CRT (-5)"
-msgstr ""
-
-msgid "Projector/CRT (-6)"
-msgstr ""
-
-msgid "Default (-7)"
-msgstr ""
-
-msgid "Other (-8)"
-msgstr ""
-
-msgid "Other (-9)"
-msgstr ""
-
-msgid "RECOIL"
-msgstr ""
-
-msgid "GUN"
-msgstr ""
-
-msgid "MACHINE GUN"
-msgstr ""
-
-msgid "QUIET GUN"
-msgstr ""
-
-msgid "QUIET MACHINE GUN"
-msgstr ""
-
-msgid "MODE"
-msgstr ""
-
-msgid "JOYSTICK"
-msgstr ""
-
-msgid "MOUSE ONLY"
-msgstr ""
-
-msgid "HAND"
-msgstr ""
-
-msgid "LEFT"
-msgstr "CHWITH"
-
-msgid "RIGHT"
-msgstr "DDE"
-
-msgid "FILTER GAMELIST BY"
-msgstr "FFILTRO RHESTR GEMAU GAN"
-
-msgid "RESET ALL FILTERS"
-msgstr "AILOSOD HOLL FFILTERI"
-
-msgid "FIND GAMES"
-msgstr "FFEINDIO GEMAU"
-
-msgid "SYSTEMS"
-msgstr "SYSTEMAU"
-
 msgid "FILE BROWSER"
 msgstr ""
 
@@ -3043,430 +2993,35 @@ msgstr ""
 msgid "SCREENSHOTS FOLDER"
 msgstr ""
 
-msgid "dim"
-msgstr "tywyllu"
-
-msgid "black"
-msgstr "du"
-
-msgid "random video"
-msgstr "fideo ar hap"
-
-msgid "slideshow"
-msgstr "sioe sleid"
-
-msgid "suspend"
+msgid "DEVICE OPTIONS"
 msgstr ""
 
-msgid "start & end"
-msgstr "dechrau & diwedd"
-
-msgid "systems"
-msgstr "systemau"
-
-msgid "random"
-msgstr "ar hap"
-
-msgid "START SCREENSAVER AFTER"
-msgstr "ARBEDYDD SGRIN AR ÔL"
-
-msgid "SCREENSAVER TYPE"
-msgstr "YMDDYGIAD ARBEDYDD SGRIN"
-
-msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "STOPIO CERDDORIAETH AR ARBEDYDD SGRIN"
-
-msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "GOSODIADAU ARBEDYDD SGRIN FIDEO AR HAP"
-
-msgid "VIDEO DURATION (SECS)"
+msgid "DISCONNECT"
 msgstr ""
 
-msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "DEFNYDDIWCH CHWARAEWR OMX AM ARBEDYDD SGRIN"
-
-msgid "SHOW GAME INFO"
-msgstr "DANGOS GWYBODAETH GÊM"
-
-msgid "SHOW DATE TIME"
+msgid "CONNECT"
 msgstr ""
 
-msgid "DATE FORMAT"
+msgid "FORGET"
 msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
-
-msgid "USE MARQUEE AS GAME INFO"
-msgstr "DEFNYDDIWCH MARQUEE FEL GWYBODAETH GÊM"
-
-msgid "DECORATION SET USED"
-msgstr ""
-
-msgid "STRETCH VIDEOS"
-msgstr ""
-
-msgid "MUTE VIDEO AUDIO"
-msgstr "MUDO SAIN FIDEO"
-
-msgid "SCREENSAVER CONTROLS"
-msgstr "RHEOLYDDION ARBEDYDD SGRIN"
-
-msgid "USE CUSTOM VIDEOS"
-msgstr "DEFNYDDIO FIDEOS WEDI'I ADDASU"
-
-msgid "CUSTOM VIDEO DIRECTORY"
-msgstr "CYFEIRIADUR FIDEO WEDI'I ADDASU"
-
-msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr ""
-
-msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr ""
-
-msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "GOSODIADAU SIOE SLEID ARBEDYDD SGRIN"
-
-msgid "IMAGE DURATION (SECS)"
-msgstr "NEWID DELWEDD AR ÔL (EILIADAU)"
-
-msgid "STRETCH IMAGES"
-msgstr "YMESTYN DELWEDDAU"
-
-msgid "USE CUSTOM IMAGES"
-msgstr "DEFNYDDIO DELWEDDAU WEDI'I ADDASU"
-
-msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "CYFEIRIADUR DELWEDD WEDI'I ADDASU"
-
-msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr ""
-
-msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr ""
-
-msgid "INVALID CONTENT"
-msgstr ""
-
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr ""
-"Mae angen cyfrif dilys. Cofrestrwch gyfrif ar https://retroachievements.org"
-
-msgid "Full"
-msgstr "Llawn"
-
-msgid "Kiosk"
-msgstr "Ciosg"
-
-msgid "Kid"
-msgstr "Plant"
-
-msgid "Basic"
-msgstr ""
-
-msgid "Games similar to"
-msgstr "Gemau tebyg i"
-
-msgid "SAVE STATES (HOLD)"
-msgstr ""
-
-msgid "GAME OPTIONS (HOLD)"
-msgstr ""
-
-msgid "GAME OPTIONS"
-msgstr "OPSIYNAU GÊM"
-
-msgid "FAVORITE"
-msgstr ""
-
-msgid "RANDOM"
-msgstr "AR HAP"
 
 #, c-format
-msgid "Back to %s"
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
-
-msgid "No Entries Found"
-msgstr "Ni ddarganfuwyd unrhyw gofnodion"
-
-msgid "Times played"
-msgstr "Nifer o weithiau chwaraewyd"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "SYSTEM INFO"
-msgstr "GWYBODAETH SYSTEM"
-
-msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "GWALL: MAE POB SYSTEM WEDI CUDDIO, YN AIL-DDANGOS POB UN OHONYNT NAWR"
-
-msgid "QUICK SEARCH"
-msgstr "CHWILIO CYFLYM"
-
-msgid "GO TO LETTER"
-msgstr "EWCH I LLYTHYR"
-
-msgid "GO TO MANUFACTURER"
-msgstr "EWCH I GYNHYRCHWR"
-
-msgid "GO TO HARDWARE"
-msgstr "EWCH I CALEDWEDD"
-
-msgid "GO TO DECADE"
-msgstr "EWCH I DDEGAWD"
-
-msgid "CONFIGURATION"
-msgstr "FFURFWEDDIAD"
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
 
 #, c-format
-msgid "%i COLLECTION"
-msgid_plural "%i COLLECTIONS"
-msgstr[0] "CASGLIAD %i"
-msgstr[1] "CASGLIAD %i"
-msgstr[2] "CASGLIADAU %i"
-msgstr[3] "CASGLIADAU %i"
-msgstr[4] "CASGLIADAU %i"
-msgstr[5] "CASGLIADAU %i"
-
-#, c-format
-msgid "%i ITEM"
-msgid_plural "%i ITEMS"
-msgstr[0] "%i EITEM"
-msgstr[1] "%i EITEM"
-msgstr[2] "%i EITEMAU"
-msgstr[3] "%i EITEMAU"
-msgstr[4] "%i EITEMAU"
-msgstr[5] "%i EITEMAU"
-
-#, c-format
-msgid "%i GAME"
-msgid_plural "%i GAMES"
-msgstr[0] "%i GÊM"
-msgstr[1] "%i GÊM"
-msgstr[2] "%i GEMAU"
-msgstr[3] "%i GEMAU"
-msgstr[4] "%i GEMAU"
-msgstr[5] "%i GEMAU"
-
-msgid "NAVIGATION BAR"
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
 msgstr ""
 
-msgid ""
-"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
-"FORMAT.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-
-msgid ""
-"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
-"CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr ""
-
-msgid "Preloading UI"
-msgstr "Rhag-lwytho UI"
-
-msgid "Loading theme"
-msgstr "Llwytho thema"
-
-msgid "Loading gamelists"
-msgstr "Llwytho rhestr gemau"
-
-msgid "GENRE"
-msgstr "GENRE"
-
-msgid "TAG"
-msgstr ""
-
-msgid "FAMILY"
-msgstr ""
-
-msgid "PLAYERS"
-msgstr "CHWARAEWYR"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr ""
-
-msgid "RATING"
-msgstr "MARCIAU SÊR"
-
-msgid "YEAR"
-msgstr "BLWYDDYN"
-
-msgid "REGION"
-msgstr "RHANBARTH"
-
-msgid "KIDGAME"
-msgstr "GÊM PLANT"
-
-msgid "ALREADY PLAYED"
-msgstr "WEDI CHWARAE"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "GYDA CYFLAWNIADAU"
-
-msgid "VERTICAL"
-msgstr ""
-
-msgid "LIGHTGUN"
-msgstr ""
-
-msgid "STEERING WHEEL"
-msgstr ""
-
-msgid "TRACKBALL"
-msgstr ""
-
-msgid "SPINNER"
-msgstr ""
-
-msgid "HAVING MEDIAS"
-msgstr ""
-
-msgid "MISSING MEDIAS"
-msgstr ""
-
-msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
-
-msgid "INVALID CREDENTIALS"
-msgstr ""
-
-msgid "SCRAPING"
-msgstr "YN CRAFU"
-
-msgid "SCRAPE FAILED"
-msgstr "WEDI METHU CRAFU"
-
-msgid "SCRAPING FINISHED"
-msgstr "WEDI GORFFEN CRAFU"
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr ""
-
-msgid "SLOW"
-msgstr ""
-
-msgid "NOT WORKING"
-msgstr ""
-
-msgid "BUGGY"
-msgstr ""
-
-msgid "LIKED"
-msgstr ""
-
-msgid "DISLIKED"
-msgstr ""
-
-msgid "Loading system config..."
-msgstr "Llwytho system ffurfweddu..."
-
-msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
-
-msgid "INVALID CONFIGURATION"
-msgstr ""
-
-msgid "UNKNOWN EMULATOR"
-msgstr ""
-
-msgid "EMULATOR IS MISSING"
-msgstr ""
-
-msgid "CORE IS MISSING"
-msgstr ""
-
-msgid "UKNOWN ERROR"
-msgstr ""
+msgid "Extracting"
+msgstr "Echdynnu"
 
 msgid "Interlaced"
 msgstr ""
-
-msgid "all games"
-msgstr "holl gemau"
-
-msgid "last played"
-msgstr "chwaraewyd olaf"
-
-msgid "favorites"
-msgstr "ffefrynnau"
-
-msgid "2 players"
-msgstr "2 chwaraewyr"
-
-msgid "4 players"
-msgstr "4 chwaraewyr"
-
-msgid "never played"
-msgstr "erioed wedi chwarae"
-
-msgid "retroachievements"
-msgstr "cyflawniadau-retro"
-
-msgid "arcade"
-msgstr "arcêd"
-
-msgid "vertical arcade"
-msgstr ""
-
-msgid "lightgun games"
-msgstr ""
-
-msgid "wheel games"
-msgstr ""
-
-msgid "trackball games"
-msgstr ""
-
-msgid "spinner games"
-msgstr ""
-
-msgid "collections"
-msgstr "casgliadau"
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "Wedi adio '%s' i '%s'"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "Wedi tynnu '%s' o '%s'"
-
-msgid "This collection is empty."
-msgstr "Mae'r casgliad hwn yn wag."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Dim"
-
-msgid "Various"
-msgstr "Amrywiol"
-
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "CHWILIO CYFLAWNIADAU-RETRO"
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "CHWILIO GEMAU NETPLAY"
-
-msgid "INDEXING COMPLETED"
-msgstr "MYNEGAI WEDI CWBLHAU"
 
 msgid "FILENAME, ASCENDING"
 msgstr "ENW FFEILIAU, ESGYNNOL"
@@ -3555,36 +3110,333 @@ msgstr ""
 msgid "A,AN,THE"
 msgstr ""
 
-msgid "UPDATE AVAILABLE"
-msgstr "DIWEDDARIAD AR GAEL"
-
-#, c-format
-msgid "%s connected"
+msgid "INVALID CREDENTIALS"
 msgstr ""
 
-#, c-format
-msgid "%s disconnected"
+msgid "SCRAPING"
+msgstr "YN CRAFU"
+
+msgid "SCRAPE FAILED"
+msgstr "WEDI METHU CRAFU"
+
+msgid "SCRAPING FINISHED"
+msgstr "WEDI GORFFEN CRAFU"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr ""
 
-#, c-format
-msgid "%d d"
+msgid "DOWNLOADING"
+msgstr "LAWRLWYTHO"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "THEMA WEDI'I OSOD YN LLWYDDIANNUS"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "GWEFLAU WEDI'I OSOD YN LLWYDDIANNUS"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "PECYNNAU WEDI'I OSOD YN LLWYDDIANNUS"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "PECYNNAU WEDI'I DADOSOD YN LLWYDDIANNUS"
+
+msgid "Name"
+msgstr "Enw"
+
+msgid "this game's name"
 msgstr ""
 
-#, c-format
-msgid "%d h"
-msgstr "%d a"
+msgid "Description"
+msgstr "Disgrifiad"
 
-#, c-format
-msgid "%d mn"
+msgid "this game's description"
 msgstr ""
 
-#, c-format
-msgid "%d sec"
+msgid "enter game genre"
+msgstr "gosod genre gemau"
+
+msgid "Tags"
 msgstr ""
 
+msgid "tags"
+msgstr ""
+
+msgid "Sort name"
+msgstr ""
+
+msgid "enter game sort name"
+msgstr ""
+
+msgid "emulator"
+msgstr "efelychwr"
+
+msgid "core"
+msgstr "craidd"
+
+msgid "Image"
+msgstr "Delwedd"
+
+msgid "enter path to image"
+msgstr "gosod llwybr i'r ddelwedd"
+
+msgid "Video"
+msgstr "Fideo"
+
+msgid "enter path to video"
+msgstr "gosod llwybr i'r fideo"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "enter path to logo"
+msgstr "gosod llwybr i'r logo"
+
+msgid "Box"
+msgstr "Bocs"
+
+msgid "enter path to box"
+msgstr "gosod llwybr i'r bocs"
+
+msgid "Fan art"
+msgstr "Celf ffan"
+
+msgid "enter path to fanart"
+msgstr "gosod llwybr i'r celf ffan"
+
+msgid "Title shot"
+msgstr "Ciplun Teitl"
+
+msgid "enter path to title shot"
+msgstr "gosod llwybr i'r ciplun teitl"
+
+msgid "Manual"
+msgstr "Llawlyfr"
+
+msgid "enter path to manual"
+msgstr "gosod llwybr i'r llawlyfr"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
+
+msgid "Map"
+msgstr "Map"
+
+msgid "enter path to map"
+msgstr "gosod llwybr i'r map"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
+
+msgid "Cartridge"
+msgstr "Cetrisen"
+
+msgid "enter path to cartridge"
+msgstr "gosod llwybr i'r cetris"
+
+msgid "Alt BoxArt"
+msgstr "CelfBocs Arall"
+
+msgid "enter path to alt boxart"
+msgstr "gosod llwybr i celfbocs arall"
+
+msgid "Box backside"
+msgstr ""
+
+msgid "enter path to box background"
+msgstr ""
+
+msgid "Wheel"
+msgstr "Olwyn"
+
+msgid "enter path to wheel"
+msgstr "gosod llwybr i'r olwyn"
+
+msgid "Mix"
+msgstr "Cymysgedd"
+
+msgid "enter path to mix"
+msgstr "gosod llwybr i'r cymysgedd"
+
+msgid "enter rating"
+msgstr "gosod marciau sêr"
+
+msgid "Release date"
+msgstr "Dyddiad rhyddhau"
+
+msgid "enter release date"
+msgstr "gosod dyddiad rhyddhau"
+
+msgid "this game's developer"
+msgstr ""
+
+msgid "this game's publisher"
+msgstr ""
+
+msgid "Game family"
+msgstr ""
+
+msgid "this game's game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
+
+msgid "Arcade system"
+msgstr "System arcêd"
+
+msgid "this game's arcade system"
+msgstr ""
+
+msgid "this game's number of players"
+msgstr ""
+
+msgid "enter favorite"
+msgstr "gosod ffefryn"
+
+msgid "Hidden"
+msgstr "Cudd"
+
+msgid "enter hidden"
+msgstr "gosod cuddio"
+
+msgid "Kidgame"
+msgstr "Gêm plant"
+
+msgid "enter kidgame"
+msgstr "gosod gêm plant"
+
+msgid "Play count"
+msgstr "Cyfrif chwarae"
+
+msgid "enter number of times played"
+msgstr "gosod nifer o weithiau chwaraewyd"
+
+msgid "enter last played date"
+msgstr "gosod dyddiad chwaraewyd olaf"
+
+msgid "Crc32"
+msgstr "Crc32"
+
+msgid "Crc32 checksum"
+msgstr "Crc32 checksum"
+
+msgid "Md5"
+msgstr "Md5"
+
+msgid "Md5 checksum"
+msgstr "Md5 checksum"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "cyfanswm yr amser (eiliadau) chwaraewyd o'r gêm"
+
+msgid "Languages"
+msgstr "Ieithoedd"
+
+msgid "this game's languages"
+msgstr ""
+
+msgid "Region"
+msgstr "Rhanbarth"
+
+msgid "this game's region"
+msgstr ""
+
+msgid "Cheevos Hash"
+msgstr "Hash Cheevos"
+
+msgid "Cheevos checksum"
+msgstr "Checksum Cheevos"
+
+msgid "Cheevos Game ID"
+msgstr "ID Gêm Cheevo"
+
+msgid "Screenscraper Game ID"
+msgstr "ID Gêm Screenscraper"
+
+msgid "MultiDisk"
+msgstr ""
+
+msgid "Loading system config..."
+msgstr "Llwytho system ffurfweddu..."
+
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
+msgid "all games"
+msgstr "holl gemau"
+
+msgid "last played"
+msgstr "chwaraewyd olaf"
+
+msgid "favorites"
+msgstr "ffefrynnau"
+
+msgid "2 players"
+msgstr "2 chwaraewyr"
+
+msgid "4 players"
+msgstr "4 chwaraewyr"
+
+msgid "never played"
+msgstr "erioed wedi chwarae"
+
+msgid "retroachievements"
+msgstr "cyflawniadau-retro"
+
+msgid "arcade"
+msgstr "arcêd"
+
+msgid "vertical arcade"
+msgstr ""
+
+msgid "lightgun games"
+msgstr ""
+
+msgid "wheel games"
+msgstr ""
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
+
+msgid "collections"
+msgstr "casgliadau"
+
 #, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
+msgid "Added '%s' to '%s'"
+msgstr "Wedi adio '%s' i '%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "Wedi tynnu '%s' o '%s'"
+
+msgid "This collection is empty."
+msgstr "Mae'r casgliad hwn yn wag."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Dim"
+
+msgid "Various"
+msgstr "Amrywiol"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -3592,60 +3444,149 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d diwrnod yn ôl"
-msgstr[1] "%d diwrnod yn ôl"
-msgstr[2] "%d diwrnodau yn ôl"
-msgstr[3] "%d diwrnodau yn ôl"
-msgstr[4] "%d diwrnodau yn ôl"
-msgstr[5] "%d diwrnodau yn ôl"
+msgid "INVALID CONTENT"
+msgstr ""
 
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "%d awr yn ôl"
-msgstr[1] "%d awr yn ôl"
-msgstr[2] "%d oriau yn ôl"
-msgstr[3] "%d oriau yn ôl"
-msgstr[4] "%d oriau yn ôl"
-msgstr[5] "%d oriau yn ôl"
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Mae angen cyfrif dilys. Cofrestrwch gyfrif ar https://retroachievements.org"
 
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "%d munud yn ôl"
-msgstr[1] "%d munud yn ôl"
-msgstr[2] "%d munudau yn ôl"
-msgstr[3] "%d munudau yn ôl"
-msgstr[4] "%d munudau yn ôl"
-msgstr[5] "%d munudau yn ôl"
+msgid "SLOW"
+msgstr ""
 
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "%d eiliad yn ôl"
-msgstr[1] "%d eiliad yn ôl"
-msgstr[2] "%d eiliadau yn ôl"
-msgstr[3] "%d eiliadau yn ôl"
-msgstr[4] "%d eiliadau yn ôl"
-msgstr[5] "%d eiliadau yn ôl"
+msgid "NOT WORKING"
+msgstr ""
 
-msgid "MOVE CURSOR"
-msgstr "SYMUD CYRCHWR"
+msgid "BUGGY"
+msgstr ""
 
-msgid "EDIT"
-msgstr "GOLYGU"
+msgid "LIKED"
+msgstr ""
 
-msgid "CHANGE"
-msgstr "NEWID"
+msgid "DISLIKED"
+msgstr ""
 
-msgid "WORKING..."
-msgstr "YN GWEITHIO..."
+msgid "UPDATE AVAILABLE"
+msgstr "DIWEDDARIAD AR GAEL"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
+
+msgid "Collections"
+msgstr "Casgliadau"
+
+msgid "Searching for devices..."
+msgstr "Chwilio am rheolyddion..."
+
+msgid "FORMATTING DEVICE"
+msgstr ""
+
+msgid "Formatting"
+msgstr ""
+
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "ANGEN AILGYCHWYN Y SYSTEM I GWBLHAU'R WEITHRED"
+
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr ""
+
+msgid "GENRE"
+msgstr "GENRE"
+
+msgid "TAG"
+msgstr ""
+
+msgid "FAMILY"
+msgstr ""
+
+msgid "PLAYERS"
+msgstr "CHWARAEWYR"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr "MARCIAU SÊR"
+
+msgid "YEAR"
+msgstr "BLWYDDYN"
+
+msgid "REGION"
+msgstr "RHANBARTH"
+
+msgid "KIDGAME"
+msgstr "GÊM PLANT"
+
+msgid "ALREADY PLAYED"
+msgstr "WEDI CHWARAE"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "GYDA CYFLAWNIADAU"
+
+msgid "VERTICAL"
+msgstr ""
+
+msgid "LIGHTGUN"
+msgstr ""
+
+msgid "STEERING WHEEL"
+msgstr ""
+
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "CHWILIO CYFLAWNIADAU-RETRO"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "CHWILIO GEMAU NETPLAY"
+
+msgid "INDEXING COMPLETED"
+msgstr "MYNEGAI WEDI CWBLHAU"
+
+msgid "SCREEN READER ENABLED"
+msgstr ""
+
+msgid "SCREEN READER DISABLED"
+msgstr ""
+
+msgid "ENABLED"
+msgstr ""
 
 msgid "up/down"
 msgstr "lan/lawr"
+
+msgid "WORKING..."
+msgstr "YN GWEITHIO..."
 
 msgid "accept"
 msgstr "derbyn"
@@ -3672,8 +3613,34 @@ msgstr[3] "%i WEDI DEWIS"
 msgstr[4] "%i WEDI DEWIS"
 msgstr[5] "%i WEDI DEWIS"
 
-msgid "ENABLED"
+msgid "CHANGE"
+msgstr "NEWID"
+
+msgid "MOVE CURSOR"
+msgstr "SYMUD CYRCHWR"
+
+msgid "EDIT"
+msgstr "GOLYGU"
+
+#, c-format
+msgid "%s connected"
 msgstr ""
+
+#, c-format
+msgid "%s disconnected"
+msgstr ""
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT AM UCHAF, ISEL, AC ARBENNIG"
+
+msgid "ALT GR"
+msgstr "ALT GR"
+
+msgid "SHIFT"
+msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "GOFOD"
 
 msgid "DISCARD CHANGES"
 msgstr "TAFLU NEWIDIADAU"
@@ -3702,18 +3669,6 @@ msgstr ""
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
 msgstr ""
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT AM UCHAF, ISEL, AC ARBENNIG"
-
-msgid "ALT GR"
-msgstr "ALT GR"
-
-msgid "SHIFT"
-msgstr "SHIFT"
-
-msgid "SPACE"
-msgstr "GOFOD"
 
 msgctxt "joystick"
 msgid "NORTH"
@@ -3861,12 +3816,6 @@ msgstr "PWYSO UNRHYWBETH"
 msgid "ALREADY TAKEN"
 msgstr "WEDI CYMRYD YN BAROD"
 
-msgid "SCREEN READER ENABLED"
-msgstr ""
-
-msgid "SCREEN READER DISABLED"
-msgstr ""
-
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
@@ -3905,7 +3854,16 @@ msgstr ""
 msgid "Please check the logs."
 msgstr ""
 
-msgid "N/A"
+msgid "NO, IGNORE THIS TIME"
+msgstr ""
+
+msgid "NO, IGNORE FOREVER"
+msgstr ""
+
+msgid "Adding drive to ignore list..."
+msgstr ""
+
+msgid "YES, MERGE DRIVE"
 msgstr ""
 
 msgid "NEW DRIVE DETECTED"
@@ -3923,20 +3881,83 @@ msgstr ""
 msgid "FORMAT FAILED"
 msgstr ""
 
-msgid "NO, IGNORE THIS TIME"
-msgstr ""
-
-msgid "NO, IGNORE FOREVER"
-msgstr ""
-
-msgid "Adding drive to ignore list..."
-msgstr ""
-
 msgid "YES, FORMAT & MERGE"
 msgstr ""
 
 msgid "NO, IGNORE"
 msgstr ""
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d a"
+
+#, c-format
+msgid "%d mn"
+msgstr ""
+
+#, c-format
+msgid "%d sec"
+msgstr ""
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d diwrnod yn ôl"
+msgstr[1] "%d diwrnod yn ôl"
+msgstr[2] "%d diwrnodau yn ôl"
+msgstr[3] "%d diwrnodau yn ôl"
+msgstr[4] "%d diwrnodau yn ôl"
+msgstr[5] "%d diwrnodau yn ôl"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d awr yn ôl"
+msgstr[1] "%d awr yn ôl"
+msgstr[2] "%d oriau yn ôl"
+msgstr[3] "%d oriau yn ôl"
+msgstr[4] "%d oriau yn ôl"
+msgstr[5] "%d oriau yn ôl"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d munud yn ôl"
+msgstr[1] "%d munud yn ôl"
+msgstr[2] "%d munudau yn ôl"
+msgstr[3] "%d munudau yn ôl"
+msgstr[4] "%d munudau yn ôl"
+msgstr[5] "%d munudau yn ôl"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d eiliad yn ôl"
+msgstr[1] "%d eiliad yn ôl"
+msgstr[2] "%d eiliadau yn ôl"
+msgstr[3] "%d eiliadau yn ôl"
+msgstr[4] "%d eiliadau yn ôl"
+msgstr[5] "%d eiliadau yn ôl"
+
+#~ msgid "BUILD IMAGE CACHE"
+#~ msgstr "ADEILADU DELWEDD COF DROS DRO"
+
+#~ msgid "Building image cache"
+#~ msgstr "Adeiladu delwedd cof dros dro"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "GAN Y FATH O GALEDWEDD"

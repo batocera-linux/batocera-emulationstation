@@ -4,4931 +4,4014 @@
 # Automatically generated, 2026.
 #
 msgid ""
-msgstr "Project-Id-Version: batocera-l 10n\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-03-08 20:35+0100\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
-
-
-msgid "SCANNING BLUETOOTH"
-msgstr "SKANNING BLUETOOTH"
-
-
-msgid "Searching for devices..."
-msgstr "Söker efter enheter..."
-
-
-msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "BLUETOOTH-SÖKNINGEN ÄR REDAN IGÅNG."
-
-
-msgid "FORMATTING DEVICE"
-msgstr "FORMATERINGSENHET"
-
-
-msgid "Formatting"
-msgstr "Formatering"
-
-
-msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "EN OMSTART KRÄVS FÖR ATT SLUTFÖRA OPERATIONEN"
-
-
-msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "EN ENHET REDAN HÅLLER PÅ ATT FORMATERAS."
-
-
-msgid "Name"
-msgstr "Namn"
-
-
-msgid "this game's name"
-msgstr "det här spelets namn"
-
-
-msgid "Description"
-msgstr "Beskrivning"
-
-
-msgid "this game's description"
-msgstr "detta spels beskrivning"
-
-
-msgid "Genre"
 msgstr ""
-
-
-msgid "enter game genre"
-msgstr "ange spelgenre"
-
-
-msgid "Tags"
-msgstr "Etiketter"
-
-
-msgid "tags"
-msgstr "taggar"
-
-
-msgid "Sort name"
-msgstr "Sortera namn"
-
-
-msgid "enter game sort name"
-msgstr "ange namn på spelsortering"
-
-
-msgid "Emulator"
-msgstr "emulator"
-
-
-msgid "emulator"
-msgstr ""
-
-
-msgid "Core"
-msgstr "Kärnan"
-
-
-msgid "core"
-msgstr "kärna"
-
-
-msgid "Image"
-msgstr "Bild"
-
-
-msgid "enter path to image"
-msgstr "ange sökväg till bilden"
-
-
-msgid "Video"
-msgstr ""
-
-
-msgid "enter path to video"
-msgstr "ange sökväg till video"
-
-
-msgid "Logo"
-msgstr "Logotyp"
-
-
-msgid "enter path to logo"
-msgstr "ange sökväg till logotyp"
-
-
-msgid "Box"
-msgstr "Låda"
-
-
-msgid "enter path to box"
-msgstr "ange sökväg till box"
-
-
-msgid "Fan art"
-msgstr "Fan-konst"
-
-
-msgid "enter path to fanart"
-msgstr "ange väg till fanart"
-
-
-msgid "Title shot"
-msgstr "Titelbild"
-
-
-msgid "enter path to title shot"
-msgstr "gå vidare till titelmatch"
-
-
-msgid "Manual"
-msgstr "Manuell"
-
-
-msgid "enter path to manual"
-msgstr "ange sökväg till manual"
-
-
-msgid "Magazine"
-msgstr "Tidskrift"
-
-
-msgid "enter path to magazine"
-msgstr "ange väg till tidningen"
-
-
-msgid "Map"
-msgstr "Karta"
-
-
-msgid "enter path to map"
-msgstr "ange sökväg till karta"
-
-
-msgid "Bezel (16:9)"
-msgstr ""
-
-
-msgid "enter path to bezel (16:9)"
-msgstr "gå in på vägen till bezel (16:9)"
-
-
-msgid "Cartridge"
-msgstr "Patron"
-
-
-msgid "enter path to cartridge"
-msgstr "ange väg till kassett"
-
-
-msgid "Alt BoxArt"
-msgstr ""
-
-
-msgid "enter path to alt boxart"
-msgstr "ange väg till alt boxart"
-
-
-msgid "Box backside"
-msgstr "Boxens baksida"
-
-
-msgid "enter path to box background"
-msgstr "ange sökväg till boxens bakgrund"
-
-
-msgid "Wheel"
-msgstr "Hjul"
-
-
-msgid "enter path to wheel"
-msgstr "ange väg till hjul"
-
-
-msgid "Mix"
-msgstr "Blanda"
-
-
-msgid "enter path to mix"
-msgstr "ange väg till mix"
-
-
-msgid "Rating"
-msgstr "Betyg"
-
-
-msgid "enter rating"
-msgstr "ange betyg"
-
-
-msgid "Release date"
-msgstr "Utgivningsdatum"
-
-
-msgid "enter release date"
-msgstr "ange utgivningsdatum"
-
-
-msgid "Developer"
-msgstr "Utvecklare"
-
-
-msgid "this game's developer"
-msgstr "detta spels utvecklare"
-
-
-msgid "Publisher"
-msgstr "Utgivare"
-
-
-msgid "this game's publisher"
-msgstr "detta spels utgivare"
-
-
-msgid "Game family"
-msgstr "Spel familj"
-
-
-msgid "this game's game family"
-msgstr "det här spelets spelfamilj"
-
-
-msgid "Genres"
-msgstr "Genrer"
-
-
-msgid "enter game genres"
-msgstr "ange spelgenrer"
-
-
-msgid "Arcade system"
-msgstr "Arkad-system"
-
-
-msgid "this game's arcade system"
-msgstr "detta spels arkadsystem"
-
-
-msgid "Players"
-msgstr "Spelare"
-
-
-msgid "this game's number of players"
-msgstr "detta spels antal spelare"
-
-
-msgid "Favorite"
-msgstr "Favorit"
-
-
-msgid "enter favorite"
-msgstr "ange favorit"
-
-
-msgid "Hidden"
-msgstr "Dolda"
-
-
-msgid "enter hidden"
-msgstr "ange dold"
-
-
-msgid "Kidgame"
-msgstr "Barnspel"
-
-
-msgid "enter kidgame"
-msgstr "gå in i kidgame"
-
-
-msgid "Play count"
-msgstr "Spela upp antal"
-
-
-msgid "enter number of times played"
-msgstr "ange antal spelade gånger"
-
-
-msgid "Last played"
-msgstr "Senast spelade"
-
-
-msgid "enter last played date"
-msgstr "ange senast spelade datum"
-
-
-msgid "Crc32"
-msgstr ""
-
-
-msgid "Crc32 checksum"
-msgstr "Crc32-kontrollsumma"
-
-
-msgid "Md5"
-msgstr ""
-
-
-msgid "Md5 checksum"
-msgstr "Md5-kontrollsumma"
-
-
-msgid "Game time"
-msgstr "Speltid"
-
-
-msgid "how long the game has been played in total (seconds)"
-msgstr "hur länge spelet har spelats totalt (sekunder)"
-
-
-msgid "Languages"
-msgstr "Språk"
-
-
-msgid "this game's languages"
-msgstr "detta spels språk"
-
-
-msgid "Region"
-msgstr ""
-
-
-msgid "this game's region"
-msgstr "detta spels region"
-
-
-msgid "Cheevos Hash"
-msgstr ""
-
-
-msgid "Cheevos checksum"
-msgstr "Cheevos kontrollsumma"
-
-
-msgid "Cheevos Game ID"
-msgstr "Cheevos Spel-ID"
-
-
-msgid "Screenscraper Game ID"
-msgstr "Screenscraper Spel-ID"
-
-#, c-format
-
-msgid "This collection contains %i game:%s"
-msgstr "Den här samlingen innehåller %i game:%s"
-
-
-msgid "Collections"
-msgstr "Samlingar"
-
-
-msgid "Unknown"
-msgstr "Okänd"
-
-
-msgid "Extracting"
-msgstr "Extrahering"
-
-
-msgid "DOWNLOADING"
-msgstr "NEDLADDNING"
-
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "TEMAT INSTALLERAT FRAMGÅNGSRIKT"
-
-
-msgid "AN ERROR OCCURRED"
-msgstr "ETT FEL HAR INTRÄFFAT"
-
-
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "TEMAT AVINSTALLERADES FRAMGÅNGSRIKT"
-
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "RAMAR INSTALLERADE FRAMGÅNGSRIKT"
-
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "RAMAR AVINSTALLERADE FRAMGÅNGSRIKT"
-
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "PAKETET INSTALLERAT FRAMGÅNGSRIKT"
-
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "PAKETET HAR TAGITS BORT FRAMGÅNGSRIKT"
-
+"Project-Id-Version: batocera-l 10n\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2026-04-19 08:40+0200\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
 
 msgid "Searching"
 msgstr "Söker"
 
+msgid "Publisher"
+msgstr "Utgivare"
+
+msgid "Developer"
+msgstr "Utvecklare"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Players"
+msgstr "Spelare"
 
 msgid "Released"
 msgstr "Frigjord"
 
+msgid "Rating"
+msgstr "Betyg"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "INGA SPEL HITTADES - HOPPA ÖVER"
 
+msgid "AN ERROR OCCURRED"
+msgstr "ETT FEL HAR INTRÄFFAT"
 
 msgid "RETRY"
-msgstr ""
-
+msgstr "FÖRSÖK IGEN"
 
 msgid "SKIP"
-msgstr ""
-
+msgstr "HOPPA ÖVER"
 
 msgid "CANCEL"
 msgstr "AVBRYT"
 
-
 msgid "Downloading"
 msgstr "Nedladdning"
-
 
 msgid "SEARCH FOR"
 msgstr "SÖK EFTER"
 
-
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTERA RESULTAT"
 
+msgid "Full"
+msgstr "Full"
 
-msgid "THEMES DOWNLOADER"
-msgstr "NEDLADDARE FÖR TEMAN"
+msgid "Kiosk"
+msgstr "Kiosk"
 
+msgid "Kid"
+msgstr "Barn"
 
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "VÄLJ TEMAN FÖR ATT INSTALLERA/TA BORT"
+msgid "Basic"
+msgstr "Grundläggande"
 
-
-msgid "All"
-msgstr "Alla"
-
-
-msgid "Installed"
-msgstr "Installerad"
-
-
-msgid "Available"
-msgstr "Tillgänglig"
-
-
-msgid "BACK"
-msgstr "TILLBAKA"
-
-
-msgid "No items"
-msgstr "Inga föremål"
-
-
-msgid "PLEASE WAIT"
-msgstr "VÄNLIGEN VÄNTA"
-
-
-msgid "UPDATE"
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-
-#, c-format
-
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' LÄGGS TILL DOWNLOAD QUEUE"
-
-
-msgid "REMOVE"
-msgstr "AVLÄGSNA"
-
-
-msgid "INSTALL"
-msgstr "INSTALLERA"
-
-
-msgid "CLOSE"
-msgstr "STÄNGD"
-
-
-msgid "CURRENT THEME"
-msgstr "AKTUELLT TEMA"
-
-#, c-format
-
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "FÖR NÄRVARANDE I NEDLADDNINGSKÖ"
-
-
-msgid "FINISHED"
-msgstr "AVSLUTAD"
-
-
-msgid "OK"
-msgstr ""
-
-
-msgid "REFRESH"
-msgstr "ÅTERUPPFRISKNING"
-
-
-msgid "INPUT MANUALLY"
-msgstr "INPUT MANUELLT"
-
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "INGA WI-FI-NÄTVERK HITTADES"
-
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "SÖKNING AV WI-FI-NÄTVERK"
-
-
-msgid "DEVICE OPTIONS"
-msgstr "ENHETENS ALTERNATIV"
-
-
-msgid "DISCONNECT"
-msgstr "FRÅNKOPPLING"
-
-
-msgid "CONNECT"
-msgstr "ANSLUTA"
-
-
-msgid "FORGET"
-msgstr "FÖRGLÖM"
-
-#, c-format
-
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL GLÖMMA \\\"%s\\\"?"
-
+"VARNING: DEN emulator/CORE som för närvarande är inställd stöder inte det "
+"här spelets filformat.\n"
+"Vill du starta det ändå?"
 
 msgid "YES"
 msgstr "JA"
 
-
 msgid "NO"
 msgstr "NEJ"
 
-#, c-format
-
-msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL ANSLUTA TILL \\\"%s\\\"?"
-
-#, c-format
-
-msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL AVBRYTA KOPPLINGEN AV \\\"%s\\\"?"
-
-
-msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "KONFIGURATION AV handkontrollDA TILL TANGENTBORD"
-
-
-msgid "SELECT ACTIONS TO CHANGE"
-msgstr "VÄLJA ÅTGÄRDER FÖR ATT ÄNDRA"
-
-
-msgid "SAVE"
-msgstr "SÄKERHET"
-
-
-msgid "DELETE"
-msgstr "RADERA"
-
-
-msgid "PLAYER 1"
-msgstr "SPELARE 1"
-
-
-msgid "PLAYER 2"
-msgstr "SPELARE 2"
-
-
-msgid "PLAYER 3"
-msgstr "SPELARE 3"
-
-
-msgid "PLAYER 4"
-msgstr "SPELARE 4"
-
-
-msgid "COMBINATIONS"
-msgstr "KOMBINATIONER"
-
-
-msgid "MOUSE CURSOR"
-msgstr "MUSPEKARE"
-
-
-msgid "EMULATE MOUSE CURSOR"
-msgstr "EMULERA MUSPEKARE"
-
-
-msgid "LEFT ANALOG STICK"
-msgstr "VÄNSTER ANALOG SPAK"
-
-
-msgid "RIGHT ANALOG STICK"
-msgstr "HÖGER ANALOG SPAK"
-
-
-msgid "EDIT DESCRIPTION"
-msgstr "REDIGERA BESKRIVNING"
-
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL TA BORT DET HÄR OBJEKTET?"
-
-
-msgid "DELETE MAPPING"
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
+"VARNING: SYSTEMET HAR SAKNAT BIOS-FIL(ER) OCH SPELET KANSKE INTE FUNGERAR "
+"KORREKT.\n"
+"Vill du starta det ändå?"
 
+msgid "Preloading UI"
+msgstr "Förladdning av UI"
 
-msgid "SAVE CHANGES?"
-msgstr "SPARA ÄNDRINGAR?"
+msgid "Loading theme"
+msgstr "Laddar tema"
 
+msgid "Loading gamelists"
+msgstr "Laddar spellistor"
 
-msgid "ARE YOU SURE?"
-msgstr "ÄR DU SÄKER?"
+msgid "Loading..."
+msgstr "Laddar..."
 
+msgid "MENU"
+msgstr "MENY"
 
-msgid "INFORMATION"
-msgstr ""
+msgid "SYSTEM INFO"
+msgstr "SYSTEMINFO"
 
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr "FEL: ALLA SYSTEM ÄR DOLDA, VISA DEM ALLA IGEN NU"
 
-msgid "VERSION"
-msgstr ""
+msgid "OK"
+msgstr "OK"
 
+msgid "QUICK SEARCH"
+msgstr "SNABBSÖKNING"
 
-msgid "USER DISK USAGE"
-msgstr "ANVÄNDARENS DISKANVÄNDNING"
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "DU INTE ÄR ANSLUTEN TILL ETT NÄTVERK"
 
+msgid "GO TO LETTER"
+msgstr "GÅ TILL BREV"
 
-msgid "SYSTEM DISK USAGE"
-msgstr "SYSTEMETS DISKANVÄNDNING"
+msgid "COLLECTIONS"
+msgstr "SAMLINGAR"
 
+msgid "GO TO MANUFACTURER"
+msgstr "GÅ TILL TILLVERKAREN"
 
-msgid "DISK USAGE"
-msgstr "DISKANVÄNDNING"
+msgid "GO TO HARDWARE"
+msgstr "GÅ TILL HÅRDVARA"
 
+msgid "GO TO DECADE"
+msgstr "GÅ TILL ÅRTIONDE"
 
-msgid "SYSTEM"
-msgstr ""
+msgid "Unknown"
+msgstr "Okänd"
 
+msgid "CONFIGURATION"
+msgstr "KONFIGURATION"
 
-msgid "VIDEO DRIVER"
-msgstr ""
+#, fuzzy, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i Insamling"
+msgstr[1] "%i Insamling"
 
+#, fuzzy, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i OBJEKT"
+msgstr[1] "%i OBJEKT"
 
-msgid "PARIS"
-msgstr ""
+#, fuzzy, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i SPEL"
+msgstr[1] "%i SPEL"
 
+msgid "SELECT"
+msgstr "VÄLJ"
 
-msgid "OSAKA"
-msgstr ""
-
-
-msgid "SEOUL"
-msgstr ""
-
-
-msgid "NETPLAY SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR NÄTSPEL"
-
-
-msgid "SETTINGS"
-msgstr "INSTÄLLNINGAR"
-
-
-msgid "ENABLE NETPLAY"
-msgstr "AKTIVERA NETPLAY"
-
-
-msgid "NICKNAME"
-msgstr "SMEKNAMN"
-
-
-msgid "OPTIONS"
-msgstr "ALTERNATIV"
-
-
-msgid "PORT"
-msgstr ""
-
-
-msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr "AUTOMATISKT SKAPA LOBBY"
-
-
-msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr "Skapar automatiskt en Netplay-lobby när du startar ett spel."
-
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "VISA ENDAST RELÄSERVERSPEL"
-
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Relay server-spel har större chans att lyckas med deltagandet."
-
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "VISA OTILLGÄNGLIGA SPEL"
-
-
-msgid "Show rooms for games not present on this machine."
-msgstr "Visa rum för spel som inte finns på den här maskinen."
-
-
-msgid "GAME INDEXES"
-msgstr "INDEX FÖR SPEL"
-
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXERA NYA SPEL VID UPPSTART"
-
-
-msgid "INDEX GAMES"
-msgstr "INDEX SPEL"
-
-
-msgid "USE RELAY SERVER"
-msgstr "ANVÄND RELÄSERVER"
-
-
-msgid "NONE"
-msgstr "INGEN"
-
-
-msgid "NEW YORK"
-msgstr ""
-
-
-msgid "MADRID"
-msgstr ""
-
-
-msgid "MONTREAL"
-msgstr ""
-
-
-msgid "SAO PAULO"
-msgstr ""
-
-
-msgid "CUSTOM"
-msgstr "ANPASSAD"
-
-
-msgid "CUSTOM RELAY SERVER"
-msgstr "ANPASSAD RELÄSERVER"
-
-
-msgid "INPUT"
-msgstr ""
-
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "SEARCH"
 msgstr "SÖK"
 
+msgid "RANDOM"
+msgstr "SLUMPMÄSSIGT"
+
+msgid "NAVIGATION BAR"
+msgstr "NAVIGERINGSFÄLT"
+
+msgid "FILES"
+msgstr "FILER"
+
+msgid "Last played"
+msgstr "Senast spelat"
+
+msgid "Times played"
+msgstr "Spelade tider"
+
+msgid "Game time"
+msgstr "Speltid"
+
+msgid "Favorite"
+msgstr "Favorit"
+
+#, fuzzy, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "Den här mappen innehåller %i spel, inklusive :%s"
+msgstr[1] "Den här mappen innehåller %i spel, inklusive :%s"
+
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTRERA SPEL EFTER TEXT"
+
+msgid "Games similar to"
+msgstr "Spel som liknar"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "CHOOSE"
+msgstr "VÄLJ"
+
+msgid "BACK"
+msgstr "TILLBAKA"
+
+msgid "SAVE STATES (HOLD)"
+msgstr "SPARA TILLSTÅND (HÅLL)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "SPELALTERNATIV (HÅLL)"
+
+msgid "OPTIONS"
+msgstr "ALTERNATIV"
+
+msgid "GAME OPTIONS"
+msgstr "SPELOPTIONER"
+
+msgid "FAVORITE"
+msgstr "FAVORIT"
+
+msgid "SAVE STATES"
+msgstr "RÄDDA STATEN"
+
 #, c-format
+msgid "Back to %s"
+msgstr "Tillbaka till %s"
 
-msgid "%d of %d softcore points"
-msgstr "%d av %d softcore-poäng"
+msgid "No Entries Found"
+msgstr "Inga poster hittades"
 
-#, c-format
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr "KONFIGURATION AV handkontrollDA TILL TANGENTBORD"
 
-msgid "%d of %d hardcore points"
-msgstr "%d av %d hardcore-punkter"
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr "VÄLJA ÅTGÄRDER FÖR ATT ÄNDRA"
 
-#, c-format
+msgid "SAVE"
+msgstr "SÄKERHET"
 
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d av %d)"
+msgid "DELETE"
+msgstr "RADERA"
 
+msgid "CLOSE"
+msgstr "STÄNGD"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROPRESTATIONER"
+msgid "PLAYER 1"
+msgstr "SPELARE 1"
 
+msgid "PLAYER 2"
+msgstr "SPELARE 2"
 
-msgid "Softcore points"
-msgstr "Softcore-poäng"
+msgid "PLAYER 3"
+msgstr "SPELARE 3"
 
+msgid "PLAYER 4"
+msgstr "SPELARE 4"
 
-msgid "Points (hardcore)"
-msgstr "Poäng (hardcore)"
+msgid "COMBINATIONS"
+msgstr "KOMBINATIONER"
 
+msgid "MOUSE CURSOR"
+msgstr "MUSPEKARE"
 
-msgid "Rank"
-msgstr ""
+msgid "EMULATE MOUSE CURSOR"
+msgstr "EMULERA MUSPEKARE"
 
+msgid "LEFT ANALOG STICK"
+msgstr "VÄNSTER ANALOG SPAK"
 
-msgid "VIEW DETAILS"
-msgstr "VISA DETALJER"
+msgid "RIGHT ANALOG STICK"
+msgstr "HÖGER ANALOG SPAK"
 
+msgid "EDIT DESCRIPTION"
+msgstr "REDIGERA BESKRIVNING"
 
-msgid "LAUNCH"
-msgstr "LANSERING"
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL TA BORT DET HÄR OBJEKTET?"
 
+msgid "DELETE MAPPING"
+msgstr "TA BORT MAPPNING"
+
+msgid "SAVE CHANGES?"
+msgstr "SPARA ÄNDRINGAR?"
+
+msgid "ARE YOU SURE?"
+msgstr "ÄR DU SÄKER?"
 
 msgid "RETROACHIEVEMENT SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENT"
 
+msgid "SETTINGS"
+msgstr "INSTÄLLNINGAR"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
 
 msgid "USERNAME"
 msgstr "ANVÄNDARNAMN"
 
-
 msgid "PASSWORD"
 msgstr "LÖSENORD"
 
-
 msgid "HARDCORE MODE"
-msgstr ""
-
+msgstr "HARDCORE-LÄGE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Inaktivera laddningstillstånd, spola tillbaka och fuska för fler poäng."
-
+msgstr ""
+"Inaktivera laddningstillstånd, spola tillbaka och fuska för fler poäng."
 
 msgid "LEADERBOARDS"
-msgstr ""
-
+msgstr "LEDARTAVLOR"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr "Tävla i topplistor för höga poäng och bästa tid (kräver hardcore)."
 
-
 msgid "VERBOSE MODE"
 msgstr "VERBOSE-LÄGE"
-
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr "Visa framsteg i prestationer vid spelstart och andra meddelanden."
 
-
 msgid "RICH PRESENCE"
 msgstr "RIK PRESENS"
-
 
 msgid "ENCORE MODE"
 msgstr "ENCORE-LÄGE"
 
-
 msgid "Unlocked achievements can be earned again."
 msgstr "Upplåsta prestationer kan erhållas på nytt."
-
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISK SKÄRMDUMP"
 
-
 msgid "Automatically take a screenshot when an achievement is earned."
 msgstr "Ta automatiskt en skärmdump när en prestation har uppnåtts."
-
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDIKATORER FÖR UTMANINGAR"
 
-
-msgid "Shows icons in the bottom right corner when eligible achievements can be earned."
-msgstr "Visar ikoner i det nedre högra hörnet när det går att få kvalificerade prestationer."
-
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Visar ikoner i det nedre högra hörnet när det går att få kvalificerade "
+"prestationer."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
 msgstr "INOFFICIELLA PRESTATIONER"
 
-
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Möjliggör upplåsning av inofficiella prestationer."
 
-
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT LÅSA UPP LJUD"
-
+msgstr "LÅS UPP LJUD FÖR RETROACHIEVEMENT"
 
 msgid "none"
 msgstr "ingen"
 
-
 msgid "UNLOCK SOUND"
 msgstr "LÅS UPP LJUDET"
 
-
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "VISA RetroAchievements-POST I HUVUDMENYN"
-
+msgstr "VISA RETROACHIEVEMENTS-POST I HUVUDMENYN"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "Se din RetroAchievement-statistik direkt från huvudmenyn!"
 
+msgid "GAME INDEXES"
+msgstr "INDEX FÖR SPEL"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXERA NYA SPEL VID UPPSTART"
+
+msgid "INDEX GAMES"
+msgstr "INDEX SPEL"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "INTE KAN AKTIVERA RETROAKTIVA PRESTATIONER:"
+msgstr "INTE KAN AKTIVERA RETROACHIEVEMENTS:"
 
+msgid "KEYBOARDTOPADS"
+msgstr "TANGENTBORDDATORER"
+
+msgid "HOTKEYS"
+msgstr "snabbtangentS"
+
+msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
+msgstr "TANGENTER DEFINIERADE MEN JOYSTICK INTE NAMNGIVEN"
+
+msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
+msgstr "JOYSTICK NAMNGIVEN MEN INGA TANGENTER DEFINIERADE"
+
+msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
+msgstr "KOPPLA UR OCH ÅTERANSLUTA ENHETEN FÖR ATT APPLICERA"
+
+msgid "go back"
+msgstr "gå tillbaka"
+
+msgid "JOYSTICK NAME"
+msgstr "JOYSTICK NAMN"
+
+msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
+msgstr "TRYCK PÅ EN TANGENT ELLER VÄNTA 4 SEKUNDER FÖR ATT RENSA"
+
+msgid "OVERLAYS"
+msgstr "överläggS"
+
+msgid "BRIGHTNESS CYCLE"
+msgstr "LJUSHETSCYKEL"
+
+msgid "CONTROL CENTER"
+msgstr "KONTROLLCENTER"
+
+msgid "EXIT"
+msgstr "UTGÅNG"
+
+msgid "PAUSE"
+msgstr "PAUSA"
+
+msgid "COIN"
+msgstr "MYNT"
+
+msgid "FAST FORWARD"
+msgstr "SNABBT FRAMÅT"
+
+msgid "NEXT DISK"
+msgstr "NÄSTA DISK"
+
+msgid "NEXT SLOT"
+msgstr "NÄSTA SLOT"
+
+msgid "PREVIOUS SLOT"
+msgstr "FÖREGÅENDE SKIVA"
+
+msgid "RESET"
+msgstr "ÅTERSTÄLLNING"
+
+msgid "SAVE STATE"
+msgstr "RÄDDA STATEN"
+
+msgid "RESTORE STATE"
+msgstr "ÅTERSTÄLL STAT"
+
+msgid "REWIND"
+msgstr "ÅTERSPOLNING"
+
+msgid "SCREEN LAYOUT"
+msgstr "SKÄRMLAYOUT"
+
+msgid "SCREENSHOT"
+msgstr "SKÄRMBILD"
+
+msgid "SWAP SCREEN"
+msgstr "SWAP-SKÄRM"
+
+msgid "TRANSLATION"
+msgstr "ÖVERSÄTTNING"
+
+msgid "VOLUME DOWN"
+msgstr "VOLYM NER"
+
+msgid "VOLUME UP"
+msgstr "VOLYM UPP"
+
+msgid "VOLUME MUTE"
+msgstr "VOLYM MUTE"
+
+msgid "START RECORDING"
+msgstr ""
+
+msgid "STOP RECORDING"
+msgstr ""
+
+msgid "KEYBOARD TOGGLE"
+msgstr ""
+
+msgid "KEY ASSIGNED TWICE"
+msgstr "TANGENT TILLDELAD TVÅ GÅNGER"
+
+msgid "ZOOM OUT"
+msgstr "ZOOM UT"
+
+msgid "ZOOM IN"
+msgstr "ZOOMA IN"
+
+msgid "MOVE"
+msgstr "FÖRFLYTNING"
+
+msgid "ZOOM"
+msgstr "ZOOM"
+
+msgid "PLEASE WAIT"
+msgstr "VÄNTA"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr "%d av %d softcore-poäng"
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr "%d av %d hardcore-punkter"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d av %d)"
+
+msgid "Softcore points"
+msgstr "Softcore-poäng"
+
+msgid "Points (hardcore)"
+msgstr "Poäng (hardcore)"
+
+msgid "Rank"
+msgstr "Rank"
+
+msgid "VIEW DETAILS"
+msgstr "VISA DETALJER"
+
+msgid "LAUNCH"
+msgstr "LANSERING"
 
 msgid "BLUETOOTH DEVICE LIST"
 msgstr "LISTA ÖVER BLUETOOTH-ENHETER"
 
-
 msgid "REMOVE ALL"
 msgstr "TA BORT ALLA"
-
 
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "INGA BLUETOOTH-ENHETER HITTADES"
 
-
 msgid " (Connected)"
 msgstr " (Ansluten)"
 
+msgid "REMOVE"
+msgstr "AVLÄGSNA"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH-ENHETER HAR TAGITS BORT."
 
 #, c-format
-
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr "ÄR DU SÄKER PÅ ATT DU VILL TA BORT \\\"%s\\\"?"
 
+msgid "NO MISSING BIOS FILES"
+msgstr "INGA SAKNADE BIOS-FILER"
 
-msgid "THE BEZEL PROJECT"
-msgstr "BEZEL-PROJEKTET"
+msgid "MISSING BIOS CHECK"
+msgstr "BIOS-KONTROLL SAKNAS"
 
+msgid "Installed systems"
+msgstr "Installerade system"
 
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "VÄLJ RAMAR ATT INSTALLERA/TA BORT"
+msgid "All"
+msgstr "Alla"
+
+msgid "REFRESH"
+msgstr "ÅTERUPPFRISKNING"
+
+msgid "refresh"
+msgstr "uppdatera"
+
+msgid "NO MISSING BIOS"
+msgstr "INGEN BIOS SAKNAS"
+
+msgid "GAMES TO INDEX"
+msgstr "SPEL TILL INDEX"
+
+msgid "ALL"
+msgstr "ALLA"
+
+msgid "ONLY MISSING"
+msgstr "ENDAST SAKNAD"
+
+msgid "SYSTEMS INCLUDED"
+msgstr "SYSTEM INGÅR"
+
+msgid "START"
+msgstr "STARTA"
 
 #, c-format
-
 msgid "UPDATING %s"
 msgstr "UPPDATERING %s"
-
 
 msgid "UPDATE IS READY"
 msgstr "UPPDATERINGEN ÄR KLAR"
 
-
 msgid "REBOOT TO APPLY"
 msgstr "STARTA OM FÖR ATT TILLÄMPA"
-
 
 msgid "REALLY UPDATE?"
 msgstr "VERKLIGEN UPPDATERING?"
 
 #, c-format
-
-msgid "YOU ARE CURRENTLY USING VERSION %s\nDO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr "DU ANVÄNDER FÖR NÄRVARANDE VERSION %s\nVill DU UPPDATERA TILL VERSION %s?"
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"DU ANVÄNDER FÖR NÄRVARANDE VERSION %s\n"
+"Vill DU UPPDATERA TILL VERSION %s?"
 
 #, c-format
-
-msgid "UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\nUPGRADING COULD BREAK YOUR SYSTEM.\nDO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr "Oofficiella systemmodifieringar upptäckta.\nUppgradering kan förstöra ditt system.\nVill du uppdatera till version %s?"
-
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"Oofficiella systemmodifieringar upptäckta.\n"
+"Uppgradering kan förstöra ditt system.\n"
+"Vill du uppdatera till version %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NÄTVERKSANSLUTNING BEHÖVS"
 
-
 msgid "NO UPDATE AVAILABLE"
 msgstr "INGEN UPPDATERING TILLGÄNGLIG"
 
+msgid "CONNECT TO NETPLAY"
+msgstr "ANSLUT TILL NETPLAY"
 
-msgid "SCRAPER"
-msgstr "SKROTARE"
+msgid "Select a game lobby to join"
+msgstr "Välj en spellobby att gå med i"
 
+msgid "FAILED"
+msgstr "MISSLYCKAD"
 
-msgid "SCRAPE"
-msgstr ""
+msgid "UNKNOWN ROM VERSION"
+msgstr "OKÄND ROM-VERSION"
 
+msgid "DIFFERENT ROM"
+msgstr "OLIKA ROM"
 
-msgid "ACCOUNTS"
-msgstr "KONTON"
+msgid "SAME ROM"
+msgstr "SAMMA ROM"
 
+msgid "UNAVAILABLE CORE"
+msgstr "OTILLGÄNGLIG KÄRNA"
 
-msgid "go back"
-msgstr "gå tillbaka"
+msgid "LAN GAMES"
+msgstr "LAN-SPEL"
 
+msgid "AVAILABLE GAMES"
+msgstr "TILLGÄNGLIGA SPEL"
 
-msgid "SCRAPING DATABASE"
-msgstr "SKRAPNING AV DATABAS"
+msgid "ONLINE GAMES"
+msgstr "ONLINE SPEL"
 
+msgid "UNAVAILABLE GAMES"
+msgstr "OTILLGÄNGLIGA SPEL"
 
-msgid "SOURCE"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "INGA SPEL FUNNA"
 
+msgid "JOIN GAME"
+msgstr "GÅ MED I SPELET"
 
-msgid "SCRAPE FROM"
-msgstr "SKROT FRÅN"
-
-
-msgid "FILTERS"
-msgstr "FILTER"
-
-
-msgid "GAMES TO SCRAPE FOR"
-msgstr "SPEL ATT SKRAPA FÖR"
-
-
-msgid "ALL"
-msgstr "ALLA"
-
-
-msgid "GAMES MISSING ANY MEDIA"
-msgstr "SPEL SOM SAKNAR MEDIA"
-
-
-msgid "GAMES MISSING ALL MEDIA"
-msgstr "SPEL SAKNAS ALLA MEDIER"
-
-
-msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "IGNORERA NYLIGEN SKROTADE SPEL"
-
-
-msgid "LAST DAY"
-msgstr "SISTA DAGEN"
-
-
-msgid "LAST WEEK"
-msgstr "FÖRSTA VECKAN"
-
-
-msgid "LAST 15 DAYS"
-msgstr "SISTA 15 DAGAR"
-
-
-msgid "LAST MONTH"
-msgstr "SENASTE MÅNADEN"
-
-
-msgid "LAST 3 MONTHS"
-msgstr "SENASTE 3 MÅNADERNA"
-
-
-msgid "LAST YEAR"
-msgstr "FÖRRA ÅRET"
-
-
-msgid "SYSTEMS INCLUDED"
-msgstr "SYSTEM INGÅR"
-
-
-msgid "SCRAPE NOW"
-msgstr "SKROTA NU"
-
-
-msgid "START"
-msgstr ""
-
-
-msgid "IMAGE SOURCE"
-msgstr "BILDKÄLLA"
-
-
-msgid "SCREENSHOT"
-msgstr ""
-
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITEL SKÄRMDUMP"
-
-
-msgid "MIX V1"
-msgstr ""
-
-
-msgid "MIX V2"
-msgstr ""
-
-
-msgid "BOX 2D"
-msgstr ""
-
-
-msgid "BOX 3D"
-msgstr ""
-
-
-msgid "FAN ART"
-msgstr "FAN KONST"
-
-
-msgid "BOX SOURCE"
-msgstr "BOX KÄLLA"
-
-
-msgid "LOGO SOURCE"
-msgstr "LOGO KÄLLA"
-
-
-msgid "HD WHEEL"
-msgstr "HD-HJUL"
-
-
-msgid "WHEEL"
-msgstr "HJUL"
-
-
-msgid "MARQUEE"
-msgstr ""
-
-
-msgid "PREFERED REGION"
-msgstr "ÖNSKAD REGION"
-
-
-msgid "AUTO"
-msgstr ""
-
-
-msgid "OVERWRITE NAMES"
-msgstr "SKRIVA ÖVER NAMN"
-
-
-msgid "OVERWRITE DESCRIPTIONS"
-msgstr "SKRIVA ÖVER BESKRIVNINGAR"
-
-
-msgid "OVERWRITE MEDIAS"
-msgstr "SKRIVA ÖVER MEDIER"
-
-
-msgid "SCRAPE FOR"
-msgstr "SKROTA FÖR"
-
-
-msgid "SHORT NAME"
-msgstr "KORT NAMN"
-
-
-msgid "COMMUNITY RATING"
-msgstr "SAMHÄLLSBETYG"
-
-
-msgid "VIDEO"
-msgstr ""
-
-
-msgid "FANART"
-msgstr ""
-
-
-msgid "BEZEL (16:9)"
-msgstr ""
-
-
-msgid "BOX BACKSIDE"
-msgstr ""
-
-
-msgid "MAP"
-msgstr ""
-
-
-msgid "MANUAL"
-msgstr "MANUELL"
-
-
-msgid "PADTOKEY SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR handkontrollTOKEY"
-
-
-msgid "MANUAL SCRAPE"
-msgstr "MANUELL SKRAPNING"
-
-
-msgid "INCLUDED SCRAPERS"
-msgstr "INKLUDERADE SKRAPOR"
-
-
-msgid "SCREENSCRAPER"
-msgstr "SCREENscraper"
-
-
-msgid "IGDB"
-msgstr ""
-
-
-msgid "CLIENT ID"
-msgstr "KUND-ID"
-
-
-msgid "CLIENT SECRET"
-msgstr "KUNDENS HEMLIGHET"
-
-
-msgid "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE FOR DIFFERENT SYSTEMS!\nCONTINUE ANYWAY?"
-msgstr "VARNING: VISSA AV DINA VALDA SYSTEM HAR INTE EN PLATTFORM INSTÄLLD. RESULTATET KAN VARA FÖR OLIKA SYSTEM!\nKontinuerar du ändå?"
-
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "SKROTNING ÄR IGÅNG. VILL DU STOPPA DET?"
-
-
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "INGA SPEL UPPFYLLER DE KRITERIERNA."
-
-
-msgid "KEYBOARDTOPADS"
-msgstr "TANGENTBORDDATORER"
-
-
-msgid "HOTKEYS"
-msgstr "snabbtangentS"
-
-
-msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr "TANGENTER DEFINIERADE MEN JOYSTICK INTE NAMNGIVEN"
-
-
-msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr "JOYSTICK NAMNGIVEN MEN INGA TANGENTER DEFINIERADE"
-
-
-msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr "KOPPLA UR OCH ÅTERANSLUTA ENHETEN FÖR ATT APPLICERA"
-
-
-msgid "JOYSTICK NAME"
-msgstr "JOYSTICK NAMN"
-
-
-msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr "TRYCK PÅ EN TANGENT ELLER VÄNTA 4 SEKUNDER FÖR ATT RENSA"
-
-
-msgid "OVERLAYS"
-msgstr "överläggS"
-
-
-msgid "BRIGHTNESS CYCLE"
-msgstr "LJUSHETSCYKEL"
-
-
-msgid "COIN"
-msgstr ""
-
-
-msgid "EXIT"
-msgstr "UTGÅNG"
-
-
-msgid "FAST FORWARD"
-msgstr "SNABBT FRAMÅT"
-
-
-msgid "MENU"
-msgstr "MENY"
-
-
-msgid "FILES"
-msgstr "FILER"
-
-
-msgid "NEXT DISK"
-msgstr "NÄSTA DISK"
-
-
-msgid "NEXT SLOT"
-msgstr "NÄSTA SLOT"
-
-
-msgid "PAUSE"
-msgstr ""
-
-
-msgid "PREVIOUS SLOT"
-msgstr "FÖREGÅENDE SKIVA"
-
-
-msgid "RESET"
-msgstr "ÅTERSTÄLLNING"
-
-
-msgid "RESTORE STATE"
-msgstr "ÅTERSTÄLL STAT"
-
-
-msgid "REWIND"
-msgstr "ÅTERSPOLNING"
-
-
-msgid "SAVE STATE"
-msgstr "RÄDDA STATEN"
-
-
-msgid "SCREEN LAYOUT"
-msgstr "SKÄRMLAYOUT"
-
-
-msgid "SWAP SCREEN"
-msgstr "SWAP-SKÄRM"
-
-
-msgid "TRANSLATION"
-msgstr "ÖVERSÄTTNING"
-
-
-msgid "VOLUME DOWN"
-msgstr "VOLYM NER"
-
-
-msgid "VOLUME MUTE"
-msgstr "VOLYM MUTE"
-
-
-msgid "VOLUME UP"
-msgstr "VOLYM UPP"
-
-
-msgid "CONTROL CENTER"
-msgstr "KONTROLLCENTER"
-
-
-msgid "KEY ASSIGNED TWICE"
-msgstr "TANGENT TILLDELAD TVÅ GÅNGER"
-
-
-msgid "INSTALL ON A NEW DISK"
-msgstr "INSTALLERA PÅ EN NY DISK"
-
-
-msgid "TARGET DEVICE"
-msgstr "MÅLANORDNING"
-
-
-msgid "SELECT"
-msgstr "VÄLJ"
-
-
-msgid "TARGET ARCHITECTURE"
-msgstr "MÅLARKITEKTUR"
-
-
-msgid "NETWORK REQUIRED"
-msgstr "NÄTVERK KRÄVS"
-
-
-msgid "INVALID PARAMETERS"
-msgstr "OGILTIGA PARAMETRAR"
-
-
-msgid "fade"
-msgstr "blekna"
-
-
-msgid "fast fade"
-msgstr "snabb avklingning"
-
-
-msgid "slide"
-msgstr "glida"
-
-
-msgid "fast slide"
-msgstr "snabb glidning"
-
-
-msgid "fade & slide"
-msgstr ""
-
-
-msgid "instant"
-msgstr "omedelbar"
-
-
-msgid "System"
-msgstr ""
-
-
-msgid "Architecture"
-msgstr "Arkitektur"
-
-
-msgid "Disk format"
-msgstr "Diskformat"
-
-
-msgid "Temperature"
-msgstr "Temperatur"
-
-
-msgid "Available memory"
-msgstr "Tillgängligt minne"
-
-
-msgid "Battery"
-msgstr "Batteri"
-
-
-msgid "Model"
-msgstr "Modell"
-
-
-msgid "Cpu model"
-msgstr "Cpu-modell"
-
-
-msgid "Cpu number"
-msgstr "Cpu-nummer"
-
-
-msgid "Cpu max frequency"
-msgstr "Cpu max frekvens"
-
-
-msgid "Cpu feature"
-msgstr "Cpu-funktion"
-
-
-msgid "Available Memory"
-msgstr "Tillgängligt minne"
-
-
-msgid "Display Resolution"
-msgstr "Displayupplösning"
-
-
-msgid "Display Refresh Rate"
-msgstr "Displayens uppdateringsfrekvens"
-
-
-msgid "OpenGL Driver Version"
-msgstr "Version av OpenGL-drivrutin"
-
-
-msgid "Vulkan Driver Name"
-msgstr "Namn på Vulkan-drivrutin"
-
-
-msgid "Vulkan Driver Version"
-msgstr "Version av Vulkan-drivrutin"
-
-
-msgid "Data Partition Format"
-msgstr ""
-
-
-msgid "Data Partition Available Space"
-msgstr "Data Partition Tillgängligt utrymme"
-
-
-msgid "Network IP Address"
-msgstr "IP-adress för nätverk"
-
-
-msgid "UEFI Boot"
-msgstr "UEFI-start"
-
-
-msgid "Secure Boot"
-msgstr "Säker start"
-
-
-msgid "SHARP-BILINEAR-SIMPLE"
-msgstr "SKARP-BILINJÄR-ENKEL"
-
-
-msgid "SCANLINES"
-msgstr "scanlinjer"
-
-
-msgid "RETRO"
-msgstr ""
-
-
-msgid "ENHANCED"
-msgstr "FÖRBÄTTRAD"
-
-
-msgid "CURVATURE"
-msgstr "KURVATUR"
-
-
-msgid "ZFAST"
-msgstr ""
-
-
-msgid "FLATTEN-GLOW"
-msgstr ""
-
-
-msgid "RGA SCALING"
-msgstr "RGA-SKALNING"
-
-
-msgid "VENDOR"
-msgstr "ANBUDSGIVARE"
-
-
-msgid "RENDERER"
-msgstr "RENDERING"
-
-
-msgid "SHADERS"
-msgstr "shaderS"
-
-
-msgid "INTERNAL"
-msgstr "INTERN"
-
-
-msgid "ANY EXTERNAL"
-msgstr "ALLA EXTERNAL"
-
-
-msgid "maximum 1920x1080"
-msgstr "max 1920x1080"
-
-
-msgid "maximum 640x480"
-msgstr "max 640x480"
-
-
-msgid "MAIN MENU"
-msgstr "HUVUDMENY"
-
-
-msgid "KODI MEDIA CENTER"
-msgstr ""
-
-
-msgid "GAME SETTINGS"
-msgstr "SPELINSTÄLLNINGAR"
-
-
-msgid "USER INTERFACE SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR ANVÄNDARGRÄNSSNITT"
-
-
-msgid "GAME COLLECTION SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR SPELSAMLING"
-
-
-msgid "SOUND SETTINGS"
-msgstr "LJUDINSTÄLLNINGAR"
-
-
-msgid "NETWORK SETTINGS"
-msgstr "NÄTVERKSINSTÄLLNINGAR"
-
-
-msgid "CONFIGURE INPUT"
-msgstr "KONFIGURERA INGÅNG"
-
-
-msgid "EMULATOR SETTINGS"
-msgstr "emulatorINSTÄLLNINGAR"
-
-
-msgid "UPDATES & DOWNLOADS"
-msgstr "UPPDATERINGAR & NEDLADDNINGAR"
-
-
-msgid "SYSTEM SETTINGS"
-msgstr "SYSTEMINSTÄLLNINGAR"
-
-
-msgid "UNLOCK USER INTERFACE MODE"
-msgstr "LÅSA UPP ANVÄNDARGRÄNSSNITTETS LÄGE"
-
-
-msgid "QUIT"
-msgstr "AVSLUTA"
-
-
-msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL KONFIGURERA INGÅNGEN?"
-
-
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "DENNA FUNKTION ÄR AVAKTIVERAD NÄR SKRAPAN ÄR IGÅNG"
-
-
-msgid "CHOOSE"
-msgstr "VÄLJ"
-
-
-msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr "ANGE KODEN NU FÖR ATT LÅSA UPP"
-
-
-msgid "SERVICES"
-msgstr "TJÄNSTER"
-
-
-msgid "DMD"
-msgstr ""
-
-
-msgid "SERVER"
-msgstr ""
-
-
-msgid "DISABLED"
-msgstr "AVSTÄNGD"
-
-
-msgid "DMDSERVER (for real dmd)"
-msgstr "DMDSERVER (för verklig dmd)"
-
-
-msgid "SIMULATOR (for web dmd)"
-msgstr "SIMULATOR (för webbdmd)"
-
-
-msgid "dmd server"
-msgstr "dmd-server"
-
-
-msgid "FORMAT"
-msgstr ""
-
-
-msgid "dmd matrix size"
-msgstr "dmd matrisstorlek"
-
-
-msgid "BRIGHTNESS"
-msgstr "LJUSSTYRKA"
-
-
-msgid "DMDSERVER stopped"
-msgstr "DMDSERVER stophandkontroll"
-
-
-msgid "DMDSERVER restarted"
-msgstr "DMDSERVER omstartad"
-
-
-msgid "DMDSERVER started"
-msgstr "DMDSERVER startad"
-
-
-msgid "MULTISCREENS"
-msgstr ""
-
-
-msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr "BAKGLAS / INFORMATIONSSKÄRM"
-
-
-msgid "THEME"
-msgstr "TEMA"
-
-
-msgid "VIDEO OUTPUT"
-msgstr "VIDEO-UTGÅNG"
-
-
-msgid "VIDEO MODE"
-msgstr "VIDEO-LÄGE"
-
-
-msgid "Sets the display's resolution."
-msgstr "Ställer in displayens upplösning."
-
-
-msgid "ROTATION"
-msgstr ""
-
-
-msgid "0 DEGREES"
-msgstr ""
-
-
-msgid "90 DEGREES"
-msgstr ""
-
-
-msgid "180 DEGREES"
-msgstr ""
-
-
-msgid "270 DEGREES"
-msgstr "270 GRADER"
-
-
-msgid "SCREEN ROTATION"
-msgstr "ROTATION AV SKÄRMEN"
-
-
-msgid "DMD SCREEN"
-msgstr "DMD-SKÄRM"
-
-
-msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr "ALTERNATIV FÖR FRONTEND-UTVECKLARE"
-
-
-msgid "VIDEO OPTIONS"
-msgstr "VIDEO-ALTERNATIV"
-
-
-msgid "VRAM LIMIT"
-msgstr "BEGRÄNSNING AV VRAM"
-
-
-msgid "SHOW FRAMERATE"
-msgstr "VISA RAMVERK"
-
-
-msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "Aktiverar även emulatorns inbyggda FPS-räknare, om sådan finns."
-
-
-msgid "VSYNC"
-msgstr ""
-
-
-msgid "OVERSCAN"
-msgstr ""
-
-
-msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "ANVÄND OMX-SPELARE (HÅRDVARUACCELERERAD)"
-
-
-msgid "TOOLS"
-msgstr "VERKTYG"
-
-
-msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr "SLUTA STARTA DETTA SPEL VID UPPSTART"
-
-
-msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr "AKTIVERA OFFENTLIG WEBBAPI-ÅTKOMST"
-
-#, c-format
-
-msgid "Allow public web access API using %s"
-msgstr "Tillåt allmän webbåtkomst till API med %s"
-
-
-msgid "LOG LEVEL"
-msgstr "LOGG-NIVÅ"
-
-
-msgid "CREATE A SUPPORT FILE"
-msgstr "SKAPA EN SUPPORTFIL"
-
-
-msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr "SKAPA EN SUPPORTFIL? DETTA INKLUDERAR ALL DATA I DIN SYSTEMMAPP."
-
-
-msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "STÖDFIL SKAhandkontroll I MAPPEN SPARA"
-
-
-msgid "SUPPORT FILE CREATION FAILED"
-msgstr "SKAPANDET AV SUPPORTFILEN MISSLYCKADES"
-
-
-msgid "FORMAT A DISK"
-msgstr "FORMATERA A DISK"
-
-
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr "RENSA SPELLISTOR OCH TA BORT OANVÄND MEDIA"
-
-
-msgid "Remove unused entries, and clean references to missing medias."
-msgstr "Ta bort oanvända poster och rensa bort hänvisningar till saknade medier."
-
-
-msgid "Cleaning"
-msgstr "Rengöring"
-
-
-msgid "RESET GAMELISTS USAGE DATA"
-msgstr "ÅTERSTÄLLA ANVÄNDNINGSDATA FÖR SPELLISTOR"
-
-
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr "Återställer värdena för metadata för GameTime, PlayCount och LastPlayed."
-
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "ÅTERSTÄLLA FILTILLÄGG"
-
-
-msgid "Reset customized file extensions filters to default."
-msgstr "Återställ anpassade filtilläggsfilter till standard."
-
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "OMDETEKTERA ALLA SPELS SPRÅK/REGION"
-
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "HITTA ALLA SPEL MED NETPLAY/PRESTATIONER"
-
-
-msgid "CLEAR CACHES"
-msgstr "RENSA BORT HINDER"
-
-
-msgid "BUILD IMAGE CACHE"
-msgstr "BYGGA UPP EN BILDCACHE"
-
-
-msgid "Building image cache"
-msgstr "Uppbyggnad av bildcache"
-
-
-msgid "DISPLAY SETTINGS"
-msgstr "DISPLAYINSTÄLLNINGAR"
-
-
-msgid "MENU FONT SCALE"
-msgstr "MENY TECKENSNITTSSKALA"
-
-
-msgid "FONT SCALE"
-msgstr "FONT SKALA"
-
-
-msgid "THEME FONT SCALE"
-msgstr "TEMA TECKENSNITTSSKALA"
-
-
-msgid "FULL SCREEN MENUS"
-msgstr "MENYER I HELSKÄRM"
-
-
-msgid "FORCE SMALL SCREEN THEMING"
-msgstr "KRAFT LITEN SKÄRM TEMA"
-
-
-msgid "DATA MANAGEMENT"
-msgstr "DATAHANTERING"
-
-
-msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "IGNORERA DISKINNEHÅLL MED FLERA FILER (CUE/GDI/CCD/M3U)"
-
-
-msgid "ENABLE GAME FILTERING"
-msgstr "AKTIVERA SPELFILTRERING"
-
-
-msgid "Whether to show or hide game filtering related settings in the view options."
-msgstr "Om du vill visa eller dölja inställningar som rör spelfiltrering i visningsalternativen."
-
-
-msgid "SAVE METADATA ON EXIT"
-msgstr "SPARA METADATA VID AVSLUTNING"
-
-
-msgid "PARSE GAMELISTS ONLY"
-msgstr "ANALYSERAR ENDAST GAMELISTS"
-
-
-msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "Felsökningsverktyg: Kontrollerar inte om ROM:en verkligen existerar. Kan orsaka problem!"
-
-
-msgid "SEARCH FOR LOCAL ART"
-msgstr "SÖK EFTER LOKAL KONST"
-
-
-msgid "If no image is specified in the gamelist, try to find media with the same filename to use."
-msgstr "Om ingen bild har angetts i spellistan försöker man hitta media med samma filnamn som kan användas."
-
-
-msgid "USER INTERFACE"
-msgstr "ANVÄNDARGRÄNSSNITT"
-
-
-msgid "CAROUSEL TRANSITIONS"
-msgstr "KARUSELLÖVERGÅNGAR"
-
-
-msgid "QUICK SYSTEM SELECT"
-msgstr "SNABBT SYSTEMVAL"
-
-
-msgid "QUICK JUMP LETTER"
-msgstr "BREV MED SNABB HOPPNING"
-
-
-msgid "ON-SCREEN KEYBOARD"
-msgstr "TANGENTBORD PÅ SKÄRMEN"
-
-
-msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "DÖLJA EMULERINGSSTATIONEN NÄR DU KÖR ETT SPEL"
-
-
-msgid "COMPLETE QUIT MENU"
-msgstr "FULLSTÄNDIG AVSLUTNINGSMENY"
-
-
-msgid "RETROARCH MENU DRIVER"
-msgstr "RetroArch MENY DRIVRUTIN"
-
-
-msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "VÄXLA BEKRÄFTELSE- OCH AVBRYTKNAPPAR I EMULERINGSSTATIONEN"
-
-
-msgid "Switches the South and East buttons' functionality"
-msgstr "Byter funktion för knapparna South och East"
-
-
-msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "ÅTKOMST TILL SPELALTERNATIV MED DEN NORRA KNAPPEN"
-
-
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
-msgstr "Växlar till kort tryckning på North för Savestates & lång tryckning på South-knappen för Game Options"
-
-
-msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "STYR EMULERINGSSTATION MED ENDAST FÖRSTA JOYSTICKEN"
-
-
-msgid "GUN MOVE TOLERENCE"
-msgstr "PISTOL FLYTTA TOLERENCE"
-
-
-msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr "AKTIVERA STÖD FÖR PS3-KONTROLLER"
-
-
-msgid "Might have negative impact on security."
-msgstr "Kan ha en negativ inverkan på säkerheten."
-
-
-msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
-
-
-msgid "SHOW NETWORK INDICATOR"
-msgstr "VISA NÄTVERKSINDIKATOR"
-
-
-msgid "OPTIMIZATIONS"
-msgstr "OPTIMERINGAR"
-
-
-msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "FÖRLADDA UI-ELEMENT VID START"
-
-
-msgid "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr "Minskar fördröjningen vid inmatning av spellistor från systemmenyn, ökar starttiden"
-
-
-msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr "FÖRLADDAR METADATAMEDIA VID START"
-
-
-msgid "Reduces lag when scrolling through a fully scraped gamelist, increases boot time"
-msgstr "Minskar fördröjningen när du bläddrar igenom en helt ny spellista, ökar starttiden"
-
-
-msgid "THREADED LOADING"
-msgstr "GÄNGAD LASTNING"
-
-
-msgid "ASYNC IMAGE LOADING"
-msgstr "ASYNKRON BILDLADDNING"
-
-
-msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OPTIMERA BILDER VRAM-ANVÄNDNING"
-
-
-msgid "OPTIMIZE VIDEO VRAM USAGE"
-msgstr "OPTIMERA ANVÄNDNINGEN AV VIDEO-VRAM"
-
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "OMSTART KRÄVS FÖR ATT TILLÄMPA DEN NYA KONFIGURATIONEN"
-
-
-msgid "DOWNLOADS"
-msgstr "NEDLADDNINGAR"
-
+msgid "WATCH GAME"
+msgstr "TITTA PÅ SPELET"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "NEDLADDARE AV INNEHÅLL"
 
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "VÄLJ INNEHÅLL FÖR ATT INSTALLERA/TA BORT"
 
-msgid "THEMES"
-msgstr "TEMA"
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "UPPDATERA INSTALLERAT INNEHÅLL"
 
+msgid "No items"
+msgstr "Inga föremål"
 
-msgid "SOFTWARE UPDATES"
-msgstr "UPPDATERINGAR AV PROGRAMVARA"
+msgid "MISC"
+msgstr "DIVERSE"
 
+msgid "UPDATE"
+msgstr "UPPDATERA"
 
-msgid "CHECK FOR UPDATES"
-msgstr "KONTROLLERA FÖR UPPDATERINGAR"
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' LÄGGS TILL DOWNLOAD QUEUE"
 
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "AVINSTALLATION LÄGGS TILL I KÖN"
 
-msgid "UPDATE TYPE"
-msgstr "UPDATE TYP"
+msgid "INSTALL"
+msgstr "INSTALLERA"
 
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "FÖR NÄRVARANDE I NEDLADDNINGSKÖ"
 
-msgid "APPLY UPDATE"
-msgstr "ANSÖK UPDATE"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "PARA IHOP EN BLUETOOTH-ENHET"
 
+msgid "SCANNING BLUETOOTH"
+msgstr "SÖKER BLUETOOTH"
 
-msgid "START UPDATE"
-msgstr ""
+msgid "PAIR"
+msgstr "PARA IHOP"
 
+msgid "FINISHED"
+msgstr "AVSLUTAD"
 
-msgid "UPDATER IS ALREADY RUNNING"
-msgstr "UPPDATERINGSPROGRAMMET ÄR REDAN IGÅNG"
+msgid "FILTER GAMELIST BY"
+msgstr "FILTRERA SPELLISTAN EFTER"
 
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "REDIGERA FILTER FÖR DYNAMISK INSAMLING"
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "DU INTE ÄR ANSLUTEN TILL ETT NÄTVERK"
+msgid "RESET ALL FILTERS"
+msgstr "ÅTERSTÄLL ALLA FILTER"
 
+msgid "FIND GAMES"
+msgstr "HITTA SPEL"
 
-msgid "LANGUAGE"
-msgstr "SPRÅKET"
+msgid "SYSTEMS"
+msgstr "SYSTEM"
 
+msgid "INSTALL ON A NEW DISK"
+msgstr "INSTALLERA PÅ EN NY DISK"
 
-msgid "LANGUAGE (REGION)"
-msgstr "SPRÅK (REGION)"
+msgid "TARGET DEVICE"
+msgstr "MÅLANORDNING"
 
+msgid "TARGET ARCHITECTURE"
+msgstr "MÅLARKITEKTUR"
 
-msgid "KEYBOARD LAYOUT"
-msgstr "TANGENTBORDSLAYOUT"
+msgid "NETWORK REQUIRED"
+msgstr "NÄTVERK KRÄVS"
 
+msgid "INVALID PARAMETERS"
+msgstr "OGILTIGA PARAMETRAR"
 
-msgid "KEYBOARD VARIANT"
-msgstr "TANGENTBORDSVARIANT"
+msgid "VIEW OPTIONS"
+msgstr "VISA ALTERNATIV"
 
+msgid "NAVIGATION"
+msgstr "NAVIGERING"
 
-msgid "Select the physical keyboard layout. A reboot may be required for changes to take full effect."
-msgstr "Välj layout för det fysiska tangentbordet. En omstart kan krävas för att ändringarna ska få full effekt."
+msgid "OTHER FILTERS"
+msgstr "ANDRA FILTER"
 
+msgid "SELECT RANDOM GAME"
+msgstr "VÄLJ SLUMPMÄSSIGT SPEL"
 
-msgid "SELECT YOUR TIME ZONE"
-msgstr "VÄLJ DIN TIDSZON"
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "HOPPA TILL SPEL SOM BÖRJAR MED BOKSTAVEN"
 
+msgid "SORT GAMES BY"
+msgstr "SORTERA SPEL EFTER"
 
-msgid "TIME ZONE"
-msgstr "TIDSZON"
+msgid "DYNAMIC COLLECTION"
+msgstr "DYNAMISK SAMLING"
 
+msgid "CUSTOM COLLECTION"
+msgstr "ANPASSAD KOLLEKTION"
 
-msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "VISA KLOCKAN I 12-TIMMARSFORMAT"
+msgid "DELETE COLLECTION"
+msgstr "RADERA SAMLING"
 
+msgid "COLLECTION"
+msgstr "SAMLING"
 
-msgid "POWER SAVING MODE"
-msgstr "ENERGISPARLÄGE"
-
-
-msgid "DEFAULT"
-msgstr ""
-
-
-msgid "INSTANT"
-msgstr ""
-
-
-msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Minskar strömförbrukningen när den är inaktiv (användbart för handdatorer)."
-
-
-msgid "SCREEN READER (TEXT TO SPEECH)"
-msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
-
-
-msgid "USER INTERFACE MODE"
-msgstr "LÄGE FÖR ANVÄNDARGRÄNSSNITT"
-
-
-msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "Lås vissa konfigurationsmenyer för användning med gästanvändare/barn."
-
-
-msgid "You are changing the user interface to a restricted mode:\nThis will hide most menu options to prevent changes to the system.\nTo unlock and return to the full user interface, enter this code:"
-msgstr "Du ändrar användargränssnittet till ett begränsat läge:\nDå döljs de flesta menyalternativen för att förhindra ändringar i systemet.\n Ange den här koden för att låsa upp och återgå till det fullständiga användargränssnittet:"
-
-
-msgid "Do you want to proceed?"
-msgstr "Vill du gå vidare?"
-
-
-msgid "KODI SETTINGS"
-msgstr "KODI INSTÄLLNINGAR"
-
-
-msgid "ENABLE KODI"
-msgstr "AKTIVERA KODI"
-
-
-msgid "LAUNCH KODI AT BOOT"
-msgstr "STARTA KODI VID UPPSTART"
-
-
-msgid "HARDWARE"
-msgstr "HÅRDVARA"
-
-
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Ställer in skärmens upplösning för emuleringsstation."
-
-
-msgid "AUDIO OUTPUT"
-msgstr "AUDIO-UTGÅNG"
-
-
-msgid "AUDIO PROFILE"
-msgstr "LJUDPROFIL"
-
-
-msgid "Available options can change depending on current audio output."
-msgstr "Tillgängliga alternativ kan ändras beroende på aktuell ljudutgång."
-
-
-msgid "BOOT SPLASH"
-msgstr "SKOSNÖRE SPLASH"
-
-
-msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "STANDARD VIDEO/ANVÄNDARINSTÄLLNING SPLASH"
-
-
-msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "TYST VIDEO/ANVÄNDARUPPSÄTTNING SPLASH"
-
-
-msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA STÄNKBILD"
-
-
-msgid "SPLASH SETTING"
-msgstr "SPLASH INSTÄLLNING"
-
-
-msgid "MISSING BIOS CHECK"
-msgstr "BIOS-KONTROLL SAKNAS"
-
-
-msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "KONTROLLERA BIOS-FILER INNAN DU KÖR ETT SPEL"
-
-
-msgid "MULTIMEDIA KEYS"
-msgstr "MULTIMEDIAKNAPPAR"
-
-
-msgid "ON"
-msgstr ""
-
-
-msgid "OFF"
-msgstr ""
-
-
-msgid "BUTTON LED COLOR"
-msgstr "KNAPP LED FÄRG"
-
-
-msgid "off"
-msgstr "av"
-
-
-msgid "red"
-msgstr "röd"
-
-
-msgid "green"
-msgstr "grön"
-
-
-msgid "blue"
-msgstr "blå"
-
-
-msgid "white"
-msgstr "vit"
-
-
-msgid "purple"
-msgstr "lila"
-
-
-msgid "yellow"
-msgstr "gul"
-
-
-msgid "cyan"
-msgstr ""
-
-
-msgid "POWER LED COLOR"
-msgstr "POWER LED FÄRG"
-
-
-msgid "heartbeat"
-msgstr "hjärtslag"
-
-
-msgid "on"
-msgstr "på"
-
-
-msgid "OVERCLOCK"
-msgstr "ÖVERKLOCKNING"
-
-
-msgid "LED HARDWARE"
-msgstr "LED-HÅRDVARA"
-
-
-msgid "ENABLE LED"
-msgstr "LED FÖR AKTIVERING"
-
-
-msgid "RED"
-msgstr "RÖD"
-
-
-msgid "GREEN"
-msgstr "GRÖN"
-
-
-msgid "BLUE"
-msgstr "BLÅ"
-
-
-msgid "LED BRIGHTNESS"
-msgstr "LED-LJUSSTYRKA"
-
-
-msgid "STORAGE"
-msgstr "FÖRVARING"
-
-
-msgid "STORAGE DEVICE"
-msgstr "FÖRVARINGSENHET"
-
-
-msgid "BACKUP USER DATA"
-msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
-
-
-msgid "EJECT AN EXTRA DISK"
-msgstr "MATA UT EN EXTRA DISK"
-
-
-msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr "FILSYSTEMTYP FÖR EXTRA ENHET"
-
-
-msgid "ADVANCED"
-msgstr "AVANCERAD"
-
-
-msgid "SECURITY"
-msgstr "SÄKERHET"
-
-
-msgid "ENFORCE SECURITY"
-msgstr "UPPRÄTTHÅLLA SÄKERHETEN"
-
-
-msgid "Require a password for accessing the network share."
-msgstr "Kräv ett lösenord för åtkomst till nätverksdelningen."
-
-
-msgid "ROOT PASSWORD"
-msgstr "ROOT-LÖSENORD"
-
-
-msgid "LATENCY REDUCTION"
-msgstr "MINSKAD LATENSTID"
-
-
-msgid "RUN-AHEAD FRAMES"
-msgstr "FRAMKÖRNINGSRAMAR"
-
-
-msgid "High numbers can result in visible jitter."
-msgstr "Höga tal kan leda till synligt jitter."
-
-
-msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr "ANVÄNDA ANDRA INSTANS FÖR RUN-AHEAD"
-
-
-msgid "Can prevent audio skips on button presses."
-msgstr "Kan förhindra att ljudet hoppar över när du trycker på en knapp."
-
-
-msgid "AUTOMATIC FRAME DELAY"
-msgstr "AUTOMATISK RAMFÖRDRÖJNING"
-
-
-msgid "AUTO FRAME DELAY"
-msgstr "AUTOMATISK RAMFÖRDRÖJNING"
-
-
-msgid "Automatically decrease frame delay temporarily to prevent frame drops. Can introduce stuttering."
-msgstr "Minska automatiskt ramfördröjningen tillfälligt för att förhindra bildfall. Kan leda till att bilden stammar."
-
-
-msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr "VARIABEL UPPDATERINGSFREKVENS (G-SYNC, FREESYNC)"
-
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "VARIABEL UPPDATERINGSFREKVENS"
-
-
-msgid "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr "Avvik inte från kärnans begärda timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-
-
-msgid "DECORATION SET"
-msgstr "DEKORATIONSUPPSÄTTNING"
-
-
-msgid "Current setting"
-msgstr "Aktuell inställning"
-
-
-msgid "UPDATE GAMELISTS"
-msgstr "UPPDATERA SPELLISTOR"
-
-
-msgid "BIOS SETTINGS"
-msgstr "BIOS-INSTÄLLNINGAR"
-
-
-msgid "SAVESTATES"
-msgstr ""
-
-
-msgid "AUTO SAVE/LOAD"
-msgstr ""
-
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Ladda senaste savestate vid spelstart och savestate när du avslutar spelet."
-
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INKREMENTELLA SAVESTATES"
-
-
-msgid "INCREMENT PER SAVE"
-msgstr "INKREMENT PER SPARANDE"
-
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Skriv aldrig över gamla savestates, skapa alltid nya."
-
-
-msgid "INCREMENT SLOT"
-msgstr "ÖKNING SLOT"
-
-
-msgid "Increment slot on a new game."
-msgstr "Inkrementell spelautomat på ett nytt spel."
-
-
-msgid "DO NOT INCREMENT"
-msgstr "INTE INKREMENTERA"
-
-
-msgid "Use current slot on a new game."
-msgstr "Använd nuvarande slot på ett nytt spel."
-
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "VISA SPARASTATE MANAGER"
-
-
-msgid "ALWAYS"
-msgstr "ALLTID"
-
-
-msgid "IF NOT EMPTY"
-msgstr ""
-
-
-msgid "Display savestate manager before launching a game."
-msgstr "Visa Savestate Manager innan du startar ett spel."
-
-
-msgid "DEFAULT GLOBAL SETTINGS"
-msgstr "GLOBALA STANDARDINSTÄLLNINGAR"
-
-
-msgid "GAME ASPECT RATIO"
-msgstr "SPELETS BILDFÖRHÅLLANDE"
-
-
-msgid "Force the game to render in this aspect ratio."
-msgstr "Tvinga spelet att rendera i detta bildförhållande."
-
-
-msgid "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr "Ställer in skärmens upplösning. Påverkar inte renderingsupplösningen."
-
-
-msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "SLÄTA SPEL (BILINJÄR FILTRERING)"
-
-
-msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Lagra tidigare tillstånd för att spola tillbaka till i realtid, om kärnan stöder det."
-
-
-msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "HELTALSSKALNING (PIXEL PERFEKT)"
-
-
-msgid "SHADER SET"
-msgstr "shader SET"
-
-
-msgid "VIDEO FILTER"
-msgstr "VIDEOFILTER"
-
-
-msgid "DECORATIONS"
-msgstr "DEKORATIONER"
-
-
-msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "STRÄCK UT RAMARNA (4K & ULTRAWIDE)"
-
-
-msgid "SHOW TATTOO OVER BEZEL"
-msgstr "VISA TATUERING ÖVER BEZEL"
-
-
-msgid "SYSTEM CONTROLLERS"
-msgstr "SYSTEMKONTROLLER"
-
-
-msgid "CUSTOM IMAGE"
-msgstr "ANPASSAD BILD"
-
-
-msgid "Show an image overlaid on top of the bezel."
-msgstr "Visa en bild som läggs ovanpå ramen."
-
-
-msgid "TATTOO CORNER"
-msgstr "TATTOO HÖRN"
-
-
-msgid "NORTH WEST"
-msgstr "NORDVÄST"
-
-
-msgid "NORTH EAST"
-msgstr "NORDÖST"
-
-
-msgid "SOUTH EAST"
-msgstr "SÖDERÖST"
-
-
-msgid "SOUTH WEST"
-msgstr "SYDVÄST"
-
-
-msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "ANPASSAD .PNG-BILDSÖKVÄG"
-
-
-msgid "RESIZE TATTOO"
-msgstr "ÄNDRA STORLEK PÅ TATUERING"
-
-
-msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Krymp/expandera tatueringen så att den passar inom ramen för ramens kant."
-
-
-msgid "AI GAME TRANSLATION"
-msgstr "AI SPEL ÖVERSÄTTNING"
-
-
-msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "AKTIVERA AI ÖVERSÄTTNINGSTJÄNST"
-
-
-msgid "TARGET LANGUAGE"
-msgstr "MÅLSPRÅK"
-
-
-msgid "AI TRANSLATION SERVICE URL"
-msgstr "AI ÖVERSÄTTNINGSTJÄNST URL"
-
-
-msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "PAUS PÅ ÖVERSATT SKÄRM"
-
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "AUTOKONFIGURERA STYRENHETER"
-
-
-msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr "PER SYSTEM AVANCERAD KONFIGURATION"
-
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "scraper ÄR IGÅNG. VILL DU STOPPA DEN?"
-
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "SPEL HASHING ÄR IGÅNG. VILL DU STOPPA DET?"
-
-
-msgid "REALLY UPDATE GAMELISTS?"
-msgstr "VERKLIGEN UPPDATERA SPELLISTOR?"
-
-
-msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
-msgstr "DU MÅSTE TILLÄMPA TEMAT INNAN DU REDIGERAR DESS KONFIGURATION"
-
-
-msgid "THEME CONFIGURATION"
-msgstr "KONFIGURATION AV TEMA"
-
-
-msgid "VIEW CUSTOMIZATION"
-msgstr "ANPASSNING AV VY"
-
-
-msgid "GAMELIST STYLE"
-msgstr ""
-
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "SKAPA EN NY DYNAMISK KOLLEKTION"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STIL FÖR VISNING AV GAMELIST"
 
-
 msgid "automatic"
 msgstr "automatisk"
 
+msgid "VIEW CUSTOMIZATION"
+msgstr "ANPASSNING AV VY"
 
-msgid "basic"
-msgstr "grundläggande"
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VISA INFORMATION FRÅN handkontrollDA TILL TANGENTBORD"
 
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "AVANCERADE SYSTEMALTERNATIV"
 
-msgid "detailed"
-msgstr "detaljerad"
+msgid "RESET FILTERS"
+msgstr "ÅTERSTÄLL FILTER"
 
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "DENNA FUNKTION ÄR AVAKTIVERAD NÄR SKRAPAN ÄR IGÅNG"
 
-msgid "DEFAULT GRID SIZE"
-msgstr "STANDARDSTORLEK FÖR RUTNÄT"
+msgid "New Collection Name"
+msgstr "Nytt namn på kollektionen"
 
+msgid "THEMES DOWNLOADER"
+msgstr "NEDLADDARE FÖR TEMAN"
 
-msgid "GAMELIST THEME OPTIONS"
-msgstr "TEMAALTERNATIV FÖR GAMELIST"
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "VÄLJ TEMAN FÖR ATT INSTALLERA/TA BORT"
 
+msgid "Installed"
+msgstr "Installerad"
 
-msgid "THEME OPTIONS"
-msgstr "TEMA-ALTERNATIV"
+msgid "Available"
+msgstr "Tillgänglig"
 
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "TEMAT AVINSTALLERADES FRAMGÅNGSRIKT"
 
-msgid "DEFAULT VALUE"
-msgstr "DEFAULT VÄRDE"
-
-
-msgid "GAMELIST OPTIONS"
-msgstr "ALTERNATIV FÖR GAMELIST"
-
-
-msgid "SHOW FAVORITES ON TOP"
-msgstr "VISA FAVORITER PÅ TOPPEN"
-
-
-msgid "SHOW HIDDEN FILES"
-msgstr "VISA DOLDA FILER"
-
-
-msgid "SHOW FOLDERS"
-msgstr "VISA MAPPAR"
-
-
-msgid "always"
-msgstr "alltid"
-
-
-msgid "never"
-msgstr "aldrig"
-
-
-msgid "having multiple games"
-msgstr "ha flera spel"
-
-
-msgid "SHOW '..' PARENT FOLDER"
-msgstr "VISA '..' FÖRÄLDRAMAPP"
-
-
-msgid "ICONS"
-msgstr ""
-
-
-msgid "AFTER NAME"
-msgstr "EFTER NAMN"
-
-
-msgid "BEFORE NAME"
-msgstr "FÖRE NAMN"
-
-
-msgid "SHOW TAGS ICONS"
-msgstr "VISA TAGGAR IKONER"
-
-
-msgid "SHOW REGION FLAG"
-msgstr "VISA REGIONFLAGGA"
-
-
-msgid "SHOW SAVESTATE ICON"
-msgstr "VISA SPARLÄGE-IKON"
-
-
-msgid "SHOW MANUAL ICON"
-msgstr "VISA MANUELL IKON"
-
-
-msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "VISA IKON FÖR RETROAKTIVA PRESTATIONER"
-
-
-msgid "SHOW GUN ICON"
-msgstr "VISA VAPNET ICON"
-
-
-msgid "SHOW WHEEL ICON"
-msgstr "VISA HJULIKON"
-
-
-msgid "SHOW TRACKBALL ICON"
-msgstr "VISA IKON FÖR STYRKULA"
-
-
-msgid "SHOW SPINNER ICON"
-msgstr "VISA SNURRA-IKON"
-
-
-msgid "SHOW FILENAMES INSTEAD"
-msgstr "VISA FILNAMN ISTÄLLET"
-
-
-msgid "FILE EXTENSIONS"
-msgstr "FILTILLÄGG"
-
-
-msgid "RESET CUSTOMIZATIONS"
-msgstr "ÅTERSTÄLLA ANPASSNINGAR"
-
-
-msgid "APPEARANCE"
-msgstr "UPPTRÄDANDE"
-
-
-msgid "THEME SET"
-msgstr "TEMA SET"
-
-
-msgid "video"
-msgstr ""
-
-
-msgid "grid"
-msgstr "rutnät"
-
-
-msgid "DISPLAY OPTIONS"
-msgstr "VISNINGSALTERNATIV"
-
-
-msgid "SCREENSAVER SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR SKÄRMSLÄCKARE"
-
-
-msgid "LIST TRANSITION"
-msgstr "LISTÖVERGÅNG"
-
-
-msgid "auto"
-msgstr "bil"
-
-
-msgid "GAME LAUNCH TRANSITION"
-msgstr "ÖVERGÅNG TILL SPELSTART"
-
-
-msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr "SPELMEDIER UNDER SNABB SKROLLNING"
-
-
-msgid "SHOW CLOCK"
-msgstr "VISA KLOCKA"
-
-
-msgid "ON-SCREEN HELP"
-msgstr "HJÄLP PÅ SKÄRMEN"
-
-
-msgid "SHOW BATTERY STATUS"
-msgstr "VISA BATTERISTATUS"
-
-
-msgid "ICON"
-msgstr ""
-
-
-msgid "ICON AND TEXT"
-msgstr "IKON OCH TEXT"
-
-
-msgid "SHOW FOLDERS FIRST"
-msgstr "VISA MAPPAR FÖRST"
-
-
-msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "IGNORERA LEDANDE ARTIKLAR VID SORTERING"
-
-
-msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignorera \\\"The\\\" och \\\"A\\\" om de står i början."
-
-
-msgid "VOLUME"
-msgstr "VOLYM"
-
-
-msgid "SYSTEM VOLUME"
-msgstr ""
-
-
-msgid "MUSIC VOLUME"
-msgstr "MUSIK VOLYM"
-
-
-msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "VISA ÖVERLÄGG NÄR VOLYMEN ÄNDRAS"
-
-
-msgid "MUSIC"
-msgstr "MUSIK"
-
-
-msgid "FRONTEND MUSIC"
-msgstr "FRONTEND MUSIK"
-
-
-msgid "DISPLAY SONG TITLES"
-msgstr "VISA LÅTTITLAR"
-
-
-msgid "SONG TITLE DISPLAY DURATION"
-msgstr "LÅTTITEL VISNINGSTID"
-
-
-msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "SPELAR BARA SYSTEMSPECIFIK MUSIKMAPP"
-
-
-msgid "PLAY SYSTEM-SPECIFIC MUSIC"
-msgstr "SPELA SYSTEMSPECIFIK MUSIK"
-
-
-msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr "LÄGRE MUSIK NÄR DU SPELAR VIDEO"
-
-
-msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "SPELA BARA LÅTAR FRÅN DIN FAVORITSPELLISTA"
-
-
-msgid "SELECTION OF FAVORITE SONGS"
-msgstr "URVAL AV FAVORITLÅTAR"
-
-
-msgid "SOUNDS"
-msgstr "LJUD"
-
-
-msgid "ENABLE NAVIGATION SOUNDS"
-msgstr "AKTIVERA NAVIGATIONSLJUD"
-
-
-msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "AKTIVERA FÖRHANDSGRANSKNING AV VIDEO LJUD"
-
-
-msgid "IP ADDRESS"
-msgstr "IP-ADRESS"
-
-
-msgid "CONNECTED"
-msgstr "ANSLUTEN"
-
-
-msgid "NOT CONNECTED"
-msgstr "INTE ANSLUTEN"
-
-
-msgid "INTERNET STATUS"
-msgstr "INTERNETSTATUS"
-
-
-msgid "HOSTNAME"
-msgstr "VÄRDNAMN"
-
-
-msgid "ENABLE WIFI"
-msgstr "AKTIVERA WIFI"
-
-
-msgid "WIFI SSID"
-msgstr ""
-
-
-msgid "WIFI KEY"
-msgstr "WIFI-NYCKEL"
-
-
-msgid "WIFI COUNTRY"
-msgstr "WIFI LAND"
-
-
-msgid "WIFI ENABLED"
-msgstr "WIFI TILLGÄNGLIG"
-
-
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "FEL I WIFI-KONFIGURATIONEN"
-
-
-msgid "QUICK ACCESS"
-msgstr "SNABB ÅTKOMST"
-
-
-msgid "SKIP TO THE NEXT SONG"
-msgstr "HOPPA TILL NÄSTA LÅT"
-
-
-msgid "NOW PLAYING"
-msgstr "SPELAS NU"
-
-
-msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "TA BORT AKTUELL LÅT FRÅN FAVORITSPELLISTAN"
-
-
-msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "SPARA AKTUELL LÅT TILL FAVORITSPELLISTAN"
-
-
-msgid "LAUNCH SCREENSAVER"
-msgstr "STARTA SKÄRMSLÄCKARE"
-
-
-msgid "VIEW USER MANUAL"
-msgstr "VISA ANVÄNDARHANDBOKEN"
-
-
-msgid "DISABLE PLANE MODE"
-msgstr "INAKTIVERA PLANLÄGE"
-
-
-msgid "ENABLE PLANE MODE"
-msgstr "AKTIVERA PLANLÄGE"
-
-
-msgid "RESTART SYSTEM"
-msgstr "ÅTERSTARTA SYSTEMET"
-
-
-msgid "REALLY RESTART?"
-msgstr "VERKLIGEN STARTA OM?"
-
-
-msgid "SUSPEND SYSTEM"
-msgstr "SYSTEM FÖR UPPHÄNGNING"
-
-
-msgid "REALLY SUSPEND ?"
-msgstr "VERKLIGEN AVBRYTA?"
-
-
-msgid "SHUTDOWN SYSTEM"
-msgstr "AVSTÄNGNINGSSYSTEM"
-
-
-msgid "REALLY SHUTDOWN?"
-msgstr "ÄR DET VERKLIGEN AVSTÄNGT?"
-
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SYSTEM FÖR SNABB AVSTÄNGNING"
-
-
-msgid "Shutdown without saving metadata."
-msgstr "Avstängning utan att spara metadata."
-
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "VERKLIGEN STÄNGAS AV UTAN ATT SPARA METADATA?"
-
-
-msgid "QUIT EMULATIONSTATION"
-msgstr ""
-
-
-msgid "REALLY QUIT?"
-msgstr "SLUTADE DU VERKLIGEN?"
-
-
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
-
-
-msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "Ladda senaste sparläget vid spelstart och spara läget när du avslutar spelet."
-
-
-msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "VISA ÖVERLAPPNINGAR FÖR STYRENHET"
-
-
-msgid "CUSTOM .PNG IMAGE"
-msgstr "ANPASSAD .PNG-BILD"
-
-
-msgid "OVERLAY CORNER"
-msgstr "överlägg HÖRN"
-
-
-msgid "COLORIZATION"
-msgstr "FÄRGSÄTTNING"
-
-
-msgid "FULL BOOT"
-msgstr ""
-
-
-msgid "EMULATED WIIMOTES"
-msgstr "EMULERADE WIIMOTES"
-
-
-msgid "CHANGE SCREEN LAYOUT"
-msgstr "ÄNDRA SKÄRMENS LAYOUT"
-
-
-msgid "LARGE SCREEN"
-msgstr "STOR SKÄRM"
-
-
-msgid "SIDE BY SIDE"
-msgstr "SIDA VID SIDA"
-
-
-msgid "INTERNAL RESOLUTION"
-msgstr "INTERN UPPLÖSNING"
-
-
-msgid "EDIT PADTOKEY PROFILE"
-msgstr "REDIGERA handkontrollTOKEY-PROFIL"
-
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr "SKAPA handkontrollTOKEY-PROFIL"
-
-
-msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "STARTA DETTA SPEL VID UPPSTART"
-
-
-msgid "FORMAT DEVICE"
-msgstr "FORMAT-ENHET"
-
-
-msgid "DEVICE TO FORMAT"
-msgstr "ENHET FÖR ATT FORMATERA"
-
-
-msgid "FILE SYSTEM"
-msgstr "FILSYSTEM"
-
-
-msgid "FORMAT NOW"
-msgstr "FORMAT NU"
-
-
-msgid "SELECTED OPTIONS ARE INVALID"
-msgstr "VALDA ALTERNATIV ÄR OGILTIGA"
-
-
-msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL FORMATERA DEN HÄR ENHETEN?"
-
-
-msgid "SAFELY EJECT A DISK"
-msgstr "MATA UT EN DISK PÅ ETT SÄKERT SÄTT"
-
-
-msgid "MERGED DRIVE"
-msgstr ""
-
-
-msgid "NO MERGED DRIVES FOUND"
-msgstr "INGA SAMMANSLAGNA ENHETER HITTADES"
-
-
-msgid "EJECT"
-msgstr ""
-
-
-msgid "NO DRIVE SELECTED"
-msgstr "INGEN ENHET VALD"
-
-
-msgid "Ejecting..."
-msgstr "Utskjutning..."
-
+msgid "CURRENT THEME"
+msgstr "AKTUELLT TEMA"
 
 msgid "Points"
 msgstr "Poäng"
 
-
 msgid "Unlocked on"
 msgstr "Upplåst på"
-
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "DETTA SPEL HAR INGA PRESTATIONER ÄNNU"
 
-
 msgid "Achievements (softcore)"
 msgstr "Prestationer (softcore)"
-
 
 msgid "Achievements (hardcore)"
 msgstr "Prestationer (hardcore)"
 
 #, c-format
-
 msgid "%d%% complete"
 msgstr "%d%% slutförd"
-
 
 msgid "GAME MEDIA"
 msgstr "SPELMEDIA"
 
-
 msgid "VIEW GAME MANUAL"
 msgstr "VISA SPELMANUAL"
-
 
 msgid "VIEW GAME MAGAZINE"
 msgstr "VISA SPELMAGASIN"
 
-
 msgid "VIEW GAME MAP"
 msgstr "VISA SPELKARTAN"
-
 
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VISA VIDEO I HELSKÄRM"
 
-
 msgid "VIEW GAME MEDIA"
 msgstr "VISA SPELMEDIA"
-
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "NUVARANDE KÄRNA ÄR INTE KOMPATIBEL"
 
-
 msgid "COMPATIBLE CORE(S)"
 msgstr "KOMPATIBEL(A) KÄRNA(R)"
-
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr "VISA DETTA SPELS PRESTATIONER"
 
-
 msgid "GAME"
 msgstr "SPEL"
-
-
-msgid "SAVE STATES"
-msgstr "RÄDDA STATEN"
-
 
 msgid "OPEN"
 msgstr "ÖPPNA"
 
-
 msgid "START A NETPLAY GAME"
 msgstr "STARTA ETT NETPLAY-SPEL"
-
-
-msgid "NETPLAY"
-msgstr ""
-
 
 msgid "START GAME"
 msgstr "START SPEL"
 
-
 msgid "HOST A NETPLAY GAME"
 msgstr "VARA VÄRD FÖR ETT NETPLAY-SPEL"
-
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OFFENTLIGT TILLKÄNNAGE SPEL"
 
-
 msgid "PLAYER PASSWORD"
 msgstr "SPELARENS LÖSENORD"
-
 
 msgid "VIEWER PASSWORD"
 msgstr "LÖSENORD FÖR TITTARE"
 
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "HITTA LIKNANDE SPEL..."
-
 
 msgid "DELETE ITEM"
 msgstr "RADERA ITEM"
 
-
 msgid "DELETE GAME"
 msgstr "RADERA SPEL"
 
-
-msgid "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\nARE YOU SURE?"
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
 msgstr "DETTA KOMMER ATT RADERA DEN RIKTIGA SPELFILEN!\\ÄR DU SÄKER?"
 
-
 msgid "NFC"
-msgstr ""
-
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "SKRIV EN NFC-TAGG FÖR DETTA SPEL"
 
 #, c-format
-
-msgid "IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
-msgstr "FÖR ATT SKRIVA LANSERINGSKOMMANDOT FÖR\n'%s'\nTRYCKA PÅ SKRIVKNAPPEN OCH PLACERA SEDAN EN NFC-TAGG PÅ SKRIVAREN"
-
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+"FÖR ATT SKRIVA LANSERINGSKOMMANDOT FÖR\n"
+"'%s'\n"
+"TRYCKA PÅ SKRIVKNAPPEN OCH PLACERA SEDAN EN NFC-TAGG PÅ SKRIVAREN"
 
 msgid "WRITE"
 msgstr "SKRIVA"
 
-
 msgid "PLACE A TAG ON THE WRITER..."
 msgstr "PLACERA EN TAGG PÅ SKRIBENTEN..."
-
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "TAGGEN SKREVS FRAMGÅNGSRIKT"
 
-
-msgid "COLLECTIONS"
-msgstr "SAMLINGAR"
-
 #, c-format
-
 msgid "REMOVE FROM %s"
 msgstr "Ta bort från %s"
 
 #, c-format
-
 msgid "ADD TO %s"
 msgstr "LÄGG TILL %s"
-
 
 msgid "FAVORITES"
 msgstr "FAVORITER"
 
-
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "LÄGG TILL I ANPASSAD SAMLING..."
 
+msgid "SCRAPE"
+msgstr "SKRAPA"
 
-msgid "DELETE COLLECTION"
-msgstr "RADERA SAMLING"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "REDIGERA handkontrollTOKEY-PROFIL"
 
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "SKAPA handkontrollTOKEY-PROFIL"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "AVANCERADE SPELALTERNATIV"
 
-
 msgid "EDIT FOLDER METADATA"
 msgstr "REDIGERA MAPPENS METADATA"
-
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "REDIGERA METADATA FÖR DETTA SPEL"
 
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "VISA INFORMATION FRÅN handkontrollDA TILL TANGENTBORD"
-
-
-msgid "ADD COMBINATION KEY"
-msgstr "LÄGG TILL KOMBINATIONSNYCKEL"
-
-
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "PARA IHOP EN BLUETOOTH-ENHET"
-
-
-msgid "PAIR"
-msgstr ""
-
-
-msgid "NO DEVICE FOUND"
-msgstr "INGEN ENHET HITTADES"
-
+msgid "GAME COLLECTION SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR SPELSAMLING"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "SAMLINGAR ATT VISA"
 
-
 msgid "SYSTEMS DISPLAYED"
 msgstr "SYSTEM SOM VISAS"
-
 
 msgid "GROUPED SYSTEMS"
 msgstr "GRUPPERADE SYSTEM"
 
-
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "SKAPA EN ANPASSAD KOLLEKTION"
-
-
-msgid "New Collection Name"
-msgstr "Nytt namn på kollektionen"
-
 
 msgid "ENTER NAME"
 msgstr "ENTER NAMN"
 
-
 msgid "CREATE FROM THEME"
 msgstr "SKAPA FRÅN TEMA"
-
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "SKAPA NY REDIGERBAR SAMLING"
 
-
-msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "SKAPA EN NY DYNAMISK KOLLEKTION"
-
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "SORTERA SAMLINGAR OCH SYSTEM"
-
 
 msgid "ALPHABETICALLY"
 msgstr "ALFABETISKT"
 
-
 msgid "BY MANUFACTURER"
 msgstr "AV TILLVERKAREN"
-
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
 msgstr "EFTER HÅRDVARUTYP OCH SEDAN I ALFABETISK ORDNING"
 
-
 msgid "BY HARDWARE TYPE THEN YEAR"
 msgstr "PER HÅRDVARUTYP OCH ÅR"
-
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "PER TILLVERKARE OCH TYP"
 
-
 msgid "BY RELEASE YEAR"
 msgstr "PER UTGIVNINGSÅR"
 
-
 msgid "SORT SYSTEMS"
-msgstr ""
-
+msgstr "SORTERA SYSTEM"
 
 msgid "START ON SYSTEM"
 msgstr "STARTA PÅ SYSTEMET"
 
+msgid "NONE"
+msgstr "INGEN"
 
 msgid "RESTORE LAST SELECTED"
 msgstr "ÅTERSTÄLLA SENAST VALDA"
 
-
 msgid "START ON GAMELIST"
 msgstr "STARTA PÅ SPELLISTAN"
-
 
 msgid "GROUP CUSTOM COLLECTIONS"
 msgstr "GRUPPERA ANPASSADE SAMLINGAR"
 
-
 msgid "UNTHEMED"
 msgstr "OTHEMED"
-
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "VISA SYSTEMNAMN I SAMLINGAR"
 
-
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "VISA SPEL MED DOLDA SYSTEM I SAMLINGAR"
-
 
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "VISA TOMMA SYSTEM"
 
-
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
 msgstr "VISA INTE GRUPPER MED ENDAST ETT SYSTEM"
 
-
-msgid "Loading..."
-msgstr "Laddar..."
-
+msgid "UPDATE GAMELISTS"
+msgstr "UPPDATERA SPELLISTOR"
 
 msgid "SELECT COLLECTIONS"
 msgstr "VÄLJ SAMLINGAR"
 
-
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "AUTOMATISK INKASSERING"
 
-
 msgid "PER GENRE"
-msgstr ""
-
+msgstr "PER GENRE"
 
 msgid "ARCADE SYSTEMS"
-msgstr ""
-
+msgstr "ARKADSYSTEM"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "AUTOMATISKA SPELINSAMLINGAR"
 
-
 msgid "EDITABLE COLLECTIONS"
 msgstr "REDIGERBARA SAMLINGAR"
-
 
 msgid "DYNAMIC COLLECTIONS"
 msgstr "DYNAMISKA SAMLINGAR"
 
-
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "ANPASSADE SPELSAMLINGAR"
 
+msgid "ADD COMBINATION KEY"
+msgstr "LÄGG TILL KOMBINATIONSNYCKEL"
 
-msgid "GAMES TO INDEX"
-msgstr "SPEL TILL INDEX"
+msgid "BACKUP USER DATA"
+msgstr "SÄKERHETSKOPIERA ANVÄNDARDATA"
 
-
-msgid "ONLY MISSING"
-msgstr "ENDAST SAKNAD"
-
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "VÄLJ INNEHÅLL FÖR ATT INSTALLERA/TA BORT"
-
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "UPPDATERA INSTALLERAT INNEHÅLL"
-
-
-msgid "MISC"
-msgstr ""
-
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "AVINSTALLATION LÄGGS TILL I KÖN"
-
-
-msgid "SAVESTATE MANAGER"
-msgstr ""
-
-
-msgid "START NEW GAME"
-msgstr "STARTA NYTT SPEL"
-
-
-msgid "START NEW AUTO SAVE"
-msgstr "STARTA NYTT AUTO SPARA"
-
-
-msgid "AUTO SAVE"
-msgstr "AUTO SPARA"
-
-
-msgid "SLOT"
-msgstr ""
-
-
-msgid "COPY TO FREE SLOT"
-msgstr "KOPIERA TILL GRATIS SLOT"
-
-
-msgid "VIEW OPTIONS"
-msgstr "VISA ALTERNATIV"
-
-
-msgid "NAVIGATION"
-msgstr "NAVIGERING"
-
-
-msgid "OTHER FILTERS"
-msgstr "ANDRA FILTER"
-
-
-msgid "SELECT RANDOM GAME"
-msgstr "VÄLJ SLUMPMÄSSIGT SPEL"
-
-
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "HOPPA TILL SPEL SOM BÖRJAR MED BOKSTAVEN"
-
-
-msgid "SORT GAMES BY"
-msgstr "SORTERA SPEL EFTER"
-
-
-msgid "DYNAMIC COLLECTION"
-msgstr "DYNAMISK SAMLING"
-
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "REDIGERA FILTER FÖR DYNAMISK INSAMLING"
-
-
-msgid "CUSTOM COLLECTION"
-msgstr "ANPASSAD KOLLEKTION"
-
-
-msgid "COLLECTION"
-msgstr "SAMLING"
-
-
-msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "AVANCERADE SYSTEMALTERNATIV"
-
-
-msgid "RESET FILTERS"
-msgstr "ÅTERSTÄLL FILTER"
-
-
-msgid "FILTER GAMES BY TEXT"
-msgstr "FILTRERA SPEL EFTER TEXT"
-
-
-msgid "NO MISSING BIOS FILES"
-msgstr "INGA SAKNADE BIOS-FILER"
-
-
-msgid "Installed systems"
-msgstr "Installerade system"
-
-
-msgid "refresh"
-msgstr "uppdatera"
-
-
-msgid "NO MISSING BIOS"
-msgstr "INGEN BIOS SAKNAS"
-
-
-msgid "ZOOM OUT"
-msgstr "ZOOM UT"
-
-
-msgid "ZOOM IN"
-msgstr ""
-
-
-msgid "MOVE"
-msgstr "FÖRFLYTNING"
-
-
-msgid "ZOOM"
-msgstr ""
-
-
-msgid "EDIT METADATA"
-msgstr "REDIGERA METADATA"
-
-
-msgid "TAGS"
-msgstr ""
-
-
-msgid "GENRES"
-msgstr ""
-
-
-msgid "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\nDO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
-msgstr "VISSA FILER SOM DU LÄNKAT TILL FINNS UTANFÖR GAMELISTANS PATH.\nVill du använda en kopia av dessa filer som är relaterade till GAMELISTAN ?"
-
-
-msgid "FAVORITE SONGS"
-msgstr "FAVORITSÅNGER"
-
-
-msgid "CONNECT TO NETPLAY"
-msgstr "ANSLUT TILL NETPLAY"
-
-
-msgid "Select a game lobby to join"
-msgstr "Välj en spellobby att gå med i"
-
-
-msgid "FAILED"
-msgstr "MISSLYCKAD"
-
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "OKÄND ROM-VERSION"
-
-
-msgid "DIFFERENT ROM"
-msgstr "OLIKA ROM"
-
-
-msgid "SAME ROM"
-msgstr ""
-
-
-msgid "UNAVAILABLE CORE"
-msgstr "OTILLGÄNGLIG KÄRNA"
-
-
-msgid "LAN GAMES"
-msgstr "LAN-SPEL"
-
-
-msgid "ONLINE GAMES"
-msgstr "ONLINE SPEL"
-
-
-msgid "AVAILABLE GAMES"
-msgstr "TILLGÄNGLIGA SPEL"
-
-
-msgid "UNAVAILABLE GAMES"
-msgstr "OTILLGÄNGLIGA SPEL"
-
-
-msgid "NO GAMES FOUND"
-msgstr "INGA SPEL FUNNA"
-
-
-msgid "JOIN GAME"
-msgstr "GÅ MED I SPELET"
-
-
-msgid "WATCH GAME"
-msgstr "TITTA PÅ SPELET"
-
+msgid "NO DEVICE FOUND"
+msgstr "INGEN ENHET HITTADES"
 
 msgid "CONTROLLER SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR STYRENHET"
 
-
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR handkontroll & BLUETOOTH"
 
-
 msgid "CONTROLLERS PRIORITY"
 msgstr "PRIORITET FÖR STYRENHETER"
-
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "SPELARNAS UPPGIFTER"
 
 #, c-format
-
 msgid "CONTROLLER #%i"
 msgstr "handkontroll #%i"
 
 #, c-format
-
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S handkontroll"
-
 
 msgid "CONTROLLER MAPPING"
 msgstr "MAPPNING AV STYRENHET"
 
-
-msgid "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr "DU SKA MAPPA EN handkontroll. MAPPA BASERAT PÅ KNAPPENS POSITION, INTE DESS FYSISKA ETIKETT. OM DU INTE HAR EN SPECIELL KNAPP FÖR SNABBKNAPP, ANVÄND SELECT-KNAPPEN. HOPPA ÖVER ALLA KNAPPAR/SPAKAR SOM DU INTE HAR GENOM ATT HÅLLA IN VALFRI KNAPP. TRYCK PÅ SYDKNAPPEN FÖR ATT BEKRÄFTA NÄR DU ÄR KLAR."
-
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"DU SKA MAPPA EN handkontroll. MAPPA BASERAT PÅ KNAPPENS POSITION, INTE DESS "
+"FYSISKA ETIKETT. OM DU INTE HAR EN SPECIELL KNAPP FÖR SNABBKNAPP, ANVÄND "
+"SELECT-KNAPPEN. HOPPA ÖVER ALLA KNAPPAR/SPAKAR SOM DU INTE HAR GENOM ATT "
+"HÅLLA IN VALFRI KNAPP. TRYCK PÅ SYDKNAPPEN FÖR ATT BEKRÄFTA NÄR DU ÄR KLAR."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "SINDEN VAPENINSTÄLLNINGAR"
 
-
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR WIIMOTE-PISTOL"
-
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR STEAMDECK MUS/PISTOL"
 
-
 msgid "BLUETOOTH"
-msgstr ""
-
+msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
 msgstr "AKTIVERA BLUETOOTH"
 
-
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "PARKOPPLA BLUETOOTH-DYNOR AUTOMATISKT"
-
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "PARA IHOP EN BLUETOOTH-ENHET MANUELLT"
 
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
+msgstr "BLUETOOTH-SÖKNINGEN ÄR REDAN IGÅNG."
+
+msgid "DISPLAY OPTIONS"
+msgstr "VISNINGSALTERNATIV"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
 msgstr "VISA MEDDELANDEN FRÅN STYRENHET"
 
-
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "VISA handkontroll-AKTIVITET"
-
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VISA STYRENHETENS BATTERINIVÅ"
 
+msgid "SHOW GUN NOTIFICATIONS"
+msgstr ""
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DRA PISTOL HÅRKORS"
 
-
 msgid "BEHAVIOR"
 msgstr "BETEENDE"
-
 
 msgid "JOYSTICKS HOTKEYS"
 msgstr "JOYSTICKS SNABBTANGENTER"
 
-
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
 msgstr "BEGRÄNSA JOYSTICKS SNABBTANGENTER FÖR ATT AVSLUTA"
-
 
 msgid "GLOBAL HOTKEYS"
 msgstr "GLOBALA snabbtangentS"
 
-
 msgid "default"
 msgstr "standard"
 
+msgid "NOT CONNECTED"
+msgstr "INTE ANSLUTEN"
 
 msgid "SOUTH"
 msgstr "SÖD"
 
-
 msgid "EAST"
 msgstr "ÖST"
-
 
 msgid "NORTH"
 msgstr "NORDEN"
 
-
 msgid "WEST"
 msgstr "VÄST"
-
 
 msgid "D-PAD UP"
 msgstr "D-handkontroll UPP"
 
-
 msgid "D-PAD DOWN"
 msgstr "D-handkontroll NER"
-
 
 msgid "D-PAD LEFT"
 msgstr "D-handkontroll VÄNSTER"
 
-
 msgid "D-PAD RIGHT"
 msgstr "D-handkontroll RIGHT"
-
 
 msgid "LEFT SHOULDER"
 msgstr "VÄNSTER AXEL"
 
-
 msgid "RIGHT SHOULDER"
 msgstr "HÖGER SKULDER"
-
 
 msgid "LEFT TRIGGER"
 msgstr "VÄNSTER TRIGGER"
 
-
 msgid "RIGHT TRIGGER"
 msgstr "RÄTT TRIGGER"
-
 
 msgid "LEFT STICK PRESS"
 msgstr "TRYCK PÅ VÄNSTER SPAK"
 
-
 msgid "RIGHT STICK PRESS"
 msgstr "TRYCK PÅ HÖGER SPAK"
-
 
 msgid "HOTKEY"
 msgstr "snabbtangent"
 
+msgid "DEFAULT"
+msgstr "STANDARD"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
 msgstr "INGEN ENHET HITTADES (JAMMASD, IPAC, ...)"
 
-
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ANGE EN NY GLOBAL SNABBTANGENT"
 
-
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr "DU HAR 4 SEKUNDER PÅ DIG ATT TRYCKA EXAKT 2 GÅNGER PÅ DEN GLOBALA SNABBTANGENTEN"
-
+msgstr ""
+"DU HAR 4 SEKUNDER PÅ DIG ATT TRYCKA EXAKT 2 GÅNGER PÅ DEN GLOBALA "
+"SNABBTANGENTEN"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
 msgstr "INGEN GLOBAL SNABBTANGENT UPPTÄCKT"
 
-
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "MER ÄN EN GLOBAL SNABBTANGENT UPPTÄCKT"
-
 
 msgid "BORDER SIZE"
 msgstr "BORDER STORLEK"
 
+msgid "AUTO"
+msgstr "AUTO"
 
 msgid "THIN"
 msgstr "TUNN"
 
-
 msgid "MEDIUM"
-msgstr ""
-
+msgstr "MEDIA"
 
 msgid "BIG"
 msgstr "STOR"
 
-
 msgid "BORDER MODE"
-msgstr ""
-
+msgstr "RAMLÄGE"
 
 msgid "NORMAL"
-msgstr ""
-
+msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
 msgstr "ENDAST I SPELET"
 
-
 msgid "HIDDEN"
 msgstr "DOLD"
-
 
 msgid "BORDER COLOR"
 msgstr "BORDER FÄRG"
 
-
 msgid "WHITE"
 msgstr "VIT"
 
+msgid "RED"
+msgstr "RÖD"
+
+msgid "GREEN"
+msgstr "GRÖN"
+
+msgid "BLUE"
+msgstr "BLÅ"
 
 msgid "BORDER RATIO"
 msgstr "GRÄNSRATIO"
 
-
 msgid "CAMERA CONTRAST"
 msgstr "KAMERANS KONTRAST"
-
 
 msgid "Daytime/Bright Sunlight (40)"
 msgstr "Dagtid/blankt solljus (40)"
 
-
 msgid "Default (50)"
 msgstr "Standard (50)"
-
 
 msgid "Dim Display/Evening (60)"
 msgstr "Dim Display/Kväll (60)"
 
-
 msgid "CAMERA BRIGHTNESS"
 msgstr "KAMERANS LJUSSTYRKA"
-
 
 msgid "Daytime/Bright Sunlight (80)"
 msgstr "Dagtid/blankt solljus (80)"
 
-
 msgid "Default (100)"
 msgstr "Standard (100)"
-
 
 msgid "Dim Display/Evening (120)"
 msgstr "Dimma display/kväll (120)"
 
-
 msgid "CAMERA EXPOSURE"
 msgstr "KAMERAEXPONERING"
-
 
 msgid "Projector/CRT (-5)"
 msgstr "Projektor/CRT (-5)"
 
-
 msgid "Projector/CRT (-6)"
 msgstr "Projektor/CRT (-6)"
-
 
 msgid "Default (-7)"
 msgstr "Standard (-7)"
 
-
 msgid "Other (-8)"
 msgstr "Övriga (-8)"
-
 
 msgid "Other (-9)"
 msgstr "Övriga (-9)"
 
-
 msgid "RECOIL"
-msgstr ""
+msgstr "REKYL"
 
+msgid "DISABLED"
+msgstr "AVSTÄNGD"
 
 msgid "GUN"
 msgstr "VAPEN"
 
-
 msgid "MACHINE GUN"
 msgstr "MASKINPISTOL"
-
 
 msgid "QUIET GUN"
 msgstr "TYST PISTOL"
 
-
 msgid "QUIET MACHINE GUN"
 msgstr "TYST KULSPRUTA"
-
 
 msgid "MODE"
 msgstr "LÄGE"
 
-
 msgid "JOYSTICK"
-msgstr ""
-
+msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
 msgstr "ENDAST MOUSE"
 
-
 msgid "HAND"
-msgstr ""
-
+msgstr "HAND"
 
 msgid "LEFT"
 msgstr "VÄNSTER"
 
-
 msgid "RIGHT"
 msgstr "RÄTT"
 
+msgid "FAVORITE SONGS"
+msgstr "FAVORITSÅNGER"
 
-msgid "FILTER GAMELIST BY"
-msgstr "FILTRERA SPELLISTAN EFTER"
+msgid "SAVESTATE MANAGER"
+msgstr "HANTERA SPARADE TILLSTÅND"
 
+msgid "START NEW GAME"
+msgstr "STARTA NYTT SPEL"
 
-msgid "RESET ALL FILTERS"
-msgstr "ÅTERSTÄLL ALLA FILTER"
+msgid "START NEW AUTO SAVE"
+msgstr "STARTA NYTT AUTO SPARA"
 
+msgid "AUTO SAVE"
+msgstr "AUTO SPARA"
 
-msgid "FIND GAMES"
-msgstr "HITTA SPEL"
+msgid "SLOT"
+msgstr "PLATS"
 
+msgid "COPY TO FREE SLOT"
+msgstr "KOPIERA TILL GRATIS SLOT"
 
-msgid "SYSTEMS"
-msgstr "SYSTEM"
+msgid "INPUT"
+msgstr "INMATNING"
 
+msgid "INPUT MANUALLY"
+msgstr "INPUT MANUELLT"
 
-msgid "FILE BROWSER"
-msgstr "FILBROWSER"
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "INGA WI-FI-NÄTVERK HITTADES"
 
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "SÖKNING AV WI-FI-NÄTVERK"
 
-msgid "PARENT FOLDER"
-msgstr "FÖRÄLDRAMAPP"
+msgid "PARIS"
+msgstr "PARIS"
 
+msgid "OSAKA"
+msgstr "OSAKA"
 
-msgid "SCREENSHOTS FOLDER"
-msgstr "MAPP FÖR SKÄRMDUMPAR"
+msgid "SEOUL"
+msgstr "SEOUL"
 
+msgid "NETPLAY SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR NÄTSPEL"
+
+msgid "ENABLE NETPLAY"
+msgstr "AKTIVERA NETPLAY"
+
+msgid "NICKNAME"
+msgstr "SMEKNAMN"
+
+msgid "PORT"
+msgstr "PORT"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "AUTOMATISKT SKAPA LOBBY"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Skapar automatiskt en Netplay-lobby när du startar ett spel."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "VISA ENDAST RELÄSERVERSPEL"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Relay server-spel har större chans att lyckas med deltagandet."
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "VISA OTILLGÄNGLIGA SPEL"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "Visa rum för spel som inte finns på den här maskinen."
+
+msgid "USE RELAY SERVER"
+msgstr "ANVÄND RELÄSERVER"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "CUSTOM"
+msgstr "ANPASSAD"
+
+msgid "CUSTOM RELAY SERVER"
+msgstr "ANPASSAD RELÄSERVER"
+
+msgid "SCRAPER"
+msgstr "SKROTARE"
+
+msgid "ACCOUNTS"
+msgstr "KONTON"
+
+msgid "SCRAPING DATABASE"
+msgstr "SKRAPNING AV DATABAS"
+
+msgid "SOURCE"
+msgstr "KÄLLA"
+
+msgid "SCRAPE FROM"
+msgstr "SKROT FRÅN"
+
+msgid "FILTERS"
+msgstr "FILTER"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr "SPEL ATT SKRAPA FÖR"
+
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "SPEL SOM SAKNAR MEDIA"
+
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "SPEL SAKNAS ALLA MEDIER"
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr "IGNORERA NYLIGEN SKROTADE SPEL"
+
+msgid "LAST DAY"
+msgstr "SISTA DAGEN"
+
+msgid "LAST WEEK"
+msgstr "FÖRSTA VECKAN"
+
+msgid "LAST 15 DAYS"
+msgstr "SISTA 15 DAGAR"
+
+msgid "LAST MONTH"
+msgstr "SENASTE MÅNADEN"
+
+msgid "LAST 3 MONTHS"
+msgstr "SENASTE 3 MÅNADERNA"
+
+msgid "LAST YEAR"
+msgstr "FÖRRA ÅRET"
+
+msgid "SCRAPE NOW"
+msgstr "SKROTA NU"
+
+msgid "IMAGE SOURCE"
+msgstr "BILDKÄLLA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITEL SKÄRMDUMP"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOX 2D"
+
+msgid "BOX 3D"
+msgstr "BOX 3D"
+
+msgid "FAN ART"
+msgstr "FAN KONST"
+
+msgid "BOX SOURCE"
+msgstr "BOX KÄLLA"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO KÄLLA"
+
+msgid "HD WHEEL"
+msgstr "HD-HJUL"
+
+msgid "WHEEL"
+msgstr "HJUL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "PREFERED REGION"
+msgstr "ÖNSKAD REGION"
+
+msgid "OVERWRITE NAMES"
+msgstr "SKRIVA ÖVER NAMN"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SKRIVA ÖVER BESKRIVNINGAR"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SKRIVA ÖVER MEDIER"
+
+msgid "SCRAPE FOR"
+msgstr "SKROTA FÖR"
+
+msgid "SHORT NAME"
+msgstr "KORT NAMN"
+
+msgid "COMMUNITY RATING"
+msgstr "SAMHÄLLSBETYG"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "BEZEL (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "LÅDANS BAKSIDA"
+
+msgid "MAP"
+msgstr "MAPPA"
+
+msgid "MANUAL"
+msgstr "MANUELL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR handkontrollTOKEY"
+
+msgid "MANUAL SCRAPE"
+msgstr "MANUELL SKRAPNING"
+
+msgid "INCLUDED SCRAPERS"
+msgstr "INKLUDERADE SKRAPOR"
+
+msgid "SCREENSCRAPER"
+msgstr "SCREENscraper"
+
+msgid "IGDB"
+msgstr "IGDB"
+
+msgid "CLIENT ID"
+msgstr "KUND-ID"
+
+msgid "CLIENT SECRET"
+msgstr "KUNDENS HEMLIGHET"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"VARNING: VISSA AV DINA VALDA SYSTEM HAR INTE EN PLATTFORM INSTÄLLD. "
+"RESULTATET KAN VARA FÖR OLIKA SYSTEM!\n"
+"Kontinuerar du ändå?"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SKROTNING ÄR IGÅNG. VILL DU STOPPA DET?"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "INGA SPEL UPPFYLLER DE KRITERIERNA."
+
+msgid "INFORMATION"
+msgstr "INFORMATION"
+
+msgid "VERSION"
+msgstr "VERSION"
+
+msgid "USER DISK USAGE"
+msgstr "ANVÄNDARENS DISKANVÄNDNING"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SYSTEMETS DISKANVÄNDNING"
+
+msgid "DISK USAGE"
+msgstr "DISKANVÄNDNING"
+
+msgid "VIDEO DRIVER"
+msgstr "VIDEODRIVRUTIN"
+
+msgid "THE BEZEL PROJECT"
+msgstr "BEZEL-PROJEKTET"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr "VÄLJ RAMAR ATT INSTALLERA/TA BORT"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "RAMAR AVINSTALLERADE FRAMGÅNGSRIKT"
 
 msgid "dim"
-msgstr ""
-
+msgstr "dimma"
 
 msgid "black"
 msgstr "svart"
 
-
 msgid "random video"
 msgstr "slumpmässig video"
-
 
 msgid "slideshow"
 msgstr "bildspel"
 
-
 msgid "suspend"
 msgstr "avbryta"
 
+msgid "always"
+msgstr "alltid"
 
 msgid "start & end"
 msgstr "start & slut"
 
+msgid "never"
+msgstr "aldrig"
 
 msgid "systems"
 msgstr "system"
 
-
 msgid "random"
 msgstr "slumpmässig"
 
+msgid "SCREENSAVER SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR SKÄRMSLÄCKARE"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "STARTA SKÄRMSLÄCKARE EFTER"
 
-
 msgid "SCREENSAVER TYPE"
 msgstr "TYP AV SKÄRMSLÄCKARE"
-
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "STOPPA MUSIK PÅ SKÄRMSLÄCKARE"
 
-
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR SLUMPMÄSSIG VIDEOSKÄRMSLÄCKARE"
-
 
 msgid "VIDEO DURATION (SECS)"
 msgstr "VIDEONS VARAKTIGHET (SEKUNDER)"
 
-
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "ANVÄND OMX-SPELARE FÖR SKÄRMSLÄCKARE"
-
 
 msgid "SHOW GAME INFO"
 msgstr "VISA SPELINFO"
 
-
 msgid "SHOW DATE TIME"
 msgstr "VISA DATUM TID"
-
 
 msgid "DATE FORMAT"
 msgstr "DATUMFORMAT"
 
-
 msgid "TIME FORMAT"
 msgstr "FORMAT FÖR TID"
-
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ANVÄND TÄLTET SOM SPELINFORMATION"
 
-
 msgid "DECORATION SET USED"
 msgstr "DEKORATIONSUPPSÄTTNING ANVÄNDS"
 
-
 msgid "STRETCH VIDEOS"
-msgstr ""
-
+msgstr "STRÄCK UT VIDEOR"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "STÄNGA AV VIDEO LJUD"
 
-
 msgid "SCREENSAVER CONTROLS"
 msgstr "SKÄRMSLÄCKARKONTROLLER"
-
 
 msgid "USE CUSTOM VIDEOS"
 msgstr "ANVÄNDA ANPASSADE VIDEOR"
 
-
 msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "ANPASSAD VIDEOKATALOG"
-
 
 msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr "ANVÄNDA VIDEOR I UNDERMAPPAR I DEN ANPASSADE KATALOGEN"
 
-
 msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr "ANPASSADE VIDEOFILTILLÄGG"
-
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "BILDSPEL SKÄRMSLÄCKARE INSTÄLLNINGAR"
 
-
 msgid "IMAGE DURATION (SECS)"
 msgstr "BILDENS VARAKTIGHET (SEKUNDER)"
-
 
 msgid "STRETCH IMAGES"
 msgstr "STRETCH BILDER"
 
-
 msgid "USE CUSTOM IMAGES"
 msgstr "ANVÄNDA EGNA BILDER"
-
 
 msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "EGEN BILDKATALOG"
 
-
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr "ANVÄNDA BILDER I UNDERMAPPAR I DEN ANPASSADE KATALOGEN"
-
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "ANPASSADE BILDFILSTILLÄGG"
 
+msgid "fade"
+msgstr "blekna"
 
-msgid "INVALID CONTENT"
-msgstr "OGILTIGT INNEHÅLL"
+msgid "fast fade"
+msgstr "snabb avklingning"
 
+msgid "slide"
+msgstr "glida"
 
-msgid "A valid account is required. Please register an account on https://retroachievements.org"
-msgstr "Ett giltigt konto krävs. Vänligen registrera ett konto på https://RetroAchievements.org"
+msgid "fast slide"
+msgstr "snabb glidning"
 
+msgid "fade & slide"
+msgstr "tona och glid"
 
-msgid "Full"
+msgid "instant"
+msgstr "omedelbar"
+
+msgid "System"
+msgstr "System"
+
+msgid "Architecture"
+msgstr "Arkitektur"
+
+msgid "Disk format"
+msgstr "Diskformat"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "Available memory"
+msgstr "Tillgängligt minne"
+
+msgid "Battery"
+msgstr "Batteri"
+
+msgid "Model"
+msgstr "Modell"
+
+msgid "Cpu model"
+msgstr "Cpu-modell"
+
+msgid "Cpu number"
+msgstr "Cpu-nummer"
+
+msgid "Cpu max frequency"
+msgstr "Cpu max frekvens"
+
+msgid "Cpu feature"
+msgstr "Cpu-funktion"
+
+msgid "Available Memory"
+msgstr "Tillgängligt minne"
+
+msgid "Display Resolution"
+msgstr "Displayupplösning"
+
+msgid "Display Refresh Rate"
+msgstr "Displayens uppdateringsfrekvens"
+
+msgid "OpenGL Driver Version"
+msgstr "Version av OpenGL-drivrutin"
+
+msgid "Vulkan Driver Name"
+msgstr "Namn på Vulkan-drivrutin"
+
+msgid "Vulkan Driver Version"
+msgstr "Version av Vulkan-drivrutin"
+
+msgid "Data Partition Format"
+msgstr "Datapartionens format"
+
+msgid "Data Partition Available Space"
+msgstr "Data Partition Tillgängligt utrymme"
+
+msgid "Network IP Address"
+msgstr "IP-adress för nätverk"
+
+msgid "UEFI Boot"
+msgstr "UEFI-start"
+
+msgid "Secure Boot"
+msgstr "Säker start"
+
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
 msgstr ""
 
-
-msgid "Kiosk"
+msgctxt "game_options"
+msgid "SCANLINES"
 msgstr ""
 
-
-msgid "Kid"
-msgstr "Barn"
-
-
-msgid "Basic"
-msgstr "Grundläggande"
-
-
-msgid "Games similar to"
-msgstr "Spel som liknar"
-
-
-msgid "SAVE STATES (HOLD)"
-msgstr "SPARA TILLSTÅND (HÅLL)"
-
-
-msgid "GAME OPTIONS (HOLD)"
-msgstr "SPELALTERNATIV (HÅLL)"
-
-
-msgid "GAME OPTIONS"
-msgstr "SPELOPTIONER"
-
-
-msgid "FAVORITE"
-msgstr "FAVORIT"
-
-
-msgid "RANDOM"
+msgctxt "game_options"
+msgid "RETRO"
 msgstr ""
+
+msgctxt "game_options"
+msgid "ENHANCED"
+msgstr ""
+
+msgctxt "game_options"
+msgid "CURVATURE"
+msgstr ""
+
+msgctxt "game_options"
+msgid "ZFAST"
+msgstr ""
+
+msgctxt "game_options"
+msgid "FLATTEN-GLOW"
+msgstr ""
+
+msgctxt "game_options"
+msgid "RGA SCALING"
+msgstr ""
+
+msgid "VENDOR"
+msgstr "ANBUDSGIVARE"
+
+msgid "RENDERER"
+msgstr "RENDERING"
+
+msgid "SHADERS"
+msgstr "shaderS"
+
+msgid "INTERNAL"
+msgstr "INTERN"
+
+msgid "ANY EXTERNAL"
+msgstr "ALLA EXTERNAL"
+
+msgid "maximum 1920x1080"
+msgstr "max 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "max 640x480"
+
+msgid "MAIN MENU"
+msgstr "HUVUDMENY"
+
+msgid "KODI MEDIA CENTER"
+msgstr "KODI MEDIA CENTER"
+
+msgid "GAME SETTINGS"
+msgstr "SPELINSTÄLLNINGAR"
+
+msgid "USER INTERFACE SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR ANVÄNDARGRÄNSSNITT"
+
+msgid "SOUND SETTINGS"
+msgstr "LJUDINSTÄLLNINGAR"
+
+msgid "NETWORK SETTINGS"
+msgstr "NÄTVERKSINSTÄLLNINGAR"
+
+msgid "CONFIGURE INPUT"
+msgstr "KONFIGURERA INGÅNG"
+
+msgid "EMULATOR SETTINGS"
+msgstr "emulatorINSTÄLLNINGAR"
+
+msgid "UPDATES & DOWNLOADS"
+msgstr "UPPDATERINGAR & NEDLADDNINGAR"
+
+msgid "SYSTEM SETTINGS"
+msgstr "SYSTEMINSTÄLLNINGAR"
+
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr "LÅSA UPP ANVÄNDARGRÄNSSNITTETS LÄGE"
+
+msgid "QUIT"
+msgstr "AVSLUTA"
+
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL KONFIGURERA INGÅNGEN?"
+
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr "ANGE KODEN NU FÖR ATT LÅSA UPP"
+
+msgid "SERVICES"
+msgstr "TJÄNSTER"
+
+msgid "DMD"
+msgstr "DMD"
+
+msgid "SERVER"
+msgstr "SERVER"
+
+msgid "DMDSERVER (for real dmd)"
+msgstr "DMDSERVER (för verklig dmd)"
+
+msgid "SIMULATOR (for web dmd)"
+msgstr "SIMULATOR (för webbdmd)"
+
+msgid "dmd server"
+msgstr "dmd-server"
+
+msgid "FORMAT"
+msgstr "FORMATERA"
+
+msgid "dmd matrix size"
+msgstr "dmd matrisstorlek"
+
+msgid "BRIGHTNESS"
+msgstr "LJUSSTYRKA"
+
+msgid "DMDSERVER stopped"
+msgstr "DMDSERVER stophandkontroll"
+
+msgid "DMDSERVER restarted"
+msgstr "DMDSERVER omstartad"
+
+msgid "DMDSERVER started"
+msgstr "DMDSERVER startad"
+
+msgid "MULTISCREENS"
+msgstr "FLERA SKÄRMAR"
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr "BAKGLAS / INFORMATIONSSKÄRM"
+
+msgid "THEME"
+msgstr "TEMA"
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEO-UTGÅNG"
+
+msgid "VIDEO MODE"
+msgstr "VIDEO-LÄGE"
+
+msgid "Sets the display's resolution."
+msgstr "Ställer in displayens upplösning."
+
+msgid "ROTATION"
+msgstr "ROTATION"
+
+msgid "0 DEGREES"
+msgstr "0 GRADER"
+
+msgid "90 DEGREES"
+msgstr "90 GRADER"
+
+msgid "180 DEGREES"
+msgstr "180 GRADER"
+
+msgid "270 DEGREES"
+msgstr "270 GRADER"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTATION AV SKÄRMEN"
+
+msgid "DMD SCREEN"
+msgstr "DMD-SKÄRM"
+
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr "ALTERNATIV FÖR FRONTEND-UTVECKLARE"
+
+msgid "VIDEO OPTIONS"
+msgstr "VIDEO-ALTERNATIV"
+
+msgid "VRAM LIMIT"
+msgstr "BEGRÄNSNING AV VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "VISA RAMVERK"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr "Aktiverar även emulatorns inbyggda FPS-räknare, om sådan finns."
+
+msgid "VSYNC"
+msgstr "VSYNC"
+
+msgid "OVERSCAN"
+msgstr "ÖVERSKANNING"
+
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
+msgstr "ANVÄND OMX-SPELARE (HÅRDVARUACCELERERAD)"
+
+msgid "TOOLS"
+msgstr "VERKTYG"
+
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr "SLUTA STARTA DETTA SPEL VID UPPSTART"
+
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr "AKTIVERA OFFENTLIG WEBBAPI-ÅTKOMST"
 
 #, c-format
+msgid "Allow public web access API using %s"
+msgstr "Tillåt allmän webbåtkomst till API med %s"
 
-msgid "Back to %s"
-msgstr "Tillbaka till %s"
+msgid "LOG LEVEL"
+msgstr "LOGG-NIVÅ"
 
+msgid "CREATE A SUPPORT FILE"
+msgstr "SKAPA EN SUPPORTFIL"
 
-msgid "No Entries Found"
-msgstr "Inga poster hittades"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr "SKAPA EN SUPPORTFIL? DETTA INKLUDERAR ALL DATA I DIN SYSTEMMAPP."
 
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
+msgstr "STÖDFIL SKAhandkontroll I MAPPEN SPARA"
 
-msgid "Times played"
-msgstr "Spelade tider"
+msgid "SUPPORT FILE CREATION FAILED"
+msgstr "SKAPANDET AV SUPPORTFILEN MISSLYCKADES"
+
+msgid "FORMAT A DISK"
+msgstr "FORMATERA A DISK"
+
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
+msgstr "RENSA SPELLISTOR OCH TA BORT OANVÄND MEDIA"
+
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+"Ta bort oanvända poster och rensa bort hänvisningar till saknade medier."
+
+msgid "Cleaning"
+msgstr "Rengöring"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr "ÅTERSTÄLLA ANVÄNDNINGSDATA FÖR SPELLISTOR"
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
+"Återställer värdena för metadata för GameTime, PlayCount och LastPlayed."
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "ÅTERSTÄLLA FILTILLÄGG"
+
+msgid "Reset customized file extensions filters to default."
+msgstr "Återställ anpassade filtilläggsfilter till standard."
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "OMDETEKTERA ALLA SPELS SPRÅK/REGION"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "HITTA ALLA SPEL MED NETPLAY/PRESTATIONER"
+
+msgid "CLEAR CACHES"
+msgstr "RENSA BORT HINDER"
+
+msgid "DISPLAY SETTINGS"
+msgstr "DISPLAYINSTÄLLNINGAR"
+
+msgid "MENU FONT SCALE"
+msgstr "MENY TECKENSNITTSSKALA"
+
+msgid "FONT SCALE"
+msgstr "FONT SKALA"
+
+msgid "THEME FONT SCALE"
+msgstr "TEMA TECKENSNITTSSKALA"
+
+msgid "FULL SCREEN MENUS"
+msgstr "MENYER I HELSKÄRM"
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr "KRAFT LITEN SKÄRM TEMA"
+
+msgid "DATA MANAGEMENT"
+msgstr "DATAHANTERING"
+
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr "IGNORERA DISKINNEHÅLL MED FLERA FILER (CUE/GDI/CCD/M3U)"
+
+msgid "ENABLE GAME FILTERING"
+msgstr "AKTIVERA SPELFILTRERING"
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
+"Om du vill visa eller dölja inställningar som rör spelfiltrering i "
+"visningsalternativen."
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "SPARA METADATA VID AVSLUTNING"
+
+msgid "PARSE GAMELISTS ONLY"
+msgstr "ANALYSERAR ENDAST GAMELISTS"
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
+"Felsökningsverktyg: Kontrollerar inte om ROM:en verkligen existerar. Kan "
+"orsaka problem!"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "SÖK EFTER LOKAL KONST"
+
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+"Om ingen bild har angetts i spellistan försöker man hitta media med samma "
+"filnamn som kan användas."
+
+msgid "USER INTERFACE"
+msgstr "ANVÄNDARGRÄNSSNITT"
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "KARUSELLÖVERGÅNGAR"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SNABBT SYSTEMVAL"
+
+msgid "QUICK JUMP LETTER"
+msgstr "BREV MED SNABB HOPPNING"
+
+msgid "ON-SCREEN KEYBOARD"
+msgstr "TANGENTBORD PÅ SKÄRMEN"
+
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
+msgstr "DÖLJA EMULERINGSSTATIONEN NÄR DU KÖR ETT SPEL"
+
+msgid "COMPLETE QUIT MENU"
+msgstr "FULLSTÄNDIG AVSLUTNINGSMENY"
+
+msgid "RETROARCH MENU DRIVER"
+msgstr "RetroArch MENY DRIVRUTIN"
+
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "VÄXLA BEKRÄFTELSE- OCH AVBRYTKNAPPAR I EMULERINGSSTATIONEN"
+
+msgid "Switches the South and East buttons' functionality"
+msgstr "Byter funktion för knapparna South och East"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ÅTKOMST TILL SPELALTERNATIV MED DEN NORRA KNAPPEN"
+
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
+msgstr ""
+"Växlar till kort tryckning på North för Savestates & lång tryckning på South-"
+"knappen för Game Options"
+
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
+msgstr "STYR EMULERINGSSTATION MED ENDAST FÖRSTA JOYSTICKEN"
+
+msgid "GUN MOVE TOLERENCE"
+msgstr "PISTOL FLYTTA TOLERENCE"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr "AKTIVERA STÖD FÖR PS3-KONTROLLER"
+
+msgid "Might have negative impact on security."
+msgstr "Kan ha en negativ inverkan på säkerheten."
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr "AKTIVERA HID-DRIVRUTINER FÖR STYRSPAK"
+
+msgid "SHOW NETWORK INDICATOR"
+msgstr "VISA NÄTVERKSINDIKATOR"
+
+msgid "OPTIMIZATIONS"
+msgstr "OPTIMERINGAR"
+
+msgid "PRELOAD UI ELEMENTS ON BOOT"
+msgstr "FÖRLADDA UI-ELEMENT VID START"
+
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr ""
+"Minskar fördröjningen vid inmatning av spellistor från systemmenyn, ökar "
+"starttiden"
+
+msgid "PRELOAD METADATA MEDIA ON BOOT"
+msgstr "FÖRLADDAR METADATAMEDIA VID START"
+
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
+"Minskar fördröjningen när du bläddrar igenom en helt ny spellista, ökar "
+"starttiden"
+
+msgid "THREADED LOADING"
+msgstr "GÄNGAD LASTNING"
+
+msgid "ASYNC IMAGE LOADING"
+msgstr "ASYNKRON BILDLADDNING"
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "OPTIMERA BILDER VRAM-ANVÄNDNING"
+
+msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr "OPTIMERA ANVÄNDNINGEN AV VIDEO-VRAM"
+
+msgid "USE FILESYSTEM CACHE"
+msgstr ""
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "OMSTART KRÄVS FÖR ATT TILLÄMPA DEN NYA KONFIGURATIONEN"
+
+msgid "DOWNLOADS"
+msgstr "NEDLADDNINGAR"
+
+msgid "THEMES"
+msgstr "TEMA"
+
+msgid "SOFTWARE UPDATES"
+msgstr "UPPDATERINGAR AV PROGRAMVARA"
+
+msgid "CHECK FOR UPDATES"
+msgstr "KONTROLLERA FÖR UPPDATERINGAR"
+
+msgid "UPDATE TYPE"
+msgstr "UPDATE TYP"
+
+msgid "APPLY UPDATE"
+msgstr "ANSÖK UPDATE"
+
+msgid "START UPDATE"
+msgstr "STARTA UPPDATERING"
+
+msgid "UPDATER IS ALREADY RUNNING"
+msgstr "UPPDATERINGSPROGRAMMET ÄR REDAN IGÅNG"
+
+msgid "LANGUAGE"
+msgstr "SPRÅKET"
+
+msgid "LANGUAGE (REGION)"
+msgstr "SPRÅK (REGION)"
+
+msgid "KEYBOARD LAYOUT"
+msgstr "TANGENTBORDSLAYOUT"
+
+msgid "KEYBOARD VARIANT"
+msgstr "TANGENTBORDSVARIANT"
+
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+"Välj layout för det fysiska tangentbordet. En omstart kan krävas för att "
+"ändringarna ska få full effekt."
+
+msgid "SELECT YOUR TIME ZONE"
+msgstr "VÄLJ DIN TIDSZON"
+
+msgid "TIME ZONE"
+msgstr "TIDSZON"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "VISA KLOCKAN I 12-TIMMARSFORMAT"
+
+msgid "POWER SAVING MODE"
+msgstr "ENERGISPARLÄGE"
+
+msgid "ENHANCED"
+msgstr "FÖRBÄTTRAD"
+
+msgid "INSTANT"
+msgstr "DIREKT"
+
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+"Minskar strömförbrukningen när den är inaktiv (användbart för handdatorer)."
+
+msgid "SCREEN READER (TEXT TO SPEECH)"
+msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
+
+msgid "USER INTERFACE MODE"
+msgstr "LÄGE FÖR ANVÄNDARGRÄNSSNITT"
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr "Lås vissa konfigurationsmenyer för användning med gästanvändare/barn."
+
+msgid ""
+"You are changing the user interface to a restricted mode:\n"
+"This will hide most menu options to prevent changes to the system.\n"
+"To unlock and return to the full user interface, enter this code:"
+msgstr ""
+"Du ändrar användargränssnittet till ett begränsat läge:\n"
+"Då döljs de flesta menyalternativen för att förhindra ändringar i systemet.\n"
+" Ange den här koden för att låsa upp och återgå till det fullständiga "
+"användargränssnittet:"
+
+msgid "Do you want to proceed?"
+msgstr "Vill du gå vidare?"
+
+msgid "KODI SETTINGS"
+msgstr "KODI INSTÄLLNINGAR"
+
+msgid "ENABLE KODI"
+msgstr "AKTIVERA KODI"
+
+msgid "LAUNCH KODI AT BOOT"
+msgstr "STARTA KODI VID UPPSTART"
+
+msgid "HARDWARE"
+msgstr "HÅRDVARA"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Ställer in skärmens upplösning för emuleringsstation."
+
+msgid "AUDIO OUTPUT"
+msgstr "AUDIO-UTGÅNG"
+
+msgid "AUDIO PROFILE"
+msgstr "LJUDPROFIL"
+
+msgid "Available options can change depending on current audio output."
+msgstr "Tillgängliga alternativ kan ändras beroende på aktuell ljudutgång."
+
+msgid "BOOT SPLASH"
+msgstr "SKOSNÖRE SPLASH"
+
+msgid "DEFAULT VIDEO/USER SET SPLASH"
+msgstr "STANDARD VIDEO/ANVÄNDARINSTÄLLNING SPLASH"
+
+msgid "SILENT VIDEO/USER SET SPLASH"
+msgstr "TYST VIDEO/ANVÄNDARUPPSÄTTNING SPLASH"
+
+msgid "BATOCERA SPLASH IMAGE"
+msgstr "BATOCERA STÄNKBILD"
+
+msgid "SPLASH SETTING"
+msgstr "SPLASH INSTÄLLNING"
+
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
+msgstr "KONTROLLERA BIOS-FILER INNAN DU KÖR ETT SPEL"
+
+msgid "MULTIMEDIA KEYS"
+msgstr "MULTIMEDIAKNAPPAR"
+
+msgid "ON"
+msgstr "PÅ"
+
+msgid "OFF"
+msgstr "AV"
+
+msgid "BUTTON LED COLOR"
+msgstr "KNAPP LED FÄRG"
+
+msgid "off"
+msgstr "av"
+
+msgid "red"
+msgstr "röd"
+
+msgid "green"
+msgstr "grön"
+
+msgid "blue"
+msgstr "blå"
+
+msgid "white"
+msgstr "vit"
+
+msgid "purple"
+msgstr "lila"
+
+msgid "yellow"
+msgstr "gul"
+
+msgid "cyan"
+msgstr "cyan"
+
+msgid "POWER LED COLOR"
+msgstr "POWER LED FÄRG"
+
+msgid "heartbeat"
+msgstr "hjärtslag"
+
+msgid "on"
+msgstr "på"
+
+msgid "OVERCLOCK"
+msgstr "ÖVERKLOCKNING"
+
+msgid "LED HARDWARE"
+msgstr "LED-HÅRDVARA"
+
+msgid "ENABLE LED"
+msgstr "LED FÖR AKTIVERING"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED-LJUSSTYRKA"
+
+msgid "STORAGE"
+msgstr "FÖRVARING"
+
+msgid "STORAGE DEVICE"
+msgstr "FÖRVARINGSENHET"
+
+msgid "EJECT AN EXTRA DISK"
+msgstr "MATA UT EN EXTRA DISK"
+
+msgid "EXTRA DRIVE FILESYSTEM TYPE"
+msgstr "FILSYSTEMTYP FÖR EXTRA ENHET"
+
+msgid "ADVANCED"
+msgstr "AVANCERAD"
+
+msgid "SECURITY"
+msgstr "SÄKERHET"
+
+msgid "ENFORCE SECURITY"
+msgstr "UPPRÄTTHÅLLA SÄKERHETEN"
+
+msgid "Require a password for accessing the network share."
+msgstr "Kräv ett lösenord för åtkomst till nätverksdelningen."
+
+msgid "ROOT PASSWORD"
+msgstr "ROOT-LÖSENORD"
+
+msgid "LATENCY REDUCTION"
+msgstr "MINSKAD LATENSTID"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr "FRAMKÖRNINGSRAMAR"
+
+msgid "High numbers can result in visible jitter."
+msgstr "Höga tal kan leda till synligt jitter."
+
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "ANVÄNDA ANDRA INSTANS FÖR RUN-AHEAD"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Kan förhindra att ljudet hoppar över när du trycker på en knapp."
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr "AUTOMATISK RAMFÖRDRÖJNING"
+
+msgid "AUTO FRAME DELAY"
+msgstr "AUTOMATISK RAMFÖRDRÖJNING"
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+"Minska automatiskt ramfördröjningen tillfälligt för att förhindra bildfall. "
+"Kan leda till att bilden stammar."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "VARIABEL UPPDATERINGSFREKVENS (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "VARIABEL UPPDATERINGSFREKVENS"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Avvik inte från kärnans begärda timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+
+msgid "DECORATION SET"
+msgstr "DEKORATIONSUPPSÄTTNING"
+
+msgid "Current setting"
+msgstr "Aktuell inställning"
+
+msgid "BIOS SETTINGS"
+msgstr "BIOS-INSTÄLLNINGAR"
+
+msgid "SAVESTATES"
+msgstr "SPARADE TILLSTÅND"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "LÄS IN/SPARA AUTOMATISKT"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Ladda senaste savestate vid spelstart och savestate när du avslutar spelet."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INKREMENTELLA SAVESTATES"
+
+msgid "INCREMENT PER SAVE"
+msgstr "INKREMENT PER SPARANDE"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Skriv aldrig över gamla savestates, skapa alltid nya."
+
+msgid "INCREMENT SLOT"
+msgstr "ÖKNING SLOT"
+
+msgid "Increment slot on a new game."
+msgstr "Inkrementell spelautomat på ett nytt spel."
+
+msgid "DO NOT INCREMENT"
+msgstr "INTE INKREMENTERA"
+
+msgid "Use current slot on a new game."
+msgstr "Använd nuvarande slot på ett nytt spel."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "VISA SPARASTATE MANAGER"
+
+msgid "ALWAYS"
+msgstr "ALLTID"
+
+msgid "IF NOT EMPTY"
+msgstr "OM INTE TOM"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Visa Savestate Manager innan du startar ett spel."
+
+msgid "DEFAULT GLOBAL SETTINGS"
+msgstr "GLOBALA STANDARDINSTÄLLNINGAR"
+
+msgid "GAME ASPECT RATIO"
+msgstr "SPELETS BILDFÖRHÅLLANDE"
+
+msgid "Force the game to render in this aspect ratio."
+msgstr "Tvinga spelet att rendera i detta bildförhållande."
+
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr "Ställer in skärmens upplösning. Påverkar inte renderingsupplösningen."
+
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr "SLÄTA SPEL (BILINJÄR FILTRERING)"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
+"Lagra tidigare tillstånd för att spola tillbaka till i realtid, om kärnan "
+"stöder det."
+
+msgid "INTEGER SCALING (PIXEL PERFECT)"
+msgstr "HELTALSSKALNING (PIXEL PERFEKT)"
+
+msgid "SHADER SET"
+msgstr "shader SET"
+
+msgid "VIDEO FILTER"
+msgstr "VIDEOFILTER"
+
+msgid "DECORATIONS"
+msgstr "DEKORATIONER"
+
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr "STRÄCK UT RAMARNA (4K & ULTRAWIDE)"
+
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr "VISA TATUERING ÖVER BEZEL"
+
+msgid "SYSTEM CONTROLLERS"
+msgstr "SYSTEMKONTROLLER"
+
+msgid "CUSTOM IMAGE"
+msgstr "ANPASSAD BILD"
+
+msgid "Show an image overlaid on top of the bezel."
+msgstr "Visa en bild som läggs ovanpå ramen."
+
+msgid "TATTOO CORNER"
+msgstr "TATTOO HÖRN"
+
+msgid "NORTH WEST"
+msgstr "NORDVÄST"
+
+msgid "NORTH EAST"
+msgstr "NORDÖST"
+
+msgid "SOUTH EAST"
+msgstr "SÖDERÖST"
+
+msgid "SOUTH WEST"
+msgstr "SYDVÄST"
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr "ANPASSAD .PNG-BILDSÖKVÄG"
+
+msgid "RESIZE TATTOO"
+msgstr "ÄNDRA STORLEK PÅ TATUERING"
+
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
+"Krymp/expandera tatueringen så att den passar inom ramen för ramens kant."
+
+msgid "AI GAME TRANSLATION"
+msgstr "AI SPEL ÖVERSÄTTNING"
+
+msgid "ENABLE AI TRANSLATION SERVICE"
+msgstr "AKTIVERA AI ÖVERSÄTTNINGSTJÄNST"
+
+msgid "TARGET LANGUAGE"
+msgstr "MÅLSPRÅK"
+
+msgid "AI TRANSLATION SERVICE URL"
+msgstr "AI ÖVERSÄTTNINGSTJÄNST URL"
+
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr "PAUS PÅ ÖVERSATT SKÄRM"
+
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AUTOKONFIGURERA STYRENHETER"
+
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr "PER SYSTEM AVANCERAD KONFIGURATION"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "scraper ÄR IGÅNG. VILL DU STOPPA DEN?"
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SPEL HASHING ÄR IGÅNG. VILL DU STOPPA DET?"
+
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr "VERKLIGEN UPPDATERA SPELLISTOR?"
+
+msgid "Emulator"
+msgstr "Emulator"
+
+msgid "Core"
+msgstr "Kärnan"
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
+msgstr "DU MÅSTE TILLÄMPA TEMAT INNAN DU REDIGERAR DESS KONFIGURATION"
+
+msgid "THEME CONFIGURATION"
+msgstr "KONFIGURATION AV TEMA"
+
+msgid "GAMELIST STYLE"
+msgstr "STIL FÖR SPELLISTA"
+
+msgid "basic"
+msgstr "grundläggande"
+
+msgid "detailed"
+msgstr "detaljerad"
+
+msgid "DEFAULT GRID SIZE"
+msgstr "STANDARDSTORLEK FÖR RUTNÄT"
+
+msgid "GAMELIST THEME OPTIONS"
+msgstr "TEMAALTERNATIV FÖR GAMELIST"
+
+msgid "THEME OPTIONS"
+msgstr "TEMA-ALTERNATIV"
+
+msgid "DEFAULT VALUE"
+msgstr "DEFAULT VÄRDE"
+
+msgid "GAMELIST OPTIONS"
+msgstr "ALTERNATIV FÖR GAMELIST"
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "VISA FAVORITER PÅ TOPPEN"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "VISA DOLDA FILER"
+
+msgid "SHOW FOLDERS"
+msgstr "VISA MAPPAR"
+
+msgid "having multiple games"
+msgstr "har flera spel"
+
+msgid "SHOW '..' PARENT FOLDER"
+msgstr "VISA '..' ÖVERLIGGANDE MAPP"
+
+msgid "ICONS"
+msgstr "IKONER"
+
+msgid "AFTER NAME"
+msgstr "EFTER NAMN"
+
+msgid "BEFORE NAME"
+msgstr "FÖRE NAMN"
+
+msgid "SHOW TAGS ICONS"
+msgstr "VISA IKONER FÖR TAGGAR"
+
+msgid "SHOW REGION FLAG"
+msgstr "VISA REGIONFLAGGA"
+
+msgid "SHOW SAVESTATE ICON"
+msgstr "VISA SPARLÄGE-IKON"
+
+msgid "SHOW MANUAL ICON"
+msgstr "VISA IKON FÖR MANUAL"
+
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr "VISA IKON FÖR RETROACHIEVEMENTS"
+
+msgid "SHOW GUN ICON"
+msgstr "VISA IKON FÖR PISTOL"
+
+msgid "SHOW WHEEL ICON"
+msgstr "VISA IKON FÖR RATT"
+
+msgid "SHOW TRACKBALL ICON"
+msgstr "VISA IKON FÖR STYRKULA"
+
+msgid "SHOW SPINNER ICON"
+msgstr "VISA IKON FÖR SPINNER"
+
+msgid "SHOW FILENAMES INSTEAD"
+msgstr "VISA FILNAMN ISTÄLLET"
+
+msgid "FILE EXTENSIONS"
+msgstr "FILÄNDELSER"
+
+msgid "RESET CUSTOMIZATIONS"
+msgstr "ÅTERSTÄLL ANPASSNINGAR"
+
+msgid "APPEARANCE"
+msgstr "UTSEENDE"
+
+msgid "THEME SET"
+msgstr "TEMAUPPSÄTTNING"
+
+msgid "video"
+msgstr "video"
+
+msgid "grid"
+msgstr "rutnät"
+
+msgid "LIST TRANSITION"
+msgstr "LISTÖVERGÅNG"
+
+msgid "auto"
+msgstr "bil"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr "ÖVERGÅNG TILL SPELSTART"
+
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr "SPELMEDIER UNDER SNABB SKROLLNING"
+
+msgid "SHOW CLOCK"
+msgstr "VISA KLOCKA"
+
+msgid "ON-SCREEN HELP"
+msgstr "HJÄLP PÅ SKÄRMEN"
+
+msgid "SHOW BATTERY STATUS"
+msgstr "VISA BATTERISTATUS"
+
+msgid "ICON"
+msgstr "IKON"
+
+msgid "ICON AND TEXT"
+msgstr "IKON OCH TEXT"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr "VISA MAPPAR FÖRST"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr "IGNORERA LEDANDE ARTIKLAR VID SORTERING"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr "Ignorera \\\"The\\\" och \\\"A\\\" om de står i början."
+
+msgid "VOLUME"
+msgstr "VOLYM"
+
+msgid "SYSTEM VOLUME"
+msgstr "SYSTEMVOLYM"
+
+msgid "MUSIC VOLUME"
+msgstr "MUSIK VOLYM"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr "VISA ÖVERLÄGG NÄR VOLYMEN ÄNDRAS"
+
+msgid "MUSIC"
+msgstr "MUSIK"
+
+msgid "FRONTEND MUSIC"
+msgstr "FRONTEND MUSIK"
+
+msgid "DISPLAY SONG TITLES"
+msgstr "VISA LÅTTITLAR"
+
+msgid "SONG TITLE DISPLAY DURATION"
+msgstr "LÅTTITEL VISNINGSTID"
+
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr "SPELAR BARA SYSTEMSPECIFIK MUSIKMAPP"
+
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
+msgstr "SPELA SYSTEMSPECIFIK MUSIK"
+
+msgid "LOWER MUSIC WHEN PLAYING VIDEO"
+msgstr "LÄGRE MUSIK NÄR DU SPELAR VIDEO"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "SPELA BARA LÅTAR FRÅN DIN FAVORITSPELLISTA"
+
+msgid "SELECTION OF FAVORITE SONGS"
+msgstr "URVAL AV FAVORITLÅTAR"
+
+msgid "SOUNDS"
+msgstr "LJUD"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "AKTIVERA NAVIGATIONSLJUD"
+
+msgid "ENABLE VIDEO PREVIEW AUDIO"
+msgstr "AKTIVERA FÖRHANDSGRANSKNING AV VIDEO LJUD"
+
+msgid "IP ADDRESS"
+msgstr "IP-ADRESS"
+
+msgid "CONNECTED"
+msgstr "ANSLUTEN"
+
+msgid "INTERNET STATUS"
+msgstr "INTERNETSTATUS"
+
+msgid "HOSTNAME"
+msgstr "VÄRDNAMN"
+
+msgid "ENABLE WIFI"
+msgstr "AKTIVERA WIFI"
+
+msgid "WIFI SSID"
+msgstr "WIFI SSID"
+
+msgid "WIFI KEY"
+msgstr "WIFI-NYCKEL"
+
+msgid "WIFI COUNTRY"
+msgstr "WIFI LAND"
+
+msgid "N/A"
+msgstr "-"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI TILLGÄNGLIG"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "FEL I WIFI-KONFIGURATIONEN"
+
+msgid "QUICK ACCESS"
+msgstr "SNABB ÅTKOMST"
+
+msgid "SKIP TO THE NEXT SONG"
+msgstr "HOPPA TILL NÄSTA LÅT"
+
+msgid "NOW PLAYING"
+msgstr "SPELAS NU"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "TA BORT AKTUELL LÅT FRÅN FAVORITSPELLISTAN"
+
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "SPARA AKTUELL LÅT TILL FAVORITSPELLISTAN"
+
+msgid "LAUNCH SCREENSAVER"
+msgstr "STARTA SKÄRMSLÄCKARE"
+
+msgid "VIEW USER MANUAL"
+msgstr "VISA ANVÄNDARHANDBOKEN"
+
+msgid "DISABLE PLANE MODE"
+msgstr "INAKTIVERA PLANLÄGE"
+
+msgid "ENABLE PLANE MODE"
+msgstr "AKTIVERA PLANLÄGE"
+
+msgid "RESTART SYSTEM"
+msgstr "ÅTERSTARTA SYSTEMET"
+
+msgid "REALLY RESTART?"
+msgstr "VERKLIGEN STARTA OM?"
+
+msgid "SUSPEND SYSTEM"
+msgstr "SYSTEM FÖR UPPHÄNGNING"
+
+msgid "REALLY SUSPEND ?"
+msgstr "VERKLIGEN AVBRYTA?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "AVSTÄNGNINGSSYSTEM"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "ÄR DET VERKLIGEN AVSTÄNGT?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "SYSTEM FÖR SNABB AVSTÄNGNING"
+
+msgid "Shutdown without saving metadata."
+msgstr "Avstängning utan att spara metadata."
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "VERKLIGEN STÄNGAS AV UTAN ATT SPARA METADATA?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr "AVSLUTA EMULATIONSTATION"
+
+msgid "REALLY QUIT?"
+msgstr "SLUTADE DU VERKLIGEN?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Ladda senaste sparläget vid spelstart och spara läget när du avslutar spelet."
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "VISA ÖVERLAPPNINGAR FÖR STYRENHET"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "ANPASSAD .PNG-BILD"
+
+msgid "OVERLAY CORNER"
+msgstr "överlägg HÖRN"
+
+msgid "COLORIZATION"
+msgstr "FÄRGSÄTTNING"
+
+msgid "FULL BOOT"
+msgstr "FULLSTÄNDIG UPPSTART"
+
+msgid "EMULATED WIIMOTES"
+msgstr "EMULERADE WIIMOTES"
+
+msgid "CHANGE SCREEN LAYOUT"
+msgstr "ÄNDRA SKÄRMENS LAYOUT"
+
+msgid "LARGE SCREEN"
+msgstr "STOR SKÄRM"
+
+msgid "SIDE BY SIDE"
+msgstr "SIDA VID SIDA"
+
+msgid "INTERNAL RESOLUTION"
+msgstr "INTERN UPPLÖSNING"
+
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr "STARTA DETTA SPEL VID UPPSTART"
+
+msgid "FORMAT DEVICE"
+msgstr "FORMAT-ENHET"
+
+msgid "DEVICE TO FORMAT"
+msgstr "ENHET FÖR ATT FORMATERA"
+
+msgid "FILE SYSTEM"
+msgstr "FILSYSTEM"
+
+msgid "FORMAT NOW"
+msgstr "FORMAT NU"
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr "VALDA ALTERNATIV ÄR OGILTIGA"
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL FORMATERA DEN HÄR ENHETEN?"
+
+msgid "SAFELY EJECT A DISK"
+msgstr "MATA UT EN DISK PÅ ETT SÄKERT SÄTT"
+
+msgid "MERGED DRIVE"
+msgstr "SAMMANSLAGEN DISK"
+
+msgid "NO MERGED DRIVES FOUND"
+msgstr "INGA SAMMANSLAGNA ENHETER HITTADES"
+
+msgid "EJECT"
+msgstr "MATA UT"
+
+msgid "NO DRIVE SELECTED"
+msgstr "INGEN ENHET VALD"
+
+msgid "Ejecting..."
+msgstr "Utskjutning..."
+
+msgid "EDIT METADATA"
+msgstr "REDIGERA METADATA"
+
+msgid "TAGS"
+msgstr "TAGGAR"
+
+msgid "GENRES"
+msgstr "GENRER"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+"VISSA FILER SOM DU LÄNKAT TILL FINNS UTANFÖR GAMELISTANS PATH.\n"
+"Vill du använda en kopia av dessa filer som är relaterade till GAMELISTAN ?"
+
+msgid "FILE BROWSER"
+msgstr "FILBROWSER"
+
+msgid "PARENT FOLDER"
+msgstr "FÖRÄLDRAMAPP"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "MAPP FÖR SKÄRMDUMPAR"
+
+msgid "DEVICE OPTIONS"
+msgstr "ENHETENS ALTERNATIV"
+
+msgid "DISCONNECT"
+msgstr "FRÅNKOPPLING"
+
+msgid "CONNECT"
+msgstr "ANSLUTA"
+
+msgid "FORGET"
+msgstr "FÖRGLÖM"
 
 #, c-format
-
-msgid "This folder contains %i game, including :%s"
-msgstr "Den här mappen innehåller %i spel, inklusive :%s"
-
-
-msgid "SYSTEM INFO"
-msgstr "SYSTEMINFO"
-
-
-msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "FEL: ALLA SYSTEM ÄR DOLDA, VISA DEM ALLA IGEN NU"
-
-
-msgid "QUICK SEARCH"
-msgstr "SNABBSÖKNING"
-
-
-msgid "GO TO LETTER"
-msgstr "GÅ TILL BREV"
-
-
-msgid "GO TO MANUFACTURER"
-msgstr "GÅ TILL TILLVERKAREN"
-
-
-msgid "GO TO HARDWARE"
-msgstr "GÅ TILL HÅRDVARA"
-
-
-msgid "GO TO DECADE"
-msgstr ""
-
-
-msgid "CONFIGURATION"
-msgstr "KONFIGURATION"
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL GLÖMMA \\\"%s\\\"?"
 
 #, c-format
-
-msgid "%i COLLECTION"
-msgstr "%i Insamling"
-
-#, c-format
-
-msgid "%i ITEM"
-msgstr ""
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL ANSLUTA TILL \\\"%s\\\"?"
 
 #, c-format
-
-msgid "%i GAME"
-msgstr "%i SPEL"
-
-
-msgid "NAVIGATION BAR"
-msgstr ""
-
-
-msgid "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE FORMAT.\nDO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr "VARNING: DEN emulator/CORE som för närvarande är inställd stöder inte det här spelets filformat.\nVill du starta det ändå?"
-
-
-msgid "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr "VARNING: SYSTEMET HAR SAKNAT BIOS-FIL(ER) OCH SPELET KANSKE INTE FUNGERAR KORREKT.\nVill du starta det ändå?"
-
-
-msgid "Preloading UI"
-msgstr "Förladdning av UI"
-
-
-msgid "Loading theme"
-msgstr "Laddar tema"
-
-
-msgid "Loading gamelists"
-msgstr "Laddar spellistor"
-
-
-msgid "GENRE"
-msgstr ""
-
-
-msgid "TAG"
-msgstr ""
-
-
-msgid "FAMILY"
-msgstr "FAMILJ"
-
-
-msgid "PLAYERS"
-msgstr "SPELARE"
-
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr "UTGIVARE/UTVECKLARE"
-
-
-msgid "RATING"
-msgstr ""
-
-
-msgid "YEAR"
-msgstr "ÅR"
-
-
-msgid "REGION"
-msgstr ""
-
-
-msgid "KIDGAME"
-msgstr ""
-
-
-msgid "ALREADY PLAYED"
-msgstr "REDAN SPELAD"
-
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "HAR PRESTATIONER"
-
-
-msgid "VERTICAL"
-msgstr "VERTIKAL"
-
-
-msgid "LIGHTGUN"
-msgstr ""
-
-
-msgid "STEERING WHEEL"
-msgstr "STYRRATT"
-
-
-msgid "TRACKBALL"
-msgstr ""
-
-
-msgid "SPINNER"
-msgstr ""
-
-
-msgid "HAVING MEDIAS"
-msgstr ""
-
-
-msgid "MISSING MEDIAS"
-msgstr "SAKNADE MEDIAS"
-
-
-msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "VILL DU BYTA SKÄRM?"
-
-
-msgid "INVALID CREDENTIALS"
-msgstr "OGILTIGA INLOGGNINGSUPPGIFTER"
-
-
-msgid "SCRAPING"
-msgstr "SKRAPNING"
-
-
-msgid "SCRAPE FAILED"
-msgstr "SCRAPE MISSLYCKAD"
-
-
-msgid "SCRAPING FINISHED"
-msgstr "SKRAPNING AVSLUTAD"
-
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "UPPDATERA SPELLISTORNA FÖR ATT TILLÄMPA ÄNDRINGARNA."
-
-
-msgid "SLOW"
-msgstr "LÅNGSAM"
-
-
-msgid "NOT WORKING"
-msgstr "FUNGERAR INTE"
-
-
-msgid "BUGGY"
-msgstr ""
-
-
-msgid "LIKED"
-msgstr ""
-
-
-msgid "DISLIKED"
-msgstr "OGILLADE"
-
-
-msgid "Loading system config..."
-msgstr "Laddar systemkonfiguration..."
-
-
-msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "SPARA METADATA. VÄNLIGEN VÄNTA..."
-
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "emulatorN AVSLUTADES OVÄNTAT"
-
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr "DÅLIGA KOMMANDORADSARGUMENT"
-
-
-msgid "INVALID CONFIGURATION"
-msgstr "OGILTIG KONFIGURATION"
-
-
-msgid "UNKNOWN EMULATOR"
-msgstr "OKÄND emulator"
-
-
-msgid "EMULATOR IS MISSING"
-msgstr "emulator SAKNAS"
-
-
-msgid "CORE IS MISSING"
-msgstr "KÄRNAN SAKNAS"
-
-
-msgid "UKNOWN ERROR"
-msgstr "UKNOWN-FEL"
-
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL AVBRYTA KOPPLINGEN AV \\\"%s\\\"?"
+
+msgid "Extracting"
+msgstr "Extrahering"
 
 msgid "Interlaced"
 msgstr "Sammanflätad"
 
+msgid "FILENAME, ASCENDING"
+msgstr "FILNAMN, STIGANDE"
+
+msgid "FILENAME, DESCENDING"
+msgstr "FILNAMN, FALLANDE"
+
+msgid "RATING, ASCENDING"
+msgstr "BETYG, STIGANDE"
+
+msgid "RATING, DESCENDING"
+msgstr "BETYG, FALLANDE"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "SPELADE TIDER, STIGANDE"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "SPELADE GÅNGER, FALLANDE"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "SENAST SPELADE, STIGANDE"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "SENAST SPELADE, FALLANDE"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "ANTAL SPELARE, STIGANDE"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "ANTAL SPELARE, FALLANDE"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "UTGIVNINGSDATUM, STIGANDE"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "UTGIVNINGSDATUM, FALLANDE"
+
+msgid "GENRE, ASCENDING"
+msgstr "GENRE, STIGANDE"
+
+msgid "GENRE, DESCENDING"
+msgstr "GENRE, FALLANDE"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "UTVECKLARE, STIGANDE"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "UTVECKLARE, FALLANDE"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "UTGIVARE, STIGANDE"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "UTGIVARE, I FALLANDE ORDNING"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "SYSTEM, STIGANDE"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "SYSTEM, FALLANDE"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "DATUM FÖR SKAPANDE AV FILEN, STIGANDE"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "DATUM FÖR SKAPANDE AV FIL, FALLANDE"
+
+msgid "GAME TIME, ASCENDING"
+msgstr "SPELTID, STIGANDE"
+
+msgid "GAME TIME, DESCENDING"
+msgstr "SPELTID, FALLANDE"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SYSTEM, RELEASE ÅR, STIGANDE"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SYSTEM, RELEASE ÅR, FALLANDE"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "UTGIVNINGSÅR, SYSTEM, STIGANDE"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "UTGÅVA ÅR, SYSTEM, FALLANDE"
+
+msgid "A,AN,THE"
+msgstr "A,AN,THE"
+
+msgid "INVALID CREDENTIALS"
+msgstr "OGILTIGA INLOGGNINGSUPPGIFTER"
+
+msgid "SCRAPING"
+msgstr "SKRAPNING"
+
+msgid "SCRAPE FAILED"
+msgstr "SCRAPE MISSLYCKAD"
+
+msgid "SCRAPING FINISHED"
+msgstr "SKRAPNING AVSLUTAD"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "UPPDATERA SPELLISTORNA FÖR ATT TILLÄMPA ÄNDRINGARNA."
+
+msgid "DOWNLOADING"
+msgstr "NEDLADDNING"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMAT INSTALLERAT FRAMGÅNGSRIKT"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "RAMAR INSTALLERADE FRAMGÅNGSRIKT"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "PAKETET INSTALLERAT FRAMGÅNGSRIKT"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "PAKETET HAR TAGITS BORT FRAMGÅNGSRIKT"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "this game's name"
+msgstr "det här spelets namn"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "this game's description"
+msgstr "detta spels beskrivning"
+
+msgid "enter game genre"
+msgstr "ange spelgenre"
+
+msgid "Tags"
+msgstr "Etiketter"
+
+msgid "tags"
+msgstr "taggar"
+
+msgid "Sort name"
+msgstr "Sortera namn"
+
+msgid "enter game sort name"
+msgstr "ange namn på spelsortering"
+
+msgid "emulator"
+msgstr "emulator"
+
+msgid "core"
+msgstr "kärna"
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "enter path to image"
+msgstr "ange sökväg till bilden"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "enter path to video"
+msgstr "ange sökväg till video"
+
+msgid "Logo"
+msgstr "Logotyp"
+
+msgid "enter path to logo"
+msgstr "ange sökväg till logotyp"
+
+msgid "Box"
+msgstr "Låda"
+
+msgid "enter path to box"
+msgstr "ange sökväg till box"
+
+msgid "Fan art"
+msgstr "Fan-konst"
+
+msgid "enter path to fanart"
+msgstr "ange väg till fanart"
+
+msgid "Title shot"
+msgstr "Titelbild"
+
+msgid "enter path to title shot"
+msgstr "gå vidare till titelmatch"
+
+msgid "Manual"
+msgstr "Manual"
+
+msgid "enter path to manual"
+msgstr "ange sökväg till manual"
+
+msgid "Magazine"
+msgstr "Tidning"
+
+msgid "enter path to magazine"
+msgstr "ange väg till tidningen"
+
+msgid "Map"
+msgstr "Mappa"
+
+msgid "enter path to map"
+msgstr "ange sökväg till mappa"
+
+msgid "Bezel (16:9)"
+msgstr "Bezel (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "gå in på vägen till bezel (16:9)"
+
+msgid "Cartridge"
+msgstr "Cartridge"
+
+msgid "enter path to cartridge"
+msgstr "ange väg till cartridge"
+
+msgid "Alt BoxArt"
+msgstr "Alt BoxArt"
+
+msgid "enter path to alt boxart"
+msgstr "ange väg till alt boxart"
+
+msgid "Box backside"
+msgstr "Boxens baksida"
+
+msgid "enter path to box background"
+msgstr "ange sökväg till boxens bakgrund"
+
+msgid "Wheel"
+msgstr "Ratt"
+
+msgid "enter path to wheel"
+msgstr "ange sökväg till ratt"
+
+msgid "Mix"
+msgstr "Blanda"
+
+msgid "enter path to mix"
+msgstr "ange sökväg till blanda"
+
+msgid "enter rating"
+msgstr "ange betyg"
+
+msgid "Release date"
+msgstr "Utgivningsdatum"
+
+msgid "enter release date"
+msgstr "ange utgivningsdatum"
+
+msgid "this game's developer"
+msgstr "detta spels utvecklare"
+
+msgid "this game's publisher"
+msgstr "detta spels utgivare"
+
+msgid "Game family"
+msgstr "Spelfamilj"
+
+msgid "this game's game family"
+msgstr "det här spelets spelfamilj"
+
+msgid "Genres"
+msgstr "Genrer"
+
+msgid "enter game genres"
+msgstr "ange spelgenrer"
+
+msgid "Arcade system"
+msgstr "Arkad-system"
+
+msgid "this game's arcade system"
+msgstr "detta spels arkadsystem"
+
+msgid "this game's number of players"
+msgstr "detta spels antal spelare"
+
+msgid "enter favorite"
+msgstr "gå in i favorit"
+
+msgid "Hidden"
+msgstr "Dolda"
+
+msgid "enter hidden"
+msgstr "gå in i dolda"
+
+msgid "Kidgame"
+msgstr "Barnspel"
+
+msgid "enter kidgame"
+msgstr "gå in i barnspel"
+
+msgid "Play count"
+msgstr "Antal spelningar"
+
+msgid "enter number of times played"
+msgstr "ange antal spelade gånger"
+
+msgid "enter last played date"
+msgstr "ange senast spelat datum"
+
+msgid "Crc32"
+msgstr "Crc32"
+
+msgid "Crc32 checksum"
+msgstr "Crc32-kontrollsumma"
+
+msgid "Md5"
+msgstr "Md5"
+
+msgid "Md5 checksum"
+msgstr "Md5-kontrollsumma"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "hur länge spelet har spelats totalt (sekunder)"
+
+msgid "Languages"
+msgstr "Språk"
+
+msgid "this game's languages"
+msgstr "detta spels språk"
+
+msgid "Region"
+msgstr "Region"
+
+msgid "this game's region"
+msgstr "detta spels region"
+
+msgid "Cheevos Hash"
+msgstr "Cheevos Hash"
+
+msgid "Cheevos checksum"
+msgstr "Cheevos kontrollsumma"
+
+msgid "Cheevos Game ID"
+msgstr "Cheevos Spel-ID"
+
+msgid "Screenscraper Game ID"
+msgstr "Screenscraper Spel-ID"
+
+msgid "MultiDisk"
+msgstr ""
+
+msgid "Loading system config..."
+msgstr "Läser in systemkonfiguration..."
+
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "SPARA METADATA. VÄNTA..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "VILL DU BYTA SKÄRM?"
 
 msgid "all games"
 msgstr "alla spel"
 
-
 msgid "last played"
 msgstr "senast spelade"
-
 
 msgid "favorites"
 msgstr "favoriter"
 
-
 msgid "2 players"
 msgstr "2 spelare"
-
 
 msgid "4 players"
 msgstr "4 spelare"
 
-
 msgid "never played"
 msgstr "aldrig spelat"
 
-
 msgid "retroachievements"
-msgstr "retroprestationer"
-
+msgstr "retroachievements"
 
 msgid "arcade"
 msgstr "arkad"
 
-
 msgid "vertical arcade"
 msgstr "vertikal arkad"
 
-
 msgid "lightgun games"
-msgstr "lightgun-spel"
-
+msgstr "spel för ljuspistol"
 
 msgid "wheel games"
-msgstr "hjulspel"
-
+msgstr "spel för ratt"
 
 msgid "trackball games"
-msgstr "trackball-spel"
-
+msgstr "spel för styrkula"
 
 msgid "spinner games"
-msgstr "spinnare spel"
-
+msgstr "spel för spinner"
 
 msgid "collections"
 msgstr "samlingar"
 
 #, c-format
-
 msgid "Added '%s' to '%s'"
 msgstr "Lade till '%s' till '%s'"
 
 #, c-format
-
 msgid "Removed '%s' from '%s'"
 msgstr "Tog bort '%s' från '%s'"
-
 
 msgid "This collection is empty."
 msgstr "Denna samling är tom."
 
 #. TRANSLATION: number of developpers / various developpers
-
 msgid "None"
 msgstr "Ingen"
-
 
 msgid "Various"
 msgstr "Olika"
 
+#, fuzzy, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] "Den här samlingen innehåller %i game:%s"
+msgstr[1] "Den här samlingen innehåller %i game:%s"
 
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "SÖKER RETROPRESTATIONER"
+msgid "INVALID CONTENT"
+msgstr "OGILTIGT INNEHÅLL"
 
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "SÖKER NETPLAY-SPEL"
-
-
-msgid "INDEXING COMPLETED"
-msgstr "INDEXERING SLUTFÖRD"
-
-
-msgid "FILENAME, ASCENDING"
-msgstr "FILNAMN, STIGANDE"
-
-
-msgid "FILENAME, DESCENDING"
-msgstr "FILNAMN, FALLANDE"
-
-
-msgid "RATING, ASCENDING"
-msgstr "BETYG, STIGANDE"
-
-
-msgid "RATING, DESCENDING"
-msgstr "BETYG, FALLANDE"
-
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "SPELADE TIDER, STIGANDE"
-
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "SPELADE GÅNGER, FALLANDE"
-
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "SENAST SPELADE, STIGANDE"
-
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "SENAST SPELADE, FALLANDE"
-
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "ANTAL SPELARE, STIGANDE"
-
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "ANTAL SPELARE, FALLANDE"
-
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr "UTGIVNINGSDATUM, STIGANDE"
-
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr "UTGIVNINGSDATUM, FALLANDE"
-
-
-msgid "GENRE, ASCENDING"
-msgstr "GENRE, STIGANDE"
-
-
-msgid "GENRE, DESCENDING"
-msgstr "GENRE, FALLANDE"
-
-
-msgid "DEVELOPER, ASCENDING"
-msgstr "UTVECKLARE, STIGANDE"
-
-
-msgid "DEVELOPER, DESCENDING"
-msgstr "UTVECKLARE, FALLANDE"
-
-
-msgid "PUBLISHER, ASCENDING"
-msgstr "UTGIVARE, STIGANDE"
-
-
-msgid "PUBLISHER, DESCENDING"
-msgstr "UTGIVARE, I FALLANDE ORDNING"
-
-
-msgid "SYSTEM, ASCENDING"
-msgstr "SYSTEM, STIGANDE"
-
-
-msgid "SYSTEM, DESCENDING"
-msgstr "SYSTEM, FALLANDE"
-
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr "DATUM FÖR SKAPANDE AV FILEN, STIGANDE"
-
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr "DATUM FÖR SKAPANDE AV FIL, FALLANDE"
-
-
-msgid "GAME TIME, ASCENDING"
-msgstr "SPELTID, STIGANDE"
-
-
-msgid "GAME TIME, DESCENDING"
-msgstr "SPELTID, FALLANDE"
-
-
-msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr "SYSTEM, RELEASE ÅR, STIGANDE"
-
-
-msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr "SYSTEM, RELEASE ÅR, FALLANDE"
-
-
-msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr "UTGIVNINGSÅR, SYSTEM, STIGANDE"
-
-
-msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr "UTGÅVA ÅR, SYSTEM, FALLANDE"
-
-
-msgid "A,AN,THE"
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
+"Ett giltigt konto krävs. Registrera ett konto på https://"
+"RetroAchievements.org"
 
+msgid "SLOW"
+msgstr "LÅNGSAM"
+
+msgid "NOT WORKING"
+msgstr "FUNGERAR INTE"
+
+msgid "BUGGY"
+msgstr "FELAKTIG"
+
+msgid "LIKED"
+msgstr "GILLAR"
+
+msgid "DISLIKED"
+msgstr "OGILLAR"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPPDATERING TILLGÄNGLIG"
 
-#, c-format
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "EMULATORN AVSLUTADES OVÄNTAT"
 
-msgid "%s connected"
-msgstr "%s ansluten"
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "FELAKTIGA KOMMANDORADSARGUMENT"
 
-#, c-format
+msgid "INVALID CONFIGURATION"
+msgstr "OGILTIG KONFIGURATION"
 
-msgid "%s disconnected"
-msgstr "%s frånkopplad"
+msgid "UNKNOWN EMULATOR"
+msgstr "OKÄND EMULATOR"
 
-#, c-format
+msgid "EMULATOR IS MISSING"
+msgstr "EMULATORN SAKNAS"
 
-msgid "%d d"
-msgstr ""
+msgid "CORE IS MISSING"
+msgstr "KÄRNAN SAKNAS"
 
-#, c-format
+msgid "UKNOWN ERROR"
+msgstr "OKÄNT FEL"
 
-msgid "%d h"
-msgstr ""
+msgid "Collections"
+msgstr "Samlingar"
 
-#, c-format
+msgid "Searching for devices..."
+msgstr "Söker efter enheter..."
 
-msgid "%d mn"
-msgstr ""
+msgid "FORMATTING DEVICE"
+msgstr "FORMATERINGSENHET"
 
-#, c-format
+msgid "Formatting"
+msgstr "Formatering"
 
-msgid "%d sec"
-msgstr "%d sekunder"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "EN OMSTART KRÄVS FÖR ATT SLUTFÖRA OPERATIONEN"
 
-#, c-format
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr "EN ENHET REDAN HÅLLER PÅ ATT FORMATERAS."
 
-msgid "%d year ago"
-msgstr "%d år sedan"
+msgid "GENRE"
+msgstr "GENRE"
 
-#, c-format
+msgid "TAG"
+msgstr "TAGG"
 
-msgid "%d day ago"
-msgstr "%d dag sedan"
+msgid "FAMILY"
+msgstr "FAMILJ"
 
-#, c-format
+msgid "PLAYERS"
+msgstr "SPELARE"
 
-msgid "%d hour ago"
-msgstr "%d timme sedan"
+msgid "PUBLISHER/DEVELOPER"
+msgstr "UTGIVARE/UTVECKLARE"
 
-#, c-format
+msgid "RATING"
+msgstr "BETYG"
 
-msgid "%d minute ago"
-msgstr "%d minut sedan"
+msgid "YEAR"
+msgstr "ÅR"
 
-#, c-format
+msgid "REGION"
+msgstr "REGION"
 
-msgid "%d second ago"
-msgstr "%d sekund sedan"
+msgid "KIDGAME"
+msgstr "BARNSPEL"
 
+msgid "ALREADY PLAYED"
+msgstr "REDAN SPELAD"
 
-msgid "MOVE CURSOR"
-msgstr "RÖRELSEKURVA"
+msgid "HAS ACHIEVEMENTS"
+msgstr "HAR PRESTATIONER"
 
+msgid "VERTICAL"
+msgstr "VERTIKAL"
 
-msgid "EDIT"
-msgstr ""
+msgid "LIGHTGUN"
+msgstr "LJUSPISTOL"
 
+msgid "STEERING WHEEL"
+msgstr "STYRRATT"
 
-msgid "CHANGE"
-msgstr "FÖRÄNDRING"
+msgid "TRACKBALL"
+msgstr "STYRKULA"
 
+msgid "SPINNER"
+msgstr "SPINNER"
 
-msgid "WORKING..."
-msgstr "ARBETAR..."
+msgid "HAVING MEDIAS"
+msgstr "HAR MEDIA"
 
+msgid "MISSING MEDIAS"
+msgstr "SAKNADE MEDIAS"
 
-msgid "up/down"
-msgstr "upp/ned"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "SÖKER RETROACHIEVEMENTS"
 
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "SÖKER NETPLAY-SPEL"
 
-msgid "accept"
-msgstr "acceptera"
-
-
-msgid "SELECT ALL"
-msgstr "VÄLJ ALLA"
-
-
-msgid "select all"
-msgstr "välj alla"
-
-
-msgid "SELECT NONE"
-msgstr "VÄLJ INGEN"
-
-
-msgid "select none"
-msgstr "välj ingen"
-
-#, c-format
-
-msgid "%i SELECTED"
-msgstr "%i vald"
-
-
-msgid "ENABLED"
-msgstr "AKTIVERAD"
-
-
-msgid "DISCARD CHANGES"
-msgstr "KASSERA ÄNDRINGAR"
-
-
-msgid "WELCOME"
-msgstr "VÄLKOMMEN"
-
-#, c-format
-
-msgid "%i GAMEPAD DETECTED"
-msgstr ""
-
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "INGA GAMEhandkontrollS UPPTÄCKTA"
-
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "HÅLL IN EN KNAPP PÅ ENHETEN FÖR ATT KONFIGURERA DEN."
-
-
-msgid "PRESS ESC TO CANCEL."
-msgstr "TRYCK PÅ ESC FÖR ATT AVBRYTA."
-
-
-msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "TRYCK PÅ ESC ELLER EN SNABBTANGENT FÖR ATT AVBRYTA."
-
-
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "VÄXLAR FÖR ÖVRE, NEDRE OCH SPECIAL"
-
-
-msgid "ALT GR"
-msgstr ""
-
-
-msgid "SHIFT"
-msgstr "SKIFT"
-
-
-msgid "SPACE"
-msgstr "RUM"
-
-
-msgid "LEFT ANALOG UP"
-msgstr "VÄNSTER ANALOG UP"
-
-
-msgid "LEFT ANALOG DOWN"
-msgstr "VÄNSTER ANALOG NED"
-
-
-msgid "LEFT ANALOG LEFT"
-msgstr "VÄNSTER ANALOG VÄNSTER"
-
-
-msgid "LEFT ANALOG RIGHT"
-msgstr "VÄNSTER ANALOG HÖGER"
-
-
-msgid "RIGHT ANALOG UP"
-msgstr "HÖGER ANALOG UPP"
-
-
-msgid "RIGHT ANALOG DOWN"
-msgstr "HÖGER ANALOG NED"
-
-
-msgid "RIGHT ANALOG LEFT"
-msgstr "HÖGER ANALOG VÄNSTER"
-
-
-msgid "RIGHT ANALOG RIGHT"
-msgstr "HÖGER ANALOG HÖGER"
-
-
-msgid "CONFIGURING"
-msgstr "KONFIGURERING"
-
-
-msgid "KEYBOARD"
-msgstr "TANGENTBORD"
-
-
-msgid "CEC"
-msgstr ""
-
-#, c-format
-
-msgid "GAMEPAD %i"
-msgstr "GAMEhandkontroll %i"
-
-
-msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "HÅLL IN VALFRI KNAPP FÖR ATT HOPPA"
-
-
-msgid "-NOT DEFINED-"
-msgstr "-INTE DEFINIERAD-"
-
-
-msgid "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
-msgstr "INGEN SNABBKNAPP HAR TILLDELATS. DETTA KRÄVS FÖR ATT AVSLUTA SPEL MED EN HANDKONTROLL. VILL DU ANVÄNDA SELECT-KNAPPEN SOM SNABBKNAPP?"
-
-
-msgid "SET SELECT AS HOTKEY"
-msgstr "STÄLLA IN SELECT SOM SNABBTANGENT"
-
-
-msgid "DO NOT ASSIGN HOTKEY"
-msgstr "TILLDELA INTE SNABBTANGENT"
-
-#, c-format
-
-msgid "HOLD FOR %iS TO SKIP"
-msgstr ""
-
-
-msgid "PRESS ANYTHING"
-msgstr "TRYCK PÅ NÅGOT"
-
-
-msgid "ALREADY TAKEN"
-msgstr "REDAN TAGEN"
-
+msgid "INDEXING COMPLETED"
+msgstr "INDEXERING SLUTFÖRD"
 
 msgid "SCREEN READER ENABLED"
 msgstr "SKÄRMLÄSARE AKTIVERAD"
 
-
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE FUNKTIONSHINDRAD"
 
+msgid "ENABLED"
+msgstr "AKTIVERAD"
 
-msgid "CALIBRATING GUN\nFire on targets to calibrate"
-msgstr "KALIBRERING AV VAPNET\nSkjut på mål för att kalibrera"
+msgid "up/down"
+msgstr "upp/ned"
 
+msgid "WORKING..."
+msgstr "ARBETAR..."
+
+msgid "accept"
+msgstr "acceptera"
+
+msgid "SELECT ALL"
+msgstr "VÄLJ ALLA"
+
+msgid "select all"
+msgstr "välj alla"
+
+msgid "SELECT NONE"
+msgstr "VÄLJ INGEN"
+
+msgid "select none"
+msgstr "välj ingen"
+
+#, fuzzy, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i vald"
+msgstr[1] "%i vald"
+
+msgid "CHANGE"
+msgstr "FÖRÄNDRING"
+
+msgid "MOVE CURSOR"
+msgstr "RÖRELSEKURVA"
+
+msgid "EDIT"
+msgstr "REDIGERA"
+
+#, c-format
+msgid "%s connected"
+msgstr "%s ansluten"
+
+#, c-format
+msgid "%s disconnected"
+msgstr "%s frånkopplad"
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "VÄXLAR FÖR ÖVRE, NEDRE OCH SPECIAL"
+
+msgid "ALT GR"
+msgstr "ALT GR"
+
+msgid "SHIFT"
+msgstr "SKIFT"
+
+msgid "SPACE"
+msgstr "RUM"
+
+msgid "DISCARD CHANGES"
+msgstr "KASSERA ÄNDRINGAR"
+
+msgid "WELCOME"
+msgstr "VÄLKOMMEN"
+
+#, fuzzy, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i GAMEPAD UPPTÄCKTES"
+msgstr[1] "%i GAMEPAD UPPTÄCKTES"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "INGA GAMEhandkontrollS UPPTÄCKTA"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "HÅLL IN EN KNAPP PÅ ENHETEN FÖR ATT KONFIGURERA DEN."
+
+msgid "PRESS ESC TO CANCEL."
+msgstr "TRYCK PÅ ESC FÖR ATT AVBRYTA."
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "TRYCK PÅ ESC ELLER EN SNABBTANGENT FÖR ATT AVBRYTA."
+
+msgctxt "joystick"
+msgid "NORTH"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SOUTH"
+msgstr ""
+
+msgctxt "joystick"
+msgid "EAST"
+msgstr ""
+
+msgctxt "joystick"
+msgid "WEST"
+msgstr ""
+
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT ANALOG UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT ANALOG DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT ANALOG LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT ANALOG RIGHT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG RIGHT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "HOTKEY"
+msgstr ""
+
+msgid "CONFIGURING"
+msgstr "KONFIGURERING"
+
+msgid "KEYBOARD"
+msgstr "TANGENTBORD"
+
+msgid "CEC"
+msgstr "CEC"
+
+#, c-format
+msgid "GAMEPAD %i"
+msgstr "GAMEPAD %i"
+
+msgid "HOLD ANY BUTTON TO SKIP"
+msgstr "HÅLL IN VALFRI KNAPP FÖR ATT HOPPA"
+
+msgid "-NOT DEFINED-"
+msgstr "-INTE DEFINIERAD-"
+
+msgid ""
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+"INGEN SNABBKNAPP HAR TILLDELATS. DETTA KRÄVS FÖR ATT AVSLUTA SPEL MED EN "
+"HANDKONTROLL. VILL DU ANVÄNDA SELECT-KNAPPEN SOM SNABBKNAPP?"
+
+msgid "SET SELECT AS HOTKEY"
+msgstr "STÄLLA IN SELECT SOM SNABBTANGENT"
+
+msgid "DO NOT ASSIGN HOTKEY"
+msgstr "TILLDELA INTE SNABBTANGENT"
+
+#, fuzzy, c-format
+msgid "HOLD FOR %iS TO SKIP"
+msgid_plural "HOLD FOR %iS TO SKIP"
+msgstr[0] "HÅLL %iS FÖR ATT HOPPA ÖVER"
+msgstr[1] "HÅLL %iS FÖR ATT HOPPA ÖVER"
+
+msgid "PRESS ANYTHING"
+msgstr "TRYCK PÅ NÅGOT"
+
+msgid "ALREADY TAKEN"
+msgstr "REDAN TAGEN"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
+"KALIBRERING AV VAPNET\n"
+"Skjut på mål för att kalibrera"
 
 msgid "Reloaded the games list..."
-msgstr "Laddade om spellistan..."
-
+msgstr "Läste om spellistan..."
 
 msgid "GAME DRIVE DETECTED"
 msgstr "GAME DRIVE UPPTÄCKT"
 
-
 msgid "DEVICE"
 msgstr "ANORDNING"
-
 
 msgid "MODEL"
 msgstr "MODELL"
 
-
 msgid "SIZE"
 msgstr "STORLEK"
 
-
 msgid "MOUNT"
-msgstr "BERG"
-
+msgstr "MONTERA"
 
 msgid "Merge games from this drive partition now?"
 msgstr "Sammanfoga spel från den här hårddiskpartitionen nu?"
 
-
 msgid "(This will also apply on future boots)"
-msgstr "(Detta kommer även att gälla framtida stövlar)"
-
+msgstr "(Detta kommer även att gälla framtida uppstarter)"
 
 msgid "Merge requested... Please wait."
-msgstr "Sammanslagning begärd... Vänligen vänta."
-
+msgstr "Sammanslagning begärd... Vänta."
 
 msgid "MERGE FAILED"
 msgstr "SAMMANFOGNING MISSLYCKAD"
 
-
 msgid "Please check the logs."
-msgstr "Vänligen kontrollera loggarna."
-
-
-msgid "N/A"
-msgstr ""
-
-
-msgid "NEW DRIVE DETECTED"
-msgstr "NY ENHET UPPTÄCKT"
-
-
-msgid "Format and prepare this drive for game storage?"
-msgstr "Formatera och förbereda den här enheten för spellagring?"
-
-
-msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr "(ALLA BEFINTLIGA DATA KOMMER ATT RADERAS)"
-
-
-msgid "Starting format process..."
-msgstr "Startar formatprocessen..."
-
-
-msgid "FORMAT FAILED"
-msgstr "FORMAT MISSLYCKAD"
-
+msgstr "Kontrollera loggarna."
 
 msgid "NO, IGNORE THIS TIME"
 msgstr "NEJ, IGNORERA DEN HÄR GÅNGEN"
 
-
 msgid "NO, IGNORE FOREVER"
 msgstr "NEJ, IGNORERA FÖR ALLTID"
-
 
 msgid "Adding drive to ignore list..."
 msgstr "Lägger till drive till ignoreringslistan..."
 
+msgid "YES, MERGE DRIVE"
+msgstr ""
+
+msgid "NEW DRIVE DETECTED"
+msgstr "NY ENHET UPPTÄCKT"
+
+msgid "Format and prepare this drive for game storage?"
+msgstr "Formatera och förbereda den här enheten för spellagring?"
+
+msgid "(ALL EXISTING DATA WILL BE ERASED)"
+msgstr "(ALLA BEFINTLIGA DATA KOMMER ATT RADERAS)"
+
+msgid "Starting format process..."
+msgstr "Startar formatprocessen..."
+
+msgid "FORMAT FAILED"
+msgstr "FORMAT MISSLYCKAD"
 
 msgid "YES, FORMAT & MERGE"
 msgstr "JA, FORMATERA OCH SLÅ SAMMAN"
 
-
 msgid "NO, IGNORE"
 msgstr "NEJ, IGNORERA"
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d m"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sekunder"
+
+#, fuzzy, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d år sedan"
+msgstr[1] "%d år sedan"
+
+#, fuzzy, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dag sedan"
+msgstr[1] "%d dag sedan"
+
+#, fuzzy, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d timme sedan"
+msgstr[1] "%d timme sedan"
+
+#, fuzzy, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d minut sedan"
+msgstr[1] "%d minut sedan"
+
+#, fuzzy, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d sekund sedan"
+msgstr[1] "%d sekund sedan"
+
+#~ msgid "SHARP-BILINEAR-SIMPLE"
+#~ msgstr "SKARP-BILINJÄR-ENKEL"
+
+#~ msgid "SCANLINES"
+#~ msgstr "scanlinjer"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "KURVATUR"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA-SKALNING"
+
+#~ msgid "BUILD IMAGE CACHE"
+#~ msgstr "BYGGA UPP EN BILDCACHE"
+
+#~ msgid "Building image cache"
+#~ msgstr "Uppbyggnad av bildcache"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "VÄNSTER ANALOG UP"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "VÄNSTER ANALOG NED"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "VÄNSTER ANALOG VÄNSTER"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "VÄNSTER ANALOG HÖGER"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "HÖGER ANALOG UPP"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "HÖGER ANALOG NED"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "HÖGER ANALOG VÄNSTER"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "HÖGER ANALOG HÖGER"
