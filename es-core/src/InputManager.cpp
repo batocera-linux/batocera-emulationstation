@@ -445,11 +445,11 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 			if (SDL_IsGameController(idx))
 			{
 #if WIN32
-				// Try to find mapping in gamecontrollerdb.txt directly, fallback to internal SDL mapping if not found
+				// Try to find mapping in gamecontrollerdb.txt file dropped near ES executable
 				std::string dbPath = Paths::getEmulationStationPath() + "/gamecontrollerdb.txt";
 				if (Utils::FileSystem::exists(dbPath))
 				{
-					// Normalize device GUID: zero last 4 chars (CRC bytes)
+					// Normalize device GUID: zero last 4 chars
 					std::string normalizedDeviceGuid = std::string(guid);
 					for (int i = 28; i < 32; i++)
 						normalizedDeviceGuid[i] = '0';
