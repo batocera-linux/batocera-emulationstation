@@ -391,10 +391,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
 	{
-		float width = Renderer::getScreenWidth() * 0.72f; // (float)Math::min(Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
-		if (width < Renderer::getScreenHeight())
-			width = Renderer::getScreenHeight();
-
+		float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 		setSize(width, Renderer::getScreenHeight() * 0.82f);
 	}
 
