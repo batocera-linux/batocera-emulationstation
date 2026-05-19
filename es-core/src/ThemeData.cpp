@@ -711,14 +711,14 @@ ThemeData::ThemeData(bool temporary)
 
 ThemeFileCache* ThemeFileCache::_instance;
 
-pugi::xml_document& ThemeFileCache::getXmlDocument(const std::string& path)
+std::string& ThemeFileCache::getXmlDocument(const std::string& path)
 {
 	std::unique_lock<std::mutex> lock(_lock);
 
 	auto it = _cache.find(path);
 	if (it != _cache.cend())
-		return *it->second;
-	
+		return it->second;
+	/*
 	pugi::xml_document* doc = new pugi::xml_document();
 	pugi::xml_parse_result res = doc->load_file(WINSTRINGW(path).c_str());
 	if (!res)
@@ -726,17 +726,18 @@ pugi::xml_document& ThemeFileCache::getXmlDocument(const std::string& path)
 		ThemeException error;
 		throw error << "XML parsing error: \n    " << res.description();
 	}
-
-	_cache[path] = doc;
-	return *doc;
+	*/
+	_cache[path] = Utils::FileSystem::readAllText(path);
+	std::string& buffer = _cache[path];	
+	return buffer;
 }
 
 void ThemeFileCache::clear()
 {
 	std::unique_lock<std::mutex> lock(_lock);
 	
-	for (auto& item : _cache)
-		delete item.second;
+//	for (auto& item : _cache)
+//		delete item.second;
 
 	_cache.clear();
 }
@@ -764,7 +765,8 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["themePath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["region"] = mRegion;
-	
+	mVariables["root"] = Utils::FileSystem::getParent(mPaths.back());
+
 	for (auto name : Settings::getInstance()->getSettingsNames())
 	{
 		if (name.find(".") != std::string::npos)
@@ -804,8 +806,8 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	
 	if (fromFile)
 	{
-		pugi::xml_document& cached = ThemeFileCache::getInstance().getXmlDocument(path);
-		doc.reset(cached);
+		const std::string& xmlData = ThemeFileCache::getInstance().getXmlDocument(path);
+		doc.load_buffer(xmlData.c_str(), xmlData.size());
 	}
 	else
 	{
@@ -1187,6 +1189,12 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 
 	std::string val = node.text().as_string();
 
+	if (key == "variable" && node.attribute("name") && node.attribute("value"))
+	{
+		key = node.attribute("name").as_string();
+		val = resolvePlaceholders(node.attribute("value").as_string());
+	}
+
 	if (val == "true" || val == "false")
 	{
 		mVariables[key] = val;
@@ -1484,11 +1492,18 @@ void ThemeData::parseSubsetsDefaults(const pugi::xml_node& root)
 {
 	for (pugi::xml_node node = root.child("subset"); node; node = node.next_sibling("subset"))
 	{
-		if (!parseFilterAttributes(root))
-			return;
+		const std::string name = node.attribute("name").as_string();		
+		if (name.empty())
+			continue;
 
-		const std::string name = node.attribute("name").as_string();
+		if (!parseFilterAttributes(node))
+		{
+			if (mSubsetDefault.find(name) == mSubsetDefault.cend())
+				mSubsetDefault[name] = "undefined";
 
+			continue;
+		}
+		
 		for (pugi::xml_node child = node.child("include"); child; child = child.next_sibling("include"))
 		{
 			if (!parseFilterAttributes(child))
@@ -1864,12 +1879,6 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 
 			if (ResourceManager::getInstance()->fileExists(path))
 			{
-				if (Utils::FileSystem::isImage(path) && Settings::getInstance()->getBool("AsyncImages"))
-				{
-					unsigned int x, y;
-					ImageIO::loadImageSize(path, &x, &y);
-				}
-
 				element.properties[name] = path;
 				break;
 			}
@@ -1878,12 +1887,6 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
 				if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
 				{
-					if (Utils::FileSystem::isImage(path) && Settings::getInstance()->getBool("AsyncImages"))
-					{
-						unsigned int x, y;
-						ImageIO::loadImageSize(rootPath, &x, &y);
-					}
-
 					element.properties[name] = rootPath;
 					break;
 				}
@@ -2393,6 +2396,23 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 	return sets;
 }
 
+std::string ThemeData::getCurrentThemeRootPath()
+{
+	auto themeSets = ThemeData::getThemeSets();
+	if (themeSets.empty())
+		return "";
+
+	std::map<std::string, ThemeSet>::const_iterator set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+	if (set == themeSets.cend())
+	{
+		// currently selected theme set is missing, so just pick the first available set
+		set = themeSets.cbegin();
+		Settings::getInstance()->setString("ThemeSet", set->first);
+	}
+
+	return set->second.path;
+}
+
 std::string ThemeData::getThemeFromCurrentSet(const std::string& system)
 {
 	std::map<std::string, ThemeSet> themeSets = ThemeData::getThemeSets();
@@ -2765,8 +2785,8 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 
 	try
 	{
-		pugi::xml_document& cached = ThemeFileCache::getInstance().getXmlDocument(path);
-		includeDoc.reset(cached);
+		const std::string& xmlData = ThemeFileCache::getInstance().getXmlDocument(path);
+		includeDoc.load_buffer(xmlData.c_str(), xmlData.size());
 	}
 	catch (ThemeException& e)
 	{

@@ -98,9 +98,12 @@ void GuiGameScraper::onSizeChanged()
 }
 
 bool GuiGameScraper::input(InputConfig* config, Input input)
-{
+{	
 	if(config->isMappedTo(BUTTON_BACK, input) && input.value)
 	{
+		if (mSearch->input(config, input))
+			return true;
+
 		PowerSaver::resume();
 		delete this;
 		return true;

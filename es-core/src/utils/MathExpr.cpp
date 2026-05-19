@@ -114,7 +114,7 @@ namespace Utils
 	static std::map<std::string, int> opPrecedence =
 	{
 		{ "(", -10 }, { "&&", -2 }, { "||", -3 }, { ">", -1 }, { ">=", -1 }, { "<", -1 }, { "<=", -1 }, { "==", -1 },
-		{ "!=", -1 }, { "<<", 1 }, { ">>", 1 }, { "+", 2 }, { "-", 2 }, { "*", 3 }, { "/", 3 }, { "^", 4 }, { "!", 5 }
+		{ "!=", -1 }, { "<<", 1 }, { ">>", 1 }, { "+", 2 }, { "-", 2 }, { "*", 3 }, { "/", 3 }, { "^", 4 }, { "!", 5 }, { "&", -2 }, { "|", -3 }
 	};
 
 	#define isvariablechar(c) (isalpha(c) || c == '_')
@@ -704,11 +704,45 @@ namespace Utils
 					rpnQueue.push(new Value(1));
 				else if (key == "false")
 					rpnQueue.push(new Value(0));
-				else {
+				else 
+				{
 					ValueMap::iterator it = vars->find(key);
 					if (it == vars->end())
-						throw std::domain_error("Unable to find the variable '" + key + "'.");
+					{
+						if (key == "and")
+						{
+							if (lastTokenWasOp)
+								rpnQueue.push(new Value(0));
 
+							while (!operatorStack.empty() && opPrecedence["&&"] <= opPrecedence[operatorStack.top()])
+							{
+								rpnQueue.push(new Value(operatorStack.top(), TOKEN));
+								operatorStack.pop();
+							}
+							operatorStack.push("&&");
+							lastTokenWasOp = true;
+
+							continue;
+						} 
+						else if (key == "or")
+						{
+							if (lastTokenWasOp)
+								rpnQueue.push(new Value(0));
+
+							while (!operatorStack.empty() && opPrecedence["||"] <= opPrecedence[operatorStack.top()])
+							{
+								rpnQueue.push(new Value(operatorStack.top(), TOKEN));
+								operatorStack.pop();
+							}
+							operatorStack.push("||");
+							lastTokenWasOp = true;
+
+							continue;
+						}
+
+						throw std::domain_error("Unable to find the variable '" + key + "'.");
+					}
+					
 					rpnQueue.push(new Value(it->second));
 				}
 
@@ -775,6 +809,9 @@ namespace Utils
 					ss.clear();
 					std::string str;
 					ss >> str;
+
+					if (str.empty())
+						continue;
 
 					if (lastTokenWasOp)
 					{
@@ -872,8 +909,12 @@ namespace Utils
 					evaluation.push(left.toNumber() <= right.toNumber());
 				else if (!str.compare("&&"))
 					evaluation.push(left.toNumber() && right.toNumber());
+				else if (!str.compare("&"))
+					evaluation.push((double)((int)left.toNumber() & (int) right.toNumber()));
 				else if (!str.compare("||"))
 					evaluation.push(left.toNumber() || right.toNumber());
+				else if (!str.compare("|"))
+					evaluation.push((double)((int) left.toNumber() | (int) right.toNumber()));
 				else if (!str.compare("=="))
 				{
 					if (left.isNumber() && right.isNumber())

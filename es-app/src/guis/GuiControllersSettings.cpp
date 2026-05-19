@@ -168,18 +168,8 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	addGroup(_("DISPLAY OPTIONS"));
 
 	// CONTROLLER NOTIFICATION
-	auto notification = std::make_shared<SwitchComponent>(mWindow);
-	notification->setState(Settings::getInstance()->getBool("ShowControllerNotifications"));
-	addWithLabel(_("SHOW CONTROLLER NOTIFICATIONS"), notification, autoSel == 1);
-	notification->setOnChangedCallback([this, window, notification]
-									   {
-		if (Settings::getInstance()->setBool("ShowControllerNotifications", notification->getState()))
-		{
-			Window* parent = window;
-			delete this;
-			openControllersSettings(parent, 1);
-		} });
-		
+	addSwitch(_("SHOW CONTROLLER NOTIFICATIONS"), "ShowControllerNotifications", true);
+
 	// CONTROLLER ACTIVITY
 	auto activity = std::make_shared<SwitchComponent>(mWindow);
 	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));
@@ -197,6 +187,7 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
+	addSwitch(_("SHOW GUN NOTIFICATIONS"), "ShowGunsNotifications", true);	
 	addSwitch(_("DRAW GUN CROSSHAIR"), "DrawGunCrosshair", true);
 
 #ifdef BATOCERA
@@ -417,29 +408,34 @@ void GuiControllersSettings::openControllersHotkeys()
 
 	std::vector<hotkeyTargetDefinition> targets_labels = 
 	{
-	  { "bezels",           _("OVERLAYS") },
-	  { "brightness-cycle", _("BRIGHTNESS CYCLE") },
-	  { "coin",             _("COIN") },
-	  { "exit",             _("EXIT") },
-	  { "fastforward",      _("FAST FORWARD") },
-	  { "menu",             _("MENU") },
-	  { "next_disk",        _("NEXT DISK") },
-	  { "next_slot",        _("NEXT SLOT") },
-	  { "pause",            _("PAUSE") },
-	  { "previous_slot",    _("PREVIOUS SLOT") },
-	  { "reset",            _("RESET") },
-	  { "restore_state",    _("RESTORE STATE") },
-	  { "rewind",           _("REWIND") },
-	  { "save_state",       _("SAVE STATE") },
-	  { "screen_layout",    _("SCREEN LAYOUT") },
-	  { "screenshot",       _("SCREENSHOT") },
-	  { "swap_screen",      _("SWAP SCREEN") },
-	  { "translation",      _("TRANSLATION") },
-	  { "volumedown",       _("VOLUME DOWN") },
-	  { "volumemute",       _("VOLUME MUTE") },
-	  { "volumeup",         _("VOLUME UP") },
-	  { "controlcenter",    _("CONTROL CENTER") },
+		{ "bezels",           _("OVERLAYS") },
+		{ "brightness-cycle", _("BRIGHTNESS CYCLE") },
+		{ "controlcenter",    _("CONTROL CENTER") },
+		{ "exit",             _("EXIT") },
+		{ "pause",            _("PAUSE") },
+		{ "menu",             _("MENU") },
+		{ "files",            _("FILES") },
+		{ "coin",             _("COIN") },
+		{ "fastforward",      _("FAST FORWARD") },
+		{ "next_disk",        _("NEXT DISK") },
+		{ "next_slot",        _("NEXT SLOT") },
+		{ "previous_slot",    _("PREVIOUS SLOT") },
+		{ "reset",            _("RESET") },
+		{ "save_state",       _("SAVE STATE") },
+		{ "restore_state",    _("RESTORE STATE") },
+		{ "rewind",           _("REWIND") },
+		{ "screen_layout",    _("SCREEN LAYOUT") },
+		{ "screenshot",       _("SCREENSHOT") },
+		{ "swap_screen",      _("SWAP SCREEN") },
+		{ "translation",      _("TRANSLATION") },
+		{ "volumedown",       _("VOLUME DOWN") },
+		{ "volumeup",         _("VOLUME UP") },
+		{ "volumemute",       _("VOLUME MUTE") },
+		{ "recording-start",  _("START RECORDING") },
+		{ "recording-stop",   _("STOP RECORDING") },
+		{ "onscreen-keyboard",_("KEYBOARD TOGGLE") },
 	};
+
 
 	std::vector<Hotkey> hotkeys = ApiSystem::getInstance()->getJoysticksHotkeys();
 	std::vector<std::string> hotkeys_values = ApiSystem::getInstance()->getJoysticksHotkeysValues();
@@ -559,27 +555,30 @@ void GuiControllersSettings::initializeGlobalHotkeys(Window* window, GuiSettings
 	{
 		{ "bezels",           _("OVERLAYS") },
 		{ "brightness-cycle", _("BRIGHTNESS CYCLE") },
-		{ "coin",             _("COIN") },
+		{ "controlcenter",    _("CONTROL CENTER") },
 		{ "exit",             _("EXIT") },
-		{ "fastforward",      _("FAST FORWARD") },
+		{ "pause",            _("PAUSE") },
 		{ "menu",             _("MENU") },
 		{ "files",            _("FILES") },
+		{ "coin",             _("COIN") },
+		{ "fastforward",      _("FAST FORWARD") },
 		{ "next_disk",        _("NEXT DISK") },
 		{ "next_slot",        _("NEXT SLOT") },
-		{ "pause",            _("PAUSE") },
 		{ "previous_slot",    _("PREVIOUS SLOT") },
 		{ "reset",            _("RESET") },
+		{ "save_state",       _("SAVE STATE") },
 		{ "restore_state",    _("RESTORE STATE") },
 		{ "rewind",           _("REWIND") },
-		{ "save_state",       _("SAVE STATE") },
 		{ "screen_layout",    _("SCREEN LAYOUT") },
 		{ "screenshot",       _("SCREENSHOT") },
 		{ "swap_screen",      _("SWAP SCREEN") },
 		{ "translation",      _("TRANSLATION") },
 		{ "volumedown",       _("VOLUME DOWN") },
-		{ "volumemute",       _("VOLUME MUTE") },
 		{ "volumeup",         _("VOLUME UP") },
-		{ "controlcenter",    _("CONTROL CENTER") },
+		{ "volumemute",       _("VOLUME MUTE") },
+		{ "recording-start",  _("START RECORDING") },
+		{ "recording-stop",   _("STOP RECORDING") },
+		{ "onscreen-keyboard",_("KEYBOARD TOGGLE") },
 	};
 
 	s->save(); // save the current step to avoid loosing information, will do nothing the first time while there is no save function

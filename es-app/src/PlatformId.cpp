@@ -58,7 +58,7 @@ namespace PlatformIds
 		{ "pc88",					PC_88 },
 		{ "pc98",					PC_98 },
 		{ "sega32x",				SEGA_32X },
-		{ "segacd",					SEGA_CD },
+		{ "megacd",					SEGA_CD },
 		{ "dreamcast",				SEGA_DREAMCAST },
 		{ "gamegear",				SEGA_GAME_GEAR },
 		{ "genesis",				SEGA_GENESIS },
@@ -126,6 +126,7 @@ namespace PlatformIds
 		{ "vpinball",				VISUALPINBALL },
 		{ "fpinball",				FUTUREPINBALL },
 		{ "o2em",					VIDEOPAC_ODYSSEY2 },
+		{ "laseractive",			PIONEER_LASERACTIVE },
 
 		// Misc systems
 		{ "channelf",				CHANNELF },
@@ -155,6 +156,7 @@ namespace PlatformIds
 			
 		{ "imageviewer",			IMAGEVIEWER },
 			
+		{ "cassettevision",			CASSETTE_VISION },
 		{ "scv",					SUPER_CASSETTE_VISION },
 		{ "easyrpg",				EASYRPG },			
 		{ "pet",					COMMODORE_PET },
@@ -169,6 +171,7 @@ namespace PlatformIds
 		{ "astrocade",				ASTROCADE },
 		{ "archimedes",				ARCHIMEDES },			
 		{ "adam",					ADAM },
+		{ "bk",						ELEKTRONIKA_BK },
 
 		{ "fmtowns",				FMTOWNS },
 		{ "cdi",					PHILIPS_CDI },			

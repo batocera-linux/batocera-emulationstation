@@ -409,6 +409,8 @@ void ApiSystem::launchExternalWindow_after(Window *window)
 {
 	LOG(LogDebug) << "ApiSystem::launchExternalWindow_after";
 
+	Utils::FileSystem::FileSystemCache::reset();
+
 	window->init();
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
@@ -1375,7 +1377,9 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 
 	for (const auto& entry : entries)
 	{
-		if (entry.find("multicolor") != std::string::npos || entry.find(":rgb:joystick_rings") != std::string::npos)
+		if (entry.find("multicolor") != std::string::npos || 
+			entry.find(":rgb:joystick_rings") != std::string::npos || 
+			entry.find("rgb:l1") != std::string::npos)
 		{
 			std::string ledColourPath = entry + "/multi_intensity";				
 			if (Utils::FileSystem::exists(ledColourPath))
@@ -1406,17 +1410,32 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
         std::string colourValue = Utils::FileSystem::readAllText(LED_COLOUR_NAME);
         std::stringstream ss(colourValue);
         std::string token;
-        // Extract red value
-        std::getline(ss, token, ' ');
-        red = std::stoi(token);
 
-        // Extract green value
-        std::getline(ss, token, ' ');
-        green = std::stoi(token);
+        if (LED_COLOUR_NAME.find("rgb:l") != std::string::npos) {
+            // Extract blue value
+            std::getline(ss, token, ' ');
+            blue = std::stoi(token);
 
-        // Extract blue value
-        std::getline(ss, token);
-        blue = std::stoi(token);
+            // Extract green value
+            std::getline(ss, token, ' ');
+            green = std::stoi(token);
+
+            // Extract red value
+            std::getline(ss, token);
+            red = std::stoi(token);
+        } else {
+            // Extract red value
+            std::getline(ss, token, ' ');
+            red = std::stoi(token);
+
+            // Extract green value
+            std::getline(ss, token, ' ');
+            green = std::stoi(token);
+
+            // Extract blue value
+            std::getline(ss, token);
+            blue = std::stoi(token);
+        }
 
         executeScript("batocera-led-handheld block_color_changes"); // temporarily prevent changes from external daemon
         LOG(LogInfo) << "ApiSystem::getLED > LED colours are:" << red << " " << green << " " << blue;
@@ -1476,8 +1495,17 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 	if (mSystemLedType == LED_TYPE_UNIFIED)
 	{
 		if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound") return;
-		std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
-		Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
+
+		if (LED_COLOUR_NAME.find("rgb:l") != std::string::npos) {
+			std::string content = std::to_string(blue) + " " + std::to_string(green) + " " + std::to_string(red);
+			for (int i = 1; i <= 7; i++) {
+				Utils::FileSystem::writeAllText("/sys/class/leds/rgb:l" + std::to_string(i) + "/multi_intensity", content);
+				Utils::FileSystem::writeAllText("/sys/class/leds/rgb:r" + std::to_string(i) + "/multi_intensity", content);
+			}
+		} else {
+			std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+			Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
+		}
 	}
 	else if (mSystemLedType == LED_TYPE_ADDRESSABLE)
 	{
@@ -1511,6 +1539,7 @@ bool ApiSystem::getLEDBrightness(int& value)
         {
             if (directory.find("multicolor") != std::string::npos || 
                 directory.find(":rgb:joystick_rings") != std::string::npos ||
+                directory.find("rgb:l1") != std::string::npos ||
                 directory.find("l:r1") != std::string::npos) 
             {
                 std::string ledBrightnessPath = directory + "/brightness";
@@ -1589,9 +1618,18 @@ void ApiSystem::setLEDBrightness(int value)
     int gOut = static_cast<int>(gBase * factor + 0.5f);
     int bOut = static_cast<int>(bBase * factor + 0.5f);
 
+    if (LED_BRIGHTNESS_VALUE.find("rgb:l") != std::string::npos)
+    {
+        int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
+        int brightnessValue = static_cast<int>(factor * max + 0.5f);
+        for (int i = 1; i <= 7; i++) {
+            Utils::FileSystem::writeAllText("/sys/class/leds/rgb:l" + std::to_string(i) + "/brightness", std::to_string(brightnessValue) + "\n");
+            Utils::FileSystem::writeAllText("/sys/class/leds/rgb:r" + std::to_string(i) + "/brightness", std::to_string(brightnessValue) + "\n");
+        }
+    }
     // Check if we are on an addressable device (Retroid/Ayn style)
     // These paths typically look like /sys/class/leds/l:r1
-    if (LED_BRIGHTNESS_VALUE.find("/l:") != std::string::npos || 
+    else if (LED_BRIGHTNESS_VALUE.find("/l:") != std::string::npos || 
         LED_BRIGHTNESS_VALUE.find("/r:") != std::string::npos) 
     {
         // Batch update all addressable LED channels
@@ -1812,6 +1850,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::BACKGLASS:
 		executables.push_back("batocera-backglass");
 		break;
+	case ApiSystem::NFC:
+		executables.push_back("batocera-nfc");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1924,7 +1965,7 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string& fileName
 			int pc = getPdfPageCount(fileName);
 			if (pc > 0)
 			{
-				Utils::ThreadPool pool(1);
+				Utils::ThreadPool pool("extractPdfImages", 1);
 
 				for (int i = 0; i < pc; i += numberOfPagesToProcess)
 					pool.queueWorkItem([this, fileName, i, numberOfPagesToProcess] { extractPdfImages(fileName, i + 1, numberOfPagesToProcess); });
@@ -2099,8 +2140,6 @@ void ApiSystem::updateBatoceraStorePackageList()
 
 std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	for (auto folder : { Paths::getUserShadersPath(), Paths::getShadersPath() })
@@ -2125,8 +2164,6 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName,
 
 std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getVideoFilterList";
@@ -2150,8 +2187,6 @@ std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& system
 
 std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievementsSoundsList";
@@ -2898,4 +2933,13 @@ bool ApiSystem::ignoreDevicePermanently(const std::string& deviceId)
 {
     std::string cmd = "batocera-storage-manager ignore \"" + deviceId + "\"";
     return executeScript(cmd);
+}
+
+bool ApiSystem::nfc_is_available() {
+  return Utils::FileSystem::exists("/var/run/batocera-nfc.running");
+}
+
+bool ApiSystem::nfc_write(const std::string& game) {
+  std::string cmd = "batocera-nfc --write \"" + game + "\"";
+  return executeScript(cmd);
 }

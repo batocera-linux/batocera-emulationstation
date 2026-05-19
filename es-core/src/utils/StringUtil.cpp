@@ -413,7 +413,12 @@ namespace Utils
 			if(strBegin == std::string::npos)
 				return "";
 
-			const size_t strEnd = _string.find_last_not_of(" \t\r\n");			
+			const size_t strEnd = _string.find_last_not_of(" \t\r\n");		
+
+			const size_t len = strEnd - strBegin + 1;
+			if (strBegin == 0 && len == _string.length())
+				return _string;
+
 			return _string.substr(strBegin, strEnd - strBegin + 1);
 
 		} // trim

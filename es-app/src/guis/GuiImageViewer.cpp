@@ -348,7 +348,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 	
 	if (pages > INITIALPAGES)
 	{
-		mPdfThreads = new Utils::ThreadPool(1);
+		mPdfThreads = new Utils::ThreadPool("loadPdf", 1);
 
 		for (int i = INITIALPAGES; i < pages; i += PAGESPERTHREAD)
 		{
@@ -364,11 +364,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 						return;
 
 					for (int f = 0; f < fl.size(); f++)
-					{
-						auto img = fl[f];
-						ImageIO::removeImageCache(img);
-						mGrid.setImage(img, std::to_string(i + 1 + f));
-					}
+						mGrid.setImage(fl[f], std::to_string(i + 1 + f));					
 				});
 			});
 		}
@@ -387,10 +383,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 				return;
 		
 			for (int i = 0; i < fileList.size(); i++)
-			{
-				ImageIO::removeImageCache(fileList[i]);
-				mGrid.setImage(fileList[i], std::to_string(i + 1));
-			}
+				mGrid.setImage(fileList[i], std::to_string(i + 1));			
 
 			window->pushGui(this);
 		}));
@@ -490,7 +483,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 
 	if (pages > INITIALPAGES)
 	{
-		mPdfThreads = new Utils::ThreadPool(1);
+		mPdfThreads = new Utils::ThreadPool("loadCbz", 1);
 
 		for (int i = INITIALPAGES; i < pages; i += PAGESPERTHREAD)
 		{
@@ -506,7 +499,6 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 					if (!g_isGuiImageViewerRunning)
 						return;
 
-					ImageIO::removeImageCache(localFile);
 					mGrid.setImage(localFile, std::to_string(i + 1));
 				});
 			});
@@ -537,10 +529,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 				return;
 
 			for (size_t i = 0; i < fileList.size(); i++)
-			{
-				ImageIO::removeImageCache(fileList[i]);
 				mGrid.setImage(fileList[i], std::to_string(i + 1));
-			}
 
 			window->pushGui(this);
 		}

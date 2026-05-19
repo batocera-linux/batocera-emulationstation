@@ -1051,8 +1051,6 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 			BindingManager::updateBindings(extra, file);
 	}
 
-	std::vector<GuiComponent*> comps = getComponents();
-
 	if (state && file != nullptr && !isClearing)
 	{
 		for (auto comp : getComponents())
@@ -1064,7 +1062,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 	{
 		resetThemedExtras();
 
-		for (auto comp : comps)
+		for (auto comp : getComponents())
 		{
 			comp->cancelAnimation(0);
 			disableComponent(comp);
@@ -1080,6 +1078,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 
 	bool fadeOut = !state;
 
+	std::vector<GuiComponent*> comps = getComponents();
 	for (auto comp : comps)
 	{
 		if (fadeOut && isDeactivating && hasActivationStoryboard(comp, false, true))

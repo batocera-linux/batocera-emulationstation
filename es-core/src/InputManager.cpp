@@ -18,6 +18,7 @@
 #include "Paths.h"
 #include "GunManager.h"
 #include "renderers/Renderer.h"
+#include <fstream>
 
 #ifdef HAVE_UDEV
 #include <libudev.h>
@@ -352,10 +353,40 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI, "0");
 
 	SDL_SetHint("SDL_JOYSTICK_HIDAPI_WII", "0");
+
+	// Disable PS5 enhanced feature reports (rumble, LED, haptics).
+	// On Windows, SDL attempts these HID exchanges during HIDAPI init.
+	// If the Bluetooth audio endpoint isn't ready yet, SDL gets an error,
+	// marks the controller disconnected, and retries endlessly — causing
+	// the infinite "DualSense connected" notification loop. Disabling them
+	// prevents that cycle and also allows the controller to be detected
+	// when it is already paired before ES starts.
+	SDL_SetHint("SDL_JOYSTICK_HIDAPI_PS5_RUMBLE", "0");
+	SDL_SetHint("SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED", "0");
 #endif
 			
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
+
+#if WIN32
+	// SDL's HIDAPI thread enumerates devices asynchronously after SDL_InitSubSystem.
+	// For DualSense/DS4 over Bluetooth, the HID handshake is not complete by the
+	// time SDL_NumJoysticks() is called immediately after init, so the controller
+	// is missed. Poll until the count stabilises (max 500ms) instead of a fixed sleep.
+	if (!deinit)
+	{
+		int prevCount = -1;
+		int stableCount = SDL_NumJoysticks();
+		int attempts = 0;
+		while (stableCount != prevCount && attempts < 10)
+		{
+			prevCount = stableCount;
+			SDL_Delay(50);
+			SDL_PumpEvents();
+			stableCount = SDL_NumJoysticks();
+		}
+	}
+#endif
 
 	mJoysticksLock.lock();
 
@@ -412,11 +443,46 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 			std::string mappingString;
 			
 			if (SDL_IsGameController(idx))
-				mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
-			
+			{
+#if WIN32
+				// Try to find mapping in gamecontrollerdb.txt file dropped near ES executable
+				std::string dbPath = Paths::getEmulationStationPath() + "/gamecontrollerdb.txt";
+				if (Utils::FileSystem::exists(dbPath))
+				{
+					// Normalize device GUID: zero last 4 chars
+					std::string normalizedDeviceGuid = std::string(guid);
+					for (int i = 28; i < 32; i++)
+						normalizedDeviceGuid[i] = '0';
+
+					std::ifstream dbFile(dbPath);
+					std::string line;
+
+					while (std::getline(dbFile, line))
+					{
+						if (line.empty() || line[0] == '#')
+							continue;
+
+						size_t firstComma = line.find(',');
+						if (firstComma == std::string::npos || firstComma < 8)
+							continue;
+
+						std::string entryGuid = line.substr(0, firstComma);
+						if (entryGuid == normalizedDeviceGuid && line.find("platform:Windows") != std::string::npos)
+						{
+							mappingString = line;
+							break;
+						}
+					}
+				}
+#endif
+				// Fall back to SDL's built-in mapping if not found in db file
+				if (mappingString.empty())
+					mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
+			}
+
 			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
 			{
-				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]); // save
+				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]);
 				LOG(LogInfo) << "Creating joystick from SDL Game Controller mapping " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 			}
 			else
@@ -563,11 +629,11 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 
 	case SDL_MOUSEMOTION:
 #if !WIN32
-	  if (ev.motion.which == SDL_TOUCH_MOUSEID)
+	  if (!Utils::Platform::isBuildroot() || ev.motion.which == SDL_TOUCH_MOUSEID)
 #endif
 		if (!getGunManager()->isReplacingMouse())
 			window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
-
+	  
 		return true;
 
 	case SDL_MOUSEWHEEL:

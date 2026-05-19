@@ -22,7 +22,7 @@ BusyComponent::BusyComponent(Window* window, const std::string& text) : GuiCompo
 	threadMessagechanged = false;
 
 	auto theme = ThemeData::getMenuTheme();
-	mBackground.setImagePath(theme->Background.path);
+	mBackground.setImagePath(theme->Background.path, false);
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);

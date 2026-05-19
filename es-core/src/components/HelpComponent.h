@@ -29,7 +29,7 @@ public:
 	virtual bool onMouseClick(int button, bool pressed, int x, int y);
 
 private:
-	std::shared_ptr<TextureResource> getIconTexture(const char* name);
+	std::shared_ptr<TextureResource> getIconTexture(const std::string& name);
 	std::map< std::string, std::shared_ptr<TextureResource> > mIconCache;
 
 	std::shared_ptr<ComponentGrid> mGrid;

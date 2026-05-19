@@ -106,6 +106,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ VIC20, "4945" },
 	{ CHANNELF, "4928" },
 	{ SAMCOUPE, "4979" },
+	{ CASSETTE_VISION , "4965" },
 	{ SUPER_CASSETTE_VISION , "4966" },
 	{ ARCHIMEDES, "4944" },
 	{ ACORN_ELECTRON , "4954" },

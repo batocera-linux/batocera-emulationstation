@@ -731,6 +731,8 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	mRunningGame = nullptr;
 
+	Utils::FileSystem::FileSystemCache::reset();
+
 	if (SaveStateRepository::isEnabled(this))
 	{
 		if (options.saveStateInfo != nullptr)
@@ -743,7 +745,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		Utils::FileSystem::removeFile(p2kConv);
 
 	Scripting::fireEvent("game-end");
-	
+
 	if (!hideWindow && Settings::getInstance()->getBool("HideWindowFullReinit"))
 	{
 		ResourceManager::getInstance()->reloadAll();
@@ -753,7 +755,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	}
 	else
 		window->init(hideWindow);
-
+	
 	VolumeControl::getInstance()->init();
 	AudioManager::getInstance()->init();
 
@@ -903,7 +905,7 @@ std::set<std::string> FileData::getContentFiles()
 				while (std::getline(m3u, line))
 				{
 					auto trim = Utils::String::trim(line);
-					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/')
+					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/' || trim[0] == '\0')
 						continue;
 
 					files.insert(path + "/" + trim);

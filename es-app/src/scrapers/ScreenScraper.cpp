@@ -139,6 +139,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 
 	// Misc
 	{ VIC20, 73 },
+	{ ELEKTRONIKA_BK, 93 },
 	{ ORICATMOS, 131 },
 	{ CHANNELF, 80 },
 	{ THOMSON_TO_MO, 141 },
@@ -151,6 +152,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ DAPHNE, 49 },
 	{ SOLARUS, 223 },
 	{ PICO8, 234 },
+	{ CASSETTE_VISION, 300 },
 	{ SUPER_CASSETTE_VISION, 67 },
 	{ EASYRPG, 231 },
 	{ SONIC, 0 }, // All systems

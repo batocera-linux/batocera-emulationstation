@@ -20,6 +20,7 @@ public:
 
 public:
 	static void cancelAsync(std::shared_ptr<TextureResource> texture);
+
 	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool linear = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, const MaxSizeInfo* maxSize = nullptr, const std::string& shareId = "");
 	static void cleanupTextureResourceCache();
 	
@@ -33,8 +34,6 @@ public:
 	const Vector2i getSize() const;
 	const Vector2f getPhysicalSize() const;
 
-	size_t getEstimatedVRAMUsage();
-
 	virtual ~TextureResource();
 
 	bool isLoaded() const;
@@ -45,13 +44,18 @@ public:
 
 	bool bind();
 
-	static size_t getTotalMemUsage(bool includeQueueSize = true); // returns an approximation of total VRAM used by textures (in bytes)
-	static size_t getTotalTextureSize(); // returns the number of bytes that would be used if all textures were in memory
-	
+	static size_t getTotalMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated); // returns an approximation of memory used by textures
+	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
+
 	virtual bool unload();
-	virtual void reload();
+	virtual void reload() { reload(TextureLoadMode::STANDARD); }
+
+	void reload(TextureLoadMode mode);
 
 	static void clearQueue();
+	static int getQueueSize();
+
+	static void cleanupVRAM();
 
 private:
 	// mTextureData is used for textures that are not loaded from a file - these ones
@@ -60,9 +64,6 @@ private:
 
 	// The texture data manager manages loading and unloading of filesystem based textures
 	static TextureDataManager		sTextureDataManager;
-
-	Vector2i						mSize;
-	Vector2f						mPhysicalSize;
 	bool							mForceLoad;
 
 	typedef std::tuple<std::string, bool, bool, std::string> TextureKeyType;

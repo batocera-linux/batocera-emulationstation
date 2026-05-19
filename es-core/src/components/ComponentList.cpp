@@ -21,6 +21,7 @@ ComponentList::ComponentList(Window* window) : IList<ComponentListRow, std::stri
 	mCameraOffset = 0;
 	mFocused = false;
 	mOldCursor = -1; 
+	mReadOnly = false;
 
 	mScrollbar.loadFromMenuTheme();	
 }
@@ -140,7 +141,7 @@ void ComponentList::onFocusGained()
 
 bool ComponentList::input(InputConfig* config, Input input)
 {
-	if(size() == 0)
+	if (mReadOnly || size() == 0)
 		return false;
 
 	// give it to the current row's input handler
@@ -242,6 +243,9 @@ void ComponentList::onCursorChanged(const CursorState& state)
 
 void ComponentList::saySelectedLine()
 {
+	if (mReadOnly)
+		return;
+
 	int n = 0;
 
 	if (!(mCursor >= 0 && mCursor < mEntries.size())) 
@@ -342,7 +346,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 
 	float y = 0;
 
-	std::map<unsigned int, float> rowHeights;
+	std::vector<float> rowHeights(mEntries.size(), -1.0f);
 	std::vector<GuiComponent*> drawAfterCursor;
 
 	for (unsigned int i = 0; i < mEntries.size(); i++)
@@ -354,7 +358,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 
 		if (y - mCameraOffset + rowHeight >= 0)
 		{
-			if (mFocused && entry.data.selectable && i == mCursor)
+			if (!mReadOnly && mFocused && entry.data.selectable && i == mCursor)
 			{
 				Renderer::setMatrix(trans);
 
@@ -368,7 +372,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 				}
 			}
 
-			if (i == mHotRow)
+			if (!mReadOnly && i == mHotRow)
 			{
 				Renderer::setMatrix(trans);
 
@@ -383,14 +387,14 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 
 			for (auto& element : entry.data.elements)
 			{				
-				if (Settings::DebugMouse() && i == mHotRow)
+				if (!mReadOnly && Settings::DebugMouse() && i == mHotRow)
 					element.component->setColor(0xFFFF00FF);
 				else 
 				if (entry.data.group)
 					element.component->setColor(menuTheme->Group.color);
 				else
 				{
-					if (entry.data.selectable && mFocused && i == mCursor)
+					if (!mReadOnly && entry.data.selectable && mFocused && i == mCursor)
 						element.component->setColor(selectedColor);
 					else
 						element.component->setColor(textColor);
@@ -421,10 +425,10 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 		y = 0;
 		for (unsigned int i = 0; i < mEntries.size(); i++)
 		{
-			auto it = rowHeights.find(i);
-			if (it != rowHeights.cend())
+			auto height = rowHeights[i];
+			if (height >= 0)
 			{
-				if (y - mCameraOffset + it->second >= 0)
+				if (y - mCameraOffset + height >= 0)
 				{
 					if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
 						Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor & 0xFFFFFF00 | (unsigned char)((menuTheme->Group.separatorColor & 0xFF) * opacity));
@@ -432,7 +436,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 						Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 				}
 
-				y += it->second; // getRowHeight(mEntries.at(i).data);
+				y += height; // getRowHeight(mEntries.at(i).data);
 				if (y - mCameraOffset > mSize.y())
 					break;
 			}

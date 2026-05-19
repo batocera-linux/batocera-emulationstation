@@ -12,10 +12,10 @@
 
 Vector2i ImageComponent::getTextureSize() const
 {
-	if(mTexture)
-		return mTexture->getSize();
-	else
-		return Vector2i::Zero();
+	if (mTexture/* && mTexture->isLoaded()*/)
+		return mTexture->getSize();	
+
+	return Vector2i::Zero();
 }
 
 Vector2f ImageComponent::getSize() const
@@ -39,6 +39,8 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f), mSharedTexture(true), mCustomShaderEnabled(true)
 {
+	mTextureLoaded = false;
+	mLoadingTextureLoaded = false;
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
 	mCheckClipping = true;
@@ -82,7 +84,7 @@ void ImageComponent::setSize(float w, float h)
 
 void ImageComponent::resize()
 {
-	if (!mTexture)
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero()) // !mTexture->isLoaded())
 		return;
 
 	const Vector2f textureSize = mTexture->getPhysicalSize();
@@ -191,7 +193,8 @@ void ImageComponent::resize()
 
 void ImageComponent::updateVertices()
 {
-	if (!mTexture)
+	if (!mTexture || mTexture->getSize() == Vector2i::Zero())
+	//if (mTexture == nullptr || !mTexture->isLoaded())
 		return;
 
 	Vector2f     topLeft = mSize * mTopLeftCrop;
@@ -281,7 +284,7 @@ void ImageComponent::onSizeChanged()
 	recalcChildrenLayout();
 }
 
-void ImageComponent::setDefaultImage(std::string path)
+void ImageComponent::setDefaultImage(const std::string& path)
 {
 	mDefaultPath = path;
 }
@@ -388,6 +391,9 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		mTexture->setRequired(true);
 	}
 
+	mLoadingTextureLoaded = mLoadingTexture != nullptr && mLoadingTexture->isLoaded();
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	if (mLoadingTexture == nullptr && !mTargetSize.empty())
 		resize();
 }
@@ -406,6 +412,8 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 		mTexture->initFromMemory(path, length);
 	}
 
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
+
 	resize();
 }
 
@@ -415,6 +423,7 @@ void ImageComponent::setImage(const std::shared_ptr<TextureResource>& texture)
 		mTexture->setRequired(false);
 
 	mTexture = texture;
+	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (isShowing() && mTexture != nullptr)
 		mTexture->setRequired(true);
@@ -614,19 +623,12 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible)
 		return;
 
-	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
+	watchTextureLoading(); // Required when hosted in a grid/list
+
+	if (!mTextureLoaded && mTexture && !mTexture->isLoaded())
 	{
-		if (mTexture != nullptr)
-			mTexture->setRequired(false);
-
-		mTexture = mLoadingTexture;
-
-		if (isShowing() && mTexture != nullptr)
-			mTexture->setRequired(true);
-
-		mLoadingTexture.reset();
-		resize();
-		updateColors();
+		mTexture->bind();
+		return;
 	}
 
 	Transform4x4f trans = parentTrans * getTransform();
@@ -753,6 +755,45 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	}
 	else
 		GuiComponent::renderChildren(trans);
+}
+
+bool ImageComponent::watchTextureLoading()
+{
+	if (!mLoadingTextureLoaded && mLoadingTexture && mLoadingTexture->isLoaded())
+	{
+		if (mTexture != nullptr)
+			mTexture->setRequired(false);
+
+		mTexture = mLoadingTexture;
+		mTexture->setRequired(isShowing());
+		mLoadingTexture.reset();
+
+		resize();
+		updateVertices();
+		updateColors();
+
+		mLoadingTextureLoaded = true;
+		mTextureLoaded = true;
+		return true;
+	}
+
+	if (mTexture == nullptr)
+		return false;
+
+	if (!mTextureLoaded && mTexture->getSize() != Vector2i::Zero())
+	{
+		mTexture->setRequired(isShowing());
+
+		resize();
+		updateVertices();
+		updateColors();
+
+		mTextureLoaded = true;
+
+		return true;
+	}
+
+	return false;
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)
@@ -1028,6 +1069,8 @@ void ImageComponent::onHide()
 void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	watchTextureLoading(); // Required when preloading
 
 	if (mPlaylist && isShowing())
 	{

@@ -13,9 +13,14 @@
 static std::vector<FileTag> defaultTags = 
 { 
 	{ "FINISHED", _U("\uF11E") },
+	{ "IN PROGRESS", _U("\uF144") },
+	{ "DROPPED", _U("\uF04C") },
+	{ "ON HOLD", _U("\uF079") },
+
 	{ "SLOW", _U("\uF071") },
 	{ "NOT WORKING", _U("\uF057") },
 	{ "BUGGY", _U("\uF070") },
+
 	{ "LIKED", _U("\uF087") },
 	{ "DISLIKED", _U("\uF088") }
 };

@@ -309,6 +309,8 @@ private:
 	bool mVideoPlaying;	
 	bool mHasStandardMarquee;
 	bool mHasItemTemplate;
+
+	bool mImageLoaded;
 };
 
 #endif // ES_CORE_COMPONENTS_GRID_TILE_COMPONENT_H

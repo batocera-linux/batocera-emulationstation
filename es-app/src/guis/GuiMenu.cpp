@@ -30,7 +30,7 @@
 #include <SDL_events.h>
 #include <algorithm>
 #include "utils/Platform.h"
-
+#include "utils/FileSystemUtil.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -67,6 +67,10 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <array>
+#include <memory>
+#include <sstream>
+#include <cstdio>
 #endif
 
 #if WIN32
@@ -886,8 +890,6 @@ void GuiMenu::openDeveloperSettings()
 
 	s->addEntry(_("CLEAR CACHES"), true, [this, s]
 		{
-			ImageIO::clearImageCache();
-
 			auto rootPath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath());
 
 			Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
@@ -895,45 +897,6 @@ void GuiMenu::openDeveloperSettings()
 			Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getPdfTempPath());
 
 			ViewController::reloadAllGames(mWindow, false);
-		});
-
-	s->addEntry(_("BUILD IMAGE CACHE"), true, [this, s]
-		{
-			unsigned int x;
-			unsigned int y;
-
-			int idx = 0;
-			for (auto sys : SystemData::sSystemVector)
-			{
-				if (sys->isCollection())
-				{
-					idx++;
-					continue;
-				}
-
-				mWindow->renderSplashScreen(_("Building image cache") + ": " + sys->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
-
-				for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
-				{
-					for (auto mdd : MetaDataList::getMDD())
-					{
-						if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
-							continue;
-
-						auto value = file->getMetadata(mdd.id);
-						if (value.empty())
-							continue;
-
-						auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(value));
-						if (ext == ".jpg" || ext == ".png")
-							ImageIO::loadImageSize(value.c_str(), &x, &y);
-					}
-				}
-
-				idx++;
-			}
-
-			mWindow->closeSplashScreen();
 		});
 
 	s->addGroup(_("DISPLAY SETTINGS"));
@@ -1158,7 +1121,9 @@ void GuiMenu::openDeveloperSettings()
 	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
 	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USAGE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
-	
+
+	s->addSwitch(_("USE FILESYSTEM CACHE"), "UseFileCache", true, [s] { Utils::FileSystem::FileSystemCache::reset(); });
+
 	s->onFinalize([s, window]
 	{					
 		if (s->getVariable("reboot"))
@@ -1281,6 +1246,47 @@ bool GuiMenu::checkNetwork()
 	return true;
 }
 
+// Keyboard helper function that parses output "code Description" into a pair { "code", "Description" }
+#if !WIN32
+static std::vector<std::pair<std::string, std::string>> getScriptOutput(const std::string& command)
+{
+	std::vector<std::pair<std::string, std::string>> results;
+	std::array<char, 128> buffer;
+	std::string result;
+	std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(), "r"), pclose);
+	if (!pipe) return results;
+
+	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+		result += buffer.data();
+	}
+
+	std::stringstream ss(result);
+	std::string line;
+	while (std::getline(ss, line))
+	{
+		// Trim newline chars
+		if (!line.empty() && line.back() == '\n') line.pop_back();
+		if (!line.empty() && line.back() == '\r') line.pop_back();
+		if (line.empty()) continue;
+
+		// Find first space: split "code" and "Description"
+		size_t splitPos = line.find(' ');
+		if (splitPos != std::string::npos)
+		{
+			std::string code = line.substr(0, splitPos);
+			std::string name = line.substr(splitPos + 1);
+			
+			// Trim potential leading whitespace from name
+			size_t first = name.find_first_not_of(' ');
+			if (first != std::string::npos) name = name.substr(first);
+
+			results.push_back({ code, name });
+		}
+	}
+	return results;
+}
+#endif
+
 void GuiMenu::openSystemSettings() 
 {
 	Window *window = mWindow;
@@ -1351,6 +1357,92 @@ void GuiMenu::openSystemSettings()
 			s->setVariable("reloadGuiMenu", true);
 		}		
 	});
+
+	// Keyboard layout & variant
+#if !WIN32
+	
+	std::string curLayout = SystemConf::getInstance()->get("system.kblayout");
+	if (curLayout.empty()) curLayout = "us";
+
+	std::string curVariant = SystemConf::getInstance()->get("system.kbvariant");
+	if (curVariant.empty()) curVariant = "none";
+
+	auto keyboard_layout = std::make_shared<OptionListComponent<std::string>>(window, _("KEYBOARD LAYOUT"), false);
+	auto keyboard_variant = std::make_shared<OptionListComponent<std::string>>(window, _("KEYBOARD VARIANT"), false);
+
+	// Populate Layouts
+	auto layouts = getScriptOutput("/usr/bin/batocera-keyboard list-layouts");
+	bool layoutFound = false;
+	
+	for (const auto& l : layouts)
+	{
+		bool isSelected = (l.first == curLayout);
+		if (isSelected) layoutFound = true;
+		keyboard_layout->add(l.second, l.first, isSelected);
+	}
+	if (!layoutFound) {
+		keyboard_layout->add(curLayout, curLayout, true);
+	}
+
+	// Populate Variants
+	auto populateVariants = [keyboard_variant, curVariant](std::string layoutCode) {
+		keyboard_variant->clear();
+		bool noneSelected = (curVariant == "none" || curVariant.empty());
+		keyboard_variant->add(_("NONE"), "none", noneSelected);
+
+		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + layoutCode);
+		bool variantFound = false;
+		for (const auto& v : variants)
+		{
+			bool isSelected = (v.first == curVariant);
+			if (isSelected) variantFound = true;
+			keyboard_variant->add(v.second, v.first, isSelected);
+		}
+
+		if (!variantFound && !noneSelected) {
+			keyboard_variant->selectFirstItem(); 
+		}
+		keyboard_variant->invalidate();
+	};
+
+	populateVariants(curLayout);
+
+	// Callback for layout change
+	keyboard_layout->setSelectedChangedCallback([populateVariants, keyboard_variant](std::string newLayout) {
+		keyboard_variant->clear();
+		keyboard_variant->add(_("NONE"), "none", true);
+		
+		auto variants = getScriptOutput("/usr/bin/batocera-keyboard list-variants " + newLayout);
+		for (const auto& v : variants)
+		{
+			keyboard_variant->add(v.second, v.first, false);
+		}
+		keyboard_variant->selectFirstItem();
+		keyboard_variant->invalidate();
+	});
+
+	std::string kbHelpText = _("Select the physical keyboard layout. A reboot may be required for changes to take full effect.");
+	
+	s->addWithDescription(_("KEYBOARD LAYOUT"), kbHelpText, keyboard_layout);
+	s->addWithDescription(_("KEYBOARD VARIANT"), kbHelpText, keyboard_variant);
+
+	s->addSaveFunc([keyboard_layout, keyboard_variant, s] {
+		if (keyboard_layout->changed() || keyboard_variant->changed())
+		{
+			std::string selLayout = keyboard_layout->getSelected();
+			std::string selVariant = keyboard_variant->getSelected();
+			
+			std::string cmd = "/usr/bin/batocera-keyboard set \"" + selLayout + "\" \"" + selVariant + "\"";
+			if (system(cmd.c_str()) == 0) {
+				SystemConf::getInstance()->set("system.kblayout", selLayout);
+				SystemConf::getInstance()->set("system.kbvariant", selVariant);
+				
+				// Trigger the standard "Reboot Required" notification on menu exit
+				s->setVariable("reboot", true);
+			}
+		}
+	});
+#endif
 
 	// Timezone
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::TIMEZONES))
@@ -1978,9 +2070,9 @@ void GuiMenu::openSystemSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::INSTALL))
 		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
 
-	s->addEntry(_("EJECT AN EXTERNAL DISK"), true, [this] { openUnmountDriveSettings(); });
+	s->addEntry(_("EJECT AN EXTRA DISK"), true, [this] { openUnmountDriveSettings(); });
 
-    auto diskFormat = std::make_shared<OptionListComponent<std::string>>(window, _("EXTERNAL DRIVE FILESYSTEM TYPE"), false);
+    auto diskFormat = std::make_shared<OptionListComponent<std::string>>(window, _("EXTRA DRIVE FILESYSTEM TYPE"), false);
     
     // Load saved preference (default to btrfs)
     std::string selectedFormat = SystemConf::getInstance()->get("system.external_disk_format");
@@ -1998,7 +2090,7 @@ void GuiMenu::openSystemSettings()
          diskFormat->selectFirstItem();
     }
 
-    s->addWithLabel(_("EXTERNAL DRIVE FILESYSTEM TYPE"), diskFormat);
+    s->addWithLabel(_("EXTRA DRIVE FILESYSTEM TYPE"), diskFormat);
     
     s->addSaveFunc([diskFormat] {
         if (diskFormat->changed()) {
@@ -2907,7 +2999,7 @@ void GuiMenu::openGamesSettings()
 			lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
 			lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
 			lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
-			lang_choices->add("POLISH", "Po", currentLang == "Po");
+			lang_choices->add("POLISH", "Pl", currentLang == "Pl");
 			lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
 			lang_choices->add("РУССКИЙ", "Ru", currentLang == "Ru");
 			lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
@@ -3018,7 +3110,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMELISTS?"), _("YES"), [window]
 		{
 			Scripting::fireEvent("update-gamelists");
-			ViewController::reloadAllGames(window, true, true);
+			ViewController::reloadAllGames(window, true, true, true);
 		}, 
 		_("NO"), nullptr));
 }
@@ -4204,11 +4296,13 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
         auto country_codes = getCountryCodes();
         auto country = std::make_shared<OptionListComponent<std::string>>(mWindow, _("WIFI COUNTRY"), false);
 
+		country->add(_("N/A"), "", baseCountry.empty());
+
         for (auto it = country_codes.cbegin(); it != country_codes.cend(); ++it)
             country->add(it->second, it->first, baseCountry == it->first);
 
         if (country->getSelectedObjects().size() == 0)
-            country->add("N/A", "", true);
+            country->selectFirstItem();
 
         s->addWithLabel(_("WIFI COUNTRY"), country);
         s->addSaveFunc([country] { SystemConf::getInstance()->set("wifi.country", country->getSelected()); });

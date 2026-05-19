@@ -1236,7 +1236,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 		{
 			getAllGamesCollection();
 
-			Utils::ThreadPool pool;
+			Utils::ThreadPool pool("addEnabledCollectionsToDisplayedSystems", -(int)(std::min(collectionsToPopulate.size(), (size_t)4)));
 
 			for (auto collection : collectionsToPopulate)
 			{
