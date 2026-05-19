@@ -647,7 +647,8 @@ void HttpServerThread::run()
 		}
 			
 		std::unordered_map<std::string, FileData*> fileMap;
-		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+		fileMap[system->getRootFolder()->getPath()] = system->getRootFolder();
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME | FOLDER))
 			fileMap[file->getPath()] = file;
 
 		auto fileList = loadGamelistFile(req.body, system, fileMap, SIZE_MAX, false);
@@ -715,7 +716,8 @@ void HttpServerThread::run()
 		}
 
 		std::unordered_map<std::string, FileData*> fileMap;
-		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+		fileMap[system->getRootFolder()->getPath()] = system->getRootFolder();
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME | FOLDER))
 			fileMap[file->getPath()] = file;
 
 		auto fileList = loadGamelistFile(req.body, system, fileMap, SIZE_MAX, false);
