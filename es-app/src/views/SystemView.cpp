@@ -405,9 +405,23 @@ bool SystemView::input(InputConfig* config, Input input)
 		auto carousel = mCarousel.asCarousel();
 		bool isHorizontal = (carousel != nullptr && carousel->isHorizontalCarousel());
 
-		// For keyboard and gamepad: Use directions based on carousel orientation
-		if (isHorizontal)
+		if (mCarousel.isGrid())
 		{
+			// Grid view uses all 4 directions for navigation, use L2/R2 for filtering
+			if (config->isMappedLike("l2", input))
+			{
+				cycleHardwareFilter(-1);
+				return true;
+			}
+			else if (config->isMappedLike("r2", input))
+			{
+				cycleHardwareFilter(1);
+				return true;
+			}
+		}
+		else if (isHorizontal)
+		{
+			// Horizontal carousel: use up/down for filtering
 			if (config->isMappedLike("up", input))
 			{
 				cycleHardwareFilter(-1);
@@ -421,6 +435,7 @@ bool SystemView::input(InputConfig* config, Input input)
 		}
 		else
 		{
+			// Vertical carousel/textlist: use left/right for filtering
 			if (config->isMappedLike("left", input))
 			{
 				cycleHardwareFilter(-1);
