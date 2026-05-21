@@ -7,85 +7,8 @@
 #include "ApiSystem.h"
 #include "utils/Platform.h"
 #include "LocaleES.h"
-#include "components/AsyncNotificationComponent.h"
 
 GuiUpdateState::State GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
-
-class ThreadedUpdater
-{
-public:
-	ThreadedUpdater(Window* window) : mWindow(window)
-	{
-		GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
-
-		mWndNotification = mWindow->createAsyncNotificationComponent();
-
-		auto label = Utils::String::format(_("UPDATING %s").c_str(), ApiSystem::getInstance()->getApplicationName().c_str());
-		mWndNotification->updateTitle(_U("\uF019 ") + label);
-
-		mHandle = new std::thread(&ThreadedUpdater::threadUpdate, this);
-	}
-
-	~ThreadedUpdater()
-	{
-		mWndNotification->close();
-		mWndNotification = nullptr;
-	}
-
-	void threadUpdate()
-	{
-		std::pair<std::string, int> updateStatus = ApiSystem::getInstance()->updateSystem([this](const std::string info)
-		{
-			auto pos = info.find(">>>");
-			if (pos != std::string::npos)
-			{
-				std::string percent(info.substr(pos));		
-				percent = Utils::String::replace(percent, ">", "");
-				percent = Utils::String::replace(percent, "%", "");
-				percent = Utils::String::replace(percent, " ", "");
-
-				int value = atoi(percent.c_str());
-
-				std::string text(info.substr(0, pos));
-				text = Utils::String::trim(text);
-
-				mWndNotification->updatePercent(value);
-				mWndNotification->updateText(text);
-			}
-			else
-			{
-				mWndNotification->updatePercent(-1);
-				mWndNotification->updateText(info);
-			}
-		});
-
-		if (updateStatus.second == 0)
-		{
-			GuiUpdate::state = GuiUpdateState::State::UPDATE_READY;
-
-			mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATE IS READY"));
-			mWndNotification->updateText(_("REBOOT TO APPLY"));
-
-			std::this_thread::yield();
-			std::this_thread::sleep_for(std::chrono::hours(12));
-		}
-		else
-		{
-			GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
-
-			std::string error = _("AN ERROR OCCURRED") + std::string(": ") + updateStatus.first;
-			mWindow->displayNotificationMessage(error);
-		}
-
-		delete this;
-	}
-
-private:
-	std::thread*				mHandle;
-	AsyncNotificationComponent* mWndNotification;
-	Window*						mWindow;
-};
-
 
 GuiUpdate::GuiUpdate(Window* window) : GuiComponent(window), mBusyAnim(window)
 {
@@ -233,3 +156,77 @@ std::vector<HelpPrompt> GuiUpdate::getHelpPrompts()
 	return std::vector<HelpPrompt>();
 }
 
+ThreadedUpdater::ThreadedUpdater(Window* window, bool fromlocalmedia) : mWindow(window) {
+  GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
+
+  mWndNotification = mWindow->createAsyncNotificationComponent();
+
+  auto label = Utils::String::format(_("UPDATING %s").c_str(), ApiSystem::getInstance()->getApplicationName().c_str());
+  mWndNotification->updateTitle(_U("\uF019 ") + label);
+
+  if(fromlocalmedia) {
+    mHandle = new std::thread(&ThreadedUpdater::threadUpdate_fromlocalmedia, this);
+  } else {
+    mHandle = new std::thread(&ThreadedUpdater::threadUpdate_network, this);
+  }
+}
+
+ThreadedUpdater::~ThreadedUpdater() {
+  mWndNotification->close();
+  mWndNotification = nullptr;
+}
+
+void ThreadedUpdater::threadUpdate_network() {
+  threadUpdate(false);
+}
+
+void ThreadedUpdater::threadUpdate_fromlocalmedia() {
+  threadUpdate(true);
+}
+
+void ThreadedUpdater::threadUpdate(bool fromlocalmedia) {
+	std::pair<std::string, int> updateStatus = ApiSystem::getInstance()->updateSystem([this](const std::string info)
+	{
+		auto pos = info.find(">>>");
+		if (pos != std::string::npos)
+		{
+			std::string percent(info.substr(pos));		
+			percent = Utils::String::replace(percent, ">", "");
+			percent = Utils::String::replace(percent, "%", "");
+			percent = Utils::String::replace(percent, " ", "");
+
+			int value = atoi(percent.c_str());
+
+			std::string text(info.substr(0, pos));
+			text = Utils::String::trim(text);
+
+			mWndNotification->updatePercent(value);
+			mWndNotification->updateText(text);
+		}
+		else
+		{
+			mWndNotification->updatePercent(-1);
+			mWndNotification->updateText(info);
+		}
+	}, fromlocalmedia);
+
+	if (updateStatus.second == 0)
+	{
+		GuiUpdate::state = GuiUpdateState::State::UPDATE_READY;
+
+		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATE IS READY"));
+		mWndNotification->updateText(_("REBOOT TO APPLY"));
+
+		std::this_thread::yield();
+		std::this_thread::sleep_for(std::chrono::hours(12));
+	}
+	else
+	{
+		GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
+
+		std::string error = _("AN ERROR OCCURRED") + std::string(": ") + updateStatus.first;
+		mWindow->displayNotificationMessage(error);
+	}
+
+	delete this;
+}

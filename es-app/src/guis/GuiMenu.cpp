@@ -1224,6 +1224,17 @@ void GuiMenu::openUpdatesSettings()
 				mWindow->pushGui(new GuiUpdate(mWindow));
 			}
 		});
+
+		// Start manual update
+		if (ApiSystem::getInstance()->canLocalUpdate())
+		  {
+		    updateGui->addEntry(_("START LOCAL MEDIA UPDATE"), false, [this]
+		    {
+		      mWindow->pushGui(new GuiMsgBox(mWindow, _("REALLY UPDATE FROM LOCAL MEDIA?"),
+						     _("YES"), [this] { new ThreadedUpdater(mWindow, true); }, 
+						     _("NO"), nullptr));
+		    });
+		  }
 	}
 
 	mWindow->pushGui(updateGui);

@@ -231,11 +231,14 @@ bool ApiSystem::setOverclock(std::string mode)
 }
 
 // BusyComponent* ui
-std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
+std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(const std::string)>& func, bool fromlocalmedia)
 {
 	LOG(LogDebug) << "ApiSystem::updateSystem";
 
 	std::string updatecommand = "batocera-upgrade";
+	if(fromlocalmedia) {
+	  updatecommand = "batocera-upgrade manual media";
+	}
 
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	if (pipe == nullptr)
@@ -366,6 +369,24 @@ bool ApiSystem::ping()
     }
 
     return true;
+}
+
+bool ApiSystem::canLocalUpdate() {
+	LOG(LogDebug) << "ApiSystem::canLocalUpdate";
+
+	FILE *pipe = popen("batocera-upgrade canmanualmedia", "r");
+	if (pipe == NULL)
+		return false;
+
+	int res = WEXITSTATUS(pclose(pipe));
+	if (res == 0) 
+	{
+		LOG(LogInfo) << "Can local update";
+		return true;
+	}
+
+	LOG(LogInfo) << "Cannot local update";
+	return false;
 }
 
 bool ApiSystem::canUpdate(std::vector<std::string>& output) 

@@ -3,6 +3,7 @@
 #include "GuiComponent.h"
 #include "components/MenuComponent.h"
 #include "components/BusyComponent.h"
+#include "components/AsyncNotificationComponent.h"
 
 #include <thread>
 
@@ -43,4 +44,21 @@ private:
     void onUpdateAvailable();
     void onNoUpdateAvailable();
     void onPingError();
+};
+
+class ThreadedUpdater
+{
+public:
+  ThreadedUpdater(Window* window, bool fromlocalmedia = false);
+  ~ThreadedUpdater();
+
+  void threadUpdate(bool fromlocalmedia);
+
+private:
+  std::thread*				mHandle;
+  AsyncNotificationComponent* mWndNotification;
+  Window*						mWindow;
+
+  void threadUpdate_network();
+  void threadUpdate_fromlocalmedia();
 };
