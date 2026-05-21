@@ -26,6 +26,7 @@
 #include "guis/GuiImageViewer.h"
 #include "ApiSystem.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiSettings.h"
 #include "utils/ThreadPool.h"
 #include <SDL_timer.h>
 #include "TextToSpeech.h"
@@ -523,6 +524,38 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		LOG(LogError) << "tried to launch something that isn't a game";
 		return;
+	}
+
+	{
+		auto childGames = game->getSourceFileData()->getChildGames();
+		if (!childGames.empty())
+		{
+			auto getLabel = [](FileData* fd) -> std::string {
+				std::string name = fd->getMetadata().getName();
+				return name.empty() ? fd->getDisplayName() : name;
+			};
+
+			GuiSettings* menu = new GuiSettings(mWindow, _("SELECT VERSION"));
+			menu->setSubTitle(getLabel(game->getSourceFileData()));
+
+			menu->addEntry(getLabel(game->getSourceFileData()), false, [this, game, options, center, menu]
+			{
+				launch(game, options, center, false);
+				menu->close();
+			});
+
+			for (auto child : childGames)
+			{
+				menu->addEntry(getLabel(child), false, [this, child, options, center, menu]
+				{
+					launch(child, options, center, false);
+					menu->close();
+				});
+			}
+
+			mWindow->pushGui(menu);
+			return;
+		}
 	}
 
 	if (game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))

@@ -98,7 +98,8 @@ void MetaDataList::initMetadata()
 
 		{ ScraperId,        "id",		   MD_INT,                 "",				   true,       _("Screenscraper Game ID"), _("Screenscraper Game ID"),	false, true },
 
-		{ MultiDisk,        "multidisk",   MD_STRING,              "",				   true,       _("MultiDisk"),             _("MultiDisk"),	false }
+		{ MultiDisk,        "multidisk",   MD_STRING,              "",				   true,       _("MultiDisk"),             _("MultiDisk"),	false },
+		{ ParentGame,       "parent",      MD_PATH,                "",                 false,      _("Parent game"),           _("enter path to parent game"), false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));

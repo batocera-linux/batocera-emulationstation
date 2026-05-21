@@ -111,6 +111,9 @@ public:
 	virtual const bool getHidden() const;
 	virtual const bool getFavorite() const;
 	virtual const bool getKidGame() const;
+
+	FileData* getParentGame() const;
+	std::vector<FileData*> getChildGames() const;
 	virtual const bool hasCheevos();
 
 	bool hasAnyMedia();

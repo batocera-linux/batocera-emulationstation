@@ -249,6 +249,39 @@ const bool FileData::getKidGame() const
 	return data != "false" && !data.empty();
 }
 
+FileData* FileData::getParentGame() const
+{
+	if (!Settings::getInstance()->getBool("GroupCloneGames"))
+		return nullptr;
+
+	std::string rawParent = getMetadata().get(MetaDataId::ParentGame, false);
+	if (rawParent.empty())
+		return nullptr;
+
+	std::string parentPath = getMetadata(MetaDataId::ParentGame);
+	return getSystem()->getRootFolder()->FindByPath(parentPath);
+}
+
+std::vector<FileData*> FileData::getChildGames() const
+{
+	if (!Settings::getInstance()->getBool("GroupCloneGames"))
+		return {};
+
+	std::vector<FileData*> result;
+	std::string myPath = getPath();
+
+	for (auto game : getSystem()->getRootFolder()->getFilesRecursive(GAME))
+	{
+		if (game->getMetadata().get(MetaDataId::ParentGame, false).empty())
+			continue;
+
+		if (game->getMetadata(MetaDataId::ParentGame) == myPath)
+			result.push_back(game);
+	}
+
+	return result;
+}
+
 const bool FileData::hasCheevos()
 {
 	if (Utils::String::toInteger(getMetadata(MetaDataId::CheevosId)) > 0)
@@ -1062,6 +1095,12 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	{
 		if (!showHiddenFiles && (*it)->getHidden())
 			continue;
+
+		if ((*it)->getType() == GAME && !(*it)->getMetadata().get(MetaDataId::ParentGame, false).empty())
+		{
+			if ((*it)->getParentGame() != nullptr)
+				continue;
+		}
 
 		if (filterKidGame && (*it)->getType() == GAME && !(*it)->getKidGame())
 			continue;
