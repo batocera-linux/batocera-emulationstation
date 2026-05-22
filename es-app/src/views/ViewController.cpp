@@ -35,6 +35,9 @@
 #include "Gamelist.h"
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
+#include "LocaleES.h"
+#include "LangParser.h"
+#include "views/gamelist/GameNameFormatter.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -538,6 +541,39 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 				return name.empty() ? fd->getDisplayName() : name;
 			};
 
+			auto getBadges = [](FileData* fd) -> std::string {
+				std::string badges;
+
+				if (fd->getFavorite())
+					badges += _U("\uF006");  // star - favorite
+
+				fd->detectLanguageAndRegion(false);
+				std::string lang   = fd->getMetadata(MetaDataId::Language);
+				std::string region = fd->getMetadata(MetaDataId::Region);
+				if (!lang.empty() || !region.empty())
+				{
+					if (!badges.empty()) badges += "  ";
+					std::string flag = GameNameFormatter::getLangFlag(LangInfo::getFlag(lang, region));
+					if (!flag.empty())
+						badges += flag;
+				}
+
+				auto system = fd->getSourceFileData()->getSystem();
+				if (SaveStateRepository::isEnabled(fd) && system->getSaveStateRepository()->hasSaveStates(fd))
+				{
+					if (!badges.empty()) badges += "  ";
+					badges += _U("\uF0C7");  // floppy disk - has save states
+				}
+
+				if (fd->hasCheevos())
+				{
+					if (!badges.empty()) badges += "  ";
+					badges += _U("\uF091");  // trophy - has achievements
+				}
+
+				return badges;
+			};
+
 			std::function<void(FileData*)> launchVersion = [this, options, center](FileData* selectedGame)
 			{
 				bool showSaveState = SaveStateRepository::isEnabled(selectedGame) &&
@@ -565,15 +601,18 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			GuiSettings* menu = new GuiSettings(mWindow, _("SELECT VERSION"));
 			menu->setSubTitle(getLabel(game->getSourceFileData()));
 
-			menu->addEntry(getLabel(game->getSourceFileData()), false, [game, menu, launchVersion]
 			{
-				launchVersion(game);
-				menu->close();
-			});
+				auto src = game->getSourceFileData();
+				menu->addWithDescription(getLabel(src), getBadges(src), nullptr, [game, menu, launchVersion]
+				{
+					launchVersion(game);
+					menu->close();
+				});
+			}
 
 			for (auto child : childGames)
 			{
-				menu->addEntry(getLabel(child), false, [child, menu, launchVersion]
+				menu->addWithDescription(getLabel(child), getBadges(child), nullptr, [child, menu, launchVersion]
 				{
 					launchVersion(child);
 					menu->close();
