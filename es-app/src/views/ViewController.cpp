@@ -33,6 +33,8 @@
 #include "VolumeControl.h"
 #include "guis/GuiNetPlay.h"
 #include "Gamelist.h"
+#include "SaveStateRepository.h"
+#include "guis/GuiSaveState.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -526,6 +528,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		return;
 	}
 
+	if (allowCheckLaunchOptions)
 	{
 		auto childGames = game->getSourceFileData()->getChildGames();
 		if (!childGames.empty())
@@ -535,20 +538,40 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 				return name.empty() ? fd->getDisplayName() : name;
 			};
 
+			std::function<void(FileData*)> launchVersion = [this, options, center](FileData* selectedGame)
+			{
+				if (SaveStateRepository::isEnabled(selectedGame) &&
+					(selectedGame->getCurrentGameSetting("savestates") == "1" ||
+					 (selectedGame->getCurrentGameSetting("savestates") == "2" &&
+					  selectedGame->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(selectedGame))))
+				{
+					mWindow->pushGui(new GuiSaveState(mWindow, selectedGame, [this, selectedGame, options, center](SaveState* state)
+					{
+						LaunchGameOptions newOptions = options;
+						newOptions.saveStateInfo = state;
+						launch(selectedGame, newOptions, center, false);
+					}));
+				}
+				else
+				{
+					launch(selectedGame, options, center, false);
+				}
+			};
+
 			GuiSettings* menu = new GuiSettings(mWindow, _("SELECT VERSION"));
 			menu->setSubTitle(getLabel(game->getSourceFileData()));
 
-			menu->addEntry(getLabel(game->getSourceFileData()), false, [this, game, options, center, menu]
+			menu->addEntry(getLabel(game->getSourceFileData()), false, [game, menu, launchVersion]
 			{
-				launch(game, options, center, false);
+				launchVersion(game);
 				menu->close();
 			});
 
 			for (auto child : childGames)
 			{
-				menu->addEntry(getLabel(child), false, [this, child, options, center, menu]
+				menu->addEntry(getLabel(child), false, [child, menu, launchVersion]
 				{
-					launch(child, options, center, false);
+					launchVersion(child);
 					menu->close();
 				});
 			}

@@ -371,6 +371,13 @@ void ISimpleGameListView::showSelectedGameSaveSnapshots()
 	if (cursor == nullptr || cursor->getType() != GAME)
 		return;
 
+	if (!cursor->getSourceFileData()->getChildGames().empty())
+	{
+		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+		ViewController::get()->launch(cursor, LaunchGameOptions());
+		return;
+	}
+
 	if (SaveStateRepository::isEnabled(cursor))
 	{
 		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
@@ -413,7 +420,9 @@ void ISimpleGameListView::launchSelectedGame()
 	{
 		if (cursor->getType() == GAME)
 		{
-			if (SaveStateRepository::isEnabled(cursor) &&
+			bool hasChildren = !cursor->getSourceFileData()->getChildGames().empty();
+
+			if (!hasChildren && SaveStateRepository::isEnabled(cursor) &&
 				(cursor->getCurrentGameSetting("savestates") == "1" || (cursor->getCurrentGameSetting("savestates") == "2" && cursor->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(cursor))))
 			{
 				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)
