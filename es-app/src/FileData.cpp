@@ -255,11 +255,31 @@ FileData* FileData::getParentGame() const
 		return nullptr;
 
 	std::string rawParent = getMetadata().get(MetaDataId::ParentGame, false);
-	if (rawParent.empty())
-		return nullptr;
+	if (!rawParent.empty())
+	{
+		std::string parentPath = getMetadata(MetaDataId::ParentGame);
+		return getSystem()->getRootFolder()->FindByPath(parentPath);
+	}
 
-	std::string parentPath = getMetadata(MetaDataId::ParentGame);
-	return getSystem()->getRootFolder()->FindByPath(parentPath);
+	// For arcade systems, derive parent from arcaderoms.xml cloneof info
+	if (mSystem && (mSystem->hasPlatformId(PlatformIds::ARCADE) || mSystem->hasPlatformId(PlatformIds::NEOGEO)))
+	{
+		std::string romName = Utils::FileSystem::getStem(getPath());
+		std::string cloneOf = MameNames::getInstance()->getCloneOf(romName);
+		if (!cloneOf.empty())
+		{
+			std::string startPath = getSystemEnvData()->mStartPath;
+			for (auto ext : getSystemEnvData()->mSearchExtensions)
+			{
+				std::string parentPath = startPath + "/" + cloneOf + ext;
+				FileData* parent = getSystem()->getRootFolder()->FindByPath(parentPath);
+				if (parent != nullptr)
+					return parent;
+			}
+		}
+	}
+
+	return nullptr;
 }
 
 std::vector<FileData*> FileData::getChildGames() const
@@ -270,13 +290,26 @@ std::vector<FileData*> FileData::getChildGames() const
 	std::vector<FileData*> result;
 	std::string myPath = getPath();
 
+	bool isArcade = mSystem && (mSystem->hasPlatformId(PlatformIds::ARCADE) || mSystem->hasPlatformId(PlatformIds::NEOGEO));
+	std::string myRomName = isArcade ? Utils::FileSystem::getStem(myPath) : "";
+
 	for (auto game : getSystem()->getRootFolder()->getFilesRecursive(GAME))
 	{
-		if (game->getMetadata().get(MetaDataId::ParentGame, false).empty())
+		// Check explicit <parent> metadata first
+		if (!game->getMetadata().get(MetaDataId::ParentGame, false).empty())
+		{
+			if (game->getMetadata(MetaDataId::ParentGame) == myPath)
+				result.push_back(game);
 			continue;
+		}
 
-		if (game->getMetadata(MetaDataId::ParentGame) == myPath)
-			result.push_back(game);
+		// For arcade systems, check cloneof from arcaderoms.xml
+		if (isArcade)
+		{
+			std::string romName = Utils::FileSystem::getStem(game->getPath());
+			if (MameNames::getInstance()->getCloneOf(romName) == myRomName)
+				result.push_back(game);
+		}
 	}
 
 	return result;
@@ -1096,11 +1129,8 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		if (!showHiddenFiles && (*it)->getHidden())
 			continue;
 
-		if ((*it)->getType() == GAME && !(*it)->getMetadata().get(MetaDataId::ParentGame, false).empty())
-		{
-			if ((*it)->getParentGame() != nullptr)
-				continue;
-		}
+		if ((*it)->getType() == GAME && (*it)->getParentGame() != nullptr)
+			continue;
 
 		if (filterKidGame && (*it)->getType() == GAME && !(*it)->getKidGame())
 			continue;
