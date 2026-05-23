@@ -819,6 +819,9 @@ void VideoVlcComponent::onMediaParsed()
 
 void VideoVlcComponent::startVideo()
 {
+	if (!Settings::ShowVideoPreviews())
+		return;
+
 	if (mIsPlaying || !mVLC)
 		return;
 
