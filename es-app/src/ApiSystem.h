@@ -330,6 +330,8 @@ public:
 	bool getLEDBrightness(int& value);
 	void setLEDBrightness(int value);
 
+	bool isLEDMonochrome();
+
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
