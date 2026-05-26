@@ -1377,6 +1377,14 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 
 	for (const auto& entry : entries)
 	{
+		if (entry.find("rgb:kbd_backlight") != std::string::npos)
+		{
+			LED_COLOUR_NAME = "cubexx";
+			mSystemLedType = LED_TYPE_UNIFIED;
+			LOG(LogInfo) << "ApiSystem::getLED > Found Anbernic CubeXX LED at " << entry;
+			break;
+		}
+
 		if (entry.find("multicolor") != std::string::npos || 
 			entry.find(":rgb:joystick_rings") != std::string::npos || 
 			entry.find("rgb:l1") != std::string::npos)
@@ -1431,6 +1439,12 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			red = 255;
 			green = 255;
 			blue = 255;
+			executeScript("batocera-led-handheld block_color_changes");
+			return true;
+		}
+		else if (LED_COLOUR_NAME == "cubexx") 
+		{
+			getLEDColours(red, green, blue);
 			executeScript("batocera-led-handheld block_color_changes");
 			return true;
 		}
@@ -1530,8 +1544,14 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 	{
 		if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound") return;
 
+		if (LED_COLOUR_NAME == "cubexx") {
+			executeScript("batocera-led-handheld set_color_force_dec " + 
+                          std::to_string(red) + " " + 
+                          std::to_string(green) + " " + 
+                          std::to_string(blue));
+		}
 		// Handle monochrome power state mappings (1 = ON, 0 = OFF)
-		if (LED_COLOUR_NAME == "monochrome") {
+		else if (LED_COLOUR_NAME == "monochrome") {
 			int brightnessValue = (red > 0 || green > 0 || blue > 0) ? 1 : 0;
 			std::vector<std::string> mono_nodes = { "left_joystick", "right_joystick", "left_side", "right_side" };
 			for (const auto& node : mono_nodes) {
@@ -1594,7 +1614,8 @@ bool ApiSystem::getLEDBrightness(int& value)
                 directory.find(":rgb:joystick_rings") != std::string::npos ||
                 directory.find("rgb:l1") != std::string::npos ||
                 directory.find("l:r1") != std::string::npos ||
-                directory.find("left_joystick") != std::string::npos) // AYN Odin: use left_joystick
+                directory.find("left_joystick") != std::string::npos ||
+                directory.find("rgb:kbd_backlight") != std::string::npos) // AYN Odin: use left_joystick
             {
                 std::string ledBrightnessPath = directory + "/brightness";
                 std::string ledMaxBrightnessPath = directory + "/max_brightness";
@@ -1647,6 +1668,15 @@ void ApiSystem::setLEDBrightness(int value)
 
     if (value < 0) value = 0;
     if (value > 100) value = 100;
+
+	if (LED_COLOUR_NAME == "cubexx") {
+		SystemConf::getInstance()->set("led.brightness", std::to_string(value));
+		SystemConf::getInstance()->saveSystemConf();
+		int r, g, b;
+		getLEDColours(r, g, b);
+		setLEDColours(r, g, b);
+		return;
+	}
 
     std::string colorStr = SystemConf::getInstance()->get("led.colour");
     if (colorStr.empty()) colorStr = "255 255 255"; // Default to white if not set
