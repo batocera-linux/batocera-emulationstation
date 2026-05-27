@@ -374,7 +374,9 @@ void ISimpleGameListView::showSelectedGameSaveSnapshots()
 	if (!cursor->getSourceFileData()->getChildGames().empty())
 	{
 		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
-		ViewController::get()->launch(cursor, LaunchGameOptions());
+		LaunchGameOptions options;
+		options.forceShowSaveState = true;
+		ViewController::get()->launch(cursor, options);
 		return;
 	}
 

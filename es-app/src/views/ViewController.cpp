@@ -540,15 +540,19 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 			std::function<void(FileData*)> launchVersion = [this, options, center](FileData* selectedGame)
 			{
-				if (SaveStateRepository::isEnabled(selectedGame) &&
-					(selectedGame->getCurrentGameSetting("savestates") == "1" ||
+				bool showSaveState = SaveStateRepository::isEnabled(selectedGame) &&
+					(options.forceShowSaveState ||
+					 selectedGame->getCurrentGameSetting("savestates") == "1" ||
 					 (selectedGame->getCurrentGameSetting("savestates") == "2" &&
-					  selectedGame->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(selectedGame))))
+					  selectedGame->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(selectedGame)));
+
+				if (showSaveState)
 				{
 					mWindow->pushGui(new GuiSaveState(mWindow, selectedGame, [this, selectedGame, options, center](SaveState* state)
 					{
 						LaunchGameOptions newOptions = options;
 						newOptions.saveStateInfo = state;
+						newOptions.forceShowSaveState = false;
 						launch(selectedGame, newOptions, center, false);
 					}));
 				}
