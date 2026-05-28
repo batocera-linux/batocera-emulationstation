@@ -197,6 +197,11 @@ public:
 
     bool setOverclock(std::string mode);
 
+#ifdef BATOCERA
+    bool areCpuMitigationsEnabled();
+    bool setCpuMitigationsEnabled(bool enabled);
+#endif
+
     virtual std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr, bool fromlocalmedia = false);
 
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
