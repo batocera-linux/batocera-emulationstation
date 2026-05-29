@@ -28,6 +28,9 @@
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
 #include "SystemConf.h"
+#include "LangParser.h"
+#include "views/gamelist/GameNameFormatter.h"
+#include "components/MultiLineMenuEntry.h"
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
 	mMenu(window, game->getName()), mReloadAll(false)
@@ -48,6 +51,85 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	}
 
 	addChild(&mMenu);
+
+	// Version selector for parent-child game groups
+	{
+		auto getVersionLabel = [](FileData* fd) -> std::string {
+			std::string name = fd->getMetadata().getName();
+			return name.empty() ? fd->getDisplayName() : name;
+		};
+
+
+		auto getVersionBadges = [](FileData* fd) -> std::string {
+			std::string badges;
+
+			if (fd->getFavorite())
+				badges += _U("\uF006");  // star - favorite
+
+			fd->detectLanguageAndRegion(false);
+			std::string lang   = fd->getMetadata(MetaDataId::Language);
+			std::string region = fd->getMetadata(MetaDataId::Region);
+			if (!lang.empty() || !region.empty())
+			{
+				if (!badges.empty()) badges += "  ";
+				std::string flag = GameNameFormatter::getLangFlag(LangInfo::getFlag(lang, region));
+				if (!flag.empty())
+					badges += flag;
+			}
+
+			auto system = fd->getSourceFileData()->getSystem();
+			if (SaveStateRepository::isEnabled(fd) && system->getSaveStateRepository()->hasSaveStates(fd))
+			{
+				if (!badges.empty()) badges += "  ";
+				badges += _U("\uF0C7");  // floppy disk - has save states
+			}
+
+			if (fd->hasCheevos())
+			{
+				if (!badges.empty()) badges += "  ";
+				badges += _U("\uF091");  // trophy - has achievements
+			}
+
+			return badges;
+		};
+
+		FileData* sourceGame = game->getSourceFileData();
+		FileData* parentGame = sourceGame->getParentGame();
+		FileData* rootParent = (parentGame != nullptr) ? parentGame : sourceGame;
+		auto childGames = rootParent->getChildGames();
+
+		if (!childGames.empty())
+		{
+			auto versionList = std::make_shared<OptionListComponent<FileData*>>(mWindow, _("VERSION"), false);
+			versionList->addEx(getVersionLabel(rootParent), getVersionBadges(rootParent), rootParent, sourceGame == rootParent, false, false);
+			for (auto child : childGames)
+				versionList->addEx(getVersionLabel(child), getVersionBadges(child), child, sourceGame == child, false, false);
+
+			auto versionEntry = std::make_shared<MultiLineMenuEntry>(mWindow, _("VERSION"), getVersionLabel(sourceGame), true);
+
+			versionList->setSelectedChangedCallback([this, versionEntry, getVersionLabel](FileData* selected)
+			{
+				versionEntry->setDescription(getVersionLabel(selected));
+
+				if (selected != mGame->getSourceFileData())
+				{
+					Window* w = mWindow;
+					w->pushGui(new GuiGameOptions(w, selected));
+					close();
+				}
+			});
+
+			auto bracket = std::make_shared<ImageComponent>(mWindow);
+			bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow);
+			bracket->setResize(Vector2f(0, ThemeData::getMenuTheme()->Text.font->getLetterHeight()));
+
+			ComponentListRow row;
+			row.addElement(versionEntry, true);
+			row.addElement(bracket, false);
+			row.makeAcceptInputHandler([versionList] { versionList->openPopup(); });
+			mMenu.addRow(row);
+		}
+	}
 
 	bool isImageViewer = game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER);
 	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Manual));
