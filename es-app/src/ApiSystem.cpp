@@ -1794,7 +1794,7 @@ void ApiSystem::setLEDEnabled(bool enabled)
 bool ApiSystem::isLEDMonochrome()
 {
 #if WIN32
-    return;
+    return false;
 #else
     return (LED_COLOUR_NAME == "monochrome");
 #endif
