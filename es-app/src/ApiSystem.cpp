@@ -1377,6 +1377,14 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 
 	for (const auto& entry : entries)
 	{
+		if (entry.find("joystick-left") != std::string::npos)
+		{
+			LED_COLOUR_NAME = "rg_vita_pro";
+			mSystemLedType = LED_TYPE_UNIFIED;
+			LOG(LogInfo) << "ApiSystem::getLED > Found Anbernic RG Vita Pro LED at " << entry;
+			break;
+		}
+
 		if (entry.find("rgb:kbd_backlight") != std::string::npos)
 		{
 			LED_COLOUR_NAME = "cubexx";
@@ -1442,7 +1450,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			executeScript("batocera-led-handheld block_color_changes");
 			return true;
 		}
-		else if (LED_COLOUR_NAME == "cubexx") 
+		else if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro") 
 		{
 			getLEDColours(red, green, blue);
 			executeScript("batocera-led-handheld block_color_changes");
@@ -1544,7 +1552,7 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 	{
 		if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound") return;
 
-		if (LED_COLOUR_NAME == "cubexx") {
+		if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro") {
 			executeScript("batocera-led-handheld set_color_force_dec " + 
                           std::to_string(red) + " " + 
                           std::to_string(green) + " " + 
@@ -1615,7 +1623,8 @@ bool ApiSystem::getLEDBrightness(int& value)
                 directory.find("rgb:l1") != std::string::npos ||
                 directory.find("l:r1") != std::string::npos ||
                 directory.find("left_joystick") != std::string::npos ||
-                directory.find("rgb:kbd_backlight") != std::string::npos) // AYN Odin: use left_joystick
+                directory.find("rgb:kbd_backlight") != std::string::npos ||
+                directory.find("joystick-left") != std::string::npos)
             {
                 std::string ledBrightnessPath = directory + "/brightness";
                 std::string ledMaxBrightnessPath = directory + "/max_brightness";
@@ -1669,7 +1678,7 @@ void ApiSystem::setLEDBrightness(int value)
     if (value < 0) value = 0;
     if (value > 100) value = 100;
 
-	if (LED_COLOUR_NAME == "cubexx") {
+	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro") {
 		SystemConf::getInstance()->set("led.brightness", std::to_string(value));
 		SystemConf::getInstance()->saveSystemConf();
 		int r, g, b;
