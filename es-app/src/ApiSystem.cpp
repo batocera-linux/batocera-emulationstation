@@ -237,7 +237,7 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 
 	std::string updatecommand = "batocera-upgrade";
 	if(fromlocalmedia) {
-	  updatecommand = "batocera-upgrade manual media";
+	  updatecommand = "batocera-upgrade --check-media-upgrade";
 	}
 
 	FILE *pipe = popen(updatecommand.c_str(), "r");
@@ -393,7 +393,7 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output)
 {
 	LOG(LogDebug) << "ApiSystem::canUpdate";
 
-	FILE *pipe = popen("batocera-config canupdate", "r");
+	FILE *pipe = popen("batocera-upgrade --check-update", "r");
 	if (pipe == NULL)
 		return false;
 
