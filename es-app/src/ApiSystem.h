@@ -197,7 +197,7 @@ public:
 
     bool setOverclock(std::string mode);
 
-    virtual std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr);
+    virtual std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr, bool fromlocalmedia = false);
 
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
     std::pair<std::string, int> installSystem(BusyComponent* ui, std::string device, std::string architecture);
@@ -205,6 +205,7 @@ public:
 
     virtual bool ping();
     virtual bool canUpdate(std::vector<std::string>& output);
+    virtual bool canLocalUpdate(); // update from a local media
 	virtual void setReadyFlag(bool ready = true);
 	virtual bool isReadyFlagSet();
 
