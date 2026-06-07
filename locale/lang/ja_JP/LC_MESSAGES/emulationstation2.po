@@ -583,16 +583,6 @@ msgstr "スクレイプするシステム"
 msgid "START"
 msgstr "スタート"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "%s を更新しています"
-
-msgid "UPDATE IS READY"
-msgstr "更新準備完了"
-
-msgid "REBOOT TO APPLY"
-msgstr "再起動すると適用されます"
-
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
 
@@ -622,6 +612,16 @@ msgstr "ネットワーク接続が必要です"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "更新はありません"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "%s を更新しています"
+
+msgid "UPDATE IS READY"
+msgstr "更新準備完了"
+
+msgid "REBOOT TO APPLY"
+msgstr "再起動すると適用されます"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ネットプレイの接続"
@@ -2258,6 +2258,12 @@ msgstr "更新 開始"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新は既に実行中です"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "言語"

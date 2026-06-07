@@ -581,16 +581,6 @@ msgstr "SISTEM TERMASUK"
 msgid "START"
 msgstr "MULAI"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "MEMPERBARUI %s"
-
-msgid "UPDATE IS READY"
-msgstr "PEMBARUAN SUDAH SIAP"
-
-msgid "REBOOT TO APPLY"
-msgstr "MULAI ULANG UNTUK MENERAPKAN"
-
 msgid "REALLY UPDATE?"
 msgstr "YAKIN MEMPERBARUI?"
 
@@ -617,6 +607,16 @@ msgstr "KONEKSI JARINGAN DIPERLUKAN"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "TIDAK ADA PEMBARUAN YANG TERSEDIA"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "MEMPERBARUI %s"
+
+msgid "UPDATE IS READY"
+msgstr "PEMBARUAN SUDAH SIAP"
+
+msgid "REBOOT TO APPLY"
+msgstr "MULAI ULANG UNTUK MENERAPKAN"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "HUBUNGKAN KE NETPLAY"
@@ -2171,8 +2171,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Tekan Sebentar Ã¢â€“Â³ ( Segitiga ) untuk Penyimpanandan tekan lama Ãƒâ€” untuk "
-"pengaturan game"
+"Tekan Sebentar Ã¢â€“Â³ ( Segitiga ) untuk Penyimpanandan tekan lama Ãƒâ€” "
+"untuk pengaturan game"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROL EMULATIONSTATION DENGAN JOYSTICK PERTAMA"
@@ -2255,6 +2255,12 @@ msgstr "MULAI PEMBARUAN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "PEMBARUAN SEDANG BERLANGSUNG"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "BAHASA"

@@ -589,16 +589,6 @@ msgstr "SISTEMAS INCLUÍDOS"
 msgid "START"
 msgstr "COMEZAR"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "ACTUALIZANDO %s"
-
-msgid "UPDATE IS READY"
-msgstr "A ACTUALIZACIÓN ESTÁ LISTA"
-
-msgid "REBOOT TO APPLY"
-msgstr "REINICIAR PARA APLICAR"
-
 msgid "REALLY UPDATE?"
 msgstr "SEGURO DE ACTUALIZAR?"
 
@@ -625,6 +615,16 @@ msgstr "NECESÍTASE CONEXIÓN Á REDE"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "SEN ACTUALIZACIÓN DISPOÑÍBEL"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "ACTUALIZANDO %s"
+
+msgid "UPDATE IS READY"
+msgstr "A ACTUALIZACIÓN ESTÁ LISTA"
+
+msgid "REBOOT TO APPLY"
+msgstr "REINICIAR PARA APLICAR"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTAR A XOGO EN REDE"
@@ -2269,6 +2269,12 @@ msgstr "COMEZAR ACTUALIZACIÓN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "O INSTALADOR XA SE ESTÁ A EXECUTARSE"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
