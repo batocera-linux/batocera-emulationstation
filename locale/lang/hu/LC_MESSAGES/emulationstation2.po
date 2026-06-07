@@ -589,16 +589,6 @@ msgstr "RENDSZEREK TARTALMAZZÁK"
 msgid "START"
 msgstr "START"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "FRISSÍTÉSE %s"
-
-msgid "UPDATE IS READY"
-msgstr "FRISSÍTÉS KÉSZ"
-
-msgid "REBOOT TO APPLY"
-msgstr "INDÍTSA ÚJRA AZ ALKALMAZÁST"
-
 msgid "REALLY UPDATE?"
 msgstr "BIZTOS FRISSÍTESZ?"
 
@@ -625,6 +615,16 @@ msgstr "HÁLÓZATI CSATLAKOZÁS SZÜKSÉGES"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "NINCS FRISSÍTÉS"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "FRISSÍTÉSE %s"
+
+msgid "UPDATE IS READY"
+msgstr "FRISSÍTÉS KÉSZ"
+
+msgid "REBOOT TO APPLY"
+msgstr "INDÍTSA ÚJRA AZ ALKALMAZÁST"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CSATLAKOZÁS NETPLAY-HEZ"
@@ -2272,6 +2272,12 @@ msgstr "FRISSÍTÉS INDÍTÁS"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "A FRISSÍTŐ MÁR FUT"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "NYELV"

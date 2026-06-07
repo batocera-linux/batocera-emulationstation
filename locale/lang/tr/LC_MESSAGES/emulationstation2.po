@@ -588,16 +588,6 @@ msgstr "DAHİL EDİLMİŞ SİSTEMLER"
 msgid "START"
 msgstr "BAŞLAT"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "GÜNCELLENİYOR %s"
-
-msgid "UPDATE IS READY"
-msgstr "GÜNCELLEME HAZIR"
-
-msgid "REBOOT TO APPLY"
-msgstr "UYGULAMAK İÇİN ÖNYÜKLE"
-
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
 
@@ -624,6 +614,16 @@ msgstr "AĞ BAĞLANTISI GEREKİYOR"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "YENİ GÜNCELLEME YOK"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "GÜNCELLENİYOR %s"
+
+msgid "UPDATE IS READY"
+msgstr "GÜNCELLEME HAZIR"
+
+msgid "REBOOT TO APPLY"
+msgstr "UYGULAMAK İÇİN ÖNYÜKLE"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "NETPLAY BAĞLAN"
@@ -2266,6 +2266,12 @@ msgstr "GÜNCELLE"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "GÜNCELLEYİCİ ZATEN ÇALIŞIYOR"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "DİL"

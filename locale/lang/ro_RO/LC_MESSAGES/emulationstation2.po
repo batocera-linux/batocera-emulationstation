@@ -596,16 +596,6 @@ msgstr "SISTEME INCLUSE"
 msgid "START"
 msgstr "ÎNCEPE"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "SE ACTUALIZEAZĂ %s"
-
-msgid "UPDATE IS READY"
-msgstr "ACTUALIZAREA ESTE PREGĂTITĂ"
-
-msgid "REBOOT TO APPLY"
-msgstr "REPORNEȘTE PENTRU A APLICA"
-
 msgid "REALLY UPDATE?"
 msgstr "SIGUR ACTUALIZEZI?"
 
@@ -632,6 +622,16 @@ msgstr "O CONEXIUNE LA REȚEA ESTE NECESARĂ"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "NICIO ACTUALIZARE DISPONIBILĂ"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "SE ACTUALIZEAZĂ %s"
+
+msgid "UPDATE IS READY"
+msgstr "ACTUALIZAREA ESTE PREGĂTITĂ"
+
+msgid "REBOOT TO APPLY"
+msgstr "REPORNEȘTE PENTRU A APLICA"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTEAZĂ-TE LA NETPLAY"
@@ -2276,6 +2276,12 @@ msgstr "ÎNCEPE ACTUALIZAREA"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ACTUALIZATORUL DEJA RULEAZĂ"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "LIMBĂ"

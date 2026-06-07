@@ -588,16 +588,6 @@ msgstr "OBSAŽENÉ SYSTÉMY"
 msgid "START"
 msgstr "START"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "PROBÍHÁ AKTUALIZACE %s"
-
-msgid "UPDATE IS READY"
-msgstr "AKTUALIZACE HOTOVÁ"
-
-msgid "REBOOT TO APPLY"
-msgstr "NUTNÝ RESTART"
-
 msgid "REALLY UPDATE?"
 msgstr "OPRAVDU AKTUALIZOVAT?"
 
@@ -624,6 +614,16 @@ msgstr "JE NUTNÉ PŘIPOJENÍ K SÍTI"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "NENÍ K DISPOZICI ŽÁDNÁ AKTUALIZACE"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "PROBÍHÁ AKTUALIZACE %s"
+
+msgid "UPDATE IS READY"
+msgstr "AKTUALIZACE HOTOVÁ"
+
+msgid "REBOOT TO APPLY"
+msgstr "NUTNÝ RESTART"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "PŘIPOJIT SE K SÍTI"
@@ -2256,6 +2256,12 @@ msgstr "AKTUALIZOVAT"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "AKTUALIZÁTOR JE JIŽ SPUŠTĚN"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "JAZYK"

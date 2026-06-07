@@ -595,16 +595,6 @@ msgstr ""
 msgid "START"
 msgstr "DECHRAU"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr ""
-
-msgid "UPDATE IS READY"
-msgstr "MAE'R DIWEDDARIAD YN BAROD"
-
-msgid "REBOOT TO APPLY"
-msgstr ""
-
 msgid "REALLY UPDATE?"
 msgstr "IAWN I DDIWEDDARU?"
 
@@ -626,6 +616,16 @@ msgstr "ANGEN CYSWLLT RHWYDWAITH"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "DIM DIWEDDARIAD AR GAEL"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr "MAE'R DIWEDDARIAD YN BAROD"
+
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CYSYLLTWCH Â RHWYDWAITH"
@@ -2239,6 +2239,12 @@ msgid "START UPDATE"
 msgstr "DECHRAU DIWEDDARIAD"
 
 msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr ""
 
 msgid "LANGUAGE"

@@ -583,16 +583,6 @@ msgstr "시스템 포함"
 msgid "START"
 msgstr "시작"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "%s 업데이트"
-
-msgid "UPDATE IS READY"
-msgstr "업데이트 준비됨"
-
-msgid "REBOOT TO APPLY"
-msgstr "적용하려면 재부팅"
-
 msgid "REALLY UPDATE?"
 msgstr "정말 업데이트할까요?"
 
@@ -619,6 +609,16 @@ msgstr "인터넷 연결 필요함"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트 없음"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "%s 업데이트"
+
+msgid "UPDATE IS READY"
+msgstr "업데이트 준비됨"
+
+msgid "REBOOT TO APPLY"
+msgstr "적용하려면 재부팅"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "넷플레이에 연결"
@@ -2250,6 +2250,12 @@ msgstr "업데이트 시작"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "언어"

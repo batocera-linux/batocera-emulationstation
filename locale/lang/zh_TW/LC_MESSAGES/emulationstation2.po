@@ -580,16 +580,6 @@ msgstr "已包含的遊戲平台"
 msgid "START"
 msgstr "開始"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "正在更新 %s"
-
-msgid "UPDATE IS READY"
-msgstr "已準備好可以更新"
-
-msgid "REBOOT TO APPLY"
-msgstr "重開機套用更新"
-
 msgid "REALLY UPDATE?"
 msgstr "確定要更新嗎？"
 
@@ -616,6 +606,16 @@ msgstr "需要連線到網際網路"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "沒有可用的更新"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "正在更新 %s"
+
+msgid "UPDATE IS READY"
+msgstr "已準備好可以更新"
+
+msgid "REBOOT TO APPLY"
+msgstr "重開機套用更新"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "連線到多人遊戲"
@@ -2235,6 +2235,12 @@ msgstr "開始更新"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新已經在進行了"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "語言"

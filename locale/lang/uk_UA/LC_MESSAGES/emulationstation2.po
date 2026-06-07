@@ -583,16 +583,6 @@ msgstr "ІНТЕГРОВАНІ"
 msgid "START"
 msgstr "ПОЧАТИ"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "ОНОВЛЕННЯ %s"
-
-msgid "UPDATE IS READY"
-msgstr "ОНОВЛЕННЯ ГОТОВЕ"
-
-msgid "REBOOT TO APPLY"
-msgstr "ПЕРЕЗАВАНТАЖИТИ ДЛЯ ЗАСТОСУВАННЯ"
-
 msgid "REALLY UPDATE?"
 msgstr "ДІЙСНО ОНОВИТИ?"
 
@@ -619,6 +609,16 @@ msgstr "НЕОБХІДНО МЕРЕЖЕВЕ З'ЄДНАННЯ"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "НЕМАЄ ОНОВЛЕНЬ"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "ОНОВЛЕННЯ %s"
+
+msgid "UPDATE IS READY"
+msgstr "ОНОВЛЕННЯ ГОТОВЕ"
+
+msgid "REBOOT TO APPLY"
+msgstr "ПЕРЕЗАВАНТАЖИТИ ДЛЯ ЗАСТОСУВАННЯ"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ПІД'ЄДНАТИСЬ ДО NETPLAY"
@@ -2235,6 +2235,12 @@ msgid "START UPDATE"
 msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 
 msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr ""
 
 msgid "LANGUAGE"

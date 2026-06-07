@@ -582,16 +582,6 @@ msgstr ""
 msgid "START"
 msgstr ""
 
-#, c-format
-msgid "UPDATING %s"
-msgstr ""
-
-msgid "UPDATE IS READY"
-msgstr ""
-
-msgid "REBOOT TO APPLY"
-msgstr ""
-
 msgid "REALLY UPDATE?"
 msgstr ""
 
@@ -612,6 +602,16 @@ msgid "NETWORK CONNECTION NEEDED"
 msgstr ""
 
 msgid "NO UPDATE AVAILABLE"
+msgstr ""
+
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr ""
+
+msgid "REBOOT TO APPLY"
 msgstr ""
 
 msgid "CONNECT TO NETPLAY"
@@ -2224,6 +2224,12 @@ msgid "START UPDATE"
 msgstr ""
 
 msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr ""
 
 msgid "LANGUAGE"

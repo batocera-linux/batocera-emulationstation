@@ -592,16 +592,6 @@ msgstr "SYSTEM INGÅR"
 msgid "START"
 msgstr "STARTA"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "UPPDATERING %s"
-
-msgid "UPDATE IS READY"
-msgstr "UPPDATERINGEN ÄR KLAR"
-
-msgid "REBOOT TO APPLY"
-msgstr "STARTA OM FÖR ATT TILLÄMPA"
-
 msgid "REALLY UPDATE?"
 msgstr "VERKLIGEN UPPDATERING?"
 
@@ -628,6 +618,16 @@ msgstr "NÄTVERKSANSLUTNING BEHÖVS"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "INGEN UPPDATERING TILLGÄNGLIG"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "UPPDATERING %s"
+
+msgid "UPDATE IS READY"
+msgstr "UPPDATERINGEN ÄR KLAR"
+
+msgid "REBOOT TO APPLY"
+msgstr "STARTA OM FÖR ATT TILLÄMPA"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "ANSLUT TILL NETPLAY"
@@ -2266,6 +2266,12 @@ msgstr "STARTA UPPDATERING"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "UPPDATERINGSPROGRAMMET ÄR REDAN IGÅNG"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "SPRÅKET"

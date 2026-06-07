@@ -590,16 +590,6 @@ msgstr "BAO GỒM HỆ THỐNG"
 msgid "START"
 msgstr "BẮT ĐẦU"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "ĐANG CẬP NHẬP %s"
-
-msgid "UPDATE IS READY"
-msgstr "BẢN CẬP NHẬP ĐÃ SẴN SÀNG"
-
-msgid "REBOOT TO APPLY"
-msgstr "KHỞI ĐỘNG LẠI ĐỂ ÁP DỤNG CÀI ĐẶT"
-
 msgid "REALLY UPDATE?"
 msgstr "BẠN CÓ THỰC SỰ MUỐN CẬP NHẬP KHÔNG?"
 
@@ -626,6 +616,16 @@ msgstr "CẦN KẾT NỐI MẠNG"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "KHÔNG CÓ BẢN CẬP NHẬP NÀO"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "ĐANG CẬP NHẬP %s"
+
+msgid "UPDATE IS READY"
+msgstr "BẢN CẬP NHẬP ĐÃ SẴN SÀNG"
+
+msgid "REBOOT TO APPLY"
+msgstr "KHỞI ĐỘNG LẠI ĐỂ ÁP DỤNG CÀI ĐẶT"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "KẾT NỐI ĐẾN NETPLAY"
@@ -2258,6 +2258,12 @@ msgstr "BẮT ĐẦU CẬP NHẬT"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "CẬP NHẬT ĐANG CHẠY"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "NGÔN NGỮ"

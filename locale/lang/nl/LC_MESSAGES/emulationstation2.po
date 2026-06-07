@@ -594,16 +594,6 @@ msgstr "INBEGREPEN SYSTEMEN"
 msgid "START"
 msgstr "START"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "UPDATEN %s"
-
-msgid "UPDATE IS READY"
-msgstr "DE UPDATE IS KLAAR"
-
-msgid "REBOOT TO APPLY"
-msgstr "OPNIEUW OPSTARTEN OM DIT TOE TE PASSEN"
-
 msgid "REALLY UPDATE?"
 msgstr "WILT U ECHT UPDATEN?"
 
@@ -630,6 +620,16 @@ msgstr "NETWERK VERBINDING BENODIGD"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "ER IS GEEN UPDATE BESCHIKBAAR"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "UPDATEN %s"
+
+msgid "UPDATE IS READY"
+msgstr "DE UPDATE IS KLAAR"
+
+msgid "REBOOT TO APPLY"
+msgstr "OPNIEUW OPSTARTEN OM DIT TOE TE PASSEN"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "VERBIND MET NETPLAY"
@@ -2274,6 +2274,12 @@ msgstr "UPDATE STARTEN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "DE UPDATER IS AL BEZIG"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "TAAL"

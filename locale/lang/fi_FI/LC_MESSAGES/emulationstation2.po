@@ -592,16 +592,6 @@ msgstr "SISÄLLETYT JÄRJESTELMÄT"
 msgid "START"
 msgstr "KÄYNNISTÄ"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "PÄIVITETÄÄN %s"
-
-msgid "UPDATE IS READY"
-msgstr "PÄIVITYS ON VALMIS"
-
-msgid "REBOOT TO APPLY"
-msgstr "UUDELLEENKÄYNNISTÄ VIIMEISTELLÄKSESI"
-
 msgid "REALLY UPDATE?"
 msgstr "HALUATKO VARMASTI PÄIVITTÄÄ?"
 
@@ -628,6 +618,16 @@ msgstr "VERKKOYHTEYS VAADITAAN"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "PÄIVITYKSIÄ EI SAATAVILLA"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "PÄIVITETÄÄN %s"
+
+msgid "UPDATE IS READY"
+msgstr "PÄIVITYS ON VALMIS"
+
+msgid "REBOOT TO APPLY"
+msgstr "UUDELLEENKÄYNNISTÄ VIIMEISTELLÄKSESI"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "YHDISTÄ VERKKOPELIIN"
@@ -2247,6 +2247,12 @@ msgstr "ALOITA PÄIVITYS"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "PÄIVITYS ON JO KÄYNNISSÄ"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "KIELI"

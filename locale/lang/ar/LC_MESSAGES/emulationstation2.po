@@ -634,16 +634,6 @@ msgstr "الأنظمة المعنية"
 msgid "START"
 msgstr "ابدأ"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "تحديث %s"
-
-msgid "UPDATE IS READY"
-msgstr "التحديث جاهز"
-
-msgid "REBOOT TO APPLY"
-msgstr "أعد التشغيل للتطبيق"
-
 msgid "REALLY UPDATE?"
 msgstr "هل فعلا تريد التحديث ؟"
 
@@ -668,6 +658,16 @@ msgstr "بحاجة الى الاتصال بالشبكة"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "لا توجد تحديثات"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "تحديث %s"
+
+msgid "UPDATE IS READY"
+msgstr "التحديث جاهز"
+
+msgid "REBOOT TO APPLY"
+msgstr "أعد التشغيل للتطبيق"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "الإتصال بـ لعبة نت"
@@ -2294,6 +2294,12 @@ msgstr "بدء التحديث"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "التحديث شغال مسبقا"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "اللغة"

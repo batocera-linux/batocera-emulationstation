@@ -591,16 +591,6 @@ msgstr "SYSTEME INKLUSIVE"
 msgid "START"
 msgstr "STARTEN"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "UPDATING %s"
-
-msgid "UPDATE IS READY"
-msgstr "UPDATE IST BEREIT"
-
-msgid "REBOOT TO APPLY"
-msgstr "NEUSTART FÜR ÜBERNAHME"
-
 msgid "REALLY UPDATE?"
 msgstr "WIRKLICH UPDATEN?"
 
@@ -627,6 +617,16 @@ msgstr "NETZWERKVERBINDUNG BENÖTIGT"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "KEIN UPDATE VERFÜGBAR"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "UPDATING %s"
+
+msgid "UPDATE IS READY"
+msgstr "UPDATE IST BEREIT"
+
+msgid "REBOOT TO APPLY"
+msgstr "NEUSTART FÜR ÜBERNAHME"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "MIT NETPLAY VERBINDEN"
@@ -2276,6 +2276,12 @@ msgstr "UPDATE STARTEN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "UPDATER LÄUFT BEREITS"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "SPRACHE"

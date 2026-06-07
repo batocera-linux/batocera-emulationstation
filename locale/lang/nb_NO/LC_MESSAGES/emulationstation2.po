@@ -587,16 +587,6 @@ msgstr "SYSTEMER INKLUDERT"
 msgid "START"
 msgstr "START"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "OPPDATERER %s"
-
-msgid "UPDATE IS READY"
-msgstr "OPPDATERING ER KLAR"
-
-msgid "REBOOT TO APPLY"
-msgstr "OMSTART FOR Å BRUKE"
-
 msgid "REALLY UPDATE?"
 msgstr "VIL DU VIRKELIG OPPDATERE?"
 
@@ -623,6 +613,16 @@ msgstr "NETTVERKSTILKOBLING PÅKREVET"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "SYSTEMET ER OPPDATERT"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "OPPDATERER %s"
+
+msgid "UPDATE IS READY"
+msgstr "OPPDATERING ER KLAR"
+
+msgid "REBOOT TO APPLY"
+msgstr "OMSTART FOR Å BRUKE"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "KOBLE TIL NETPLAY"
@@ -2253,6 +2253,12 @@ msgstr "START OPPDATERING"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "OPPDATERER KJØRER ALLEREDE"
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "SPRÅK"

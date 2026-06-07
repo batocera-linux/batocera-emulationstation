@@ -587,16 +587,6 @@ msgstr ""
 msgid "START"
 msgstr "התחלה"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr "מעדכן %s"
-
-msgid "UPDATE IS READY"
-msgstr "עדכון מוכן להתקנה"
-
-msgid "REBOOT TO APPLY"
-msgstr "הפעל מחדש בכדי להחיל הגדרות"
-
 msgid "REALLY UPDATE?"
 msgstr "באמת לעדכן ?"
 
@@ -618,6 +608,16 @@ msgstr "נדרש חיבור לרשת"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "אין עדכון זמין"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "מעדכן %s"
+
+msgid "UPDATE IS READY"
+msgstr "עדכון מוכן להתקנה"
+
+msgid "REBOOT TO APPLY"
+msgstr "הפעל מחדש בכדי להחיל הגדרות"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "התחברות לרשת NETPLAY"
@@ -2229,6 +2229,12 @@ msgid "START UPDATE"
 msgstr "התחל עידכון"
 
 msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr ""
 
 msgid "LANGUAGE"

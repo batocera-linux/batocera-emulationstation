@@ -585,16 +585,6 @@ msgstr ""
 msgid "START"
 msgstr "COMENÇAR"
 
-#, c-format
-msgid "UPDATING %s"
-msgstr ""
-
-msgid "UPDATE IS READY"
-msgstr "MESA A JORN PRÈSTA"
-
-msgid "REBOOT TO APPLY"
-msgstr ""
-
 msgid "REALLY UPDATE?"
 msgstr "METRE A JORN PER DE BON ?"
 
@@ -616,6 +606,16 @@ msgstr "CONNEXION RET REQUERIDA"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "CAP DE MESA A JORN PAS DISPONIBLA"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
+
+msgid "UPDATE IS READY"
+msgstr "MESA A JORN PRÈSTA"
+
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "CONNECT TO NETPLAY"
 msgstr "SE CONNECTAR A NETPLAY"
@@ -2227,6 +2227,12 @@ msgid "START UPDATE"
 msgstr "LANÇAR MESA A JORN"
 
 msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
+
+msgid "START LOCAL MEDIA UPDATE"
+msgstr ""
+
+msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr ""
 
 msgid "LANGUAGE"
