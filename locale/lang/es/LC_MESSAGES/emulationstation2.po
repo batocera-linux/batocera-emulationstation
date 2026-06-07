@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2026-02-04 00:00+0100\n"
+"PO-Revision-Date: 2026-05-26 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -61,7 +61,7 @@ msgid "Full"
 msgstr "Completo"
 
 msgid "Kiosk"
-msgstr "Restringido"
+msgstr "Kiosko"
 
 msgid "Kid"
 msgstr "Para niños"
@@ -481,13 +481,13 @@ msgid "VOLUME MUTE"
 msgstr "SILENCIAR VOLUMEN"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "INICIAR GRABACIÓN"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "DETENER GRABACIÓN"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "CAMBIAR TECLADO"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TECLA ASIGNADA DOS VECES"
@@ -592,6 +592,16 @@ msgstr "SISTEMAS INCLUIDOS"
 msgid "START"
 msgstr "INICIAR"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "ACTUALIZANDO %s"
+
+msgid "UPDATE IS READY"
+msgstr "LA ACTUALIZACIÓN ESTÁ LISTA"
+
+msgid "REBOOT TO APPLY"
+msgstr "REINICIAR PARA APLICAR LOS CAMBIOS"
+
 msgid "REALLY UPDATE?"
 msgstr "¿ESTÁS SEGURO DE ACTUALIZAR?"
 
@@ -618,16 +628,6 @@ msgstr "ES NECESARIA UNA CONEXIÓN DE RED"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "NO HAY ACTUALIZACIONES DISPONIBLES"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "ACTUALIZANDO %s"
-
-msgid "UPDATE IS READY"
-msgstr "LA ACTUALIZACIÓN ESTÁ LISTA"
-
-msgid "REBOOT TO APPLY"
-msgstr "REINICIAR PARA APLICAR LOS CAMBIOS"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTAR A NETPLAY"
@@ -1151,7 +1151,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NIVEL DE BATERÍA"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "MOSTRAR NOTIFICACIONES DEL ARMA"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DIBUJAR PUNTO DE MIRA DE ARMA"
@@ -2253,7 +2253,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMIZAR USO DE VRAM PARA VÍDEOS"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "USAR CACHE SISTEMA DE ARCHIVOS"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
@@ -2281,12 +2281,6 @@ msgstr "INICIAR ACTUALIZACIÓN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ACTUALIZACIÓN EN MARCHA"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -3434,7 +3428,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID DE JUEGO EN SCREENSCRAPER"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "Multidisco"
 
 msgid "Loading system config..."
 msgstr "Cargando configuración del sistema..."
@@ -3924,7 +3918,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Agregando unidad a la lista de ignorados..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "SÍ, UNIDAD FUSIONADA"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NUEVA UNIDAD DETECTADA"

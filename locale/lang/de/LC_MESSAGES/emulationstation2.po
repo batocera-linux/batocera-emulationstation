@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-02-03 16:38+0000\n"
+"PO-Revision-Date: 2026-05-16 16:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: de_DE\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "Searching"
 msgstr "Suche"
@@ -480,13 +480,13 @@ msgid "VOLUME MUTE"
 msgstr "LAUTSTÄRKE STUMM"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "AUFNAHME STARTEN"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "AUFNAHME STOPPEN"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "TASTATUR UMSCHALTEN"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TASTE DOPPELT BELEGT"
@@ -591,6 +591,16 @@ msgstr "SYSTEME INKLUSIVE"
 msgid "START"
 msgstr "STARTEN"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "UPDATING %s"
+
+msgid "UPDATE IS READY"
+msgstr "UPDATE IST BEREIT"
+
+msgid "REBOOT TO APPLY"
+msgstr "NEUSTART FÜR ÜBERNAHME"
+
 msgid "REALLY UPDATE?"
 msgstr "WIRKLICH UPDATEN?"
 
@@ -617,16 +627,6 @@ msgstr "NETZWERKVERBINDUNG BENÖTIGT"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "KEIN UPDATE VERFÜGBAR"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "UPDATING %s"
-
-msgid "UPDATE IS READY"
-msgstr "UPDATE IST BEREIT"
-
-msgid "REBOOT TO APPLY"
-msgstr "NEUSTART FÜR ÜBERNAHME"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "MIT NETPLAY VERBINDEN"
@@ -1103,8 +1103,8 @@ msgstr "CONTROLLER TASTENBELEGUNG"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
 "TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
@@ -1150,7 +1150,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "PISTOLEN-BENACHRICHTIGUNGEN ANZEIGEN"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "FADENKREUZ ANZEIGEN"
@@ -2222,8 +2222,8 @@ msgstr "UI-ELEMENTE BEIM BOOTEN VORLADEN"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-"
-"Menü, verlängert Boot-Zeit"
+"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-Menü,"
+" verlängert Boot-Zeit"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "MEDIEN-METADATEN BEIM BOOTEN VORLADEN"
@@ -2248,7 +2248,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VIDEO VRAM-NUTZUNG OPTIMIEREN"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "DATEISYSTEM-CACHE VERWENDEN"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
@@ -2276,12 +2276,6 @@ msgstr "UPDATE STARTEN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "UPDATER LÄUFT BEREITS"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "SPRACHE"
@@ -3430,7 +3424,7 @@ msgid "Screenscraper Game ID"
 msgstr "Screenscraper Spiel-ID"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "MultiDisk"
 
 msgid "Loading system config..."
 msgstr "Lade Systemkonfiguration..."
@@ -3511,11 +3505,11 @@ msgid "INVALID CONTENT"
 msgstr "UNGÜLTIGER INHALT"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https://"
-"retroachievements.org"
+"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https:"
+"//retroachievements.org"
 
 msgid "SLOW"
 msgstr "LANGSAM"
@@ -3922,7 +3916,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Laufwerk wird zur Ignorierliste hinzugefügt..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "JA, LAUFWERK ZUSAMMENFÜHREN"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NEUES LAUFWERK ERKANNT"
@@ -3990,9 +3984,3 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d Sekunde her"
 msgstr[1] "%d Sekunden her"
-
-#~ msgid "BUILD IMAGE CACHE"
-#~ msgstr "BILD-CACHE ERSTELLEN"
-
-#~ msgid "Building image cache"
-#~ msgstr "Erstellung des Bild-Cache"

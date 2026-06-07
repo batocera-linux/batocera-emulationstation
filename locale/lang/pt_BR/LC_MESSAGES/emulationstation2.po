@@ -486,13 +486,13 @@ msgid "VOLUME MUTE"
 msgstr "SILENCIAR VOLUME"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "INICIAR GRAVAÇÃO"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "PARAR GRAVAÇÃO"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "ATIVAR TECLADO"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TECLA ASSINALADA DUAS VEZES"
@@ -597,6 +597,16 @@ msgstr "SISTEMAS INCLUÍDOS"
 msgid "START"
 msgstr "INICIAR"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "ATUALIZANDO %s"
+
+msgid "UPDATE IS READY"
+msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
+
+msgid "REBOOT TO APPLY"
+msgstr "REINICIALIZAR PARA APLICAR"
+
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
 
@@ -623,16 +633,6 @@ msgstr "É NECESSÁRIO CONEXÃO COM A INTERNET"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "ATUALIZANDO %s"
-
-msgid "UPDATE IS READY"
-msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
-
-msgid "REBOOT TO APPLY"
-msgstr "REINICIALIZAR PARA APLICAR"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTE-SE AOS JOGOS EM REDE"
@@ -1155,7 +1155,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "MOSTRAR NOTIFICALÇÕES DE ARMAS"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR A MIRA DA ARMA"
@@ -2253,7 +2253,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OTIMIZAR O USO DE VÍDEO NA VRAM"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "USAR CACHÊ DE SISTEMA DE ARQUIVOS"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A NOVA CONFIGURAÇÃO"
@@ -2281,12 +2281,6 @@ msgstr "INICIAR ATUALIZAÇÃO"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO JÁ ESTÁ EM EXECUÇÃO"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -3432,7 +3426,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID da Mídia do Jogo"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "Múltiplos Discos"
 
 msgid "Loading system config..."
 msgstr "Carregando a configuração do sistema..."
@@ -3923,7 +3917,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Adicionando disco a lista de ignorados..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "SIM, FUNDIR DISCO"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NOVO DISCO DETECTADO"

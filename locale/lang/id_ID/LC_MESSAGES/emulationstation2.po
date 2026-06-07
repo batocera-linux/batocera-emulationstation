@@ -440,7 +440,7 @@ msgid "RESET"
 msgstr "MENGATUR ULANG"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "SIMPAN PROGRES / SIMPAN DATA GAME"
 
 msgid "RESTORE STATE"
 msgstr "MUAT STATE (RESTORE)"
@@ -470,13 +470,13 @@ msgid "VOLUME MUTE"
 msgstr "BISUKAN VOLUME"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "MULAI REKAM"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "HENTIKAN REKAMAN"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "TOMBOL KEYBOARD / AKTIFKAN KEYBOARD"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TOMBOL DITETAPKAN DUA KALI"
@@ -581,6 +581,16 @@ msgstr "SISTEM TERMASUK"
 msgid "START"
 msgstr "MULAI"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "MEMPERBARUI %s"
+
+msgid "UPDATE IS READY"
+msgstr "PEMBARUAN SUDAH SIAP"
+
+msgid "REBOOT TO APPLY"
+msgstr "MULAI ULANG UNTUK MENERAPKAN"
+
 msgid "REALLY UPDATE?"
 msgstr "YAKIN MEMPERBARUI?"
 
@@ -607,16 +617,6 @@ msgstr "KONEKSI JARINGAN DIPERLUKAN"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "TIDAK ADA PEMBARUAN YANG TERSEDIA"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "MEMPERBARUI %s"
-
-msgid "UPDATE IS READY"
-msgstr "PEMBARUAN SUDAH SIAP"
-
-msgid "REBOOT TO APPLY"
-msgstr "MULAI ULANG UNTUK MENERAPKAN"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "HUBUNGKAN KE NETPLAY"
@@ -1137,7 +1137,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "TAMPILKAN TINGKAT BATERAI KONTROLER"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "TAMPILKAN NOTIFIKASI SENJATA"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "GAMBARKAN CROSHAIR GUN"
@@ -1401,7 +1401,7 @@ msgid "PORT"
 msgstr "PORT"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
+msgstr "BUAT LOBBY OTOMATIS"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
 msgstr "Otomatis membuat lobby Netplay saat memulai permainan."
@@ -2171,7 +2171,7 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Tekan Sebentar â–³ ( Segitiga ) untuk Penyimpanandan tekan lama Ã— untuk "
+"Tekan Sebentar Ã¢â€“Â³ ( Segitiga ) untuk Penyimpanandan tekan lama Ãƒâ€” untuk "
 "pengaturan game"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -2227,7 +2227,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMALKAN VIDEO UNTUK VRAM"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "USE FILESYSTEM CACHE"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "REBOOT DIPERLUKAN UNTUK MENERAPKAN KONFIGURASI BARU"
@@ -2255,12 +2255,6 @@ msgstr "MULAI PEMBARUAN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "PEMBARUAN SEDANG BERLANGSUNG"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "BAHASA"
@@ -3398,7 +3392,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID Game Screenscraper"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "BANYAK KASET / MULTI DISK"
 
 msgid "Loading system config..."
 msgstr "Memuat konfigurasi sistem..."
@@ -3886,7 +3880,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Menambahkan drive ke daftar abaikan..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "YA, GABUNGKAN PENYIMPANAN (DRIVE)"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "DRIVE BARU TERDETEKSI"

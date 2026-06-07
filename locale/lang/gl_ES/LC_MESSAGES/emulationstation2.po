@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-22 19:57+0100\n"
+"PO-Revision-Date: 2026-05-26 10:27+0200\n"
 "Last-Translator: ninjum, enfeitizador\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -478,13 +478,13 @@ msgid "VOLUME MUTE"
 msgstr "SILENCIAR VOLUME"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "COMEZAR GRAVACIÓN"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "DETER GRAVACIÓN"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "ALTERNAR TECLADO"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TECLA ASIGNADA DÚAS VECES"
@@ -589,6 +589,16 @@ msgstr "SISTEMAS INCLUÍDOS"
 msgid "START"
 msgstr "COMEZAR"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "ACTUALIZANDO %s"
+
+msgid "UPDATE IS READY"
+msgstr "A ACTUALIZACIÓN ESTÁ LISTA"
+
+msgid "REBOOT TO APPLY"
+msgstr "REINICIAR PARA APLICAR"
+
 msgid "REALLY UPDATE?"
 msgstr "SEGURO DE ACTUALIZAR?"
 
@@ -615,16 +625,6 @@ msgstr "NECESÍTASE CONEXIÓN Á REDE"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "SEN ACTUALIZACIÓN DISPOÑÍBEL"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "ACTUALIZANDO %s"
-
-msgid "UPDATE IS READY"
-msgstr "A ACTUALIZACIÓN ESTÁ LISTA"
-
-msgid "REBOOT TO APPLY"
-msgstr "REINICIAR PARA APLICAR"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTAR A XOGO EN REDE"
@@ -1145,7 +1145,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AMOSAR NIVEL DE BATERÍA DO MANDO"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "AMOSAR NOTIFICACIÓNS DE ARMAS"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DEBUXAR PUNTO DE MIRA DA PISTOLA"
@@ -2241,7 +2241,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMIZAR O USO DA VRAM EN VÍDEOS"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "USAR CACHÉ DO SISTEMA DE FICHEIROS"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "REQUÍRISE REINICIAR PARA APLICAR A NOVA CONFIGURACIÓN"
@@ -2269,12 +2269,6 @@ msgstr "COMEZAR ACTUALIZACIÓN"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "O INSTALADOR XA SE ESTÁ A EXECUTARSE"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -3418,7 +3412,7 @@ msgid "Screenscraper Game ID"
 msgstr "Identificador do xogo en Screenscraper"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "Multidisco"
 
 msgid "Loading system config..."
 msgstr "Cargando configuración do sistema..."
@@ -3908,7 +3902,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Engadindo a unidade á lista de ignorados..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "SI, COMBINAR UNIDADES"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NOVA UNIDADE DETECTADA"

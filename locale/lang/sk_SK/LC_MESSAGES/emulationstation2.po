@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2026-03-25 08:42+0100\n"
+"PO-Revision-Date: 2026-05-15 15:07+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk_SK\n"
@@ -480,13 +480,13 @@ msgid "VOLUME MUTE"
 msgstr "Stlmiť zvuk"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "Spustiť záznam"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "Zastaviť záznam"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "Prepnúť klávesnicu"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "Klávesa priradená dvakrát"
@@ -591,6 +591,16 @@ msgstr "Systémy zahrnuté"
 msgid "START"
 msgstr "Spustiť"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "Aktualizujem %s"
+
+msgid "UPDATE IS READY"
+msgstr "Aktualizácia je pripradená"
+
+msgid "REBOOT TO APPLY"
+msgstr "Reštartujte na použitie"
+
 msgid "REALLY UPDATE?"
 msgstr "Vykonať aktualizáciu systému?"
 
@@ -617,16 +627,6 @@ msgstr "Vyžaduje sa sieťové pripojenie"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "Nie je dostupná aktualizácia"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "Aktualizujem %s"
-
-msgid "UPDATE IS READY"
-msgstr "Aktualizácia je pripradená"
-
-msgid "REBOOT TO APPLY"
-msgstr "Reštartujte na použitie"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "Pripojiť k sieťovej hre"
@@ -1147,7 +1147,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "Zobraziť úroveň batérie ovládača"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "Zobraziť upozornenia zbraní"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "Kresliť nitkový kríž zbrane"
@@ -2235,7 +2235,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "Optimalizovať využitie video VRAM"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "Použiť cache filesystému"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "Na použitie zmien je potrebný reštart"
@@ -2263,12 +2263,6 @@ msgstr "Spustiť aktualizáciu"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "Aktualizátor už beží"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "Jazyk"
@@ -3406,7 +3400,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID hry Screenscrapera"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "MultiDisk"
 
 msgid "Loading system config..."
 msgstr "Načítavam systémové nastavenie..."
@@ -3900,7 +3894,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Pridávam disk do ignore listu..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "Áno, zlúčiť disk"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "Zistil sa nový disk"

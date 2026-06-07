@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-02-05 20:43+0800\n"
+"PO-Revision-Date: 2026-05-18 22:49+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -467,13 +467,13 @@ msgid "VOLUME MUTE"
 msgstr "静音音量"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "开始录制"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "停止录制"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "键盘切换"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "密钥被重复分配"
@@ -578,6 +578,16 @@ msgstr "包含的游戏系统"
 msgid "START"
 msgstr "开始"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "正在更新 %s"
+
+msgid "UPDATE IS READY"
+msgstr "更新已准备就绪"
+
+msgid "REBOOT TO APPLY"
+msgstr "重启并应用"
+
 msgid "REALLY UPDATE?"
 msgstr "确定要更新?"
 
@@ -604,16 +614,6 @@ msgstr "需要连接到互联网"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "暂无可用更新"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "正在更新 %s"
-
-msgid "UPDATE IS READY"
-msgstr "更新已准备就绪"
-
-msgid "REBOOT TO APPLY"
-msgstr "重启并应用"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "进行联网游戏"
@@ -1133,7 +1133,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "显示手柄电池电量"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "武器提示"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "绘制枪的准星"
@@ -2208,7 +2208,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "优化视频VRAM的使用"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "使用文件系统缓存"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "需要重新启动系统才能应用新配置"
@@ -2236,12 +2236,6 @@ msgstr "开始更新"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新程序已经运行"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "语言"
@@ -3371,7 +3365,7 @@ msgid "Screenscraper Game ID"
 msgstr "Screenscraper游戏ID"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "多磁盘"
 
 msgid "Loading system config..."
 msgstr "正在载入系统配置..."
@@ -3856,7 +3850,7 @@ msgid "Adding drive to ignore list..."
 msgstr "将驱动器添加到忽略列表中..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "是的，合并驱动器"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "检测到新驱动器"

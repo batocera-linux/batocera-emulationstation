@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2026-02-03 22:30+0900\n"
+"PO-Revision-Date: 2026-05-16 19:56+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Loco-Source-Locale: ko_KR\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 "X-Loco-Parser: loco_parse_po\n"
 
 msgid "Searching"
@@ -472,13 +472,13 @@ msgid "VOLUME MUTE"
 msgstr "볼륨 음소거"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "녹화 시작"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "녹화 중지"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "키보드 전환"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "키가 두 번 할당됨"
@@ -583,6 +583,16 @@ msgstr "시스템 포함"
 msgid "START"
 msgstr "시작"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "%s 업데이트"
+
+msgid "UPDATE IS READY"
+msgstr "업데이트 준비됨"
+
+msgid "REBOOT TO APPLY"
+msgstr "적용하려면 재부팅"
+
 msgid "REALLY UPDATE?"
 msgstr "정말 업데이트할까요?"
 
@@ -609,16 +619,6 @@ msgstr "인터넷 연결 필요함"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트 없음"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "%s 업데이트"
-
-msgid "UPDATE IS READY"
-msgstr "업데이트 준비됨"
-
-msgid "REBOOT TO APPLY"
-msgstr "적용하려면 재부팅"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "넷플레이에 연결"
@@ -1139,7 +1139,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "컨트롤러 배터리 수준 표시"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "총 알림 표시"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "건 십자선 그리기"
@@ -2222,7 +2222,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "비디오 VRAM 사용 최적화"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "파일 시스템 캐시 사용"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "새 구성을 적용하려면 재부팅이 필요함"
@@ -2250,12 +2250,6 @@ msgstr "업데이트 시작"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "언어"
@@ -3363,7 +3357,7 @@ msgid "Md5 checksum"
 msgstr "MD5 체크섬"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "전체 게임 실행 시간 (초)"
+msgstr "게임이 진행된 전체 시간(초)"
 
 msgid "Languages"
 msgstr "언어"
@@ -3390,7 +3384,7 @@ msgid "Screenscraper Game ID"
 msgstr "스크린스크래퍼 게임 아이디"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "멀티디스크"
 
 msgid "Loading system config..."
 msgstr "시스템 구성 불러오는 중..."
@@ -3874,7 +3868,7 @@ msgid "Adding drive to ignore list..."
 msgstr "무시 목록에 드라이브를 추가하는 중..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "네, 병합 드라이브"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "새로운 드라이브가 감지되었음"

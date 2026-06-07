@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-05-04 22:10+0300\n"
+"PO-Revision-Date: 2026-05-16 11:53+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -485,13 +485,13 @@ msgid "VOLUME MUTE"
 msgstr "OPRIRE VOLUM"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "ÎNCEPE ÎNREGISTRAREA"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "OPREȘTE ÎNREGISTRAREA"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "COMUTARE TASTATURĂ"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TASTĂ ASOCIATĂ DE 2 ORI"
@@ -596,6 +596,16 @@ msgstr "SISTEME INCLUSE"
 msgid "START"
 msgstr "ÎNCEPE"
 
+#, c-format
+msgid "UPDATING %s"
+msgstr "SE ACTUALIZEAZĂ %s"
+
+msgid "UPDATE IS READY"
+msgstr "ACTUALIZAREA ESTE PREGĂTITĂ"
+
+msgid "REBOOT TO APPLY"
+msgstr "REPORNEȘTE PENTRU A APLICA"
+
 msgid "REALLY UPDATE?"
 msgstr "SIGUR ACTUALIZEZI?"
 
@@ -622,16 +632,6 @@ msgstr "O CONEXIUNE LA REȚEA ESTE NECESARĂ"
 
 msgid "NO UPDATE AVAILABLE"
 msgstr "NICIO ACTUALIZARE DISPONIBILĂ"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "SE ACTUALIZEAZĂ %s"
-
-msgid "UPDATE IS READY"
-msgstr "ACTUALIZAREA ESTE PREGĂTITĂ"
-
-msgid "REBOOT TO APPLY"
-msgstr "REPORNEȘTE PENTRU A APLICA"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CONECTEAZĂ-TE LA NETPLAY"
@@ -1153,7 +1153,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFIȘEAZĂ NIVELUL BATERIEI CONTROLERELOR"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "AFIȘEAZĂ NOTIFICĂRI PISTOL"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENEAZĂ ȚINTĂ PISTOL"
@@ -2248,7 +2248,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMIZEAZĂ NECESARUL DE VRAM PENTRU VIDEO"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "FOLOSEȘTE CACHE SISTEM DE FIȘIERE"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ESTE NECESARĂ O REPORNIRE PENTRU A APLICA NOUA CONFIGURAȚIE"
@@ -2276,12 +2276,6 @@ msgstr "ÎNCEPE ACTUALIZAREA"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ACTUALIZATORUL DEJA RULEAZĂ"
-
-msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
-
-msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
 
 msgid "LANGUAGE"
 msgstr "LIMBĂ"
@@ -3428,7 +3422,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID joc Screenscraper"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "MultiDisk"
 
 msgid "Loading system config..."
 msgstr "Se încarcă configurația de sistem..."
@@ -3923,7 +3917,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Se adaugă unitatea la lista de ignorate..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "DA, COMBINĂ UNITATEA"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "UNITATE NOUĂ DETECTATĂ"
