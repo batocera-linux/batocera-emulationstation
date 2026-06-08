@@ -237,7 +237,7 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 
 	std::string updatecommand = "batocera-upgrade --upgrade";
 	if(fromlocalmedia) {
-	  updatecommand = "batocera-upgrade --media-upgrade";
+	  updatecommand = "batocera-upgrade --media-upgrade --media";
 	}
 
 	FILE *pipe = popen(updatecommand.c_str(), "r");
