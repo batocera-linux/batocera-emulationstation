@@ -393,7 +393,7 @@ bool ApiSystem::canUpdate(std::vector<std::string>& output)
 {
 	LOG(LogDebug) << "ApiSystem::canUpdate";
 
-	FILE *pipe = popen("batocera-upgrade --check-update", "r");
+	FILE *pipe = popen("batocera-upgrade --check-upgrade", "r");
 	if (pipe == NULL)
 		return false;
 
