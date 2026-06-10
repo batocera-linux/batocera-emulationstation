@@ -4582,7 +4582,7 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 
 	// spacer between icon and text
 	auto spacer = std::make_shared<GuiComponent>(window);
-	spacer->setSize(IMGPADDING, 0);
+	spacer->setSize(IMGPADDING, maxSize.y());
 	row.addElement(spacer, false);
 
 	std::string label = data;
