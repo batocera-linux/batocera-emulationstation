@@ -707,6 +707,9 @@ void GuiMenu::openDeveloperSettings()
 	
 	s->addSwitch(_("SHOW FRAMERATE"), _("Also turns on the emulator's native FPS counter, if available."), "DrawFramerate", true, nullptr);
 	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
+#ifdef WIN32
+	s->addOptionList(_("FPS LIMIT"), { { _("NO"), "0" }, { "30", "30" }, { "60", "60" }, { "90", "90" }, { "120", "120" } }, "FpsLimit", true);
+#endif
 
 #ifdef BATOCERA
 	// overscan

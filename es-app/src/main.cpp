@@ -790,17 +790,20 @@ int main(int argc, char* argv[])
 		TRYCATCH("Window.update" ,window.update(deltaTime))	
 		TRYCATCH("Window.render", window.render())
 
-/*
-#ifdef WIN32		
-		int processDuration = SDL_GetTicks() - processStart;
-		if (processDuration < timeLimit)
+#ifdef WIN32
+			int fpsLimit = atoi(Settings::getInstance()->getString("FpsLimit").c_str());
+		if (fpsLimit > 0)
 		{
-			int timeToWait = timeLimit - processDuration;
-			if (timeToWait > 0 && timeToWait < 25 && Settings::VSync())
-				Sleep(timeToWait);
+			int frameTime = 1000 / fpsLimit;
+			int processDuration = SDL_GetTicks() - processStart;
+			if (processDuration < frameTime)
+			{
+				int timeToWait = frameTime - processDuration;
+				if (timeToWait > 0 && timeToWait < 100)
+					SDL_Delay(timeToWait);
+			}
 		}
 #endif
-*/
 
 		Renderer::swapBuffers();		
 	}

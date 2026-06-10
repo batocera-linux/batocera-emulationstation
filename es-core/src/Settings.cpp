@@ -150,6 +150,7 @@ void Settings::setDefaults()
 	mBoolMap["HidJoysticks"] = true;
 	mBoolMap["ShowOnlyExit"] = true;
 	mBoolMap["FullscreenBorderless"] = true;
+	mStringMap["FpsLimit"] = "0";
 #else
 	mBoolMap["ShowOnlyExit"] = false;
 	mBoolMap["FullscreenBorderless"] = false;
