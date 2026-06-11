@@ -30,7 +30,7 @@ public:
 	virtual std::pair<std::string, int> uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
 
 	// Updates
-	std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func) override;
+	std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func, bool fromlocalmedia) override;
 	bool canUpdate(std::vector<std::string>& output) override;
 
 	bool ping() override;

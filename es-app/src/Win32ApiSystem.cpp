@@ -753,7 +753,7 @@ void Win32ApiSystem::installEmulationStationZip(const std::string& zipFile)
 	Utils::FileSystem::deleteDirectoryFiles(path);
 }
 
-std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
+std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func, bool fromlocalmedia)
 {
 	std::string esUpdateScript = getScriptPath("es-update");
 	if (!esUpdateScript.empty())
