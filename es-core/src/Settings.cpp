@@ -32,6 +32,7 @@ IMPLEMENT_STATIC_BOOL_SETTING(IgnoreLeadingArticles, false)
 IMPLEMENT_STATIC_BOOL_SETTING(ShowFoldersFirst, true)
 IMPLEMENT_STATIC_BOOL_SETTING(ScrollLoadMedias, false)
 IMPLEMENT_STATIC_INT_SETTING(ScreenSaverTime, 5 * 60 * 1000)
+IMPLEMENT_STATIC_INT_SETTING(FpsLimit, 0)
 
 #if WIN32
 IMPLEMENT_STATIC_BOOL_SETTING(ShowNetworkIndicator, false)
@@ -60,6 +61,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(IgnoreLeadingArticles)		
 	UPDATE_STATIC_BOOL_SETTING(ShowFoldersFirst)
 	UPDATE_STATIC_INT_SETTING(ScreenSaverTime)
+	UPDATE_STATIC_INT_SETTING(FpsLimit)
 
 	if (name == "HiddenSystems")
 	{
@@ -213,6 +215,7 @@ void Settings::setDefaults()
 	mIntMap["RecentlyScrappedFilter"] = 3;
 	
 	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;
+	mIntMap["FpsLimit"] = 0;
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 

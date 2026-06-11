@@ -707,6 +707,14 @@ void GuiMenu::openDeveloperSettings()
 	
 	s->addSwitch(_("SHOW FRAMERATE"), _("Also turns on the emulator's native FPS counter, if available."), "DrawFramerate", true, nullptr);
 	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
+	auto fpsLimit = std::make_shared<OptionListComponent<int>>(mWindow, _("FPS LIMIT"), false);
+	fpsLimit->add(_("NO"), 0, Settings::FpsLimit() == 0);
+	fpsLimit->add("30", 30, Settings::FpsLimit() == 30);
+	fpsLimit->add("60", 60, Settings::FpsLimit() == 60);
+	fpsLimit->add("90", 90, Settings::FpsLimit() == 90);
+	fpsLimit->add("120", 120, Settings::FpsLimit() == 120);
+	s->addWithLabel(_("FPS LIMIT"), fpsLimit);
+	s->addSaveFunc([fpsLimit] { Settings::setFpsLimit(fpsLimit->getSelected()); });
 
 #ifdef BATOCERA
 	// overscan
