@@ -177,6 +177,7 @@ public:
 	void importScrappedMetadata(const MetaDataList& source);
 
 	std::string getRelativeRootPath();
+	void setRelativeTo(SystemData* system) { mRelativeTo = system; }
 
 	void setScrapeDate(const std::string& scraper);
 	Utils::Time::DateTime* getScrapeDate(const std::string& scraper);
