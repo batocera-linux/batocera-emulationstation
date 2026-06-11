@@ -1778,6 +1778,21 @@ FolderData::~FolderData()
 	clear();
 }
 
+std::set<std::string> FolderData::getMediaDirectories() const
+{
+	std::set<std::string> dirs;
+	for (auto file : mChildren)
+	{
+		std::string img = file->getMetadata(MetaDataId::Image);
+		if (!img.empty()) dirs.insert(Utils::FileSystem::getParent(img));
+		std::string mq = file->getMetadata(MetaDataId::Marquee);
+		if (!mq.empty()) dirs.insert(Utils::FileSystem::getParent(mq));
+		std::string vid = file->getMetadata(MetaDataId::Video);
+		if (!vid.empty()) dirs.insert(Utils::FileSystem::getParent(vid));
+	}
+	return dirs;
+}
+
 void FolderData::clear() {
 	if (mOwnsChildrens)
 		for (auto* child : mChildren)
