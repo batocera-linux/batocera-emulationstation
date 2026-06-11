@@ -673,10 +673,6 @@ int main(int argc, char* argv[])
 
 	while(running)
 	{
-#ifdef WIN32	
-		int processStart = SDL_GetTicks();
-#endif
-
 		SDL_Event event;
 
 		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
@@ -793,8 +789,8 @@ int main(int argc, char* argv[])
 		int fpsLimit = Settings::FpsLimit();
 		if (fpsLimit > 0)
 		{
-			int frameTime = 1000 / fpsLimit;
-			int processDuration = SDL_GetTicks() - processStart;
+			int frameTime = (1000 + fpsLimit / 2) / fpsLimit;
+			int processDuration = SDL_GetTicks() - curTime;
 			if (processDuration < frameTime)
 			{
 				int timeToWait = frameTime - processDuration;

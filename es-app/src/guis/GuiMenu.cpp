@@ -709,10 +709,15 @@ void GuiMenu::openDeveloperSettings()
 	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
 	auto fpsLimit = std::make_shared<OptionListComponent<int>>(mWindow, _("FPS LIMIT"), false);
 	fpsLimit->add(_("NO"), 0, Settings::FpsLimit() == 0);
+	fpsLimit->add("25", 25, Settings::FpsLimit() == 25);
 	fpsLimit->add("30", 30, Settings::FpsLimit() == 30);
+	fpsLimit->add("50", 50, Settings::FpsLimit() == 50);
 	fpsLimit->add("60", 60, Settings::FpsLimit() == 60);
+	fpsLimit->add("75", 75, Settings::FpsLimit() == 75);
 	fpsLimit->add("90", 90, Settings::FpsLimit() == 90);
+	fpsLimit->add("100", 100, Settings::FpsLimit() == 100);
 	fpsLimit->add("120", 120, Settings::FpsLimit() == 120);
+	fpsLimit->add("144", 144, Settings::FpsLimit() == 144);
 	s->addWithLabel(_("FPS LIMIT"), fpsLimit);
 	s->addSaveFunc([fpsLimit] { Settings::setFpsLimit(fpsLimit->getSelected()); });
 
