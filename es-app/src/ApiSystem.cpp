@@ -1483,34 +1483,17 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			std::stringstream ss(colourValue);
 			std::string token;
 
-			if (LED_COLOUR_NAME.find("rgb:l") != std::string::npos) 
-			{
-				// Extract blue value
-				std::getline(ss, token, ' ');
-				blue = std::stoi(token);
+			// Extract red value
+			std::getline(ss, token, ' ');
+			red = std::stoi(token);
 
-				// Extract green value
-				std::getline(ss, token, ' ');
-				green = std::stoi(token);
+			// Extract green value
+			std::getline(ss, token, ' ');
+			green = std::stoi(token);
 
-				// Extract red value
-				std::getline(ss, token);
-				red = std::stoi(token);
-			} 
-			else 
-			{
-				// Extract red value
-				std::getline(ss, token, ' ');
-				red = std::stoi(token);
-
-				// Extract green value
-				std::getline(ss, token, ' ');
-				green = std::stoi(token);
-
-				// Extract blue value
-				std::getline(ss, token);
-				blue = std::stoi(token);
-			}
+			// Extract blue value
+			std::getline(ss, token);
+			blue = std::stoi(token);
 
 			executeScript("batocera-led-handheld block_color_changes"); // temporarily prevent changes from external daemon
 			LOG(LogInfo) << "ApiSystem::getLED > LED colours are:" << red << " " << green << " " << blue;
@@ -1591,20 +1574,19 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 			}
 		}
 		else if (LED_COLOUR_NAME.find("rgb:l") != std::string::npos) {
-			std::string content = std::to_string(blue) + " " + std::to_string(green) + " " + std::to_string(red);
-			for (int i = 1; i <= 7; i++) {
-				std::string leftPath = "/sys/class/leds/rgb:l" + std::to_string(i) + "/multi_intensity";
-				std::string rightPath = "/sys/class/leds/rgb:r" + std::to_string(i) + "/multi_intensity";
-				
-				// Only write if the specific LED index exists on the hardware
-				if (Utils::FileSystem::exists(leftPath)) {
-					Utils::FileSystem::writeAllText(leftPath, content);
-				}
-				if (Utils::FileSystem::exists(rightPath)) {
-					Utils::FileSystem::writeAllText(rightPath, content);
+			std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+			auto allLeds = Utils::FileSystem::getDirContent("/sys/class/leds");
+			for (const auto& ledPath : allLeds) {
+				if (ledPath.find("/rgb:l") != std::string::npos || 
+					ledPath.find("/rgb:r") != std::string::npos) {
+					std::string intensityPath = ledPath + "/multi_intensity";
+					if (Utils::FileSystem::exists(intensityPath)) {
+						Utils::FileSystem::writeAllText(intensityPath, content);
+					}
 				}
 			}
-		} else {
+		}
+		else {
 			std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
 			Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
 		}
