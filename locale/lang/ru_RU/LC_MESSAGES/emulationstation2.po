@@ -360,10 +360,10 @@ msgstr ""
 "Отображает значки в правом нижнем углу, когда можно получить достижения."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
-msgstr ""
+msgstr "НЕОФИЦИАЛЬНЫЕ ДОСТИЖЕНИЯ"
 
 msgid "Enable unlocking of unofficial achievements."
-msgstr ""
+msgstr "Включить разблокировку неофициальных достижений."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
@@ -393,103 +393,103 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "НЕВОЗМОЖНО АКТИВИРОВАТЬ РЕТРОДОСТИЖЕНИЯ:"
 
 msgid "KEYBOARDTOPADS"
-msgstr ""
+msgstr "KEYBOARDTOPADS"
 
 msgid "HOTKEYS"
-msgstr ""
+msgstr "ГОРЯЧИЕ КЛАВИШИ (HOTKEYS)"
 
 msgid "KEYS DEFINED BUT JOYSTICK NOT NAMED"
-msgstr ""
+msgstr "КЛАВИШИ НАЗНАЧЕНЫ, НО ДЖОЙСТИК НЕ УКАЗАН"
 
 msgid "JOYSTICK NAMED BUT NO KEYS DEFINED"
-msgstr ""
+msgstr "ДЖОЙСТИК УКАЗАН, НО КЛАВИШИ НЕ НАЗНАЧЕНЫ"
 
 msgid "UNPLUG AND REPLUG THE DEVICE TO APPLY"
-msgstr ""
+msgstr "ОТКЛЮЧИТЕ И СНОВА ПОДКЛЮЧИТЕ УСТРОЙСТВО ДЛЯ ПРИМЕНИЯ"
 
 msgid "go back"
 msgstr "назад"
 
 msgid "JOYSTICK NAME"
-msgstr ""
+msgstr "НАЗВАНИЕ ДЖОЙСТИКА"
 
 msgid "PRESS A KEY OR WAIT 4 SECONDS TO CLEAR"
-msgstr ""
+msgstr "НАЖМИТЕ ЛЮБУЮ КЛАВИШУ ИЛИ ПОДОЖДИТЕ 4 СЕК., ЧТОБЫ ОЧИСТИТЬ"
 
 msgid "OVERLAYS"
-msgstr ""
+msgstr "ОВЕРЛЕИ"
 
 msgid "BRIGHTNESS CYCLE"
-msgstr ""
+msgstr "ЦИКЛ ЯРКОСТИ"
 
 msgid "CONTROL CENTER"
-msgstr ""
+msgstr "ЦЕНТР УПРАВЛЕНИЯ"
 
 msgid "EXIT"
-msgstr ""
+msgstr "ВЫХОД"
 
 msgid "PAUSE"
-msgstr ""
+msgstr "ПАУЗА"
 
 msgid "COIN"
-msgstr ""
+msgstr "МОНЕТА"
 
 msgid "FAST FORWARD"
-msgstr ""
+msgstr "ПЕРЕМОТКА ВПЕРЁД"
 
 msgid "NEXT DISK"
-msgstr ""
+msgstr "СЛЕДУЮЩИЙ ДИСК"
 
 msgid "NEXT SLOT"
-msgstr ""
+msgstr "СЛЕДУЮЩИЙ СЛОТ"
 
 msgid "PREVIOUS SLOT"
-msgstr ""
+msgstr "ПРЕДЫДУЩИЙ СЛОТ"
 
 msgid "RESET"
 msgstr "СБРОС"
 
 msgid "SAVE STATE"
-msgstr ""
+msgstr "СОХРАНЕНИЕ"
 
 msgid "RESTORE STATE"
-msgstr ""
+msgstr "ЗАГРУЗКА"
 
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
 msgid "SCREEN LAYOUT"
-msgstr ""
+msgstr "РАСПОЛОЖЕНИЕ ЭКРАНА"
 
 msgid "SCREENSHOT"
 msgstr "СКРИНШОТ"
 
 msgid "SWAP SCREEN"
-msgstr ""
+msgstr "ПЕРЕКЛЮЧИТЬ ЭКРАН"
 
 msgid "TRANSLATION"
-msgstr ""
+msgstr "ПЕРЕВОД"
 
 msgid "VOLUME DOWN"
-msgstr ""
+msgstr "УМЕНЬШИТЬ ГРОМКОСТЬ"
 
 msgid "VOLUME UP"
-msgstr ""
+msgstr "УВЕЛИЧИТЬ ГРОМКОСТЬ"
 
 msgid "VOLUME MUTE"
-msgstr ""
+msgstr "ВЫКЛЮЧИТЬ ЗВУК"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "НАЧАТЬ ЗАПИСЬ"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "ОСТАНОВИТЬ ЗАПИСЬ"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "ПЕРЕКЛЮЧЕНИЕ КЛАВИАТУРЫ"
 
 msgid "KEY ASSIGNED TWICE"
-msgstr ""
+msgstr "КЛАВИША НАЗНАЧЕНА ДВАЖДЫ"
 
 msgid "ZOOM OUT"
 msgstr "УМЕНЬШИТЬ"
@@ -906,10 +906,10 @@ msgstr ""
 "ВЫ УВЕРЕНЫ?"
 
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 msgid "WRITE AN NFC TAG FOR THIS GAME"
-msgstr ""
+msgstr "ЗАПИСАТЬ NFC-МЕТКУ ДЛЯ ЭТОЙ ИГРЫ"
 
 #, c-format
 msgid ""
@@ -917,15 +917,18 @@ msgid ""
 "'%s'\n"
 "PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
 msgstr ""
+"ЧТОБЫ ЗАПИСАТЬ КОМАНДУ ЗАПУСКА ДЛЯ\n"
+"'%s'\n"
+"НАЖМИТЕ КНОПКУ ЗАПИСИ И ПОДНЕСИТЕ NFC-МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ"
 
 msgid "WRITE"
-msgstr ""
+msgstr "ЗАПИСАТЬ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr ""
+msgstr "ПРИЛОЖИТЕ МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
-msgstr ""
+msgstr "МЕТКА УСПЕШНО ЗАПИСАНА"
 
 #, c-format
 msgid "REMOVE FROM %s"
@@ -993,10 +996,10 @@ msgid "BY MANUFACTURER"
 msgstr "ПО ПРОИЗВОДИТЕЛЮ"
 
 msgid "BY HARDWARE TYPE THEN ALPHABETICALLY"
-msgstr ""
+msgstr "ПО ТИПУ ОБОРУДОВАНИЯ, ЗАТЕМ ПО АЛФАВИТУ"
 
 msgid "BY HARDWARE TYPE THEN YEAR"
-msgstr ""
+msgstr "ПО ТИПУ ОБОРУДОВАНИЯ, ЗАТЕМ ПО ГОДУ"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "ПО ПРОИЗВОДИТЕЛЮ И ТИПУ"
@@ -1144,7 +1147,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "ПОКАЗЫВАТЬ GUN УВЕДОМЛЕНИЯ"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "ОТОБРАЖАТЬ ПЕРЕКРЕСТИЕ ПИСТОЛЕТА"
@@ -1153,13 +1156,13 @@ msgid "BEHAVIOR"
 msgstr "ПОВЕДЕНИЕ"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr ""
+msgstr "ХОТКЕИ ДЖОЙСТИКОВ"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr ""
+msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЖОЙСТИКОВ ТОЛЬКО ВЫХОДОМ"
 
 msgid "GLOBAL HOTKEYS"
-msgstr ""
+msgstr "ГЛОБАЛЬНЫЕ ХОТКЕИ"
 
 msgid "default"
 msgstr "по умолчанию"
@@ -1168,46 +1171,46 @@ msgid "NOT CONNECTED"
 msgstr "НЕ ПОДКЛЮЧЕНО"
 
 msgid "SOUTH"
-msgstr ""
+msgstr "ЮГ"
 
 msgid "EAST"
-msgstr ""
+msgstr "ВОСТОК"
 
 msgid "NORTH"
-msgstr ""
+msgstr "СЕВЕР"
 
 msgid "WEST"
-msgstr ""
+msgstr "ЗАПАД"
 
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD ВВЕРХ"
 
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD ВНИЗ"
 
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD ВЛЕВО"
 
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD ВПРАВО"
 
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "ЛЕВЫЙ БАМПЕР"
 
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "ПРАВЫЙ БАМПЕР"
 
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "ЛЕВЫЙ ТРИГГЕР"
 
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "ПРАВЫЙ ТРИГГЕР"
 
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "НАЖАТИЕ ЛЕВОГО СТИКА"
 
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "НАЖАТИЕ ПРАВОГО СТИКА"
 
 msgid "HOTKEY"
 msgstr "ГОРЯЧАЯ КНОПКА"
@@ -1216,19 +1219,19 @@ msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr ""
+msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC, ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
-msgstr ""
+msgstr "НАЗНАЧИТЬ НОВЫЙ ГЛОБАЛЬНЫЙ ХОТКЕЙ"
 
 msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
-msgstr ""
+msgstr "У ВАС ЕСТЬ 4 СЕК., ЧТОБЫ НАЖАТЬ ГЛОБАЛЬНЫЙ ХОТКЕЙ РОВНО 2 РАЗА"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "ГЛОБАЛЬНЫЙ ХОТКЕЙ НЕ ОБНАРУЖЕН"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr ""
+msgstr "ОБНАРУЖЕНО БОЛЕЕ ОДНОГО ГЛОБАЛЬНОГО ХОТКЕЯ"
 
 msgid "BORDER SIZE"
 msgstr "РАЗМЕР РАМКИ"
@@ -1387,10 +1390,10 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
 msgid "PARIS"
-msgstr ""
+msgstr "PARIS"
 
 msgid "OSAKA"
-msgstr ""
+msgstr "OSAKA"
 
 msgid "SEOUL"
 msgstr "SEOUL"
@@ -1576,10 +1579,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "НАСТРОЙКИ PADTOKEY"
 
 msgid "MANUAL SCRAPE"
-msgstr ""
+msgstr "РУЧНОЙ СКРАПИНГ"
 
 msgid "INCLUDED SCRAPERS"
-msgstr ""
+msgstr "ВКЛЮЧЁННЫЕ СКРАПЕРЫ"
 
 msgid "SCREENSCRAPER"
 msgstr "SCREENSCRAPER"
@@ -2232,7 +2235,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "ОПТИМИЗАЦИЯ ВИДЕО ДЛЯ VRAM"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "ИСПОЛЬЗОВАТЬ КЭШ ФАЙЛОВОЙ СИСТЕМЫ"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -2262,10 +2265,10 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
+msgstr "ЗАПУСТИТЬ ОБНОВЛЕНИЕ ЛОКАЛЬНЫХ МЕДИА"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
+msgstr "ОБНОВИТЬ ЛОКАЛЬНЫЕ МЕДИА?"
 
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
@@ -2274,15 +2277,17 @@ msgid "LANGUAGE (REGION)"
 msgstr "ЯЗЫК (РЕГИОН)"
 
 msgid "KEYBOARD LAYOUT"
-msgstr ""
+msgstr "РАСКЛАДКА КЛАВИАТУРЫ"
 
 msgid "KEYBOARD VARIANT"
-msgstr ""
+msgstr "ВАРИАНТ КЛАВИАТУРЫ"
 
 msgid ""
 "Select the physical keyboard layout. A reboot may be required for changes to "
 "take full effect."
 msgstr ""
+"Выберите раскладку клавиатуры. Для применения изменений может потребоваться "
+"перезагрузка."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "ВЫБЕРИТЕ СВОЙ ЧАСОВОЙ ПОЯС"
@@ -2421,7 +2426,7 @@ msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
 msgid "ENABLE LED"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ LED"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED ЯРКОСТЬ"
@@ -2433,10 +2438,10 @@ msgid "STORAGE DEVICE"
 msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
 
 msgid "EJECT AN EXTRA DISK"
-msgstr ""
+msgstr "ИЗВЛЕЧЬ ДОПОЛНИТЕЛЬНЫЙ ДИСК"
 
 msgid "EXTRA DRIVE FILESYSTEM TYPE"
-msgstr ""
+msgstr "ТИП ФАЙЛОВОЙ СИСТЕМЫ ДОПОЛНИТЕЛЬНОГО НОСИТЕЛЯ"
 
 msgid "ADVANCED"
 msgstr "ДОПОЛНИТЕЛЬНО"
@@ -2697,7 +2702,7 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "ПОКАЗАТЬ '..' РОДИТЕЛЬСКОЙ ПАПКИ"
 
 msgid "ICONS"
-msgstr ""
+msgstr "ИКОНКИ"
 
 msgid "AFTER NAME"
 msgstr "ПОСЛЕ НАЗВАНИЯ"
@@ -2706,7 +2711,7 @@ msgid "BEFORE NAME"
 msgstr "ПЕРЕД НАЗВАНИЕМ"
 
 msgid "SHOW TAGS ICONS"
-msgstr ""
+msgstr "ПОКАЗЫВАТЬ ИКОНКИ ТЕГОВ"
 
 msgid "SHOW REGION FLAG"
 msgstr "ПОКАЗАТЬ ЯЗЫКОВОЙ ФЛАГ В СПИСКАХ"
@@ -2859,10 +2864,10 @@ msgid "WIFI KEY"
 msgstr "ПАРОЛЬ СЕТИ WI-FI"
 
 msgid "WIFI COUNTRY"
-msgstr ""
+msgstr "СТРАНА WI-FI"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "WIFI ENABLED"
 msgstr "WI-FI ВКЛЮЧЕН"
@@ -2990,28 +2995,28 @@ msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ОТФОРМАТИРОВАТЬ УСТРОЙСТВО?"
 
 msgid "SAFELY EJECT A DISK"
-msgstr ""
+msgstr "БЕЗОПАСНО ИЗВЛЕЧЬ ДИСК"
 
 msgid "MERGED DRIVE"
-msgstr ""
+msgstr "ОБЪЕДИНЁННЫЙ НОСИТЕЛЬ"
 
 msgid "NO MERGED DRIVES FOUND"
-msgstr ""
+msgstr "ОБЪЕДИНЁННЫЕ НОСИТЕЛИ НЕ НАЙДЕНЫ"
 
 msgid "EJECT"
-msgstr ""
+msgstr "ИЗВЛЕЧЬ"
 
 msgid "NO DRIVE SELECTED"
-msgstr ""
+msgstr "НОСИТЕЛЬ НЕ ВЫБРАН"
 
 msgid "Ejecting..."
-msgstr ""
+msgstr "Извлечение..."
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "TAGS"
-msgstr ""
+msgstr "ТЕГИ"
 
 msgid "GENRES"
 msgstr "ЖАНРЫ"
@@ -3195,10 +3200,10 @@ msgid "enter game genre"
 msgstr "введите жанр игры"
 
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 msgid "tags"
-msgstr ""
+msgstr "теги"
 
 msgid "Sort name"
 msgstr "Название для сортировки"
@@ -3402,7 +3407,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID игры Screenscraper"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "Мультидиск"
 
 msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
@@ -3491,19 +3496,19 @@ msgstr ""
 "retroachievements.org"
 
 msgid "SLOW"
-msgstr ""
+msgstr "МЕДЛЕННО"
 
 msgid "NOT WORKING"
-msgstr ""
+msgstr "НЕ РАБОТАЕТ"
 
 msgid "BUGGY"
-msgstr ""
+msgstr "СБОЙ"
 
 msgid "LIKED"
-msgstr ""
+msgstr "НРАВИТСЯ"
 
 msgid "DISLIKED"
-msgstr ""
+msgstr "НЕ НРАВИТСЯ"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
@@ -3551,7 +3556,7 @@ msgid "GENRE"
 msgstr "ЖАНР"
 
 msgid "TAG"
-msgstr ""
+msgstr "ТЕГ"
 
 msgid "FAMILY"
 msgstr "СЕМЕЙСТВО"
@@ -3854,70 +3859,70 @@ msgstr ""
 "Стреляйте по мишеням для калибровки"
 
 msgid "Reloaded the games list..."
-msgstr ""
+msgstr "Список игр перезагружен..."
 
 msgid "GAME DRIVE DETECTED"
-msgstr ""
+msgstr "ОБНАРУЖЕН ИГРОВОЙ НОСИТЕЛЬ"
 
 msgid "DEVICE"
-msgstr ""
+msgstr "УСТРОЙСТВО"
 
 msgid "MODEL"
-msgstr ""
+msgstr "МОДЕЛЬ"
 
 msgid "SIZE"
-msgstr ""
+msgstr "РАЗМЕР"
 
 msgid "MOUNT"
-msgstr ""
+msgstr "МОНТИРОВАТЬ"
 
 msgid "Merge games from this drive partition now?"
-msgstr ""
+msgstr "Объединить игры с этого раздела носителя сейчас?"
 
 msgid "(This will also apply on future boots)"
-msgstr ""
+msgstr "(Также будет применяться при будущих загрузках)"
 
 msgid "Merge requested... Please wait."
-msgstr ""
+msgstr "Объединение... Пожалуйста, подождите."
 
 msgid "MERGE FAILED"
-msgstr ""
+msgstr "ОБЪЕДИНЕНИЕ НЕ УДАЛОСЬ"
 
 msgid "Please check the logs."
-msgstr ""
+msgstr "Проверьте логи."
 
 msgid "NO, IGNORE THIS TIME"
-msgstr ""
+msgstr "НЕТ, ИГНОРИРОВАТЬ В ЭТОТ РАЗ"
 
 msgid "NO, IGNORE FOREVER"
-msgstr ""
+msgstr "НЕТ, ИГНОРИРОВАТЬ ВСЕГДА"
 
 msgid "Adding drive to ignore list..."
-msgstr ""
+msgstr "Добавление носителя в список игнорирования..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "ДА, ОБЪЕДИНИТЬ НОСИТЕЛЬ"
 
 msgid "NEW DRIVE DETECTED"
-msgstr ""
+msgstr "ОБНАРУЖЕН НОВЫЙ НОСИТЕЛЬ"
 
 msgid "Format and prepare this drive for game storage?"
-msgstr ""
+msgstr "Отформатировать и подготовить этот носитель для хранения игр?"
 
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
-msgstr ""
+msgstr "(ВСЕ СУЩЕСТВУЮЩИЕ ДАННЫЕ БУДУТ УДАЛЕНЫ)"
 
 msgid "Starting format process..."
-msgstr ""
+msgstr "Начинается процесс форматирования..."
 
 msgid "FORMAT FAILED"
-msgstr ""
+msgstr "ФОРМАТИРОВАНИЕ НЕ УДАЛОСЬ"
 
 msgid "YES, FORMAT & MERGE"
-msgstr ""
+msgstr "ДА, ОТФОРМАТИРОВАТЬ И ОБЪЕДИНИТЬ"
 
 msgid "NO, IGNORE"
-msgstr ""
+msgstr "НЕТ, ИГНОРИРОВАТЬ"
 
 #, c-format
 msgid "%d d"

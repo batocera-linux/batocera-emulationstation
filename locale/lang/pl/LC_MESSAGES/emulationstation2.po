@@ -481,13 +481,13 @@ msgid "VOLUME MUTE"
 msgstr "WYCISZ GŁOŚNOŚĆ"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "ROZPOCZNIJ NAGRYWANIE"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "ZATRZYMAJ NAGRYWANIE"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "PRZEŁĄCZNIK KLAWIATURY"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "PRZYCISK PRZYPISANY DWUKROTNIE"
@@ -1149,7 +1149,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "POKAŻ POWIADOMIENIA BRONI"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "RYSUJ CELOWNIK BRONI"
@@ -2240,7 +2240,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTYMALIZUJ WIDEO DLA VRAM"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "UŻYJ PAMIĘCI PODRĘCZNEJ SYSTEMU PLIKÓW"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -2271,10 +2271,10 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "AKTUALIZACJA ZOSTAŁA JUŻ URUCHOMIONA"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
+msgstr "ROZPOCZNIJ AKTUALIZACJĘ Z MEDIÓW LOKALNYCH"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
+msgstr "NAPRAWDĘ AKTUALIZOWAĆ Z MEDIÓW LOKALNYCH?"
 
 msgid "LANGUAGE"
 msgstr "JĘZYK"
@@ -3419,7 +3419,7 @@ msgid "Screenscraper Game ID"
 msgstr "Identyfikator gry Screenscraper"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "MultiDisk"
 
 msgid "Loading system config..."
 msgstr "Wczytywanie konfiguracji systemowej..."
@@ -3912,7 +3912,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Dodaję dysk do listy ignorowanych..."
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "TAK, SCAL DYSKI"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "WYKRYTO NOWY DYSK"
