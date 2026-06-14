@@ -2032,6 +2032,9 @@ msgstr "Também ativa o contador de FPS nativo do emulador, se disponível."
 msgid "VSYNC"
 msgstr "SINCRONIZAÇÃO VERTICAL"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN (ULTRAPASSAR BORDAS DA TELA)"
 

@@ -2021,6 +2021,9 @@ msgstr "Tiež zapne natívne počítanie FPS emulátora, ak je dostupné."
 msgid "VSYNC"
 msgstr "Vsync"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "Overscan"
 

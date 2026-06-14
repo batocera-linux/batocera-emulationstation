@@ -2017,6 +2017,9 @@ msgstr "可能な場合は、エミュレータ内のFPSカウンターも表示
 msgid "VSYNC"
 msgstr "VSYNC(垂直同期)有効"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 

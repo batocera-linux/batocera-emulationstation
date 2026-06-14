@@ -2016,6 +2016,9 @@ msgstr "Zapne také nativní čítač FPS emulátoru, pokud je k dispozici."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 

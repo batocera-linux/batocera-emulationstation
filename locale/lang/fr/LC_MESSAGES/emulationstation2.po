@@ -2025,6 +2025,9 @@ msgstr "Active également le compteur fps de l'émulateur si disponible."
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 

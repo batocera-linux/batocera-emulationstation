@@ -2023,6 +2023,9 @@ msgstr "Włącza również natywny licznik FPS emulatora, jeśli jest dostępny.
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "PRZESKALOWANIE"
 

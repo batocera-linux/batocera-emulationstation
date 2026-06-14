@@ -2020,6 +2020,9 @@ msgstr "També habilita el comptador de FPS de l'emulador, si en disposa."
 msgid "VSYNC"
 msgstr "SINCRONITZACIÓ VERTICAL"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
 

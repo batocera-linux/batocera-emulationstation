@@ -2023,6 +2023,9 @@ msgstr "Bekapcsolja az emulátor natív FPS-számlálóját is, ha elérhető."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 

@@ -2059,6 +2059,9 @@ msgstr "يشغّل عدّاد الإطارات في الثانية الخاص ب
 msgid "VSYNC"
 msgstr "Vsync التزامن العمودي"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "المسح الزائد"
 

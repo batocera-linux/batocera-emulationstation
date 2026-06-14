@@ -2011,6 +2011,9 @@ msgstr ""
 msgid "VSYNC"
 msgstr ""
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr ""
 

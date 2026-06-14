@@ -2022,6 +2022,9 @@ msgstr "Aktiverar även emulatorns inbyggda FPS-räknare, om sådan finns."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "ÖVERSKANNING"
 

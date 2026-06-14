@@ -2016,6 +2016,9 @@ msgstr "Also turns on the emulator's native FPS counter, if available."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 

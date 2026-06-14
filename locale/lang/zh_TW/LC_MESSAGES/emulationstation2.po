@@ -2005,6 +2005,9 @@ msgstr "如果可用的話，也打開模擬器原生的 FPS 計數器。"
 msgid "VSYNC"
 msgstr "垂直同步"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "過掃瞄 (OVERSCAN)"
 

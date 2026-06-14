@@ -2013,6 +2013,9 @@ msgstr "사용 가능하면 에뮬레이터 자체 FPS 카운터를 켭니다."
 msgid "VSYNC"
 msgstr "수직 동기화"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "오버스캔"
 

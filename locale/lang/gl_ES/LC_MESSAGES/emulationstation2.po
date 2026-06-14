@@ -2021,6 +2021,9 @@ msgstr "Tamén activa o contador de FPS nativo do emulador, se está dispoñíbe
 msgid "VSYNC"
 msgstr "SINCRONIZACIÓN VERTICAL"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "SOBREESCANEADO"
 

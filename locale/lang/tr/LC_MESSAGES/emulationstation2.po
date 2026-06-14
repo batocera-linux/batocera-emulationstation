@@ -2022,6 +2022,9 @@ msgstr "Eğer mümkün ise emülatörün dahili FPS sayacını açar."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "AŞIRI TARAMA"
 

@@ -2025,6 +2025,9 @@ msgstr "Ativar o contador de fps nativo do emulador, se disponível."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 

@@ -2014,6 +2014,9 @@ msgstr "Slår også på emulatorens innebygde FPS-teller, hvis tilgjengelig."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSKANN"
 

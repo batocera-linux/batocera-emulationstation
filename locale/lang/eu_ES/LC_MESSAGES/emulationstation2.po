@@ -2014,6 +2014,9 @@ msgstr "Emuladorearen FPs kontadorea ere bueltatzen du, eskuragarri badago."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 

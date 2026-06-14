@@ -2022,6 +2022,9 @@ msgstr ""
 msgid "VSYNC"
 msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "SOBREESCALADO (OVERSCAN)"
 

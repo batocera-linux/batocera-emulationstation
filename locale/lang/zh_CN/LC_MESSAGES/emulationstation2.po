@@ -2006,6 +2006,9 @@ msgstr "如果可用，打开模拟器自带的FPS计数器。"
 msgid "VSYNC"
 msgstr "垂直同步"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "过扫描"
 

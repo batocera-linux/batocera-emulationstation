@@ -2012,6 +2012,9 @@ msgstr "Aktifkan juga penghitung FPS asli emulator, jika tersedia."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "FPS LIMIT"
+msgstr ""
+
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
