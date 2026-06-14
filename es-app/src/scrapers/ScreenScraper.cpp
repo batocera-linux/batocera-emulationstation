@@ -1,5 +1,6 @@
 #include "utils/Uri.h"
 #include "scrapers/ScreenScraper.h"
+#include "MameNames.h"
 
 #include "utils/TimeUtil.h"
 #include "utils/StringUtil.h"
@@ -311,6 +312,9 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
 
+	bool isArcade = params.system->hasPlatformId(PlatformIds::ARCADE)
+	             || params.system->hasPlatformId(PlatformIds::NEOGEO);
+
 	// Get the IDs of each platform from the ScreenScraper list
 	for (auto platformIt = platforms.cbegin(); platformIt != platforms.cend(); platformIt++)
 	{
@@ -321,7 +325,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 		{
 			LOG(LogWarning) << "ScreenScraper: no support for platform " << getPlatformName(*platformIt);
 			// Add the scrape request without a platform/system ID
-			requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path, params.game->getFileName())));
+			requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path, params.game->getFileName(), isArcade)));
 		}
 	}
 
@@ -334,7 +338,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 	{
 		path += "&systemeid=";
 		path += HttpReq::urlEncode(std::to_string(*platform));
-		requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path, params.game->getFileName())));
+		requests.push(std::unique_ptr<ScraperRequest>(new ScreenScraperRequest(requests, results, path, params.game->getFileName(), isArcade)));
 	}
 }
 
@@ -825,6 +829,19 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					else
 						LOG(LogDebug) << "Failed to find media XML node for bezel";
 				}
+			}
+		}
+
+		if (mIsArcade)
+		{
+			std::string romStem = Utils::FileSystem::getStem(mFileName);
+			std::string fullName = MameNames::getInstance()->getRealName(romStem);
+			auto pos = fullName.find('(');
+			if (pos != std::string::npos)
+			{
+				const std::string& name = result.mdl.getName();
+				if (name.find('(') == std::string::npos)
+					result.mdl.set(MetaDataId::Name, name + " " + fullName.substr(pos));
 			}
 		}
 
