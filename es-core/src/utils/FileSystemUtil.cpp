@@ -4,6 +4,7 @@
 #include "utils/StringUtil.h"
 #include "utils/ZipFile.h"
 #include "utils/md5.h"
+#include "utils/Platform.h"
 
 #include "Settings.h"
 #include <sys/stat.h>
@@ -1787,7 +1788,9 @@ namespace Utils
 			std::thread thread(doWork, new std::string(path));
 
 #if WIN32		
-			::SetThreadDescription(thread.native_handle(), L"PreloadFileSystemCache");
+			if (Utils::Platform::isWindows10())
+				::SetThreadDescription(thread.native_handle(), L"PreloadFileSystemCache");
+
 			::SetThreadPriority(thread.native_handle(), THREAD_PRIORITY_LOWEST);
 #endif
 

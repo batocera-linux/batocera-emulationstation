@@ -4,6 +4,7 @@
 #include "resources/TextureResource.h"
 #include "Settings.h"
 #include "Log.h"
+#include "utils/Platform.h"
 #include <algorithm>
 #include <SDL.h>
 
@@ -241,7 +242,8 @@ TextureLoader::~TextureLoader()
 void TextureLoader::threadProc()
 {
 #if WIN32
-	SetThreadDescription(GetCurrentThread(), L"TextureLoader::threadProc");
+	if (Utils::Platform::isWindows10())
+		SetThreadDescription(GetCurrentThread(), L"TextureLoader::threadProc");
 #endif
 
 	while (true)
