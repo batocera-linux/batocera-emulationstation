@@ -569,13 +569,34 @@ namespace Utils
 			return false;
 		}
 
+		bool isWindows10()
+		{
+			static const bool result = []()
+			{
+				WORD major, minor, build, revision;
+
+				if (_getWindowsVersion(major, minor, build, revision))
+					return major > 10 || (major == 10);
+
+				return false;
+			}();
+
+			return result;
+		}
+
 		bool isWindows11()
 		{
-			WORD major, minor, build, revision;
-			if (_getWindowsVersion(major, minor, build, revision))
-				return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
+			static const bool result = []()
+			{
+				WORD major, minor, build, revision;
 
-			return false;
+				if (_getWindowsVersion(major, minor, build, revision))
+					return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
+
+				return false;
+			}();
+
+			return result;
 		}
 #else
 		bool isBuildroot() 
