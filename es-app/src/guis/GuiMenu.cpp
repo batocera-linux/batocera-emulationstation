@@ -1871,6 +1871,40 @@ void GuiMenu::openSystemSettings()
 	});
 #endif
 
+#if RK3326
+	if (Utils::FileSystem::exists("/sys/class/leds/keros::ambient")) {
+		auto buttonColor_r36ultra = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BUTTON LED COLOR"));
+		buttonColor_r36ultra->add(_("off"), "off", SystemConf::getInstance()->get("color_rgb") == "off" || SystemConf::getInstance()->get("color_rgb") == "");
+		buttonColor_r36ultra->add(_("red"), "red", SystemConf::getInstance()->get("color_rgb") == "red");
+		buttonColor_r36ultra->add(_("yellow"), "yellow", SystemConf::getInstance()->get("color_rgb") == "yellow");
+		buttonColor_r36ultra->add(_("green"), "green", SystemConf::getInstance()->get("color_rgb") == "green");
+		buttonColor_r36ultra->add(_("cyan"), "cyan", SystemConf::getInstance()->get("color_rgb") == "cyan");
+		buttonColor_r36ultra->add(_("blue"), "blue", SystemConf::getInstance()->get("color_rgb") == "blue");
+		buttonColor_r36ultra->add(_("purple"), "purple", SystemConf::getInstance()->get("color_rgb") == "purple");
+		buttonColor_r36ultra->add(_("white"), "white", SystemConf::getInstance()->get("color_rgb") == "white");		
+		s->addWithLabel(_("BUTTON LED COLOR"), buttonColor_r36ultra);
+		s->addSaveFunc([buttonColor_r36ultra] 
+		{
+			if (buttonColor_r36ultra->changed()) {
+				ApiSystem::getInstance()->setButtonColorR36Ultra(buttonColor_r36ultra->getSelected());
+				SystemConf::getInstance()->set("color_rgb", buttonColor_r36ultra->getSelected());
+			}
+		});
+	}
+
+	auto powerled_r36 = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER LED COLOR"));
+	powerled_r36->add(_("on"), "on", SystemConf::getInstance()->get("option_powerled") == "on" || SystemConf::getInstance()->get("option_powerled") == "");
+	powerled_r36->add(_("off"), "off", SystemConf::getInstance()->get("option_powerled") == "off");
+	s->addWithLabel(_("POWER LED COLOR"), powerled_r36);
+	s->addSaveFunc([powerled_r36]
+	{
+		if (powerled_r36->changed()) {
+			ApiSystem::getInstance()->setPowerLedR36(powerled_r36->getSelected());
+			SystemConf::getInstance()->set("option_powerled", powerled_r36->getSelected());
+		}
+	});
+#endif
+
 	// Overclock choice
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::OVERCLOCK))
 	{
