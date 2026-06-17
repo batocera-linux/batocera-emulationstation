@@ -275,6 +275,10 @@ public:
 
 	bool setPowerLedGameForce(std::string basic_string);    
 
+	bool setButtonColorR36Ultra(const std::string& basic_string);
+
+	bool setPowerLedR36(const std::string& basic_string);
+
     /* audio card */
     bool setAudioOutputDevice(std::string device);
     std::vector<std::string> getAvailableAudioOutputDevices();
