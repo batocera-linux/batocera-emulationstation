@@ -337,6 +337,9 @@ public:
 
 	bool isLEDMonochrome();
 
+	// LED Mode
+	void setLEDMode(const std::string& mode);
+
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
