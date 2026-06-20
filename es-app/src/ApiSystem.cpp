@@ -1818,6 +1818,31 @@ bool ApiSystem::isLEDEnabled()
 #endif
 }
 
+void ApiSystem::setLEDMode(const std::string& mode)
+{
+#if WIN32
+    return;
+#else
+    SystemConf::getInstance()->set("led.mode", mode);
+    SystemConf::getInstance()->saveSystemConf();
+
+    executeScript("batocera-led-handheld unblock_color_changes");
+
+    if (mode == "rainbow") {
+        executeScript("batocera-led-handheld rainbow");
+    } else if (mode == "chroma") {
+        executeScript("batocera-led-handheld chroma");
+    } else if (mode == "pulse") {
+        executeScript("batocera-led-handheld pulse");
+    } else {
+        // Fall back to the user's customized static colors
+        int r, g, b;
+        getLEDColours(r, g, b);
+        setLEDColours(r, g, b);
+    }
+#endif
+}
+
 void ApiSystem::setLEDEnabled(bool enabled)
 {
 #if WIN32
@@ -1831,15 +1856,20 @@ void ApiSystem::setLEDEnabled(bool enabled)
 	}
 	else
 	{
-		std::string lastColorStr = SystemConf::getInstance()->get("led.colour");
-		if (lastColorStr.empty())
-			lastColorStr = "255 0 165";
+		std::string mode = SystemConf::getInstance()->get("led.mode");
+		if (mode == "rainbow" || mode == "chroma" || mode == "pulse") {
+			setLEDMode(mode);
+		} else {
+			std::string lastColorStr = SystemConf::getInstance()->get("led.colour");
+			if (lastColorStr.empty())
+				lastColorStr = "255 0 165";
 
-		std::stringstream ss(lastColorStr);
-		int r, g, b;
-		ss >> r >> g >> b;
+			std::stringstream ss(lastColorStr);
+			int r, g, b;
+			ss >> r >> g >> b;
 
-		setLEDColours(r, g, b);
+			setLEDColours(r, g, b);
+		}
 	}
 
 	SystemConf::getInstance()->saveSystemConf();
