@@ -1441,6 +1441,22 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			break;
 		}
 
+		if (entry.find("go_s:rgb:joystick_rings") != std::string::npos)
+		{
+			LED_COLOUR_NAME = "legiongos";
+			mSystemLedType = LED_TYPE_UNIFIED;
+			LOG(LogInfo) << "ApiSystem::getLED > Found Lenovo Legion Go S LED at " << entry;
+			break;
+		}
+
+		if (entry.find("go:rgb:joystick_rings") != std::string::npos)
+		{
+			LED_COLOUR_NAME = "legiongo";
+			mSystemLedType = LED_TYPE_UNIFIED;
+			LOG(LogInfo) << "ApiSystem::getLED > Found Lenovo Legion Go/Go 2 LED at " << entry;
+			break;
+		}
+
 		if (entry.find("multicolor") != std::string::npos || 
 			entry.find(":rgb:joystick_rings") != std::string::npos || 
 			entry.find("rgb:l1") != std::string::npos)
@@ -1498,7 +1514,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			executeScript("batocera-led-handheld block_color_changes");
 			return true;
 		}
-		else if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro") 
+		else if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") 
 		{
 			getLEDColours(red, green, blue);
 			executeScript("batocera-led-handheld block_color_changes");
@@ -1583,7 +1599,7 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 	{
 		if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound") return;
 
-		if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro") {
+		if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") {
 			executeScript("batocera-led-handheld set_color_force_dec " + 
                           std::to_string(red) + " " + 
                           std::to_string(green) + " " + 
@@ -1708,7 +1724,7 @@ void ApiSystem::setLEDBrightness(int value)
     if (value < 0) value = 0;
     if (value > 100) value = 100;
 
-	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro") {
+	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") {
 		SystemConf::getInstance()->set("led.brightness", std::to_string(value));
 		SystemConf::getInstance()->saveSystemConf();
 		int r, g, b;
