@@ -162,6 +162,7 @@ namespace PlatformIds
 		{ "pet",					COMMODORE_PET },
 		{ "cpet",					COMMODORE_PET },
 		{ "cplus4",					COMMODORE_PLUS4 },
+		{ "c16",					COMMODORE_16 },
 		{ "atom",					ACORN_ATOM },
 		{ "bbcmicro",				ACORN_BBC_MICRO },
 		{ "bbc",					ACORN_BBC_MICRO },
