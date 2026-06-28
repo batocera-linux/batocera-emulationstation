@@ -98,7 +98,8 @@ void MetaDataList::initMetadata()
 
 		{ ScraperId,        "id",		   MD_INT,                 "",				   true,       _("Screenscraper Game ID"), _("Screenscraper Game ID"),	false, true },
 
-		{ MultiDisk,        "multidisk",   MD_STRING,              "",				   true,       _("MultiDisk"),             _("MultiDisk"),	false }
+		{ MultiDisk,        "multidisk",   MD_STRING,              "",				   true,       _("MultiDisk"),             _("MultiDisk"),	false },
+		{ ParentGame,       "parent",      MD_PATH,                "",                 false,      _("Parent game"),           _("enter path to parent game"), false }
 	};
 	
 	mMetaDataDecls = std::vector<MetaDataDecl>(gameDecls, gameDecls + sizeof(gameDecls) / sizeof(gameDecls[0]));
@@ -530,7 +531,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 		if (mdd.id == MetaDataId::Region || mdd.id == MetaDataId::Language) // Not scrapped
 			continue;
 
-		if (mdd.id == MetaDataId::Favorite || mdd.id == MetaDataId::Hidden || mdd.id == MetaDataId::Emulator || mdd.id == MetaDataId::Core)
+		if (mdd.id == MetaDataId::Favorite || mdd.id == MetaDataId::Hidden || mdd.id == MetaDataId::Emulator || mdd.id == MetaDataId::Core || mdd.id == MetaDataId::ParentGame)
 			continue;
 
 		if (mdd.id == MetaDataId::Image && (source.get(mdd.id).empty() || (type & MetaDataImportType::Types::IMAGE) != MetaDataImportType::Types::IMAGE))
