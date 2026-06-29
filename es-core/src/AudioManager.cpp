@@ -466,37 +466,28 @@ void AudioManager::playSong(const std::string& song)
 	// First let's try with an ID3 v2 tag
 #define MAX_STR_SIZE 255 // Empiric max size of a MP3 title
 
-	ID3v2_tag* tag = load_tag(song.c_str());
+	ID3v2_Tag* tag = ID3v2_read_tag(song.c_str());
 	if (tag != NULL)
 	{
-		ID3v2_frame* title_frame = tag_get_title(tag);
+		ID3v2_TextFrame* title_frame = ID3v2_Tag_get_title_frame(tag);
 		if (title_frame != NULL)
 		{
-			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-			if (title_content != NULL && title_content->size > 0)
+      std::string song_name(ID3v2_to_unicode(title_frame->data->text));
+			ID3v2_TextFrame* artist_frame = ID3v2_Tag_get_artist_frame(tag);
+			if (artist_frame != NULL)
 			{
-				std::string song_name(title_content->data, title_content->size);
-				ID3v2_frame* artist_frame = tag_get_artist(tag);
-				if (artist_frame != NULL)
-				{
-					ID3v2_frame_text_content* artist_content = parse_text_frame_content(artist_frame);
-					if (artist_content != NULL && artist_content->size > 0)
-					{
-						std::string artist(artist_content->data, artist_content->size);
-						song_name += " - " + artist;
-						free(artist_content->data);
-						free(artist_content);
-					}
-				}
-				song_name.erase(std::remove_if(song_name.begin(), song_name.end(), [](unsigned char c) { return !Utils::String::isPrintableChar(c); }), song_name.end());
-				setSongName(song_name);
-				free(title_content->data);
-				free(title_content);
-				free_tag(tag);
-				return;
-			}
-		}
-		free_tag(tag);
+        const char * artist = ID3v2_to_unicode(artist_frame->data->text);
+        song_name += " - ";
+        song_name += artist;
+      }
+      song_name.erase(std::remove_if(song_name.begin(), song_name.end(), [](unsigned char c) { return !Utils::String::isPrintableChar(c); }), song_name.end());
+      setSongName(song_name);
+      free(artist_frame);
+      free(title_frame);
+      free(tag);
+      return;
+    }
+		free(tag);
 	}
 
 	// Then, if no v2, let's try with an ID3 v1 tag	
