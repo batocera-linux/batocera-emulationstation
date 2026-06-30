@@ -382,7 +382,7 @@ set(COMMON_LIBRARIES
     ${VLC_LIBRARIES}
     pugixml
     nanosvg
-    id3v2
+    id3v2lib
 	libcheevos	
 )
 
