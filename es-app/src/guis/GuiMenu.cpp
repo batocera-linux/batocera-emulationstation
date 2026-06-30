@@ -2208,7 +2208,16 @@ void GuiMenu::openSystemSettings()
 		auto rootpassword = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getRootPassword(), ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
 		securityGui->addWithLabel(_("ROOT PASSWORD"), rootpassword);
 
-		securityGui->addSaveFunc([this, securityEnabled, s] 
+#ifdef BATOCERA
+		auto cpuMitigations = std::make_shared<SwitchComponent>(mWindow);
+		cpuMitigations->setState(ApiSystem::getInstance()->areCpuMitigationsEnabled());
+		securityGui->addWithDescription(
+			_("CPU SECURITY MITIGATIONS"),
+			_("Disabling mitigations may improve performance on some systems at the cost of reduced protection against certain CPU vulnerabilities."),
+			cpuMitigations);
+#endif
+
+		securityGui->addSaveFunc([this, securityEnabled, s]
 		{
 			Window* window = this->mWindow;
 
@@ -2219,6 +2228,18 @@ void GuiMenu::openSystemSettings()
 				s->setVariable("reboot", true);				
 			}
 		});
+
+#ifdef BATOCERA
+		securityGui->addSaveFunc([cpuMitigations, s]
+		{
+			if (cpuMitigations->changed())
+			{
+				if (ApiSystem::getInstance()->setCpuMitigationsEnabled(cpuMitigations->getState()))
+					s->setVariable("reboot", true);
+			}
+		});
+#endif
+
 		mWindow->pushGui(securityGui);
 	});
 #else

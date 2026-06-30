@@ -230,6 +230,23 @@ bool ApiSystem::setOverclock(std::string mode)
 	return executeScript("batocera-overclock set " + mode);
 }
 
+#ifdef BATOCERA
+bool ApiSystem::areCpuMitigationsEnabled()
+{
+	auto result = executeScript("batocera-mitigations status", nullptr);
+
+	if (result.second != 0)
+		return true;
+
+	return Utils::String::trim(result.first) != "0";
+}
+
+bool ApiSystem::setCpuMitigationsEnabled(bool enabled)
+{
+	return executeScript(std::string("batocera-mitigations ") + (enabled ? "on" : "off"));
+}
+#endif
+
 // BusyComponent* ui
 std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(const std::string)>& func, bool fromlocalmedia)
 {
