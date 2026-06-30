@@ -293,6 +293,129 @@ retry:
     mPlayingSystemThemeSong = "";
 }
 
+static std::string utf16_to_utf8(const std::u16string& u16)
+{
+    std::string out;
+    out.reserve(u16.size() * 3); // upper bound for BMP chars
+
+    for (size_t i = 0; i < u16.size(); ++i)
+    {
+        uint32_t code = u16[i];
+
+        // Handle surrogate pairs (just in case)
+        if (code >= 0xD800 && code <= 0xDBFF && (i + 1) < u16.size())
+        {
+            uint32_t low = u16[i + 1];
+            if (low >= 0xDC00 && low <= 0xDFFF)
+            {
+                code = (((code - 0xD800) << 10) | (low - 0xDC00)) + 0x10000;
+                ++i; // consumed low surrogate
+            }
+        }
+
+        if (code <= 0x7F)
+        {
+            out.push_back(static_cast<char>(code));
+        }
+        else if (code <= 0x7FF)
+        {
+            out.push_back(static_cast<char>(0xC0 | (code >> 6)));
+            out.push_back(static_cast<char>(0x80 | (code & 0x3F)));
+        }
+        else if (code <= 0xFFFF)
+        {
+            out.push_back(static_cast<char>(0xE0 | (code >> 12)));
+            out.push_back(static_cast<char>(0x80 | ((code >> 6) & 0x3F)));
+            out.push_back(static_cast<char>(0x80 | (code & 0x3F)));
+        }
+        else
+        {
+            out.push_back(static_cast<char>(0xF0 | (code >> 18)));
+            out.push_back(static_cast<char>(0x80 | ((code >> 12) & 0x3F)));
+            out.push_back(static_cast<char>(0x80 | ((code >> 6) & 0x3F)));
+            out.push_back(static_cast<char>(0x80 | (code & 0x3F)));
+        }
+    }
+
+    return out;
+}
+
+std::string decode_text_frame(const ID3v2_TextFrameData* data)
+{
+    if (!data || !data->text || data->size <= 0)
+        return {};
+
+    const unsigned char* bytes =
+        reinterpret_cast<const unsigned char*>(data->text);
+    size_t len = static_cast<size_t>(data->size);
+
+    // ISO-8859-1 / “ANSI” branch
+    if (data->encoding == ID3v2_ENCODING_ISO)
+    {
+        if (len > 0 && bytes[len - 1] == 0x00)
+            --len; // drop trailing NUL
+
+        return std::string(reinterpret_cast<const char*>(bytes),
+                           reinterpret_cast<const char*>(bytes) + len);
+    }
+
+    // UNICODE branch: UTF‑16 with BOM + 0x0000 terminator
+    if (len < 4)
+        return {};
+
+    bool little_endian = false;
+    size_t offset = 0;
+
+    if (bytes[0] == 0xFF && bytes[1] == 0xFE) {
+        little_endian = true;
+        offset = 2;
+    } else if (bytes[0] == 0xFE && bytes[1] == 0xFF) {
+        little_endian = false;
+        offset = 2;
+    }
+
+    if (offset >= len)
+        return {};
+
+    const unsigned char* p = bytes + offset;
+    len -= offset;
+
+    // Trim trailing UTF‑16 0x0000
+    if (len >= 2 && p[len - 2] == 0x00 && p[len - 1] == 0x00)
+        len -= 2;
+
+    std::u16string u16;
+    u16.reserve(len / 2);
+
+    for (size_t i = 0; i + 1 < len; i += 2)
+    {
+        char16_t ch;
+        if (little_endian)
+            ch = static_cast<char16_t>(p[i] | (p[i + 1] << 8));
+        else
+            ch = static_cast<char16_t>(p[i + 1] | (p[i] << 8));
+
+        u16.push_back(ch);
+    }
+
+    return utf16_to_utf8(u16);
+}
+
+static void remove_last_utf8_codepoint(std::string& s)
+{
+    if (s.empty())
+        return;
+
+    // Move back to the start byte of the last UTF‑8 codepoint
+    size_t i = s.size() - 1;
+
+    // Skip continuation bytes (10xxxxxx)
+    while (i > 0 && (static_cast<unsigned char>(s[i]) & 0xC0) == 0x80)
+        --i;
+
+    s.erase(i);
+}
+
 void AudioManager::playMusic(const std::string& path)
 {
 	if (!mInitialized)
@@ -464,24 +587,34 @@ void AudioManager::playSong(const std::string& song)
 	LOG(LogDebug) << "AudioManager::setSongName";
 
 	// First let's try with an ID3 v2 tag
-#define MAX_STR_SIZE 255 // Empiric max size of a MP3 title
-
 	ID3v2_Tag* tag = ID3v2_read_tag(song.c_str());
 	if (tag != NULL)
-	{
-		ID3v2_TextFrame* title_frame = ID3v2_Tag_get_title_frame(tag);
-		if (title_frame != NULL)
-		{
-      std::string song_name(ID3v2_to_unicode(title_frame->data->text));
-			ID3v2_TextFrame* artist_frame = ID3v2_Tag_get_artist_frame(tag);
-			if (artist_frame != NULL)
-			{
-        const char * artist = ID3v2_to_unicode(artist_frame->data->text);
+  {
+    ID3v2_TextFrame* title_frame = ID3v2_Tag_get_title_frame(tag);
+    if (title_frame != NULL)
+    {
+      ID3v2_TextFrameData* textdata =
+        (ID3v2_TextFrameData*) title_frame->data;
+
+      std::string title_utf8 = decode_text_frame(textdata);
+      remove_last_utf8_codepoint(title_utf8);
+      std::string song_name = title_utf8;
+
+      ID3v2_TextFrame* artist_frame = ID3v2_Tag_get_artist_frame(tag);
+      if (artist_frame != NULL)
+      {
+        ID3v2_TextFrameData* artistdata =
+          (ID3v2_TextFrameData*) artist_frame->data;
+
+        std::string artist_utf8 = decode_text_frame(artistdata);
+        remove_last_utf8_codepoint(artist_utf8);
         song_name += " - ";
-        song_name += artist;
+        song_name += artist_utf8;
       }
-      song_name.erase(std::remove_if(song_name.begin(), song_name.end(), [](unsigned char c) { return !Utils::String::isPrintableChar(c); }), song_name.end());
+
+      song_name = Utils::String::trim(song_name);
       setSongName(song_name);
+
       free(artist_frame);
       free(title_frame);
       free(tag);
