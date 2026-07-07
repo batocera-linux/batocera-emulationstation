@@ -20,6 +20,7 @@
 #include <SDL_events.h>
 #include <SDL_main.h>
 #include <SDL_timer.h>
+#include <SDL_video.h>
 #include <iostream>
 #include <time.h>
 #include "LocaleES.h"
@@ -352,6 +353,51 @@ void signalHandler(int signum)
 	exit(signum);
 }
 
+static int getDisplayRefreshRate()
+{
+	int displayIndex = -1;
+
+	SDL_Window* window = Renderer::getSDLWindow();
+	if (window != nullptr)
+		displayIndex = SDL_GetWindowDisplayIndex(window);
+
+	if (displayIndex < 0)
+		displayIndex = Settings::getInstance()->getInt("MonitorID");
+
+	if (displayIndex < 0)
+		displayIndex = 0;
+
+	SDL_DisplayMode displayMode;
+	if (SDL_GetCurrentDisplayMode(displayIndex, &displayMode) == 0 && displayMode.refresh_rate > 0)
+		return displayMode.refresh_rate;
+
+	return 60;
+}
+
+static int getEffectiveFpsLimit(int automaticVSyncFpsLimit)
+{
+	int fpsLimit = Settings::FpsLimit();
+	if (fpsLimit > 0 || !Settings::VSync())
+		return fpsLimit;
+
+	return automaticVSyncFpsLimit > 0 ? automaticVSyncFpsLimit : 60;
+}
+
+static void limitFrameRate(int frameStartTime, int fpsLimit)
+{
+	if (fpsLimit <= 0)
+		return;
+
+	double frameTime = 1000.0 / fpsLimit;
+	int frameDuration = SDL_GetTicks() - frameStartTime;
+	if (frameDuration < frameTime)
+	{
+		int timeToWait = static_cast<int>(frameTime - frameDuration);
+		if (timeToWait > 0 && timeToWait < 100)
+			SDL_Delay(timeToWait);
+	}
+}
+
 void playVideo()
 {
 	ApiSystem::getInstance()->setReadyFlag(false);
@@ -387,6 +433,7 @@ void playVideo()
 
 	int lastTime = SDL_GetTicks();
 	int totalTime = 0;
+	int automaticVSyncFpsLimit = getDisplayRefreshRate();
 
 	while (!exitLoop)
 	{
@@ -418,6 +465,7 @@ void playVideo()
 		vid.render(transform);
 
 		Renderer::swapBuffers();
+		limitFrameRate(curTime, getEffectiveFpsLimit(automaticVSyncFpsLimit));
 
 		if (ApiSystem::getInstance()->isReadyFlagSet())
 			break;
@@ -642,28 +690,11 @@ int main(int argc, char* argv[])
 		AudioManager::getInstance()->playRandomMusic();
 
 
-#ifdef WIN32	
-	DWORD displayFrequency = 60;
-
-	DEVMODE lpDevMode;
-	memset(&lpDevMode, 0, sizeof(DEVMODE));
-	lpDevMode.dmSize = sizeof(DEVMODE);
-	lpDevMode.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT | DM_DISPLAYFLAGS | DM_DISPLAYFREQUENCY;
-	lpDevMode.dmDriverExtra = 0;
-
-	if (EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &lpDevMode) != 0) {
-		displayFrequency = lpDevMode.dmDisplayFrequency; // default value if cannot retrieve from user settings.
-	}
-
-	int timeLimit = (1000 / displayFrequency) - 10;	 // Margin for vsync
-	if (timeLimit < 0)
-		timeLimit = 0;
-#endif
-
 	Renderer::setWindowResizable(true);
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
+	int automaticVSyncFpsLimit = getDisplayRefreshRate();
 
 	bool running = true;
 
@@ -786,20 +817,8 @@ int main(int argc, char* argv[])
 		TRYCATCH("Window.update" ,window.update(deltaTime))	
 		TRYCATCH("Window.render", window.render())
 
-		int fpsLimit = Settings::FpsLimit();
-		if (fpsLimit > 0)
-		{
-			int frameTime = (1000 + fpsLimit / 2) / fpsLimit;
-			int processDuration = SDL_GetTicks() - curTime;
-			if (processDuration < frameTime)
-			{
-				int timeToWait = frameTime - processDuration;
-				if (timeToWait > 0 && timeToWait < 100)
-					SDL_Delay(timeToWait);
-			}
-		}
-
-		Renderer::swapBuffers();		
+		Renderer::swapBuffers();
+		limitFrameRate(curTime, getEffectiveFpsLimit(automaticVSyncFpsLimit));
 	}
 
 	if (Utils::Platform::isFastShutdown())
@@ -842,4 +861,3 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
-
