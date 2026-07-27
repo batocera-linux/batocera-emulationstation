@@ -598,8 +598,66 @@ namespace Utils
 
 			return result;
 		}
+
+		// Declared locally (instead of pulled from ShellScalingApi.h / a newer
+		// winuser.h) so this builds regardless of which Windows SDK version ES is
+		// compiled against; on older SDKs the constant/type simply doesn't exist yet.
+#ifndef DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
+		DECLARE_HANDLE(DPI_AWARENESS_CONTEXT);
+#define DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 ((DPI_AWARENESS_CONTEXT)-4)
+#endif
+
+		typedef BOOL(WINAPI* SetProcessDpiAwarenessContext_t)(DPI_AWARENESS_CONTEXT);
+		typedef HRESULT(WINAPI* SetProcessDpiAwareness_t)(int);
+		typedef BOOL(WINAPI* SetProcessDPIAware_t)();
+
+		// Marks the process Per-Monitor-V2 DPI aware so Windows stops bitmap-
+		// stretching our output on displays scaled above 100% (e.g. 4K @ 150%).
+		// Without this, ES is treated as DPI-unaware, gets handed a virtualized
+		// logical resolution, and users have to manually enable the "Override high
+		// DPI scaling" compatibility option for fullscreen/video sizing to be correct.
+		// Resolved dynamically (rather than via an app manifest or direct linking) so
+		// the same binary degrades gracefully on Windows 8.1/7, where PMv2 and even
+		// PROCESS_PER_MONITOR_DPI_AWARE don't exist.
+		void setDpiAwareness()
+		{
+			HMODULE user32 = LoadLibraryA("user32.dll");
+			if (user32 != NULL)
+			{
+				auto setContext = (SetProcessDpiAwarenessContext_t)GetProcAddress(user32, "SetProcessDpiAwarenessContext");
+				if (setContext != NULL && setContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2))
+				{
+					FreeLibrary(user32);
+					return;
+				}
+			}
+
+			HMODULE shcore = LoadLibraryA("Shcore.dll");
+			if (shcore != NULL)
+			{
+				auto setAwareness = (SetProcessDpiAwareness_t)GetProcAddress(shcore, "SetProcessDpiAwareness");
+				if (setAwareness != NULL && SUCCEEDED(setAwareness(2 /* PROCESS_PER_MONITOR_DPI_AWARE */)))
+				{
+					FreeLibrary(shcore);
+					if (user32 != NULL)
+						FreeLibrary(user32);
+					return;
+				}
+
+				FreeLibrary(shcore);
+			}
+
+			if (user32 != NULL)
+			{
+				auto setAware = (SetProcessDPIAware_t)GetProcAddress(user32, "SetProcessDPIAware");
+				if (setAware != NULL)
+					setAware();
+
+				FreeLibrary(user32);
+			}
+		}
 #else
-		bool isBuildroot() 
+		bool isBuildroot()
 		{
 			static const bool cached = []() 
 			{
