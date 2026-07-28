@@ -444,8 +444,13 @@ void launchStartupGame()
 // #include "utils/MathExpr.h"
 
 int main(int argc, char* argv[])
-{	
+{
 	// Utils::MathExpr::performUnitTests();
+
+#ifdef WIN32
+	// Must run before any window/message-queue APIs are touched.
+	Utils::Platform::setDpiAwareness();
+#endif
 
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
