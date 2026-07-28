@@ -273,7 +273,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 		}
 		else
 		{
-			if (params.game->hasContentFiles() && Utils::String::toLower(Utils::FileSystem::getExtension(fileNameToHash)) == ".m3u")
+			if (params.game->hasContentFiles())
 			{
 				auto content = params.game->getContentFiles();
 				if (content.size())
