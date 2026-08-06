@@ -3718,7 +3718,7 @@ msgstr "%s pripojené"
 msgid "%s disconnected"
 msgstr "%s odpojené"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "Zdvih pre horný, dolný a špeciálny"
 
 msgid "ALT GR"

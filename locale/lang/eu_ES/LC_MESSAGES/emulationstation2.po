@@ -3717,7 +3717,7 @@ msgstr "%s konektatuta"
 msgid "%s disconnected"
 msgstr "%s deskonektatuta"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
 
 msgid "ALT GR"

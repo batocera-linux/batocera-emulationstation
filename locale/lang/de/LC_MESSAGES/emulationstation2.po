@@ -3743,7 +3743,7 @@ msgstr "%s verbunden"
 msgid "%s disconnected"
 msgstr "%s getrennt"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT FÜR GROSS-, KLEINSCHREIBUNG UND SONDERZEICHEN"
 
 msgid "ALT GR"

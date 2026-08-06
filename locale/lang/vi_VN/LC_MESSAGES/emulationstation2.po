@@ -3715,7 +3715,7 @@ msgstr "%s đã kết nối"
 msgid "%s disconnected"
 msgstr "%s đã ngắt kết nối"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ĐỂ VIẾT HOA, THƯỜNG, VÀ ĐẶC BIỆT"
 
 msgid "ALT GR"

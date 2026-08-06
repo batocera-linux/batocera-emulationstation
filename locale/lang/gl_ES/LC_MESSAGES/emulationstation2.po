@@ -3730,7 +3730,7 @@ msgstr "%s conectado"
 msgid "%s disconnected"
 msgstr "%s desconectado"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "MAIÚSC. PARA MAIÚSCULAS, MINÚSCULAS E ESPECIAIS"
 
 msgid "ALT GR"

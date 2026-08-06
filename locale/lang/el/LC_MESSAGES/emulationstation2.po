@@ -3694,7 +3694,7 @@ msgstr "%s συνδεθηκε"
 msgid "%s disconnected"
 msgstr "%s αποσυνθεθηκε"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "ΑΛΛΑΓΕΣ ΓΙΑ ΚΕΦΑΛΑΙΑ,ΜΙΚΡΑ, ΚΑΙ ΕΙΔΙΚΑ"
 
 msgid "ALT GR"

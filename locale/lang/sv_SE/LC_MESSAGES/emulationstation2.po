@@ -3722,7 +3722,7 @@ msgstr "%s ansluten"
 msgid "%s disconnected"
 msgstr "%s frånkopplad"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "VÄXLAR FÖR ÖVRE, NEDRE OCH SPECIAL"
 
 msgid "ALT GR"

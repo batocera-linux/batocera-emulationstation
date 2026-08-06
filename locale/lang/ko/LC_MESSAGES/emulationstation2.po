@@ -3696,7 +3696,7 @@ msgstr "%s 연결됨"
 msgid "%s disconnected"
 msgstr "%s 연결 해제됨"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "대문자, 소문자, 특수문자를 위한 시프트 키"
 
 msgid "ALT GR"

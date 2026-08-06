@@ -3737,7 +3737,7 @@ msgstr "%s csatlakozva"
 msgid "%s disconnected"
 msgstr "%s lecsatlakozva"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "VÁLTÁS NAGYBETŰ, KISBETŰ, SPECIÁLIS KÖZÖTT"
 
 msgid "ALT GR"

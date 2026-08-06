@@ -3739,7 +3739,7 @@ msgstr "%s verbonden"
 msgid "%s disconnected"
 msgstr "%s verbroken"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFTS VOOR HOGER,LAGER EN SPECIAAL"
 
 msgid "ALT GR"

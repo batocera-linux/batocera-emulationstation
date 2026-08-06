@@ -3728,7 +3728,7 @@ msgstr "%s connectée"
 msgid "%s disconnected"
 msgstr "%s déconnectée"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPÉCIAL"
 
 msgid "ALT GR"

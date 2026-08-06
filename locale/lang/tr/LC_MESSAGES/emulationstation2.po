@@ -3740,7 +3740,7 @@ msgstr "%s bağlandı"
 msgid "%s disconnected"
 msgstr "%s bağlantı kesildi"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "ÜST, ALT VE ÖZEL İÇİN SEÇENEKLER"
 
 msgid "ALT GR"

@@ -3655,7 +3655,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SKIFT TEGN"
 
 msgid "ALT GR"

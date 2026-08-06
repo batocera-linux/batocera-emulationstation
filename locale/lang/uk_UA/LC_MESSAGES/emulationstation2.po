@@ -3675,7 +3675,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ДЛЯ РЕЄСТРУ ТА СИМВОЛІВ"
 
 msgid "ALT GR"

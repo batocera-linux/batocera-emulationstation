@@ -3686,7 +3686,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT AM UCHAF, ISEL, AC ARBENNIG"
 
 msgid "ALT GR"

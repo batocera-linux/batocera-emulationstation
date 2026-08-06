@@ -3719,7 +3719,7 @@ msgstr "%s подключен"
 msgid "%s disconnected"
 msgstr "%s отключен"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "ALT GR"

@@ -3710,7 +3710,7 @@ msgstr "%s terhubung"
 msgid "%s disconnected"
 msgstr "%s terputus"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "TEKAN SHIFT UNTUK ATAS, BAWAH, DAN SPESIAL"
 
 msgid "ALT GR"

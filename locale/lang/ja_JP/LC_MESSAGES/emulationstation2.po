@@ -3712,7 +3712,7 @@ msgstr "%s - 接続"
 msgid "%s disconnected"
 msgstr "%s - 切断"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "大文字,小文字,特殊記号用の SHIFT"
 
 msgid "ALT GR"

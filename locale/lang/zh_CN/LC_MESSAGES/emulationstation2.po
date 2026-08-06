@@ -3680,7 +3680,7 @@ msgstr "%s 已连接"
 msgid "%s disconnected"
 msgstr "%s 已断开连接"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT键可切换大小写或特殊字符"
 
 msgid "ALT GR"

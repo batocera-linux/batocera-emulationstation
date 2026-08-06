@@ -3755,7 +3755,7 @@ msgstr "%s متصل"
 msgid "%s disconnected"
 msgstr "%s غير متصل"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "تبديل لـ عالي، منخفض وخاص"
 
 msgid "ALT GR"
