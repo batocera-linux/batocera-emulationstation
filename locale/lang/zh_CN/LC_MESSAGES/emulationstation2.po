@@ -291,7 +291,7 @@ msgid "ARE YOU SURE?"
 msgstr "确定吗？"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RetroAchievement设置"
+msgstr "RetroAchievements设置"
 
 msgid "SETTINGS"
 msgstr "设置"
@@ -365,7 +365,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "在主菜单中显示成就菜单项"
 
 msgid "View your RetroAchievements stats right from the main menu!"
-msgstr "从主菜单查看您的RetroAchievement统计数据！"
+msgstr "从主菜单查看您的RetroAchievements统计数据！"
 
 msgid "GAME INDEXES"
 msgstr "游戏索引"
@@ -377,7 +377,7 @@ msgid "INDEX GAMES"
 msgstr "游戏索引"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "无法激活RetroAchievement:"
+msgstr "无法激活RetroAchievements:"
 
 msgid "KEYBOARDTOPADS"
 msgstr "键盘支架"
@@ -2738,7 +2738,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "显示手册图标"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "显示RetroAchievement图标"
+msgstr "显示RetroAchievements图标"
 
 msgid "SHOW GUN ICON"
 msgstr "显示光枪图标"
