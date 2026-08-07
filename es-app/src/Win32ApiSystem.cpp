@@ -889,7 +889,7 @@ void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::
 bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 {
 	// Update using 'es-checkversion.cmd' scripts ?
-	std::string esUpdateScript = getScriptPath("es-update");
+	std::string esUpdateScript = getScriptPath("es-checkversion");
 	if (!esUpdateScript.empty())
 	{
 		std::string esUpdateDirectory = Utils::FileSystem::getPreferredPath(Utils::FileSystem::getParent(esUpdateScript));
@@ -1201,4 +1201,5 @@ bool Win32ApiSystem::forgetBluetoothControllers()
 }
 
 #endif
+
 
