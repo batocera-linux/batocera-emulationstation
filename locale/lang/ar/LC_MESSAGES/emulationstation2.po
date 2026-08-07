@@ -1430,7 +1430,7 @@ msgid "NO WI-FI NETWORKS FOUND"
 msgstr "لم يتم العثور على شبكة وايفاي"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "جارِ البحث عن شبكة WIFI"
+msgstr "جارِ البحث عن شبكة WI-FI"
 
 msgid "PARIS"
 msgstr "باريس"
@@ -2934,25 +2934,25 @@ msgstr "حالة الإنترنت"
 msgid "HOSTNAME"
 msgstr "اسم المضيف"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "تفعيل الوايفاي"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "اسم الشبكة"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "كلمة سر الوايفاي"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr "دولة الواي فاي"
 
 msgid "N/A"
 msgstr "غير متاح"
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "تم تفعيل الوايفاي"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "خطأ في إعدادات الوايفاي"
 
 msgid "QUICK ACCESS"

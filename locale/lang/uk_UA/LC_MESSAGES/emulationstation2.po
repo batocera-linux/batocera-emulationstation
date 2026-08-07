@@ -1372,10 +1372,10 @@ msgid "INPUT MANUALLY"
 msgstr "ВВЕСТИ ВРУЧНУ"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "МЕРЕЖА WIFI НЕ ЗНАЙДЕНА"
+msgstr "МЕРЕЖА WI-FI НЕ ЗНАЙДЕНА"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "ПОШУК МЕРЕЖІ WIFI"
+msgstr "ПОШУК МЕРЕЖІ WI-FI"
 
 msgid "PARIS"
 msgstr ""
@@ -2863,25 +2863,25 @@ msgstr "СТАТУС ІНТЕРНЕТУ"
 msgid "HOSTNAME"
 msgstr "ІМ'Я ХОСТУ"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "УВІМКНУТИ WI-FI"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "ІМ'Я МЕРЕЖІ WI-FI"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "ПАРОЛЬ МЕРЕЖІ WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "WI-FI УВІМКНУТО"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "ПОМИЛКА КОНФІГУРАЦІЇ WI-FI"
 
 msgid "QUICK ACCESS"

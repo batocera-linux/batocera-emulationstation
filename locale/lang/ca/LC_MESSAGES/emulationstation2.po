@@ -1385,10 +1385,10 @@ msgid "INPUT MANUALLY"
 msgstr "TECLEJAR MANUALMENT"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NO S’HA TROBAR CAP XARXA WIFI"
+msgstr "NO S’HA TROBAR CAP XARXA WI-FI"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "BUSCANT XARXES WIFI"
+msgstr "BUSCANT XARXES WI-FI"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -2920,26 +2920,26 @@ msgstr "ESTAT D'INTERNET"
 msgid "HOSTNAME"
 msgstr "NOM DE LA MÀQUINA"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVAR WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVAR WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID DEL WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID DEL WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CLAU DEL WIFI"
+msgid "WI-FI KEY"
+msgstr "CLAU DEL WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAÍS DE LA WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAÍS DE LA WI-FI"
 
 msgid "N/A"
 msgstr "N/D"
 
-msgid "WIFI ENABLED"
-msgstr "EL WIFI ESTÀ ACTIU"
+msgid "WI-FI ENABLED"
+msgstr "EL WI-FI ESTÀ ACTIU"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERROR EN LA CONFIGURACIÓ DEL WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCÈS RÀPID"

@@ -1376,10 +1376,10 @@ msgid "INPUT MANUALLY"
 msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
+msgstr "HEB FFEINDIO RHWYDWEITHIAU WI-FI"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "CHWILIO RHWYDWEITHIAU WIFI"
+msgstr "CHWILIO RHWYDWEITHIAU WI-FI"
 
 msgid "PARIS"
 msgstr ""
@@ -2867,26 +2867,26 @@ msgstr "STATWS RHYNGRWYD"
 msgid "HOSTNAME"
 msgstr "ENW HOST"
 
-msgid "ENABLE WIFI"
-msgstr "GALLUOGI WIFI"
+msgid "ENABLE WI-FI"
+msgstr "GALLUOGI WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
 
-msgid "WIFI KEY"
-msgstr "ALLWEDD WIFI"
+msgid "WI-FI KEY"
+msgstr "ALLWEDD WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "GALLUOGI WIFI"
+msgid "WI-FI ENABLED"
+msgstr "GALLUOGI WI-FI"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "GWALL TRAWSWEDDU WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "GWALL TRAWSWEDDU WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "MYNEDIAD CYFLYM"

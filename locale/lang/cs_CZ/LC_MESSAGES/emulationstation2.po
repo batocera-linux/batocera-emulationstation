@@ -2897,26 +2897,26 @@ msgstr "STAV INTERNETU"
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
 
-msgid "ENABLE WIFI"
-msgstr "POVOLIT WIFI"
+msgid "ENABLE WI-FI"
+msgstr "POVOLIT WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "HESLO WIFI"
+msgid "WI-FI KEY"
+msgstr "HESLO WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI POVOLENO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI POVOLENO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "CHYBA KONFIGURACE WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "CHYBA KONFIGURACE WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "RYCHLÝ PŘÍSTUP"
@@ -4318,11 +4318,11 @@ msgstr[2] "%d před sekundami"
 #~ msgid "MANUAL INPUT"
 #~ msgstr "MANUALNÍ VSTUP"
 
-#~ msgid "NO WIFI NETWORKS FOUND"
-#~ msgstr "NENALEZENY SÍTĚ WIFI"
+#~ msgid "NO WI-FI NETWORKS FOUND"
+#~ msgstr "NENALEZENY SÍTĚ WI-FI"
 
-#~ msgid "SEARCHING WIFI NETWORKS"
-#~ msgstr "HLEDÁNÍ WIFI SÍTĚ"
+#~ msgid "SEARCHING WI-FI NETWORKS"
+#~ msgstr "HLEDÁNÍ WI-FI SÍTĚ"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLER"
 #~ msgstr "ZAPOMENOUT NA OVLADAČ BLUETOOTH"

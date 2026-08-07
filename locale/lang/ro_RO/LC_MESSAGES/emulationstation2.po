@@ -2925,26 +2925,26 @@ msgstr "STARE INTERNET"
 msgid "HOSTNAME"
 msgstr "NUME SISTEM"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVEAZĂ WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVEAZĂ WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CHEIE WIFI"
+msgid "WI-FI KEY"
+msgstr "CHEIE WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "ȚARĂ WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "ȚARĂ WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ACTIVAT"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ACTIVAT"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "EROARE DE CONFIGURARE WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "EROARE DE CONFIGURARE WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCES RAPID"

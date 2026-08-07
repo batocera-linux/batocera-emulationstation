@@ -2889,26 +2889,26 @@ msgstr "INTERNET STATUS"
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
 
-msgid "ENABLE WIFI"
-msgstr "ENABLE WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ENABLE WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ENABLED"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ENABLED"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI CONFIGURATION ERROR"
 
 msgid "QUICK ACCESS"
 msgstr "QUICK ACCESS"

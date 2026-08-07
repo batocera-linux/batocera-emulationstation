@@ -2900,26 +2900,26 @@ msgstr "TRẠNG THÁI MẠNG"
 msgid "HOSTNAME"
 msgstr "TÊN MÁY CHỦ"
 
-msgid "ENABLE WIFI"
-msgstr "BẬT WIFI"
+msgid "ENABLE WI-FI"
+msgstr "BẬT WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "ĐÃ KÍCH HOẠT WIFI"
+msgid "WI-FI ENABLED"
+msgstr "ĐÃ KÍCH HOẠT WI-FI"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "LỖI CẤU HÌNH WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "LỖI CẤU HÌNH WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "TRUY CẬP NHANH"

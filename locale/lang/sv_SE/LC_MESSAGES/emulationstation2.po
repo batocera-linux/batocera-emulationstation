@@ -2907,26 +2907,26 @@ msgstr "INTERNETSTATUS"
 msgid "HOSTNAME"
 msgstr "VÄRDNAMN"
 
-msgid "ENABLE WIFI"
-msgstr "AKTIVERA WIFI"
+msgid "ENABLE WI-FI"
+msgstr "AKTIVERA WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI-NYCKEL"
+msgid "WI-FI KEY"
+msgstr "WI-FI-NYCKEL"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI LAND"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI LAND"
 
 msgid "N/A"
 msgstr "-"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI TILLGÄNGLIG"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI TILLGÄNGLIG"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "FEL I WIFI-KONFIGURATIONEN"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "FEL I WI-FI-KONFIGURATIONEN"
 
 msgid "QUICK ACCESS"
 msgstr "SNABB ÅTKOMST"

@@ -2900,25 +2900,25 @@ msgstr "Stav internetu"
 msgid "HOSTNAME"
 msgstr "Názov hostiteľa"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "Povoliť Wi-Fi"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "Názov siete"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "Wi-Fi heslo"
 
-msgid "WIFI COUNTRY"
-msgstr "Krajina WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "Krajina WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "Wi-Fi povolené"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "Chyba konfigurácie Wi-Fi"
 
 msgid "QUICK ACCESS"

@@ -4444,7 +4444,7 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 	// Wifi enable
 	auto enable_wifi = std::make_shared<SwitchComponent>(mWindow);
 	enable_wifi->setState(baseWifiEnabled);
-	s->addWithLabel(_("ENABLE WIFI"), enable_wifi, selectWifiEnable);
+	s->addWithLabel(_("ENABLE WI-FI"), enable_wifi, selectWifiEnable);
 
 	// window, title, settingstring,
 	const std::string baseSSID = SystemConf::getInstance()->get("wifi.ssid");
@@ -4455,13 +4455,13 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 
 	if (baseWifiEnabled)
 	{
-		s->addInputTextConfigRow(_("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
-		s->addInputTextConfigRow(_("WIFI KEY"), "wifi.key", true);
+		s->addInputTextConfigRow(_("WI-FI SSID"), "wifi.ssid", false, false, &openWifiSettings);
+		s->addInputTextConfigRow(_("WI-FI KEY"), "wifi.key", true);
 
 #if !WIN32
-        // Batocera-specific WIFI COUNTRY option
+        // Batocera-specific WI-FI COUNTRY option
         auto country_codes = getCountryCodes();
-        auto country = std::make_shared<OptionListComponent<std::string>>(mWindow, _("WIFI COUNTRY"), false);
+        auto country = std::make_shared<OptionListComponent<std::string>>(mWindow, _("WI-FI COUNTRY"), false);
 
 		country->add(_("N/A"), "", baseCountry.empty());
 
@@ -4471,7 +4471,7 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
         if (country->getSelectedObjects().size() == 0)
             country->selectFirstItem();
 
-        s->addWithLabel(_("WIFI COUNTRY"), country);
+        s->addWithLabel(_("WI-FI COUNTRY"), country);
         s->addSaveFunc([country] { SystemConf::getInstance()->set("wifi.country", country->getSelected()); });
 #endif
 	}
@@ -4496,17 +4496,17 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 			if (baseSSID != newSSID || baseKEY != newKey || baseCountry != newCountry || !baseWifiEnabled)
 			{
 				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey, newCountry))
-					window->pushGui(new GuiMsgBox(window, _("WIFI ENABLED")));
+					window->pushGui(new GuiMsgBox(window, _("WI-FI ENABLED")));
 				else
-					window->pushGui(new GuiMsgBox(window, _("WIFI CONFIGURATION ERROR")));
+					window->pushGui(new GuiMsgBox(window, _("WI-FI CONFIGURATION ERROR")));
 			}
 #else
 			if (baseSSID != newSSID || baseKEY != newKey || !baseWifiEnabled)
 			{
 				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey))
-					window->pushGui(new GuiMsgBox(window, _("WIFI ENABLED")));
+					window->pushGui(new GuiMsgBox(window, _("WI-FI ENABLED")));
 				else
-					window->pushGui(new GuiMsgBox(window, _("WIFI CONFIGURATION ERROR")));
+					window->pushGui(new GuiMsgBox(window, _("WI-FI CONFIGURATION ERROR")));
 			}
 #endif
 		}

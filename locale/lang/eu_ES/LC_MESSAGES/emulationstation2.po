@@ -2900,26 +2900,26 @@ msgstr "INTERNET EGOERA"
 msgid "HOSTNAME"
 msgstr "GAILUAREN IZENA"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI-a AKTIBATU"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI-a AKTIBATU"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID-a"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID-a"
 
-msgid "WIFI KEY"
-msgstr "WIFI GAKOA"
+msgid "WI-FI KEY"
+msgstr "WI-FI GAKOA"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI-a AKTIBATUTA"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI-a AKTIBATUTA"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI KONFIGURAZIO ERROREA"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI KONFIGURAZIO ERROREA"
 
 msgid "QUICK ACCESS"
 msgstr "ATZIPEN AZKARRA"

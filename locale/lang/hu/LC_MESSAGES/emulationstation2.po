@@ -1386,10 +1386,10 @@ msgid "INPUT MANUALLY"
 msgstr "KÉZI BEVITEL"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NINCS WIFI HÁLÓZAT"
+msgstr "NINCS WI-FI HÁLÓZAT"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WIFI HÁLÓZAT KERESÉSE"
+msgstr "WI-FI HÁLÓZAT KERESÉSE"
 
 msgid "PARIS"
 msgstr "PÁRIZS"
@@ -2921,26 +2921,26 @@ msgstr "INTERNET ÁLLAPOTA"
 msgid "HOSTNAME"
 msgstr "HOSZTNÉV"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI ENGEDÉLYEZÉSE"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI ENGEDÉLYEZÉSE"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI JELSZÓ"
+msgid "WI-FI KEY"
+msgstr "WI-FI JELSZÓ"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI ORSZÁG"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI ORSZÁG"
 
 msgid "N/A"
 msgstr "Ismeretlen"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ENGEDÉLYEZVE"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ENGEDÉLYEZVE"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI BEÁLLÍTÁSI HIBA"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI BEÁLLÍTÁSI HIBA"
 
 msgid "QUICK ACCESS"
 msgstr "GYORS ELÉRÉS"

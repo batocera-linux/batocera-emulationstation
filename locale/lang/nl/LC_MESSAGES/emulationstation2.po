@@ -2923,26 +2923,26 @@ msgstr "INTERNET STATUS"
 msgid "HOSTNAME"
 msgstr "HOSTNAAM"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI INSCHAKELEN"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI INSCHAKELEN"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI LAND"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI LAND"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI IS INGESCHAKELD"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI IS INGESCHAKELD"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI CONFIGURATIEFOUT"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI CONFIGURATIEFOUT"
 
 msgid "QUICK ACCESS"
 msgstr "SNELLE TOEGANG"

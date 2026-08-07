@@ -2886,26 +2886,26 @@ msgstr "인터넷 상태"
 msgid "HOSTNAME"
 msgstr "호스트 이름"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI 활성화"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI 활성화"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI 비밀번호"
+msgid "WI-FI KEY"
+msgstr "WI-FI 비밀번호"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI 국가"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI 국가"
 
 msgid "N/A"
 msgstr "해당 사항 없음"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI 활성화됨"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI 활성화됨"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 구성 오류"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI 구성 오류"
 
 msgid "QUICK ACCESS"
 msgstr "빠른 연결"

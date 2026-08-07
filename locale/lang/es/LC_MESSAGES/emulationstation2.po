@@ -2928,26 +2928,26 @@ msgstr "ESTADO DE LA RED"
 msgid "HOSTNAME"
 msgstr "NOMBRE DEL EQUIPO (HOSTNAME)"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVAR WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVAR WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID O NOMBRE DE LA RED WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID O NOMBRE DE LA RED WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CLAVE WIFI"
+msgid "WI-FI KEY"
+msgstr "CLAVE WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAÍS WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAÍS WI-FI"
 
 msgid "N/A"
 msgstr "N/D"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ACTIVADO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ACTIVADO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR EN LA CONFIGURACIÓN WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERROR EN LA CONFIGURACIÓN WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCESO RÁPIDO"

@@ -1364,10 +1364,10 @@ msgid "INPUT MANUALLY"
 msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "CAP DE RET WIFI PAS TROBAT"
+msgstr "CAP DE RET WI-FI PAS TROBAT"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "RECÈRCA DE RET WIFI"
+msgstr "RECÈRCA DE RET WI-FI"
 
 msgid "PARIS"
 msgstr ""
@@ -2855,26 +2855,26 @@ msgstr ""
 msgid "HOSTNAME"
 msgstr "NOM D’ÒSTE"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVAR LO WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVAR LO WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CLAU WIFI"
+msgid "WI-FI KEY"
+msgstr "CLAU WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ACTIVAT"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ACTIVAT"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR DE CONFIGURACION WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERROR DE CONFIGURACION WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr ""

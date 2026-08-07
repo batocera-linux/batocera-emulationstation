@@ -2913,25 +2913,25 @@ msgstr "İNTERNET DURUMU"
 msgid "HOSTNAME"
 msgstr "SUNUCU ADI"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "WİFİ ETKİNLEŞTİR"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "WİFİ SSID"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "WİFİ ANAHTARI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr "WİFİ ÜLKESİ"
 
 msgid "N/A"
 msgstr "YOK"
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "WİFİ ETKİN"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "WİFİ YAPILANDIRMA HATASI"
 
 msgid "QUICK ACCESS"

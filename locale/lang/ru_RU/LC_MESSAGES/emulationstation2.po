@@ -1384,10 +1384,10 @@ msgid "INPUT MANUALLY"
 msgstr "ВВОД ВРУЧНУЮ"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "СЕТЬ WIFI НЕ НАЙДЕНА"
+msgstr "СЕТЬ WI-FI НЕ НАЙДЕНА"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "ПОИСК WIFI СЕТИ"
+msgstr "ПОИСК WI-FI СЕТИ"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -2901,25 +2901,25 @@ msgstr "СТАТУС СЕТИ"
 msgid "HOSTNAME"
 msgstr "ИМЯ ХОСТА"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "ВКЛЮЧИТЬ WI-FI"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "ИМЯ СЕТИ WI-FI"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "ПАРОЛЬ СЕТИ WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr "СТРАНА WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "WI-FI ВКЛЮЧЕН"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "ОШИБКА WI-FI КОНФИГУРАЦИИ"
 
 msgid "QUICK ACCESS"

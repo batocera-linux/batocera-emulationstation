@@ -1383,7 +1383,7 @@ msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WI-FI ネットワークが見つかりません"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WIFIネットワークの検索"
+msgstr "WI-FIネットワークの検索"
 
 msgid "PARIS"
 msgstr "パリ"
@@ -2897,26 +2897,26 @@ msgstr "接続状態"
 msgid "HOSTNAME"
 msgstr "ホスト名"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "WI-FI 有効"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI キー"
+msgid "WI-FI KEY"
+msgstr "WI-FI キー"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI 使用国"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI 使用国"
 
 msgid "N/A"
 msgstr "該当なし"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI が有効になりました"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI が有効になりました"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 設定エラー"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI 設定エラー"
 
 msgid "QUICK ACCESS"
 msgstr "クイック アクセス"

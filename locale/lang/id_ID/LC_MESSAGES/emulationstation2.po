@@ -2896,26 +2896,26 @@ msgstr "STATUS INTERNET"
 msgid "HOSTNAME"
 msgstr "NAMA HOST"
 
-msgid "ENABLE WIFI"
-msgstr "AKTIFKAN WIFI"
+msgid "ENABLE WI-FI"
+msgstr "AKTIFKAN WI-FI"
 
-msgid "WIFI SSID"
-msgstr "NAMA WIFI"
+msgid "WI-FI SSID"
+msgstr "NAMA WI-FI"
 
-msgid "WIFI KEY"
-msgstr "PASSWORD WIFI"
+msgid "WI-FI KEY"
+msgstr "PASSWORD WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "NEGARA WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "NEGARA WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI AKTIF"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI AKTIF"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "KESALAHAN KONFIGURASI WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "KESALAHAN KONFIGURASI WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "AKSES CEPAT"

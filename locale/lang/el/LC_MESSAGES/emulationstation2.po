@@ -2879,25 +2879,25 @@ msgstr "ΚΑΤΑΣΤΑΣΗ ΙΝΤΕΡΝΕΤ"
 msgid "HOSTNAME"
 msgstr "ΟΝΟΜΑ ΥΠΟΛΟΓΙΣΤΗ"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗΣ"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "SSID ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "ΚΛΕΙΔΙ ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "ΣΦΑΛΜΑ ΔΙΜΟΡΦΩΣΗΣ ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗΣ"
 
 msgid "QUICK ACCESS"

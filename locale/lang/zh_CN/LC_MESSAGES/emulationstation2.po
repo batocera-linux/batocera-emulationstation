@@ -1370,10 +1370,10 @@ msgid "INPUT MANUALLY"
 msgstr "手动输入"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "未发现可用的WIFI网络"
+msgstr "未发现可用的WI-FI网络"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "正在查询WIFI网络"
+msgstr "正在查询WI-FI网络"
 
 msgid "PARIS"
 msgstr "巴黎"
@@ -2869,26 +2869,26 @@ msgstr "网络状态"
 msgid "HOSTNAME"
 msgstr "主机名"
 
-msgid "ENABLE WIFI"
-msgstr "启用 WiFi"
+msgid "ENABLE WI-FI"
+msgstr "启用 WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WiFi 名称"
+msgid "WI-FI SSID"
+msgstr "WI-FI 名称"
 
-msgid "WIFI KEY"
-msgstr "WiFi 密码"
+msgid "WI-FI KEY"
+msgstr "WI-FI 密码"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI国家代码"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI国家代码"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
-msgstr "WiFi 已启用"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI 已启用"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WiFi 配置错误"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI 配置错误"
 
 msgid "QUICK ACCESS"
 msgstr "快速进入"

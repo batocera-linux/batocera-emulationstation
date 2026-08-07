@@ -1386,10 +1386,10 @@ msgid "INPUT MANUALLY"
 msgstr "INSERIR MANUALMENTE"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NENHUMA REDE WIFI ENCONTRADA"
+msgstr "NENHUMA REDE WI-FI ENCONTRADA"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "A PROCURA DE REDES WIFI"
+msgstr "A PROCURA DE REDES WI-FI"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -2910,26 +2910,26 @@ msgstr "ESTADO DA INTERNET"
 msgid "HOSTNAME"
 msgstr "NOME DA REDE"
 
-msgid "ENABLE WIFI"
-msgstr "ATIVAR WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ATIVAR WI-FI"
 
-msgid "WIFI SSID"
-msgstr "NOME DA REDE WIFI (SSID)"
+msgid "WI-FI SSID"
+msgstr "NOME DA REDE WI-FI (SSID)"
 
-msgid "WIFI KEY"
-msgstr "SENHA DO WIFI"
+msgid "WI-FI KEY"
+msgstr "SENHA DO WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAÍS WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAÍS WI-FI"
 
 msgid "N/A"
 msgstr "NÃO APLICÁVEL"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ATIVADO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ATIVADO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERRO NA CONFIGURAÇÃO WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERRO NA CONFIGURAÇÃO WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"

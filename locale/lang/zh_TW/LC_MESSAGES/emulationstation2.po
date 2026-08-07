@@ -2865,26 +2865,26 @@ msgstr "網路狀態"
 msgid "HOSTNAME"
 msgstr "主機名稱"
 
-msgid "ENABLE WIFI"
-msgstr "啟用 WIFI 無線網絡"
+msgid "ENABLE WI-FI"
+msgstr "啟用 WI-FI 無線網絡"
 
-msgid "WIFI SSID"
-msgstr "WIFI 連線名稱"
+msgid "WI-FI SSID"
+msgstr "WI-FI 連線名稱"
 
-msgid "WIFI KEY"
-msgstr "WIFI 連線金鑰"
+msgid "WI-FI KEY"
+msgstr "WI-FI 連線金鑰"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "已啟用 WIFI 無線網路"
+msgid "WI-FI ENABLED"
+msgstr "已啟用 WI-FI 無線網路"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 無線網路設定錯誤"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI 無線網路設定錯誤"
 
 msgid "QUICK ACCESS"
 msgstr "快速存取"
