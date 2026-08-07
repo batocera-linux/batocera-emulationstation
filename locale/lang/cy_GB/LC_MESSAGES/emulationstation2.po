@@ -1552,7 +1552,7 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -3253,7 +3253,7 @@ msgstr "gosod llwybr i'r bocs"
 msgid "Fan art"
 msgstr "Celf ffan"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "gosod llwybr i'r celf ffan"
 
 msgid "Title shot"
@@ -4050,7 +4050,7 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "CRAFU FIDEOS"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "CRAFU CELF FFAN"
 
 #~ msgid "SCRAPE MAP"

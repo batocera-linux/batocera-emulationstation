@@ -1564,7 +1564,7 @@ msgstr "NOTES"
 msgid "VIDEO"
 msgstr "VIDÉO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3302,7 +3302,7 @@ msgstr "entrer le chemin vers la boîte"
 msgid "Fan art"
 msgstr "Fanart"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "entrer le chemin vers le fanart"
 
 msgid "Title shot"

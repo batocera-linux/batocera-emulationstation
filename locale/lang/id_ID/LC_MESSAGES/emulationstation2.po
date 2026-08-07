@@ -1551,7 +1551,7 @@ msgstr "PERINGKAT KOMUNITAS"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "SENI"
 
 msgid "BEZEL (16:9)"
@@ -3284,7 +3284,7 @@ msgstr "masukkan lokasi box"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "masukkan lokasi fanart"
 
 msgid "Title shot"

@@ -1556,7 +1556,7 @@ msgstr "ĐÁNH GIÁ CỘNG ĐỒNG"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3291,7 +3291,7 @@ msgstr "nhập đường dẫn đến Hộp"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "nhập đường dẫn đến Fan art"
 
 msgid "Title shot"

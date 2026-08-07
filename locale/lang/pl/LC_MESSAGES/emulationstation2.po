@@ -1562,7 +1562,7 @@ msgstr "OCENA SPOŁECZNOŚCI"
 msgid "VIDEO"
 msgstr "WIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FAN ART"
 
 msgid "BEZEL (16:9)"
@@ -3306,7 +3306,7 @@ msgstr "wprowadź ścieżkę do pudełka"
 msgid "Fan art"
 msgstr "Grafiki fanów"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "wprowadź ścieżkę do grafik fanów"
 
 msgid "Title shot"
@@ -4202,7 +4202,7 @@ msgstr[2] "%d sekund temu"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "SCRAPE'UJ FILMY"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "SCRAPE'UJ FAN ART"
 
 #~ msgid "SCRAPE BEZEL (16:9)"

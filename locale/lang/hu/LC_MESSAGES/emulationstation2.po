@@ -1562,7 +1562,7 @@ msgstr "KÖZÖSSÉGI ÉRTÉKELÉS"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "RAJONGÓI ALKOTÁS"
 
 msgid "BEZEL (16:9)"
@@ -3311,7 +3311,7 @@ msgstr "doboz elérési útja"
 msgid "Fan art"
 msgstr "Rajongói kép"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "rajongói kép elérési útja"
 
 msgid "Title shot"

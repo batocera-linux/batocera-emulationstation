@@ -1562,7 +1562,7 @@ msgstr "COMMUNITY BEOORDELING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3313,7 +3313,7 @@ msgstr "voer pad naar doos in"
 msgid "Fan art"
 msgstr "Fanart"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "voer pad naar fanart in"
 
 msgid "Title shot"

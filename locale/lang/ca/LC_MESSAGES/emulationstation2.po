@@ -1561,7 +1561,7 @@ msgstr "PUNTUACIÓ DE LA COMUNITAT"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3310,7 +3310,7 @@ msgstr "introdueix la ruta de la capsa"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "introdueix la ruta del fanart"
 
 msgid "Title shot"

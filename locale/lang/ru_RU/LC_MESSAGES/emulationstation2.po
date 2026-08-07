@@ -1560,7 +1560,7 @@ msgstr "РЕЙТИНГ СООБЩЕСТВА"
 msgid "VIDEO"
 msgstr "ВИДЕО"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "ФАН-АРТ"
 
 msgid "BEZEL (16:9)"
@@ -3291,7 +3291,7 @@ msgstr "введите путь к обложке"
 msgid "Fan art"
 msgstr "Фан-арт"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "введите путь к фан-арту"
 
 msgid "Title shot"
@@ -4172,7 +4172,7 @@ msgstr[2] "%d секунд назад"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "ЗАГРУЗКА ВИДЕО"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "ЗАГРУЗКА ФАН-АРТА"
 
 #~ msgid "SCRAPE BEZEL (16:9)"

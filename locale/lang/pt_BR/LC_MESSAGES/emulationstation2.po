@@ -1571,7 +1571,7 @@ msgstr "AVALIAÇÃO DA COMUNIDADE"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FÃ-ARTE"
 
 msgid "BEZEL (16:9)"
@@ -3316,7 +3316,7 @@ msgstr "insira o caminho do diretório para a caixa do jogo"
 msgid "Fan art"
 msgstr "Fã-arte"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "insira o caminho do diretório para a arte do fã-arte"
 
 msgid "Title shot"

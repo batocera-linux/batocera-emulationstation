@@ -1546,7 +1546,7 @@ msgstr "社区评分"
 msgid "VIDEO"
 msgstr "视频"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "同人"
 
 msgid "BEZEL (16:9)"
@@ -3257,7 +3257,7 @@ msgstr "输入盒子路径"
 msgid "Fan art"
 msgstr "同人作品"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "输入同人作品路径"
 
 msgid "Title shot"
@@ -4116,7 +4116,7 @@ msgstr[0] "%d 秒前"
 #~ msgid "SCRAPE BOX BACKSIDE"
 #~ msgstr "抓取合子背面"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "抓取同人作品"
 
 #~ msgid "SCRAPE MANUAL"

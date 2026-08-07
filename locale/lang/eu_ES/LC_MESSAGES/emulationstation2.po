@@ -1553,7 +1553,7 @@ msgstr "KOMUNIDADEAREN KALIFIKAZIOA"
 msgid "VIDEO"
 msgstr "BIDEOA"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "ZALE ARTEA"
 
 msgid "BEZEL (16:9)"
@@ -3291,7 +3291,7 @@ msgstr "sartu kutxarako bidea"
 msgid "Fan art"
 msgstr "Zale artea"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "sartu zale arterako bidea"
 
 msgid "Title shot"

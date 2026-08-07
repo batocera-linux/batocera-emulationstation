@@ -1560,7 +1560,7 @@ msgstr "Hodnotenie komunity"
 msgid "VIDEO"
 msgstr "Video"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "Fanart"
 
 msgid "BEZEL (16:9)"
@@ -3290,7 +3290,7 @@ msgstr "zadajte cestu ku kabici"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "zadajte cestu k fanartu"
 
 msgid "Title shot"

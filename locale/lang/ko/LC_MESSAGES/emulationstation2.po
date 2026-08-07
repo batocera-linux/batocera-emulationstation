@@ -1552,7 +1552,7 @@ msgstr "사용자 평가"
 msgid "VIDEO"
 msgstr "비디오"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "팬아트"
 
 msgid "BEZEL (16:9)"
@@ -3274,7 +3274,7 @@ msgstr "박스 경로 입력"
 msgid "Fan art"
 msgstr "팬아트"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "팬아트 경로 입력"
 
 msgid "Title shot"

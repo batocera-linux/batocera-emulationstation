@@ -1548,7 +1548,7 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -3249,7 +3249,7 @@ msgstr "введіть шлях для коробки"
 msgid "Fan art"
 msgstr "Фан арт"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "введіть шлях для фан арту"
 
 msgid "Title shot"
@@ -4010,7 +4010,7 @@ msgstr[2] ""
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "ЗАВАНТАЖИТИ ФАН АРТ"
 
 #~ msgid "SCRAPE MANUAL"

@@ -1568,7 +1568,7 @@ msgstr "SCORUL COMUNITĂȚII"
 msgid "VIDEO"
 msgstr "VIDEOCLIP"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3315,7 +3315,7 @@ msgstr "introdu calea către cutie"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "introdu calea către fanart"
 
 msgid "Title shot"

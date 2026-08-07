@@ -1561,7 +1561,7 @@ msgstr "SAMHÄLLSBETYG"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3296,7 +3296,7 @@ msgstr "ange sökväg till box"
 msgid "Fan art"
 msgstr "Fan-konst"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "ange väg till fanart"
 
 msgid "Title shot"

@@ -1540,7 +1540,7 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -3241,7 +3241,7 @@ msgstr "dintrar lo camin cap a la bóstia"
 msgid "Fan art"
 msgstr "Creacion d'afogat"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "dintrar lo camin cap a la creacion d'afogat"
 
 msgid "Title shot"

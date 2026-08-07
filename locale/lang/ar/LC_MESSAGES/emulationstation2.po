@@ -1603,7 +1603,7 @@ msgstr "تقييم الجماهير"
 msgid "VIDEO"
 msgstr "فيديو"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "تصاميم الهواة"
 
 msgid "BEZEL (16:9)"
@@ -3322,7 +3322,7 @@ msgstr "أدخل مسار الغلاف"
 msgid "Fan art"
 msgstr "تصاميم هواة"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "أدخل مسار تصاميم الهواة"
 
 msgid "Title shot"

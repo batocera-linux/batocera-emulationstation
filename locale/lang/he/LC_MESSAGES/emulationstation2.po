@@ -1542,7 +1542,7 @@ msgstr "דירוג קהילה"
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -3243,7 +3243,7 @@ msgstr "הזן נתיב קובץ לאריזה"
 msgid "Fan art"
 msgstr "אומנות מעריצים"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "הזן נתיב קובץ לאומנות מעריצים"
 
 msgid "Title shot"
@@ -4013,7 +4013,7 @@ msgstr[3] ""
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "SCRAPE סרטונים"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "SCRAPE  אמנות מעריצים"
 
 #~ msgid "SCRAPE BOX BACKSIDE"

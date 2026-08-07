@@ -1560,7 +1560,7 @@ msgstr "VALORACIÓN DE LA COMUNIDAD"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
@@ -3296,7 +3296,7 @@ msgstr "introduce la ruta de la caja"
 msgid "Fan art"
 msgstr "Arte <fanart>"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "introduce la ruta del Fan art"
 
 msgid "Title shot"

@@ -1530,7 +1530,7 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -3231,7 +3231,7 @@ msgstr ""
 msgid "Fan art"
 msgstr ""
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr ""
 
 msgid "Title shot"

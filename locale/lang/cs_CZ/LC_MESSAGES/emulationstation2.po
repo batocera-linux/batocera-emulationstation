@@ -1555,7 +1555,7 @@ msgstr "HODNOCENÍ SPOLKU"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "UMĚNÍ FANOUŠKŮ"
 
 msgid "BEZEL (16:9)"
@@ -3288,7 +3288,7 @@ msgstr "zadejte cestu ke schránce"
 msgid "Fan art"
 msgstr "Fanouškovská tvorba"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "zadejte cestu k fanouškovské tvorbě"
 
 msgid "Title shot"
@@ -4195,7 +4195,7 @@ msgstr[2] "%d před sekundami"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "VYHLEDEJ VIDEA"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "VYHLEDEJ OBRÁZKY FANOUŠKŮ"
 
 #~ msgid "SCRAPE BEZEL (16:9)"

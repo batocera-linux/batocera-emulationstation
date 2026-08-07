@@ -1565,7 +1565,7 @@ msgstr "COMMUNITY-WERTUNG"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FAN ART"
 
 msgid "BEZEL (16:9)"
@@ -3317,7 +3317,7 @@ msgstr "Pfad zu Box eingeben"
 msgid "Fan art"
 msgstr "Fan-Art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "Pfad zu Fan-Art eingeben"
 
 msgid "Title shot"

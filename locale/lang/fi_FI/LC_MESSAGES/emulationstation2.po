@@ -1554,7 +1554,7 @@ msgstr "YHTEISÖN ARVOSANA"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FANITAIDE"
 
 msgid "BEZEL (16:9)"
@@ -3278,7 +3278,7 @@ msgstr "polku kansikuvaan"
 msgid "Fan art"
 msgstr "Fanikuva"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "polku fanitaiteeseen"
 
 msgid "Title shot"

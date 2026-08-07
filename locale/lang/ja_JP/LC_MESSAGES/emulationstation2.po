@@ -1556,7 +1556,7 @@ msgstr "コミュニティの評価<rating>"
 msgid "VIDEO"
 msgstr "デモ動画<video>"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "ファンアート画像<fanart>"
 
 msgid "BEZEL (16:9)"
@@ -3286,7 +3286,7 @@ msgstr "サムネイル画像のパスを入力"
 msgid "Fan art"
 msgstr "ファンアート"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "ファンアートのパスを入力"
 
 msgid "Title shot"

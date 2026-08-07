@@ -1555,8 +1555,8 @@ msgstr "COMMUNITY RATING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FANART"
+msgid "FAN ART"
+msgstr "FAN ART"
 
 msgid "BEZEL (16:9)"
 msgstr "BEZEL (16:9)"
@@ -3278,8 +3278,8 @@ msgstr "enter path to box"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
-msgstr "enter path to fanart"
+msgid "enter path to fan art"
+msgstr "enter path to fan art"
 
 msgid "Title shot"
 msgstr "Title shot"

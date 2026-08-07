@@ -1550,7 +1550,7 @@ msgstr "ΑΞΙΟΛΟΓΗΣΗ ΚΟΙΝΟΤΗΤΑΣ"
 msgid "VIDEO"
 msgstr "ΒΙΝΤΕΟ"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -3268,7 +3268,7 @@ msgstr "προσθηκη διαδρομης κουτιου"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "επιλογη διαδρομης για fanart"
 
 msgid "Title shot"

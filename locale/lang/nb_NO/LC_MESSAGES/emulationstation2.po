@@ -1553,7 +1553,7 @@ msgstr "FELLESSKAPS VURDERING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FAN KUNST"
 
 msgid "BEZEL (16:9)"
@@ -3283,7 +3283,7 @@ msgstr "skriv inn sti til boks"
 msgid "Fan art"
 msgstr "Fan kunst"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "skriv inn sti til fankunst"
 
 msgid "Title shot"

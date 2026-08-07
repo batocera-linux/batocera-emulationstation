@@ -1558,7 +1558,7 @@ msgstr "TOPLULUK DEĞERLENDİRMESİ"
 msgid "VIDEO"
 msgstr "VİDEO"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "FAN GÖRSELİ"
 
 msgid "BEZEL (16:9)"
@@ -3303,7 +3303,7 @@ msgstr "kutucuğun yolunu girin"
 msgid "Fan art"
 msgstr "Fan görseli"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "fan görseli yolunu girin"
 
 msgid "Title shot"

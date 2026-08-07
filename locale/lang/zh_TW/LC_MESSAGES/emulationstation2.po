@@ -1545,7 +1545,7 @@ msgstr "社群評分"
 msgid "VIDEO"
 msgstr "影片"
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr "粉絲繪圖"
 
 msgid "BEZEL (16:9)"
@@ -3253,7 +3253,7 @@ msgstr "輸入包裝盒路徑"
 msgid "Fan art"
 msgstr "粉絲繪圖"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "輸入粉絲繪圖路徑"
 
 msgid "Title shot"
