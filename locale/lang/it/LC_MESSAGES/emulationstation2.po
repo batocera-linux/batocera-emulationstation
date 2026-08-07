@@ -295,7 +295,7 @@ msgstr "SALVARE LE MODIFICHE?"
 msgid "ARE YOU SURE?"
 msgstr "SEI SICURO?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPZIONI TROFEI"
 
 msgid "SETTINGS"
@@ -359,7 +359,7 @@ msgstr "SUCCESSI NON-UFFICIALI"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Abilita e sblocca i successi non-ufficiali"
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
 
 msgid "none"
@@ -371,7 +371,7 @@ msgstr "SUONO DI SBLOCCO"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRA LA VOCE TROFEI NEL MENU PRINCIPALE"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Mostra le statistiche Retroconquiste nel menu principale!"
 
 msgid "GAME INDEXES"

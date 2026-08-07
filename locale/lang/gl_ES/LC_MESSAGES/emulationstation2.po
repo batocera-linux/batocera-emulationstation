@@ -296,7 +296,7 @@ msgstr "GARDAR CAMBIOS?"
 msgid "ARE YOU SURE?"
 msgstr "SEGURO?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "AXUSTES DE RETROLOGROS"
 
 msgid "SETTINGS"
@@ -361,8 +361,8 @@ msgstr "LOGROS NON OFICIAIS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Activar o desbloqueo de logros non oficiais."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "SON DE DESBLOQUEO DE RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "SON DE DESBLOQUEO DE RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "ningún"
@@ -373,9 +373,9 @@ msgstr "SON DE DESBLOQUEO"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AMOSAR ENTRADA RETROACHIEVEMENTS NO MENÚ PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
-"Vsualiza as túas estatísticas de RetroAchievement directamente desde o menú "
+"Vsualiza as túas estatísticas de RetroAchievements directamente desde o menú "
 "principal!"
 
 msgid "GAME INDEXES"

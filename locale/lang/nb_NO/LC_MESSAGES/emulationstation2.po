@@ -298,8 +298,8 @@ msgstr "LAGRE ENDRINGER?"
 msgid "ARE YOU SURE?"
 msgstr "ER DU SIKKER?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT INNSTILLINGER"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS INNSTILLINGER"
 
 msgid "SETTINGS"
 msgstr "INNSTILLINGER"
@@ -361,8 +361,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT LÅS-OPP-LYD"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS LÅS-OPP-LYD"
 
 msgid "none"
 msgstr "ingen"
@@ -373,8 +373,8 @@ msgstr "LÅS OPP LYD"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "VIS RETROACHIEVEMENTS INNLEGG I HOVEDMENY"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Se RetroAchievement-statistikken din rett fra hovedmenyen!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Se RetroAchievements-statistikken din rett fra hovedmenyen!"
 
 msgid "GAME INDEXES"
 msgstr "SPILL INDEKSER"

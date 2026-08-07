@@ -290,14 +290,14 @@ msgstr "是否保存更改?"
 msgid "ARE YOU SURE?"
 msgstr "确定吗？"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievement设置"
 
 msgid "SETTINGS"
 msgstr "设置"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RetroAchievement"
+msgstr "RetroAchievements"
 
 msgid "USERNAME"
 msgstr "用户名"
@@ -352,7 +352,7 @@ msgstr "非官方成就"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "允许解锁非官方成就."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "成就解锁声音"
 
 msgid "none"
@@ -364,7 +364,7 @@ msgstr "解锁声音"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "在主菜单中显示成就菜单项"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "从主菜单查看您的RetroAchievement统计数据！"
 
 msgid "GAME INDEXES"
@@ -3450,7 +3450,7 @@ msgid "never played"
 msgstr "从未玩过的"
 
 msgid "retroachievements"
-msgstr "RetroAchievement"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "街机"

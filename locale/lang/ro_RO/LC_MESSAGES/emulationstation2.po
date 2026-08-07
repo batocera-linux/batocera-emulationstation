@@ -301,7 +301,7 @@ msgstr "SALVEZI MODIFICĂRILE?"
 msgid "ARE YOU SURE?"
 msgstr "EȘTI SIGUR?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "SETĂRI RETROREALIZĂRI"
 
 msgid "SETTINGS"
@@ -370,7 +370,7 @@ msgstr "REALIZĂRI NEOFICIALE"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Permite deblocarea de realizări neoficiale."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SUNET DEBLOCARE RETROREALIZARE"
 
 msgid "none"
@@ -382,7 +382,7 @@ msgstr "SUNET DEBLOCARE"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AFIȘEAZĂ RETROREALIZĂRI ÎN MENIUL PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Vezi statisticile RetroRealizări direct din meniul principal!"
 
 msgid "GAME INDEXES"

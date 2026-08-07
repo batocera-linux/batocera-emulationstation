@@ -298,7 +298,7 @@ msgstr "VERANDERINGEN OPSLAAN?"
 msgid "ARE YOU SURE?"
 msgstr "WEET U HET ZEKER?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "INSTELLINGEN RETROPRESTATIE"
 
 msgid "SETTINGS"
@@ -366,7 +366,7 @@ msgstr "ONOFFICIËLE PRESTATIES"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Maak het ontgrendelen van onofficiële prestaties mogelijk."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "RETROPRESTATIE GELUID ONTGRENDELEN"
 
 msgid "none"
@@ -378,7 +378,7 @@ msgstr "ONTGRENDEL GELUID"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "TOON RETROPRESTATIES IN HOOFDMENU"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Bekijk je Retroprestaties statistieken direct vanuit het hoofdmenu!"
 
 msgid "GAME INDEXES"

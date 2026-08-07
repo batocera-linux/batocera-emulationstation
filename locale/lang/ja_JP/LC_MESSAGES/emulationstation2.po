@@ -294,8 +294,8 @@ msgstr "変更を保存しますか？"
 msgid "ARE YOU SURE?"
 msgstr "確認チェック"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 設定"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS 設定"
 
 msgid "SETTINGS"
 msgstr "設定"
@@ -357,7 +357,7 @@ msgstr "非公式アチーブメント"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "非公式アチーブメントのロック解除を有効"
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTロック解除効果音"
 
 msgid "none"
@@ -369,7 +369,7 @@ msgstr "ロック解除効果音"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "メニューにRETROACHIEVEMENTSの統計を表示します!"
 
 msgid "GAME INDEXES"

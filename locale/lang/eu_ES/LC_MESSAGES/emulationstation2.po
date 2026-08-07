@@ -293,8 +293,8 @@ msgstr "ALDAKETAK GORDE?"
 msgid "ARE YOU SURE?"
 msgstr "ZIUR AL ZAUDE?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT KONFIGURAZIOA"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS KONFIGURAZIOA"
 
 msgid "SETTINGS"
 msgstr "KONFIGURAZIOA"
@@ -360,8 +360,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT SOINUA DESBLOKEATU"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS SOINUA DESBLOKEATU"
 
 msgid "none"
 msgstr "batere ez"
@@ -372,7 +372,7 @@ msgstr "DESBLOKEATU SOINUA"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ERAKUTSI RETROACHIEVMENT SARRERA MENU NAGUSIAN"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Ikusi zure RetroAchivement egoera menu nagusitik zuzenean!"
 
 msgid "GAME INDEXES"

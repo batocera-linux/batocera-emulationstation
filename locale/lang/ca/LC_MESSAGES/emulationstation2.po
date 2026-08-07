@@ -297,7 +297,7 @@ msgstr "VOLEU DESAR ELS CANVIS?"
 msgid "ARE YOU SURE?"
 msgstr "ESTÀS SEGUR?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "AJUSTOS DE TROFEUS"
 
 msgid "SETTINGS"
@@ -364,7 +364,7 @@ msgstr "TROFEUS NO OFICIALS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Habilitar desbloqueig de trofeus no oficials."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SO DE DESBLOQUEIG D’UN TROFEU"
 
 msgid "none"
@@ -376,7 +376,7 @@ msgstr "SO D’ASSOLIMENTS"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR TROFEUS AL MENÚ PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 "Mostra les teves estadístiques de trofeus a la dreta del menú principal!"
 

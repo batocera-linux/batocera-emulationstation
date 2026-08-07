@@ -292,8 +292,8 @@ msgstr "要儲存修改嗎？"
 msgid "ARE YOU SURE?"
 msgstr "您確定嗎？"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 復古成就設定"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS 復古成就設定"
 
 msgid "SETTINGS"
 msgstr "設定"
@@ -354,8 +354,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT 解鎖音效"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS 解鎖音效"
 
 msgid "none"
 msgstr "沒有"
@@ -364,10 +364,10 @@ msgid "UNLOCK SOUND"
 msgstr "解鎖音效"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
+msgstr "顯示 RETROACHIEVEMENTS 項目在主選單"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "從主選單直接檢視您的 RetroAchievement 狀態！"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "從主選單直接檢視您的 RetroAchievements 狀態！"
 
 msgid "GAME INDEXES"
 msgstr "遊戲索引"

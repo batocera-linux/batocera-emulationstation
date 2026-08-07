@@ -295,7 +295,7 @@ msgstr "DEĞİŞİKLİKLERİ KAYDET?"
 msgid "ARE YOU SURE?"
 msgstr "EMİN MİSİN ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROBAŞARIM AYARLARI"
 
 msgid "SETTINGS"
@@ -362,7 +362,7 @@ msgstr "GAYRİ RESMİ BAŞARIMLAR"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Gayri resmi başarımların kilidini açmayı etkinleştirin."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "RETROBAŞARIM KİLİT AÇILMA SESİ"
 
 msgid "none"
@@ -374,7 +374,7 @@ msgstr "KİLİT AÇILMA SESİ"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ANA MENÜDE RETROBAŞARIMLAR GİRİŞİNİ GÖSTER"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "RetroBaşarım istatistiklerinizi doğrudan ana menüden görüntüleyin!"
 
 msgid "GAME INDEXES"

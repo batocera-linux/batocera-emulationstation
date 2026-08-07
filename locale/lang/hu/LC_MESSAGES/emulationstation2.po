@@ -296,8 +296,8 @@ msgstr "MENTI A VÁLTOZÁSOKAT?"
 msgid "ARE YOU SURE?"
 msgstr "BIZTOS VAGY BENNE?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT BEÁLLÍTÁSOK"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS BEÁLLÍTÁSOK"
 
 msgid "SETTINGS"
 msgstr "BEÁLLÍTÁSOK"
@@ -363,8 +363,8 @@ msgstr "NEM HIVATALOS EREDMÉNYEK"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Nem hivatalos eredmények feloldásának engedélyezése."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT FELOLDÁS HANG"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS FELOLDÁS HANG"
 
 msgid "none"
 msgstr "egy sem"
@@ -375,8 +375,8 @@ msgstr "HANGOK ENGEDÉLYEZÉSE"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "RETROACHIEVEMENTS BEJEGYZÉS MEGJELENÍTÉSE A FŐMENÜBEN"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Tekintse meg RetroAchievement statisztikáit közvetlenül a főmenüből!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Tekintse meg RetroAchievements statisztikáit közvetlenül a főmenüből!"
 
 msgid "GAME INDEXES"
 msgstr "JÁTÉK INDEXEK"
@@ -3676,7 +3676,7 @@ msgid "MISSING MEDIAS"
 msgstr "HIÁNYZÓ MÉDIÁK"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENT KERESÉS"
+msgstr "RETROACHIEVEMENTS KERESÉS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "NETPLAY JÁTÉKOK KERESÉSE"

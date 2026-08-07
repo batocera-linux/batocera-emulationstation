@@ -299,7 +299,7 @@ msgstr "SALVAR MODIFICAÇÕES?"
 msgid "ARE YOU SURE?"
 msgstr "TEM CERTEZA?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "AJUSTES DAS CONQUISTAS RETRÔ"
 
 msgid "SETTINGS"
@@ -370,7 +370,7 @@ msgstr "Conquistas não oficias"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Ativar conquistas não oficias."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR NOVAS CONQUISTAS"
 
 msgid "none"
@@ -382,9 +382,9 @@ msgstr "SOM AO DESBLOQUEAR CONQUISTAS"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "EXIBIR CONQUISTAS ALCANÇADAS NO MENU PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
-"Veja suas estatísticas do RetroAchievement diretamente no menu principal!"
+"Veja suas estatísticas do RetroAchievements diretamente no menu principal!"
 
 msgid "GAME INDEXES"
 msgstr "ÍNDICES DO JOGO"

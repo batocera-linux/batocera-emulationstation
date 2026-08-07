@@ -296,8 +296,8 @@ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΑΛΛΑΓΩΝ?"
 msgid "ARE YOU SURE?"
 msgstr "ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "ΡΥΘΜΙΣΕΙΣ RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "ΡΥΘΜΙΣΕΙΣ RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "ΡΥΘΜΙΣΕΙΣ"
@@ -362,7 +362,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -374,7 +374,7 @@ msgstr "ΞΕΚΛΕΙΔΩΜΑ ΗΧΟΥ"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ΠΡΟΒΟΛΗ ΕΠΙΛΟΓΗΣ RETROACHIEVEMENTS ΣΤΟ ΚΕΝΤΡΙΚΟ ΜΕΝΟΥ"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"

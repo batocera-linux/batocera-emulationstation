@@ -299,7 +299,7 @@ msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 msgid "ARE YOU SURE?"
 msgstr "ВЫ УВЕРЕНЫ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "SETTINGS"
@@ -365,7 +365,7 @@ msgstr "НЕОФИЦИАЛЬНЫЕ ДОСТИЖЕНИЯ"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Включить разблокировку неофициальных достижений."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "none"
@@ -377,8 +377,8 @@ msgstr "ЗВУК ПОЛУЧЕНИЯ"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Показать свою статистику RetroAchievement прямо из главного меню!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Показать свою статистику RetroAchievements прямо из главного меню!"
 
 msgid "GAME INDEXES"
 msgstr "ИНДЕКСЫ ИГРЫ"

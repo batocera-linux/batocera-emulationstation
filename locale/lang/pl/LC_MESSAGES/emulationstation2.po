@@ -299,7 +299,7 @@ msgstr "ZAPISAĆ ZMIANY?"
 msgid "ARE YOU SURE?"
 msgstr "CZY NA PEWNO?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "USTAWIENIA RETROOSIĄGNIĘĆ"
 
 msgid "SETTINGS"
@@ -365,8 +365,8 @@ msgstr "NIEOFICJALNE OSIĄGNIĘCIA"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Włącz możliwość nieoficjalnych osiągnięć."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "brak"
@@ -377,9 +377,9 @@ msgstr "DŹWIĘK ODBLOKOWANIA"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "POKAŻ WPIS RETROOSIĄGNIĘĆ W MENU GŁÓWNYM"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
-"Zobacz swoje statystyki \"RetroAchievement\" bezpośrednio z menu głównego!"
+"Zobacz swoje statystyki \"RetroAchievements\" bezpośrednio z menu głównego!"
 
 msgid "GAME INDEXES"
 msgstr "INDEKSY GIER"

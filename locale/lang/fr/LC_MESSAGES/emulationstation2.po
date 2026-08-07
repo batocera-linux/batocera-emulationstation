@@ -297,7 +297,7 @@ msgstr "SAUVEGARDER LES MODIFICATIONS ?"
 msgid "ARE YOU SURE?"
 msgstr "ÊTES-VOUS SÛR(E) ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
 
 msgid "SETTINGS"
@@ -367,7 +367,7 @@ msgstr "SUCCÈS NON OFFICIELS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Activer le déverrouillage des succès non officiels."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SON DE DÉVERROUILLAGE DES SUCCÈS RÉTRO"
 
 msgid "none"
@@ -379,8 +379,8 @@ msgstr "SON DE DÉVERROUILLAGE"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AFFICHER DANS LE MENU PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Accéder aux stats RetroAchievement depuis le menu principal!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Accéder aux stats RetroAchievements depuis le menu principal!"
 
 msgid "GAME INDEXES"
 msgstr "INDEXATION DES JEUX"

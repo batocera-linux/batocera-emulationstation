@@ -298,8 +298,8 @@ msgstr "LƯU THAY ĐỔI?"
 msgid "ARE YOU SURE?"
 msgstr "BẠN CHẮC CHỨ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "CÀI ĐẶT RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "CÀI ĐẶT RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "CÀI ĐẶT"
@@ -364,8 +364,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "MỞ KHÓA ÂM THANH RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "MỞ KHÓA ÂM THANH RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "không có"
@@ -376,8 +376,8 @@ msgstr "MỞ KHÓA ÂM THANH"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "HIỂN THỊ RETROACHIEVEMENTS Ở MENU CHÍNH"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Xem chỉ số RetroAchievement ngay tại menu chính!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Xem chỉ số RetroAchievements ngay tại menu chính!"
 
 msgid "GAME INDEXES"
 msgstr "GAME INDEXES"

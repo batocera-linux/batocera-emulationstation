@@ -291,7 +291,7 @@ msgstr "SIMPAN PERUBAHAN?"
 msgid "ARE YOU SURE?"
 msgstr "YAKIN?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PENGATURAN RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
@@ -355,7 +355,7 @@ msgstr "PENCAPAIAN TIDAK RESMI"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Aktifkan pembukaan pencapaian tidak resmi."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "MEMBUKA PERINGKAT SUARA RETRO"
 
 msgid "none"
@@ -367,8 +367,8 @@ msgstr "MEMBUKA SUARA"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "TAMPILKAN PENCAPAIAN RETRO DI MENU UTAMA"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Lihat statistik RetroAchievement Anda langsung dari menu utama!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Lihat statistik RetroAchievements Anda langsung dari menu utama!"
 
 msgid "GAME INDEXES"
 msgstr "INDEKS GAME"

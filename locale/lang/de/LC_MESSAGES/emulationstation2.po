@@ -298,8 +298,8 @@ msgstr "ÄNDERUNGEN SPEICHERN?"
 msgid "ARE YOU SURE?"
 msgstr "SIND SIE SICHER?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT EINSTELLUNGEN"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"
 
 msgid "SETTINGS"
 msgstr "EINSTELLUNGEN"
@@ -364,8 +364,8 @@ msgstr "INOFFIZIELLE ERRUNGENSCHAFTEN"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Freischalten von inoffiziellen Errungenschaften aktivieren."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT FREISCHALT-TON"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS FREISCHALT-TON"
 
 msgid "none"
 msgstr "keine"
@@ -376,9 +376,9 @@ msgstr "FREISCHALT-TON"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "RETROACHIEVEMENTS IM HAUPTMENÜ ANZEIGEN"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
-"Sehen Sie sich ihre RetroAchievement-Statistiken direkt im Hauptmenü an!"
+"Sehen Sie sich ihre RetroAchievements-Statistiken direkt im Hauptmenü an!"
 
 msgid "GAME INDEXES"
 msgstr "SPIEL-INDEXE"

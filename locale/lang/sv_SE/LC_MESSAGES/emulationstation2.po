@@ -301,8 +301,8 @@ msgstr "SPARA ÄNDRINGAR?"
 msgid "ARE YOU SURE?"
 msgstr "ÄR DU SÄKER?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "INSTÄLLNINGAR"
@@ -366,8 +366,8 @@ msgstr "INOFFICIELLA PRESTATIONER"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Möjliggör upplåsning av inofficiella prestationer."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "LÅS UPP LJUD FÖR RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "LÅS UPP LJUD FÖR RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "ingen"
@@ -378,8 +378,8 @@ msgstr "LÅS UPP LJUDET"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "VISA RETROACHIEVEMENTS-POST I HUVUDMENYN"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Se din RetroAchievement-statistik direkt från huvudmenyn!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Se din RetroAchievements-statistik direkt från huvudmenyn!"
 
 msgid "GAME INDEXES"
 msgstr "INDEX FÖR SPEL"

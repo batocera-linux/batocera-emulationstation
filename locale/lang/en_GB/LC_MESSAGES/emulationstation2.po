@@ -296,8 +296,8 @@ msgstr "SAVE CHANGES?"
 msgid "ARE YOU SURE?"
 msgstr "ARE YOU SURE?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS SETTINGS"
 
 msgid "SETTINGS"
 msgstr "SETTINGS"
@@ -360,8 +360,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS UNLOCK SOUND"
 
 msgid "none"
 msgstr "none"
@@ -372,8 +372,8 @@ msgstr "UNLOCK SOUND"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "View your RetroAchievements stats right from the main menu!"
 
 msgid "GAME INDEXES"
 msgstr "GAME INDEXES"

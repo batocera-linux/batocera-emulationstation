@@ -346,7 +346,7 @@ msgstr "حفظ التغييرات؟"
 msgid "ARE YOU SURE?"
 msgstr "هل أنت متأكد ؟"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "خصائص إنجازات ريترو"
 
 msgid "SETTINGS"
@@ -408,7 +408,7 @@ msgstr "إنجازات غير رسمية"
 msgid "Enable unlocking of unofficial achievements."
 msgstr ".تمكين فتح الإنجازات غير الرسمية"
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "صوت فتح إنجاز من إنجازات الريترو"
 
 msgid "none"
@@ -420,7 +420,7 @@ msgstr "فك قُفل الصوت"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "عرض خِيار إنجازات الريترو في القائمة الأساسية"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "!عرض إحصائيات إنجازاتك للريترو من القائمة الأساسية"
 
 msgid "GAME INDEXES"

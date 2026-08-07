@@ -303,7 +303,7 @@ msgstr "Uložiť zmeny?"
 msgid "ARE YOU SURE?"
 msgstr "Ste si istí?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "Nastavenia Retroachievements"
 
 msgid "SETTINGS"
@@ -365,8 +365,8 @@ msgstr "Neoficiálne úspechy"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Povoliť odomknutie vlastných úspechov."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RetroAchievement odomknúť zvuk"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RetroAchievements odomknúť zvuk"
 
 msgid "none"
 msgstr "žiadne"
@@ -377,8 +377,8 @@ msgstr "Odomknúť zvuk"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "Zobraziť položku Retroachievements v hlavnej ponuke"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Zobraziť vaše RetroAchievement štatistiky z hlavnej ponuky!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Zobraziť vaše RetroAchievements štatistiky z hlavnej ponuky!"
 
 msgid "GAME INDEXES"
 msgstr "Herné indexy"
