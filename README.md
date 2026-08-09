@@ -63,14 +63,22 @@ make
 
 **On the Raspberry Pi:**
 
-Complete Raspberry Pi build instructions at [emulationstation.org](http://emulationstation.org/gettingstarted.html#install_rpi_standalone). You'll still have to run the instructions for Debian/Ubuntu as mentioned above first.
+Every model from the Pi 1 onwards is supported, but the graphics API to build against depends
+on the GPU:
 
-If the Pi uses the legacy/Broadcom driver, install the `libraspberry-dev` package before running `cmake` to configure the build.
+| Model | GPU | Max OpenGL ES | Configure with |
+| --- | --- | --- | --- |
+| Pi 1, Pi 2, Pi 3, Zero, Zero 2 W | VideoCore IV | 2.0 | `cmake -DGLES2=ON .` |
+| Pi 4, Pi 400, CM4 | VideoCore VI | 3.1 | `cmake -DGLES3=ON .` |
+| Pi 5, CM5 | VideoCore VII | 3.1 | `cmake -DGLES3=ON .` |
 
-On the Pi 4 specifically, since the legacy GL drivers are not supported anymore, you must use the following command in place of the `cmake` command:
-```bash
-cmake -DUSE_MESA_GLES=On .
-```
+`-DGLES3=ON` selects the OpenGL ES 3.x renderer, which is the faster of the two backends. It
+requires a driver that can create an ES 3.x context, so it is only suitable for the Pi 4 and
+later.
+
+Running plain `cmake .` is also fine: with no graphics option set the build detects GLES and
+defaults to the OpenGL ES 2.0 renderer, which works on every model. Pass `-DGLES3=ON`
+explicitly on a Pi 4 or later to get the faster path.
 
 **On Windows:**
 

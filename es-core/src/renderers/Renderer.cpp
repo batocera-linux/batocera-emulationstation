@@ -3,6 +3,7 @@
 #include "Renderer_GL21.h"
 #include "Renderer_GLES10.h"
 #include "Renderer_GLES20.h"
+#include "Renderer_GLES30.h"
 
 #include "math/Transform4x4f.h"
 #include "math/Vector2i.h"
@@ -819,7 +820,12 @@ namespace Renderer
 	{
 		std::vector<std::string> ret;
 	
-#ifdef RENDERER_GLES_20
+#if defined(RENDERER_GLES_30)
+		{
+			GLES30Renderer rd;
+			ret.push_back(rd.getDriverName());
+		}
+#elif defined(RENDERER_GLES_20)
 		{
 			GLES20Renderer rd;				
 			ret.push_back(rd.getDriverName());
@@ -847,7 +853,13 @@ namespace Renderer
 		if (name.empty())
 			return nullptr;
 
-#ifdef RENDERER_GLES_20
+#if defined(RENDERER_GLES_30)
+		{
+			GLES30Renderer rd;
+			if (rd.getDriverName() == name)
+				return new GLES30Renderer();
+		}
+#elif defined(RENDERER_GLES_20)
 		{
 			GLES20Renderer rd;
 			if (rd.getDriverName() == name)
@@ -879,7 +891,9 @@ namespace Renderer
 		IRenderer* instance = getRendererFromName(Settings::getInstance()->getString("Renderer"));
 		if (instance == nullptr)
 		{
-#ifdef RENDERER_GLES_20
+#if defined(RENDERER_GLES_30)
+			instance = new GLES30Renderer();
+#elif defined(RENDERER_GLES_20)
 			instance = new GLES20Renderer();
 #elif RENDERER_OPENGL_21
 			instance = new OpenGL21Renderer();
@@ -941,6 +955,13 @@ namespace Renderer
 	{
 		return Instance()->createTexture(_type, _linear, _repeat, _width, _height, _data);
 	}
+
+#if defined(USE_OPENGLES_30)
+	unsigned int createMipmappedTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
+	{
+		return Instance()->createMipmappedTexture(_type, _linear, _repeat, _width, _height, _data);
+	}
+#endif
 
 	void  destroyTexture(const unsigned int _texture)
 	{

@@ -4,6 +4,8 @@
 
 #include "GlExtensions.h"
 #include "math/Transform4x4f.h"
+// Vector2f is held by value in the uniform cache below.
+#include "math/Vector2f.h"
 
 #include <string>
 #include <vector>
@@ -42,7 +44,11 @@ namespace Renderer
 		// Links vertex and fragment shaders together to make a GLSL program
 		bool createShaderProgram(Shader &vertexShader, Shader &fragmentShader);
 
+#if defined(USE_OPENGLES_30)
+		void select(GLuint vertexBuffer, GLuint indexBuffer);
+#else
 		void select();
+#endif
 		void unSelect();
 
 		void setMatrix(Transform4x4f& mvpMatrix);
@@ -81,6 +87,46 @@ namespace Renderer
 		GLint mCornerRadius;
 		GLint mFrameCount;
 		GLint mFrameDirection;
+#if defined(USE_OPENGLES_30)
+		GLint mSamplerUniform;
+		bool mSamplerInitialized;
+		GLuint mVertexArray;
+
+		// Anything that resets uniform state must call invalidateUniformCache().
+		struct UniformCache
+		{
+			bool     matrixValid = false;
+			float    matrix[16] = { 0 };
+
+			bool     saturationValid = false;
+			GLfloat  saturation = 0.0f;
+
+			bool     cornerRadiusValid = false;
+			GLfloat  cornerRadius = 0.0f;
+
+			bool     textureSizeValid = false;
+			Vector2f textureSize;
+
+			bool     inputSizeValid = false;
+			Vector2f inputSize;
+
+			bool     outputSizeValid = false;
+			Vector2f outputSize;
+
+			bool     outputOffsetValid = false;
+			Vector2f outputOffset;
+
+			bool     resolutionValid = false;
+			Vector2f resolution;
+
+			bool     frameCountValid = false;
+			int      frameCount = -1;
+		};
+
+		UniformCache mUniformCache;
+
+		void invalidateUniformCache() { mUniformCache = UniformCache(); }
+#endif
 		
 		struct UniformInfo
 		{
