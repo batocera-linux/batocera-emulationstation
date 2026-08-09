@@ -25,7 +25,10 @@
 IPdfHandler* TextureData::PdfHandler = nullptr;
 
 TextureData::TextureData(bool tile, bool linear) : 
-	mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false), mDynamic(true), mReloadable(false),	
+	mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false), mDynamic(true), mReloadable(false),
+#if defined(USE_OPENGLES_30)
+	mMipmapped(false),
+#endif
 	mSize(Vector2i::Zero()), mPhysicalSize(Vector2f::Zero()), mMaxSize(MaxSizeInfo::Empty)
 {
 	mIsExternalDataRGBA = false;
@@ -37,6 +40,46 @@ TextureData::~TextureData()
 	releaseVRAM();
 	releaseRAM();
 }
+
+#if defined(USE_OPENGLES_30)
+size_t TextureData::getMemoryUsage(MemoryUsageType type)
+{
+	const size_t width = mSize.x() > 0 ? static_cast<size_t>(mSize.x()) : 0;
+	const size_t height = mSize.y() > 0 ? static_cast<size_t>(mSize.y()) : 0;
+	const size_t baseSize = width * height * 4;
+
+	bool accountForMipmaps = mMipmapped;
+	if (type == MemoryUsageType::Estimated && !accountForMipmaps)
+	{
+		accountForMipmaps = mReloadable && !mIsExternalDataRGBA && mLinear && !mTile &&
+			!Utils::FileSystem::isVideo(mPath) && (mSize.x() >= 256 || mSize.y() >= 256);
+	}
+
+	size_t textureSize = baseSize;
+	if (accountForMipmaps && width > 0 && height > 0)
+	{
+		textureSize = 0;
+		size_t levelWidth = width;
+		size_t levelHeight = height;
+		while (true)
+		{
+			textureSize += levelWidth * levelHeight * 4;
+			if (levelWidth == 1 && levelHeight == 1)
+				break;
+			levelWidth = std::max<size_t>(1, levelWidth / 2);
+			levelHeight = std::max<size_t>(1, levelHeight / 2);
+		}
+	}
+
+	if (type == MemoryUsageType::RAM)
+		return mDataRGBA != nullptr ? baseSize : 0;
+	if (type == MemoryUsageType::VRAM)
+		return mTextureID != 0 ? textureSize : 0;
+	if (type == MemoryUsageType::Estimated)
+		return textureSize;
+	return mTextureID != 0 ? textureSize : (mDataRGBA != nullptr ? baseSize : 0);
+}
+#endif
 
 void TextureData::initFromPath(const std::string& path)
 {
@@ -225,20 +268,33 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 
 bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height)
 {
-	// If already initialised then don't read again
 	std::unique_lock<std::mutex> lock(mMutex);
 
 	if (!mIsExternalDataRGBA && mDataRGBA != nullptr)
 		delete[] mDataRGBA;
 
+#if defined(USE_OPENGLES_30)
+	const bool dimensionsChanged = mSize.x() != static_cast<int>(width) || mSize.y() != static_cast<int>(height);
+#endif
+
 	mIsExternalDataRGBA = true;
 	mDataRGBA = dataRGBA;
-
 	mSize = Vector2i(width, height);
 	mPhysicalSize = Vector2f(width, height);
 
 	if (mTextureID != 0)
-		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, width, height, mDataRGBA);
+	{
+#if defined(USE_OPENGLES_30)
+		if (dimensionsChanged || mMipmapped)
+		{
+			Renderer::destroyTexture(mTextureID);
+			mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, width, height, mDataRGBA);
+			mMipmapped = false;
+		}
+		else
+#endif
+			Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, width, height, mDataRGBA);
+	}
 
 	return true;
 }
@@ -492,10 +548,24 @@ bool TextureData::uploadAndBind()
 			return false;
 		}
 
-		// Upload texture
+#if defined(USE_OPENGLES_30)
+		// Mipmaps reduce 4K artwork minification cost and aliasing, but add about 33%
+		// VRAM. Restrict them to stable, path-backed linear artwork that will not be
+		// updated every frame (video/external pixels, fonts, and render targets never enter here).
+		const bool useMipmaps = mReloadable && !mIsExternalDataRGBA && mLinear && !mTile &&
+			!Utils::FileSystem::isVideo(mPath) && (mSize.x() >= 256 || mSize.y() >= 256);
+		mTextureID = useMipmaps
+			? Renderer::createMipmappedTexture(Renderer::Texture::RGBA, mLinear, mTile, mSize.x(), mSize.y(), mDataRGBA)
+			: Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mSize.x(), mSize.y(), mDataRGBA);
+#else
+		// Legacy renderers retain their original single-level texture path.
 		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mSize.x(), mSize.y(), mDataRGBA);
+#endif
 		if (mTextureID == 0)
 			return false;
+#if defined(USE_OPENGLES_30)
+		mMipmapped = useMipmaps;
+#endif
 
 		if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
 			delete[] mDataRGBA;
@@ -513,6 +583,9 @@ void TextureData::releaseVRAM()
 	{
 		Renderer::destroyTexture(mTextureID);
 		mTextureID = 0;
+#if defined(USE_OPENGLES_30)
+		mMipmapped = false;
+#endif
 	}
 }
 

@@ -412,8 +412,19 @@ void NinePatchComponent::onHide()
 {
 	GuiComponent::onHide();
 
+#if defined(USE_OPENGLES_30)
+	// Post-process textures are raw renderer objects rather than reloadable
+	// TextureResources. Release the cache while the context is still valid so a
+	// renderer/context restart cannot leave this component holding a stale name.
+	if (mPostProcessTextureId != (unsigned int)-1)
+	{
+		Renderer::destroyTexture(mPostProcessTextureId);
+		mPostProcessTextureId = (unsigned int)-1;
+	}
+#endif
+
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);	
+		mTexture->setRequired(false);
 }
 
 ThemeData::ThemeElement::Property NinePatchComponent::getProperty(const std::string name)

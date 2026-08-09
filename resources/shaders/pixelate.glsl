@@ -35,7 +35,11 @@ void main(void)
 #if __VERSION__ >= 130
 #define COMPAT_VARYING in
 #define COMPAT_TEXTURE texture
+#ifdef GL_ES
+out mediump vec4 FragColor;
+#else
 out vec4 FragColor;
+#endif
 #else
 #define COMPAT_VARYING varying
 #define FragColor gl_FragColor

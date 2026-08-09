@@ -42,7 +42,11 @@ namespace Renderer
 		// Links vertex and fragment shaders together to make a GLSL program
 		bool createShaderProgram(Shader &vertexShader, Shader &fragmentShader);
 
+#if defined(USE_OPENGLES_30)
+		void select(GLuint vertexBuffer);
+#else
 		void select();
+#endif
 		void unSelect();
 
 		void setMatrix(Transform4x4f& mvpMatrix);
@@ -81,6 +85,11 @@ namespace Renderer
 		GLint mCornerRadius;
 		GLint mFrameCount;
 		GLint mFrameDirection;
+#if defined(USE_OPENGLES_30)
+		GLint mSamplerUniform;
+		bool mSamplerInitialized;
+		GLuint mVertexArray;
+#endif
 		
 		struct UniformInfo
 		{

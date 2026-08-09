@@ -2,7 +2,9 @@
 
 #include <SDL.h>
 
-#if USE_OPENGLES_20
+#if defined(USE_OPENGLES_30)
+#include <GLES3/gl3.h>
+#elif defined(USE_OPENGLES_20)
 #include <SDL_opengles2.h>
 #else
 #include <SDL_opengl.h>

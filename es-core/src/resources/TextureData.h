@@ -51,9 +51,12 @@ public:
 	// Release the texture from conventional RAM
 	void releaseRAM();
 
-	// Get the amount of VRAM currenty used by this texture
+	// Get the amount of memory used by this texture.
+#if defined(USE_OPENGLES_30)
+	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
+#else
 	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated)
-	{ 
+	{
 		if (type == MemoryUsageType::RAM)
 			return mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0;
 
@@ -65,6 +68,7 @@ public:
 
 		return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0;
 	}
+#endif
 
 	const 	Vector2i& getSize() const { return mSize; }
 	const 	Vector2f& getPhysicalSize() const { return mPhysicalSize; }
@@ -104,6 +108,9 @@ private:
 	unsigned char*	mDataRGBA;
 	bool			mReloadable;
 	bool			mDynamic;
+#if defined(USE_OPENGLES_30)
+	bool			mMipmapped;
+#endif
 
 	MaxSizeInfo		mMaxSize;
 
