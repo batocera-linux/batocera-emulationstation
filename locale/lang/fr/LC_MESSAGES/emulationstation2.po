@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Chargement des listes de jeux"
 
 msgid "Loading..."
-msgstr "Chargement..."
+msgstr "Chargement…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -676,7 +676,7 @@ msgid "CONTENT DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE CONTENU"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "SÉLECTIONNER LE CONTENU À INSTALLER / SUPPRIMER"
+msgstr "SÉLECTIONNER LE CONTENU À INSTALLER/SUPPRIMER"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "MÀJ LE CONTENU INSTALLÉ"
@@ -807,7 +807,7 @@ msgid "THEMES DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE THÈMES"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "SÉLECTIONNER LES THÈMES À INSTALLER / SUPPRIMER"
+msgstr "SÉLECTIONNER LES THÈMES À INSTALLER/SUPPRIMER"
 
 msgid "Installed"
 msgstr "Installé"
@@ -927,7 +927,7 @@ msgid "WRITE"
 msgstr "ÉCRIRE"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "PLACER UNE BALISE SUR LE LECTEUR..."
+msgstr "PLACER UNE BALISE SUR LE LECTEUR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "LA BALISE A ÉTÉ ÉCRITE AVEC SUCCÈS"
@@ -944,7 +944,7 @@ msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AJOUTER À UNE COLLECTION..."
+msgstr "AJOUTER À UNE COLLECTION…"
 
 msgid "SCRAPE"
 msgstr "SCRAPER"
@@ -1222,7 +1222,7 @@ msgid "DEFAULT"
 msgstr "PAR DÉFAUT"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "PÉRIPHÉRIQUE NON TROUVÉ (JAMMASD, IPAC, ...)"
+msgstr "PÉRIPHÉRIQUE NON TROUVÉ (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DÉCLARER UN NOUVEAU RACCOURCI GLOBAL"
@@ -2854,7 +2854,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LES ARTICLES LORS DU TRI"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignore les articles 'Le, La, De...'."
+msgstr "Ignore les articles 'Le, La, De'."
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -3071,7 +3071,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "AUCUN DISQUE SÉLECTIONNÉ"
 
 msgid "Ejecting..."
-msgstr "Éjection..."
+msgstr "Éjection…"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
@@ -3471,10 +3471,10 @@ msgid "MultiDisk"
 msgstr "MultiDisque"
 
 msgid "Loading system config..."
-msgstr "Chargement de la configuration système..."
+msgstr "Chargement de la configuration système…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER..."
+msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
@@ -3595,13 +3595,13 @@ msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
 msgid "Checking for latest upgrade script..."
-msgstr "Recherche d'un nouveau script de mise à niveau..."
+msgstr "Recherche d'un nouveau script de mise à niveau…"
 
 msgid "Collections"
 msgstr "Collections"
 
 msgid "Searching for devices..."
-msgstr "Recherche de manettes..."
+msgstr "Recherche de manettes…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATAGE DU PÉRIPHÉRIQUE"
@@ -3691,7 +3691,7 @@ msgid "up/down"
 msgstr "haut/bas"
 
 msgid "WORKING..."
-msgstr "EN COURS..."
+msgstr "EN COURS…"
 
 msgid "accept"
 msgstr "accepter"
@@ -3917,10 +3917,10 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
-"Tirez sur les cibles pour calibrer"
+"Calibrez en tirant sur les cibles"
 
 msgid "Reloaded the games list..."
-msgstr "Rechargement de la liste des jeux..."
+msgstr "Rechargement de la liste des jeux…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DISQUE DE JEU DÉTECTÉ"
@@ -3944,7 +3944,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Cela s'appliquera également aux démarrages futurs)"
 
 msgid "Merge requested... Please wait."
-msgstr "Fusion demandée... Veuillez patienter."
+msgstr "Fusion demandée… Veuillez patienter."
 
 msgid "MERGE FAILED"
 msgstr "ÉCHEC DE LA FUSION"
@@ -3959,7 +3959,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NON, IGNORER À JAMAIS"
 
 msgid "Adding drive to ignore list..."
-msgstr "Ajout du disque à la liste d'exclusion..."
+msgstr "Ajout du disque à la liste d'exclusion…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "OUI, FUSIONNER LES DISQUES"
@@ -3974,7 +3974,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TOUTES LES DONNÉES EXISTANTES SERONT EFFACÉES)"
 
 msgid "Starting format process..."
-msgstr "Démarrage du processus de formatage..."
+msgstr "Démarrage du processus de formatage…"
 
 msgid "FORMAT FAILED"
 msgstr "ÉCHEC DU FORMATTAGE"
