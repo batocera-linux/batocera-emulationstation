@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Cargando listas de xogos"
 
 msgid "Loading…"
-msgstr "Cargando..."
+msgstr "Cargando…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -888,7 +888,7 @@ msgid "VIEWER PASSWORD"
 msgstr "CONTRASINAL DO ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "ATOPAR XOGOS SIMILARES..."
+msgstr "ATOPAR XOGOS SIMILARES…"
 
 msgid "DELETE ITEM"
 msgstr "BORRAR ELEMENTO"
@@ -923,7 +923,7 @@ msgid "WRITE"
 msgstr "ESCRIBIR"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "COLOCA UNHA ETIQUETA NO LECTOR..."
+msgstr "COLOCA UNHA ETIQUETA NO LECTOR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A ETIQUETA FOI ESCRITA CORRECTAMENTE"
@@ -940,7 +940,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "ENGADIR A COLECCIÓN PERSONALIZADA..."
+msgstr "ENGADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
 msgstr "AUDITAR"
@@ -3070,7 +3070,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NINGUNHA UNIDADE SELECCIONADA"
 
 msgid "Ejecting…"
-msgstr "Expulsando..."
+msgstr "Expulsando…"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR METADATOS"
@@ -3470,10 +3470,10 @@ msgid "MultiDisk"
 msgstr "Multidisco"
 
 msgid "Loading system config…"
-msgstr "Cargando configuración do sistema..."
+msgstr "Cargando configuración do sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "GARDANDO METADATOS. AGARDA..."
+msgstr "GARDANDO METADATOS. AGARDA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "QUERES CAMBIAR A PANTALLA ?"
@@ -3594,13 +3594,13 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCOÑECIDO"
 
 msgid "Checking for latest upgrade script…"
-msgstr "Comprobando o último script de actualización..."
+msgstr "Comprobando o último script de actualización…"
 
 msgid "Collections"
 msgstr "Coleccións"
 
 msgid "Searching for devices…"
-msgstr "Buscando dispositivos..."
+msgstr "Buscando dispositivos…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATANDO DISPOSITIVO"
@@ -3690,7 +3690,7 @@ msgid "up/down"
 msgstr "arriba/abaixo"
 
 msgid "WORKING…"
-msgstr "TRABALLANDO..."
+msgstr "TRABALLANDO…"
 
 msgid "accept"
 msgstr "aceptar"
@@ -3918,7 +3918,7 @@ msgstr ""
 "Dispara aos obxectivos para calibrar"
 
 msgid "Reloaded the games list…"
-msgstr "Lista de xogos recargada..."
+msgstr "Lista de xogos recargada…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "UNIDADE DE XOGOS DETECTADA"
@@ -3942,7 +3942,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Isto tamén se aplicará nos vindeiros inicios)"
 
 msgid "Merge requested… Please wait."
-msgstr "Combinación solicitada... Agarda, por favor."
+msgstr "Combinación solicitada… Agarda, por favor."
 
 msgid "MERGE FAILED"
 msgstr "ERRO AO COMBINAR"
@@ -3957,7 +3957,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NON, IGNORAR PARA SEMPRE"
 
 msgid "Adding drive to ignore list…"
-msgstr "Engadindo a unidade á lista de ignorados..."
+msgstr "Engadindo a unidade á lista de ignorados…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SI, COMBINAR UNIDADES"
@@ -3972,7 +3972,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS OS DATOS EXISTENTES SERÁN ELIMINADOS)"
 
 msgid "Starting format process…"
-msgstr "Iniciando proceso de formatado..."
+msgstr "Iniciando proceso de formatado…"
 
 msgid "FORMAT FAILED"
 msgstr "ERRO AO FORMATAR"
@@ -4082,7 +4082,7 @@ msgstr[1] "hai %d segundos"
 #~ "Partidas e Último Xogado."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT…"
-#~ msgstr "GARDANDO OS DATOS DESCRIPTIVOS, AGARDA..."
+#~ msgstr "GARDANDO OS DATOS DESCRIPTIVOS, AGARDA…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ESQUENCER DISPOSITIVO BLUETOOTH"

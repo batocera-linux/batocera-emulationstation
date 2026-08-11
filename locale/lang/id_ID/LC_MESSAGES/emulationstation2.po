@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Memuat listgame"
 
 msgid "Loading…"
-msgstr "Memuat..."
+msgstr "Memuat…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -880,7 +880,7 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWOR PENONTON"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "TEMUKAN GAME SERUPA..."
+msgstr "TEMUKAN GAME SERUPA…"
 
 msgid "DELETE ITEM"
 msgstr "HAPUS ITEM"
@@ -915,7 +915,7 @@ msgid "WRITE"
 msgstr "TULIS"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "TEMPATKAN LABEL PADA ALAT PENULIS..."
+msgstr "TEMPATKAN LABEL PADA ALAT PENULIS…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "LABEL BERHASIL DITULIS"
@@ -932,7 +932,7 @@ msgid "FAVORITES"
 msgstr "FAVORIT"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "TAMBAHKAN KE KOLEKSI KUSTOM..."
+msgstr "TAMBAHKAN KE KOLEKSI KUSTOM…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -3050,7 +3050,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "TIDAK ADA DRIVE YANG DIPILIH"
 
 msgid "Ejecting…"
-msgstr "Mengeluarkan..."
+msgstr "Mengeluarkan…"
 
 msgid "EDIT METADATA"
 msgstr "UBAH METADATA"
@@ -3450,10 +3450,10 @@ msgid "MultiDisk"
 msgstr "BANYAK KASET / MULTI DISK"
 
 msgid "Loading system config…"
-msgstr "Memuat konfigurasi sistem..."
+msgstr "Memuat konfigurasi sistem…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "MENYIMPAN METADATA, TUNGGU..."
+msgstr "MENYIMPAN METADATA, TUNGGU…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "APAKAH INGIN BERALIH LAYAR?"
@@ -3575,13 +3575,13 @@ msgid "UKNOWN ERROR"
 msgstr "ERROR TAK DIKETAHUI"
 
 msgid "Checking for latest upgrade script…"
-msgstr "Memeriksa skrip peningkatan terbaru..."
+msgstr "Memeriksa skrip peningkatan terbaru…"
 
 msgid "Collections"
 msgstr "Koleksi"
 
 msgid "Searching for devices…"
-msgstr "Mencari perangkat..."
+msgstr "Mencari perangkat…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMAT PERANGKAT"
@@ -3671,7 +3671,7 @@ msgid "up/down"
 msgstr "atas/bawah"
 
 msgid "WORKING…"
-msgstr "MEMPROSES..."
+msgstr "MEMPROSES…"
 
 msgid "accept"
 msgstr "terima"
@@ -3896,7 +3896,7 @@ msgstr ""
 "Sesuaikan Target untuk Melakukan Kalibrasi"
 
 msgid "Reloaded the games list…"
-msgstr "Memuat ulang daftar game..."
+msgstr "Memuat ulang daftar game…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DRIVE GAME TERDETEKSI"
@@ -3920,7 +3920,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Ini juga akan diterapkan pada proses booting mendatang)"
 
 msgid "Merge requested… Please wait."
-msgstr "Penggabungan diminta... Mohon tunggu."
+msgstr "Penggabungan diminta… Mohon tunggu."
 
 msgid "MERGE FAILED"
 msgstr "PENGGABUNGAN GAGAL"
@@ -3935,7 +3935,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "TIDAK, ABAIKAN SELAMANYA"
 
 msgid "Adding drive to ignore list…"
-msgstr "Menambahkan drive ke daftar abaikan..."
+msgstr "Menambahkan drive ke daftar abaikan…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "YA, GABUNGKAN PENYIMPANAN (DRIVE)"
@@ -3950,7 +3950,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(SEMUA DATA YANG ADA AKAN DIHAPUS)"
 
 msgid "Starting format process…"
-msgstr "Memulai proses format..."
+msgstr "Memulai proses format…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMAT GAGAL"
@@ -4048,7 +4048,7 @@ msgstr[0] "%d detik lalu"
 #~ msgstr "urutan rgb dmd"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT…"
-#~ msgstr "MENYIMPAN METADATA. HARAP TUNGGU..."
+#~ msgstr "MENYIMPAN METADATA. HARAP TUNGGU…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "LUPAKAN PERANGKAT BLUETOOTH"

@@ -106,7 +106,7 @@ msgid "Loading gamelists"
 msgstr "Spellijsten worden geladen"
 
 msgid "Loading…"
-msgstr "Laden..."
+msgstr "Laden…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -893,7 +893,7 @@ msgid "VIEWER PASSWORD"
 msgstr "TOESCHOUWER WACHTWOORD"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "VIND SOORTGELIJKE SPELLEN..."
+msgstr "VIND SOORTGELIJKE SPELLEN…"
 
 msgid "DELETE ITEM"
 msgstr "VERWIJDER ITEM"
@@ -926,7 +926,7 @@ msgid "WRITE"
 msgstr "SCHRIJF"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "PLAATS EEN TAG OP DE SCHRIJVER..."
+msgstr "PLAATS EEN TAG OP DE SCHRIJVER…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "DE TAG IS SUCCESVOL GESCHREVEN"
@@ -943,7 +943,7 @@ msgid "FAVORITES"
 msgstr "FAVORIETEN"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
+msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN…"
 
 msgid "SCRAPE"
 msgstr "SCRAPEN"
@@ -3079,7 +3079,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "GEEN SCHIJF GESELECTEERD"
 
 msgid "Ejecting…"
-msgstr "Uitwerpen..."
+msgstr "Uitwerpen…"
 
 msgid "EDIT METADATA"
 msgstr "BEWERK METADATA"
@@ -3479,10 +3479,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config…"
-msgstr "Systeemconfiguratie wordt geladen..."
+msgstr "Systeemconfiguratie wordt geladen…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "METADATA OPSLAAN. EVEN WACHTEN..."
+msgstr "METADATA OPSLAAN. EVEN WACHTEN…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "WILT U VAN SCHERM VERANDEREN?"
@@ -3609,7 +3609,7 @@ msgid "Collections"
 msgstr "Collecties"
 
 msgid "Searching for devices…"
-msgstr "Zoeken naar apparaten..."
+msgstr "Zoeken naar apparaten…"
 
 msgid "FORMATTING DEVICE"
 msgstr "APPARAAT FORMATTEREN"
@@ -3699,7 +3699,7 @@ msgid "up/down"
 msgstr "omhoog/omlaag"
 
 msgid "WORKING…"
-msgstr "BEZIG..."
+msgstr "BEZIG…"
 
 msgid "accept"
 msgstr "accepteer"
@@ -3927,7 +3927,7 @@ msgstr ""
 "Vuur op doelen om te kalibreren"
 
 msgid "Reloaded the games list…"
-msgstr "De spellijst is opnieuw geladen..."
+msgstr "De spellijst is opnieuw geladen…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "SPEL SCHIJF GEDETECTEERD"
@@ -3951,7 +3951,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Dit geldt ook voor toekomstige boots)"
 
 msgid "Merge requested… Please wait."
-msgstr "Samenvoeging aangevraagd... Even geduld alstublieft."
+msgstr "Samenvoeging aangevraagd… Even geduld alstublieft."
 
 msgid "MERGE FAILED"
 msgstr "SAMENVOEGING MISLUKT"
@@ -3966,7 +3966,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NEE, NEGEER ALTIJD"
 
 msgid "Adding drive to ignore list…"
-msgstr "Schijf toevoegen aan de negeerlijst..."
+msgstr "Schijf toevoegen aan de negeerlijst…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "JA, DRIVE SAMENVOEGEN"
@@ -3981,7 +3981,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ALLE BESTAANDE DATA ZAL WORDEN VERWIJDERD)"
 
 msgid "Starting format process…"
-msgstr "Het formatteringsproces wordt gestart..."
+msgstr "Het formatteringsproces wordt gestart…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATTEREN MISLUKT"

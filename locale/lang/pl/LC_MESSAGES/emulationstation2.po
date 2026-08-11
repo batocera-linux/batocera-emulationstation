@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Wczytywanie list gier"
 
 msgid "Loading…"
-msgstr "Wczytywanie..."
+msgstr "Wczytywanie…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "HASŁO WIDZA"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "ZNAJDŹ PODOBNE GRY..."
+msgstr "ZNAJDŹ PODOBNE GRY…"
 
 msgid "DELETE ITEM"
 msgstr "USUŃ ELEMENT"
@@ -926,7 +926,7 @@ msgid "WRITE"
 msgstr "ZAPISZ"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "UMIEŚĆ TAG NA URZĄDZENIU DO ZAPISU..."
+msgstr "UMIEŚĆ TAG NA URZĄDZENIU DO ZAPISU…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "TAG ZOSTAŁ POPRAWNIE ZAPISANY"
@@ -943,7 +943,7 @@ msgid "FAVORITES"
 msgstr "ULUBIONE"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ..."
+msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE'UJ"
@@ -3072,7 +3072,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "BRAK WYBRANEGO NAPĘDU"
 
 msgid "Ejecting…"
-msgstr "Wysuwanie..."
+msgstr "Wysuwanie…"
 
 msgid "EDIT METADATA"
 msgstr "EDYTUJ META DANE"
@@ -3472,10 +3472,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config…"
-msgstr "Wczytywanie konfiguracji systemowej..."
+msgstr "Wczytywanie konfiguracji systemowej…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+msgstr "ZAPISYWANIE METADANYCH. CZEKAJ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "CHCESZ PRZEŁĄCZYĆ EKRAN?"
@@ -3596,13 +3596,13 @@ msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
 msgid "Checking for latest upgrade script…"
-msgstr "Sprawdzanie najnowszego skryptu aktualizacji..."
+msgstr "Sprawdzanie najnowszego skryptu aktualizacji…"
 
 msgid "Collections"
 msgstr "Kolekcje"
 
 msgid "Searching for devices…"
-msgstr "Wyszukiwanie urządzeń..."
+msgstr "Wyszukiwanie urządzeń…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATOWANIE URZĄDZENIA"
@@ -3692,7 +3692,7 @@ msgid "up/down"
 msgstr "góra/dół"
 
 msgid "WORKING…"
-msgstr "PRACUJĘ..."
+msgstr "PRACUJĘ…"
 
 msgid "accept"
 msgstr "zaakceptuj"
@@ -3923,7 +3923,7 @@ msgstr ""
 "Strzelanie do celów w celu kalibracji"
 
 msgid "Reloaded the games list…"
-msgstr "Ponownie załadowano listę gier..."
+msgstr "Ponownie załadowano listę gier…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "WYKRYTO NAPĘD GIER"
@@ -3962,7 +3962,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NIE, ZAWSZE IGNORUJ"
 
 msgid "Adding drive to ignore list…"
-msgstr "Dodaję dysk do listy ignorowanych..."
+msgstr "Dodaję dysk do listy ignorowanych…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "TAK, SCAL DYSKI"
@@ -3977,7 +3977,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(WSZYSTKIE DANE ZOSTANĄ USUNIĘTE)"
 
 msgid "Starting format process…"
-msgstr "Rozpoczęcie procesu formatowania..."
+msgstr "Rozpoczęcie procesu formatowania…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMAT NIEUDANY"
@@ -4058,7 +4058,7 @@ msgstr[2] "%d sekund temu"
 #~ msgstr "Scalanie napędu. Proszę czekać."
 
 #~ msgid "New drive content will be available after games list is refreshed…"
-#~ msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier..."
+#~ msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "WEDŁUG SPRZĘTU"
@@ -4103,7 +4103,7 @@ msgstr[2] "%d sekund temu"
 #~ msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT…"
-#~ msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+#~ msgstr "ZAPISYWANIE METADANYCH. CZEKAJ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "USUŃ URZĄDZENIE BLUETOOTH"

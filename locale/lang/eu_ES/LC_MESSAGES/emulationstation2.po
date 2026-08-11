@@ -100,7 +100,7 @@ msgid "Loading gamelists"
 msgstr "Joko listak kargatzen"
 
 msgid "Loading…"
-msgstr "Kargatzen..."
+msgstr "Kargatzen…"
 
 msgid "MENU"
 msgstr "MENUA"
@@ -885,7 +885,7 @@ msgid "VIEWER PASSWORD"
 msgstr "IKUSI PASAHITZA"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "AURKITU ANTZEKO JOKOAK..."
+msgstr "AURKITU ANTZEKO JOKOAK…"
 
 msgid "DELETE ITEM"
 msgstr "EZABATU ARTIKULUA"
@@ -934,7 +934,7 @@ msgid "FAVORITES"
 msgstr "GOGOKOAK"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI..."
+msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI…"
 
 msgid "SCRAPE"
 msgstr "DATUAK LORTU"
@@ -3457,7 +3457,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config…"
-msgstr "Kargatu sistemaren konfigurazioa..."
+msgstr "Kargatu sistemaren konfigurazioa…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
@@ -3587,7 +3587,7 @@ msgid "Collections"
 msgstr "Kolekzioak"
 
 msgid "Searching for devices…"
-msgstr "Gailuak bilatzen..."
+msgstr "Gailuak bilatzen…"
 
 msgid "FORMATTING DEVICE"
 msgstr "GAILUA FORMATEATEZN"
@@ -3677,7 +3677,7 @@ msgid "up/down"
 msgstr "gora/behera"
 
 msgid "WORKING…"
-msgstr "LANEAN..."
+msgstr "LANEAN…"
 
 msgid "accept"
 msgstr "ados"
@@ -4030,7 +4030,7 @@ msgstr[1] "duela %d segundu"
 #~ msgstr "ERABILTZAILE INTERFAZE MODUA DESBLOKEATUTA DAGO UNE HONETAN"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT…"
-#~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
+#~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ…."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "AHAZTU BLUETOOTH GAILUA"
@@ -4354,10 +4354,10 @@ msgstr[1] "duela %d segundu"
 #~ msgstr "R1 (AUR. ORRIA)"
 
 #~ msgid "LOADING…"
-#~ msgstr "KARGATZEN..."
+#~ msgstr "KARGATZEN…"
 
-#~ msgid "PLEASE WAIT..."
-#~ msgstr "ITXARON MESEDEZ..."
+#~ msgid "PLEASE WAIT…"
+#~ msgstr "ITXARON MESEDEZ…"
 
 #~ msgid "just now"
 #~ msgstr "oraintxe"

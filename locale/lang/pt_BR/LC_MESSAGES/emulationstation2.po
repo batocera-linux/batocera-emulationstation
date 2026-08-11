@@ -107,7 +107,7 @@ msgid "Loading gamelists"
 msgstr "Carregando lista de jogos"
 
 msgid "Loading…"
-msgstr "Carregando..."
+msgstr "Carregando…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -896,7 +896,7 @@ msgid "VIEWER PASSWORD"
 msgstr "SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "JOGOS SEMELHANTES..."
+msgstr "JOGOS SEMELHANTES…"
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
@@ -931,7 +931,7 @@ msgid "WRITE"
 msgstr "GRAVAR"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR..."
+msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A ETIQUETA FOI GRAVADA COM SUCESSO"
@@ -948,7 +948,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA …"
 
 msgid "SCRAPE"
 msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
@@ -3081,7 +3081,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NENHUM DISCO SELECIONADO"
 
 msgid "Ejecting…"
-msgstr "Ejetando..."
+msgstr "Ejetando…"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -3482,10 +3482,10 @@ msgid "MultiDisk"
 msgstr "Múltiplos Discos"
 
 msgid "Loading system config…"
-msgstr "Carregando a configuração do sistema..."
+msgstr "Carregando a configuração do sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "SALVANDO METADADOS. POR FAVOR, AGUARDE..."
+msgstr "SALVANDO METADADOS. POR FAVOR, AGUARDE…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOCÊ QUER TROCAR DE TELA?"
@@ -3612,7 +3612,7 @@ msgid "Collections"
 msgstr "Coleções"
 
 msgid "Searching for devices…"
-msgstr "Procurando controles..."
+msgstr "Procurando controles…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATANDO DISPOSITIVO"
@@ -3702,7 +3702,7 @@ msgid "up/down"
 msgstr "cima/baixo"
 
 msgid "WORKING…"
-msgstr "EM PROGRESSO..."
+msgstr "EM PROGRESSO…"
 
 msgid "accept"
 msgstr "aceitar"
@@ -3931,7 +3931,7 @@ msgstr ""
 "Atire nos alvos para calibrar"
 
 msgid "Reloaded the games list…"
-msgstr "Atualizou a lista de jogos..."
+msgstr "Atualizou a lista de jogos…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DISCO DE JOGOS DETECTADO"
@@ -3955,7 +3955,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Isso também se aplicará em inicializações futuras)"
 
 msgid "Merge requested… Please wait."
-msgstr "Combinação solicitada... Por favor aguarde."
+msgstr "Combinação solicitada… Por favor aguarde."
 
 msgid "MERGE FAILED"
 msgstr "FUNDIÇÃO FALHOU"
@@ -3970,7 +3970,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NÃO, IGNORAR PARA SEMPRE"
 
 msgid "Adding drive to ignore list…"
-msgstr "Adicionando disco a lista de ignorados..."
+msgstr "Adicionando disco a lista de ignorados…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SIM, FUNDIR DISCO"
@@ -3985,7 +3985,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS OS DADOS EXISTENTES SERÃO APAGADOS)"
 
 msgid "Starting format process…"
-msgstr "Começando o processo de formatação..."
+msgstr "Começando o processo de formatação…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATAÇÃO FALHOU"
@@ -4058,12 +4058,12 @@ msgstr[1] "%d segundos atrás"
 #~ msgstr "Fundir jogos deste disco agora?"
 
 #~ msgid "Merging drive… Please wait."
-#~ msgstr "Fundindo discos... Por favor aguarde."
+#~ msgstr "Fundindo discos… Por favor aguarde."
 
 #~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr ""
 #~ "O conteúdo do novo disco ficará disponível após a lista de jogos ser "
-#~ "atualizada..."
+#~ "atualizada…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR TIPO DE HARDWARE"

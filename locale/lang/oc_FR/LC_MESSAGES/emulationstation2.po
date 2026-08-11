@@ -105,7 +105,7 @@ msgid "Loading gamelists"
 msgstr ""
 
 msgid "Loading…"
-msgstr "Cargament..."
+msgstr "Cargament…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -3407,7 +3407,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config…"
-msgstr "Cargament conf. sistma..."
+msgstr "Cargament conf. sistma…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
@@ -3535,7 +3535,7 @@ msgid "Collections"
 msgstr "Colleccions"
 
 msgid "Searching for devices…"
-msgstr "Recrca de manetas..."
+msgstr "Recrca de manetas…"
 
 msgid "FORMATTING DEVICE"
 msgstr ""
@@ -3625,7 +3625,7 @@ msgid "up/down"
 msgstr "naut/bas"
 
 msgid "WORKING…"
-msgstr "TRACTAMENT..."
+msgstr "TRACTAMENT…"
 
 msgid "accept"
 msgstr "acceptar"
@@ -3964,7 +3964,7 @@ msgstr[1] "Fa %d segondas"
 #~ msgstr "PER TIPE DE MATERIAL"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT…"
-#~ msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
+#~ msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR LO PERIFERIC BLUETOOTH"
@@ -4153,8 +4153,8 @@ msgstr[1] "Fa %d segondas"
 #~ msgid "FINISH EDITING COLLECTION"
 #~ msgstr "FINIR L'EDICION DE LA COLLECCION"
 
-#~ msgid "JUMP TO..."
-#~ msgstr "SAUTAR A..."
+#~ msgid "JUMP TO…"
+#~ msgstr "SAUTAR A…"
 
 #~ msgid "COLLECTION MANAGEMENT"
 #~ msgstr "GESTION DE COLLECCION"

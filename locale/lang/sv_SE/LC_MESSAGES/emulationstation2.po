@@ -109,7 +109,7 @@ msgid "Loading gamelists"
 msgstr "Laddar spellistor"
 
 msgid "Loading…"
-msgstr "Laddar..."
+msgstr "Laddar…"
 
 msgid "MENU"
 msgstr "MENY"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "LÖSENORD FÖR TITTARE"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "HITTA LIKNANDE SPEL..."
+msgstr "HITTA LIKNANDE SPEL…"
 
 msgid "DELETE ITEM"
 msgstr "RADERA ITEM"
@@ -924,7 +924,7 @@ msgid "WRITE"
 msgstr "SKRIVA"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "PLACERA EN TAGG PÅ SKRIBENTEN..."
+msgstr "PLACERA EN TAGG PÅ SKRIBENTEN…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "TAGGEN SKREVS FRAMGÅNGSRIKT"
@@ -941,7 +941,7 @@ msgid "FAVORITES"
 msgstr "FAVORITER"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "LÄGG TILL I ANPASSAD SAMLING..."
+msgstr "LÄGG TILL I ANPASSAD SAMLING…"
 
 msgid "SCRAPE"
 msgstr "SKRAPA"
@@ -3062,7 +3062,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "INGEN ENHET VALD"
 
 msgid "Ejecting…"
-msgstr "Utskjutning..."
+msgstr "Utskjutning…"
 
 msgid "EDIT METADATA"
 msgstr "REDIGERA METADATA"
@@ -3462,10 +3462,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config…"
-msgstr "Läser in systemkonfiguration..."
+msgstr "Läser in systemkonfiguration…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "SPARA METADATA. VÄNTA..."
+msgstr "SPARA METADATA. VÄNTA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VILL DU BYTA SKÄRM?"
@@ -3592,7 +3592,7 @@ msgid "Collections"
 msgstr "Samlingar"
 
 msgid "Searching for devices…"
-msgstr "Söker efter enheter..."
+msgstr "Söker efter enheter…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATERINGSENHET"
@@ -3682,7 +3682,7 @@ msgid "up/down"
 msgstr "upp/ned"
 
 msgid "WORKING…"
-msgstr "ARBETAR..."
+msgstr "ARBETAR…"
 
 msgid "accept"
 msgstr "acceptera"
@@ -3910,7 +3910,7 @@ msgstr ""
 "Skjut på mål för att kalibrera"
 
 msgid "Reloaded the games list…"
-msgstr "Läste om spellistan..."
+msgstr "Läste om spellistan…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "GAME DRIVE UPPTÄCKT"
@@ -3934,7 +3934,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Detta kommer även att gälla framtida uppstarter)"
 
 msgid "Merge requested… Please wait."
-msgstr "Sammanslagning begärd... Vänta."
+msgstr "Sammanslagning begärd… Vänta."
 
 msgid "MERGE FAILED"
 msgstr "SAMMANFOGNING MISSLYCKAD"
@@ -3949,7 +3949,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NEJ, IGNORERA FÖR ALLTID"
 
 msgid "Adding drive to ignore list…"
-msgstr "Lägger till drive till ignoreringslistan..."
+msgstr "Lägger till drive till ignoreringslistan…"
 
 msgid "YES, MERGE DRIVE"
 msgstr ""
@@ -3964,7 +3964,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ALLA BEFINTLIGA DATA KOMMER ATT RADERAS)"
 
 msgid "Starting format process…"
-msgstr "Startar formatprocessen..."
+msgstr "Startar formatprocessen…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMAT MISSLYCKAD"

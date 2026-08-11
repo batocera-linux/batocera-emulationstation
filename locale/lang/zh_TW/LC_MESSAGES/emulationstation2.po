@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "正在載入遊戲清單"
 
 msgid "Loading…"
-msgstr "載入中..."
+msgstr "載入中…"
 
 msgid "MENU"
 msgstr "主選單"
@@ -879,7 +879,7 @@ msgid "VIEWER PASSWORD"
 msgstr "觀眾密碼"
 
 msgid "FIND SIMILAR GAMES…"
-msgstr "尋找相似的遊戲..."
+msgstr "尋找相似的遊戲…"
 
 msgid "DELETE ITEM"
 msgstr "刪除項目"
@@ -928,7 +928,7 @@ msgid "FAVORITES"
 msgstr "我的最愛"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "新增至自定義合輯..."
+msgstr "新增至自定義合輯…"
 
 msgid "SCRAPE"
 msgstr "資料搜刮"
@@ -3419,10 +3419,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config…"
-msgstr "正在載入系統設定..."
+msgstr "正在載入系統設定…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "保存中繼資料。請稍等..."
+msgstr "保存中繼資料。請稍等…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "您想要切換畫面嗎？"
@@ -3546,7 +3546,7 @@ msgid "Collections"
 msgstr "合輯"
 
 msgid "Searching for devices…"
-msgstr "搜尋遊戲控制器..."
+msgstr "搜尋遊戲控制器…"
 
 msgid "FORMATTING DEVICE"
 msgstr "格式化裝置"
@@ -3636,7 +3636,7 @@ msgid "up/down"
 msgstr "上/下"
 
 msgid "WORKING…"
-msgstr "作業中..."
+msgstr "作業中…"
 
 msgid "accept"
 msgstr "確定"
@@ -3989,7 +3989,7 @@ msgstr[0] "%d 幾秒前"
 #~ msgstr "使用者介面模式已經解鎖"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT…"
-#~ msgstr "正在儲存中繼資料。請稍後..."
+#~ msgstr "正在儲存中繼資料。請稍後…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "忘記藍牙裝置"

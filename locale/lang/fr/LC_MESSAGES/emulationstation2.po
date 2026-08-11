@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Chargement des listes de jeux"
 
 msgid "Loading…"
-msgstr "Chargement..."
+msgstr "Chargement…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -927,7 +927,7 @@ msgid "WRITE"
 msgstr "ÉCRIRE"
 
 msgid "PLACE A TAG ON THE WRITER…"
-msgstr "APPOSER UNE ÉTIQUETTE SUR L'AUTEUR..."
+msgstr "APPOSER UNE ÉTIQUETTE SUR L'AUTEUR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "LA BALISE A ÉTÉ ÉCRITE AVEC SUCCÈS"
@@ -944,7 +944,7 @@ msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION…"
-msgstr "AJOUTER À UNE COLLECTION..."
+msgstr "AJOUTER À UNE COLLECTION…"
 
 msgid "SCRAPE"
 msgstr "SCRAPER"
@@ -2851,7 +2851,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LES ARTICLES LORS DU TRI"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignore les articles 'Le, La, De...'."
+msgstr "Ignore les articles 'Le, La, De…'."
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -3068,7 +3068,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "AUCUN DISQUE SÉLECTIONNÉ"
 
 msgid "Ejecting…"
-msgstr "Éjection..."
+msgstr "Éjection…"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
@@ -3468,10 +3468,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config…"
-msgstr "Chargement de la configuration système..."
+msgstr "Chargement de la configuration système…"
 
 msgid "SAVING METADATA. PLEASE WAIT…"
-msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER..."
+msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
@@ -3598,7 +3598,7 @@ msgid "Collections"
 msgstr "Collections"
 
 msgid "Searching for devices…"
-msgstr "Recherche de manettes..."
+msgstr "Recherche de manettes…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATAGE DU PÉRIPHÉRIQUE"
@@ -3688,7 +3688,7 @@ msgid "up/down"
 msgstr "haut/bas"
 
 msgid "WORKING…"
-msgstr "EN COURS..."
+msgstr "EN COURS…"
 
 msgid "accept"
 msgstr "accepter"
@@ -3916,7 +3916,7 @@ msgstr ""
 "Tirer sur les cibles pour calibrer"
 
 msgid "Reloaded the games list…"
-msgstr "Rechargement de la liste des jeux..."
+msgstr "Rechargement de la liste des jeux…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DISQUE DE JEU DÉTECTÉ"
@@ -3940,7 +3940,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Cela s'appliquera également aux démarrages futurs)"
 
 msgid "Merge requested… Please wait."
-msgstr "Fusion demandée... Veuillez patienter."
+msgstr "Fusion demandée… Veuillez patienter."
 
 msgid "MERGE FAILED"
 msgstr "ÉCHEC DE LA FUSION"
@@ -3955,7 +3955,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NON, IGNORER À JAMAIS"
 
 msgid "Adding drive to ignore list…"
-msgstr "Ajout du disque à la liste d'exclusion..."
+msgstr "Ajout du disque à la liste d'exclusion…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "OUI, FUSIONNER LE DISQUE"
@@ -3970,7 +3970,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TOUTES LES DONNÉES EXISTANTES SERONT EFFACÉES)"
 
 msgid "Starting format process…"
-msgstr "Démarrage du processus de formatage..."
+msgstr "Démarrage du processus de formatage…"
 
 msgid "FORMAT FAILED"
 msgstr "ÉCHEC DU FORMATTAGE"
