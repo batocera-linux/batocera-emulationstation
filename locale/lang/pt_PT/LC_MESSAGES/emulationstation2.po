@@ -2279,25 +2279,25 @@ msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr "ATUALIZAR A PARTIR DOS CONTEÚDOS MULTIMÉDIA LOCAIS?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "ATUALIZAÇÕES DE SOFTWARE VIA TORRENT"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "PARTILHAR ATUALIZAÇÕES VIA TORRENT"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Serviço de atualização por torrent iniciado"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Serviço de atualização por torrent parado"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "INICIAR ATUALIZAÇÃO A PARTIR DE UM FICHEIRO TORRENT"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "TEM A CERTEZA DE QUE PRETENDE ATUALIZAR A PARTIR DE UM FICHEIRO TORRENT?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "ESTADO DA TRANSFERÊNCIA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -2461,19 +2461,19 @@ msgid "ENABLE LED"
 msgstr "ATIVAR LED"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "MODO LED"
 
 msgid "STATIC"
-msgstr ""
+msgstr "ESTÁTICO"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "ARCO-ÍRIS"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "CROMÁTICO"
 
 msgid "PULSE"
-msgstr ""
+msgstr "PULSAÇÃO"
 
 msgid "LED BRIGHTNESS"
 msgstr "BRILHO DO LED"
@@ -2506,12 +2506,14 @@ msgid "ROOT PASSWORD"
 msgstr "PASSWORD DE ROOT"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "MITIGAÇÕES DE SEGURANÇA DO CPU"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"Desativar as mitigações pode melhorar o desempenho em alguns sistemas, à custa de "
+"reduzir a proteção contra determinadas vulnerabilidades do CPU."
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
@@ -3589,7 +3591,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
 msgid "Checking for latest upgrade script..."
-msgstr ""
+msgstr "A verificar o script de atualização mais recente..."
 
 msgid "Collections"
 msgstr "Coleções"
@@ -4024,28 +4026,6 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
 
-#~ msgid "BUILD IMAGE CACHE"
-#~ msgstr "CONSTRUIR MEMÓRIA CACHE DE IMAGENS"
-
-#~ msgid "Building image cache"
-#~ msgstr "A criar memória cache de imagens"
-
-#~ msgid "EJECT AN EXTERNAL DISK"
-#~ msgstr "EJETAR UM DISCO EXTERNO"
-
-#~ msgid "EXTERNAL DRIVE FILESYSTEM TYPE"
-#~ msgstr "TIPO DE SISTEMA DE FICHEIROS DO DISCO EXTERNO"
-
-#~ msgid "Merge games from this drive now?"
-#~ msgstr "A copiar jogos deste disco agora?"
-
-#~ msgid "Merging drive... Please wait."
-#~ msgstr "A copiar o disco... Por favor, aguarde."
-
-#~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr ""
-#~ "O conteúdo do novo disco estará disponível depois de a lista de jogos ser "
-#~ "atualizada..."
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
