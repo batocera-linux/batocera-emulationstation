@@ -104,7 +104,7 @@ msgstr "Cargando tema"
 msgid "Loading gamelists"
 msgstr "Cargando listas de juegos"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Cargando..."
 
 msgid "MENU"
@@ -891,7 +891,7 @@ msgstr "CONTRASEÑA PARA JUGADORES"
 msgid "VIEWER PASSWORD"
 msgstr "CONTRASEÑA PARA ESPECTADORES"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "BUSCAR JUEGOS SIMILARES..."
 
 msgid "DELETE ITEM"
@@ -923,7 +923,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -940,7 +940,7 @@ msgstr "AÑADIR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
@@ -1218,7 +1218,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "POR DEFECTO"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3060,7 +3060,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3461,10 +3461,10 @@ msgstr "ID DE JUEGO EN SCREENSCRAPER"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Cargando la configuración del sistema..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3585,13 +3585,13 @@ msgstr "FALTA EL NÚCLEO"
 msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONOCIDO"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Colecciones"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Buscando mandos..."
 
 msgid "FORMATTING DEVICE"
@@ -3681,7 +3681,7 @@ msgstr "ACTIVADO"
 msgid "up/down"
 msgstr "arriba/abajo"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "EN CURSO..."
 
 msgid "accept"
@@ -3909,7 +3909,7 @@ msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3933,7 +3933,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3948,7 +3948,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3963,7 +3963,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4036,7 +4036,7 @@ msgstr[1] "hace %d segundos"
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "LA INTERFAZ DE USUARIO HA SIDO DESBLOQUEADA"
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERA…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

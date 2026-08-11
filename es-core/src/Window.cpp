@@ -1459,7 +1459,7 @@ void Window::processStorageRequest(std::string line)
 			isProcessing = false;
 			if (needReload && mReloadGamelistsCallback) {
 				mReloadGamelistsCallback();
-				this->displayNotificationMessage(_("Reloaded the games list..."));
+				this->displayNotificationMessage(_("Reloaded the games list…"));
 				needReload = false;
 			}
 			return;
@@ -1505,7 +1505,7 @@ void Window::processStorageRequest(std::string line)
 							  _("(This will also apply on future boots)");
 
 		auto mergeLambda = [this, mountPoint, processNext] {
-				this->displayNotificationMessage(_("Merge requested... Please wait."));
+				this->displayNotificationMessage(_("Merge requested… Please wait."));
 				needReload = true;
 
 				std::thread([this, mountPoint, processNext]() {
@@ -1525,7 +1525,7 @@ void Window::processStorageRequest(std::string line)
 			auto* msg = new GuiMsgBox(this, message,
 				_("NO, IGNORE THIS TIME"), [processNext] { processNext(); },
 				_("NO, IGNORE FOREVER"), [this, uniqueId, processNext] {
-					this->displayNotificationMessage(_("Adding drive to ignore list..."));
+					this->displayNotificationMessage(_("Adding drive to ignore list…"));
 					std::thread([uniqueId, processNext, this]() {
 						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
 						this->postToUiThread([processNext] { processNext(); });
@@ -1559,7 +1559,7 @@ void Window::processStorageRequest(std::string line)
 							_("(ALL EXISTING DATA WILL BE ERASED)");
 		
 		auto formatLambda = [this, deviceName, processNext] {
-			this->displayNotificationMessage(_("Starting format process..."));
+			this->displayNotificationMessage(_("Starting format process…"));
 			needReload = true;
 
 			std::thread([this, deviceName, processNext]() {
@@ -1587,7 +1587,7 @@ void Window::processStorageRequest(std::string line)
 			auto* msg = new GuiMsgBox(this, message,
 				_("NO, IGNORE THIS TIME"), [processNext] { processNext(); },
 				_("NO, IGNORE FOREVER"), [this, uniqueId, processNext] {
-					this->displayNotificationMessage(_("Adding drive to ignore list..."));
+					this->displayNotificationMessage(_("Adding drive to ignore list…"));
 					std::thread([uniqueId, processNext, this]() {
 						ApiSystem::getInstance()->ignoreDevicePermanently(uniqueId);
 						this->postToUiThread([processNext] { processNext(); });

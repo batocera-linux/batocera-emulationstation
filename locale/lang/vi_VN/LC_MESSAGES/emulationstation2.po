@@ -109,7 +109,7 @@ msgstr "Đang nạp chủ đề"
 msgid "Loading gamelists"
 msgstr "Đang nạp danh sách trò chơi"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Đang nạp dữ liệu..."
 
 msgid "MENU"
@@ -888,7 +888,7 @@ msgstr "MẬT KHẨU NGƯỜI CHƠI"
 msgid "VIEWER PASSWORD"
 msgstr "MẬT KHẨU NGƯỜI XEM"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ..."
 
 msgid "DELETE ITEM"
@@ -920,7 +920,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -937,7 +937,7 @@ msgstr "THÊM VÀO %s"
 msgid "FAVORITES"
 msgstr "ƯA THÍCH"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "THÊM VÀO BỘ SƯU TẬP TÙY CHỈNH..."
 
 msgid "SCRAPE"
@@ -1214,7 +1214,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "MẶC ĐỊNH"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3055,7 +3055,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3456,10 +3456,10 @@ msgstr "Screenscraper Game ID"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Đang tải cấu hình hệ thống..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "ĐANG LƯU METADATA. VUI LÒNG CHÒ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3579,13 +3579,13 @@ msgstr "LÕI BỊ THIẾU"
 msgid "UKNOWN ERROR"
 msgstr "LỖI KHÔNG XÁC ĐỊNH"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Bộ sưu tập"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Đang tìm thiết bị..."
 
 msgid "FORMATTING DEVICE"
@@ -3675,7 +3675,7 @@ msgstr "BẬT"
 msgid "up/down"
 msgstr "lên/xuống"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ĐANG LÀM VIỆC..."
 
 msgid "accept"
@@ -3900,7 +3900,7 @@ msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3924,7 +3924,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3939,7 +3939,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3954,7 +3954,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4049,7 +4049,7 @@ msgstr[0] "%d giây trước"
 #~ msgid "rgb dmd order"
 #~ msgstr "rgb dmd order"
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

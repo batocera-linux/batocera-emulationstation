@@ -102,7 +102,7 @@ msgstr "Загрузка темы"
 msgid "Loading gamelists"
 msgstr "Загрузка списка игр"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Загрузка..."
 
 msgid "MENU"
@@ -889,7 +889,7 @@ msgstr "ПАРОЛЬ ИГРОКА"
 msgid "VIEWER PASSWORD"
 msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
 
 msgid "DELETE ITEM"
@@ -924,7 +924,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "ЗАПИСАТЬ"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "ПРИЛОЖИТЕ МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -941,7 +941,7 @@ msgstr "ДОБАВИТЬ В %s"
 msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ..."
 
 msgid "SCRAPE"
@@ -1218,8 +1218,8 @@ msgstr "ГОРЯЧАЯ КНОПКА"
 msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "НАЗНАЧИТЬ НОВЫЙ ГЛОБАЛЬНЫЙ ХОТКЕЙ"
@@ -3056,7 +3056,7 @@ msgstr "ИЗВЛЕЧЬ"
 msgid "NO DRIVE SELECTED"
 msgstr "НОСИТЕЛЬ НЕ ВЫБРАН"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Извлечение..."
 
 msgid "EDIT METADATA"
@@ -3456,10 +3456,10 @@ msgstr "ID игры Screenscraper"
 msgid "MultiDisk"
 msgstr "Мультидиск"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Загрузка системных настроек..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОДОЖДИТЕ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3581,13 +3581,13 @@ msgstr "ЯДРО ОТСУТСТВУЕТ"
 msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Коллекции"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Поиск устройств..."
 
 msgid "FORMATTING DEVICE"
@@ -3677,7 +3677,7 @@ msgstr "ВКЛЮЧЕНО"
 msgid "up/down"
 msgstr "вверх/вниз"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ОБРАБОТКА..."
 
 msgid "accept"
@@ -3908,7 +3908,7 @@ msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Список игр перезагружен..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3932,7 +3932,7 @@ msgstr "Объединить игры с этого раздела носите�
 msgid "(This will also apply on future boots)"
 msgstr "(Также будет применяться при будущих загрузках)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Объединение... Пожалуйста, подождите."
 
 msgid "MERGE FAILED"
@@ -3947,7 +3947,7 @@ msgstr "НЕТ, ИГНОРИРОВАТЬ В ЭТОТ РАЗ"
 msgid "NO, IGNORE FOREVER"
 msgstr "НЕТ, ИГНОРИРОВАТЬ ВСЕГДА"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Добавление носителя в список игнорирования..."
 
 msgid "YES, MERGE DRIVE"
@@ -3962,7 +3962,7 @@ msgstr "Отформатировать и подготовить этот нос
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ВСЕ СУЩЕСТВУЮЩИЕ ДАННЫЕ БУДУТ УДАЛЕНЫ)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Начинается процесс форматирования..."
 
 msgid "FORMAT FAILED"
@@ -4075,7 +4075,7 @@ msgstr[2] "%d секунд назад"
 #~ "Сбросить значения о времени игры, кол-ве запусков и дате посл. запуска "
 #~ "(GameTime, PlayCount, LastPlayed)."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

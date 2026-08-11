@@ -409,7 +409,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 
 	if (mReloadAll)
 	{
-		mWindow->renderSplashScreen(_("Loading..."));
+		mWindow->renderSplashScreen(_("Loading…"));
 		ViewController::get()->reloadAll(mWindow);
 		mWindow->closeSplashScreen();
 	}

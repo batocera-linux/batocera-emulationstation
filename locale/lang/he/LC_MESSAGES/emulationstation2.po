@@ -98,7 +98,7 @@ msgstr "טוען ערכת נושא"
 msgid "Loading gamelists"
 msgstr "טוען רשימת משחקים"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "טוען..."
 
 msgid "MENU"
@@ -880,7 +880,7 @@ msgstr "סיסמת שחקן"
 msgid "VIEWER PASSWORD"
 msgstr ""
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "מציאת משחקים דומים..."
 
 msgid "DELETE ITEM"
@@ -910,7 +910,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -927,7 +927,7 @@ msgstr "הוסף אל %s"
 msgid "FAVORITES"
 msgstr "מועדפים"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "הוסף לאוסף מותאם אישית..."
 
 msgid "SCRAPE"
@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "ברירת מחדל"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3010,7 +3010,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3408,10 +3408,10 @@ msgstr "Screenscraper זהות משחק"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "טוען הגדרות מערכת"
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3532,13 +3532,13 @@ msgstr ""
 msgid "UKNOWN ERROR"
 msgstr ""
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr ""
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "מחפש התקנים"
 
 msgid "FORMATTING DEVICE"
@@ -3628,7 +3628,7 @@ msgstr "מופעל"
 msgid "up/down"
 msgstr ""
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr ""
 
 msgid "accept"
@@ -3858,7 +3858,7 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3882,7 +3882,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3897,7 +3897,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3912,7 +3912,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4356,7 +4356,7 @@ msgstr[3] ""
 #~ msgid "APPEARENCE"
 #~ msgstr "מראה"
 
-#~ msgid "Searching controllers..."
+#~ msgid "Searching controllers…"
 #~ msgstr "מחפש בקרים..."
 
 #~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."

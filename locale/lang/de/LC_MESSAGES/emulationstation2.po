@@ -105,7 +105,7 @@ msgstr "Lade Theme"
 msgid "Loading gamelists"
 msgstr "Lade Spielelisten"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Lade..."
 
 msgid "MENU"
@@ -889,7 +889,7 @@ msgstr "SPIELER-PASSWORT"
 msgid "VIEWER PASSWORD"
 msgstr "ZUSCHAUER-PASSWORT"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "ÄHNLICHE SPIELE FINDEN..."
 
 msgid "DELETE ITEM"
@@ -925,7 +925,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "SCHREIBEN"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "LEGE EINEN TAG AUF DEN NFC-SCHREIBER..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -942,7 +942,7 @@ msgstr "HINZUFÜGEN ZU %s"
 msgid "FAVORITES"
 msgstr "FAVORITEN"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "ZU BENUTZERDEF. SAMMLUNG HINZUFÜGEN..."
 
 msgid "SCRAPE"
@@ -1221,7 +1221,7 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "STANDARD"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr "KEIN GERÄT GEFUNDEN (JAMMASD, IPAC, …)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3081,7 +3081,7 @@ msgstr "AUSWERFEN"
 msgid "NO DRIVE SELECTED"
 msgstr "KEIN LAUFWERK AUSGEWÄHLT"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Wird ausgeworfen..."
 
 msgid "EDIT METADATA"
@@ -3482,10 +3482,10 @@ msgstr "Screenscraper Spiel-ID"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Lade Systemkonfiguration..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "METADATEN WERDEN GESPEICHERT. BITTE WARTEN..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3606,13 +3606,13 @@ msgstr "CORE FEHLT"
 msgid "UKNOWN ERROR"
 msgstr "UNBEKANNTER FEHLER"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "Suche nach dem neuesten Upgrade-Skript..."
 
 msgid "Collections"
 msgstr "Sammlungen"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Suche nach Geräten..."
 
 msgid "FORMATTING DEVICE"
@@ -3702,7 +3702,7 @@ msgstr "AKTIVIERT"
 msgid "up/down"
 msgstr "hinauf/hinunter"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "VERARBEITE..."
 
 msgid "accept"
@@ -3932,7 +3932,7 @@ msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Spieleliste neu geladen..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3956,7 +3956,7 @@ msgstr "Spiele jetzt von dieser Laufwerkspartition zusammenführen?"
 msgid "(This will also apply on future boots)"
 msgstr "(Dies gilt auch für zukünftige Starts)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Zusammenführung angefordert... Bitte warten."
 
 msgid "MERGE FAILED"
@@ -3971,7 +3971,7 @@ msgstr "NEIN, DIESES MAL IGNORIEREN"
 msgid "NO, IGNORE FOREVER"
 msgstr "NEIN, IMMER IGNORIEREN"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Laufwerk wird zur Ignorierliste hinzugefügt..."
 
 msgid "YES, MERGE DRIVE"
@@ -3986,7 +3986,7 @@ msgstr "Dieses Laufwerk formatieren und für Spiele vorbereiten?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ALLE BESTEHENDEN DATEN WERDEN GELÖSCHT)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Formatierungsvorgang wird gestartet..."
 
 msgid "FORMAT FAILED"

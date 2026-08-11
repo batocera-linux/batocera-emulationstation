@@ -98,7 +98,7 @@ msgstr "Llwytho thema"
 msgid "Loading gamelists"
 msgstr "Llwytho rhestr gemau"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Llwytho..."
 
 msgid "MENU"
@@ -888,7 +888,7 @@ msgstr ""
 msgid "VIEWER PASSWORD"
 msgstr ""
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "DOD O HYD I GEMAU TEBYG ..."
 
 msgid "DELETE ITEM"
@@ -920,7 +920,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -937,7 +937,7 @@ msgstr "YCHWANEGU I %s"
 msgid "FAVORITES"
 msgstr "FFEFRYNNAU"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr ""
 
 msgid "SCRAPE"
@@ -1210,7 +1210,7 @@ msgstr "BYSELL FRYS"
 msgid "DEFAULT"
 msgstr ""
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3020,7 +3020,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3418,10 +3418,10 @@ msgstr "ID Gêm Screenscraper"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Llwytho system ffurfweddu..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3545,13 +3545,13 @@ msgstr ""
 msgid "UKNOWN ERROR"
 msgstr ""
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Casgliadau"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Chwilio am rheolyddion..."
 
 msgid "FORMATTING DEVICE"
@@ -3641,7 +3641,7 @@ msgstr ""
 msgid "up/down"
 msgstr "lan/lawr"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "YN GWEITHIO..."
 
 msgid "accept"
@@ -3877,7 +3877,7 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3901,7 +3901,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3916,7 +3916,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3931,7 +3931,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4018,7 +4018,7 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "GAN Y FATH O GALEDWEDD"
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
 
 #~ msgid "Achievements won"

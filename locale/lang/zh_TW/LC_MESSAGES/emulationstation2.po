@@ -103,7 +103,7 @@ msgstr "正在載入佈景主題"
 msgid "Loading gamelists"
 msgstr "正在載入遊戲清單"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "載入中..."
 
 msgid "MENU"
@@ -878,7 +878,7 @@ msgstr "玩家密碼"
 msgid "VIEWER PASSWORD"
 msgstr "觀眾密碼"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "尋找相似的遊戲..."
 
 msgid "DELETE ITEM"
@@ -910,7 +910,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -927,7 +927,7 @@ msgstr "新增至 %s"
 msgid "FAVORITES"
 msgstr "我的最愛"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "新增至自定義合輯..."
 
 msgid "SCRAPE"
@@ -1203,7 +1203,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "預設"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3018,7 +3018,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3418,10 +3418,10 @@ msgstr "Screenscraper 遊戲 ID"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "正在載入系統設定..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "保存中繼資料。請稍等..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3539,13 +3539,13 @@ msgstr "核心遺失"
 msgid "UKNOWN ERROR"
 msgstr "未知的錯誤"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "合輯"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "搜尋遊戲控制器..."
 
 msgid "FORMATTING DEVICE"
@@ -3635,7 +3635,7 @@ msgstr "啟用"
 msgid "up/down"
 msgstr "上/下"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "作業中..."
 
 msgid "accept"
@@ -3860,7 +3860,7 @@ msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3884,7 +3884,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3899,7 +3899,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3914,7 +3914,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -3988,7 +3988,7 @@ msgstr[0] "%d 幾秒前"
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "使用者介面模式已經解鎖"
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "正在儲存中繼資料。請稍後..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

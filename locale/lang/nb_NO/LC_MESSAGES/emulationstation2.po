@@ -105,7 +105,7 @@ msgstr "Laster tema"
 msgid "Loading gamelists"
 msgstr "Oppdaterer spillliste"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Laster..."
 
 msgid "MENU"
@@ -885,7 +885,7 @@ msgstr "SPILLER PASSORD"
 msgid "VIEWER PASSWORD"
 msgstr "SEERPASSORD"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "FINN LIGNENDE SPILL..."
 
 msgid "DELETE ITEM"
@@ -917,7 +917,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -934,7 +934,7 @@ msgstr "LEGG TIL %s"
 msgid "FAVORITES"
 msgstr "FAVORITTER"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "LAGT TIL EGENDEFINERT SAMLING."
 
 msgid "SCRAPE"
@@ -1211,7 +1211,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "STANDARD"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3048,7 +3048,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3448,10 +3448,10 @@ msgstr "Skjermskraper spill-ID"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Laster systemkonfigurasjon..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "LAGRER METADATA. VENNLIGST VENT..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3572,13 +3572,13 @@ msgstr "KJERNE MANGLER"
 msgid "UKNOWN ERROR"
 msgstr "Ukjent feil"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Samlinger"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Søker etter enheter..."
 
 msgid "FORMATTING DEVICE"
@@ -3668,7 +3668,7 @@ msgstr "AKTIVERT"
 msgid "up/down"
 msgstr "opp/ned"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ARBEIDER..."
 
 msgid "accept"
@@ -3896,7 +3896,7 @@ msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3920,7 +3920,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3935,7 +3935,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3950,7 +3950,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4054,7 +4054,7 @@ msgstr[1] "%d sekunder siden"
 #~ msgstr ""
 #~ "Tilbakestill verdiene for GameTime, PlayCount og LastPlayed metadata."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "LAGRER METADATA. VENNLIGST VENT."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

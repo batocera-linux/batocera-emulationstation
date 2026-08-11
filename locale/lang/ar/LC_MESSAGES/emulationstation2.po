@@ -137,7 +137,7 @@ msgstr "تحميل السِّمَة"
 msgid "Loading gamelists"
 msgstr "تحميل قائمة الألعاب"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "جارِ التنزيل..."
 
 msgid "MENU"
@@ -932,7 +932,7 @@ msgstr "كلمة سر اللاعب"
 msgid "VIEWER PASSWORD"
 msgstr "كلمة سر المتفرج"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "أوجد ألعاب مماثلة..."
 
 msgid "DELETE ITEM"
@@ -967,7 +967,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "كتابة"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "...ضع علامة على القارئ"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -984,7 +984,7 @@ msgstr "إضافة إلى %s"
 msgid "FAVORITES"
 msgstr "المفضلة"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "إضافة إلى المجموعة المخصصة..."
 
 msgid "SCRAPE"
@@ -1261,8 +1261,8 @@ msgstr "مفتاح اختصار"
 msgid "DEFAULT"
 msgstr "افتراضي"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "لم يتم العثور على جهاز (JAMMASD، IPAC، ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "لم يتم العثور على جهاز (JAMMASD، IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "تعيين مفتاح اختصار عام جديد"
@@ -3087,7 +3087,7 @@ msgstr "إخراج"
 msgid "NO DRIVE SELECTED"
 msgstr "لم يتم تحديد محرك"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "... إخراج"
 
 msgid "EDIT METADATA"
@@ -3487,10 +3487,10 @@ msgstr "معرف اللعبة لجالب الشاشة"
 msgid "MultiDisk"
 msgstr "أقراص متعددة"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "...جار تحميل إعدادات النظام"
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "...حفظ البيانات الوصفية. الرجاء الانتظار"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3614,13 +3614,13 @@ msgstr "النواة مفقودة"
 msgid "UKNOWN ERROR"
 msgstr "خطأ مجهول"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "...جاري التحقق من أحدث نص برمجي للتحديث"
 
 msgid "Collections"
 msgstr "المجموعات"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "...البحث عن وحدة تحكم"
 
 msgid "FORMATTING DEVICE"
@@ -3710,7 +3710,7 @@ msgstr "مفعّل"
 msgid "up/down"
 msgstr "أعلى/أسفل"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "جار التحقق من التحديثات..."
 
 msgid "accept"
@@ -3950,7 +3950,7 @@ msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "... تم إعادة تحميل قائمة الألعاب"
 
 msgid "GAME DRIVE DETECTED"
@@ -3974,7 +3974,7 @@ msgstr "هل تريد دمج الألعاب من قسم هذا المحرك ال
 msgid "(This will also apply on future boots)"
 msgstr "(سيتم تطبيق هذا أيضًا عند الإقلاع في المستقبل)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ".جاري طلب الدمج... الرجاء الانتظار"
 
 msgid "MERGE FAILED"
@@ -3989,7 +3989,7 @@ msgstr "لا، تجاهل هذه المرة"
 msgid "NO, IGNORE FOREVER"
 msgstr "لا، تجاهل نهائيًا"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "...جاري إضافة المحرك إلى قائمة التجاهل"
 
 msgid "YES, MERGE DRIVE"
@@ -4004,7 +4004,7 @@ msgstr "هل تريد تهيئة هذا المحرك وتجهيزه لتخزين
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(سيتم محو جميع البيانات الموجودة)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "...بدء عملية التهيئة"
 
 msgid "FORMAT FAILED"

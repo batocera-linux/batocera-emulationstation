@@ -559,7 +559,7 @@ int main(int argc, char* argv[])
 	bool splashScreenProgress = Settings::getInstance()->getBool("SplashScreenProgress");
 
 	if (splashScreen)
-		window.renderSplashScreen(splashScreenProgress ? _("Loading system config...") : _("Loading..."));
+		window.renderSplashScreen(splashScreenProgress ? _("Loading system config…") : _("Loading…"));
 
 	Scripting::fireEvent("start");
 
@@ -820,7 +820,7 @@ int main(int argc, char* argv[])
 		delete window.peekGui();
 
 	if (SystemData::hasDirtySystems())
-		window.renderSplashScreen(_("SAVING METADATA. PLEASE WAIT..."));
+		window.renderSplashScreen(_("SAVING METADATA. PLEASE WAIT…"));
 
 	MameNames::deinit();
 	ViewController::saveState();

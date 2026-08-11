@@ -102,7 +102,7 @@ msgstr "Tema yükleniyor"
 msgid "Loading gamelists"
 msgstr "Oyun listeleri yükleniyor"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Yükleniyor..."
 
 msgid "MENU"
@@ -887,7 +887,7 @@ msgstr "OYUNCU ŞİFRESİ"
 msgid "VIEWER PASSWORD"
 msgstr "İZLEYİCİ ŞİFRESİ"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "BENZER OYUNLARI BUL..."
 
 msgid "DELETE ITEM"
@@ -922,7 +922,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "YAZ"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "YAZICIYA ETİKET YERLEŞTİRİN..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -939,7 +939,7 @@ msgstr "%s BÖLÜMÜNE EKLE"
 msgid "FAVORITES"
 msgstr "FAVORİLER"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "ÖZEL KOLEKSİYONA EKLE..."
 
 msgid "SCRAPE"
@@ -1216,8 +1216,8 @@ msgstr "KISAYOL TUŞU"
 msgid "DEFAULT"
 msgstr "VARSAYILAN"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "CİHAZ BULUNAMADI (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "CİHAZ BULUNAMADI (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "YENİ BİR GENEL KISAYOL TUŞU TANIMLA"
@@ -3068,7 +3068,7 @@ msgstr "ÇIKART"
 msgid "NO DRIVE SELECTED"
 msgstr "HİÇBİR SÜRÜCÜ SEÇİLMEDİ"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Çıkartılıyor..."
 
 msgid "EDIT METADATA"
@@ -3468,10 +3468,10 @@ msgstr "Ekran bilgileri Oyun ID"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Sistem yapılandırması yükleniyor..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "ÜST VERİ KAYDEDİLİYOR. LÜTFEN BEKLEYİN..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3601,13 +3601,13 @@ msgstr "ÇEKİRDEK EKSİK"
 msgid "UKNOWN ERROR"
 msgstr "BİLİNMEYEN HATA"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Koleksiyonlar"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Cihazlar aranıyor..."
 
 msgid "FORMATTING DEVICE"
@@ -3699,7 +3699,7 @@ msgstr "AKTİF"
 msgid "up/down"
 msgstr "yukarı/aşağı"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ÇALIŞIYOR..."
 
 msgid "accept"
@@ -3927,7 +3927,7 @@ msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Oyun listesi yeniden yükleniyor..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3951,7 +3951,7 @@ msgstr "Bu sürücü bölümündeki oyunları şimdi birleştirelim mi?"
 msgid "(This will also apply on future boots)"
 msgstr "(Bu aynı zamanda gelecekteki botlar için de geçerli olacaktır)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Birleştirme isteği yapıldı... Lütfen bekleyin."
 
 msgid "MERGE FAILED"
@@ -3966,7 +3966,7 @@ msgstr "HAYIR, BU KEZ YOKSAY"
 msgid "NO, IGNORE FOREVER"
 msgstr "HAYIR, SÜREKLİ YOKSAY"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Yoksayılacak sürücü listesine ekleniyor..."
 
 msgid "YES, MERGE DRIVE"
@@ -3981,7 +3981,7 @@ msgstr "Bu sürücü biçimlendirilip oyun depolaması için hazırlansın mı?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(MEVCUT TÜM VERİLER SİLİNECEKTİR)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Biçimlendirme işlemi başlıyor..."
 
 msgid "FORMAT FAILED"
@@ -4054,10 +4054,10 @@ msgstr[1] "%d saniye önce"
 #~ msgid "Merge games from this drive now?"
 #~ msgstr "Bu sürücüdeki oyunlar şimdi birleştirilsin mi?"
 
-#~ msgid "Merging drive... Please wait."
+#~ msgid "Merging drive… Please wait."
 #~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
-#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr ""
 #~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 

@@ -106,7 +106,7 @@ msgstr "Načítavam tému"
 msgid "Loading gamelists"
 msgstr "Načítavam zoznamy hier"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Načítavam..."
 
 msgid "MENU"
@@ -889,7 +889,7 @@ msgstr "Heslo hráča"
 msgid "VIEWER PASSWORD"
 msgstr "Heslo prezerača"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "Nájsť podobné hry..."
 
 msgid "DELETE ITEM"
@@ -924,7 +924,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "Zápis"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "Umiestniť značku na zapisovač..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -941,7 +941,7 @@ msgstr "Pridať do %s"
 msgid "FAVORITES"
 msgstr "Obľúbené"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "Pridať do vlastnej kolekcie..."
 
 msgid "SCRAPE"
@@ -1218,7 +1218,7 @@ msgstr "Hotkey"
 msgid "DEFAULT"
 msgstr "Predvolené"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr "Nenašlo sa zariadenie (JammaSD, IPAC)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3054,7 +3054,7 @@ msgstr "Vysunúť"
 msgid "NO DRIVE SELECTED"
 msgstr "Nevybraný disk"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Vysúvam..."
 
 msgid "EDIT METADATA"
@@ -3455,10 +3455,10 @@ msgstr "ID hry Screenscrapera"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Načítavam systémové nastavenie..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "Ukladám metadáta, počkajte prosím..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3580,13 +3580,13 @@ msgstr "Jadro chýba"
 msgid "UKNOWN ERROR"
 msgstr "Neznáma chyba"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Kolekcie"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Hľadám zariadenia..."
 
 msgid "FORMATTING DEVICE"
@@ -3676,7 +3676,7 @@ msgstr "Povolené"
 msgid "up/down"
 msgstr "hore/dolu"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "Pracujem..."
 
 msgid "accept"
@@ -3907,7 +3907,7 @@ msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Znovu načítaný zoznam hier..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3931,7 +3931,7 @@ msgstr "Zlúčiť hry z tohto oddielu teraz?"
 msgid "(This will also apply on future boots)"
 msgstr "(Toto sa použije aj pri ďalších spusteniach)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Požadované zlúčenie... prosím čakajte."
 
 msgid "MERGE FAILED"
@@ -3946,7 +3946,7 @@ msgstr "Nie, ignorovať teraz"
 msgid "NO, IGNORE FOREVER"
 msgstr "Nie, ignorovať navždy"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Pridávam disk do ignore listu..."
 
 msgid "YES, MERGE DRIVE"
@@ -3961,7 +3961,7 @@ msgstr "Formátovať a pripraviť tento disk na uloženie hier?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(všetky existujúce dáta budú vymazané)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Spúšťam proces formátovania..."
 
 msgid "FORMAT FAILED"
@@ -4039,10 +4039,10 @@ msgstr[2] "Pred %d sekundami"
 #~ msgid "Merge games from this drive now?"
 #~ msgstr "Zlúčiť hry z tohto disku?"
 
-#~ msgid "Merging drive... Please wait."
+#~ msgid "Merging drive… Please wait."
 #~ msgstr "Zlučujem disk... Prosím, čakajte."
 
-#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier..."
 
 #~ msgid "BY HARDWARE TYPE"
@@ -4085,7 +4085,7 @@ msgstr[2] "Pred %d sekundami"
 #~ msgstr ""
 #~ "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "Ukladanie metadát. Prosím, čakajte..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

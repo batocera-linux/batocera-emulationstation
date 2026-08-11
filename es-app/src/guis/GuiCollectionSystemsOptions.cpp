@@ -385,7 +385,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		if (getVariable("reloadSystems"))
 		{
 			Window* window = mWindow;
-			window->renderSplashScreen(_("Loading..."));
+			window->renderSplashScreen(_("Loading…"));
 
 			ViewController::get()->goToStart();
 			delete ViewController::get();

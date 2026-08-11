@@ -102,7 +102,7 @@ msgstr "Načítání motivu"
 msgid "Loading gamelists"
 msgstr "Načítání seznamu her"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Načítání..."
 
 msgid "MENU"
@@ -886,7 +886,7 @@ msgstr "HESLO HRÁČE"
 msgid "VIEWER PASSWORD"
 msgstr "HESLO PROHLÍŽEČE"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "NAJÍT PODOBNÉ HRY..."
 
 msgid "DELETE ITEM"
@@ -918,7 +918,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -935,7 +935,7 @@ msgstr "PŘIDAT DO %s"
 msgid "FAVORITES"
 msgstr "OBLÍBENÉ"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
 
 msgid "SCRAPE"
@@ -1213,7 +1213,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "VÝCHOZÍ"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3052,7 +3052,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3453,10 +3453,10 @@ msgstr "Vyhledávač snímku ID hry"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Načítání konfigurace systému..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "UKLÁDÁNÍ METADAT, PROSÍM POČKEJTE."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3578,13 +3578,13 @@ msgstr "CHYBÍ JÁDRO"
 msgid "UKNOWN ERROR"
 msgstr "NEZNÁMA CHYBA"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Sbírka"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Vyhledávání zařízení..."
 
 msgid "FORMATTING DEVICE"
@@ -3674,7 +3674,7 @@ msgstr "ZAPNUTO"
 msgid "up/down"
 msgstr "nahoru/dolů"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "PRACUJI..."
 
 msgid "accept"
@@ -3905,7 +3905,7 @@ msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3929,7 +3929,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3944,7 +3944,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3959,7 +3959,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4071,7 +4071,7 @@ msgstr[2] "%d před sekundami"
 #~ msgstr ""
 #~ "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
@@ -4276,7 +4276,7 @@ msgstr[2] "%d před sekundami"
 #~ msgstr[1] "Sbírka obsahuje %i hry, včetně: %s"
 #~ msgstr[2] "Sbírka obsahuje %i her, včetně: %s"
 
-#~ msgid "Searching controllers..."
+#~ msgid "Searching controllers…"
 #~ msgstr "Hledání řadičů..."
 
 #~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."

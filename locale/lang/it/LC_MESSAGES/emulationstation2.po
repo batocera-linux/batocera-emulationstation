@@ -102,7 +102,7 @@ msgstr "Caricamento tema"
 msgid "Loading gamelists"
 msgstr "Caricamento liste giochi"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Caricamento..."
 
 msgid "MENU"
@@ -883,7 +883,7 @@ msgstr "PASSWORD GIOCATORE"
 msgid "VIEWER PASSWORD"
 msgstr "PASSWORD SPETTATORE"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "CERCA GIOCHI SIMILI..."
 
 msgid "DELETE ITEM"
@@ -918,7 +918,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "SCRIVI"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "POSIZIONA UN TAG SULLO SCRITTORE NFC"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -935,7 +935,7 @@ msgstr "AGGIUNGI A %s"
 msgid "FAVORITES"
 msgstr "PREFERITI"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "AGGIUNGI "
 
 msgid "SCRAPE"
@@ -1212,8 +1212,8 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "DEFAULT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NESSUN DISPOSITIVO TROVATO (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "NESSUN DISPOSITIVO TROVATO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DICHIARA UN NUOVO HOTKEY GLOBALE"
@@ -3056,7 +3056,7 @@ msgstr "ESPELLI"
 msgid "NO DRIVE SELECTED"
 msgstr "NESSUN DRIVE SELEZIONATO"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Espulsione..."
 
 msgid "EDIT METADATA"
@@ -3456,10 +3456,10 @@ msgstr "ID gioco Screenscraper"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Caricamento configurazione di sistema..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "SALVATAGGIO METADATA, ASPETTA..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3580,13 +3580,13 @@ msgstr "CORE MANCANTE"
 msgid "UKNOWN ERROR"
 msgstr "ERRORE SCONOSCIUTO"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "Ricerca dell'ultimo script di upgrade..."
 
 msgid "Collections"
 msgstr "Collezioni"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Ricerca controller..."
 
 msgid "FORMATTING DEVICE"
@@ -3676,7 +3676,7 @@ msgstr "ATTIVATO"
 msgid "up/down"
 msgstr "su/giù"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ATTENDERE..."
 
 msgid "accept"
@@ -3905,7 +3905,7 @@ msgstr ""
 "CALIBRAZIONE PISTOLA\n"
 "Spara sui bersagli per calibrare"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Ricarica la lista dei giochi..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3929,7 +3929,7 @@ msgstr "Unisci i giochi da questa partizione disco adesso?"
 msgid "(This will also apply on future boots)"
 msgstr "(Questo verra' applicato anche ai prossimi riavvii)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Unione richiesta... Aspetta per favore."
 
 msgid "MERGE FAILED"
@@ -3944,7 +3944,7 @@ msgstr "NO, IGNORA QUESTA VOLTA"
 msgid "NO, IGNORE FOREVER"
 msgstr "NO< IGNORA PER SEMPRE"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Aggiungi drive alla lista da ignorare..."
 
 msgid "YES, MERGE DRIVE"
@@ -3959,7 +3959,7 @@ msgstr "Formatta e prepara questo drive per contenere giochi?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TUTTI I DATI ESISTENTI VERRANNO RIMOSSI)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Inizio processo di formattazione..."
 
 msgid "FORMAT FAILED"
@@ -4066,7 +4066,7 @@ msgstr[1] "%d secondi fa"
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
@@ -5212,7 +5212,7 @@ msgstr[1] "%d secondi fa"
 #~ msgid "PAGE DOWN"
 #~ msgstr "PAGINA SUCCESSIVA"
 
-#~ msgid "LOADING..."
+#~ msgid "LOADING…"
 #~ msgstr "CARICAMENTO…"
 
 #~ msgid "PLEASE WAIT..."

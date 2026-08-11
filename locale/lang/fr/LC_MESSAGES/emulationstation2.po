@@ -103,7 +103,7 @@ msgstr "Chargement du thème"
 msgid "Loading gamelists"
 msgstr "Chargement des listes de jeux"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Chargement..."
 
 msgid "MENU"
@@ -891,7 +891,7 @@ msgstr "MOT DE PASSE JOUEUR"
 msgid "VIEWER PASSWORD"
 msgstr "MOT DE PASSE SPECTATEUR"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "TROUVER LES JEUX SIMILAIRES…"
 
 msgid "DELETE ITEM"
@@ -926,7 +926,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "ÉCRIRE"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "APPOSER UNE ÉTIQUETTE SUR L'AUTEUR..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -943,7 +943,7 @@ msgstr "AJOUTER À %s"
 msgid "FAVORITES"
 msgstr "FAVORIS"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "AJOUTER À UNE COLLECTION..."
 
 msgid "SCRAPE"
@@ -1221,8 +1221,8 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "PAR DÉFAUT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "PÉRIPHÉRIQUE NON TROUVÉ (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "PÉRIPHÉRIQUE NON TROUVÉ (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DÉCLARER UNE NOUVELLE HOTKEY GLOBALE"
@@ -3067,7 +3067,7 @@ msgstr "ÉJECTER"
 msgid "NO DRIVE SELECTED"
 msgstr "AUCUN DISQUE SÉLECTIONNÉ"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Éjection..."
 
 msgid "EDIT METADATA"
@@ -3467,10 +3467,10 @@ msgstr "Game ID Screenscraper"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Chargement de la configuration système..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3591,13 +3591,13 @@ msgstr "LE CŒUR EST MANQUANT"
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Collections"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Recherche de manettes..."
 
 msgid "FORMATTING DEVICE"
@@ -3687,7 +3687,7 @@ msgstr "ACTIVÉ"
 msgid "up/down"
 msgstr "haut/bas"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "EN COURS..."
 
 msgid "accept"
@@ -3915,7 +3915,7 @@ msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Rechargement de la liste des jeux..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3939,7 +3939,7 @@ msgstr "Fusionner les jeux de cette partition du disque dur maintenant ?"
 msgid "(This will also apply on future boots)"
 msgstr "(Cela s'appliquera également aux démarrages futurs)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Fusion demandée... Veuillez patienter."
 
 msgid "MERGE FAILED"
@@ -3954,7 +3954,7 @@ msgstr "NON, IGNORER CETTE FOIS"
 msgid "NO, IGNORE FOREVER"
 msgstr "NON, IGNORER À JAMAIS"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Ajout du disque à la liste d'exclusion..."
 
 msgid "YES, MERGE DRIVE"
@@ -3969,7 +3969,7 @@ msgstr "Formater et préparer ce disque pour le stockage de jeux ?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TOUTES LES DONNÉES EXISTANTES SERONT EFFACÉES)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Démarrage du processus de formatage..."
 
 msgid "FORMAT FAILED"

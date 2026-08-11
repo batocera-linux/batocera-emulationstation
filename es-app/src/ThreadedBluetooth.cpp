@@ -14,7 +14,7 @@ ThreadedBluetooth::ThreadedBluetooth(Window* window)
 {
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(ICONINDEX + _("SCANNING BLUETOOTH"));	
-	mWndNotification->updateText(_("Searching for devices..."));
+	mWndNotification->updateText(_("Searching for devices…"));
 
 	mHandle = new std::thread(&ThreadedBluetooth::run, this);
 }

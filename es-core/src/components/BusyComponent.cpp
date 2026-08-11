@@ -32,7 +32,7 @@ BusyComponent::BusyComponent(Window* window, const std::string& text) : GuiCompo
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);
 	mAnimation->load(&BUSY_ANIMATION_DEF);
 	
-	mText = std::make_shared<TextComponent>(mWindow, text == "__default__" ? _("WORKING...") : text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color); 	
+	mText = std::make_shared<TextComponent>(mWindow, text == "__default__" ? _("WORKING…") : text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color); 	
 	mText->setLineSpacing(1.2f);
 
 	// col 0 = animation, col 1 = spacer, col 2 = text

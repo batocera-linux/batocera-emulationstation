@@ -258,7 +258,7 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 	if (!fromlocalmedia)
 	{
 		if (func != nullptr)
-			func(_("Checking for latest upgrade script..."));
+			func(_("Checking for latest upgrade script…"));
 
 		std::string downloadCommand = "curl --connect-timeout 10 -m 30 -L -f -s -o /tmp/batocera-upgrade "
 		                              "https://github.com/batocera-linux/batocera.linux/raw/refs/heads/master/package/batocera/core/batocera-scripts/scripts/batocera-upgrade "

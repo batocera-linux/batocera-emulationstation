@@ -104,7 +104,7 @@ msgstr "Se încarcă tema"
 msgid "Loading gamelists"
 msgstr "Se încarcă listele de jocuri"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Se încarcă..."
 
 msgid "MENU"
@@ -894,7 +894,7 @@ msgstr "PAROLĂ JUCĂTORI"
 msgid "VIEWER PASSWORD"
 msgstr "PAROLĂ SPECTATORI"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "GĂSEȘTE JOCURI SIMILARE..."
 
 msgid "DELETE ITEM"
@@ -929,7 +929,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "SCRIE"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "AȘAZĂ UN TAG PE SCRIITOR..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -946,7 +946,7 @@ msgstr "ADAUGĂ LA %s"
 msgid "FAVORITES"
 msgstr "FAVORITE"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "ADAUGĂ LA O COLECȚIE PERSONALIZATĂ..."
 
 msgid "SCRAPE"
@@ -1224,8 +1224,8 @@ msgstr "TASTĂ RAPIDĂ"
 msgid "DEFAULT"
 msgstr "IMPLICIT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NICIUN DISPOZITIV GĂSIT (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "NICIUN DISPOZITIV GĂSIT (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARĂ O SCURTĂTURĂ GLOBALĂ"
@@ -3080,7 +3080,7 @@ msgstr "SCOATE"
 msgid "NO DRIVE SELECTED"
 msgstr "NICIO UNITATE SELECTATĂ"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Se scoate..."
 
 msgid "EDIT METADATA"
@@ -3480,10 +3480,10 @@ msgstr "ID joc Screenscraper"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Se încarcă configurația de sistem..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3605,13 +3605,13 @@ msgstr "NUCLEUL LIPSEȘTE"
 msgid "UKNOWN ERROR"
 msgstr "EROARE NECUNOSCUTĂ"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "Se verifică pentru cel mai recent script de actualizare..."
 
 msgid "Collections"
 msgstr "Colecții"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Se caută dispozitive..."
 
 msgid "FORMATTING DEVICE"
@@ -3701,7 +3701,7 @@ msgstr "ACTIVAT"
 msgid "up/down"
 msgstr "sus/jos"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "SE LUCREAZĂ..."
 
 msgid "accept"
@@ -3933,7 +3933,7 @@ msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "S-a reîncărcat lista de jocuri..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3957,7 +3957,7 @@ msgstr "Combini jocurile din această partiție a unității acum?"
 msgid "(This will also apply on future boots)"
 msgstr "(Acest lucru va fi aplicat și la pornirile ulterioare)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Combinare solicitată... Te rog așteaptă."
 
 msgid "MERGE FAILED"
@@ -3972,7 +3972,7 @@ msgstr "NU, IGNORĂ DE ACEASTĂ DATĂ"
 msgid "NO, IGNORE FOREVER"
 msgstr "NU, IGNORĂ ÎNTOTDEAUNA"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Se adaugă unitatea la lista de ignorate..."
 
 msgid "YES, MERGE DRIVE"
@@ -3987,7 +3987,7 @@ msgstr "Formatezi și pregătești această unitate pentru stocare de jocuri?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TOATE DATELE EXISTENTE VOR FI ȘTERSE)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Se începe procesul de formatare..."
 
 msgid "FORMAT FAILED"
@@ -4100,7 +4100,7 @@ msgstr[2] "acum %d de secunde"
 #~ "Resetează valorile pentru metadatele timpului de joc, numărul de jocuri "
 #~ "și jucat ultima dată."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

@@ -102,7 +102,7 @@ msgstr "Wczytywanie motywu"
 msgid "Loading gamelists"
 msgstr "Wczytywanie list gier"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Wczytywanie..."
 
 msgid "MENU"
@@ -890,7 +890,7 @@ msgstr "HASŁO GRACZA"
 msgid "VIEWER PASSWORD"
 msgstr "HASŁO WIDZA"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "ZNAJDŹ PODOBNE GRY..."
 
 msgid "DELETE ITEM"
@@ -925,7 +925,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "ZAPISZ"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "UMIEŚĆ TAG NA URZĄDZENIU DO ZAPISU..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -942,7 +942,7 @@ msgstr "DODAJ DO %s"
 msgid "FAVORITES"
 msgstr "ULUBIONE"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ..."
 
 msgid "SCRAPE"
@@ -1220,8 +1220,8 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "DOMYŚLNY"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NIE ZNALEZIONO URZĄDZENIA (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "NIE ZNALEZIONO URZĄDZENIA (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "STWÓRZ NOWY GLOBALNY HOTKEY"
@@ -3071,7 +3071,7 @@ msgstr "WYSUŃ"
 msgid "NO DRIVE SELECTED"
 msgstr "BRAK WYBRANEGO NAPĘDU"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Wysuwanie..."
 
 msgid "EDIT METADATA"
@@ -3471,10 +3471,10 @@ msgstr "Identyfikator gry Screenscraper"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Wczytywanie konfiguracji systemowej..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3595,13 +3595,13 @@ msgstr "BRAK JĄDRA EMULATORA"
 msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "Sprawdzanie najnowszego skryptu aktualizacji..."
 
 msgid "Collections"
 msgstr "Kolekcje"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Wyszukiwanie urządzeń..."
 
 msgid "FORMATTING DEVICE"
@@ -3691,7 +3691,7 @@ msgstr "WŁĄCZONE"
 msgid "up/down"
 msgstr "góra/dół"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "PRACUJĘ..."
 
 msgid "accept"
@@ -3922,7 +3922,7 @@ msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Ponownie załadowano listę gier..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3946,7 +3946,7 @@ msgstr "Czy chcesz teraz scalić gry z tej partycji?"
 msgid "(This will also apply on future boots)"
 msgstr "(Dotyczy to również przyszłych uruchomień systemu)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Zażądano scalenia. Proszę czekać."
 
 msgid "MERGE FAILED"
@@ -3961,7 +3961,7 @@ msgstr "NIE, ZIGNORUJ TYM RAZEM"
 msgid "NO, IGNORE FOREVER"
 msgstr "NIE, ZAWSZE IGNORUJ"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Dodaję dysk do listy ignorowanych..."
 
 msgid "YES, MERGE DRIVE"
@@ -3976,7 +3976,7 @@ msgstr "Sformatować i przygotować ten dysk do przechowywania gier?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(WSZYSTKIE DANE ZOSTANĄ USUNIĘTE)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Rozpoczęcie procesu formatowania..."
 
 msgid "FORMAT FAILED"
@@ -4054,10 +4054,10 @@ msgstr[2] "%d sekund temu"
 #~ msgid "Merge games from this drive now?"
 #~ msgstr "Czy chcesz teraz scalić gry z tego dysku?"
 
-#~ msgid "Merging drive... Please wait."
+#~ msgid "Merging drive… Please wait."
 #~ msgstr "Scalanie napędu. Proszę czekać."
 
-#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier..."
 
 #~ msgid "BY HARDWARE TYPE"
@@ -4102,7 +4102,7 @@ msgstr[2] "%d sekund temu"
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

@@ -104,7 +104,7 @@ msgstr "Carregant tema"
 msgid "Loading gamelists"
 msgstr "Carregant llistes de jocs"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Carregant..."
 
 msgid "MENU"
@@ -889,7 +889,7 @@ msgstr "CONTRASENYA DEL JUGADOR"
 msgid "VIEWER PASSWORD"
 msgstr "CONTRASENYA PER ESPECTADORS"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "CERCAR JOCS SIMILARS…"
 
 msgid "DELETE ITEM"
@@ -924,7 +924,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "GRAVAR"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "APROPA UNA TARGETA AL GRAVADOR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -941,7 +941,7 @@ msgstr "AFEGIR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITS"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA …"
 
 msgid "SCRAPE"
@@ -1219,8 +1219,8 @@ msgstr "BOTÓ DREÇERA"
 msgid "DEFAULT"
 msgstr "PER DEFECTE"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "DISPOSITIU NO TROBAT (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "DISPOSITIU NO TROBAT (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNA NOVA DREÇERA GLOBAL"
@@ -3074,7 +3074,7 @@ msgstr "EXTREURE"
 msgid "NO DRIVE SELECTED"
 msgstr "CAP UNITAT SELECCIONADA"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Extraient…"
 
 msgid "EDIT METADATA"
@@ -3475,10 +3475,10 @@ msgstr "ID de joc Screenscraper"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Carregant configuració de sistema..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "DESANT METADADES. SI US PLAU, ESPERA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3600,13 +3600,13 @@ msgstr "NUCLI INEXISTENT"
 msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONEGUT"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "Comprovant l’últim script d’actualització…"
 
 msgid "Collections"
 msgstr "Coleccions"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Buscant comandaments…"
 
 msgid "FORMATTING DEVICE"
@@ -3696,7 +3696,7 @@ msgstr "HABILITAT"
 msgid "up/down"
 msgstr "amunt/avall"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "S'ESTÀ TREBALLANT…"
 
 msgid "accept"
@@ -3924,7 +3924,7 @@ msgstr ""
 "CALIBRANT PISTOLA\n"
 "Dispara als objectius per a calibrar"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Llista de jocs recarregada…"
 
 msgid "GAME DRIVE DETECTED"
@@ -3948,7 +3948,7 @@ msgstr "Vols que es fusionin els jocs d’aquesta unitat ara?"
 msgid "(This will also apply on future boots)"
 msgstr "(S’aplicarà en arrencades futures)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Fusió realitzant-se… Si us plau, espera."
 
 msgid "MERGE FAILED"
@@ -3963,7 +3963,7 @@ msgstr "NO, IGNORA PER ARA"
 msgid "NO, IGNORE FOREVER"
 msgstr "NO, IGNORA PER SEMPRE"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Afegint unitat a la llista d’unitats ignorades…"
 
 msgid "YES, MERGE DRIVE"
@@ -3978,7 +3978,7 @@ msgstr "Vols formatar i preparar aquesta unitat per emmagatzemar jocs?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TOTES LES DADES EXISTENTS S'ESBORRARAN)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "S’està iniciant el procès de formatat…"
 
 msgid "FORMAT FAILED"
@@ -4058,7 +4058,7 @@ msgstr[1] "fa %d segons"
 #~ msgstr ""
 #~ "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "DESANT METADADES. SI US PLAU ESPERI..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

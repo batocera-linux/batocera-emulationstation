@@ -101,7 +101,7 @@ msgstr "テーマを読み込んでいます"
 msgid "Loading gamelists"
 msgstr "ゲームリストを読み込んでいます"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "読み込み中…"
 
 msgid "MENU"
@@ -884,7 +884,7 @@ msgstr "プレーヤーパスワード"
 msgid "VIEWER PASSWORD"
 msgstr "ウォッチパスワード"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "類似のゲームを探す..."
 
 msgid "DELETE ITEM"
@@ -919,7 +919,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "書き込み"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "NFCタグを書き込みしています..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -936,7 +936,7 @@ msgstr "%s に追加"
 msgid "FAVORITES"
 msgstr "お気に入り"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "コレクションに追加..."
 
 msgid "SCRAPE"
@@ -1214,8 +1214,8 @@ msgstr "ホットキー"
 msgid "DEFAULT"
 msgstr "標準"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "デバイスが見つかりません (JAMMASD, IPAC , ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "デバイスが見つかりません (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新しいグローバルホットキーを設定"
@@ -3050,7 +3050,7 @@ msgstr "取り出し"
 msgid "NO DRIVE SELECTED"
 msgstr "ドライブが選択されていません"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "取り出し中..."
 
 msgid "EDIT METADATA"
@@ -3451,10 +3451,10 @@ msgstr "スクリーンスクレイパー ゲームID"
 msgid "MultiDisk"
 msgstr "マルチディスク"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "システム設定を読み込んでいます..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "メタ情報の保存中。 お待ちください..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3576,13 +3576,13 @@ msgstr "コアがありません"
 msgid "UKNOWN ERROR"
 msgstr "不明なエラー"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "コレクション"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "機器を検出中..."
 
 msgid "FORMATTING DEVICE"
@@ -3672,7 +3672,7 @@ msgstr "有効"
 msgid "up/down"
 msgstr "上 / 下"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "処理中..."
 
 msgid "accept"
@@ -3897,7 +3897,7 @@ msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "ゲームリストを再読み込みしました..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3921,7 +3921,7 @@ msgstr "今すぐこのドライブからゲームをマージ(結合)します�
 msgid "(This will also apply on future boots)"
 msgstr "（これは将来のブートにも適用されます）"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "ゲームを結合しています...お待ちください"
 
 msgid "MERGE FAILED"
@@ -3936,7 +3936,7 @@ msgstr "いいえ、今回は無視します"
 msgid "NO, IGNORE FOREVER"
 msgstr "いいえ、永遠に無視します"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "無視リストにドライブを追加しています..."
 
 msgid "YES, MERGE DRIVE"
@@ -3951,7 +3951,7 @@ msgstr "このドライブをフォーマットしてゲーム保存用に準備
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "（既存のデータはすべて消去されます）"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "フォーマット処理を開始しています..."
 
 msgid "FORMAT FAILED"
@@ -4019,10 +4019,10 @@ msgstr[0] "%d 秒前"
 #~ msgid "Merge games from this drive now?"
 #~ msgstr "今すぐこのドライブからゲームをマージ(結合)しますか?"
 
-#~ msgid "Merging drive... Please wait."
+#~ msgid "Merging drive… Please wait."
 #~ msgstr "ドライブをマージしています...お待ちください"
 
-#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr ""
 #~ "ゲーム リストが更新されると、新しいドライブ コンテンツが利用できるようにな"
 #~ "ります..."

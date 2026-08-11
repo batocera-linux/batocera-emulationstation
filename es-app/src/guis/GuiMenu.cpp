@@ -5671,7 +5671,7 @@ void GuiMenu::openUnmountDriveSettings()
 			"YES, EJECT", [s, window, path]
 			{
 				auto* ac = window->createAsyncNotificationComponent();
-				ac->updateText(_("Ejecting..."));
+				ac->updateText(_("Ejecting…"));
 
 				window->postToUiThread([window, ac, path, s]() {
 					bool success = ApiSystem::getInstance()->ejectDrive(path);

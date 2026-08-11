@@ -1237,7 +1237,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	}
 
 	if (window != nullptr)
-		window->renderSplashScreen(_("Loading..."));
+		window->renderSplashScreen(_("Loading…"));
 
 	if (SystemData::sSystemVector.size() > 0)
 	{
@@ -1358,7 +1358,7 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 	auto systemName = ViewController::get()->getSelectedSystem()->getName();
 
 	window->closeSplashScreen();
-	window->renderSplashScreen(_("Loading..."));
+	window->renderSplashScreen(_("Loading…"));
 
 	if (!deleteCurrentGui)
 	{

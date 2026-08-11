@@ -103,7 +103,7 @@ msgstr "Téma betöltése"
 msgid "Loading gamelists"
 msgstr "Játéklista betöltése"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Betöltés..."
 
 msgid "MENU"
@@ -887,7 +887,7 @@ msgstr "JÁTÉKOS JELSZAVA"
 msgid "VIEWER PASSWORD"
 msgstr "NÉZŐ JELSZAVA"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
 
 msgid "DELETE ITEM"
@@ -923,7 +923,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "ÍRÁS"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "HELYEZZE A TAGET AZ ÍRÓRA..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -940,7 +940,7 @@ msgstr "HOZZÁADÁS %s-HOZ"
 msgid "FAVORITES"
 msgstr "KEDVENCEK"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ..."
 
 msgid "SCRAPE"
@@ -1219,8 +1219,8 @@ msgstr "GYORSBILLENTYŰ"
 msgid "DEFAULT"
 msgstr "ALAPÉRTELMEZETT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ÚJ GLOBÁLIS GYORSBILLENTYŰ MEGADÁSA"
@@ -3076,7 +3076,7 @@ msgstr "KIADÁS"
 msgid "NO DRIVE SELECTED"
 msgstr "NINCS KIVÁLASZTVA MEGHAJTÓ"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Kiadás..."
 
 msgid "EDIT METADATA"
@@ -3476,10 +3476,10 @@ msgstr "Screenscaper játék ID"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Rendszer konfiguráció betöltése..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3600,13 +3600,13 @@ msgstr "A MAG HIÁNYZIK"
 msgid "UKNOWN ERROR"
 msgstr "ISMERETLEN HIBA"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Gyűjtemények"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Kontrollerek keresése..."
 
 msgid "FORMATTING DEVICE"
@@ -3696,7 +3696,7 @@ msgstr "ENGEDÉLYEZVE"
 msgid "up/down"
 msgstr "fel/le"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "DOLGOZOM..."
 
 msgid "accept"
@@ -3925,7 +3925,7 @@ msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Újratöltöttem a játékok listáját..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3949,7 +3949,7 @@ msgstr "Játékok egyesítése erről a meghajtópartícióról most?"
 msgid "(This will also apply on future boots)"
 msgstr "(Ez a jövőbeli indításokra is vonatkozik)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Egyesítés kérése megtörtént... Kérjük, várjon."
 
 msgid "MERGE FAILED"
@@ -3964,7 +3964,7 @@ msgstr "NEM, EZUTÁN FELEJTSD EL"
 msgid "NO, IGNORE FOREVER"
 msgstr "NEM, ÖRÖKKÉ FIGYELMEN KÍVÜL"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Meghajtó hozzáadása a tiltólistához..."
 
 msgid "YES, MERGE DRIVE"
@@ -3979,7 +3979,7 @@ msgstr "Formatálni és előkészíteni ezt a meghajtót játékok tárolására
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(MINDEN MEGLÉVŐ ADAT TÖRLŐDIK)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Formatálási folyamat indítása..."
 
 msgid "FORMAT FAILED"
@@ -4052,10 +4052,10 @@ msgstr[1] "%d másodperce"
 #~ msgid "Merge games from this drive now?"
 #~ msgstr "Egyesíted most a játékokat erről a meghajtóról?"
 
-#~ msgid "Merging drive... Please wait."
+#~ msgid "Merging drive… Please wait."
 #~ msgstr "Meghajtó egyesítése... Kérjük, várjon."
 
-#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr ""
 #~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után..."
 
@@ -4106,7 +4106,7 @@ msgstr[1] "%d másodperce"
 #~ msgstr ""
 #~ "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "METAADAT MENTÉSE. VÁRJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

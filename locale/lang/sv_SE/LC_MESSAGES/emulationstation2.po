@@ -108,7 +108,7 @@ msgstr "Laddar tema"
 msgid "Loading gamelists"
 msgstr "Laddar spellistor"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Laddar..."
 
 msgid "MENU"
@@ -890,7 +890,7 @@ msgstr "SPELARENS LÖSENORD"
 msgid "VIEWER PASSWORD"
 msgstr "LÖSENORD FÖR TITTARE"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "HITTA LIKNANDE SPEL..."
 
 msgid "DELETE ITEM"
@@ -923,7 +923,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "SKRIVA"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "PLACERA EN TAGG PÅ SKRIBENTEN..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -940,7 +940,7 @@ msgstr "LÄGG TILL %s"
 msgid "FAVORITES"
 msgstr "FAVORITER"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "LÄGG TILL I ANPASSAD SAMLING..."
 
 msgid "SCRAPE"
@@ -1217,8 +1217,8 @@ msgstr "snabbtangent"
 msgid "DEFAULT"
 msgstr "STANDARD"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "INGEN ENHET HITTADES (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "INGEN ENHET HITTADES (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ANGE EN NY GLOBAL SNABBTANGENT"
@@ -3061,7 +3061,7 @@ msgstr "MATA UT"
 msgid "NO DRIVE SELECTED"
 msgstr "INGEN ENHET VALD"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Utskjutning..."
 
 msgid "EDIT METADATA"
@@ -3461,10 +3461,10 @@ msgstr "Screenscraper Spel-ID"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Läser in systemkonfiguration..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "SPARA METADATA. VÄNTA..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3585,13 +3585,13 @@ msgstr "KÄRNAN SAKNAS"
 msgid "UKNOWN ERROR"
 msgstr "OKÄNT FEL"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Samlingar"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Söker efter enheter..."
 
 msgid "FORMATTING DEVICE"
@@ -3681,7 +3681,7 @@ msgstr "AKTIVERAD"
 msgid "up/down"
 msgstr "upp/ned"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ARBETAR..."
 
 msgid "accept"
@@ -3909,7 +3909,7 @@ msgstr ""
 "KALIBRERING AV VAPNET\n"
 "Skjut på mål för att kalibrera"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Läste om spellistan..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3933,7 +3933,7 @@ msgstr "Sammanfoga spel från den här hårddiskpartitionen nu?"
 msgid "(This will also apply on future boots)"
 msgstr "(Detta kommer även att gälla framtida uppstarter)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Sammanslagning begärd... Vänta."
 
 msgid "MERGE FAILED"
@@ -3948,7 +3948,7 @@ msgstr "NEJ, IGNORERA DEN HÄR GÅNGEN"
 msgid "NO, IGNORE FOREVER"
 msgstr "NEJ, IGNORERA FÖR ALLTID"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Lägger till drive till ignoreringslistan..."
 
 msgid "YES, MERGE DRIVE"
@@ -3963,7 +3963,7 @@ msgstr "Formatera och förbereda den här enheten för spellagring?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ALLA BEFINTLIGA DATA KOMMER ATT RADERAS)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Startar formatprocessen..."
 
 msgid "FORMAT FAILED"

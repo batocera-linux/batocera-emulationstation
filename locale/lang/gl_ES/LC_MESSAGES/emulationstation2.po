@@ -103,7 +103,7 @@ msgstr "Cargando tema"
 msgid "Loading gamelists"
 msgstr "Cargando listas de xogos"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Cargando..."
 
 msgid "MENU"
@@ -887,7 +887,7 @@ msgstr "CONTRASINAL DO XOGADOR"
 msgid "VIEWER PASSWORD"
 msgstr "CONTRASINAL DO ESPECTADOR"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "ATOPAR XOGOS SIMILARES..."
 
 msgid "DELETE ITEM"
@@ -922,7 +922,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "ESCRIBIR"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "COLOCA UNHA ETIQUETA NO LECTOR..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -939,7 +939,7 @@ msgstr "ENGADIR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "ENGADIR A COLECCIÓN PERSONALIZADA..."
 
 msgid "SCRAPE"
@@ -1216,8 +1216,8 @@ msgstr "TECLA DE ATALLO"
 msgid "DEFAULT"
 msgstr "POR DEFECTO"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "DISPOSITIVO NON ATOPADO (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "DISPOSITIVO NON ATOPADO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNHA NOVA TECLA DE ATALLO GLOBAL"
@@ -3069,7 +3069,7 @@ msgstr "EXPULSAR"
 msgid "NO DRIVE SELECTED"
 msgstr "NINGUNHA UNIDADE SELECCIONADA"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Expulsando..."
 
 msgid "EDIT METADATA"
@@ -3469,10 +3469,10 @@ msgstr "Identificador do xogo en Screenscraper"
 msgid "MultiDisk"
 msgstr "Multidisco"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Cargando configuración do sistema..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "GARDANDO METADATOS. AGARDA..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3593,13 +3593,13 @@ msgstr "FALTA O NÚCLEO"
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCOÑECIDO"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr "Comprobando o último script de actualización..."
 
 msgid "Collections"
 msgstr "Coleccións"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Buscando dispositivos..."
 
 msgid "FORMATTING DEVICE"
@@ -3689,7 +3689,7 @@ msgstr "ACTIVADO"
 msgid "up/down"
 msgstr "arriba/abaixo"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "TRABALLANDO..."
 
 msgid "accept"
@@ -3917,7 +3917,7 @@ msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Lista de xogos recargada..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3941,7 +3941,7 @@ msgstr "Combinar xogos desta partición da unidade agora?"
 msgid "(This will also apply on future boots)"
 msgstr "(Isto tamén se aplicará nos vindeiros inicios)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Combinación solicitada... Agarda, por favor."
 
 msgid "MERGE FAILED"
@@ -3956,7 +3956,7 @@ msgstr "NON, IGNORAR ESTA VEZ"
 msgid "NO, IGNORE FOREVER"
 msgstr "NON, IGNORAR PARA SEMPRE"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Engadindo a unidade á lista de ignorados..."
 
 msgid "YES, MERGE DRIVE"
@@ -3971,7 +3971,7 @@ msgstr "Formatar e preparar esta unidade para almacenar xogos?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS OS DATOS EXISTENTES SERÁN ELIMINADOS)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Iniciando proceso de formatado..."
 
 msgid "FORMAT FAILED"
@@ -4081,7 +4081,7 @@ msgstr[1] "hai %d segundos"
 #~ "Restablece os valores dos datos descriptivos, Tempo de Xogo, Reconto de "
 #~ "Partidas e Último Xogado."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "GARDANDO OS DATOS DESCRIPTIVOS, AGARDA..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"

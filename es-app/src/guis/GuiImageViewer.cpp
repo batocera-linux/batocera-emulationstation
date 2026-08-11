@@ -372,7 +372,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 		mPdfThreads->start();
 	}
 	
-	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
+	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading…"),
 		[window, imagePath](auto gui)
 		{		
 			return ApiSystem::getInstance()->extractPdfImages(imagePath, 1, INITIALPAGES);
@@ -507,7 +507,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 		mPdfThreads->start();
 	}
 
-	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
+	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading…"),
 		[window, imagePath, files](auto gui)
 		{
 			std::vector<std::string> ret;
@@ -571,7 +571,7 @@ bool GuiImageViewer::input(InputConfig* config, Input input)
 					int page = mGrid.getCursorIndex() + 1;
 
 					Window* window = mWindow;
-					window->pushGui(new GuiLoading<std::string>(window, _("Loading..."),
+					window->pushGui(new GuiLoading<std::string>(window, _("Loading…"),
 						[this, window, path, page](auto gui)
 						{
 							auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, 300);

@@ -103,7 +103,7 @@ msgstr "Carregar tema"
 msgid "Loading gamelists"
 msgstr "Carregar lista de jogos"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "A Carregar..."
 
 msgid "MENU"
@@ -891,7 +891,7 @@ msgstr "PASSWORD DO JOGADOR"
 msgid "VIEWER PASSWORD"
 msgstr "PASSWORD DO ESPECTADOR"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "JOGOS SEMELHANTES..."
 
 msgid "DELETE ITEM"
@@ -926,7 +926,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "ESCREVER"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -943,7 +943,7 @@ msgstr "ADICIONAR A %s"
 msgid "FAVORITES"
 msgstr "FAVORITOS"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 
 msgid "SCRAPE"
@@ -1220,8 +1220,8 @@ msgstr "TECLA DE ATALHO"
 msgid "DEFAULT"
 msgstr "PREDFINIÇÃO"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NENHUM DISPOSITIVO ENCONTRADO (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "NENHUM DISPOSITIVO ENCONTRADO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DEFINIR UMA NOVA TECLA DE ATALHO GLOBAL"
@@ -3065,7 +3065,7 @@ msgstr "EJETAR"
 msgid "NO DRIVE SELECTED"
 msgstr "Nenhum disco selecionado"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "A ejectar..."
 
 msgid "EDIT METADATA"
@@ -3466,10 +3466,10 @@ msgstr "ID da informação do Jogo"
 msgid "MultiDisk"
 msgstr "Multidisco"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "A Carregar a configuração do sistema..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "A GUARDAR INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3588,13 +3588,13 @@ msgstr "O CORE ESTÁ EM FALTA"
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Coleções"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "A procurar dispositivos..."
 
 msgid "FORMATTING DEVICE"
@@ -3684,7 +3684,7 @@ msgstr "ATIVADO"
 msgid "up/down"
 msgstr "cima/baixo"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "EM PROGRESSO..."
 
 msgid "accept"
@@ -3912,7 +3912,7 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "Lista de jogos recarregada..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3936,7 +3936,7 @@ msgstr "Combinar jogos desta partição da unidade agora?"
 msgid "(This will also apply on future boots)"
 msgstr "(Isto também se aplicará em arranques futuros)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Combinação solicitada... Por favor, aguarde."
 
 msgid "MERGE FAILED"
@@ -3951,7 +3951,7 @@ msgstr "NÃO, IGNORAR DESTA VEZ"
 msgid "NO, IGNORE FOREVER"
 msgstr "NÃO, IGNORAR PARA SEMPRE"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "A adicionar o disco à lista de ignorados..."
 
 msgid "YES, MERGE DRIVE"
@@ -3966,7 +3966,7 @@ msgstr "Formatar e preparar este disco para armazenamento de jogos?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS OS DADOS EXISTENTES SERÃO APAGADOS)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "A iniciar o processo de formatação..."
 
 msgid "FORMAT FAILED"
@@ -4039,10 +4039,10 @@ msgstr[1] "%d segundos atrás"
 #~ msgid "Merge games from this drive now?"
 #~ msgstr "A copiar jogos deste disco agora?"
 
-#~ msgid "Merging drive... Please wait."
+#~ msgid "Merging drive… Please wait."
 #~ msgstr "A copiar o disco... Por favor, aguarde."
 
-#~ msgid "New drive content will be available after games list is refreshed..."
+#~ msgid "New drive content will be available after games list is refreshed…"
 #~ msgstr ""
 #~ "O conteúdo do novo disco estará disponível depois de a lista de jogos ser "
 #~ "atualizada..."

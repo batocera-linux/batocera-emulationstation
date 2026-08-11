@@ -205,7 +205,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		SystemData* all = SystemData::getSystem("all");
 		if (all != nullptr && game != nullptr && game->getType() != FOLDER && !isImageViewer)
 		{
-			mMenu.addEntry(_("FIND SIMILAR GAMES..."), false, [this, game, all]
+			mMenu.addEntry(_("FIND SIMILAR GAMES…"), false, [this, game, all]
 			{
 				auto index = all->getIndex(true);
 
@@ -255,7 +255,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			mWindow->pushGui(new GuiMsgBox(mWindow, Utils::String::format(_("IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER").c_str(), game->getName().c_str()), _("WRITE"),
 				[this, game, hasZaparoo]
 				{
-					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER..."),
+					mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLACE A TAG ON THE WRITER…"),
 					[this, game, hasZaparoo](auto gui)
 					{
 					  if(hasZaparoo) {
@@ -306,12 +306,12 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 			if (addToCollectionCount > 1)
 			{
-				mMenu.addEntry(_("ADD TO CUSTOM COLLECTION..."), false, [this, game]
+				mMenu.addEntry(_("ADD TO CUSTOM COLLECTION…"), false, [this, game]
 				{
 					auto pThis = this;
 					Window* window = mWindow;
 
-					GuiSettings* msgBox = new GuiSettings(mWindow, _("ADD TO CUSTOM COLLECTION..."));
+					GuiSettings* msgBox = new GuiSettings(mWindow, _("ADD TO CUSTOM COLLECTION…"));
 					msgBox->setTag("popup");
 					
 					for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())

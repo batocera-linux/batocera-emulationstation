@@ -105,7 +105,7 @@ msgstr "Thema wordt geladen"
 msgid "Loading gamelists"
 msgstr "Spellijsten worden geladen"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Laden..."
 
 msgid "MENU"
@@ -892,7 +892,7 @@ msgstr "SPELER WACHTWOORD"
 msgid "VIEWER PASSWORD"
 msgstr "TOESCHOUWER WACHTWOORD"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "VIND SOORTGELIJKE SPELLEN..."
 
 msgid "DELETE ITEM"
@@ -925,7 +925,7 @@ msgstr ""
 msgid "WRITE"
 msgstr "SCHRIJF"
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr "PLAATS EEN TAG OP DE SCHRIJVER..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -942,7 +942,7 @@ msgstr "VOEG TOE AAN %s"
 msgid "FAVORITES"
 msgstr "FAVORIETEN"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
 
 msgid "SCRAPE"
@@ -1220,8 +1220,8 @@ msgstr "SNELTOETS"
 msgid "DEFAULT"
 msgstr "STANDAARD"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "GEEN APPARAAT GEVONDEN (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
+msgstr "GEEN APPARAAT GEVONDEN (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "WIJS EEN NIEUWE GLOBALE SNELTOETS AAN"
@@ -3078,7 +3078,7 @@ msgstr "UITWERPEN"
 msgid "NO DRIVE SELECTED"
 msgstr "GEEN SCHIJF GESELECTEERD"
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr "Uitwerpen..."
 
 msgid "EDIT METADATA"
@@ -3478,10 +3478,10 @@ msgstr "Screenscraper Spel ID"
 msgid "MultiDisk"
 msgstr "MultiDisk"
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Systeemconfiguratie wordt geladen..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr "METADATA OPSLAAN. EVEN WACHTEN..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3602,13 +3602,13 @@ msgstr "CORE ONTBREEKT"
 msgid "UKNOWN ERROR"
 msgstr "ONBEKENDE FOUT"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Collecties"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Zoeken naar apparaten..."
 
 msgid "FORMATTING DEVICE"
@@ -3698,7 +3698,7 @@ msgstr "INGESCHAKELD"
 msgid "up/down"
 msgstr "omhoog/omlaag"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "BEZIG..."
 
 msgid "accept"
@@ -3926,7 +3926,7 @@ msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr "De spellijst is opnieuw geladen..."
 
 msgid "GAME DRIVE DETECTED"
@@ -3950,7 +3950,7 @@ msgstr "Spellen van deze schijfpartitie nu samenvoegen?"
 msgid "(This will also apply on future boots)"
 msgstr "(Dit geldt ook voor toekomstige boots)"
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr "Samenvoeging aangevraagd... Even geduld alstublieft."
 
 msgid "MERGE FAILED"
@@ -3965,7 +3965,7 @@ msgstr "NEE, NEGEER DEZE KEER"
 msgid "NO, IGNORE FOREVER"
 msgstr "NEE, NEGEER ALTIJD"
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr "Schijf toevoegen aan de negeerlijst..."
 
 msgid "YES, MERGE DRIVE"
@@ -3980,7 +3980,7 @@ msgstr "Deze schijf formatteren en voorbereiden voor spelopslag?"
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ALLE BESTAANDE DATA ZAL WORDEN VERWIJDERD)"
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr "Het formatteringsproces wordt gestart..."
 
 msgid "FORMAT FAILED"

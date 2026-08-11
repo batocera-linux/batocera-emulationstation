@@ -99,7 +99,7 @@ msgstr "Gaia kargatzen"
 msgid "Loading gamelists"
 msgstr "Joko listak kargatzen"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Kargatzen..."
 
 msgid "MENU"
@@ -884,7 +884,7 @@ msgstr "JOKALARI PASAHITZA"
 msgid "VIEWER PASSWORD"
 msgstr "IKUSI PASAHITZA"
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr "AURKITU ANTZEKO JOKOAK..."
 
 msgid "DELETE ITEM"
@@ -916,7 +916,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -933,7 +933,7 @@ msgstr "GEHITU %s-RI"
 msgid "FAVORITES"
 msgstr "GOGOKOAK"
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI..."
 
 msgid "SCRAPE"
@@ -1211,7 +1211,7 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "BESTERIK EZEKO AUKERA"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -3054,7 +3054,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3456,10 +3456,10 @@ msgstr "Screenscraper Joko IDa"
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr "Kargatu sistemaren konfigurazioa..."
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3580,13 +3580,13 @@ msgstr "NUKLEOA EZ DAGO ESKURAGARRI"
 msgid "UKNOWN ERROR"
 msgstr "ERRORE EZEZAGUNA"
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr "Kolekzioak"
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr "Gailuak bilatzen..."
 
 msgid "FORMATTING DEVICE"
@@ -3676,7 +3676,7 @@ msgstr "GAITUTA"
 msgid "up/down"
 msgstr "gora/behera"
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "LANEAN..."
 
 msgid "accept"
@@ -3902,7 +3902,7 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3926,7 +3926,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3941,7 +3941,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3956,7 +3956,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4029,7 +4029,7 @@ msgstr[1] "duela %d segundu"
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "ERABILTZAILE INTERFAZE MODUA DESBLOKEATUTA DAGO UNE HONETAN"
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgid "SAVING METADATAS. PLEASE WAIT…"
 #~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
@@ -4353,7 +4353,7 @@ msgstr[1] "duela %d segundu"
 #~ msgid "PAGE DOWN"
 #~ msgstr "R1 (AUR. ORRIA)"
 
-#~ msgid "LOADING..."
+#~ msgid "LOADING…"
 #~ msgstr "KARGATZEN..."
 
 #~ msgid "PLEASE WAIT..."

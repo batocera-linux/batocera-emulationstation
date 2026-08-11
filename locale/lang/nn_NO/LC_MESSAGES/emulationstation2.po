@@ -94,7 +94,7 @@ msgstr ""
 msgid "Loading gamelists"
 msgstr ""
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr ""
 
 msgid "MENU"
@@ -868,7 +868,7 @@ msgstr ""
 msgid "VIEWER PASSWORD"
 msgstr ""
 
-msgid "FIND SIMILAR GAMES..."
+msgid "FIND SIMILAR GAMES…"
 msgstr ""
 
 msgid "DELETE ITEM"
@@ -898,7 +898,7 @@ msgstr ""
 msgid "WRITE"
 msgstr ""
 
-msgid "PLACE A TAG ON THE WRITER..."
+msgid "PLACE A TAG ON THE WRITER…"
 msgstr ""
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -915,7 +915,7 @@ msgstr ""
 msgid "FAVORITES"
 msgstr ""
 
-msgid "ADD TO CUSTOM COLLECTION..."
+msgid "ADD TO CUSTOM COLLECTION…"
 msgstr ""
 
 msgid "SCRAPE"
@@ -1188,7 +1188,7 @@ msgstr "HURTIGTAST"
 msgid "DEFAULT"
 msgstr ""
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC…)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2998,7 +2998,7 @@ msgstr ""
 msgid "NO DRIVE SELECTED"
 msgstr ""
 
-msgid "Ejecting..."
+msgid "Ejecting…"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -3396,10 +3396,10 @@ msgstr ""
 msgid "MultiDisk"
 msgstr ""
 
-msgid "Loading system config..."
+msgid "Loading system config…"
 msgstr ""
 
-msgid "SAVING METADATA. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT…"
 msgstr ""
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
@@ -3518,13 +3518,13 @@ msgstr ""
 msgid "UKNOWN ERROR"
 msgstr ""
 
-msgid "Checking for latest upgrade script..."
+msgid "Checking for latest upgrade script…"
 msgstr ""
 
 msgid "Collections"
 msgstr ""
 
-msgid "Searching for devices..."
+msgid "Searching for devices…"
 msgstr ""
 
 msgid "FORMATTING DEVICE"
@@ -3614,7 +3614,7 @@ msgstr ""
 msgid "up/down"
 msgstr ""
 
-msgid "WORKING..."
+msgid "WORKING…"
 msgstr "ARBEIDER..."
 
 msgid "accept"
@@ -3838,7 +3838,7 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 
-msgid "Reloaded the games list..."
+msgid "Reloaded the games list…"
 msgstr ""
 
 msgid "GAME DRIVE DETECTED"
@@ -3862,7 +3862,7 @@ msgstr ""
 msgid "(This will also apply on future boots)"
 msgstr ""
 
-msgid "Merge requested... Please wait."
+msgid "Merge requested… Please wait."
 msgstr ""
 
 msgid "MERGE FAILED"
@@ -3877,7 +3877,7 @@ msgstr ""
 msgid "NO, IGNORE FOREVER"
 msgstr ""
 
-msgid "Adding drive to ignore list..."
+msgid "Adding drive to ignore list…"
 msgstr ""
 
 msgid "YES, MERGE DRIVE"
@@ -3892,7 +3892,7 @@ msgstr ""
 msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr ""
 
-msgid "Starting format process..."
+msgid "Starting format process…"
 msgstr ""
 
 msgid "FORMAT FAILED"
@@ -4199,7 +4199,7 @@ msgstr[1] ""
 #~ msgid "PAGE DOWN"
 #~ msgstr "SIDE NED"
 
-#~ msgid "LOADING..."
+#~ msgid "LOADING…"
 #~ msgstr "LASTER..."
 
 #~ msgid "PLEASE WAIT..."
