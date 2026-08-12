@@ -380,7 +380,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AFFICHER LES RETROACHIEVEMENTS DANS LE MENU PRINCIPAL"
 
 msgid "View your RetroAchievements stats right from the main menu!"
-msgstr "Voir les stats RetroAchievementss depuis le menu principal !"
+msgstr "Voir les stats RetroAchievements depuis le menu principal !"
 
 msgid "GAME INDEXES"
 msgstr "INDEX DES JEUX"
