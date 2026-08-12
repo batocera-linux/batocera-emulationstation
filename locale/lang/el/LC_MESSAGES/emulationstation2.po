@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Φορτωση λιστων παιχνιδιων"
 
 msgid "Loading..."
-msgstr "Φορτωση..."
+msgstr "Φορτωση…"
 
 msgid "MENU"
 msgstr "ΜΕΝΟΥ"
@@ -194,10 +194,10 @@ msgid "Favorite"
 msgstr "Αγαπημενο"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Αυτος ο φακελος περιεχει %i παιχνιδι, συμπεριλαμβανομενου :%s"
-msgstr[1] "Αυτος ο φακελος περιεχει %i παιχνιδια, συμπεριλαμβανομενων :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Αυτος ο φακελος περιεχει %i παιχνιδι, συμπεριλαμβανομενου: %s"
+msgstr[1] "Αυτος ο φακελος περιεχει %i παιχνιδια, συμπεριλαμβανομενων: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "ΦΙΛΤΡΑ ΠΑΙΧΝΙΔΙΟΥ ΚΑΤΑ ΚΕΙΜΕΝΟ"
@@ -296,8 +296,8 @@ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΑΛΛΑΓΩΝ?"
 msgid "ARE YOU SURE?"
 msgstr "ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "ΡΥΘΜΙΣΕΙΣ RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "ΡΥΘΜΙΣΕΙΣ RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "ΡΥΘΜΙΣΕΙΣ"
@@ -362,7 +362,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -374,7 +374,7 @@ msgstr "ΞΕΚΛΕΙΔΩΜΑ ΗΧΟΥ"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ΠΡΟΒΟΛΗ ΕΠΙΛΟΓΗΣ RETROACHIEVEMENTS ΣΤΟ ΚΕΝΤΡΙΚΟ ΜΕΝΟΥ"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -887,7 +887,7 @@ msgid "VIEWER PASSWORD"
 msgstr "ΚΩΔΙΚΟΣ ΘΕΑΤΗ"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "ΒΡΕΙΤΕ ΠΑΡΟΜΟΙΑ ΠΑΙΧΝΙΔΙΑ..."
+msgstr "ΒΡΕΙΤΕ ΠΑΡΟΜΟΙΑ ΠΑΙΧΝΙΔΙΑ…"
 
 msgid "DELETE ITEM"
 msgstr "ΔΙΑΓΡΑΦΗ ΑΝΤΙΚΕΙΜΕΝΟΥ"
@@ -936,7 +936,7 @@ msgid "FAVORITES"
 msgstr "ΑΓΑΠΗΜΕΝΑ"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ΠΡΟΣΘΗΚΗ ΣΤΗΝ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗ ΣΥΛΛΟΓΗ..."
+msgstr "ΠΡΟΣΘΗΚΗ ΣΤΗΝ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗ ΣΥΛΛΟΓΗ…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -1208,7 +1208,7 @@ msgstr "ΠΛΗΚΤΡΟ ΚΛΕΙΔΙ"
 msgid "DEFAULT"
 msgstr "ΠΡΟΚΑΘΟΡΙΣΜΕΝΟ"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2879,25 +2879,25 @@ msgstr "ΚΑΤΑΣΤΑΣΗ ΙΝΤΕΡΝΕΤ"
 msgid "HOSTNAME"
 msgstr "ΟΝΟΜΑ ΥΠΟΛΟΓΙΣΤΗ"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗΣ"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "SSID ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "ΚΛΕΙΔΙ ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "ΣΦΑΛΜΑ ΔΙΜΟΡΦΩΣΗΣ ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗΣ"
 
 msgid "QUICK ACCESS"
@@ -3268,7 +3268,7 @@ msgstr "προσθηκη διαδρομης κουτιου"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "επιλογη διαδρομης για fanart"
 
 msgid "Title shot"
@@ -3434,7 +3434,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Φορτωση τροποποιησης συστηματος..."
+msgstr "Φορτωση τροποποιησης συστηματος…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3503,10 +3503,10 @@ msgid "Various"
 msgstr "Διαφοροι"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι:%s"
-msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενου:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι: %s"
+msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενου: %s"
 
 msgid "INVALID CONTENT"
 msgstr "ΜΗ ΕΓΚΥΡΟ ΠΕΡΙΕΧΟΜΕΝΟ"
@@ -3564,7 +3564,7 @@ msgid "Collections"
 msgstr "Συλλογες"
 
 msgid "Searching for devices..."
-msgstr "Αναζητηση για συσκευες..."
+msgstr "Αναζητηση για συσκευες…"
 
 msgid "FORMATTING DEVICE"
 msgstr "Διαμορφωση συσκευης"
@@ -3654,7 +3654,7 @@ msgid "up/down"
 msgstr "πανω/κατω"
 
 msgid "WORKING..."
-msgstr "ΔΟΥΛΕΥΕΙ..."
+msgstr "ΔΟΥΛΕΥΕΙ…"
 
 msgid "accept"
 msgstr "αποδοχη"
@@ -3694,7 +3694,7 @@ msgstr "%s συνδεθηκε"
 msgid "%s disconnected"
 msgstr "%s αποσυνθεθηκε"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "ΑΛΛΑΓΕΣ ΓΙΑ ΚΕΦΑΛΑΙΑ,ΜΙΚΡΑ, ΚΑΙ ΕΙΔΙΚΑ"
 
 msgid "ALT GR"
@@ -4013,7 +4013,7 @@ msgstr[1] "%d δευτερολεπτα πριν"
 #~ msgstr "Η ΔΙΕΠΑΦΗ ΧΡΗΣΤΗ ΕΙΝΑΙ ΤΩΡΑ ΞΕΚΛΕΙΔΩΜΕΝΗ"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."
+#~ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ΞΕΧΝΑ ΜΙΑ ΣΥΣΚΕΥΗ BLUETOOTH"
@@ -4207,10 +4207,10 @@ msgstr[1] "%d δευτερολεπτα πριν"
 #~ msgid "enter number of players"
 #~ msgstr "προσθηκη αριθμου παικτων"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι, συμπεριλαμβανομενου :%s"
-#~ msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενων :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι, συμπεριλαμβανομενου: %s"
+#~ msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενων: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "ΔΙΑΜΟΡΦΩΣΗ ΣΥΣΚΕΥΗΣ"

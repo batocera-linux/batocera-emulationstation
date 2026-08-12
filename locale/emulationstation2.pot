@@ -192,8 +192,8 @@ msgid "Favorite"
 msgstr ""
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -294,7 +294,7 @@ msgstr ""
 msgid "ARE YOU SURE?"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "SETTINGS"
@@ -356,7 +356,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -368,7 +368,7 @@ msgstr ""
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -1195,7 +1195,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr ""
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -1537,7 +1537,7 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
+msgid "FAN ART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
@@ -2852,25 +2852,25 @@ msgstr ""
 msgid "HOSTNAME"
 msgstr ""
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr ""
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr ""
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr ""
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr ""
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr ""
 
 msgid "QUICK ACCESS"
@@ -3238,7 +3238,7 @@ msgstr ""
 msgid "Fan art"
 msgstr ""
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr ""
 
 msgid "Title shot"
@@ -3473,8 +3473,8 @@ msgid "Various"
 msgstr ""
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3662,7 +3662,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "ALT GR"

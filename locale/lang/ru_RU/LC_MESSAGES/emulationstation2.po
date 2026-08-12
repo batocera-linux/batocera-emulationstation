@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Загрузка списка игр"
 
 msgid "Loading..."
-msgstr "Загрузка..."
+msgstr "Загрузка…"
 
 msgid "MENU"
 msgstr "МЕНЮ"
@@ -196,11 +196,11 @@ msgid "Favorite"
 msgstr "Избранное"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Папка содержит %i игру, включая :%s"
-msgstr[1] "Папка содержит %i игры, включая :%s"
-msgstr[2] "Папка содержит %i игр, включая :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Папка содержит %i игру, включая: %s"
+msgstr[1] "Папка содержит %i игры, включая: %s"
+msgstr[2] "Папка содержит %i игр, включая: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "ПОИСК"
@@ -299,7 +299,7 @@ msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 msgid "ARE YOU SURE?"
 msgstr "ВЫ УВЕРЕНЫ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "SETTINGS"
@@ -365,7 +365,7 @@ msgstr "НЕОФИЦИАЛЬНЫЕ ДОСТИЖЕНИЯ"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Включить разблокировку неофициальных достижений."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "none"
@@ -377,8 +377,8 @@ msgstr "ЗВУК ПОЛУЧЕНИЯ"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Показать свою статистику RetroAchievement прямо из главного меню!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Показать свою статистику RetroAchievements прямо из главного меню!"
 
 msgid "GAME INDEXES"
 msgstr "ИНДЕКСЫ ИГРЫ"
@@ -890,7 +890,7 @@ msgid "VIEWER PASSWORD"
 msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
+msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ…"
 
 msgid "DELETE ITEM"
 msgstr "УДАЛИТЬ ОБЪЕКТ"
@@ -925,7 +925,7 @@ msgid "WRITE"
 msgstr "ЗАПИСАТЬ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "ПРИЛОЖИТЕ МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ..."
+msgstr "ПРИЛОЖИТЕ МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "МЕТКА УСПЕШНО ЗАПИСАНА"
@@ -942,7 +942,7 @@ msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ..."
+msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ…"
 
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -1218,8 +1218,8 @@ msgstr "ГОРЯЧАЯ КНОПКА"
 msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "НАЗНАЧИТЬ НОВЫЙ ГЛОБАЛЬНЫЙ ХОТКЕЙ"
@@ -1384,10 +1384,10 @@ msgid "INPUT MANUALLY"
 msgstr "ВВОД ВРУЧНУЮ"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "СЕТЬ WIFI НЕ НАЙДЕНА"
+msgstr "СЕТЬ WI-FI НЕ НАЙДЕНА"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "ПОИСК WIFI СЕТИ"
+msgstr "ПОИСК WI-FI СЕТИ"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -2903,25 +2903,25 @@ msgstr "СТАТУС СЕТИ"
 msgid "HOSTNAME"
 msgstr "ИМЯ ХОСТА"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "ВКЛЮЧИТЬ WI-FI"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "ИМЯ СЕТИ WI-FI"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "ПАРОЛЬ СЕТИ WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr "СТРАНА WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "WI-FI ВКЛЮЧЕН"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "ОШИБКА WI-FI КОНФИГУРАЦИИ"
 
 msgid "QUICK ACCESS"
@@ -3059,7 +3059,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "НОСИТЕЛЬ НЕ ВЫБРАН"
 
 msgid "Ejecting..."
-msgstr "Извлечение..."
+msgstr "Извлечение…"
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
@@ -3293,7 +3293,7 @@ msgstr "введите путь к обложке"
 msgid "Fan art"
 msgstr "Фан-арт"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "введите путь к фан-арту"
 
 msgid "Title shot"
@@ -3459,10 +3459,10 @@ msgid "MultiDisk"
 msgstr "Мультидиск"
 
 msgid "Loading system config..."
-msgstr "Загрузка системных настроек..."
+msgstr "Загрузка системных настроек…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОДОЖДИТЕ..."
+msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОДОЖДИТЕ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
@@ -3528,11 +3528,11 @@ msgid "Various"
 msgstr "Различные"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Коллекция содержит %i игру:%s"
-msgstr[1] "Коллекция содержит %i игры, включая:%s"
-msgstr[2] "Коллекция содержит %i игр, включая:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Коллекция содержит %i игру: %s"
+msgstr[1] "Коллекция содержит %i игры, включая: %s"
+msgstr[2] "Коллекция содержит %i игр, включая: %s"
 
 msgid "INVALID CONTENT"
 msgstr "НЕДОПУСТИМОЕ СОДЕРЖАНИЕ"
@@ -3584,13 +3584,13 @@ msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "Checking for latest upgrade script..."
-msgstr "Проверка последнего скрипта обновлений..."
+msgstr "Проверка последнего скрипта обновлений…"
 
 msgid "Collections"
 msgstr "Коллекции"
 
 msgid "Searching for devices..."
-msgstr "Поиск устройств..."
+msgstr "Поиск устройств…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА"
@@ -3680,7 +3680,7 @@ msgid "up/down"
 msgstr "вверх/вниз"
 
 msgid "WORKING..."
-msgstr "ОБРАБОТКА..."
+msgstr "ОБРАБОТКА…"
 
 msgid "accept"
 msgstr "принять"
@@ -3721,7 +3721,7 @@ msgstr "%s подключен"
 msgid "%s disconnected"
 msgstr "%s отключен"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
 
 msgid "ALT GR"
@@ -3911,7 +3911,7 @@ msgstr ""
 "Стреляйте по мишеням для калибровки"
 
 msgid "Reloaded the games list..."
-msgstr "Список игр перезагружен..."
+msgstr "Список игр перезагружен…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "ОБНАРУЖЕН ИГРОВОЙ НОСИТЕЛЬ"
@@ -3935,7 +3935,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Также будет применяться при будущих загрузках)"
 
 msgid "Merge requested... Please wait."
-msgstr "Объединение... Пожалуйста, подождите."
+msgstr "Объединение… Пожалуйста, подождите."
 
 msgid "MERGE FAILED"
 msgstr "ОБЪЕДИНЕНИЕ НЕ УДАЛОСЬ"
@@ -3950,7 +3950,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "НЕТ, ИГНОРИРОВАТЬ ВСЕГДА"
 
 msgid "Adding drive to ignore list..."
-msgstr "Добавление носителя в список игнорирования..."
+msgstr "Добавление носителя в список игнорирования…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "ДА, ОБЪЕДИНИТЬ НОСИТЕЛЬ"
@@ -3965,7 +3965,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ВСЕ СУЩЕСТВУЮЩИЕ ДАННЫЕ БУДУТ УДАЛЕНЫ)"
 
 msgid "Starting format process..."
-msgstr "Начинается процесс форматирования..."
+msgstr "Начинается процесс форматирования…"
 
 msgid "FORMAT FAILED"
 msgstr "ФОРМАТИРОВАНИЕ НЕ УДАЛОСЬ"
@@ -4078,7 +4078,7 @@ msgstr[2] "%d секунд назад"
 #~ "(GameTime, PlayCount, LastPlayed)."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
+#~ msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
@@ -4174,7 +4174,7 @@ msgstr[2] "%d секунд назад"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "ЗАГРУЗКА ВИДЕО"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "ЗАГРУЗКА ФАН-АРТА"
 
 #~ msgid "SCRAPE BEZEL (16:9)"
@@ -4449,11 +4449,11 @@ msgstr[2] "%d секунд назад"
 #~ msgid "enter number of players"
 #~ msgstr "введите количество игроков"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "Коллекция содержит %i игру, включая :%s"
-#~ msgstr[1] "Коллекция содержит %i игры, включая :%s"
-#~ msgstr[2] "Коллекция содержит %i игр, включая :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "Коллекция содержит %i игру, включая: %s"
+#~ msgstr[1] "Коллекция содержит %i игры, включая: %s"
+#~ msgstr[2] "Коллекция содержит %i игр, включая: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА"
@@ -4839,7 +4839,7 @@ msgstr[2] "%d секунд назад"
 #~ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 
 #~ msgid "JUMP TO..."
-#~ msgstr "ПЕРЕЙТИ К..."
+#~ msgstr "ПЕРЕЙТИ К…"
 
 #~ msgid "COLLECTION MANAGEMENT"
 #~ msgstr "УПРАВЛЕНИЕ КОЛЛЕКЦИЕЙ"

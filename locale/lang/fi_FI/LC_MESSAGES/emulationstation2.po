@@ -108,7 +108,7 @@ msgid "Loading gamelists"
 msgstr "Ladataan pelilistaa"
 
 msgid "Loading..."
-msgstr "Ladataan..."
+msgstr "Ladataan…"
 
 msgid "MENU"
 msgstr "VALIKKO"
@@ -200,8 +200,8 @@ msgid "Favorite"
 msgstr "Suosikki"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -302,8 +302,8 @@ msgstr "TALLENNA MUUTOKSET?"
 msgid "ARE YOU SURE?"
 msgstr "OLETKO VARMA?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT-ASETUKSET"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS-ASETUKSET"
 
 msgid "SETTINGS"
 msgstr "ASETUKSET"
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -378,7 +378,7 @@ msgstr ""
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "KATSELIJAN SALASANA"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "ETSI SAMANKALTAISIA PELEJÄ..."
+msgstr "ETSI SAMANKALTAISIA PELEJÄ…"
 
 msgid "DELETE ITEM"
 msgstr "POISTA KOHDE"
@@ -940,7 +940,7 @@ msgid "FAVORITES"
 msgstr "SUOSIKIT"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "LISÄÄ MUKAUTETTUUN KOKOELMAAN..."
+msgstr "LISÄÄ MUKAUTETTUUN KOKOELMAAN…"
 
 msgid "SCRAPE"
 msgstr "ETSI TIETOA"
@@ -1212,7 +1212,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "OLETUS"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2887,26 +2887,26 @@ msgstr "INTERNET-YHTEYDEN TILA"
 msgid "HOSTNAME"
 msgstr "ISÄNTÄNIMI"
 
-msgid "ENABLE WIFI"
-msgstr "OTA WIFI KÄYTTÖÖN"
+msgid "ENABLE WI-FI"
+msgstr "OTA WI-FI KÄYTTÖÖN"
 
-msgid "WIFI SSID"
-msgstr "WIFI:N SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI:N SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI:N SALASANA"
+msgid "WI-FI KEY"
+msgstr "WI-FI:N SALASANA"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI KÄYTÖSSÄ"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI KÄYTÖSSÄ"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "VIRHE WIFI:N ASETUKSISSA"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "VIRHE WI-FI:N ASETUKSISSA"
 
 msgid "QUICK ACCESS"
 msgstr ""
@@ -3278,7 +3278,7 @@ msgstr "polku kansikuvaan"
 msgid "Fan art"
 msgstr "Fanikuva"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "polku fanitaiteeseen"
 
 msgid "Title shot"
@@ -3513,8 +3513,8 @@ msgid "Various"
 msgstr "Useita"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3572,7 +3572,7 @@ msgid "Collections"
 msgstr ""
 
 msgid "Searching for devices..."
-msgstr "Etsitään laitteita..."
+msgstr "Etsitään laitteita…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ALUSTETAAN LAITETTA"
@@ -3702,7 +3702,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "ALT GR"

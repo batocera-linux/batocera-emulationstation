@@ -156,7 +156,7 @@ msgstr[0] "%i 項目"
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "ゲーム数 :%i"
+msgstr[0] "ゲーム数 : %i"
 
 msgid "SELECT"
 msgstr "セレクト(選択)"
@@ -189,8 +189,8 @@ msgid "Favorite"
 msgstr "お気に入り"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 "このフォルダには、\n"
 "%i種類のゲームがあります%s"
@@ -294,8 +294,8 @@ msgstr "変更を保存しますか？"
 msgid "ARE YOU SURE?"
 msgstr "確認チェック"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 設定"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS 設定"
 
 msgid "SETTINGS"
 msgstr "設定"
@@ -357,7 +357,7 @@ msgstr "非公式アチーブメント"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "非公式アチーブメントのロック解除を有効"
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTロック解除効果音"
 
 msgid "none"
@@ -369,7 +369,7 @@ msgstr "ロック解除効果音"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "メニューにRETROACHIEVEMENTSの統計を表示します!"
 
 msgid "GAME INDEXES"
@@ -885,7 +885,7 @@ msgid "VIEWER PASSWORD"
 msgstr "ウォッチパスワード"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "類似のゲームを探す..."
+msgstr "類似のゲームを探す…"
 
 msgid "DELETE ITEM"
 msgstr "ファイルを削除"
@@ -920,7 +920,7 @@ msgid "WRITE"
 msgstr "書き込み"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "NFCタグを書き込みしています..."
+msgstr "NFCタグを書き込みしています…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "タグは正常に書き込まれました"
@@ -937,7 +937,7 @@ msgid "FAVORITES"
 msgstr "お気に入り"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "コレクションに追加..."
+msgstr "コレクションに追加…"
 
 msgid "SCRAPE"
 msgstr "スクレイプ"
@@ -1214,8 +1214,8 @@ msgstr "ホットキー"
 msgid "DEFAULT"
 msgstr "標準"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "デバイスが見つかりません (JAMMASD, IPAC , ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "デバイスが見つかりません (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新しいグローバルホットキーを設定"
@@ -1383,7 +1383,7 @@ msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WI-FI ネットワークが見つかりません"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WIFIネットワークの検索"
+msgstr "WI-FIネットワークの検索"
 
 msgid "PARIS"
 msgstr "パリ"
@@ -2899,26 +2899,26 @@ msgstr "接続状態"
 msgid "HOSTNAME"
 msgstr "ホスト名"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "WI-FI 有効"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI キー"
+msgid "WI-FI KEY"
+msgstr "WI-FI キー"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI 使用国"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI 使用国"
 
 msgid "N/A"
 msgstr "該当なし"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI が有効になりました"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI が有効になりました"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 設定エラー"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI 設定エラー"
 
 msgid "QUICK ACCESS"
 msgstr "クイック アクセス"
@@ -3053,7 +3053,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "ドライブが選択されていません"
 
 msgid "Ejecting..."
-msgstr "取り出し中..."
+msgstr "取り出し中…"
 
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
@@ -3288,7 +3288,7 @@ msgstr "サムネイル画像のパスを入力"
 msgid "Fan art"
 msgstr "ファンアート"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "ファンアートのパスを入力"
 
 msgid "Title shot"
@@ -3454,10 +3454,10 @@ msgid "MultiDisk"
 msgstr "マルチディスク"
 
 msgid "Loading system config..."
-msgstr "システム設定を読み込んでいます..."
+msgstr "システム設定を読み込んでいます…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "メタ情報の保存中。 お待ちください..."
+msgstr "メタ情報の保存中。 お待ちください…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "画面を切り替えますか？"
@@ -3523,11 +3523,11 @@ msgid "Various"
 msgstr "いろいろ"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 "このコレクションには、次のような\n"
-"ゲームが %i 種あります :%s"
+"ゲームが %i 種あります: %s"
 
 msgid "INVALID CONTENT"
 msgstr "無効なコンテンツ"
@@ -3579,13 +3579,13 @@ msgid "UKNOWN ERROR"
 msgstr "不明なエラー"
 
 msgid "Checking for latest upgrade script..."
-msgstr "最新の更新スクリプトを確認中..."
+msgstr "最新の更新スクリプトを確認中…"
 
 msgid "Collections"
 msgstr "コレクション"
 
 msgid "Searching for devices..."
-msgstr "機器を検出中..."
+msgstr "機器を検出中…"
 
 msgid "FORMATTING DEVICE"
 msgstr "デバイスのフォーマット"
@@ -3675,7 +3675,7 @@ msgid "up/down"
 msgstr "上 / 下"
 
 msgid "WORKING..."
-msgstr "処理中..."
+msgstr "処理中…"
 
 msgid "accept"
 msgstr "了解"
@@ -3714,7 +3714,7 @@ msgstr "%s - 接続"
 msgid "%s disconnected"
 msgstr "%s - 切断"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "大文字,小文字,特殊記号用の SHIFT"
 
 msgid "ALT GR"
@@ -3900,7 +3900,7 @@ msgstr ""
 "ターゲットに発射して較正"
 
 msgid "Reloaded the games list..."
-msgstr "ゲームリストを再読み込みしました..."
+msgstr "ゲームリストを再読み込みしました…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "ゲームドライブ検出"
@@ -3924,7 +3924,7 @@ msgid "(This will also apply on future boots)"
 msgstr "（これは将来のブートにも適用されます）"
 
 msgid "Merge requested... Please wait."
-msgstr "ゲームを結合しています...お待ちください"
+msgstr "ゲームを結合しています…お待ちください"
 
 msgid "MERGE FAILED"
 msgstr "マージに失敗"
@@ -3939,7 +3939,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "いいえ、永遠に無視します"
 
 msgid "Adding drive to ignore list..."
-msgstr "無視リストにドライブを追加しています..."
+msgstr "無視リストにドライブを追加しています…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "はい、ドライブを結合します"
@@ -3954,7 +3954,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "（既存のデータはすべて消去されます）"
 
 msgid "Starting format process..."
-msgstr "フォーマット処理を開始しています..."
+msgstr "フォーマット処理を開始しています…"
 
 msgid "FORMAT FAILED"
 msgstr "フォーマットに失敗"
@@ -4022,9 +4022,9 @@ msgstr[0] "%d 秒前"
 #~ msgstr "今すぐこのドライブからゲームをマージ(結合)しますか?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "ドライブをマージしています...お待ちください"
+#~ msgstr "ドライブをマージしています…お待ちください"
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""
 #~ "ゲーム リストが更新されると、新しいドライブ コンテンツが利用できるようにな"
-#~ "ります..."
+#~ "ります…"

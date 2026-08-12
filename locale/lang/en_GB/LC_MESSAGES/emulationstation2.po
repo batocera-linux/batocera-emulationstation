@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Loading gamelists"
 
 msgid "Loading..."
-msgstr "Loading..."
+msgstr "Loading…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -194,10 +194,10 @@ msgid "Favorite"
 msgstr "Favourite"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "This folder contains %i game, including :%s"
-msgstr[1] "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "This folder contains %i game, including: %s"
+msgstr[1] "This folder contains %i games, including: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTER GAMES BY TEXT"
@@ -296,8 +296,8 @@ msgstr "SAVE CHANGES?"
 msgid "ARE YOU SURE?"
 msgstr "ARE YOU SURE?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS SETTINGS"
 
 msgid "SETTINGS"
 msgstr "SETTINGS"
@@ -360,8 +360,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS UNLOCK SOUND"
 
 msgid "none"
 msgstr "none"
@@ -372,8 +372,8 @@ msgstr "UNLOCK SOUND"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "View your RetroAchievements stats right from the main menu!"
 
 msgid "GAME INDEXES"
 msgstr "GAME INDEXES"
@@ -885,7 +885,7 @@ msgid "VIEWER PASSWORD"
 msgstr "VIEWER PASSWORD"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "FIND SIMILAR GAMES..."
+msgstr "FIND SIMILAR GAMES…"
 
 msgid "DELETE ITEM"
 msgstr "DELETE ITEM"
@@ -920,7 +920,7 @@ msgid "WRITE"
 msgstr "WRITE"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "PLACE A TAG ON THE WRITER..."
+msgstr "PLACE A TAG ON THE WRITER…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "THE TAG WAS WRITTEN SUCCESSFULLY"
@@ -937,7 +937,7 @@ msgid "FAVORITES"
 msgstr "FAVOURITES"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ADD TO CUSTOM COLLECTION..."
+msgstr "ADD TO CUSTOM COLLECTION…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -1213,7 +1213,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "DEFAULT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -1556,7 +1556,7 @@ msgid "VIDEO"
 msgstr "VIDEO"
 
 msgid "FANART"
-msgstr "FANART"
+msgstr "FAN ART"
 
 msgid "BEZEL (16:9)"
 msgstr "BEZEL (16:9)"
@@ -2889,26 +2889,26 @@ msgstr "INTERNET STATUS"
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
 
-msgid "ENABLE WIFI"
-msgstr "ENABLE WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ENABLE WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ENABLED"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ENABLED"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI CONFIGURATION ERROR"
 
 msgid "QUICK ACCESS"
 msgstr "QUICK ACCESS"
@@ -3278,8 +3278,8 @@ msgstr "enter path to box"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
-msgstr "enter path to fanart"
+msgid "enter path to fan art"
+msgstr "enter path to fan art"
 
 msgid "Title shot"
 msgstr "Title shot"
@@ -3444,7 +3444,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Loading system config..."
+msgstr "Loading system config…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3513,10 +3513,10 @@ msgid "Various"
 msgstr "Various"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "This collection contains %i game:%s"
-msgstr[1] "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "This collection contains %i game: %s"
+msgstr[1] "This collection contains %i games, including: %s"
 
 msgid "INVALID CONTENT"
 msgstr "INVALID CONTENT"
@@ -3574,7 +3574,7 @@ msgid "Collections"
 msgstr "Collections"
 
 msgid "Searching for devices..."
-msgstr "Searching for devices..."
+msgstr "Searching for devices…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATTING DEVICE"
@@ -3664,7 +3664,7 @@ msgid "up/down"
 msgstr "up/down"
 
 msgid "WORKING..."
-msgstr "WORKING..."
+msgstr "WORKING…"
 
 msgid "accept"
 msgstr "accept"
@@ -3704,7 +3704,7 @@ msgstr "%s connected"
 msgid "%s disconnected"
 msgstr "%s disconnected"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 
 msgid "ALT GR"
@@ -4031,7 +4031,7 @@ msgstr[1] "%d seconds ago"
 #~ msgstr "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SAVING METADATAS. PLEASE WAIT…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "FORGET A BLUETOOTH DEVICE"

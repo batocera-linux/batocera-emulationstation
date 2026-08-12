@@ -100,7 +100,7 @@ msgid "Loading gamelists"
 msgstr "Joko listak kargatzen"
 
 msgid "Loading..."
-msgstr "Kargatzen..."
+msgstr "Kargatzen…"
 
 msgid "MENU"
 msgstr "MENUA"
@@ -191,8 +191,8 @@ msgid "Favorite"
 msgstr "Gogokoa"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Karpeta honek %i jokoa dauka, %s barne"
 msgstr[1] "Karpeta honek %i jokoak dauzka, %s barne"
 
@@ -293,8 +293,8 @@ msgstr "ALDAKETAK GORDE?"
 msgid "ARE YOU SURE?"
 msgstr "ZIUR AL ZAUDE?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT KONFIGURAZIOA"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS KONFIGURAZIOA"
 
 msgid "SETTINGS"
 msgstr "KONFIGURAZIOA"
@@ -360,8 +360,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT SOINUA DESBLOKEATU"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS SOINUA DESBLOKEATU"
 
 msgid "none"
 msgstr "batere ez"
@@ -372,7 +372,7 @@ msgstr "DESBLOKEATU SOINUA"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ERAKUTSI RETROACHIEVMENT SARRERA MENU NAGUSIAN"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Ikusi zure RetroAchivement egoera menu nagusitik zuzenean!"
 
 msgid "GAME INDEXES"
@@ -885,7 +885,7 @@ msgid "VIEWER PASSWORD"
 msgstr "IKUSI PASAHITZA"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "AURKITU ANTZEKO JOKOAK..."
+msgstr "AURKITU ANTZEKO JOKOAK…"
 
 msgid "DELETE ITEM"
 msgstr "EZABATU ARTIKULUA"
@@ -934,7 +934,7 @@ msgid "FAVORITES"
 msgstr "GOGOKOAK"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI..."
+msgstr "GEHITU NEURRIRA EGINDAKO KOLEKZIOARI…"
 
 msgid "SCRAPE"
 msgstr "DATUAK LORTU"
@@ -1211,7 +1211,7 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "BESTERIK EZEKO AUKERA"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2900,26 +2900,26 @@ msgstr "INTERNET EGOERA"
 msgid "HOSTNAME"
 msgstr "GAILUAREN IZENA"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI-a AKTIBATU"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI-a AKTIBATU"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID-a"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID-a"
 
-msgid "WIFI KEY"
-msgstr "WIFI GAKOA"
+msgid "WI-FI KEY"
+msgstr "WI-FI GAKOA"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI-a AKTIBATUTA"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI-a AKTIBATUTA"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI KONFIGURAZIO ERROREA"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI KONFIGURAZIO ERROREA"
 
 msgid "QUICK ACCESS"
 msgstr "ATZIPEN AZKARRA"
@@ -3291,7 +3291,7 @@ msgstr "sartu kutxarako bidea"
 msgid "Fan art"
 msgstr "Zale artea"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "sartu zale arterako bidea"
 
 msgid "Title shot"
@@ -3457,7 +3457,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Kargatu sistemaren konfigurazioa..."
+msgstr "Kargatu sistemaren konfigurazioa…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3526,9 +3526,9 @@ msgid "Various"
 msgstr "Anitzak"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Kolekzio honek %i jokoa dauka:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Kolekzio honek %i jokoa dauka: %s"
 msgstr[1] "Kolekzio honek %i jokoak dauzka, %s barne"
 
 msgid "INVALID CONTENT"
@@ -3587,7 +3587,7 @@ msgid "Collections"
 msgstr "Kolekzioak"
 
 msgid "Searching for devices..."
-msgstr "Gailuak bilatzen..."
+msgstr "Gailuak bilatzen…"
 
 msgid "FORMATTING DEVICE"
 msgstr "GAILUA FORMATEATEZN"
@@ -3677,7 +3677,7 @@ msgid "up/down"
 msgstr "gora/behera"
 
 msgid "WORKING..."
-msgstr "LANEAN..."
+msgstr "LANEAN…"
 
 msgid "accept"
 msgstr "ados"
@@ -3717,7 +3717,7 @@ msgstr "%s konektatuta"
 msgid "%s disconnected"
 msgstr "%s deskonektatuta"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
 
 msgid "ALT GR"
@@ -4030,7 +4030,7 @@ msgstr[1] "duela %d segundu"
 #~ msgstr "ERABILTZAILE INTERFAZE MODUA DESBLOKEATUTA DAGO UNE HONETAN"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
+#~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ…."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "AHAZTU BLUETOOTH GAILUA"
@@ -4354,10 +4354,10 @@ msgstr[1] "duela %d segundu"
 #~ msgstr "R1 (AUR. ORRIA)"
 
 #~ msgid "LOADING..."
-#~ msgstr "KARGATZEN..."
+#~ msgstr "KARGATZEN…"
 
 #~ msgid "PLEASE WAIT..."
-#~ msgstr "ITXARON MESEDEZ..."
+#~ msgstr "ITXARON MESEDEZ…"
 
 #~ msgid "just now"
 #~ msgstr "oraintxe"

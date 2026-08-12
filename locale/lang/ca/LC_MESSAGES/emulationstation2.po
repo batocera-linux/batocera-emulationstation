@@ -105,7 +105,7 @@ msgid "Loading gamelists"
 msgstr "Carregant llistes de jocs"
 
 msgid "Loading..."
-msgstr "Carregant..."
+msgstr "Carregant…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -195,8 +195,8 @@ msgid "Favorite"
 msgstr "Preferit"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Aquesta carpeta conté %i joc, incloent: %s"
 msgstr[1] "Aquesta carpeta conté %i jocs, incloent: %s"
 
@@ -297,7 +297,7 @@ msgstr "VOLEU DESAR ELS CANVIS?"
 msgid "ARE YOU SURE?"
 msgstr "ESTÀS SEGUR?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "AJUSTOS DE TROFEUS"
 
 msgid "SETTINGS"
@@ -364,7 +364,7 @@ msgstr "TROFEUS NO OFICIALS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Habilitar desbloqueig de trofeus no oficials."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SO DE DESBLOQUEIG D’UN TROFEU"
 
 msgid "none"
@@ -376,7 +376,7 @@ msgstr "SO D’ASSOLIMENTS"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR TROFEUS AL MENÚ PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 "Mostra les teves estadístiques de trofeus a la dreta del menú principal!"
 
@@ -942,7 +942,7 @@ msgid "FAVORITES"
 msgstr "FAVORITS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA …"
+msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA…"
 
 msgid "SCRAPE"
 msgstr "OBTENIR INFORMACIÓ"
@@ -1219,8 +1219,8 @@ msgstr "BOTÓ DREÇERA"
 msgid "DEFAULT"
 msgstr "PER DEFECTE"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "DISPOSITIU NO TROBAT (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "DISPOSITIU NO TROBAT (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNA NOVA DREÇERA GLOBAL"
@@ -1385,10 +1385,10 @@ msgid "INPUT MANUALLY"
 msgstr "TECLEJAR MANUALMENT"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NO S’HA TROBAR CAP XARXA WIFI"
+msgstr "NO S’HA TROBAR CAP XARXA WI-FI"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "BUSCANT XARXES WIFI"
+msgstr "BUSCANT XARXES WI-FI"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -2920,26 +2920,26 @@ msgstr "ESTAT D'INTERNET"
 msgid "HOSTNAME"
 msgstr "NOM DE LA MÀQUINA"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVAR WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVAR WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID DEL WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID DEL WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CLAU DEL WIFI"
+msgid "WI-FI KEY"
+msgstr "CLAU DEL WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAÍS DE LA WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAÍS DE LA WI-FI"
 
 msgid "N/A"
 msgstr "N/D"
 
-msgid "WIFI ENABLED"
-msgstr "EL WIFI ESTÀ ACTIU"
+msgid "WI-FI ENABLED"
+msgstr "EL WI-FI ESTÀ ACTIU"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR EN LA CONFIGURACIÓ DEL WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERROR EN LA CONFIGURACIÓ DEL WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCÈS RÀPID"
@@ -3310,7 +3310,7 @@ msgstr "introdueix la ruta de la capsa"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "introdueix la ruta del fanart"
 
 msgid "Title shot"
@@ -3476,7 +3476,7 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Carregant configuració de sistema..."
+msgstr "Carregant configuració de sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "DESANT METADADES. SI US PLAU, ESPERA…"
@@ -3546,10 +3546,10 @@ msgid "Various"
 msgstr "Diversos"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Aquesta col·lecció conté %i joc:%s"
-msgstr[1] "Aquesta col·lecció conté %i jocs, incloent:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Aquesta col·lecció conté %i joc: %s"
+msgstr[1] "Aquesta col·lecció conté %i jocs, incloent: %s"
 
 msgid "INVALID CONTENT"
 msgstr "CONTINGUT NO VÀLID"
@@ -3737,7 +3737,7 @@ msgstr "%s connectat"
 msgid "%s disconnected"
 msgstr "%s desconnectat"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "ALTERNA ENTRE MAJÚSCULES, MINÚSCULES I ESPECIALS"
 
 msgid "ALT GR"
@@ -4059,7 +4059,7 @@ msgstr[1] "fa %d segons"
 #~ "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "DESANT METADADES. SI US PLAU ESPERI..."
+#~ msgstr "DESANT METADADES. SI US PLAU ESPERI…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR UN DISPOSITIU BLUETOOTH"

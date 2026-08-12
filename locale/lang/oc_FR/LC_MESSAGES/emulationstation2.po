@@ -105,7 +105,7 @@ msgid "Loading gamelists"
 msgstr ""
 
 msgid "Loading..."
-msgstr "Cargament..."
+msgstr "Cargament…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -195,8 +195,8 @@ msgid "Favorite"
 msgstr "Favorit"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -297,7 +297,7 @@ msgstr "SALVAR LAS MODIFICACIONS ?"
 msgid "ARE YOU SURE?"
 msgstr "PER DE BON ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "SETTINGS"
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -371,7 +371,7 @@ msgstr ""
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -1198,7 +1198,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr ""
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -1364,10 +1364,10 @@ msgid "INPUT MANUALLY"
 msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "CAP DE RET WIFI PAS TROBAT"
+msgstr "CAP DE RET WI-FI PAS TROBAT"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "RECÈRCA DE RET WIFI"
+msgstr "RECÈRCA DE RET WI-FI"
 
 msgid "PARIS"
 msgstr ""
@@ -2855,26 +2855,26 @@ msgstr ""
 msgid "HOSTNAME"
 msgstr "NOM D’ÒSTE"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVAR LO WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVAR LO WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CLAU WIFI"
+msgid "WI-FI KEY"
+msgstr "CLAU WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ACTIVAT"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ACTIVAT"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR DE CONFIGURACION WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERROR DE CONFIGURACION WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr ""
@@ -3241,7 +3241,7 @@ msgstr "dintrar lo camin cap a la bóstia"
 msgid "Fan art"
 msgstr "Creacion d'afogat"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "dintrar lo camin cap a la creacion d'afogat"
 
 msgid "Title shot"
@@ -3407,7 +3407,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Cargament conf. sistma..."
+msgstr "Cargament conf. sistma…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3476,8 +3476,8 @@ msgid "Various"
 msgstr "Mantun"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3535,7 +3535,7 @@ msgid "Collections"
 msgstr "Colleccions"
 
 msgid "Searching for devices..."
-msgstr "Recrca de manetas..."
+msgstr "Recrca de manetas…"
 
 msgid "FORMATTING DEVICE"
 msgstr ""
@@ -3625,7 +3625,7 @@ msgid "up/down"
 msgstr "naut/bas"
 
 msgid "WORKING..."
-msgstr "TRACTAMENT..."
+msgstr "TRACTAMENT…"
 
 msgid "accept"
 msgstr "acceptar"
@@ -3665,7 +3665,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "ALT GR"
@@ -3964,7 +3964,7 @@ msgstr[1] "Fa %d segondas"
 #~ msgstr "PER TIPE DE MATERIAL"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
+#~ msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR LO PERIFERIC BLUETOOTH"
@@ -4032,8 +4032,8 @@ msgstr[1] "Fa %d segondas"
 #~ msgid "enter number of players"
 #~ msgstr "dintrar lo nombre de jogaire"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
 #~ msgstr[0] "Aquesta colleccion conten %i jòc, inclusent : %s"
 #~ msgstr[1] "Aquesta colleccion conten %i jòcs, inclusent : %s"
 
@@ -4154,7 +4154,7 @@ msgstr[1] "Fa %d segondas"
 #~ msgstr "FINIR L'EDICION DE LA COLLECCION"
 
 #~ msgid "JUMP TO..."
-#~ msgstr "SAUTAR A..."
+#~ msgstr "SAUTAR A…"
 
 #~ msgid "COLLECTION MANAGEMENT"
 #~ msgstr "GESTION DE COLLECCION"

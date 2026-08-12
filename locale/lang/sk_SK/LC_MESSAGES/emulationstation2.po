@@ -107,7 +107,7 @@ msgid "Loading gamelists"
 msgstr "Načítavam zoznamy hier"
 
 msgid "Loading..."
-msgstr "Načítavam..."
+msgstr "Načítavam…"
 
 msgid "MENU"
 msgstr "Ponuka"
@@ -200,11 +200,11 @@ msgid "Favorite"
 msgstr "Obľúbené"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Tento priečinok obsahuje %i hru, vrátane:%s"
-msgstr[1] "Tento priečinok obsahuje %i hry, vrátane:%s"
-msgstr[2] "Tento priečinok obsahuje %i hier, vrátane:%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Tento priečinok obsahuje %i hru, vrátane: %s"
+msgstr[1] "Tento priečinok obsahuje %i hry, vrátane: %s"
+msgstr[2] "Tento priečinok obsahuje %i hier, vrátane: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "Filtrovať hry podľa textu"
@@ -303,7 +303,7 @@ msgstr "Uložiť zmeny?"
 msgid "ARE YOU SURE?"
 msgstr "Ste si istí?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "Nastavenia Retroachievements"
 
 msgid "SETTINGS"
@@ -365,8 +365,8 @@ msgstr "Neoficiálne úspechy"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Povoliť odomknutie vlastných úspechov."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RetroAchievement odomknúť zvuk"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RetroAchievements odomknúť zvuk"
 
 msgid "none"
 msgstr "žiadne"
@@ -377,8 +377,8 @@ msgstr "Odomknúť zvuk"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "Zobraziť položku Retroachievements v hlavnej ponuke"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Zobraziť vaše RetroAchievement štatistiky z hlavnej ponuky!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Zobraziť vaše RetroAchievements štatistiky z hlavnej ponuky!"
 
 msgid "GAME INDEXES"
 msgstr "Herné indexy"
@@ -890,7 +890,7 @@ msgid "VIEWER PASSWORD"
 msgstr "Heslo prezerača"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "Nájsť podobné hry..."
+msgstr "Nájsť podobné hry…"
 
 msgid "DELETE ITEM"
 msgstr "Vymazať položku"
@@ -925,7 +925,7 @@ msgid "WRITE"
 msgstr "Zápis"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "Umiestniť značku na zapisovač..."
+msgstr "Umiestniť značku na zapisovač…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "Značka bola úspešne zapísaná"
@@ -942,7 +942,7 @@ msgid "FAVORITES"
 msgstr "Obľúbené"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "Pridať do vlastnej kolekcie..."
+msgstr "Pridať do vlastnej kolekcie…"
 
 msgid "SCRAPE"
 msgstr "Vyhľadať"
@@ -1218,7 +1218,7 @@ msgstr "Hotkey"
 msgid "DEFAULT"
 msgstr "Predvolené"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr "Nenašlo sa zariadenie (JammaSD, IPAC)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2900,25 +2900,25 @@ msgstr "Stav internetu"
 msgid "HOSTNAME"
 msgstr "Názov hostiteľa"
 
-msgid "ENABLE WIFI"
+msgid "ENABLE WI-FI"
 msgstr "Povoliť Wi-Fi"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "Názov siete"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "Wi-Fi heslo"
 
-msgid "WIFI COUNTRY"
-msgstr "Krajina WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "Krajina WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
+msgid "WI-FI ENABLED"
 msgstr "Wi-Fi povolené"
 
-msgid "WIFI CONFIGURATION ERROR"
+msgid "WI-FI CONFIGURATION ERROR"
 msgstr "Chyba konfigurácie Wi-Fi"
 
 msgid "QUICK ACCESS"
@@ -3055,7 +3055,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "Nevybraný disk"
 
 msgid "Ejecting..."
-msgstr "Vysúvam..."
+msgstr "Vysúvam…"
 
 msgid "EDIT METADATA"
 msgstr "Upraviť metadáta"
@@ -3290,7 +3290,7 @@ msgstr "zadajte cestu ku kabici"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "zadajte cestu k fanartu"
 
 msgid "Title shot"
@@ -3456,10 +3456,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Načítavam systémové nastavenie..."
+msgstr "Načítavam systémové nastavenie…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "Ukladám metadáta, počkajte prosím..."
+msgstr "Ukladám metadáta, počkajte prosím…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "Chcete prepnúť obrazovku?"
@@ -3525,11 +3525,11 @@ msgid "Various"
 msgstr "Rôzne"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Táto kolekcia obsahuje %i hru:%s"
-msgstr[1] "Táto kolekcia obsahuje %i hry, vrátane:%s"
-msgstr[2] "Táto kolekcia obsahuje %i hier, vrátane:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Táto kolekcia obsahuje %i hru: %s"
+msgstr[1] "Táto kolekcia obsahuje %i hry, vrátane: %s"
+msgstr[2] "Táto kolekcia obsahuje %i hier, vrátane: %s"
 
 msgid "INVALID CONTENT"
 msgstr "Neplatný obsah"
@@ -3587,7 +3587,7 @@ msgid "Collections"
 msgstr "Kolekcie"
 
 msgid "Searching for devices..."
-msgstr "Hľadám zariadenia..."
+msgstr "Hľadám zariadenia…"
 
 msgid "FORMATTING DEVICE"
 msgstr "Formátujem zariadenie"
@@ -3677,7 +3677,7 @@ msgid "up/down"
 msgstr "hore/dolu"
 
 msgid "WORKING..."
-msgstr "Pracujem..."
+msgstr "Pracujem…"
 
 msgid "accept"
 msgstr "prijať"
@@ -3718,7 +3718,7 @@ msgstr "%s pripojené"
 msgid "%s disconnected"
 msgstr "%s odpojené"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "Zdvih pre horný, dolný a špeciálny"
 
 msgid "ALT GR"
@@ -3908,7 +3908,7 @@ msgstr ""
 "Vystreľte na cieľ na kalibráciu"
 
 msgid "Reloaded the games list..."
-msgstr "Znovu načítaný zoznam hier..."
+msgstr "Znovu načítaný zoznam hier…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "Zistil sa disk s hrou"
@@ -3932,7 +3932,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Toto sa použije aj pri ďalších spusteniach)"
 
 msgid "Merge requested... Please wait."
-msgstr "Požadované zlúčenie... prosím čakajte."
+msgstr "Požadované zlúčenie… prosím čakajte."
 
 msgid "MERGE FAILED"
 msgstr "Zlúčenie zlyhalo"
@@ -3947,7 +3947,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "Nie, ignorovať navždy"
 
 msgid "Adding drive to ignore list..."
-msgstr "Pridávam disk do ignore listu..."
+msgstr "Pridávam disk do ignore listu…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "Áno, zlúčiť disk"
@@ -3962,7 +3962,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(všetky existujúce dáta budú vymazané)"
 
 msgid "Starting format process..."
-msgstr "Spúšťam proces formátovania..."
+msgstr "Spúšťam proces formátovania…"
 
 msgid "FORMAT FAILED"
 msgstr "Formátovanie zlyhalo"
@@ -4040,10 +4040,10 @@ msgstr[2] "Pred %d sekundami"
 #~ msgstr "Zlúčiť hry z tohto disku?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Zlučujem disk... Prosím, čakajte."
+#~ msgstr "Zlučujem disk… Prosím, čakajte."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier..."
+#~ msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "Podľa typu hardvéru"
@@ -4086,7 +4086,7 @@ msgstr[2] "Pred %d sekundami"
 #~ "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "Ukladanie metadát. Prosím, čakajte..."
+#~ msgstr "Ukladanie metadát. Prosím, čakajte…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "Zabudnúť bluetooth zariadenie"

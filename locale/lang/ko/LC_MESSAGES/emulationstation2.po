@@ -106,7 +106,7 @@ msgid "Loading gamelists"
 msgstr "게임목록 불러오는 중"
 
 msgid "Loading..."
-msgstr "불러오는 중..."
+msgstr "불러오는 중…"
 
 msgid "MENU"
 msgstr "메뉴"
@@ -193,9 +193,9 @@ msgid "Favorite"
 msgstr "즐겨찾기"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "현재 폴더에는 %i 개의 게임이 포함되며, 다음 게임 포함 :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "현재 폴더에는 %i 개의 게임이 포함되며, 다음 게임 포함: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "텍스트로 게임 필터"
@@ -294,7 +294,7 @@ msgstr "변경 사항을 저장할까요?"
 msgid "ARE YOU SURE?"
 msgstr "확실하나요?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로도전과제 설정"
 
 msgid "SETTINGS"
@@ -357,7 +357,7 @@ msgstr "비공식 ACHIEVEMENTS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "비공식 achievements를 잠금 해제할 수 있습니다."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "레트로도전과제 잠금 해제 사운드"
 
 msgid "none"
@@ -369,7 +369,7 @@ msgstr "잠금 해제 사운드"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "메인 메뉴에 레트로도전과제 엔트리 표시"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "메인 메뉴에서 레트로도전과제 상태를 바로 확인합니다!"
 
 msgid "GAME INDEXES"
@@ -882,7 +882,7 @@ msgid "VIEWER PASSWORD"
 msgstr "관전자 비밀번호"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "비슷한 게임 찾기..."
+msgstr "비슷한 게임 찾기…"
 
 msgid "DELETE ITEM"
 msgstr "아이템 삭제"
@@ -917,7 +917,7 @@ msgid "WRITE"
 msgstr "쓰기"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "작성자에게 태그를 붙이세요..."
+msgstr "작성자에게 태그를 붙이세요…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "태그가 성공적으로 작성되됨"
@@ -934,7 +934,7 @@ msgid "FAVORITES"
 msgstr "즐겨찾기"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "커스텀 컬렉션에 추가..."
+msgstr "커스텀 컬렉션에 추가…"
 
 msgid "SCRAPE"
 msgstr "스크랩"
@@ -1210,7 +1210,7 @@ msgstr "단축키"
 msgid "DEFAULT"
 msgstr "기본"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr "장치를 찾을 수 없음 (JAMMASD, IPAC 등)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2886,26 +2886,26 @@ msgstr "인터넷 상태"
 msgid "HOSTNAME"
 msgstr "호스트 이름"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI 활성화"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI 활성화"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI 비밀번호"
+msgid "WI-FI KEY"
+msgstr "WI-FI 비밀번호"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI 국가"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI 국가"
 
 msgid "N/A"
 msgstr "해당 사항 없음"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI 활성화됨"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI 활성화됨"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI 구성 오류"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI 구성 오류"
 
 msgid "QUICK ACCESS"
 msgstr "빠른 연결"
@@ -3040,7 +3040,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "드라이브가 선택되지 않았"
 
 msgid "Ejecting..."
-msgstr "꺼내는 중..."
+msgstr "꺼내는 중…"
 
 msgid "EDIT METADATA"
 msgstr "메타데이터 편집"
@@ -3274,7 +3274,7 @@ msgstr "박스 경로 입력"
 msgid "Fan art"
 msgstr "팬아트"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "팬아트 경로 입력"
 
 msgid "Title shot"
@@ -3440,10 +3440,10 @@ msgid "MultiDisk"
 msgstr "멀티디스크"
 
 msgid "Loading system config..."
-msgstr "시스템 구성 불러오는 중..."
+msgstr "시스템 구성 불러오는 중…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "메타데이터를 저장하는 중입니다. 잠시만 기다려 주세요..."
+msgstr "메타데이터를 저장하는 중입니다. 잠시만 기다려 주세요…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "스크린 전환을 원하나요?"
@@ -3509,9 +3509,9 @@ msgid "Various"
 msgstr "다수"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "현재 컬렉션에는 %i 개의 게임이 포함되어 있음:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "현재 컬렉션에는 %i 개의 게임이 포함되어 있음: %s"
 
 msgid "INVALID CONTENT"
 msgstr "잘못된 콘텐츠"
@@ -3567,7 +3567,7 @@ msgid "Collections"
 msgstr "컬렉션"
 
 msgid "Searching for devices..."
-msgstr "장치를 검색 중..."
+msgstr "장치를 검색 중…"
 
 msgid "FORMATTING DEVICE"
 msgstr "포맷 장치"
@@ -3657,7 +3657,7 @@ msgid "up/down"
 msgstr "위/아래"
 
 msgid "WORKING..."
-msgstr "작업 중..."
+msgstr "작업 중…"
 
 msgid "accept"
 msgstr "동의"
@@ -3696,7 +3696,7 @@ msgstr "%s 연결됨"
 msgid "%s disconnected"
 msgstr "%s 연결 해제됨"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "대문자, 소문자, 특수문자를 위한 시프트 키"
 
 msgid "ALT GR"
@@ -3882,7 +3882,7 @@ msgstr ""
 "목표물을 쏘아 보정"
 
 msgid "Reloaded the games list..."
-msgstr "게임 목록을 다시 불러옴..."
+msgstr "게임 목록을 다시 불러옴…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "게임 드라이브 감지됨"
@@ -3906,7 +3906,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(이 사항은 향후 출시될 부츠에도 적용됨)"
 
 msgid "Merge requested... Please wait."
-msgstr "병합 요청됨... 잠시 기다려 주세요."
+msgstr "병합 요청됨… 잠시 기다려 주세요."
 
 msgid "MERGE FAILED"
 msgstr "병합 실패"
@@ -3921,7 +3921,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "아니오, 영원히 무시합니다"
 
 msgid "Adding drive to ignore list..."
-msgstr "무시 목록에 드라이브를 추가하는 중..."
+msgstr "무시 목록에 드라이브를 추가하는 중…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "네, 병합 드라이브"
@@ -3936,7 +3936,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(기존 데이터는 모두 삭제됨)"
 
 msgid "Starting format process..."
-msgstr "포맷 프로세스 시작 중..."
+msgstr "포맷 프로세스 시작 중…"
 
 msgid "FORMAT FAILED"
 msgstr "포맷 실패하였음"
@@ -4004,7 +4004,7 @@ msgstr[0] "%d 초 전"
 #~ msgstr "이 드라이브의 게임들을 지금 병합할까요?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "드라이브 병합 중... 잠시 기다려 주세요."
+#~ msgstr "드라이브 병합 중… 잠시 기다려 주세요."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""

@@ -110,7 +110,7 @@ msgid "Loading gamelists"
 msgstr "Đang nạp danh sách trò chơi"
 
 msgid "Loading..."
-msgstr "Đang nạp dữ liệu..."
+msgstr "Đang nạp dữ liệu…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -197,8 +197,8 @@ msgid "Favorite"
 msgstr "Ưa thích"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Thư mục này chứa %i trò chơi, bao gồm: %s"
 
 msgid "FILTER GAMES BY TEXT"
@@ -298,8 +298,8 @@ msgstr "LƯU THAY ĐỔI?"
 msgid "ARE YOU SURE?"
 msgstr "BẠN CHẮC CHỨ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "CÀI ĐẶT RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "CÀI ĐẶT RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "CÀI ĐẶT"
@@ -364,8 +364,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "MỞ KHÓA ÂM THANH RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "MỞ KHÓA ÂM THANH RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "không có"
@@ -376,8 +376,8 @@ msgstr "MỞ KHÓA ÂM THANH"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "HIỂN THỊ RETROACHIEVEMENTS Ở MENU CHÍNH"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Xem chỉ số RetroAchievement ngay tại menu chính!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Xem chỉ số RetroAchievements ngay tại menu chính!"
 
 msgid "GAME INDEXES"
 msgstr "GAME INDEXES"
@@ -889,7 +889,7 @@ msgid "VIEWER PASSWORD"
 msgstr "MẬT KHẨU NGƯỜI XEM"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ..."
+msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ…"
 
 msgid "DELETE ITEM"
 msgstr "XÓA MỤC"
@@ -938,7 +938,7 @@ msgid "FAVORITES"
 msgstr "ƯA THÍCH"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "THÊM VÀO BỘ SƯU TẬP TÙY CHỈNH..."
+msgstr "THÊM VÀO BỘ SƯU TẬP TÙY CHỈNH…"
 
 msgid "SCRAPE"
 msgstr "LẤY DỮ LIỆU TRÒ CHƠI"
@@ -1214,7 +1214,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "MẶC ĐỊNH"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2900,26 +2900,26 @@ msgstr "TRẠNG THÁI MẠNG"
 msgid "HOSTNAME"
 msgstr "TÊN MÁY CHỦ"
 
-msgid "ENABLE WIFI"
-msgstr "BẬT WIFI"
+msgid "ENABLE WI-FI"
+msgstr "BẬT WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "ĐÃ KÍCH HOẠT WIFI"
+msgid "WI-FI ENABLED"
+msgstr "ĐÃ KÍCH HOẠT WI-FI"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "LỖI CẤU HÌNH WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "LỖI CẤU HÌNH WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "TRUY CẬP NHANH"
@@ -3291,7 +3291,7 @@ msgstr "nhập đường dẫn đến Hộp"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "nhập đường dẫn đến Fan art"
 
 msgid "Title shot"
@@ -3457,10 +3457,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Đang tải cấu hình hệ thống..."
+msgstr "Đang tải cấu hình hệ thống…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "ĐANG LƯU METADATA. VUI LÒNG CHÒ..."
+msgstr "ĐANG LƯU METADATA. VUI LÒNG CHÒ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "BẠN CÓ MUỐN CHUYỂN MÀN HÌNH?"
@@ -3526,9 +3526,9 @@ msgid "Various"
 msgstr "Khác"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Bộ sưu tập này chứa %i trò chơi:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Bộ sưu tập này chứa %i trò chơi: %s"
 
 msgid "INVALID CONTENT"
 msgstr "NỘI DUNG KHÔNG HỢP LỆ"
@@ -3586,7 +3586,7 @@ msgid "Collections"
 msgstr "Bộ sưu tập"
 
 msgid "Searching for devices..."
-msgstr "Đang tìm thiết bị..."
+msgstr "Đang tìm thiết bị…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ĐANG ĐỊNH DẠNG THIẾT BỊ"
@@ -3676,7 +3676,7 @@ msgid "up/down"
 msgstr "lên/xuống"
 
 msgid "WORKING..."
-msgstr "ĐANG LÀM VIỆC..."
+msgstr "ĐANG LÀM VIỆC…"
 
 msgid "accept"
 msgstr "chấp nhận"
@@ -3715,7 +3715,7 @@ msgstr "%s đã kết nối"
 msgid "%s disconnected"
 msgstr "%s đã ngắt kết nối"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT ĐỂ VIẾT HOA, THƯỜNG, VÀ ĐẶC BIỆT"
 
 msgid "ALT GR"
@@ -4050,7 +4050,7 @@ msgstr[0] "%d giây trước"
 #~ msgstr "rgb dmd order"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ..."
+#~ msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "QUÊN THIẾT BỊ BLUETOOTH"

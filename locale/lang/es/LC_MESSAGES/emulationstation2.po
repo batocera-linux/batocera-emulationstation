@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Cargando listas de juegos"
 
 msgid "Loading..."
-msgstr "Cargando..."
+msgstr "Cargando…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -193,10 +193,10 @@ msgid "Favorite"
 msgstr "Favorito"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Esta carpeta contiene %i juego, incluyendo :%s"
-msgstr[1] "Esta carpeta contiene %i juegos, incluyendo :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Esta carpeta contiene %i juego, incluyendo: %s"
+msgstr[1] "Esta carpeta contiene %i juegos, incluyendo: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JUEGOS POR TEXTO"
@@ -295,7 +295,7 @@ msgstr "¿GUARDAR CAMBIOS?"
 msgid "ARE YOU SURE?"
 msgstr "¿ESTÁS SEGURO?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "AJUSTES DE RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
@@ -365,7 +365,7 @@ msgstr "LOGROS NO OFICIALES"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Activa el desbloqueo de logros no oficiales."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE LOGROS"
 
 msgid "none"
@@ -377,7 +377,7 @@ msgstr "SONIDO DE DESBLOQUEO"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR ENTRADA EN EL MENÚ PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 "¡Visualiza tus estadísticas de logros directamente desde el menú principal!"
 
@@ -505,7 +505,7 @@ msgid "ZOOM"
 msgstr "ZOOM"
 
 msgid "PLEASE WAIT"
-msgstr "POR FAVOR, ESPERE..."
+msgstr "POR FAVOR, ESPERE…"
 
 #, c-format
 msgid "%d of %d softcore points"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "CONTRASEÑA PARA ESPECTADORES"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "BUSCAR JUEGOS SIMILARES..."
+msgstr "BUSCAR JUEGOS SIMILARES…"
 
 msgid "DELETE ITEM"
 msgstr "ELIMINAR ELEMENTO"
@@ -943,7 +943,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AÑADIR A COLECCIÓN PERSONALIZADA..."
+msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
 msgstr "ESCRAPEAR JUEGO"
@@ -1222,8 +1222,8 @@ msgstr "TECLA DE ACCESO RÁPIDO"
 msgid "DEFAULT"
 msgstr "POR DEFECTO"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NO SE ENCONTRÓ NINGÚN DISPOSITIVO (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "NO SE ENCONTRÓ NINGÚN DISPOSITIVO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNA NUEVA TECLA DE ACCESO RÁPIDO GLOBAL"
@@ -2928,26 +2928,26 @@ msgstr "ESTADO DE LA RED"
 msgid "HOSTNAME"
 msgstr "NOMBRE DEL EQUIPO (HOSTNAME)"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVAR WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVAR WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID O NOMBRE DE LA RED WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID O NOMBRE DE LA RED WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CLAVE WIFI"
+msgid "WI-FI KEY"
+msgstr "CLAVE WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAÍS WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAÍS WI-FI"
 
 msgid "N/A"
 msgstr "N/D"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ACTIVADO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ACTIVADO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERROR EN LA CONFIGURACIÓN WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERROR EN LA CONFIGURACIÓN WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCESO RÁPIDO"
@@ -3083,7 +3083,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NO HAY UNIDAD SELECCIONADA"
 
 msgid "Ejecting..."
-msgstr "Expulsando..."
+msgstr "Expulsando…"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR METADATOS"
@@ -3318,7 +3318,7 @@ msgstr "introduzca ruta de la caja"
 msgid "Fan art"
 msgstr "Fanart"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "introduzca ruta del Fanart"
 
 msgid "Title shot"
@@ -3484,10 +3484,10 @@ msgid "MultiDisk"
 msgstr "Multidisco"
 
 msgid "Loading system config..."
-msgstr "Cargando configuración del sistema..."
+msgstr "Cargando configuración del sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "GUARDANDO METADATO. POR FAVOR, ESPERA..."
+msgstr "GUARDANDO METADATO. POR FAVOR, ESPERA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "¿QUIERES CAMBIAR LA PANTALLA?"
@@ -3553,10 +3553,10 @@ msgid "Various"
 msgstr "Varios"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Esta colección contiene %i juego:%s"
-msgstr[1] "Esta colección contiene %i juegos, incluyendo:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Esta colección contiene %i juego: %s"
+msgstr[1] "Esta colección contiene %i juegos, incluyendo: %s"
 
 msgid "INVALID CONTENT"
 msgstr "CONTENIDO NO VÁLIDO"
@@ -3614,7 +3614,7 @@ msgid "Collections"
 msgstr "Colecciones"
 
 msgid "Searching for devices..."
-msgstr "Buscando dispositivos..."
+msgstr "Buscando dispositivos…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATEANDO DISPOSITIVO"
@@ -3704,7 +3704,7 @@ msgid "up/down"
 msgstr "arriba/abajo"
 
 msgid "WORKING..."
-msgstr "EN CURSO..."
+msgstr "EN CURSO…"
 
 msgid "accept"
 msgstr "aceptar"
@@ -3744,7 +3744,7 @@ msgstr "%s conectado"
 msgid "%s disconnected"
 msgstr "%s desconectado"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAYÚSCULAS, MINÚSCULAS Y ESPECIALES"
 
 msgid "ALT GR"
@@ -3932,7 +3932,7 @@ msgstr ""
 "Dispara a los objetivos para calibrar"
 
 msgid "Reloaded the games list..."
-msgstr "Recargada la lista de juegos..."
+msgstr "Recargada la lista de juegos…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "UNIDAD DE JUEGO DETECTADA"
@@ -3956,7 +3956,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Esto también se aplicará en futuros arranques)"
 
 msgid "Merge requested... Please wait."
-msgstr "Fusión solicitada...Por favor, espere."
+msgstr "Fusión solicitada… Por favor, espere."
 
 msgid "MERGE FAILED"
 msgstr "FUSIÓN FALLIDA"
@@ -3971,7 +3971,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NO, IGNORAR PARA SIEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr "Agregando unidad a la lista de ignorados..."
+msgstr "Agregando unidad a la lista de ignorados…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SÍ, UNIDAD FUSIONADA"
@@ -3986,7 +3986,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS LOS DATOS EXISTENTES SERÁN BORRADOS)"
 
 msgid "Starting format process..."
-msgstr "Iniciando proceso de formato..."
+msgstr "Iniciando proceso de formato…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATEADO FALLIDO"
@@ -4059,12 +4059,12 @@ msgstr[1] "hace %d segundos"
 #~ msgstr "¿Fusionar juegos de esta unidad ahora?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Fusionando unidad... Por favor, espere."
+#~ msgstr "Fusionando unidad… Por favor, espere."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""
 #~ "El nuevo contenido de la unidad estará disponible después de que se "
-#~ "actualice la lista de juegos..."
+#~ "actualice la lista de juegos…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR HARDWARE"
@@ -4111,7 +4111,7 @@ msgstr[1] "hace %d segundos"
 #~ "PlayCount (Recuento de partidas) y LastPlayed (Jugado por última vez)."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERE..."
+#~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERE…"
 
 #~ msgid "NEVER"
 #~ msgstr "NUNCA"

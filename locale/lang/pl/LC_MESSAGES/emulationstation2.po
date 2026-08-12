@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Wczytywanie list gier"
 
 msgid "Loading..."
-msgstr "Wczytywanie..."
+msgstr "Wczytywanie…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -196,8 +196,8 @@ msgid "Favorite"
 msgstr "Ulubiona"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Ten folder zawiera %i grę, w tym: %s"
 msgstr[1] "Ten folder zawiera %i gry, w tym: %s"
 msgstr[2] "Ten folder zawiera %i gier, w tym: %s"
@@ -299,7 +299,7 @@ msgstr "ZAPISAĆ ZMIANY?"
 msgid "ARE YOU SURE?"
 msgstr "CZY NA PEWNO?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "USTAWIENIA RETROOSIĄGNIĘĆ"
 
 msgid "SETTINGS"
@@ -365,8 +365,8 @@ msgstr "NIEOFICJALNE OSIĄGNIĘCIA"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Włącz możliwość nieoficjalnych osiągnięć."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "brak"
@@ -377,9 +377,9 @@ msgstr "DŹWIĘK ODBLOKOWANIA"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "POKAŻ WPIS RETROOSIĄGNIĘĆ W MENU GŁÓWNYM"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
-"Zobacz swoje statystyki \"RetroAchievement\" bezpośrednio z menu głównego!"
+"Zobacz swoje statystyki \"RetroAchievements\" bezpośrednio z menu głównego!"
 
 msgid "GAME INDEXES"
 msgstr "INDEKSY GIER"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "HASŁO WIDZA"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "ZNAJDŹ PODOBNE GRY..."
+msgstr "ZNAJDŹ PODOBNE GRY…"
 
 msgid "DELETE ITEM"
 msgstr "USUŃ ELEMENT"
@@ -926,7 +926,7 @@ msgid "WRITE"
 msgstr "ZAPISZ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "UMIEŚĆ TAG NA URZĄDZENIU DO ZAPISU..."
+msgstr "UMIEŚĆ TAG NA URZĄDZENIU DO ZAPISU…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "TAG ZOSTAŁ POPRAWNIE ZAPISANY"
@@ -943,7 +943,7 @@ msgid "FAVORITES"
 msgstr "ULUBIONE"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ..."
+msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE'UJ"
@@ -1220,8 +1220,8 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "DOMYŚLNY"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NIE ZNALEZIONO URZĄDZENIA (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "NIE ZNALEZIONO URZĄDZENIA (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "STWÓRZ NOWY GLOBALNY HOTKEY"
@@ -1386,10 +1386,10 @@ msgid "INPUT MANUALLY"
 msgstr "WPROWADŹ RĘCZNE"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NIE ZNALEZIONO SIECI WIFI"
+msgstr "NIE ZNALEZIONO SIECI WI-FI"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WYSZUKIWANIE SIECI WIFI"
+msgstr "WYSZUKIWANIE SIECI WI-FI"
 
 msgid "PARIS"
 msgstr "PARYŻ"
@@ -2916,26 +2916,26 @@ msgstr "STATUS INTERNETU"
 msgid "HOSTNAME"
 msgstr "NAZWA HOSTA"
 
-msgid "ENABLE WIFI"
-msgstr "WŁĄCZ WIFI"
+msgid "ENABLE WI-FI"
+msgstr "WŁĄCZ WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "HASŁO WIFI"
+msgid "WI-FI KEY"
+msgstr "HASŁO WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr "KRAJ WI-FI"
 
 msgid "N/A"
 msgstr "Nd"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI WŁĄCZONE"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI WŁĄCZONE"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "BŁĄD KONFIGURACJI WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "BŁĄD KONFIGURACJI WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "SZYBKI DOSTĘP"
@@ -3072,7 +3072,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "BRAK WYBRANEGO NAPĘDU"
 
 msgid "Ejecting..."
-msgstr "Wysuwanie..."
+msgstr "Wysuwanie…"
 
 msgid "EDIT METADATA"
 msgstr "EDYTUJ META DANE"
@@ -3306,7 +3306,7 @@ msgstr "wprowadź ścieżkę do pudełka"
 msgid "Fan art"
 msgstr "Grafiki fanów"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "wprowadź ścieżkę do grafik fanów"
 
 msgid "Title shot"
@@ -3472,10 +3472,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Wczytywanie konfiguracji systemowej..."
+msgstr "Wczytywanie konfiguracji systemowej…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+msgstr "ZAPISYWANIE METADANYCH. CZEKAJ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "CHCESZ PRZEŁĄCZYĆ EKRAN?"
@@ -3541,8 +3541,8 @@ msgid "Various"
 msgstr "Różne"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] "Kolekcja zawiera %i grę: %s"
 msgstr[1] "Kolekcja zawiera %i gry, w tym: %s"
 msgstr[2] "Kolekcja zawiera %i gier, w tym: %s"
@@ -3596,13 +3596,13 @@ msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
 msgid "Checking for latest upgrade script..."
-msgstr "Sprawdzanie najnowszego skryptu aktualizacji..."
+msgstr "Sprawdzanie najnowszego skryptu aktualizacji…"
 
 msgid "Collections"
 msgstr "Kolekcje"
 
 msgid "Searching for devices..."
-msgstr "Wyszukiwanie urządzeń..."
+msgstr "Wyszukiwanie urządzeń…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATOWANIE URZĄDZENIA"
@@ -3692,7 +3692,7 @@ msgid "up/down"
 msgstr "góra/dół"
 
 msgid "WORKING..."
-msgstr "PRACUJĘ..."
+msgstr "PRACUJĘ…"
 
 msgid "accept"
 msgstr "zaakceptuj"
@@ -3733,7 +3733,7 @@ msgstr "%s połączono"
 msgid "%s disconnected"
 msgstr "%s rozłączono"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT DLA DYŻYCH, MAŁYCH I SPECJALNYCH ZNAKÓW"
 
 msgid "ALT GR"
@@ -3923,7 +3923,7 @@ msgstr ""
 "Strzelanie do celów w celu kalibracji"
 
 msgid "Reloaded the games list..."
-msgstr "Ponownie załadowano listę gier..."
+msgstr "Ponownie załadowano listę gier…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "WYKRYTO NAPĘD GIER"
@@ -3962,7 +3962,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NIE, ZAWSZE IGNORUJ"
 
 msgid "Adding drive to ignore list..."
-msgstr "Dodaję dysk do listy ignorowanych..."
+msgstr "Dodaję dysk do listy ignorowanych…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "TAK, SCAL DYSKI"
@@ -3977,7 +3977,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(WSZYSTKIE DANE ZOSTANĄ USUNIĘTE)"
 
 msgid "Starting format process..."
-msgstr "Rozpoczęcie procesu formatowania..."
+msgstr "Rozpoczęcie procesu formatowania…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMAT NIEUDANY"
@@ -4058,7 +4058,7 @@ msgstr[2] "%d sekund temu"
 #~ msgstr "Scalanie napędu. Proszę czekać."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier..."
+#~ msgstr "Nowa zawartość napędu będzie dostępna po odświeżeniu listy gier…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "WEDŁUG SPRZĘTU"
@@ -4103,7 +4103,7 @@ msgstr[2] "%d sekund temu"
 #~ msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+#~ msgstr "ZAPISYWANIE METADANYCH. CZEKAJ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "USUŃ URZĄDZENIE BLUETOOTH"
@@ -4202,7 +4202,7 @@ msgstr[2] "%d sekund temu"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "SCRAPE'UJ FILMY"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "SCRAPE'UJ FAN ART"
 
 #~ msgid "SCRAPE BEZEL (16:9)"

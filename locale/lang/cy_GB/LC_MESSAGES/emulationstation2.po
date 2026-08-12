@@ -99,7 +99,7 @@ msgid "Loading gamelists"
 msgstr "Llwytho rhestr gemau"
 
 msgid "Loading..."
-msgstr "Llwytho..."
+msgstr "Llwytho…"
 
 msgid "MENU"
 msgstr "DEWISLEN"
@@ -201,8 +201,8 @@ msgid "Favorite"
 msgstr "Ffefryn"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -307,7 +307,7 @@ msgstr "ARBED NEWIDIADAU?"
 msgid "ARE YOU SURE?"
 msgstr "WYT TI'N SIWR ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "SETTINGS"
@@ -369,7 +369,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -381,7 +381,7 @@ msgstr ""
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -889,7 +889,7 @@ msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "DOD O HYD I GEMAU TEBYG ..."
+msgstr "DOD O HYD I GEMAU TEBYG…"
 
 msgid "DELETE ITEM"
 msgstr ""
@@ -1210,7 +1210,7 @@ msgstr "BYSELL FRYS"
 msgid "DEFAULT"
 msgstr ""
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -1376,10 +1376,10 @@ msgid "INPUT MANUALLY"
 msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
+msgstr "HEB FFEINDIO RHWYDWEITHIAU WI-FI"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "CHWILIO RHWYDWEITHIAU WIFI"
+msgstr "CHWILIO RHWYDWEITHIAU WI-FI"
 
 msgid "PARIS"
 msgstr ""
@@ -2867,26 +2867,26 @@ msgstr "STATWS RHYNGRWYD"
 msgid "HOSTNAME"
 msgstr "ENW HOST"
 
-msgid "ENABLE WIFI"
-msgstr "GALLUOGI WIFI"
+msgid "ENABLE WI-FI"
+msgstr "GALLUOGI WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
 
-msgid "WIFI KEY"
-msgstr "ALLWEDD WIFI"
+msgid "WI-FI KEY"
+msgstr "ALLWEDD WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "GALLUOGI WIFI"
+msgid "WI-FI ENABLED"
+msgstr "GALLUOGI WI-FI"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "GWALL TRAWSWEDDU WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "GWALL TRAWSWEDDU WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "MYNEDIAD CYFLYM"
@@ -3253,7 +3253,7 @@ msgstr "gosod llwybr i'r bocs"
 msgid "Fan art"
 msgstr "Celf ffan"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "gosod llwybr i'r celf ffan"
 
 msgid "Title shot"
@@ -3419,7 +3419,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Llwytho system ffurfweddu..."
+msgstr "Llwytho system ffurfweddu…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3488,8 +3488,8 @@ msgid "Various"
 msgstr "Amrywiol"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -3552,7 +3552,7 @@ msgid "Collections"
 msgstr "Casgliadau"
 
 msgid "Searching for devices..."
-msgstr "Chwilio am rheolyddion..."
+msgstr "Chwilio am rheolyddion…"
 
 msgid "FORMATTING DEVICE"
 msgstr ""
@@ -3642,7 +3642,7 @@ msgid "up/down"
 msgstr "lan/lawr"
 
 msgid "WORKING..."
-msgstr "YN GWEITHIO..."
+msgstr "YN GWEITHIO…"
 
 msgid "accept"
 msgstr "derbyn"
@@ -3686,7 +3686,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFT AM UCHAF, ISEL, AC ARBENNIG"
 
 msgid "ALT GR"
@@ -4019,7 +4019,7 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ msgstr "GAN Y FATH O GALEDWEDD"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
+#~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA…"
 
 #~ msgid "Achievements won"
 #~ msgstr "Cyflawniadau a enillwyd"
@@ -4050,7 +4050,7 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "CRAFU FIDEOS"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "CRAFU CELF FFAN"
 
 #~ msgid "SCRAPE MAP"
@@ -4221,14 +4221,14 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ msgid "enter number of players"
 #~ msgstr "gosod nifer o chwaraewyr"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "Mae'r casgliad yn cynnwys %i gêm, yn cynnwys :%s"
-#~ msgstr[1] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-#~ msgstr[2] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-#~ msgstr[3] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-#~ msgstr[4] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-#~ msgstr[5] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "Mae'r casgliad yn cynnwys %i gêm, yn cynnwys: %s"
+#~ msgstr[1] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys: %s"
+#~ msgstr[2] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys: %s"
+#~ msgstr[3] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys: %s"
+#~ msgstr[4] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys: %s"
+#~ msgstr[5] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "YN FFORMATIO DYFAIS"

@@ -99,7 +99,7 @@ msgid "Loading gamelists"
 msgstr "טוען רשימת משחקים"
 
 msgid "Loading..."
-msgstr "טוען..."
+msgstr "טוען…"
 
 msgid "MENU"
 msgstr "תפריט"
@@ -195,8 +195,8 @@ msgid "Favorite"
 msgstr "מועדף"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -299,7 +299,7 @@ msgstr "שמירת שינויים ?"
 msgid "ARE YOU SURE?"
 msgstr "האם אתה בטוח?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
 msgid "SETTINGS"
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
@@ -373,7 +373,7 @@ msgstr "ביטול נעילת שמע"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -881,7 +881,7 @@ msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "מציאת משחקים דומים..."
+msgstr "מציאת משחקים דומים…"
 
 msgid "DELETE ITEM"
 msgstr "מחיקת פריט"
@@ -928,7 +928,7 @@ msgid "FAVORITES"
 msgstr "מועדפים"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "הוסף לאוסף מותאם אישית..."
+msgstr "הוסף לאוסף מותאם אישית…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "ברירת מחדל"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -1651,7 +1651,7 @@ msgid "SCREENSAVER SETTINGS"
 msgstr "הגדרות שומר מסך"
 
 msgid "START SCREENSAVER AFTER"
-msgstr "התחל שומר מסך לאחר..."
+msgstr "התחל שומר מסך לאחר…"
 
 msgid "SCREENSAVER TYPE"
 msgstr "סוג שומר המסך"
@@ -2857,26 +2857,26 @@ msgstr "מצב אינטרנט"
 msgid "HOSTNAME"
 msgstr "שם מארח"
 
-msgid "ENABLE WIFI"
-msgstr "הפוך WIFI לזמין"
+msgid "ENABLE WI-FI"
+msgstr "הפוך WI-FI לזמין"
 
-msgid "WIFI SSID"
-msgstr "שם רשת (WIFI SSID)"
+msgid "WI-FI SSID"
+msgstr "שם רשת (WI-FI SSID)"
 
-msgid "WIFI KEY"
-msgstr "סיסמה (WIFI KEY)"
+msgid "WI-FI KEY"
+msgstr "סיסמה (WI-FI KEY)"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI זמין"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI זמין"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "שגיאה בתצורת WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "שגיאה בתצורת WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "גישה מהירה "
@@ -3243,7 +3243,7 @@ msgstr "הזן נתיב קובץ לאריזה"
 msgid "Fan art"
 msgstr "אומנות מעריצים"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "הזן נתיב קובץ לאומנות מעריצים"
 
 msgid "Title shot"
@@ -3478,8 +3478,8 @@ msgid "Various"
 msgstr "מגוון"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -3671,7 +3671,7 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "ALT GR"
@@ -4013,7 +4013,7 @@ msgstr[3] ""
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "SCRAPE סרטונים"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "SCRAPE  אמנות מעריצים"
 
 #~ msgid "SCRAPE BOX BACKSIDE"
@@ -4148,12 +4148,12 @@ msgstr[3] ""
 #~ msgid "enter number of players"
 #~ msgstr "הזן מספר שחקנים"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "אוסף זה מכיל משחק %i כולל :%s"
-#~ msgstr[1] "אוסף זה מכיל משחקים %i כולל :%s"
-#~ msgstr[2] "אוסף זה מכיל משחקים %i כולל :%s"
-#~ msgstr[3] "אוסף זה מכיל משחק %i כולל :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "אוסף זה מכיל משחק %i כולל: %s"
+#~ msgstr[1] "אוסף זה מכיל משחקים %i כולל: %s"
+#~ msgstr[2] "אוסף זה מכיל משחקים %i כולל: %s"
+#~ msgstr[3] "אוסף זה מכיל משחק %i כולל: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "התקן למחיקה מלאה והכנה לכתיבה"
@@ -4357,7 +4357,7 @@ msgstr[3] ""
 #~ msgstr "מראה"
 
 #~ msgid "Searching controllers..."
-#~ msgstr "מחפש בקרים..."
+#~ msgstr "מחפש בקרים…"
 
 #~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 #~ msgstr "סריקת בלו-טות' מתבצעת."
@@ -4371,10 +4371,10 @@ msgstr[3] ""
 #~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
 #~ msgstr "האם אתם בטוחים שברצונכם למחוק את הקובץ?"
 
-#~ msgid "NO WIFI NETWORKS FOUND"
+#~ msgid "NO WI-FI NETWORKS FOUND"
 #~ msgstr "לא נמצאו רשתות אלחוטיות"
 
-#~ msgid "SEARCHING WIFI NETWORKS"
+#~ msgid "SEARCHING WI-FI NETWORKS"
 #~ msgstr "חיפוש רשתות אלחוטיות מתבצע"
 
 #~ msgid "There are no items in this view"

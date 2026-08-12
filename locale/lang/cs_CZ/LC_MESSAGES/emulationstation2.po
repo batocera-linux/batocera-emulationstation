@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Načítání seznamu her"
 
 msgid "Loading..."
-msgstr "Načítání..."
+msgstr "Načítání…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -196,8 +196,8 @@ msgid "Favorite"
 msgstr "Oblíbené"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Tato složka obsahuje %i hra, včetně: %s"
 msgstr[1] "Tato složka obsahuje %i hry, včetně: %s"
 msgstr[2] "Tato složka obsahuje %i her, včetně: %s"
@@ -299,7 +299,7 @@ msgstr "ULOŽIT ZMĚNY?"
 msgid "ARE YOU SURE?"
 msgstr "JSTE SI JISTI?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "NASTAVENÍ RETROÚSPĚCHU"
 
 msgid "SETTINGS"
@@ -362,7 +362,7 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "ODEMKNOUT ZVUK RETROÚSPĚCHU"
 
 msgid "none"
@@ -374,7 +374,7 @@ msgstr "ODEMKNOUT ZVUK"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ZOBRAZIT POLOŽKU RETROÚSPĚCHY V HLAVNÍ NABÍDCE"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Prohlédněte si své statistiky RetroÚspechu přímo z hlavního menu!"
 
 msgid "GAME INDEXES"
@@ -887,7 +887,7 @@ msgid "VIEWER PASSWORD"
 msgstr "HESLO PROHLÍŽEČE"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "NAJÍT PODOBNÉ HRY..."
+msgstr "NAJÍT PODOBNÉ HRY…"
 
 msgid "DELETE ITEM"
 msgstr "ODSTRANIT POLOŽKU"
@@ -936,7 +936,7 @@ msgid "FAVORITES"
 msgstr "OBLÍBENÉ"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
+msgstr "PŘIDAT DO VLASTNÍ SBÍRKY…"
 
 msgid "SCRAPE"
 msgstr "VYHLEDÁVAČ"
@@ -1213,7 +1213,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "VÝCHOZÍ"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2897,26 +2897,26 @@ msgstr "STAV INTERNETU"
 msgid "HOSTNAME"
 msgstr "HOSTNAME"
 
-msgid "ENABLE WIFI"
-msgstr "POVOLIT WIFI"
+msgid "ENABLE WI-FI"
+msgstr "POVOLIT WI-FI"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "HESLO WIFI"
+msgid "WI-FI KEY"
+msgstr "HESLO WI-FI"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI POVOLENO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI POVOLENO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "CHYBA KONFIGURACE WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "CHYBA KONFIGURACE WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "RYCHLÝ PŘÍSTUP"
@@ -3288,7 +3288,7 @@ msgstr "zadejte cestu ke schránce"
 msgid "Fan art"
 msgstr "Fanouškovská tvorba"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "zadejte cestu k fanouškovské tvorbě"
 
 msgid "Title shot"
@@ -3454,7 +3454,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Načítání konfigurace systému..."
+msgstr "Načítání konfigurace systému…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "UKLÁDÁNÍ METADAT, PROSÍM POČKEJTE."
@@ -3523,11 +3523,11 @@ msgid "Various"
 msgstr "Různé"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Tato kolekce obsahuje %i hru:%s"
-msgstr[1] "Tato kolekce obsahuje %i hry, včetně:%s"
-msgstr[2] "Tato kolekce obsahuje %i her, včetně:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Tato kolekce obsahuje %i hru: %s"
+msgstr[1] "Tato kolekce obsahuje %i hry, včetně: %s"
+msgstr[2] "Tato kolekce obsahuje %i her, včetně: %s"
 
 msgid "INVALID CONTENT"
 msgstr "NEPLATNÝ OBSAH"
@@ -3585,7 +3585,7 @@ msgid "Collections"
 msgstr "Sbírka"
 
 msgid "Searching for devices..."
-msgstr "Vyhledávání zařízení..."
+msgstr "Vyhledávání zařízení…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMÁTOVÁNÍ ZAŘÍZENÍ"
@@ -3675,7 +3675,7 @@ msgid "up/down"
 msgstr "nahoru/dolů"
 
 msgid "WORKING..."
-msgstr "PRACUJI..."
+msgstr "PRACUJI…"
 
 msgid "accept"
 msgstr "přijmout"
@@ -3716,7 +3716,7 @@ msgstr "%s připojen"
 msgid "%s disconnected"
 msgstr "%s odpojen"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFTY PRO HORNÍ, DOLNÍ A SPECIÁLNÍ"
 
 msgid "ALT GR"
@@ -4072,7 +4072,7 @@ msgstr[2] "%d před sekundami"
 #~ "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
+#~ msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ZAPOMENOUT NA ZAŘÍZENÍ BLUETOOTH"
@@ -4195,7 +4195,7 @@ msgstr[2] "%d před sekundami"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "VYHLEDEJ VIDEA"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "VYHLEDEJ OBRÁZKY FANOUŠKŮ"
 
 #~ msgid "SCRAPE BEZEL (16:9)"
@@ -4270,14 +4270,14 @@ msgstr[2] "%d před sekundami"
 #~ msgid "VIEW USER'S MANUAL"
 #~ msgstr "ZOBRAZIT NÁVOD K POUŽITÍ"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
 #~ msgstr[0] "Sbírka obsahuje %i hru, včetně: %s"
 #~ msgstr[1] "Sbírka obsahuje %i hry, včetně: %s"
 #~ msgstr[2] "Sbírka obsahuje %i her, včetně: %s"
 
 #~ msgid "Searching controllers..."
-#~ msgstr "Hledání řadičů..."
+#~ msgstr "Hledání řadičů…"
 
 #~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 #~ msgstr "SKENOVÁNÍ PŘES BLUETOOTH JE JIŽ SPUŠTĚNO."
@@ -4318,11 +4318,11 @@ msgstr[2] "%d před sekundami"
 #~ msgid "MANUAL INPUT"
 #~ msgstr "MANUALNÍ VSTUP"
 
-#~ msgid "NO WIFI NETWORKS FOUND"
-#~ msgstr "NENALEZENY SÍTĚ WIFI"
+#~ msgid "NO WI-FI NETWORKS FOUND"
+#~ msgstr "NENALEZENY SÍTĚ WI-FI"
 
-#~ msgid "SEARCHING WIFI NETWORKS"
-#~ msgstr "HLEDÁNÍ WIFI SÍTĚ"
+#~ msgid "SEARCHING WI-FI NETWORKS"
+#~ msgstr "HLEDÁNÍ WI-FI SÍTĚ"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLER"
 #~ msgstr "ZAPOMENOUT NA OVLADAČ BLUETOOTH"

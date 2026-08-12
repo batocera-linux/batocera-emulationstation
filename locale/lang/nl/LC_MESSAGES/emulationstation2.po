@@ -106,7 +106,7 @@ msgid "Loading gamelists"
 msgstr "Spellijsten worden geladen"
 
 msgid "Loading..."
-msgstr "Laden..."
+msgstr "Laden…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -196,10 +196,10 @@ msgid "Favorite"
 msgstr "Favoriet"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Deze map bevat %i spel, inclusief :%s"
-msgstr[1] "Deze map bevat %i spellen, inclusief :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Deze map bevat %i spel, inclusief: %s"
+msgstr[1] "Deze map bevat %i spellen, inclusief: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTER SPELLEN OP TEKST"
@@ -298,7 +298,7 @@ msgstr "VERANDERINGEN OPSLAAN?"
 msgid "ARE YOU SURE?"
 msgstr "WEET U HET ZEKER?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "INSTELLINGEN RETROPRESTATIE"
 
 msgid "SETTINGS"
@@ -366,7 +366,7 @@ msgstr "ONOFFICIËLE PRESTATIES"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Maak het ontgrendelen van onofficiële prestaties mogelijk."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "RETROPRESTATIE GELUID ONTGRENDELEN"
 
 msgid "none"
@@ -378,7 +378,7 @@ msgstr "ONTGRENDEL GELUID"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "TOON RETROPRESTATIES IN HOOFDMENU"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Bekijk je Retroprestaties statistieken direct vanuit het hoofdmenu!"
 
 msgid "GAME INDEXES"
@@ -893,7 +893,7 @@ msgid "VIEWER PASSWORD"
 msgstr "TOESCHOUWER WACHTWOORD"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "VIND SOORTGELIJKE SPELLEN..."
+msgstr "VIND SOORTGELIJKE SPELLEN…"
 
 msgid "DELETE ITEM"
 msgstr "VERWIJDER ITEM"
@@ -926,7 +926,7 @@ msgid "WRITE"
 msgstr "SCHRIJF"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "PLAATS EEN TAG OP DE SCHRIJVER..."
+msgstr "PLAATS EEN TAG OP DE SCHRIJVER…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "DE TAG IS SUCCESVOL GESCHREVEN"
@@ -943,7 +943,7 @@ msgid "FAVORITES"
 msgstr "FAVORIETEN"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
+msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN…"
 
 msgid "SCRAPE"
 msgstr "SCRAPEN"
@@ -1220,8 +1220,8 @@ msgstr "SNELTOETS"
 msgid "DEFAULT"
 msgstr "STANDAARD"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "GEEN APPARAAT GEVONDEN (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "GEEN APPARAAT GEVONDEN (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "WIJS EEN NIEUWE GLOBALE SNELTOETS AAN"
@@ -2923,26 +2923,26 @@ msgstr "INTERNET STATUS"
 msgid "HOSTNAME"
 msgstr "HOSTNAAM"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI INSCHAKELEN"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI INSCHAKELEN"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI KEY"
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI LAND"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI LAND"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI IS INGESCHAKELD"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI IS INGESCHAKELD"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI CONFIGURATIEFOUT"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI CONFIGURATIEFOUT"
 
 msgid "QUICK ACCESS"
 msgstr "SNELLE TOEGANG"
@@ -3079,7 +3079,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "GEEN SCHIJF GESELECTEERD"
 
 msgid "Ejecting..."
-msgstr "Uitwerpen..."
+msgstr "Uitwerpen…"
 
 msgid "EDIT METADATA"
 msgstr "BEWERK METADATA"
@@ -3313,7 +3313,7 @@ msgstr "voer pad naar doos in"
 msgid "Fan art"
 msgstr "Fanart"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "voer pad naar fanart in"
 
 msgid "Title shot"
@@ -3479,10 +3479,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Systeemconfiguratie wordt geladen..."
+msgstr "Systeemconfiguratie wordt geladen…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "METADATA OPSLAAN. EVEN WACHTEN..."
+msgstr "METADATA OPSLAAN. EVEN WACHTEN…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "WILT U VAN SCHERM VERANDEREN?"
@@ -3548,10 +3548,10 @@ msgid "Various"
 msgstr "Diverse"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Deze collectie heeft %i spel:%s"
-msgstr[1] "Deze collectie heeft %i spellen, inclusief:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Deze collectie heeft %i spel: %s"
+msgstr[1] "Deze collectie heeft %i spellen, inclusief: %s"
 
 msgid "INVALID CONTENT"
 msgstr "ONGELDIGE INHOUD"
@@ -3609,7 +3609,7 @@ msgid "Collections"
 msgstr "Collecties"
 
 msgid "Searching for devices..."
-msgstr "Zoeken naar apparaten..."
+msgstr "Zoeken naar apparaten…"
 
 msgid "FORMATTING DEVICE"
 msgstr "APPARAAT FORMATTEREN"
@@ -3699,7 +3699,7 @@ msgid "up/down"
 msgstr "omhoog/omlaag"
 
 msgid "WORKING..."
-msgstr "BEZIG..."
+msgstr "BEZIG…"
 
 msgid "accept"
 msgstr "accepteer"
@@ -3739,7 +3739,7 @@ msgstr "%s verbonden"
 msgid "%s disconnected"
 msgstr "%s verbroken"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFTS VOOR HOGER,LAGER EN SPECIAAL"
 
 msgid "ALT GR"
@@ -3927,7 +3927,7 @@ msgstr ""
 "Vuur op doelen om te kalibreren"
 
 msgid "Reloaded the games list..."
-msgstr "De spellijst is opnieuw geladen..."
+msgstr "De spellijst is opnieuw geladen…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "SPEL SCHIJF GEDETECTEERD"
@@ -3951,7 +3951,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Dit geldt ook voor toekomstige boots)"
 
 msgid "Merge requested... Please wait."
-msgstr "Samenvoeging aangevraagd... Even geduld alstublieft."
+msgstr "Samenvoeging aangevraagd… Even geduld alstublieft."
 
 msgid "MERGE FAILED"
 msgstr "SAMENVOEGING MISLUKT"
@@ -3966,7 +3966,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NEE, NEGEER ALTIJD"
 
 msgid "Adding drive to ignore list..."
-msgstr "Schijf toevoegen aan de negeerlijst..."
+msgstr "Schijf toevoegen aan de negeerlijst…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "JA, DRIVE SAMENVOEGEN"
@@ -3981,7 +3981,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ALLE BESTAANDE DATA ZAL WORDEN VERWIJDERD)"
 
 msgid "Starting format process..."
-msgstr "Het formatteringsproces wordt gestart..."
+msgstr "Het formatteringsproces wordt gestart…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATTEREN MISLUKT"

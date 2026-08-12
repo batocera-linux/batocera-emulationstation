@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Caricamento liste giochi"
 
 msgid "Loading..."
-msgstr "Caricamento..."
+msgstr "Caricamento…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -193,10 +193,10 @@ msgid "Favorite"
 msgstr "Preferito"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Questa cartella contiene %i gioco, incluso :%s"
-msgstr[1] "Questa cartella contiene %i giochi, inclusi :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Questa cartella contiene %i gioco, incluso: %s"
+msgstr[1] "Questa cartella contiene %i giochi, inclusi: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRA GIOCHI PER NOME"
@@ -295,7 +295,7 @@ msgstr "SALVARE LE MODIFICHE?"
 msgid "ARE YOU SURE?"
 msgstr "SEI SICURO?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPZIONI TROFEI"
 
 msgid "SETTINGS"
@@ -359,7 +359,7 @@ msgstr "SUCCESSI NON-UFFICIALI"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Abilita e sblocca i successi non-ufficiali"
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
 
 msgid "none"
@@ -371,7 +371,7 @@ msgstr "SUONO DI SBLOCCO"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRA LA VOCE TROFEI NEL MENU PRINCIPALE"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Mostra le statistiche Retroconquiste nel menu principale!"
 
 msgid "GAME INDEXES"
@@ -884,7 +884,7 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWORD SPETTATORE"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "CERCA GIOCHI SIMILI..."
+msgstr "CERCA GIOCHI SIMILI…"
 
 msgid "DELETE ITEM"
 msgstr "ELIMINA ELEMENTO"
@@ -1212,8 +1212,8 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "DEFAULT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NESSUN DISPOSITIVO TROVATO (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "NESSUN DISPOSITIVO TROVATO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DICHIARA UN NUOVO HOTKEY GLOBALE"
@@ -1378,10 +1378,10 @@ msgid "INPUT MANUALLY"
 msgstr "INSERISCI MANUALMENTE"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NESSUNA RETE WIFI TROVATA"
+msgstr "NESSUNA RETE WI-FI TROVATA"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "RICERCA RETI WIFI"
+msgstr "RICERCA RETI WI-FI"
 
 msgid "PARIS"
 msgstr "PARIGI"
@@ -2902,26 +2902,26 @@ msgstr "STATO DI RETE"
 msgid "HOSTNAME"
 msgstr "NOME HOST"
 
-msgid "ENABLE WIFI"
-msgstr "ATTIVA WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ATTIVA WI-FI"
 
-msgid "WIFI SSID"
-msgstr "SSID WIFI"
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
 
-msgid "WIFI KEY"
-msgstr "CHIAVE WIFI"
+msgid "WI-FI KEY"
+msgstr "CHIAVE WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAESE WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAESE WI-FI"
 
 msgid "N/A"
 msgstr "N/A"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ATTIVO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ATTIVO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERRORE DI CONFIGURAZIONE WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERRORE DI CONFIGURAZIONE WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCESSO RAPIDO"
@@ -3057,7 +3057,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NESSUN DRIVE SELEZIONATO"
 
 msgid "Ejecting..."
-msgstr "Espulsione..."
+msgstr "Espulsione…"
 
 msgid "EDIT METADATA"
 msgstr "MODIFICA LE INFORMAZIONI"
@@ -3291,7 +3291,7 @@ msgstr "inserisci percorso immagine box"
 msgid "Fan art"
 msgstr "Fan art"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "inserisci percorso fan art"
 
 msgid "Title shot"
@@ -3457,10 +3457,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Caricamento configurazione di sistema..."
+msgstr "Caricamento configurazione di sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "SALVATAGGIO METADATA, ASPETTA..."
+msgstr "SALVATAGGIO METADATA, ASPETTA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VUOI DAVVERO CAMBIARE SCHERMO ?"
@@ -3526,10 +3526,10 @@ msgid "Various"
 msgstr "Vari"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Questa collezione contiene %i gioco:%s"
-msgstr[1] "Questa collezione contiene %i giochi, incluso:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Questa collezione contiene %i gioco: %s"
+msgstr[1] "Questa collezione contiene %i giochi, incluso: %s"
 
 msgid "INVALID CONTENT"
 msgstr "CONTENUTO INVALIDO"
@@ -3581,13 +3581,13 @@ msgid "UKNOWN ERROR"
 msgstr "ERRORE SCONOSCIUTO"
 
 msgid "Checking for latest upgrade script..."
-msgstr "Ricerca dell'ultimo script di upgrade..."
+msgstr "Ricerca dell'ultimo script di upgrade…"
 
 msgid "Collections"
 msgstr "Collezioni"
 
 msgid "Searching for devices..."
-msgstr "Ricerca controller..."
+msgstr "Ricerca controller…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATTAZIONE DRIVE"
@@ -3677,7 +3677,7 @@ msgid "up/down"
 msgstr "su/giù"
 
 msgid "WORKING..."
-msgstr "ATTENDERE..."
+msgstr "ATTENDERE…"
 
 msgid "accept"
 msgstr "accetta"
@@ -3717,7 +3717,7 @@ msgstr "%s connesso"
 msgid "%s disconnected"
 msgstr "%s disconnesso"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "PREMI SHIFT PER MAIUSCOLE, MINUSCOLE E SPECIALI"
 
 msgid "ALT GR"
@@ -3906,7 +3906,7 @@ msgstr ""
 "Spara sui bersagli per calibrare"
 
 msgid "Reloaded the games list..."
-msgstr "Ricarica la lista dei giochi..."
+msgstr "Ricarica la lista dei giochi…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DISCO GIOCO RILEVATO"
@@ -3930,7 +3930,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Questo verra' applicato anche ai prossimi riavvii)"
 
 msgid "Merge requested... Please wait."
-msgstr "Unione richiesta... Aspetta per favore."
+msgstr "Unione richiesta… Aspetta per favore."
 
 msgid "MERGE FAILED"
 msgstr "UNIONE FALLITA"
@@ -3945,7 +3945,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NO< IGNORA PER SEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr "Aggiungi drive alla lista da ignorare..."
+msgstr "Aggiungi drive alla lista da ignorare…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SI, UNISCI DRIVE"
@@ -3960,7 +3960,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TUTTI I DATI ESISTENTI VERRANNO RIMOSSI)"
 
 msgid "Starting format process..."
-msgstr "Inizio processo di formattazione..."
+msgstr "Inizio processo di formattazione…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATTAZIONE FALLITA"
@@ -4067,7 +4067,7 @@ msgstr[1] "%d secondi fa"
 #~ msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
+#~ msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINA UN DISPOSITIVO BLUETOOTH"
@@ -4145,7 +4145,7 @@ msgstr[1] "%d secondi fa"
 #~ msgid "SCRAPE VIDEOS"
 #~ msgstr "SCARICA VIDEO ANTEPRIMA"
 
-#~ msgid "SCRAPE FANART"
+#~ msgid "SCRAPE FAN ART"
 #~ msgstr "SCARICA FANART"
 
 #~ msgid "SCRAPE BEZEL (16:9)"
@@ -4439,10 +4439,10 @@ msgstr[1] "%d secondi fa"
 #~ msgid "enter number of players"
 #~ msgstr "inserisci numero di giocatori"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "Questa collezione contiene %i gioco, incluso :%s"
-#~ msgstr[1] "Questa collezione contiene %i giochi, inclusi :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "Questa collezione contiene %i gioco, incluso: %s"
+#~ msgstr[1] "Questa collezione contiene %i giochi, inclusi: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "FORMATTAZIONE DISPOSITIVO"
@@ -4839,7 +4839,7 @@ msgstr[1] "%d secondi fa"
 #~ msgstr "FINE MODIFICA DELLA COLLEZIONE"
 
 #~ msgid "JUMP TO..."
-#~ msgstr "SALTA A..."
+#~ msgstr "SALTA A…"
 
 #~ msgid "COLLECTION MANAGEMENT"
 #~ msgstr "GESTIONE COLLEZIONE"

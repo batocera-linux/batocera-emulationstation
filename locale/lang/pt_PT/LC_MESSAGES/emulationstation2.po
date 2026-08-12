@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Carregar lista de jogos"
 
 msgid "Loading..."
-msgstr "A Carregar..."
+msgstr "A Carregar…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -194,10 +194,10 @@ msgid "Favorite"
 msgstr "Favorito"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Esta pasta contém %i jogo, incluindo :%s"
-msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Esta pasta contém %i jogo, incluindo: %s"
+msgstr[1] "Esta pasta contém %i jogos, incluindo: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JOGOS POR TEXTO"
@@ -296,8 +296,8 @@ msgstr "GUARDAR MODIFICAÇÕES?"
 msgid "ARE YOU SURE?"
 msgstr "TEM A CERTEZA?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "DEFINIÇÕES DO RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "DEFINIÇÕES DO RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "DEFINIÇÕES"
@@ -363,8 +363,8 @@ msgstr "CONQUISTAS NÃO OFICIAIS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Ativar o desbloqueio de conquistas não oficiais."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "nenhum"
@@ -375,7 +375,7 @@ msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENTS"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR RETROACHIEVEMENTS NO MENU PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr ""
 "Mostrar ou ocultar as estatísticas relacionadas as RetroAchivements "
 "diretamente do menu principal!"
@@ -892,7 +892,7 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWORD DO ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "JOGOS SEMELHANTES..."
+msgstr "JOGOS SEMELHANTES…"
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
@@ -927,7 +927,7 @@ msgid "WRITE"
 msgstr "ESCREVER"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR..."
+msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A ETIQUETA FOI GRAVADA COM SUCESSO"
@@ -944,7 +944,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA …"
 
 msgid "SCRAPE"
 msgstr "OBTER MEDIA"
@@ -1220,8 +1220,8 @@ msgstr "TECLA DE ATALHO"
 msgid "DEFAULT"
 msgstr "PREDFINIÇÃO"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NENHUM DISPOSITIVO ENCONTRADO (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "NENHUM DISPOSITIVO ENCONTRADO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DEFINIR UMA NOVA TECLA DE ATALHO GLOBAL"
@@ -1386,10 +1386,10 @@ msgid "INPUT MANUALLY"
 msgstr "INSERIR MANUALMENTE"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NENHUMA REDE WIFI ENCONTRADA"
+msgstr "NENHUMA REDE WI-FI ENCONTRADA"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "A PROCURA DE REDES WIFI"
+msgstr "A PROCURA DE REDES WI-FI"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -1613,7 +1613,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "A PROCURA ESTÁ EM CURSO. DESEJA INTERROMPER?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "NENHUM JOGO CORRESPONDE A ESSE CRITÉRIO.."
+msgstr "NENHUM JOGO CORRESPONDE A ESSE CRITÉRIO."
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -2912,26 +2912,26 @@ msgstr "ESTADO DA INTERNET"
 msgid "HOSTNAME"
 msgstr "NOME DA REDE"
 
-msgid "ENABLE WIFI"
-msgstr "ATIVAR WIFI"
+msgid "ENABLE WI-FI"
+msgstr "ATIVAR WI-FI"
 
-msgid "WIFI SSID"
-msgstr "NOME DA REDE WIFI (SSID)"
+msgid "WI-FI SSID"
+msgstr "NOME DA REDE WI-FI (SSID)"
 
-msgid "WIFI KEY"
-msgstr "SENHA DO WIFI"
+msgid "WI-FI KEY"
+msgstr "SENHA DO WI-FI"
 
-msgid "WIFI COUNTRY"
-msgstr "PAÍS WIFI"
+msgid "WI-FI COUNTRY"
+msgstr "PAÍS WI-FI"
 
 msgid "N/A"
 msgstr "NÃO APLICÁVEL"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ATIVADO"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ATIVADO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERRO NA CONFIGURAÇÃO WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "ERRO NA CONFIGURAÇÃO WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
@@ -3068,7 +3068,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "Nenhum disco selecionado"
 
 msgid "Ejecting..."
-msgstr "A ejectar..."
+msgstr "A ejectar…"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -3303,7 +3303,7 @@ msgstr "introduza o caminho para a caixa do jogo"
 msgid "Fan art"
 msgstr "Arte do fã"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "introduza o caminho para a arte do fã"
 
 msgid "Title shot"
@@ -3469,10 +3469,10 @@ msgid "MultiDisk"
 msgstr "Multidisco"
 
 msgid "Loading system config..."
-msgstr "A Carregar a configuração do sistema..."
+msgstr "A Carregar a configuração do sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "A GUARDAR INFORMAÇÕES. POR FAVOR, AGUARDE..."
+msgstr "A GUARDAR INFORMAÇÕES. POR FAVOR, AGUARDE…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "DESEJA TROCAR DE ECRÃ ?"
@@ -3538,10 +3538,10 @@ msgid "Various"
 msgstr "Vários"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Esta coleção contêm %i jogo:%s"
-msgstr[1] "Esta coleção contêm %i jogos, incluído:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Esta coleção contêm %i jogo: %s"
+msgstr[1] "Esta coleção contêm %i jogos, incluído: %s"
 
 msgid "INVALID CONTENT"
 msgstr "CONTEÚDO INVÁLIDO"
@@ -3591,13 +3591,13 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
 msgid "Checking for latest upgrade script..."
-msgstr "A verificar o script de atualização mais recente..."
+msgstr "A verificar o script de atualização mais recente…"
 
 msgid "Collections"
 msgstr "Coleções"
 
 msgid "Searching for devices..."
-msgstr "A procurar dispositivos..."
+msgstr "A procurar dispositivos…"
 
 msgid "FORMATTING DEVICE"
 msgstr "A FORMATAR DISPOSITIVO"
@@ -3687,7 +3687,7 @@ msgid "up/down"
 msgstr "cima/baixo"
 
 msgid "WORKING..."
-msgstr "EM PROGRESSO..."
+msgstr "EM PROGRESSO…"
 
 msgid "accept"
 msgstr "aceitar"
@@ -3727,7 +3727,7 @@ msgstr "%s conectado"
 msgid "%s disconnected"
 msgstr "%s desconectado"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SHIFTS PARA MAIÚSCULAS, MINÚSCULAS E CARACTERES ESPECIAIS"
 
 msgid "ALT GR"
@@ -3915,7 +3915,7 @@ msgstr ""
 "Atire nos alvos para calibrar"
 
 msgid "Reloaded the games list..."
-msgstr "Lista de jogos recarregada..."
+msgstr "Lista de jogos recarregada…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DISCO DE JOGO DETETADO"
@@ -3939,7 +3939,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Isto também se aplicará em arranques futuros)"
 
 msgid "Merge requested... Please wait."
-msgstr "Combinação solicitada... Por favor, aguarde."
+msgstr "Combinação solicitada… Por favor, aguarde."
 
 msgid "MERGE FAILED"
 msgstr "A COPIA FALHOU"
@@ -3954,7 +3954,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NÃO, IGNORAR PARA SEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr "A adicionar o disco à lista de ignorados..."
+msgstr "A adicionar o disco à lista de ignorados…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SIM, UNIR UNIDADE"
@@ -3969,7 +3969,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS OS DADOS EXISTENTES SERÃO APAGADOS)"
 
 msgid "Starting format process..."
-msgstr "A iniciar o processo de formatação..."
+msgstr "A iniciar o processo de formatação…"
 
 msgid "FORMAT FAILED"
 msgstr "FALHA NA FORMATAÇÃO"

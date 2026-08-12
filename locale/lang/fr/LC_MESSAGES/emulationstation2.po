@@ -195,8 +195,8 @@ msgid "Favorite"
 msgstr "Favori"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Ce dossier contient %i jeu, incluant : %s"
 msgstr[1] "Ce dossier contient %i jeux, incluant : %s"
 
@@ -297,7 +297,7 @@ msgstr "SAUVEGARDER LES MODIFICATIONS ?"
 msgid "ARE YOU SURE?"
 msgstr "ÊTES-VOUS SÛR(E) ?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
+msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
@@ -367,7 +367,7 @@ msgstr "SUCCÈS NON OFFICIELS"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Activer le déverrouillage des succès non officiels."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
 msgstr "SON DE DÉBLOQUAGE DE RETROACHIEVEMENTS"
 
 msgid "none"
@@ -379,7 +379,7 @@ msgstr "SON DE DÉBLOQUAGE"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AFFICHER LES RETROACHIEVEMENTS DANS LE MENU PRINCIPAL"
 
-msgid "View your RetroAchievement stats right from the main menu!"
+msgid "View your RetroAchievements stats right from the main menu!"
 msgstr "Voir les stats RetroAchievements depuis le menu principal !"
 
 msgid "GAME INDEXES"
@@ -1221,7 +1221,7 @@ msgstr "RACCOURCI"
 msgid "DEFAULT"
 msgstr "PAR DÉFAUT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr "PÉRIPHÉRIQUE NON TROUVÉ (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2916,26 +2916,26 @@ msgstr "STATUT INTERNET"
 msgid "HOSTNAME"
 msgstr "NOM SUR LE RÉSEAU"
 
-msgid "ENABLE WIFI"
-msgstr "ACTIVER LE WI-FI"
+msgid "ENABLE WI-FI"
+msgstr "ACTIVER LE WI--FI"
 
-msgid "WIFI SSID"
-msgstr "NOM DU RÉSEAU WI-FI"
+msgid "WI-FI SSID"
+msgstr "NOM DU RÉSEAU WI--FI"
 
-msgid "WIFI KEY"
-msgstr "CLÉ WI-FI"
+msgid "WI-FI KEY"
+msgstr "CLÉ WI--FI"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI PAYS"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI PAYS"
 
 msgid "N/A"
 msgstr "N/D"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ACTIVÉ"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ACTIVÉ"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "IMPOSSIBLE DE CONFIGURER LE WI-FI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "IMPOSSIBLE DE CONFIGURER LE WI--FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCÈS RAPIDE"
@@ -3305,7 +3305,7 @@ msgstr "entrer le chemin vers la boîte"
 msgid "Fan art"
 msgstr "Fanart"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "entrer le chemin vers le fanart"
 
 msgid "Title shot"
@@ -3540,8 +3540,8 @@ msgid "Various"
 msgstr "Divers"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] "Cette collection contient %i jeu : %s"
 msgstr[1] "Cette collection contient %i jeux : %s"
 
@@ -3731,7 +3731,7 @@ msgstr "%s connectée"
 msgid "%s disconnected"
 msgstr "%s déconnectée"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPÉCIAL"
 
 msgid "ALT GR"

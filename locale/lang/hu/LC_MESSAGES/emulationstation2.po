@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Játéklista betöltése"
 
 msgid "Loading..."
-msgstr "Betöltés..."
+msgstr "Betöltés…"
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -194,8 +194,8 @@ msgid "Favorite"
 msgstr "Kedvenc"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Ez a könyvtár %i játékot tartalmaz, beleértve: %s"
 msgstr[1] "Ez a könyvtár %i játékot tartalmaz, beleértve: %s"
 
@@ -296,8 +296,8 @@ msgstr "MENTI A VÁLTOZÁSOKAT?"
 msgid "ARE YOU SURE?"
 msgstr "BIZTOS VAGY BENNE?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT BEÁLLÍTÁSOK"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS BEÁLLÍTÁSOK"
 
 msgid "SETTINGS"
 msgstr "BEÁLLÍTÁSOK"
@@ -363,8 +363,8 @@ msgstr "NEM HIVATALOS EREDMÉNYEK"
 msgid "Enable unlocking of unofficial achievements."
 msgstr "Nem hivatalos eredmények feloldásának engedélyezése."
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT FELOLDÁS HANG"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS FELOLDÁS HANG"
 
 msgid "none"
 msgstr "egy sem"
@@ -375,8 +375,8 @@ msgstr "HANGOK ENGEDÉLYEZÉSE"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "RETROACHIEVEMENTS BEJEGYZÉS MEGJELENÍTÉSE A FŐMENÜBEN"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Tekintse meg RetroAchievement statisztikáit közvetlenül a főmenüből!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Tekintse meg RetroAchievements statisztikáit közvetlenül a főmenüből!"
 
 msgid "GAME INDEXES"
 msgstr "JÁTÉK INDEXEK"
@@ -888,7 +888,7 @@ msgid "VIEWER PASSWORD"
 msgstr "NÉZŐ JELSZAVA"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
+msgstr "HASONLÓ JÁTÉKOK KERESÉSE…"
 
 msgid "DELETE ITEM"
 msgstr "TÉTEL TÖRLÉSE"
@@ -924,7 +924,7 @@ msgid "WRITE"
 msgstr "ÍRÁS"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "HELYEZZE A TAGET AZ ÍRÓRA..."
+msgstr "HELYEZZE A TAGET AZ ÍRÓRA…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A TAG ÍRÁSA SIKERESEN BEFEJEZŐDÖTT"
@@ -941,7 +941,7 @@ msgid "FAVORITES"
 msgstr "KEDVENCEK"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ..."
+msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ…"
 
 msgid "SCRAPE"
 msgstr "LEKÉRÉS"
@@ -1219,8 +1219,8 @@ msgstr "GYORSBILLENTYŰ"
 msgid "DEFAULT"
 msgstr "ALAPÉRTELMEZETT"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ÚJ GLOBÁLIS GYORSBILLENTYŰ MEGADÁSA"
@@ -1386,10 +1386,10 @@ msgid "INPUT MANUALLY"
 msgstr "KÉZI BEVITEL"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NINCS WIFI HÁLÓZAT"
+msgstr "NINCS WI-FI HÁLÓZAT"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WIFI HÁLÓZAT KERESÉSE"
+msgstr "WI-FI HÁLÓZAT KERESÉSE"
 
 msgid "PARIS"
 msgstr "PÁRIZS"
@@ -2921,26 +2921,26 @@ msgstr "INTERNET ÁLLAPOTA"
 msgid "HOSTNAME"
 msgstr "HOSZTNÉV"
 
-msgid "ENABLE WIFI"
-msgstr "WIFI ENGEDÉLYEZÉSE"
+msgid "ENABLE WI-FI"
+msgstr "WI-FI ENGEDÉLYEZÉSE"
 
-msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
 
-msgid "WIFI KEY"
-msgstr "WIFI JELSZÓ"
+msgid "WI-FI KEY"
+msgstr "WI-FI JELSZÓ"
 
-msgid "WIFI COUNTRY"
-msgstr "WIFI ORSZÁG"
+msgid "WI-FI COUNTRY"
+msgstr "WI-FI ORSZÁG"
 
 msgid "N/A"
 msgstr "Ismeretlen"
 
-msgid "WIFI ENABLED"
-msgstr "WIFI ENGEDÉLYEZVE"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI ENGEDÉLYEZVE"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI BEÁLLÍTÁSI HIBA"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI BEÁLLÍTÁSI HIBA"
 
 msgid "QUICK ACCESS"
 msgstr "GYORS ELÉRÉS"
@@ -3077,7 +3077,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NINCS KIVÁLASZTVA MEGHAJTÓ"
 
 msgid "Ejecting..."
-msgstr "Kiadás..."
+msgstr "Kiadás…"
 
 msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
@@ -3311,7 +3311,7 @@ msgstr "doboz elérési útja"
 msgid "Fan art"
 msgstr "Rajongói kép"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "rajongói kép elérési útja"
 
 msgid "Title shot"
@@ -3477,10 +3477,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Rendszer konfiguráció betöltése..."
+msgstr "Rendszer konfiguráció betöltése…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ..."
+msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "SZERETNÉ VÁLTANI A KÉPERNYŐT?"
@@ -3546,10 +3546,10 @@ msgid "Various"
 msgstr "Különféle"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Ez a gyűjtemény %i játékot tartalmaz:%s"
-msgstr[1] "Ez a gyűjtemény %i játékot tartalmaz, többek között:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Ez a gyűjtemény %i játékot tartalmaz: %s"
+msgstr[1] "Ez a gyűjtemény %i játékot tartalmaz, többek között: %s"
 
 msgid "INVALID CONTENT"
 msgstr "ÉRVÉNYTELEN TARTALOM"
@@ -3607,7 +3607,7 @@ msgid "Collections"
 msgstr "Gyűjtemények"
 
 msgid "Searching for devices..."
-msgstr "Kontrollerek keresése..."
+msgstr "Kontrollerek keresése…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ESZKÖZ FORMÁZÁSA"
@@ -3676,7 +3676,7 @@ msgid "MISSING MEDIAS"
 msgstr "HIÁNYZÓ MÉDIÁK"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENT KERESÉS"
+msgstr "RETROACHIEVEMENTS KERESÉS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "NETPLAY JÁTÉKOK KERESÉSE"
@@ -3697,7 +3697,7 @@ msgid "up/down"
 msgstr "fel/le"
 
 msgid "WORKING..."
-msgstr "DOLGOZOM..."
+msgstr "DOLGOZOM…"
 
 msgid "accept"
 msgstr "elfogad"
@@ -3737,7 +3737,7 @@ msgstr "%s csatlakozva"
 msgid "%s disconnected"
 msgstr "%s lecsatlakozva"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "VÁLTÁS NAGYBETŰ, KISBETŰ, SPECIÁLIS KÖZÖTT"
 
 msgid "ALT GR"
@@ -3926,7 +3926,7 @@ msgstr ""
 "Tűz a kalibrálandó célpontokra"
 
 msgid "Reloaded the games list..."
-msgstr "Újratöltöttem a játékok listáját..."
+msgstr "Újratöltöttem a játékok listáját…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "JÁTÉKMEGHAJTÓ ÉSZLELVE"
@@ -3950,7 +3950,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Ez a jövőbeli indításokra is vonatkozik)"
 
 msgid "Merge requested... Please wait."
-msgstr "Egyesítés kérése megtörtént... Kérjük, várjon."
+msgstr "Egyesítés kérése megtörtént… Kérjük, várjon."
 
 msgid "MERGE FAILED"
 msgstr "EGYESÍTÉS SIKERTELEN"
@@ -3965,7 +3965,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NEM, ÖRÖKKÉ FIGYELMEN KÍVÜL"
 
 msgid "Adding drive to ignore list..."
-msgstr "Meghajtó hozzáadása a tiltólistához..."
+msgstr "Meghajtó hozzáadása a tiltólistához…"
 
 msgid "YES, MERGE DRIVE"
 msgstr ""
@@ -3980,7 +3980,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(MINDEN MEGLÉVŐ ADAT TÖRLŐDIK)"
 
 msgid "Starting format process..."
-msgstr "Formatálási folyamat indítása..."
+msgstr "Formatálási folyamat indítása…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATÁLÁS SIKERTELEN"
@@ -4053,11 +4053,11 @@ msgstr[1] "%d másodperce"
 #~ msgstr "Egyesíted most a játékokat erről a meghajtóról?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Meghajtó egyesítése... Kérjük, várjon."
+#~ msgstr "Meghajtó egyesítése… Kérjük, várjon."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""
-#~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után..."
+#~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARDVER TÍPUS SZERINT"
@@ -4107,7 +4107,7 @@ msgstr[1] "%d másodperce"
 #~ "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "METAADAT MENTÉSE. VÁRJ..."
+#~ msgstr "METAADAT MENTÉSE. VÁRJ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"

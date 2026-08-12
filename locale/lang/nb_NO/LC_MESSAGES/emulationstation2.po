@@ -106,7 +106,7 @@ msgid "Loading gamelists"
 msgstr "Oppdaterer spillliste"
 
 msgid "Loading..."
-msgstr "Laster..."
+msgstr "Laster…"
 
 msgid "MENU"
 msgstr "MENY"
@@ -196,10 +196,10 @@ msgid "Favorite"
 msgstr "Favoritt"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Denne mappen inneholder %i spill, inkludert :%s"
-msgstr[1] "Denne mappen inneholder %i spill, inkludert :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Denne mappen inneholder %i spill, inkludert: %s"
+msgstr[1] "Denne mappen inneholder %i spill, inkludert: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRER SPILL ETTER TEKST"
@@ -298,8 +298,8 @@ msgstr "LAGRE ENDRINGER?"
 msgid "ARE YOU SURE?"
 msgstr "ER DU SIKKER?"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT INNSTILLINGER"
+msgid "RETROACHIEVEMENTS SETTINGS"
+msgstr "RETROACHIEVEMENTS INNSTILLINGER"
 
 msgid "SETTINGS"
 msgstr "INNSTILLINGER"
@@ -361,8 +361,8 @@ msgstr ""
 msgid "Enable unlocking of unofficial achievements."
 msgstr ""
 
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT LÅS-OPP-LYD"
+msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTS LÅS-OPP-LYD"
 
 msgid "none"
 msgstr "ingen"
@@ -373,8 +373,8 @@ msgstr "LÅS OPP LYD"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "VIS RETROACHIEVEMENTS INNLEGG I HOVEDMENY"
 
-msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Se RetroAchievement-statistikken din rett fra hovedmenyen!"
+msgid "View your RetroAchievements stats right from the main menu!"
+msgstr "Se RetroAchievements-statistikken din rett fra hovedmenyen!"
 
 msgid "GAME INDEXES"
 msgstr "SPILL INDEKSER"
@@ -886,7 +886,7 @@ msgid "VIEWER PASSWORD"
 msgstr "SEERPASSORD"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "FINN LIGNENDE SPILL..."
+msgstr "FINN LIGNENDE SPILL…"
 
 msgid "DELETE ITEM"
 msgstr "SLETT ELEMENT"
@@ -1211,7 +1211,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "STANDARD"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
@@ -2893,26 +2893,26 @@ msgstr "INTERNETT STATUS"
 msgid "HOSTNAME"
 msgstr "ENHETSNAVN"
 
-msgid "ENABLE WIFI"
-msgstr "AKTIVER WIFI"
+msgid "ENABLE WI-FI"
+msgstr "AKTIVER WI-FI"
 
-msgid "WIFI SSID"
+msgid "WI-FI SSID"
 msgstr "NETTVERKSNAVN"
 
-msgid "WIFI KEY"
+msgid "WI-FI KEY"
 msgstr "NETTVERKSPASSORD"
 
-msgid "WIFI COUNTRY"
+msgid "WI-FI COUNTRY"
 msgstr ""
 
 msgid "N/A"
 msgstr ""
 
-msgid "WIFI ENABLED"
-msgstr "WIFI AKTIVERT"
+msgid "WI-FI ENABLED"
+msgstr "WI-FI AKTIVERT"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI KONFIGURASJONSFEIL"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr "WI-FI KONFIGURASJONSFEIL"
 
 msgid "QUICK ACCESS"
 msgstr "RASK TILGANG"
@@ -3283,7 +3283,7 @@ msgstr "skriv inn sti til boks"
 msgid "Fan art"
 msgstr "Fan kunst"
 
-msgid "enter path to fanart"
+msgid "enter path to fan art"
 msgstr "skriv inn sti til fankunst"
 
 msgid "Title shot"
@@ -3449,10 +3449,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Laster systemkonfigurasjon..."
+msgstr "Laster systemkonfigurasjon…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "LAGRER METADATA. VENNLIGST VENT..."
+msgstr "LAGRER METADATA. VENNLIGST VENT…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VIL DU BYTTE SKJERM?"
@@ -3518,10 +3518,10 @@ msgid "Various"
 msgstr "Diverse"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Denne samlingen inneholder %i spill, inkludert :%s"
-msgstr[1] "Denne samlingen inneholder %i spill, inkludert :%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Denne samlingen inneholder %i spill, inkludert: %s"
+msgstr[1] "Denne samlingen inneholder %i spill, inkludert: %s"
 
 msgid "INVALID CONTENT"
 msgstr "UGYLDIG INNHOLD"
@@ -3579,7 +3579,7 @@ msgid "Collections"
 msgstr "Samlinger"
 
 msgid "Searching for devices..."
-msgstr "Søker etter enheter..."
+msgstr "Søker etter enheter…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATERER ENHET"
@@ -3669,7 +3669,7 @@ msgid "up/down"
 msgstr "opp/ned"
 
 msgid "WORKING..."
-msgstr "ARBEIDER..."
+msgstr "ARBEIDER…"
 
 msgid "accept"
 msgstr "aksepter"
@@ -3709,7 +3709,7 @@ msgstr "%s tilkoblet"
 msgid "%s disconnected"
 msgstr "%s koblet fra"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgid "SHIFTS FOR UPPER, LOWER, AND SPECIAL"
 msgstr "SKIFT TEGN"
 
 msgid "ALT GR"
