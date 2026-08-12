@@ -105,7 +105,7 @@ msgid "Loading gamelists"
 msgstr "Carregant llistes de jocs"
 
 msgid "Loading..."
-msgstr "Carregant..."
+msgstr "Carregant…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -1220,7 +1220,7 @@ msgid "DEFAULT"
 msgstr "PER DEFECTE"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "DISPOSITIU NO TROBAT (JAMMASD, IPAC...)"
+msgstr "DISPOSITIU NO TROBAT (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNA NOVA DREÇERA GLOBAL"
@@ -3476,7 +3476,7 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Carregant configuració de sistema..."
+msgstr "Carregant configuració de sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "DESANT METADADES. SI US PLAU, ESPERA…"
@@ -4059,7 +4059,7 @@ msgstr[1] "fa %d segons"
 #~ "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "DESANT METADADES. SI US PLAU ESPERI..."
+#~ msgstr "DESANT METADADES. SI US PLAU ESPERI…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR UN DISPOSITIU BLUETOOTH"

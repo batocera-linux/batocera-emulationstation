@@ -99,7 +99,7 @@ msgid "Loading gamelists"
 msgstr ""
 
 msgid "Loading..."
-msgstr "Завантаження..."
+msgstr "Завантаження…"
 
 msgid "MENU"
 msgstr "МЕНЮ"
@@ -882,7 +882,7 @@ msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
+msgstr "ЗНАЙТИ СХОЖІ ІГРИ…"
 
 msgid "DELETE ITEM"
 msgstr ""
@@ -917,7 +917,7 @@ msgid "WRITE"
 msgstr "ЗАПИСАТИ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "ПРИКЛАДІТЬ МІТКУ ДО ПРИСТРОЮ ДЛЯ ЗАПИСУ..."
+msgstr "ПРИКЛАДІТЬ МІТКУ ДО ПРИСТРОЮ ДЛЯ ЗАПИСУ…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "МІТКУ УСПІШНО ЗАПИСАНО"
@@ -3415,7 +3415,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Завантаження системних налаштувань..."
+msgstr "Завантаження системних налаштувань…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3544,7 +3544,7 @@ msgid "Collections"
 msgstr ""
 
 msgid "Searching for devices..."
-msgstr "Пошук контролерів..."
+msgstr "Пошук контролерів…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ФОРМАТУВАННЯ НОСІЯ"
@@ -3634,7 +3634,7 @@ msgid "up/down"
 msgstr "вгору/вниз"
 
 msgid "WORKING..."
-msgstr "ОБРОБКА..."
+msgstr "ОБРОБКА…"
 
 msgid "accept"
 msgstr "прийняти"
@@ -3987,7 +3987,7 @@ msgstr[2] ""
 #~ msgstr "РЕЖИМ КОРИСТУВАЧА РОЗБЛОКОВАНО"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
+#~ msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ЗАБУТИ BLUETOOTH ПРИСТРІЙ"
@@ -4403,7 +4403,7 @@ msgstr[2] ""
 #~ msgstr "ЗАВЕРШИТИ РЕДАГУВАТИ КОЛЕКЦІЇ"
 
 #~ msgid "JUMP TO..."
-#~ msgstr "ПЕРЕЙТИ ДО..."
+#~ msgstr "ПЕРЕЙТИ ДО…"
 
 #~ msgid "COLLECTION MANAGEMENT"
 #~ msgstr "КЕРУВАННЯ КОЛЕКЦІЄЮ"

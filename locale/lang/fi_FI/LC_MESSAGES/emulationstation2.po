@@ -108,7 +108,7 @@ msgid "Loading gamelists"
 msgstr "Ladataan pelilistaa"
 
 msgid "Loading..."
-msgstr "Ladataan..."
+msgstr "Ladataan…"
 
 msgid "MENU"
 msgstr "VALIKKO"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "KATSELIJAN SALASANA"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "ETSI SAMANKALTAISIA PELEJÄ..."
+msgstr "ETSI SAMANKALTAISIA PELEJÄ…"
 
 msgid "DELETE ITEM"
 msgstr "POISTA KOHDE"
@@ -940,7 +940,7 @@ msgid "FAVORITES"
 msgstr "SUOSIKIT"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "LISÄÄ MUKAUTETTUUN KOKOELMAAN..."
+msgstr "LISÄÄ MUKAUTETTUUN KOKOELMAAN…"
 
 msgid "SCRAPE"
 msgstr "ETSI TIETOA"
@@ -3572,7 +3572,7 @@ msgid "Collections"
 msgstr ""
 
 msgid "Searching for devices..."
-msgstr "Etsitään laitteita..."
+msgstr "Etsitään laitteita…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ALUSTETAAN LAITETTA"

@@ -107,7 +107,7 @@ msgid "Loading gamelists"
 msgstr "Načítavam zoznamy hier"
 
 msgid "Loading..."
-msgstr "Načítavam..."
+msgstr "Načítavam…"
 
 msgid "MENU"
 msgstr "Ponuka"
@@ -890,7 +890,7 @@ msgid "VIEWER PASSWORD"
 msgstr "Heslo prezerača"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "Nájsť podobné hry..."
+msgstr "Nájsť podobné hry…"
 
 msgid "DELETE ITEM"
 msgstr "Vymazať položku"
@@ -925,7 +925,7 @@ msgid "WRITE"
 msgstr "Zápis"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "Umiestniť značku na zapisovač..."
+msgstr "Umiestniť značku na zapisovač…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "Značka bola úspešne zapísaná"
@@ -942,7 +942,7 @@ msgid "FAVORITES"
 msgstr "Obľúbené"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "Pridať do vlastnej kolekcie..."
+msgstr "Pridať do vlastnej kolekcie…"
 
 msgid "SCRAPE"
 msgstr "Vyhľadať"
@@ -3055,7 +3055,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "Nevybraný disk"
 
 msgid "Ejecting..."
-msgstr "Vysúvam..."
+msgstr "Vysúvam…"
 
 msgid "EDIT METADATA"
 msgstr "Upraviť metadáta"
@@ -3456,10 +3456,10 @@ msgid "MultiDisk"
 msgstr "MultiDisk"
 
 msgid "Loading system config..."
-msgstr "Načítavam systémové nastavenie..."
+msgstr "Načítavam systémové nastavenie…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "Ukladám metadáta, počkajte prosím..."
+msgstr "Ukladám metadáta, počkajte prosím…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "Chcete prepnúť obrazovku?"
@@ -3587,7 +3587,7 @@ msgid "Collections"
 msgstr "Kolekcie"
 
 msgid "Searching for devices..."
-msgstr "Hľadám zariadenia..."
+msgstr "Hľadám zariadenia…"
 
 msgid "FORMATTING DEVICE"
 msgstr "Formátujem zariadenie"
@@ -3677,7 +3677,7 @@ msgid "up/down"
 msgstr "hore/dolu"
 
 msgid "WORKING..."
-msgstr "Pracujem..."
+msgstr "Pracujem…"
 
 msgid "accept"
 msgstr "prijať"
@@ -3908,7 +3908,7 @@ msgstr ""
 "Vystreľte na cieľ na kalibráciu"
 
 msgid "Reloaded the games list..."
-msgstr "Znovu načítaný zoznam hier..."
+msgstr "Znovu načítaný zoznam hier…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "Zistil sa disk s hrou"
@@ -3932,7 +3932,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Toto sa použije aj pri ďalších spusteniach)"
 
 msgid "Merge requested... Please wait."
-msgstr "Požadované zlúčenie... prosím čakajte."
+msgstr "Požadované zlúčenie… prosím čakajte."
 
 msgid "MERGE FAILED"
 msgstr "Zlúčenie zlyhalo"
@@ -3947,7 +3947,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "Nie, ignorovať navždy"
 
 msgid "Adding drive to ignore list..."
-msgstr "Pridávam disk do ignore listu..."
+msgstr "Pridávam disk do ignore listu…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "Áno, zlúčiť disk"
@@ -3962,7 +3962,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(všetky existujúce dáta budú vymazané)"
 
 msgid "Starting format process..."
-msgstr "Spúšťam proces formátovania..."
+msgstr "Spúšťam proces formátovania…"
 
 msgid "FORMAT FAILED"
 msgstr "Formátovanie zlyhalo"
@@ -4040,10 +4040,10 @@ msgstr[2] "Pred %d sekundami"
 #~ msgstr "Zlúčiť hry z tohto disku?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Zlučujem disk... Prosím, čakajte."
+#~ msgstr "Zlučujem disk… Prosím, čakajte."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier..."
+#~ msgstr "Nový obsah disku bude dostupný po obnovení zoznamu hier…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "Podľa typu hardvéru"
@@ -4086,7 +4086,7 @@ msgstr[2] "Pred %d sekundami"
 #~ "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "Ukladanie metadát. Prosím, čakajte..."
+#~ msgstr "Ukladanie metadát. Prosím, čakajte…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "Zabudnúť bluetooth zariadenie"

@@ -99,7 +99,7 @@ msgid "Loading gamelists"
 msgstr "טוען רשימת משחקים"
 
 msgid "Loading..."
-msgstr "טוען..."
+msgstr "טוען…"
 
 msgid "MENU"
 msgstr "תפריט"
@@ -881,7 +881,7 @@ msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "מציאת משחקים דומים..."
+msgstr "מציאת משחקים דומים…"
 
 msgid "DELETE ITEM"
 msgstr "מחיקת פריט"
@@ -928,7 +928,7 @@ msgid "FAVORITES"
 msgstr "מועדפים"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "הוסף לאוסף מותאם אישית..."
+msgstr "הוסף לאוסף מותאם אישית…"
 
 msgid "SCRAPE"
 msgstr "SCRAPE"
@@ -1651,7 +1651,7 @@ msgid "SCREENSAVER SETTINGS"
 msgstr "הגדרות שומר מסך"
 
 msgid "START SCREENSAVER AFTER"
-msgstr "התחל שומר מסך לאחר..."
+msgstr "התחל שומר מסך לאחר…"
 
 msgid "SCREENSAVER TYPE"
 msgstr "סוג שומר המסך"
@@ -4357,7 +4357,7 @@ msgstr[3] ""
 #~ msgstr "מראה"
 
 #~ msgid "Searching controllers..."
-#~ msgstr "מחפש בקרים..."
+#~ msgstr "מחפש בקרים…"
 
 #~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 #~ msgstr "סריקת בלו-טות' מתבצעת."

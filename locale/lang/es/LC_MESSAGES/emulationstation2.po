@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Cargando listas de juegos"
 
 msgid "Loading..."
-msgstr "Cargando..."
+msgstr "Cargando…"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -505,7 +505,7 @@ msgid "ZOOM"
 msgstr "ZOOM"
 
 msgid "PLEASE WAIT"
-msgstr "POR FAVOR, ESPERE..."
+msgstr "POR FAVOR, ESPERE…"
 
 #, c-format
 msgid "%d of %d softcore points"
@@ -891,7 +891,7 @@ msgid "VIEWER PASSWORD"
 msgstr "CONTRASEÑA PARA ESPECTADORES"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "BUSCAR JUEGOS SIMILARES..."
+msgstr "BUSCAR JUEGOS SIMILARES…"
 
 msgid "DELETE ITEM"
 msgstr "ELIMINAR ELEMENTO"
@@ -943,7 +943,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AÑADIR A COLECCIÓN PERSONALIZADA..."
+msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
 msgstr "ESCRAPEAR JUEGO"
@@ -1223,7 +1223,7 @@ msgid "DEFAULT"
 msgstr "POR DEFECTO"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "NO SE ENCONTRÓ NINGÚN DISPOSITIVO (JAMMASD, IPAC...)"
+msgstr "NO SE ENCONTRÓ NINGÚN DISPOSITIVO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DECLARAR UNA NUEVA TECLA DE ACCESO RÁPIDO GLOBAL"
@@ -3083,7 +3083,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NO HAY UNIDAD SELECCIONADA"
 
 msgid "Ejecting..."
-msgstr "Expulsando..."
+msgstr "Expulsando…"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR METADATOS"
@@ -3484,10 +3484,10 @@ msgid "MultiDisk"
 msgstr "Multidisco"
 
 msgid "Loading system config..."
-msgstr "Cargando configuración del sistema..."
+msgstr "Cargando configuración del sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "GUARDANDO METADATO. POR FAVOR, ESPERA..."
+msgstr "GUARDANDO METADATO. POR FAVOR, ESPERA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "¿QUIERES CAMBIAR LA PANTALLA?"
@@ -3614,7 +3614,7 @@ msgid "Collections"
 msgstr "Colecciones"
 
 msgid "Searching for devices..."
-msgstr "Buscando dispositivos..."
+msgstr "Buscando dispositivos…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATEANDO DISPOSITIVO"
@@ -3704,7 +3704,7 @@ msgid "up/down"
 msgstr "arriba/abajo"
 
 msgid "WORKING..."
-msgstr "EN CURSO..."
+msgstr "EN CURSO…"
 
 msgid "accept"
 msgstr "aceptar"
@@ -3932,7 +3932,7 @@ msgstr ""
 "Dispara a los objetivos para calibrar"
 
 msgid "Reloaded the games list..."
-msgstr "Recargada la lista de juegos..."
+msgstr "Recargada la lista de juegos…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "UNIDAD DE JUEGO DETECTADA"
@@ -3956,7 +3956,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Esto también se aplicará en futuros arranques)"
 
 msgid "Merge requested... Please wait."
-msgstr "Fusión solicitada...Por favor, espere."
+msgstr "Fusión solicitada… Por favor, espere."
 
 msgid "MERGE FAILED"
 msgstr "FUSIÓN FALLIDA"
@@ -3971,7 +3971,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NO, IGNORAR PARA SIEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr "Agregando unidad a la lista de ignorados..."
+msgstr "Agregando unidad a la lista de ignorados…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SÍ, UNIDAD FUSIONADA"
@@ -3986,7 +3986,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS LOS DATOS EXISTENTES SERÁN BORRADOS)"
 
 msgid "Starting format process..."
-msgstr "Iniciando proceso de formato..."
+msgstr "Iniciando proceso de formato…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATEADO FALLIDO"
@@ -4059,12 +4059,12 @@ msgstr[1] "hace %d segundos"
 #~ msgstr "¿Fusionar juegos de esta unidad ahora?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Fusionando unidad... Por favor, espere."
+#~ msgstr "Fusionando unidad… Por favor, espere."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""
 #~ "El nuevo contenido de la unidad estará disponible después de que se "
-#~ "actualice la lista de juegos..."
+#~ "actualice la lista de juegos…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "POR HARDWARE"
@@ -4111,7 +4111,7 @@ msgstr[1] "hace %d segundos"
 #~ "PlayCount (Recuento de partidas) y LastPlayed (Jugado por última vez)."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERE..."
+#~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERE…"
 
 #~ msgid "NEVER"
 #~ msgstr "NUNCA"

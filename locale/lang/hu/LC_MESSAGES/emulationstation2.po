@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Játéklista betöltése"
 
 msgid "Loading..."
-msgstr "Betöltés..."
+msgstr "Betöltés…"
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -888,7 +888,7 @@ msgid "VIEWER PASSWORD"
 msgstr "NÉZŐ JELSZAVA"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
+msgstr "HASONLÓ JÁTÉKOK KERESÉSE…"
 
 msgid "DELETE ITEM"
 msgstr "TÉTEL TÖRLÉSE"
@@ -924,7 +924,7 @@ msgid "WRITE"
 msgstr "ÍRÁS"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "HELYEZZE A TAGET AZ ÍRÓRA..."
+msgstr "HELYEZZE A TAGET AZ ÍRÓRA…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A TAG ÍRÁSA SIKERESEN BEFEJEZŐDÖTT"
@@ -941,7 +941,7 @@ msgid "FAVORITES"
 msgstr "KEDVENCEK"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ..."
+msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ…"
 
 msgid "SCRAPE"
 msgstr "LEKÉRÉS"
@@ -1220,7 +1220,7 @@ msgid "DEFAULT"
 msgstr "ALAPÉRTELMEZETT"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC...)"
+msgstr "NEM TALÁLHATÓ ESZKÖZ (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "ÚJ GLOBÁLIS GYORSBILLENTYŰ MEGADÁSA"
@@ -3077,7 +3077,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "NINCS KIVÁLASZTVA MEGHAJTÓ"
 
 msgid "Ejecting..."
-msgstr "Kiadás..."
+msgstr "Kiadás…"
 
 msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
@@ -3477,10 +3477,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Rendszer konfiguráció betöltése..."
+msgstr "Rendszer konfiguráció betöltése…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ..."
+msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "SZERETNÉ VÁLTANI A KÉPERNYŐT?"
@@ -3607,7 +3607,7 @@ msgid "Collections"
 msgstr "Gyűjtemények"
 
 msgid "Searching for devices..."
-msgstr "Kontrollerek keresése..."
+msgstr "Kontrollerek keresése…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ESZKÖZ FORMÁZÁSA"
@@ -3697,7 +3697,7 @@ msgid "up/down"
 msgstr "fel/le"
 
 msgid "WORKING..."
-msgstr "DOLGOZOM..."
+msgstr "DOLGOZOM…"
 
 msgid "accept"
 msgstr "elfogad"
@@ -3926,7 +3926,7 @@ msgstr ""
 "Tűz a kalibrálandó célpontokra"
 
 msgid "Reloaded the games list..."
-msgstr "Újratöltöttem a játékok listáját..."
+msgstr "Újratöltöttem a játékok listáját…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "JÁTÉKMEGHAJTÓ ÉSZLELVE"
@@ -3950,7 +3950,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Ez a jövőbeli indításokra is vonatkozik)"
 
 msgid "Merge requested... Please wait."
-msgstr "Egyesítés kérése megtörtént... Kérjük, várjon."
+msgstr "Egyesítés kérése megtörtént… Kérjük, várjon."
 
 msgid "MERGE FAILED"
 msgstr "EGYESÍTÉS SIKERTELEN"
@@ -3965,7 +3965,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NEM, ÖRÖKKÉ FIGYELMEN KÍVÜL"
 
 msgid "Adding drive to ignore list..."
-msgstr "Meghajtó hozzáadása a tiltólistához..."
+msgstr "Meghajtó hozzáadása a tiltólistához…"
 
 msgid "YES, MERGE DRIVE"
 msgstr ""
@@ -3980,7 +3980,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(MINDEN MEGLÉVŐ ADAT TÖRLŐDIK)"
 
 msgid "Starting format process..."
-msgstr "Formatálási folyamat indítása..."
+msgstr "Formatálási folyamat indítása…"
 
 msgid "FORMAT FAILED"
 msgstr "FORMATÁLÁS SIKERTELEN"
@@ -4053,11 +4053,11 @@ msgstr[1] "%d másodperce"
 #~ msgstr "Egyesíted most a játékokat erről a meghajtóról?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Meghajtó egyesítése... Kérjük, várjon."
+#~ msgstr "Meghajtó egyesítése… Kérjük, várjon."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""
-#~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után..."
+#~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARDVER TÍPUS SZERINT"
@@ -4107,7 +4107,7 @@ msgstr[1] "%d másodperce"
 #~ "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "METAADAT MENTÉSE. VÁRJ..."
+#~ msgstr "METAADAT MENTÉSE. VÁRJ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"

@@ -99,7 +99,7 @@ msgid "Loading gamelists"
 msgstr "Llwytho rhestr gemau"
 
 msgid "Loading..."
-msgstr "Llwytho..."
+msgstr "Llwytho…"
 
 msgid "MENU"
 msgstr "DEWISLEN"
@@ -889,7 +889,7 @@ msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "DOD O HYD I GEMAU TEBYG ..."
+msgstr "DOD O HYD I GEMAU TEBYG…"
 
 msgid "DELETE ITEM"
 msgstr ""
@@ -3419,7 +3419,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Llwytho system ffurfweddu..."
+msgstr "Llwytho system ffurfweddu…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
@@ -3552,7 +3552,7 @@ msgid "Collections"
 msgstr "Casgliadau"
 
 msgid "Searching for devices..."
-msgstr "Chwilio am rheolyddion..."
+msgstr "Chwilio am rheolyddion…"
 
 msgid "FORMATTING DEVICE"
 msgstr ""
@@ -3642,7 +3642,7 @@ msgid "up/down"
 msgstr "lan/lawr"
 
 msgid "WORKING..."
-msgstr "YN GWEITHIO..."
+msgstr "YN GWEITHIO…"
 
 msgid "accept"
 msgstr "derbyn"
@@ -4019,7 +4019,7 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ msgstr "GAN Y FATH O GALEDWEDD"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
+#~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA…"
 
 #~ msgid "Achievements won"
 #~ msgstr "Cyflawniadau a enillwyd"

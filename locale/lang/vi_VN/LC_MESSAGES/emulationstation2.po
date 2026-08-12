@@ -110,7 +110,7 @@ msgid "Loading gamelists"
 msgstr "Đang nạp danh sách trò chơi"
 
 msgid "Loading..."
-msgstr "Đang nạp dữ liệu..."
+msgstr "Đang nạp dữ liệu…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -889,7 +889,7 @@ msgid "VIEWER PASSWORD"
 msgstr "MẬT KHẨU NGƯỜI XEM"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ..."
+msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ…"
 
 msgid "DELETE ITEM"
 msgstr "XÓA MỤC"
@@ -938,7 +938,7 @@ msgid "FAVORITES"
 msgstr "ƯA THÍCH"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "THÊM VÀO BỘ SƯU TẬP TÙY CHỈNH..."
+msgstr "THÊM VÀO BỘ SƯU TẬP TÙY CHỈNH…"
 
 msgid "SCRAPE"
 msgstr "LẤY DỮ LIỆU TRÒ CHƠI"
@@ -3457,10 +3457,10 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Đang tải cấu hình hệ thống..."
+msgstr "Đang tải cấu hình hệ thống…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "ĐANG LƯU METADATA. VUI LÒNG CHÒ..."
+msgstr "ĐANG LƯU METADATA. VUI LÒNG CHÒ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "BẠN CÓ MUỐN CHUYỂN MÀN HÌNH?"
@@ -3586,7 +3586,7 @@ msgid "Collections"
 msgstr "Bộ sưu tập"
 
 msgid "Searching for devices..."
-msgstr "Đang tìm thiết bị..."
+msgstr "Đang tìm thiết bị…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ĐANG ĐỊNH DẠNG THIẾT BỊ"
@@ -3676,7 +3676,7 @@ msgid "up/down"
 msgstr "lên/xuống"
 
 msgid "WORKING..."
-msgstr "ĐANG LÀM VIỆC..."
+msgstr "ĐANG LÀM VIỆC…"
 
 msgid "accept"
 msgstr "chấp nhận"
@@ -4050,7 +4050,7 @@ msgstr[0] "%d giây trước"
 #~ msgstr "rgb dmd order"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ..."
+#~ msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "QUÊN THIẾT BỊ BLUETOOTH"

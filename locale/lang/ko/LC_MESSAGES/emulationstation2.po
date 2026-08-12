@@ -106,7 +106,7 @@ msgid "Loading gamelists"
 msgstr "게임목록 불러오는 중"
 
 msgid "Loading..."
-msgstr "불러오는 중..."
+msgstr "불러오는 중…"
 
 msgid "MENU"
 msgstr "메뉴"
@@ -882,7 +882,7 @@ msgid "VIEWER PASSWORD"
 msgstr "관전자 비밀번호"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "비슷한 게임 찾기..."
+msgstr "비슷한 게임 찾기…"
 
 msgid "DELETE ITEM"
 msgstr "아이템 삭제"
@@ -917,7 +917,7 @@ msgid "WRITE"
 msgstr "쓰기"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "작성자에게 태그를 붙이세요..."
+msgstr "작성자에게 태그를 붙이세요…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "태그가 성공적으로 작성되됨"
@@ -934,7 +934,7 @@ msgid "FAVORITES"
 msgstr "즐겨찾기"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "커스텀 컬렉션에 추가..."
+msgstr "커스텀 컬렉션에 추가…"
 
 msgid "SCRAPE"
 msgstr "스크랩"
@@ -3040,7 +3040,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "드라이브가 선택되지 않았"
 
 msgid "Ejecting..."
-msgstr "꺼내는 중..."
+msgstr "꺼내는 중…"
 
 msgid "EDIT METADATA"
 msgstr "메타데이터 편집"
@@ -3440,10 +3440,10 @@ msgid "MultiDisk"
 msgstr "멀티디스크"
 
 msgid "Loading system config..."
-msgstr "시스템 구성 불러오는 중..."
+msgstr "시스템 구성 불러오는 중…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "메타데이터를 저장하는 중입니다. 잠시만 기다려 주세요..."
+msgstr "메타데이터를 저장하는 중입니다. 잠시만 기다려 주세요…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "스크린 전환을 원하나요?"
@@ -3567,7 +3567,7 @@ msgid "Collections"
 msgstr "컬렉션"
 
 msgid "Searching for devices..."
-msgstr "장치를 검색 중..."
+msgstr "장치를 검색 중…"
 
 msgid "FORMATTING DEVICE"
 msgstr "포맷 장치"
@@ -3657,7 +3657,7 @@ msgid "up/down"
 msgstr "위/아래"
 
 msgid "WORKING..."
-msgstr "작업 중..."
+msgstr "작업 중…"
 
 msgid "accept"
 msgstr "동의"
@@ -3882,7 +3882,7 @@ msgstr ""
 "목표물을 쏘아 보정"
 
 msgid "Reloaded the games list..."
-msgstr "게임 목록을 다시 불러옴..."
+msgstr "게임 목록을 다시 불러옴…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "게임 드라이브 감지됨"
@@ -3906,7 +3906,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(이 사항은 향후 출시될 부츠에도 적용됨)"
 
 msgid "Merge requested... Please wait."
-msgstr "병합 요청됨... 잠시 기다려 주세요."
+msgstr "병합 요청됨… 잠시 기다려 주세요."
 
 msgid "MERGE FAILED"
 msgstr "병합 실패"
@@ -3921,7 +3921,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "아니오, 영원히 무시합니다"
 
 msgid "Adding drive to ignore list..."
-msgstr "무시 목록에 드라이브를 추가하는 중..."
+msgstr "무시 목록에 드라이브를 추가하는 중…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "네, 병합 드라이브"
@@ -3936,7 +3936,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(기존 데이터는 모두 삭제됨)"
 
 msgid "Starting format process..."
-msgstr "포맷 프로세스 시작 중..."
+msgstr "포맷 프로세스 시작 중…"
 
 msgid "FORMAT FAILED"
 msgstr "포맷 실패하였음"
@@ -4004,7 +4004,7 @@ msgstr[0] "%d 초 전"
 #~ msgstr "이 드라이브의 게임들을 지금 병합할까요?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "드라이브 병합 중... 잠시 기다려 주세요."
+#~ msgstr "드라이브 병합 중… 잠시 기다려 주세요."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
 #~ msgstr ""

@@ -102,7 +102,7 @@ msgid "Loading gamelists"
 msgstr "正在加载游戏列表"
 
 msgid "Loading..."
-msgstr "载入中..."
+msgstr "载入中…"
 
 msgid "MENU"
 msgstr "菜单"
@@ -877,7 +877,7 @@ msgid "VIEWER PASSWORD"
 msgstr "观众密码"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "寻找类似游戏..."
+msgstr "寻找类似游戏…"
 
 msgid "DELETE ITEM"
 msgstr "删除项目"
@@ -912,7 +912,7 @@ msgid "WRITE"
 msgstr "写入"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "为作者写入标签..."
+msgstr "为作者写入标签…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "标签写入成功"
@@ -929,7 +929,7 @@ msgid "FAVORITES"
 msgstr "收藏"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "添加到自定义合辑..."
+msgstr "添加到自定义合辑…"
 
 msgid "SCRAPE"
 msgstr "抓取封面元数据"
@@ -1205,7 +1205,7 @@ msgid "DEFAULT"
 msgstr "默认"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "未找到设备 (JAMMASD, IPAC...)"
+msgstr "未找到设备 (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新建全局热键"
@@ -3023,7 +3023,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "未选择驱动器"
 
 msgid "Ejecting..."
-msgstr "弹出..."
+msgstr "弹出…"
 
 msgid "EDIT METADATA"
 msgstr "编辑元数据"
@@ -3423,10 +3423,10 @@ msgid "MultiDisk"
 msgstr "多磁盘"
 
 msgid "Loading system config..."
-msgstr "正在载入系统配置..."
+msgstr "正在载入系统配置…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "保存元数据中, 请稍候..."
+msgstr "保存元数据中, 请稍候…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "你想切换屏幕吗？"
@@ -3545,13 +3545,13 @@ msgid "UKNOWN ERROR"
 msgstr "未知错误"
 
 msgid "Checking for latest upgrade script..."
-msgstr "正在检查最新的升级脚本..."
+msgstr "正在检查最新的升级脚本…"
 
 msgid "Collections"
 msgstr "合辑"
 
 msgid "Searching for devices..."
-msgstr "正在搜索设备..."
+msgstr "正在搜索设备…"
 
 msgid "FORMATTING DEVICE"
 msgstr "格式化驱动器"
@@ -3641,7 +3641,7 @@ msgid "up/down"
 msgstr "上/下"
 
 msgid "WORKING..."
-msgstr "进行中..."
+msgstr "进行中…"
 
 msgid "accept"
 msgstr "接受"
@@ -3866,7 +3866,7 @@ msgstr ""
 "对准目标射击以进行校准"
 
 msgid "Reloaded the games list..."
-msgstr "已重新加载游戏列表..."
+msgstr "已重新加载游戏列表…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "检测到游戏驱动器"
@@ -3890,7 +3890,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(这也将适用于未来的启动)"
 
 msgid "Merge requested... Please wait."
-msgstr "合并请求中... 请稍候."
+msgstr "合并请求中… 请稍候."
 
 msgid "MERGE FAILED"
 msgstr "合并失败"
@@ -3905,7 +3905,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "否, 永远忽略"
 
 msgid "Adding drive to ignore list..."
-msgstr "将驱动器添加到忽略列表中..."
+msgstr "将驱动器添加到忽略列表中…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "是的，合并驱动器"
@@ -3920,7 +3920,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(所有现有数据将被清除)"
 
 msgid "Starting format process..."
-msgstr "正在启动格式化进程..."
+msgstr "正在启动格式化进程…"
 
 msgid "FORMAT FAILED"
 msgstr "格式化失败"
@@ -3988,10 +3988,10 @@ msgstr[0] "%d 秒前"
 #~ msgstr "现在从这个硬盘合并游戏吗?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "正在合并驱动器... 请稍候."
+#~ msgstr "正在合并驱动器… 请稍候."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "游戏列表刷新后, 将有新的硬盘内容可用..."
+#~ msgstr "游戏列表刷新后, 将有新的硬盘内容可用…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "按硬件类型"
@@ -4036,7 +4036,7 @@ msgstr[0] "%d 秒前"
 #~ msgstr "重置游玩时间、游玩次数和上次游玩时间元数据的值。"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "正在保存元数据。请稍候..."
+#~ msgstr "正在保存元数据。请稍候…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "解除配对的蓝牙设备"

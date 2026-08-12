@@ -3615,7 +3615,7 @@ msgid "up/down"
 msgstr ""
 
 msgid "WORKING..."
-msgstr "ARBEIDER..."
+msgstr "ARBEIDER…"
 
 msgid "accept"
 msgstr ""
@@ -4200,10 +4200,10 @@ msgstr[1] ""
 #~ msgstr "SIDE NED"
 
 #~ msgid "LOADING..."
-#~ msgstr "LASTER..."
+#~ msgstr "LASTER…"
 
 #~ msgid "PLEASE WAIT..."
-#~ msgstr "VENNLIGST VENT..."
+#~ msgstr "VENNLIGST VENT…"
 
 #~ msgid "just now"
 #~ msgstr "akkurat nå"

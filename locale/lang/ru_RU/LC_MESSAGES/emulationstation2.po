@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Загрузка списка игр"
 
 msgid "Loading..."
-msgstr "Загрузка..."
+msgstr "Загрузка…"
 
 msgid "MENU"
 msgstr "МЕНЮ"
@@ -890,7 +890,7 @@ msgid "VIEWER PASSWORD"
 msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
+msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ…"
 
 msgid "DELETE ITEM"
 msgstr "УДАЛИТЬ ОБЪЕКТ"
@@ -925,7 +925,7 @@ msgid "WRITE"
 msgstr "ЗАПИСАТЬ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "ПРИЛОЖИТЕ МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ..."
+msgstr "ПРИЛОЖИТЕ МЕТКУ К ЗАПИСЫВАЮЩЕМУ УСТРОЙСТВУ…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "МЕТКА УСПЕШНО ЗАПИСАНА"
@@ -942,7 +942,7 @@ msgid "FAVORITES"
 msgstr "ИЗБРАННОЕ"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ..."
+msgstr "ДОБАВИТЬ В КОЛЛЕКЦИЮ…"
 
 msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
@@ -1219,7 +1219,7 @@ msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC...)"
+msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "НАЗНАЧИТЬ НОВЫЙ ГЛОБАЛЬНЫЙ ХОТКЕЙ"
@@ -3059,7 +3059,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "НОСИТЕЛЬ НЕ ВЫБРАН"
 
 msgid "Ejecting..."
-msgstr "Извлечение..."
+msgstr "Извлечение…"
 
 msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
@@ -3459,10 +3459,10 @@ msgid "MultiDisk"
 msgstr "Мультидиск"
 
 msgid "Loading system config..."
-msgstr "Загрузка системных настроек..."
+msgstr "Загрузка системных настроек…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОДОЖДИТЕ..."
+msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОДОЖДИТЕ…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
@@ -3584,13 +3584,13 @@ msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "Checking for latest upgrade script..."
-msgstr "Проверка последнего скрипта обновлений..."
+msgstr "Проверка последнего скрипта обновлений…"
 
 msgid "Collections"
 msgstr "Коллекции"
 
 msgid "Searching for devices..."
-msgstr "Поиск устройств..."
+msgstr "Поиск устройств…"
 
 msgid "FORMATTING DEVICE"
 msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА"
@@ -3680,7 +3680,7 @@ msgid "up/down"
 msgstr "вверх/вниз"
 
 msgid "WORKING..."
-msgstr "ОБРАБОТКА..."
+msgstr "ОБРАБОТКА…"
 
 msgid "accept"
 msgstr "принять"
@@ -3911,7 +3911,7 @@ msgstr ""
 "Стреляйте по мишеням для калибровки"
 
 msgid "Reloaded the games list..."
-msgstr "Список игр перезагружен..."
+msgstr "Список игр перезагружен…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "ОБНАРУЖЕН ИГРОВОЙ НОСИТЕЛЬ"
@@ -3935,7 +3935,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Также будет применяться при будущих загрузках)"
 
 msgid "Merge requested... Please wait."
-msgstr "Объединение... Пожалуйста, подождите."
+msgstr "Объединение… Пожалуйста, подождите."
 
 msgid "MERGE FAILED"
 msgstr "ОБЪЕДИНЕНИЕ НЕ УДАЛОСЬ"
@@ -3950,7 +3950,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "НЕТ, ИГНОРИРОВАТЬ ВСЕГДА"
 
 msgid "Adding drive to ignore list..."
-msgstr "Добавление носителя в список игнорирования..."
+msgstr "Добавление носителя в список игнорирования…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "ДА, ОБЪЕДИНИТЬ НОСИТЕЛЬ"
@@ -3965,7 +3965,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(ВСЕ СУЩЕСТВУЮЩИЕ ДАННЫЕ БУДУТ УДАЛЕНЫ)"
 
 msgid "Starting format process..."
-msgstr "Начинается процесс форматирования..."
+msgstr "Начинается процесс форматирования…"
 
 msgid "FORMAT FAILED"
 msgstr "ФОРМАТИРОВАНИЕ НЕ УДАЛОСЬ"
@@ -4078,7 +4078,7 @@ msgstr[2] "%d секунд назад"
 #~ "(GameTime, PlayCount, LastPlayed)."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
+#~ msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
@@ -4839,7 +4839,7 @@ msgstr[2] "%d секунд назад"
 #~ msgstr "ЗАВЕРШИТЬ РЕДАКТИРОВАНИЕ КОЛЛЕКЦИИ"
 
 #~ msgid "JUMP TO..."
-#~ msgstr "ПЕРЕЙТИ К..."
+#~ msgstr "ПЕРЕЙТИ К…"
 
 #~ msgid "COLLECTION MANAGEMENT"
 #~ msgstr "УПРАВЛЕНИЕ КОЛЛЕКЦИЕЙ"

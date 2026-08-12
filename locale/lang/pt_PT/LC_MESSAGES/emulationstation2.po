@@ -104,7 +104,7 @@ msgid "Loading gamelists"
 msgstr "Carregar lista de jogos"
 
 msgid "Loading..."
-msgstr "A Carregar..."
+msgstr "A Carregar…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -892,7 +892,7 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWORD DO ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "JOGOS SEMELHANTES..."
+msgstr "JOGOS SEMELHANTES…"
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
@@ -927,7 +927,7 @@ msgid "WRITE"
 msgstr "ESCREVER"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR..."
+msgstr "COLOQUE UMA ETIQUETA NO GRAVADOR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "A ETIQUETA FOI GRAVADA COM SUCESSO"
@@ -944,7 +944,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
+msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA …"
 
 msgid "SCRAPE"
 msgstr "OBTER MEDIA"
@@ -1221,7 +1221,7 @@ msgid "DEFAULT"
 msgstr "PREDFINIÇÃO"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "NENHUM DISPOSITIVO ENCONTRADO (JAMMASD, IPAC...)"
+msgstr "NENHUM DISPOSITIVO ENCONTRADO (JAMMASD, IPAC…)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "DEFINIR UMA NOVA TECLA DE ATALHO GLOBAL"
@@ -1613,7 +1613,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "A PROCURA ESTÁ EM CURSO. DESEJA INTERROMPER?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "NENHUM JOGO CORRESPONDE A ESSE CRITÉRIO.."
+msgstr "NENHUM JOGO CORRESPONDE A ESSE CRITÉRIO."
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -3068,7 +3068,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "Nenhum disco selecionado"
 
 msgid "Ejecting..."
-msgstr "A ejectar..."
+msgstr "A ejectar…"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
@@ -3469,10 +3469,10 @@ msgid "MultiDisk"
 msgstr "Multidisco"
 
 msgid "Loading system config..."
-msgstr "A Carregar a configuração do sistema..."
+msgstr "A Carregar a configuração do sistema…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "A GUARDAR INFORMAÇÕES. POR FAVOR, AGUARDE..."
+msgstr "A GUARDAR INFORMAÇÕES. POR FAVOR, AGUARDE…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "DESEJA TROCAR DE ECRÃ ?"
@@ -3591,13 +3591,13 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
 msgid "Checking for latest upgrade script..."
-msgstr "A verificar o script de atualização mais recente..."
+msgstr "A verificar o script de atualização mais recente…"
 
 msgid "Collections"
 msgstr "Coleções"
 
 msgid "Searching for devices..."
-msgstr "A procurar dispositivos..."
+msgstr "A procurar dispositivos…"
 
 msgid "FORMATTING DEVICE"
 msgstr "A FORMATAR DISPOSITIVO"
@@ -3687,7 +3687,7 @@ msgid "up/down"
 msgstr "cima/baixo"
 
 msgid "WORKING..."
-msgstr "EM PROGRESSO..."
+msgstr "EM PROGRESSO…"
 
 msgid "accept"
 msgstr "aceitar"
@@ -3915,7 +3915,7 @@ msgstr ""
 "Atire nos alvos para calibrar"
 
 msgid "Reloaded the games list..."
-msgstr "Lista de jogos recarregada..."
+msgstr "Lista de jogos recarregada…"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "DISCO DE JOGO DETETADO"
@@ -3939,7 +3939,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Isto também se aplicará em arranques futuros)"
 
 msgid "Merge requested... Please wait."
-msgstr "Combinação solicitada... Por favor, aguarde."
+msgstr "Combinação solicitada… Por favor, aguarde."
 
 msgid "MERGE FAILED"
 msgstr "A COPIA FALHOU"
@@ -3954,7 +3954,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "NÃO, IGNORAR PARA SEMPRE"
 
 msgid "Adding drive to ignore list..."
-msgstr "A adicionar o disco à lista de ignorados..."
+msgstr "A adicionar o disco à lista de ignorados…"
 
 msgid "YES, MERGE DRIVE"
 msgstr "SIM, UNIR UNIDADE"
@@ -3969,7 +3969,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(TODOS OS DADOS EXISTENTES SERÃO APAGADOS)"
 
 msgid "Starting format process..."
-msgstr "A iniciar o processo de formatação..."
+msgstr "A iniciar o processo de formatação…"
 
 msgid "FORMAT FAILED"
 msgstr "FALHA NA FORMATAÇÃO"

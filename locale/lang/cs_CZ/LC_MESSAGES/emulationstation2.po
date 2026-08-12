@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Načítání seznamu her"
 
 msgid "Loading..."
-msgstr "Načítání..."
+msgstr "Načítání…"
 
 msgid "MENU"
 msgstr "MENU"
@@ -887,7 +887,7 @@ msgid "VIEWER PASSWORD"
 msgstr "HESLO PROHLÍŽEČE"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "NAJÍT PODOBNÉ HRY..."
+msgstr "NAJÍT PODOBNÉ HRY…"
 
 msgid "DELETE ITEM"
 msgstr "ODSTRANIT POLOŽKU"
@@ -936,7 +936,7 @@ msgid "FAVORITES"
 msgstr "OBLÍBENÉ"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "PŘIDAT DO VLASTNÍ SBÍRKY..."
+msgstr "PŘIDAT DO VLASTNÍ SBÍRKY…"
 
 msgid "SCRAPE"
 msgstr "VYHLEDÁVAČ"
@@ -3454,7 +3454,7 @@ msgid "MultiDisk"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr "Načítání konfigurace systému..."
+msgstr "Načítání konfigurace systému…"
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "UKLÁDÁNÍ METADAT, PROSÍM POČKEJTE."
@@ -3585,7 +3585,7 @@ msgid "Collections"
 msgstr "Sbírka"
 
 msgid "Searching for devices..."
-msgstr "Vyhledávání zařízení..."
+msgstr "Vyhledávání zařízení…"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMÁTOVÁNÍ ZAŘÍZENÍ"
@@ -3675,7 +3675,7 @@ msgid "up/down"
 msgstr "nahoru/dolů"
 
 msgid "WORKING..."
-msgstr "PRACUJI..."
+msgstr "PRACUJI…"
 
 msgid "accept"
 msgstr "přijmout"
@@ -4072,7 +4072,7 @@ msgstr[2] "%d před sekundami"
 #~ "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
+#~ msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ZAPOMENOUT NA ZAŘÍZENÍ BLUETOOTH"
@@ -4277,7 +4277,7 @@ msgstr[2] "%d před sekundami"
 #~ msgstr[2] "Sbírka obsahuje %i her, včetně: %s"
 
 #~ msgid "Searching controllers..."
-#~ msgstr "Hledání řadičů..."
+#~ msgstr "Hledání řadičů…"
 
 #~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
 #~ msgstr "SKENOVÁNÍ PŘES BLUETOOTH JE JIŽ SPUŠTĚNO."
