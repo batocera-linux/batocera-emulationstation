@@ -1211,7 +1211,7 @@ msgstr "HOTKEY"
 msgid "DEFAULT"
 msgstr "BESTERIK EZEKO AUKERA"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"

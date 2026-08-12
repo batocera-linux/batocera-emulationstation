@@ -1214,8 +1214,8 @@ msgstr "ホットキー"
 msgid "DEFAULT"
 msgstr "標準"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "デバイスが見つかりません (JAMMASD, IPAC , ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "デバイスが見つかりません (JAMMASD, IPAC...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新しいグローバルホットキーを設定"

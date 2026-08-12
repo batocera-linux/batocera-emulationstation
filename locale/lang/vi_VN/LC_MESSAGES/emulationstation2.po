@@ -1214,7 +1214,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "MẶC ĐỊNH"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"

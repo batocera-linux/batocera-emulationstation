@@ -1204,8 +1204,8 @@ msgstr "热键"
 msgid "DEFAULT"
 msgstr "默认"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "未找到设备 (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "未找到设备 (JAMMASD, IPAC...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "新建全局热键"

@@ -1218,7 +1218,7 @@ msgstr "Hotkey"
 msgid "DEFAULT"
 msgstr "Predvolené"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr "Nenašlo sa zariadenie (JammaSD, IPAC)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"

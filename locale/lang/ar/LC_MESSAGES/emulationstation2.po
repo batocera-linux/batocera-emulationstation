@@ -1261,7 +1261,7 @@ msgstr "مفتاح اختصار"
 msgid "DEFAULT"
 msgstr "افتراضي"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr "لم يتم العثور على جهاز (JAMMASD، IPAC، ...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"

@@ -1218,8 +1218,8 @@ msgstr "ГОРЯЧАЯ КНОПКА"
 msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
-msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
+msgstr "УСТРОЙСТВО НЕ НАЙДЕНО (JAMMASD, IPAC...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "НАЗНАЧИТЬ НОВЫЙ ГЛОБАЛЬНЫЙ ХОТКЕЙ"

@@ -1210,7 +1210,7 @@ msgstr "단축키"
 msgid "DEFAULT"
 msgstr "기본"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr "장치를 찾을 수 없음 (JAMMASD, IPAC 등)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"

@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "DEFAULT"
 msgstr "ברירת מחדל"
 
-msgid "NO DEVICE FOUND (JAMMASD, IPAC, ...)"
+msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
 msgstr ""
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
