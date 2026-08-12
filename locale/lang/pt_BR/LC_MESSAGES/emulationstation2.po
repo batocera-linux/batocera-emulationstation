@@ -2033,7 +2033,7 @@ msgid "VSYNC"
 msgstr "SINCRONIZAÇÃO VERTICAL"
 
 msgid "FPS LIMIT"
-msgstr ""
+msgstr "LIMITE DE FPS"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN (ULTRAPASSAR BORDAS DA TELA)"
@@ -2286,31 +2286,31 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "A ATUALIZAÇÃO JÁ ESTÁ EM EXECUÇÃO"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
+msgstr "INICIAR ATUALIZAÇÃO DE MÍDIA LOCAL"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
+msgstr "REALMENTE ATUALIZAR A PARTIR DE MÍDIA LOCAL?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "ATUALIZAÇÕES DE SOFTWARE VIA TORRENT"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "COMPARTILHAR ATUALIZAÇÕES VIA TORRENT"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Serviço de atualização de torrent iniciado"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Serviço de atualização de torrent parado"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "INICIAR ATUALIZAÇÃO A PARTIR DE ARQUIVO TORRENT"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "REALMENTE ATUALIZAR A PARTIR DE ARQUIVO TORRENT ?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "STATUS DO DOWNLOAD"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -2474,19 +2474,19 @@ msgid "ENABLE LED"
 msgstr "HABILITAR LED"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "MODO DE LED"
 
 msgid "STATIC"
-msgstr ""
+msgstr "ESTÁTICO"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "ARCO-ÍRIS"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "CHROMA"
 
 msgid "PULSE"
-msgstr ""
+msgstr "PULSAR"
 
 msgid "LED BRIGHTNESS"
 msgstr "BRILHO LED"
@@ -2519,12 +2519,14 @@ msgid "ROOT PASSWORD"
 msgstr "SENHA PRIMÁRIA (ROOT)"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "REDUÇÃO DE SEGURANÇA DE PROCESSADOR"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"Desativar reduções pode melhorar performance em alguns sistemas ao custo de "
+"proteção reduzida contra certas vulnerabilidades do processador."
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
@@ -3606,7 +3608,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
 msgid "Checking for latest upgrade script…"
-msgstr ""
+msgstr "Verificando script mais recente de atualização..."
 
 msgid "Collections"
 msgstr "Coleções"

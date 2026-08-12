@@ -2274,25 +2274,25 @@ msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr "ОБНОВИТЬ ЛОКАЛЬНЫЕ МЕДИА?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ ПО ЧЕРЕЗ TORRENT"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "РАЗДАВАТЬ ОБНОВЛЕНИЯ ЧЕРЕЗ TORRENT"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Служба Torrent обновлений запущена"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Служба Torrent обновлений остановлена"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "НАЧАТЬ ОБНОВЛЕНИЕ ИЗ TORRENT-ФАЙЛА"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "ОБНОВИТЬ ИЗ TORRENT-ФАЙЛА?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "СОСТОЯНИЕ ЗАГРУЗКИ"
 
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
@@ -2453,19 +2453,19 @@ msgid "ENABLE LED"
 msgstr "ВКЛЮЧИТЬ LED"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "РЕЖИМ LED"
 
 msgid "STATIC"
-msgstr ""
+msgstr "СТАТИЧЕСКИЙ"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "РАДУГА"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "ХРОМА"
 
 msgid "PULSE"
-msgstr ""
+msgstr "ПУЛЬСАЦИЯ"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED ЯРКОСТЬ"
@@ -2498,12 +2498,14 @@ msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "CPU МЕРЫ ЗАЩИТЫ"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"Отключение мер защиты может повысить производительность на некоторых "
+"системах, но снизит защиту от некоторых уязвимостей CPU."
 
 msgid "LATENCY REDUCTION"
 msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
@@ -3582,7 +3584,7 @@ msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "Checking for latest upgrade script…"
-msgstr ""
+msgstr "Проверка последнего скрипта обновлений..."
 
 msgid "Collections"
 msgstr "Коллекции"
