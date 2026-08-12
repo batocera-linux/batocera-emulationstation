@@ -200,8 +200,8 @@ msgid "Favorite"
 msgstr "Suosikki"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3513,8 +3513,8 @@ msgid "Various"
 msgstr "Useita"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 

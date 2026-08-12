@@ -196,10 +196,10 @@ msgid "Favorite"
 msgstr "Favoritt"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Denne mappen inneholder %i spill, inkludert :%s"
-msgstr[1] "Denne mappen inneholder %i spill, inkludert :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Denne mappen inneholder %i spill, inkludert: %s"
+msgstr[1] "Denne mappen inneholder %i spill, inkludert: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRER SPILL ETTER TEKST"
@@ -3518,10 +3518,10 @@ msgid "Various"
 msgstr "Diverse"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Denne samlingen inneholder %i spill, inkludert :%s"
-msgstr[1] "Denne samlingen inneholder %i spill, inkludert :%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Denne samlingen inneholder %i spill, inkludert: %s"
+msgstr[1] "Denne samlingen inneholder %i spill, inkludert: %s"
 
 msgid "INVALID CONTENT"
 msgstr "UGYLDIG INNHOLD"

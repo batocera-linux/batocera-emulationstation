@@ -193,10 +193,10 @@ msgid "Favorite"
 msgstr "Preferito"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Questa cartella contiene %i gioco, incluso :%s"
-msgstr[1] "Questa cartella contiene %i giochi, inclusi :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Questa cartella contiene %i gioco, incluso: %s"
+msgstr[1] "Questa cartella contiene %i giochi, inclusi: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRA GIOCHI PER NOME"
@@ -3526,8 +3526,8 @@ msgid "Various"
 msgstr "Vari"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] "Questa collezione contiene %i gioco:%s"
 msgstr[1] "Questa collezione contiene %i giochi, incluso:%s"
 
@@ -4439,10 +4439,10 @@ msgstr[1] "%d secondi fa"
 #~ msgid "enter number of players"
 #~ msgstr "inserisci numero di giocatori"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "Questa collezione contiene %i gioco, incluso :%s"
-#~ msgstr[1] "Questa collezione contiene %i giochi, inclusi :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "Questa collezione contiene %i gioco, incluso: %s"
+#~ msgstr[1] "Questa collezione contiene %i giochi, inclusi: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "FORMATTAZIONE DISPOSITIVO"

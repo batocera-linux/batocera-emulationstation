@@ -623,8 +623,8 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 
 		char trstring[2048];
 		snprintf(trstring, 2048, ngettext(
-			"This folder contains %i game, including :%s",
-			"This folder contains %i games, including :%s", count), count, desc.c_str());
+			"This folder contains %i game, including: %s",
+			"This folder contains %i games, including: %s", count), count, desc.c_str());
 
 		mDescription.setText(trstring);
 	}	
@@ -1424,6 +1424,6 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 
 /*
 snprintf(trstring, 1024, ngettext(
-	"This collection contains %i game, including :%s",
-	"This collection contains %i games, including :%s", games_counter), games_counter, games_list.c_str());
+	"This collection contains %i game, including: %s",
+	"This collection contains %i games, including: %s", games_counter), games_counter, games_list.c_str());
 */

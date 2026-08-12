@@ -194,10 +194,10 @@ msgid "Favorite"
 msgstr "Αγαπημενο"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Αυτος ο φακελος περιεχει %i παιχνιδι, συμπεριλαμβανομενου :%s"
-msgstr[1] "Αυτος ο φακελος περιεχει %i παιχνιδια, συμπεριλαμβανομενων :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Αυτος ο φακελος περιεχει %i παιχνιδι, συμπεριλαμβανομενου: %s"
+msgstr[1] "Αυτος ο φακελος περιεχει %i παιχνιδια, συμπεριλαμβανομενων: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "ΦΙΛΤΡΑ ΠΑΙΧΝΙΔΙΟΥ ΚΑΤΑ ΚΕΙΜΕΝΟ"
@@ -3503,8 +3503,8 @@ msgid "Various"
 msgstr "Διαφοροι"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι:%s"
 msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενου:%s"
 
@@ -4207,10 +4207,10 @@ msgstr[1] "%d δευτερολεπτα πριν"
 #~ msgid "enter number of players"
 #~ msgstr "προσθηκη αριθμου παικτων"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
-#~ msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι, συμπεριλαμβανομενου :%s"
-#~ msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενων :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
+#~ msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι, συμπεριλαμβανομενου: %s"
+#~ msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενων: %s"
 
 #~ msgid "FORMATING DEVICE"
 #~ msgstr "ΔΙΑΜΟΡΦΩΣΗ ΣΥΣΚΕΥΗΣ"

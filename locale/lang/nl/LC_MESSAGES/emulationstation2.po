@@ -196,10 +196,10 @@ msgid "Favorite"
 msgstr "Favoriet"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Deze map bevat %i spel, inclusief :%s"
-msgstr[1] "Deze map bevat %i spellen, inclusief :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Deze map bevat %i spel, inclusief: %s"
+msgstr[1] "Deze map bevat %i spellen, inclusief: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTER SPELLEN OP TEKST"
@@ -3548,8 +3548,8 @@ msgid "Various"
 msgstr "Diverse"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] "Deze collectie heeft %i spel:%s"
 msgstr[1] "Deze collectie heeft %i spellen, inclusief:%s"
 

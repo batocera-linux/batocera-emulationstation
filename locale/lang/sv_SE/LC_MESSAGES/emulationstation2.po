@@ -199,10 +199,10 @@ msgid "Favorite"
 msgstr "Favorit"
 
 #, fuzzy, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Den här mappen innehåller %i spel, inklusive :%s"
-msgstr[1] "Den här mappen innehåller %i spel, inklusive :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
+msgstr[0] "Den här mappen innehåller %i spel, inklusive: %s"
+msgstr[1] "Den här mappen innehåller %i spel, inklusive: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRERA SPEL EFTER TEXT"
@@ -3531,10 +3531,10 @@ msgid "Various"
 msgstr "Olika"
 
 #, fuzzy, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Den här samlingen innehåller %i game:%s"
-msgstr[1] "Den här samlingen innehåller %i game:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
+msgstr[0] "Den här samlingen innehåller %i game: %s"
+msgstr[1] "Den här samlingen innehåller %i game: %s"
 
 msgid "INVALID CONTENT"
 msgstr "OGILTIGT INNEHÅLL"

@@ -195,8 +195,8 @@ msgid "Favorite"
 msgstr "Favorit"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3476,8 +3476,8 @@ msgid "Various"
 msgstr "Mantun"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -4032,8 +4032,8 @@ msgstr[1] "Fa %d segondas"
 #~ msgid "enter number of players"
 #~ msgstr "dintrar lo nombre de jogaire"
 
-#~ msgid "This collection contains %i game, including :%s"
-#~ msgid_plural "This collection contains %i games, including :%s"
+#~ msgid "This collection contains %i game, including: %s"
+#~ msgid_plural "This collection contains %i games, including: %s"
 #~ msgstr[0] "Aquesta colleccion conten %i jòc, inclusent : %s"
 #~ msgstr[1] "Aquesta colleccion conten %i jòcs, inclusent : %s"
 

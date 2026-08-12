@@ -197,8 +197,8 @@ msgid "Favorite"
 msgstr "Ưa thích"
 
 #, c-format
-msgid "This folder contains %i game, including :%s"
-msgid_plural "This folder contains %i games, including :%s"
+msgid "This folder contains %i game, including: %s"
+msgid_plural "This folder contains %i games, including: %s"
 msgstr[0] "Thư mục này chứa %i trò chơi, bao gồm: %s"
 
 msgid "FILTER GAMES BY TEXT"
@@ -3526,8 +3526,8 @@ msgid "Various"
 msgstr "Khác"
 
 #, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid "This collection contains %i game: %s"
+msgid_plural "This collection contains %i games, including: %s"
 msgstr[0] "Bộ sưu tập này chứa %i trò chơi:%s"
 
 msgid "INVALID CONTENT"
