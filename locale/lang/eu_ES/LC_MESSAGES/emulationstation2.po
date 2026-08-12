@@ -1553,7 +1553,7 @@ msgstr "KOMUNIDADEAREN KALIFIKAZIOA"
 msgid "VIDEO"
 msgstr "BIDEOA"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "ZALE ARTEA"
 
 msgid "BEZEL (16:9)"

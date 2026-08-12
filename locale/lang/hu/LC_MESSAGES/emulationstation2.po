@@ -1562,7 +1562,7 @@ msgstr "KÖZÖSSÉGI ÉRTÉKELÉS"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "RAJONGÓI ALKOTÁS"
 
 msgid "BEZEL (16:9)"

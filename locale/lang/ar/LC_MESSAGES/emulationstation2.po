@@ -1603,7 +1603,7 @@ msgstr "تقييم الجماهير"
 msgid "VIDEO"
 msgstr "فيديو"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "تصاميم الهواة"
 
 msgid "BEZEL (16:9)"

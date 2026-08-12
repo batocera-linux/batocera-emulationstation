@@ -1561,7 +1561,7 @@ msgstr "PUNTUACIÓ DE LA COMUNITAT"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"

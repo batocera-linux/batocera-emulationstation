@@ -1540,7 +1540,7 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr ""
 
 msgid "BEZEL (16:9)"

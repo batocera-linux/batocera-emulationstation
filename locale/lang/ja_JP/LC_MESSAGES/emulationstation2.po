@@ -1556,7 +1556,7 @@ msgstr "コミュニティの評価<rating>"
 msgid "VIDEO"
 msgstr "デモ動画<video>"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "ファンアート画像<fanart>"
 
 msgid "BEZEL (16:9)"

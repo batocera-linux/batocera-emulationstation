@@ -1550,7 +1550,7 @@ msgstr "ΑΞΙΟΛΟΓΗΣΗ ΚΟΙΝΟΤΗΤΑΣ"
 msgid "VIDEO"
 msgstr "ΒΙΝΤΕΟ"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr ""
 
 msgid "BEZEL (16:9)"

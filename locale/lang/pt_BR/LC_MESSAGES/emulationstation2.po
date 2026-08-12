@@ -1571,7 +1571,7 @@ msgstr "AVALIAÇÃO DA COMUNIDADE"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "FÃ-ARTE"
 
 msgid "BEZEL (16:9)"

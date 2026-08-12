@@ -1564,7 +1564,7 @@ msgstr "NOTES DE LA COMMUNAUTÉ"
 msgid "VIDEO"
 msgstr "VIDÉO"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"

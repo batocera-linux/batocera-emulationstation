@@ -1545,7 +1545,7 @@ msgstr "社群評分"
 msgid "VIDEO"
 msgstr "影片"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "粉絲繪圖"
 
 msgid "BEZEL (16:9)"

@@ -1555,7 +1555,7 @@ msgstr "HODNOCENÍ SPOLKU"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "UMĚNÍ FANOUŠKŮ"
 
 msgid "BEZEL (16:9)"

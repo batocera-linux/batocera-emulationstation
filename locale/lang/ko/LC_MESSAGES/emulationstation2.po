@@ -1552,7 +1552,7 @@ msgstr "사용자 평가"
 msgid "VIDEO"
 msgstr "비디오"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "팬아트"
 
 msgid "BEZEL (16:9)"

@@ -1560,7 +1560,7 @@ msgstr "РЕЙТИНГ СООБЩЕСТВА"
 msgid "VIDEO"
 msgstr "ВИДЕО"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "ФАН-АРТ"
 
 msgid "BEZEL (16:9)"

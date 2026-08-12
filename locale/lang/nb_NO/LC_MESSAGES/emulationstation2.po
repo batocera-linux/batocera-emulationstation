@@ -1553,7 +1553,7 @@ msgstr "FELLESSKAPS VURDERING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FAN ART"
+msgid "FANART"
 msgstr "FAN KUNST"
 
 msgid "BEZEL (16:9)"
