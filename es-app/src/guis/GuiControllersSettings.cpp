@@ -537,7 +537,7 @@ void GuiControllersSettings::openKeyboardtopads()
 	std::vector<Keyboardtopad> keyboardtopads = ApiSystem::getInstance()->getKeyboardtopads();
 
 	if (keyboardtopads.size() == 0)
-		s->addEntry(_("NO DEVICE FOUND (JAMMASD, IPAC, ...)"), false);
+		s->addEntry(_("NO DEVICE FOUND (JAMMASD, IPAC...)"), false);
 	else
 	{
 		for (unsigned int i = 0; i < keyboardtopads.size(); i++)
