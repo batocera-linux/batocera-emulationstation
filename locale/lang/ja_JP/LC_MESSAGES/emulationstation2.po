@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v43(2026/06/08)\n"
+"Project-Id-Version: batocera-es v44b(2026/07/29)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-06-08 11:47+0900\n"
+"PO-Revision-Date: 2026-07-29 19:56+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -2018,7 +2018,7 @@ msgid "VSYNC"
 msgstr "VSYNC(垂直同期)有効"
 
 msgid "FPS LIMIT"
-msgstr ""
+msgstr "FPS 制限"
 
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
@@ -2269,25 +2269,25 @@ msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr "ローカルメディアの更新をしますか?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "トレント経由のソフトウェア更新"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "トレント経由でアップデートを共有"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Torrent更新サービスを開始しました"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Torrent 更新サービスを停止しました"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "トレントファイルからアップデートを開始"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "本当にトレントファイルから更新しますか？"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "ダウンロード状況"
 
 msgid "LANGUAGE"
 msgstr "言語"
@@ -2450,19 +2450,19 @@ msgid "ENABLE LED"
 msgstr " LED 有効"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "LEDモード"
 
 msgid "STATIC"
-msgstr ""
+msgstr "スタティック"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "レインボー"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "彩度"
 
 msgid "PULSE"
-msgstr ""
+msgstr "パルス"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED 輝度"
@@ -2495,12 +2495,14 @@ msgid "ROOT PASSWORD"
 msgstr "ルートパスワード"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "CPUセキュリティ対策"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"緩和策を無効にすると、一部のシステムではパフォーマンスが向上する可能性がある"
+"一方で、特定のCPUの脆弱性に対する保護機能が低下することになります。"
 
 msgid "LATENCY REDUCTION"
 msgstr "ちらつき軽減"
@@ -3577,7 +3579,7 @@ msgid "UKNOWN ERROR"
 msgstr "不明なエラー"
 
 msgid "Checking for latest upgrade script..."
-msgstr ""
+msgstr "最新の更新スクリプトを確認中..."
 
 msgid "Collections"
 msgstr "コレクション"
