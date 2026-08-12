@@ -1555,9 +1555,6 @@ msgstr "COMMUNITY RATING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FAN ART"
-
 msgid "BEZEL (16:9)"
 msgstr "BEZEL (16:9)"
 
@@ -4002,6 +3999,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d second ago"
 msgstr[1] "%d seconds ago"
+
+#~ msgid "FANART"
+#~ msgstr "FAN ART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "BUILD IMAGE CACHE"

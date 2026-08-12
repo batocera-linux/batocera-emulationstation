@@ -1542,9 +1542,6 @@ msgstr "דירוג קהילה"
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
-msgstr ""
-
 msgid "BEZEL (16:9)"
 msgstr ""
 
@@ -4305,12 +4302,6 @@ msgstr[3] ""
 #~ msgid "SILENT SPLASH"
 #~ msgstr "אנימציה שקטה"
 
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "הגדרות RETROACHIEVEMENTS"
-
-#~ msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-#~ msgstr "פתיחת נעילת צליל RETROACHIEVEMENTS"
-
 #~ msgid "SHOW IN MAIN MENU"
 #~ msgstr "הצגה בתפריט ראשי"
 
@@ -4370,12 +4361,6 @@ msgstr[3] ""
 
 #~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
 #~ msgstr "האם אתם בטוחים שברצונכם למחוק את הקובץ?"
-
-#~ msgid "NO WI-FI NETWORKS FOUND"
-#~ msgstr "לא נמצאו רשתות אלחוטיות"
-
-#~ msgid "SEARCHING WI-FI NETWORKS"
-#~ msgstr "חיפוש רשתות אלחוטיות מתבצע"
 
 #~ msgid "There are no items in this view"
 #~ msgstr "אין פריטים לתצוגה זו"

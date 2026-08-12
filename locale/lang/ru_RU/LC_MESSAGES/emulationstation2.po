@@ -1560,9 +1560,6 @@ msgstr "РЕЙТИНГ СООБЩЕСТВА"
 msgid "VIDEO"
 msgstr "ВИДЕО"
 
-msgid "FANART"
-msgstr "ФАН-АРТ"
-
 msgid "BEZEL (16:9)"
 msgstr "РАМКИ (16:9)"
 
@@ -4027,6 +4024,9 @@ msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
 
+#~ msgid "FANART"
+#~ msgstr "ФАН-АРТ"
+
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "СОЗДАТЬ КЭШ ИЗОБРАЖЕНИЙ"
 
@@ -4614,12 +4614,6 @@ msgstr[2] "%d секунд назад"
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "ТИХАЯ ЗАГРУЗКА"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
-
-#~ msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-#~ msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
 
 #~ msgid "SHOW IN MAIN MENU"
 #~ msgstr "ПОКАЗАТЬ В ГЛАВНОМ МЕНЮ"

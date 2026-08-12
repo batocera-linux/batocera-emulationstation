@@ -1553,9 +1553,6 @@ msgstr "FELLESSKAPS VURDERING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FAN KUNST"
-
 msgid "BEZEL (16:9)"
 msgstr "RAMME (16:9)"
 
@@ -4007,6 +4004,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund siden"
 msgstr[1] "%d sekunder siden"
+
+#~ msgid "FANART"
+#~ msgstr "FAN KUNST"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "BYGG BILDELAGER"

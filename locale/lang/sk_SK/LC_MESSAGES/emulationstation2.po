@@ -1560,9 +1560,6 @@ msgstr "Hodnotenie komunity"
 msgid "VIDEO"
 msgstr "Video"
 
-msgid "FANART"
-msgstr "Fanart"
-
 msgid "BEZEL (16:9)"
 msgstr "Okraj (16:9)"
 
@@ -4023,6 +4020,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "Pred %d sekundou"
 msgstr[1] "Pred %d sekundami"
 msgstr[2] "Pred %d sekundami"
+
+#~ msgid "FANART"
+#~ msgstr "Fanart"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "Vytvoriť pamäť obrázkov"

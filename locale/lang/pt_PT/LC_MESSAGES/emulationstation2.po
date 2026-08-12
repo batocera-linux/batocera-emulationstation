@@ -1564,9 +1564,6 @@ msgstr "AVALIAÇÃO DA COMUNIDADE"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FANART"
-msgstr "ARTE DE FÃS"
-
 msgid "BEZEL (16:9)"
 msgstr "MOLDURA (16:9)"
 
@@ -2294,7 +2291,8 @@ msgid "START UPDATE FROM TORRENT FILE"
 msgstr "INICIAR ATUALIZAÇÃO A PARTIR DE UM FICHEIRO TORRENT"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr "TEM A CERTEZA DE QUE PRETENDE ATUALIZAR A PARTIR DE UM FICHEIRO TORRENT?"
+msgstr ""
+"TEM A CERTEZA DE QUE PRETENDE ATUALIZAR A PARTIR DE UM FICHEIRO TORRENT?"
 
 msgid "DOWNLOAD STATUS"
 msgstr "ESTADO DA TRANSFERÊNCIA"
@@ -2512,8 +2510,8 @@ msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
-"Desativar as mitigações pode melhorar o desempenho em alguns sistemas, à custa de "
-"reduzir a proteção contra determinadas vulnerabilidades do CPU."
+"Desativar as mitigações pode melhorar o desempenho em alguns sistemas, à "
+"custa de reduzir a proteção contra determinadas vulnerabilidades do CPU."
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
@@ -4026,6 +4024,8 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
 
+#~ msgid "FANART"
+#~ msgstr "ARTE DE FÃS"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

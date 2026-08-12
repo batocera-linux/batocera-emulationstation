@@ -1571,9 +1571,6 @@ msgstr "AVALIAÇÃO DA COMUNIDADE"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FANART"
-msgstr "FÃ-ARTE"
-
 msgid "BEZEL (16:9)"
 msgstr "MOLDURA (16:9)"
 
@@ -4043,6 +4040,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
+
+#~ msgid "FANART"
+#~ msgstr "FÃ-ARTE"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "CONSTRUIR MEMÓRIA CACHE DE IMAGENS"

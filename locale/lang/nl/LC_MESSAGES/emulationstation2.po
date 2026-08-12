@@ -1562,9 +1562,6 @@ msgstr "COMMUNITY BEOORDELING"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FANART"
-
 msgid "BEZEL (16:9)"
 msgstr "Schermrand (16:9)"
 
@@ -4037,3 +4034,6 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d seconden geleden"
 msgstr[1] "%d secondes geleden"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"

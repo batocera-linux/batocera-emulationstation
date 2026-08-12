@@ -1530,9 +1530,6 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
-msgstr ""
-
 msgid "BEZEL (16:9)"
 msgstr ""
 
@@ -4021,9 +4018,6 @@ msgstr[1] ""
 
 #~ msgid "GAMES SETTINGS"
 #~ msgstr "SPILL INNSTILLINGER"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "RETROUTMERKELSES INNSTILLINGER"
 
 #~ msgid "GAME RATIO"
 #~ msgstr "SPILL FORHOLD"

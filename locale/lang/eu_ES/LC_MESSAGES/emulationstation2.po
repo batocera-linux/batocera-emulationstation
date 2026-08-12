@@ -1553,9 +1553,6 @@ msgstr "KOMUNIDADEAREN KALIFIKAZIOA"
 msgid "VIDEO"
 msgstr "BIDEOA"
 
-msgid "FANART"
-msgstr "ZALE ARTEA"
-
 msgid "BEZEL (16:9)"
 msgstr "BEZEL-Z (16-9)"
 
@@ -4014,6 +4011,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "duela segundu %d"
 msgstr[1] "duela %d segundu"
 
+#~ msgid "FANART"
+#~ msgstr "ZALE ARTEA"
+
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "ERAIKI IRUDI KATXEA"
 
@@ -4153,9 +4153,6 @@ msgstr[1] "duela %d segundu"
 
 #~ msgid "GAMES SETTINGS"
 #~ msgstr "JOKOEN KONFIGURAZIOAK"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "RETROACHIVEMENTS EZARPENAK"
 
 #~ msgid "GAME RATIO"
 #~ msgstr "JOKOAREN RATIOA"

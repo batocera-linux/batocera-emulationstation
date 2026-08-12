@@ -1568,9 +1568,6 @@ msgstr "SCORUL COMUNITĂȚII"
 msgid "VIDEO"
 msgstr "VIDEOCLIP"
 
-msgid "FANART"
-msgstr "FANART"
-
 msgid "BEZEL (16:9)"
 msgstr "RAMĂ (16:9)"
 
@@ -4049,6 +4046,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "acum %d secundă"
 msgstr[1] "acum %d secunde"
 msgstr[2] "acum %d de secunde"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "CONSTRUIEȘTE CACHE-UL DE IMAGINI"

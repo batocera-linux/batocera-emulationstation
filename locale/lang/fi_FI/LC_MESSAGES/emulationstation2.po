@@ -1554,9 +1554,6 @@ msgstr "YHTEISÖN ARVOSANA"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FANITAIDE"
-
 msgid "BEZEL (16:9)"
 msgstr "KEHYS (16:9)"
 
@@ -3996,6 +3993,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekuntti sitten"
 msgstr[1] "%d sekunttia sitten"
+
+#~ msgid "FANART"
+#~ msgstr "FANITAIDE"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "LUO KUVAVÄLIMUISTI"

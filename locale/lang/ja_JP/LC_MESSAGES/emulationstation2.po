@@ -1556,9 +1556,6 @@ msgstr "コミュニティの評価<rating>"
 msgid "VIDEO"
 msgstr "デモ動画<video>"
 
-msgid "FANART"
-msgstr "ファンアート画像<fanart>"
-
 msgid "BEZEL (16:9)"
 msgstr "ベゼル(16:9)<bezel>(decorationsフォルダにコピー)"
 
@@ -4005,6 +4002,9 @@ msgstr[0] "%d 分前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
+
+#~ msgid "FANART"
+#~ msgstr "ファンアート画像<fanart>"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "追加したメタ情報ファイルを保存"

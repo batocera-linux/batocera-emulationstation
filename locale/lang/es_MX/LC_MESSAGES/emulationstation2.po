@@ -1560,9 +1560,6 @@ msgstr "VALORACIÓN DE LA COMUNIDAD"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FANART"
-
 msgid "BEZEL (16:9)"
 msgstr "BISEL (16:9)"
 
@@ -4020,6 +4017,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "hace %d segundo"
 msgstr[1] "hace %d segundos"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "CONSTRUIR CACHÉ DE IMÁGENES"

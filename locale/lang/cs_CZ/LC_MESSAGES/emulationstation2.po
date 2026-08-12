@@ -1555,9 +1555,6 @@ msgstr "HODNOCENÍ SPOLKU"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "UMĚNÍ FANOUŠKŮ"
-
 msgid "BEZEL (16:9)"
 msgstr "RÁMEČEK (16:9)"
 
@@ -4022,6 +4019,9 @@ msgstr[0] "%d před sekundou"
 msgstr[1] "%d před sekundami"
 msgstr[2] "%d před sekundami"
 
+#~ msgid "FANART"
+#~ msgstr "UMĚNÍ FANOUŠKŮ"
+
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "VYTVOŘIT MEZIPAMĚŤ OBRÁZKU"
 
@@ -4317,12 +4317,6 @@ msgstr[2] "%d před sekundami"
 
 #~ msgid "MANUAL INPUT"
 #~ msgstr "MANUALNÍ VSTUP"
-
-#~ msgid "NO WI-FI NETWORKS FOUND"
-#~ msgstr "NENALEZENY SÍTĚ WI-FI"
-
-#~ msgid "SEARCHING WI-FI NETWORKS"
-#~ msgstr "HLEDÁNÍ WI-FI SÍTĚ"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLER"
 #~ msgstr "ZAPOMENOUT NA OVLADAČ BLUETOOTH"

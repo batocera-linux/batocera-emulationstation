@@ -1554,9 +1554,6 @@ msgstr "PUNTEGGIO COMUNITÀ"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "ARTE DEI FAN"
-
 msgid "BEZEL (16:9)"
 msgstr "CORNICE (16:9)"
 
@@ -4017,6 +4014,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d secondo fa"
 msgstr[1] "%d secondi fa"
 
+#~ msgid "FANART"
+#~ msgstr "ARTE DEI FAN"
+
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "COSTRUISCI CACHE IMMAGINI"
 
@@ -4605,12 +4605,6 @@ msgstr[1] "%d secondi fa"
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "SCHERMATA SENZA AUDIO"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "OPZIONI RETROACHIEVEMENTS (TROFEI)"
-
-#~ msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-#~ msgstr "SUONO TROFEO SBLOCCATO"
 
 #~ msgid "SHOW IN MAIN MENU"
 #~ msgstr "MOSTRA NEL MENU PRINCIPALE"

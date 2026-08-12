@@ -1558,9 +1558,6 @@ msgstr "TOPLULUK DEĞERLENDİRMESİ"
 msgid "VIDEO"
 msgstr "VİDEO"
 
-msgid "FANART"
-msgstr "FAN GÖRSELİ"
-
 msgid "BEZEL (16:9)"
 msgstr "ÇERÇEVE (16:9)"
 
@@ -4039,6 +4036,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d saniye önce"
 msgstr[1] "%d saniye önce"
 
+#~ msgid "FANART"
+#~ msgstr "FAN GÖRSELİ"
+
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "GÖRÜNTÜ ÖNBELLEĞİ OLUŞTUR"
 
@@ -4058,8 +4058,7 @@ msgstr[1] "%d saniye önce"
 #~ msgstr "Sürücü birleştiriliyor… Lütfen bekleyin."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr ""
-#~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak…"
+#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak…"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"

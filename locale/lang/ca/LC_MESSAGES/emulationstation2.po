@@ -1561,9 +1561,6 @@ msgstr "PUNTUACIÓ DE LA COMUNITAT"
 msgid "VIDEO"
 msgstr "VÍDEO"
 
-msgid "FANART"
-msgstr "FANART"
-
 msgid "BEZEL (16:9)"
 msgstr "MOTLLURA (16:9)"
 
@@ -4035,6 +4032,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "fa %d segon"
 msgstr[1] "fa %d segons"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "CONSTRUIR MEMÒRIA CAU D'IMATGES"

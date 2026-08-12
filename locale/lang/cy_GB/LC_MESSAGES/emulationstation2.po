@@ -1552,9 +1552,6 @@ msgstr ""
 msgid "VIDEO"
 msgstr ""
 
-msgid "FANART"
-msgstr ""
-
 msgid "BEZEL (16:9)"
 msgstr ""
 
@@ -4368,9 +4365,6 @@ msgstr[5] "%d eiliadau yn ôl"
 #~ "Bydd hyn yn cuddio'r mwyafrif o opsiynau dewislen i atal newidiadau i'r "
 #~ "system.\n"
 #~ "I ddatgloi a dychwelyd i'r UI llawn, rhowch y côd hwn:"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "GOSODIADAU CYFLAWNIADAU-RETRO"
 
 #~ msgid "SHOW IN MAIN MENU"
 #~ msgstr "DANGOS YN Y BRIF DDEWISLEN"

@@ -1545,9 +1545,6 @@ msgstr "社群評分"
 msgid "VIDEO"
 msgstr "影片"
 
-msgid "FANART"
-msgstr "粉絲繪圖"
-
 msgid "BEZEL (16:9)"
 msgstr "框體 (16:9)"
 
@@ -3966,6 +3963,9 @@ msgstr[0] "%d 分鐘前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 幾秒前"
+
+#~ msgid "FANART"
+#~ msgstr "粉絲繪圖"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "建立圖片快取"

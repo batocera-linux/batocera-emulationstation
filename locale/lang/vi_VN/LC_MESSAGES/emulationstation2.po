@@ -1556,9 +1556,6 @@ msgstr "ĐÁNH GIÁ CỘNG ĐỒNG"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FANART"
-
 msgid "BEZEL (16:9)"
 msgstr "BEZEL (16:9)"
 
@@ -4006,6 +4003,9 @@ msgstr[0] "%d phút trước"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d giây trước"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "TẠO BỘ NHỚ ĐỆM CHO HÌNH ẢNH"

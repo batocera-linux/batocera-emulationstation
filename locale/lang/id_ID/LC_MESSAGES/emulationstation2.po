@@ -1551,9 +1551,6 @@ msgstr "PERINGKAT KOMUNITAS"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "SENI"
-
 msgid "BEZEL (16:9)"
 msgstr "RESOLUSI (16:9)"
 
@@ -2497,8 +2494,8 @@ msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
-"Mematikan mitigasi dapat meningkatkan kinerja pada beberapa sistem,"
-"namun mengurangi perlindungan terhadap kerentanan CPU tertentu."
+"Mematikan mitigasi dapat meningkatkan kinerja pada beberapa sistem,namun "
+"mengurangi perlindungan terhadap kerentanan CPU tertentu."
 
 msgid "LATENCY REDUCTION"
 msgstr "KURANGI LATENSI"
@@ -4001,6 +3998,9 @@ msgstr[0] "%d menit lalu"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d detik lalu"
+
+#~ msgid "FANART"
+#~ msgstr "SENI"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "BUAT CACHE IMAGE"

@@ -1550,9 +1550,6 @@ msgstr "ΑΞΙΟΛΟΓΗΣΗ ΚΟΙΝΟΤΗΤΑΣ"
 msgid "VIDEO"
 msgstr "ΒΙΝΤΕΟ"
 
-msgid "FANART"
-msgstr ""
-
 msgid "BEZEL (16:9)"
 msgstr ""
 
@@ -4376,15 +4373,6 @@ msgstr[1] "%d δευτερολεπτα πριν"
 
 #~ msgid "INVERTED ROTATION"
 #~ msgstr "ΑΝΤΙΣΤΡΟΦΗ ΠΕΡΙΣΤΡΟΦΗ"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "ΡΥΘΜΙΣΕΙΣ RETROACHIEVEMENTS"
-
-#~ msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-#~ msgstr "ΞΕΚΛΕΙΔΩΜΑ ΗΧΟΥ RETROACHIEVEMENTS"
-
-#~ msgid "SHOW IN MAIN MENU"
-#~ msgstr "ΕΜΦΑΝΙΣΗ ΣΤΟ ΚΥΡΙΟ ΜΕΝΟΥ"
 
 #~ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 #~ msgstr "ΑΔΥΝΑΤΟ ΝΑ ΕΝΕΡΓΟΠΟΙΗΘΟΥΝ ΤΑ RETROACHIEVEMENTS :"

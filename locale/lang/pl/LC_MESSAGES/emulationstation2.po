@@ -1562,9 +1562,6 @@ msgstr "OCENA SPOŁECZNOŚCI"
 msgid "VIDEO"
 msgstr "WIDEO"
 
-msgid "FANART"
-msgstr "FAN ART"
-
 msgid "BEZEL (16:9)"
 msgstr "RAMKA (16:9)"
 
@@ -4038,6 +4035,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d sekundę temu"
 msgstr[1] "%d sekundy temu"
 msgstr[2] "%d sekund temu"
+
+#~ msgid "FANART"
+#~ msgstr "FAN ART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "STWÓRZ PAMIĘĆ PODRĘCZNĄ OBRAZÓW"

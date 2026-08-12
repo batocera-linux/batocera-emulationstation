@@ -1564,9 +1564,6 @@ msgstr "NOTES DE LA COMMUNAUTÉ"
 msgid "VIDEO"
 msgstr "VIDÉO"
 
-msgid "FANART"
-msgstr "FANART"
-
 msgid "BEZEL (16:9)"
 msgstr "DÉCORATION (16:9)"
 
@@ -4030,6 +4027,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "il y a %d seconde"
 msgstr[1] "il y a %d secondes"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "GÉNÉRER LE CACHE D’IMAGES"

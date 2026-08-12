@@ -1562,9 +1562,6 @@ msgstr "KÖZÖSSÉGI ÉRTÉKELÉS"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "RAJONGÓI ALKOTÁS"
-
 msgid "BEZEL (16:9)"
 msgstr "KERET (16:9)"
 
@@ -4037,6 +4034,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d másodperce"
 msgstr[1] "%d másodperce"
 
+#~ msgid "FANART"
+#~ msgstr "RAJONGÓI ALKOTÁS"
+
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "KÉP CACHE FELÉPÍTÉSE"
 
@@ -4056,8 +4056,7 @@ msgstr[1] "%d másodperce"
 #~ msgstr "Meghajtó egyesítése… Kérjük, várjon."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr ""
-#~ "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után…"
+#~ msgstr "Új tartalom lesz elérhető a meghajtón a játéklista frissítése után…"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "HARDVER TÍPUS SZERINT"

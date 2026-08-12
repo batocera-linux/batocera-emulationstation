@@ -1565,9 +1565,6 @@ msgstr "COMMUNITY-WERTUNG"
 msgid "VIDEO"
 msgstr "VIDEO"
 
-msgid "FANART"
-msgstr "FAN ART"
-
 msgid "BEZEL (16:9)"
 msgstr "BEZEL (16:9)"
 
@@ -4043,3 +4040,6 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d Sekunde her"
 msgstr[1] "%d Sekunden her"
+
+#~ msgid "FANART"
+#~ msgstr "FAN ART"

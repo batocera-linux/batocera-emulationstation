@@ -1552,9 +1552,6 @@ msgstr "사용자 평가"
 msgid "VIDEO"
 msgstr "비디오"
 
-msgid "FANART"
-msgstr "팬아트"
-
 msgid "BEZEL (16:9)"
 msgstr "베젤 (16:9)"
 
@@ -3987,6 +3984,9 @@ msgstr[0] "%d 분 전"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 초 전"
+
+#~ msgid "FANART"
+#~ msgstr "팬아트"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "이미지 캐시 생성"
