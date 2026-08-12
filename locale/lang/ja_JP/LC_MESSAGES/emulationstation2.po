@@ -156,7 +156,7 @@ msgstr[0] "%i 項目"
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "ゲーム数 :%i"
+msgstr[0] "ゲーム数 : %i"
 
 msgid "SELECT"
 msgstr "セレクト(選択)"

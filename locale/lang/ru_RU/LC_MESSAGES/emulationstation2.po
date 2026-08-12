@@ -3530,9 +3530,9 @@ msgstr "Различные"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Коллекция содержит %i игру:%s"
-msgstr[1] "Коллекция содержит %i игры, включая:%s"
-msgstr[2] "Коллекция содержит %i игр, включая:%s"
+msgstr[0] "Коллекция содержит %i игру: %s"
+msgstr[1] "Коллекция содержит %i игры, включая: %s"
+msgstr[2] "Коллекция содержит %i игр, включая: %s"
 
 msgid "INVALID CONTENT"
 msgstr "НЕДОПУСТИМОЕ СОДЕРЖАНИЕ"

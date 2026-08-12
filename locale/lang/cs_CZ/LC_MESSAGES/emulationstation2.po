@@ -3525,9 +3525,9 @@ msgstr "Různé"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Tato kolekce obsahuje %i hru:%s"
-msgstr[1] "Tato kolekce obsahuje %i hry, včetně:%s"
-msgstr[2] "Tato kolekce obsahuje %i her, včetně:%s"
+msgstr[0] "Tato kolekce obsahuje %i hru: %s"
+msgstr[1] "Tato kolekce obsahuje %i hry, včetně: %s"
+msgstr[2] "Tato kolekce obsahuje %i her, včetně: %s"
 
 msgid "INVALID CONTENT"
 msgstr "NEPLATNÝ OBSAH"

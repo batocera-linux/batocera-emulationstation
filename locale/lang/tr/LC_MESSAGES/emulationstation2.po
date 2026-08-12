@@ -3549,7 +3549,7 @@ msgstr "Çeşitli"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Bu koleksiyon %i oyun içerir:%s"
+msgstr[0] "Bu koleksiyon %i oyun içerir: %s"
 msgstr[1] "Bu koleksiyon %i oyun içerir, bunlar dahil: %s"
 
 msgid "INVALID CONTENT"

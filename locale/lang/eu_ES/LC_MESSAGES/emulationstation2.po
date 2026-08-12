@@ -3528,7 +3528,7 @@ msgstr "Anitzak"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Kolekzio honek %i jokoa dauka:%s"
+msgstr[0] "Kolekzio honek %i jokoa dauka: %s"
 msgstr[1] "Kolekzio honek %i jokoak dauzka, %s barne"
 
 msgid "INVALID CONTENT"

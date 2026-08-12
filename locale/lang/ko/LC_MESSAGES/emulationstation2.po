@@ -3511,7 +3511,7 @@ msgstr "다수"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "현재 컬렉션에는 %i 개의 게임이 포함되어 있음:%s"
+msgstr[0] "현재 컬렉션에는 %i 개의 게임이 포함되어 있음: %s"
 
 msgid "INVALID CONTENT"
 msgstr "잘못된 콘텐츠"

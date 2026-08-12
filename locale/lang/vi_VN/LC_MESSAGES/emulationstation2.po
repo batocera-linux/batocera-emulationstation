@@ -3528,7 +3528,7 @@ msgstr "Khác"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Bộ sưu tập này chứa %i trò chơi:%s"
+msgstr[0] "Bộ sưu tập này chứa %i trò chơi: %s"
 
 msgid "INVALID CONTENT"
 msgstr "NỘI DUNG KHÔNG HỢP LỆ"

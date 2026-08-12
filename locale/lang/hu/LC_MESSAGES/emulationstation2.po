@@ -3548,8 +3548,8 @@ msgstr "Különféle"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Ez a gyűjtemény %i játékot tartalmaz:%s"
-msgstr[1] "Ez a gyűjtemény %i játékot tartalmaz, többek között:%s"
+msgstr[0] "Ez a gyűjtemény %i játékot tartalmaz: %s"
+msgstr[1] "Ez a gyűjtemény %i játékot tartalmaz, többek között: %s"
 
 msgid "INVALID CONTENT"
 msgstr "ÉRVÉNYTELEN TARTALOM"

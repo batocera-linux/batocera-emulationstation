@@ -3505,8 +3505,8 @@ msgstr "Διαφοροι"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι:%s"
-msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενου:%s"
+msgstr[0] "Αυτη η συλλογη περιεχει %i παιχνιδι: %s"
+msgstr[1] "Αυτη η συλλογη περιεχει %i παιχνιδια, συμπεριλαμβανομενου: %s"
 
 msgid "INVALID CONTENT"
 msgstr "ΜΗ ΕΓΚΥΡΟ ΠΕΡΙΕΧΟΜΕΝΟ"

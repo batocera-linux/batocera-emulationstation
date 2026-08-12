@@ -3548,8 +3548,8 @@ msgstr "Diversos"
 #, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Aquesta col·lecció conté %i joc:%s"
-msgstr[1] "Aquesta col·lecció conté %i jocs, incloent:%s"
+msgstr[0] "Aquesta col·lecció conté %i joc: %s"
+msgstr[1] "Aquesta col·lecció conté %i jocs, incloent: %s"
 
 msgid "INVALID CONTENT"
 msgstr "CONTINGUT NO VÀLID"
