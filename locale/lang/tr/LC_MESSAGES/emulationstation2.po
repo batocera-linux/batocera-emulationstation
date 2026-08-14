@@ -3495,7 +3495,7 @@ msgstr "4 OYUNCU"
 msgid "never played"
 msgstr "HİÇ OYNANMADI"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "RETROBAŞARIMLAR"
 
 msgid "arcade"

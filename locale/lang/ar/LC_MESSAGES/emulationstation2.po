@@ -3513,7 +3513,7 @@ msgstr "٤ لاعبِين"
 msgid "never played"
 msgstr "لم يتم اللعب"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "إنجازات الريترو"
 
 msgid "arcade"

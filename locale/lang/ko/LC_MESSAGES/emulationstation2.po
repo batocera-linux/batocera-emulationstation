@@ -3463,7 +3463,7 @@ msgstr "4인 플레이"
 msgid "never played"
 msgstr "미실행 게임"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "레트로도전과제"
 
 msgid "arcade"

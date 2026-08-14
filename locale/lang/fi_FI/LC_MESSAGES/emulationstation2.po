@@ -3467,8 +3467,8 @@ msgstr "4 pelaajaa"
 msgid "never played"
 msgstr "ei koskaan pelattu"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr ""

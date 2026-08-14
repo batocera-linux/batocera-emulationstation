@@ -42,7 +42,7 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_AT2PLAYERS,			"2players",			_("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, 
 		{ AUTO_AT4PLAYERS,			"4players",			_("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, 
 		{ AUTO_NEVER_PLAYED,		"neverplayed",		_("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, 
-		{ AUTO_RETROACHIEVEMENTS,	"retroachievements",_("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
+		{ AUTO_RETROACHIEVEMENTS,	"retroachievements",_("RetroAchievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
 
 		// Arcade meta 
 		{ AUTO_ARCADE,				 "arcade",			_("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, 

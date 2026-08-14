@@ -3457,7 +3457,7 @@ msgstr "4 παικτες"
 msgid "never played"
 msgstr "δεν παιχτηκε ποτε"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr ""
 
 msgid "arcade"

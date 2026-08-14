@@ -3438,7 +3438,7 @@ msgstr "4 гравці"
 msgid "never played"
 msgstr "не запускалась"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "ретродосягнення"
 
 msgid "arcade"

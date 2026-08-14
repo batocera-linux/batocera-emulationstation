@@ -3430,7 +3430,7 @@ msgstr "4 jogaires"
 msgid "never played"
 msgstr "pas jamai jogat"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "succès retro"
 
 msgid "arcade"

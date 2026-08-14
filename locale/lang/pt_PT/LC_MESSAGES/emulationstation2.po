@@ -3493,7 +3493,7 @@ msgstr "4 jogadores"
 msgid "never played"
 msgstr "nunca jogado"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "retroachivements"
 
 msgid "arcade"

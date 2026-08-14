@@ -3446,7 +3446,7 @@ msgstr "四人游戏"
 msgid "never played"
 msgstr "从未玩过的"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "RetroAchievements"
 
 msgid "arcade"
