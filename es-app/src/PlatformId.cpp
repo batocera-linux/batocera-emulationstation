@@ -148,6 +148,7 @@ namespace PlatformIds
 		{ "pico8",					PICO8 },
 		{ "sgb",					SUPER_GAME_BOY },
 		{ "vc4000",					VC4000 },
+		{ "j2me",					J2ME },
 
 		{ "watara",					WATARA_SUPERVISION },
 		{ "supervision",			WATARA_SUPERVISION },
