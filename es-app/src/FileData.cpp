@@ -37,6 +37,10 @@
 
 using namespace Utils::Platform;
 
+#ifndef WIN32
+static const char* GAME_LAUNCH_WAIT_FILE = "/tmp/es-gamelaunch.wait";
+#endif
+
 static std::map<std::string, std::function<BindableProperty(FileData*)>> properties =
 {
 	{ "name",				[](FileData* file) { return file->getName(); } },
@@ -687,6 +691,72 @@ std::string FileData::getMessageFromExitCode(int exitCode)
 	return _("UKNOWN ERROR") + " : " + std::to_string(exitCode);
 }
 
+bool FileData::prepareLaunchGame(LaunchGameOptions& options)
+{
+#ifdef WIN32
+	return false;
+#else
+	if (mPreparedLaunchFuture.valid())
+		return true;
+
+	FileData* gameToUpdate = getSourceFileData();
+	if (gameToUpdate == nullptr || gameToUpdate->getSystem() == nullptr)
+		return false;
+
+	std::string command = getlaunchCommand(options);
+	if (command.empty())
+		return false;
+
+	mPreparedLaunchP2k = convertP2kFile();
+
+	// emulatorlauncher.py will wait for removal of wait file
+	Utils::FileSystem::removeFile(GAME_LAUNCH_WAIT_FILE);
+	Utils::FileSystem::writeAllText(GAME_LAUNCH_WAIT_FILE, "");
+
+	if (!Utils::FileSystem::exists(GAME_LAUNCH_WAIT_FILE))
+	{
+		if (!mPreparedLaunchP2k.empty())
+			Utils::FileSystem::removeFile(mPreparedLaunchP2k);
+
+		mPreparedLaunchP2k.clear();
+
+		LOG(LogWarning) << "Unable to create " << GAME_LAUNCH_WAIT_FILE
+		                << "; using normal synchronous launch.";
+		return false;
+	}
+
+	LOG(LogInfo) << "Starting emulatorlauncher during launch transition...";
+	LOG(LogInfo) << "	" << command;
+
+	try
+	{
+		mPreparedLaunchFuture = std::async(std::launch::async, [command]
+		{
+			ProcessStartInfo process(command);
+			process.window = nullptr;
+
+			return process.run();
+		});
+	}
+	catch (...)
+	{
+		Utils::FileSystem::removeFile(GAME_LAUNCH_WAIT_FILE);
+
+		if (!mPreparedLaunchP2k.empty())
+			Utils::FileSystem::removeFile(mPreparedLaunchP2k);
+
+		mPreparedLaunchP2k.clear();
+
+		LOG(LogWarning) << "Unable to start asynchronous game launch; "
+		                << "using normal synchronous launch.";
+
+		return false;
+	}
+
+	return true;
+#endif
+}
+
 bool FileData::launchGame(Window* window, LaunchGameOptions options)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
@@ -699,9 +769,17 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (system == nullptr)
 		return false;
 
-	std::string command = getlaunchCommand(options);
-	if (command.empty())
-		return false;
+	const bool preparedLaunch = mPreparedLaunchFuture.valid();
+
+	std::string command;
+
+	if (!preparedLaunch)
+	{
+		command = getlaunchCommand(options);
+
+		if (command.empty())
+			return false;
+	}
 
 	AudioManager::getInstance()->deinit();
 	VolumeControl::getInstance()->deinit();
@@ -716,16 +794,45 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	time_t tstart = time(NULL);
 
-	LOG(LogInfo) << "	" << command;
+	std::string p2kConv;
 
-	auto p2kConv = convertP2kFile();
+	if (preparedLaunch)
+	{
+		p2kConv = mPreparedLaunchP2k;
+	}
+	else
+	{
+		LOG(LogInfo) << "	" << command;
+		p2kConv = convertP2kFile();
+	}
 
 	mRunningGame = gameToUpdate;
 
-	ProcessStartInfo process(command);
-	process.window = hideWindow ? NULL : window;
-	
-	int exitCode = process.run();
+	int exitCode;
+
+	if (preparedLaunch)
+	{
+		// Render the splash on the main thread.
+		if (!hideWindow)
+			window->renderSplashScreen();
+
+	#ifndef WIN32
+		// emulatorlauncher.py can now start the emulator.
+		Utils::FileSystem::removeFile(GAME_LAUNCH_WAIT_FILE);
+	#endif
+
+		// Wait for the game process to exit.
+		exitCode = mPreparedLaunchFuture.get();
+
+		mPreparedLaunchP2k.clear();
+	}
+	else
+	{
+		ProcessStartInfo process(command);
+		process.window = hideWindow ? NULL : window;
+
+		exitCode = process.run();
+	}
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
 
