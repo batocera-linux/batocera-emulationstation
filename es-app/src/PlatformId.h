@@ -120,6 +120,7 @@ namespace PlatformIds
 		VISUALPINBALL,
 		FUTUREPINBALL,
 		PIONEER_LASERACTIVE,
+		J2ME,
 
 		// Misc systems
 		CHANNELF,
