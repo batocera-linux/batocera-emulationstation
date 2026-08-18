@@ -3417,7 +3417,7 @@ msgid "Screenscraper Game ID"
 msgstr "Screenscraper游戏ID"
 
 msgid "MultiDisk"
-msgstr "多磁盘"
+msgstr "多光盘"
 
 msgid "Loading system config..."
 msgstr "正在载入系统配置…"
@@ -3869,7 +3869,7 @@ msgid "GAME DRIVE DETECTED"
 msgstr "检测到游戏驱动器"
 
 msgid "DEVICE"
-msgstr "驱动器"
+msgstr "设备"
 
 msgid "MODEL"
 msgstr "型号"

@@ -96,6 +96,19 @@ namespace Renderer
 
 	}; // Vertex
 
+#if defined(USE_OPENGLES_30)
+	// Compact GPU-only representation. CPU-side Vertex also carries shader metadata
+	// that must never consume streaming-buffer bandwidth.
+	struct GpuVertex
+	{
+		float x;
+		float y;
+		float u;
+		float v;
+		unsigned int col;
+	};
+#endif
+
 	class IRenderer
 	{
 	public:
@@ -112,6 +125,9 @@ namespace Renderer
 		virtual void         resetCache() = 0;
 
 		virtual unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data) = 0;
+#if defined(USE_OPENGLES_30)
+		virtual unsigned int createMipmappedTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data) = 0;
+#endif
 		virtual void         destroyTexture(const unsigned int _texture) = 0;
 		virtual void         updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data) = 0;
 		virtual void         bindTexture(const unsigned int _texture) = 0;
@@ -189,6 +205,9 @@ namespace Renderer
 	void         destroyContext    ();
 	void         resetCache        ();
 	unsigned int createTexture     (const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data);
+#if defined(USE_OPENGLES_30)
+	unsigned int createMipmappedTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data);
+#endif
 	void         destroyTexture    (const unsigned int _texture);
 	void         updateTexture     (const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data);
 	void         bindTexture       (const unsigned int _texture);
