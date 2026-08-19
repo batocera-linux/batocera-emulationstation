@@ -1380,7 +1380,7 @@ void GuiMenu::openSystemSettings()
 	if (language.empty()) 
 		language = "en_US";
 
-	language_choice->add("ARABIC",               "ar_YE", language == "ar_YE");
+	language_choice->add("العربية",               "ar_YE", language == "ar_YE");
 	language_choice->add("CATALÀ",               "ca_ES", language == "ca_ES");
 	language_choice->add("ČEŠTINA",                "cs_CZ", language == "cs_CZ");
 	language_choice->add("CYMRAEG",              "cy_GB", language == "cy_GB");
