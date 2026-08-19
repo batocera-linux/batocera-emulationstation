@@ -35,6 +35,7 @@ private:
 	static std::weak_ptr<TextToSpeech> sInstance;
 
 	bool m_isAvailable;
+	bool m_initialized;
 	bool m_enabled;
 
 	void init();
