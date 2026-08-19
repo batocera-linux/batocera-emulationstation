@@ -3432,7 +3432,7 @@ msgstr "4 שחקנים"
 msgid "never played"
 msgstr "לא שוחק"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "הישגי RETRO"
 
 msgid "arcade"

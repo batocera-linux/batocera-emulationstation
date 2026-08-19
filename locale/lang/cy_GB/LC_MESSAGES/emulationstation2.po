@@ -3442,7 +3442,7 @@ msgstr "4 chwaraewyr"
 msgid "never played"
 msgstr "erioed wedi chwarae"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "cyflawniadau-retro"
 
 msgid "arcade"

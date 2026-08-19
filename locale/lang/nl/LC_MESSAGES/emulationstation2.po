@@ -3502,7 +3502,7 @@ msgstr "4 spelers"
 msgid "never played"
 msgstr "nooit gespeeld"
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr "retroprestaties"
 
 msgid "arcade"

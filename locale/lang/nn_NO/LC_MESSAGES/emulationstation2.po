@@ -3420,7 +3420,7 @@ msgstr ""
 msgid "never played"
 msgstr ""
 
-msgid "retroachievements"
+msgid "RetroAchievements"
 msgstr ""
 
 msgid "arcade"

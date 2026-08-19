@@ -3480,8 +3480,8 @@ msgstr "4 người chơi"
 msgid "never played"
 msgstr "chưa bao giờ chơi"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "arcade"

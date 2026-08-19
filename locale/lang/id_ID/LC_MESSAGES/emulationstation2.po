@@ -3473,8 +3473,8 @@ msgstr "4 pemain"
 msgid "never played"
 msgstr "tidak pernah dimainkan"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "arkade"

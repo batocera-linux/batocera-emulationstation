@@ -3500,8 +3500,8 @@ msgstr "Négy játékos"
 msgid "never played"
 msgstr "sosem indított"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "arcade"

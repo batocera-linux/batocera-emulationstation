@@ -3479,8 +3479,8 @@ msgstr "4 hráči"
 msgid "never played"
 msgstr "nikdy nehrané"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "arkáda"

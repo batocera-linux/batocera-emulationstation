@@ -3480,8 +3480,8 @@ msgstr "4 jokalari"
 msgid "never played"
 msgstr "sekula jolastu gabe"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "arkade"

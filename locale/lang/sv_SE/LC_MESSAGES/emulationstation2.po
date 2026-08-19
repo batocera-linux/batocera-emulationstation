@@ -3485,8 +3485,8 @@ msgstr "4 spelare"
 msgid "never played"
 msgstr "aldrig spelat"
 
-msgid "retroachievements"
-msgstr "retroachievements"
+msgid "RetroAchievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
 msgstr "arkad"
