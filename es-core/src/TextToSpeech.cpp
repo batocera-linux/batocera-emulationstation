@@ -59,6 +59,7 @@ std::weak_ptr<TextToSpeech> TextToSpeech::sInstance;
 TextToSpeech::TextToSpeech()
 {
 	m_isAvailable = false;
+	m_initialized = false;
 	m_enabled = false;
 
 	init();
@@ -83,18 +84,20 @@ std::shared_ptr<TextToSpeech> & TextToSpeech::getInstance()
 
 void TextToSpeech::init()
 {
-	if (m_isAvailable)
+	if (m_initialized)
 		return;
 
 #if WIN32
-	m_isAvailable = false;
 	mShouldTerminate = false;
 	mSpeakThread = new std::thread(&TextToSpeech::SpeakThread, this);
+	m_initialized = true;
 #elif defined(_ENABLE_TTS_)	
 	m_isAvailable = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, NULL, 0) != EE_INTERNAL_ERROR;
 	if (!m_isAvailable)
 		return;
-	
+
+	m_initialized = true;
+
 	char* envv = getenv("LANGUAGE");
 	if (envv != nullptr && std::string(envv).length() >= 4) 
 		setLanguage(envv);
@@ -109,10 +112,9 @@ void TextToSpeech::init()
 
 void TextToSpeech::deinit()
 {
-	if (!m_isAvailable)
+	if (!m_initialized)
 		return;
 
-	m_isAvailable = false;
 	m_enabled = false;
 
 #if WIN32
@@ -127,11 +129,18 @@ void TextToSpeech::deinit()
 		delete mSpeakThread;
 		mSpeakThread = nullptr;
 	}
+
+	for (auto item : mSpeechQueue)
+		delete item;
+
+	mSpeechQueue.clear();
+
 #elif defined(_ENABLE_TTS_)
 	if (espeak_Terminate() != EE_OK) {
 		LOG(LogError) << "TTS::deinit() - Failed to terminate";
 	}
 #endif
+	m_initialized = false;
 }
 
 bool TextToSpeech::isAvailable()
@@ -144,11 +153,24 @@ bool TextToSpeech::isEnabled()
 	return m_enabled;
 }
 
-void TextToSpeech::enable(bool v, bool playSay) 
+void TextToSpeech::enable(bool v, bool playSay)
 {
 	if (v == m_enabled)
+	{
+		if (!v && m_initialized)
+			deinit();
+
 		return;
-	
+	}
+
+	if (v && !m_initialized)
+	{
+		init();
+
+		if (!m_initialized)
+			return;
+	}
+
 	if (m_isAvailable && playSay)
 	{
 		m_enabled = true; // Force
@@ -156,6 +178,9 @@ void TextToSpeech::enable(bool v, bool playSay)
 	}
 
 	m_enabled = v;
+
+	if (!v)
+		deinit();
 }
 
 bool TextToSpeech::toogle() 

@@ -182,6 +182,7 @@ using socket_t = int;
 #include <array>
 #include <atomic>
 #include <cassert>
+#include <chrono>
 #include <climits>
 #include <condition_variable>
 #include <errno.h>
@@ -445,10 +446,15 @@ public:
 
 class ThreadPool : public TaskQueue {
 public:
-  explicit ThreadPool(size_t n) : shutdown_(false) {
-    while (n) {
-      threads_.emplace_back(worker(*this));
-      n--;
+  explicit ThreadPool(size_t n, size_t max_n = 0)
+      : base_thread_count_(n),
+        max_thread_count_(max_n == 0 ? n : (std::max)(n, max_n)),
+        idle_thread_count_(0),
+        shutdown_(false) {
+    threads_.reserve(base_thread_count_);
+
+    for (size_t i = 0; i < base_thread_count_; i++) {
+      threads_.emplace_back(std::thread([this]() { worker(false); }));
     }
   }
 
@@ -456,13 +462,23 @@ public:
   ~ThreadPool() override = default;
 
   void enqueue(std::function<void()> fn) override {
-    std::unique_lock<std::mutex> lock(mutex_);
-    jobs_.push_back(fn);
+    {
+      std::unique_lock<std::mutex> lock(mutex_);
+      jobs_.push_back(fn);
+
+      // Spawn a temporary worker if all current workers are busy.
+      if (idle_thread_count_ == 0 &&
+          threads_.size() + dynamic_threads_.size() < max_thread_count_) {
+        cleanup_finished_threads();
+        dynamic_threads_.emplace_back(
+            std::thread([this]() { worker(true); }));
+      }
+    }
+
     cond_.notify_one();
   }
 
   void shutdown() override {
-    // Stop all worker threads...
     {
       std::unique_lock<std::mutex> lock(mutex_);
       shutdown_ = true;
@@ -470,41 +486,97 @@ public:
 
     cond_.notify_all();
 
-    // Join...
     for (auto &t : threads_) {
-      t.join();
+      if (t.joinable())
+        t.join();
     }
+
+    std::list<std::thread> remaining_dynamic;
+    {
+      std::unique_lock<std::mutex> lock(mutex_);
+      remaining_dynamic = std::move(dynamic_threads_);
+    }
+
+    for (auto &t : remaining_dynamic) {
+      if (t.joinable())
+        t.join();
+    }
+
+    std::unique_lock<std::mutex> lock(mutex_);
+    cleanup_finished_threads();
   }
 
 private:
-  struct worker {
-    explicit worker(ThreadPool &pool) : pool_(pool) {}
+  void worker(bool is_dynamic) {
+    for (;;) {
+      std::function<void()> fn;
 
-    void operator()() {
-      for (;;) {
-        std::function<void()> fn;
-        {
-          std::unique_lock<std::mutex> lock(pool_.mutex_);
+      {
+        std::unique_lock<std::mutex> lock(mutex_);
+        idle_thread_count_++;
 
-          pool_.cond_.wait(
-              lock, [&] { return !pool_.jobs_.empty() || pool_.shutdown_; });
+        if (is_dynamic) {
+          auto has_work =
+              cond_.wait_for(lock, std::chrono::seconds(3),
+                             [this]() {
+                               return !jobs_.empty() || shutdown_;
+                             });
 
-          if (pool_.shutdown_ && pool_.jobs_.empty()) { break; }
-
-          fn = pool_.jobs_.front();
-          pool_.jobs_.pop_front();
+          if (!has_work) {
+            idle_thread_count_--;
+            move_to_finished(std::this_thread::get_id());
+            break;
+          }
+        } else {
+          cond_.wait(lock, [this]() {
+            return !jobs_.empty() || shutdown_;
+          });
         }
 
-        assert(true == static_cast<bool>(fn));
-        fn();
+        idle_thread_count_--;
+
+        if (shutdown_ && jobs_.empty())
+          break;
+
+        fn = jobs_.front();
+        jobs_.pop_front();
+      }
+
+      assert(true == static_cast<bool>(fn));
+      fn();
+    }
+  }
+
+  void move_to_finished(std::thread::id id) {
+    // Called with mutex_ held.
+    for (auto it = dynamic_threads_.begin();
+         it != dynamic_threads_.end(); ++it) {
+      if (it->get_id() == id) {
+        finished_threads_.push_back(std::move(*it));
+        dynamic_threads_.erase(it);
+        return;
       }
     }
+  }
 
-    ThreadPool &pool_;
-  };
-  friend struct worker;
+  void cleanup_finished_threads() {
+    // Called with mutex_ held.
+    for (auto &t : finished_threads_) {
+      if (t.joinable())
+        t.join();
+    }
+
+    finished_threads_.clear();
+  }
+
+  size_t base_thread_count_;
+  size_t max_thread_count_;
+  size_t idle_thread_count_;
 
   std::vector<std::thread> threads_;
+  std::list<std::thread> dynamic_threads_;
+  std::vector<std::thread> finished_threads_;
+
   std::list<std::function<void()>> jobs_;
 
   bool shutdown_;

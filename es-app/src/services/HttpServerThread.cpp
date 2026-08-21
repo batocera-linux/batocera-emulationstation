@@ -140,7 +140,11 @@ static bool isAllowed(const httplib::Request& req, httplib::Response& res)
 void HttpServerThread::run()
 {
 	mHttpServer = new httplib::Server();
-
+	
+	mHttpServer->new_task_queue = [] {
+		return new httplib::ThreadPool(2, CPPHTTPLIB_THREAD_POOL_COUNT);
+	};
+	
 	mHttpServer->Get("/", [=](const httplib::Request & req, httplib::Response &res) 
 	{
 		if (!isAllowed(req, res))
