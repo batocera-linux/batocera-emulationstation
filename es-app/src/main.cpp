@@ -680,8 +680,24 @@ int main(int argc, char* argv[])
 	{
 		SDL_Event event;
 
-		bool ps_standby = PowerSaver::getState() && (int) SDL_GetTicks() - ps_time > PowerSaver::getMode();
-		if(ps_standby ? SDL_WaitEventTimeout(&event, PowerSaver::getTimeout()) : SDL_PollEvent(&event))
+		int screenSaverTimeout = screensaver.getNextUpdateTimeout();
+		bool screenSaverWait = screenSaverTimeout > 0;
+
+		bool ps_standby =
+			!screenSaverWait &&
+			PowerSaver::getState() &&
+			(int)SDL_GetTicks() - ps_time > PowerSaver::getMode();
+
+		int eventResult;
+
+		if (screenSaverWait)
+			eventResult = SDL_WaitEventTimeout(&event, screenSaverTimeout);
+		else if (ps_standby)
+			eventResult = SDL_WaitEventTimeout(&event, PowerSaver::getTimeout());
+		else
+			eventResult = SDL_PollEvent(&event);
+
+		if (eventResult)
 		{
 			// PowerSaver can push events to exit SDL_WaitEventTimeout immediatly
 			// Reset this event's state
@@ -756,7 +772,7 @@ int main(int argc, char* argv[])
 			InputManager::getInstance()->updateGuns(&window);
 
 			// triggered if exiting from SDL_WaitEvent due to event
-			if (ps_standby)
+			if (ps_standby || (screenSaverWait && !screensaver.isScreenSaverActive()))
 				// show as if continuing from last event
 				lastTime = SDL_GetTicks();
 
@@ -767,6 +783,9 @@ int main(int argc, char* argv[])
 		{
 		  // check guns
 		  InputManager::getInstance()->updateGuns(&window);
+
+		  if (screenSaverWait)
+			ps_time = SDL_GetTicks();
 
 		  // If exitting SDL_WaitEventTimeout due to timeout. Trail considering
 		  // timeout as an event
