@@ -4,6 +4,7 @@
 #include <condition_variable>
 #include <mutex>
 #include <list>
+#include <chrono>
 
 class WatchersManager;
 
@@ -53,6 +54,8 @@ public:
 
 	static WatchersManager* getInstance();
 	static void             stop();
+	static void             pause();
+	static void             resume();
 
 	virtual ~WatchersManager();
 
@@ -63,10 +66,10 @@ private:
 
 	struct WatcherInfo
 	{
-		WatcherInfo() { component = nullptr; nextCheckTime = 0; }
+		WatcherInfo() { component = nullptr; nextCheckTime = std::chrono::steady_clock::now(); }
 
 		IWatcher*	component;
-		int			nextCheckTime;
+		std::chrono::steady_clock::time_point nextCheckTime;
 	};
 
 	void NotifyComponentChanged(IWatcher* component);
@@ -80,6 +83,7 @@ private:
 	std::mutex										mThreadLock;
 	std::condition_variable							mEvent;
 	bool											mRunning;
+	bool											mPaused;
 	
 	std::thread*									mThread;
 
