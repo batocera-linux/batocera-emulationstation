@@ -88,6 +88,7 @@ public:
 	virtual bool allowSleep();
 	virtual void update(int deltaTime);
 	virtual bool isScreenSaverActive();
+	int getNextUpdateTimeout();
 
 	virtual FileData* getCurrentGame();
 	virtual void launchGame();
