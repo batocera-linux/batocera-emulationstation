@@ -1,6 +1,7 @@
 #include "components/VideoVlcComponent.h"
 
 #include "renderers/Renderer.h"
+#include <thread>
 #include "resources/TextureResource.h"
 #include "utils/StringUtil.h"
 #include "PowerSaver.h"
@@ -853,7 +854,7 @@ void VideoVlcComponent::startVideo()
 
 	PowerSaver::pause();
 
-	// use : vlc –long-help
+	// use : vlc ï¿½long-help
 	// WIN32 ? libvlc_media_add_option(mMedia, ":avcodec-hw=dxva2");
 	// RPI/OMX ? libvlc_media_add_option(mMedia, ":codec=mediacodec,iomx,all"); .
 
@@ -913,15 +914,24 @@ void VideoVlcComponent::stopVideo()
 
 	mContext = nullptr;
 
-	// Release the media
+	// Release the media.
+	// Both libvlc_media_parse_stop and libvlc_media_release can block while
+	// VLC's internal parse thread acknowledges the cancellation.  Do both on
+	// a background thread so the UI thread is never stalled.
 	if (mMedia)
 	{
 		mIsParsing = false;
-		libvlc_media_release(mMedia); 
-		mMedia = NULL;
+		auto* mediaToRelease = mMedia;
+		mMedia = nullptr;
+		std::thread([mediaToRelease]() {
+#if LIBVLC_VERSION_MAJOR >= 3
+			libvlc_media_parse_stop(mediaToRelease);
+#endif
+			libvlc_media_release(mediaToRelease);
+		}).detach();
 
 		PowerSaver::resume();
-	}		
+	}
 
 	if (mIsTopWindow) // Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
 		mTexture = nullptr;
