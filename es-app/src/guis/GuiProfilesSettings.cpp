@@ -82,7 +82,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 			[window, p]
 			{
 				system(
-					"batocera-profiles switch \"" + p + "\"");
+					("batocera-profiles switch \"" + p + "\"").c_str());
 				window->pushGui(new GuiMsgBox(window,
 					_("SWITCHED TO PROFILE:") + "\n" + p + "\n\n" +
 					_("TAKES EFFECT ON NEXT GAME LAUNCH."),
@@ -107,7 +107,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 						return;
 					}
 					system(
-						"batocera-profiles create \"" + name + "\"");
+						("batocera-profiles create \"" + name + "\"").c_str());
 					window->pushGui(new GuiMsgBox(window,
 						_("PROFILE CREATED:") + "\n" + name,
 						_("OK"), nullptr));
@@ -127,7 +127,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 					{
 						system("batocera-profiles switch");
 						system(
-							"batocera-profiles delete \"" + current + "\"");
+							("batocera-profiles delete \"" + current + "\"").c_str());
 						window->pushGui(new GuiMsgBox(window,
 							_("PROFILE DELETED. SWITCHED TO DEFAULT."),
 							_("OK"), nullptr));
