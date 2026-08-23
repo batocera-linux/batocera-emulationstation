@@ -1,10 +1,10 @@
 #include "GuiProfilesSettings.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
-#include "ApiSystem.h"
 #include "LocaleES.h"
 #include <cctype>
 #include <cstdio>
+#include <cstdlib>
 #include <string>
 #include <vector>
 
@@ -66,7 +66,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 	addEntry(defaultLabel, false,
 		[window]
 		{
-			ApiSystem::getInstance()->executeScript("batocera-profiles switch");
+			system("batocera-profiles switch");
 			window->pushGui(new GuiMsgBox(window,
 				_("SWITCHED TO DEFAULT PROFILE.\nTAKES EFFECT ON NEXT GAME LAUNCH."),
 				_("OK"), nullptr));
@@ -81,7 +81,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 		addEntry(label, false,
 			[window, p]
 			{
-				ApiSystem::getInstance()->executeScript(
+				system(
 					"batocera-profiles switch \"" + p + "\"");
 				window->pushGui(new GuiMsgBox(window,
 					_("SWITCHED TO PROFILE:") + "\n" + p + "\n\n" +
@@ -106,7 +106,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 							_("OK"), nullptr));
 						return;
 					}
-					ApiSystem::getInstance()->executeScript(
+					system(
 						"batocera-profiles create \"" + name + "\"");
 					window->pushGui(new GuiMsgBox(window,
 						_("PROFILE CREATED:") + "\n" + name,
@@ -125,8 +125,8 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 					_("YES"),
 					[window, current]
 					{
-						ApiSystem::getInstance()->executeScript("batocera-profiles switch");
-						ApiSystem::getInstance()->executeScript(
+						system("batocera-profiles switch");
+						system(
 							"batocera-profiles delete \"" + current + "\"");
 						window->pushGui(new GuiMsgBox(window,
 							_("PROFILE DELETED. SWITCHED TO DEFAULT."),
