@@ -976,14 +976,43 @@ bool Win32ApiSystem::isReadyFlagSet()
 	return Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "/tmp/emulationstation.ready");
 }
 
+static std::string getWindowsDisplayDeviceName(int monitorId)
+{
+	if (monitorId < 0 || monitorId >= SDL_GetNumVideoDisplays())
+		return "";
+
+	SDL_Rect bounds;
+	if (SDL_GetDisplayBounds(monitorId, &bounds) != 0)
+		return "";
+
+	POINT point = { bounds.x + bounds.w / 2, bounds.y + bounds.h / 2 };
+	HMONITOR monitor = MonitorFromPoint(point, MONITOR_DEFAULTTONULL);
+	if (monitor == nullptr)
+		return "";
+
+	MONITORINFOEXA monitorInfo = {};
+	monitorInfo.cbSize = sizeof(monitorInfo);
+	if (!GetMonitorInfoA(monitor, &monitorInfo))
+		return "";
+
+	return monitorInfo.szDevice;
+}
+
 std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 {
 	std::vector<std::string> ret;
 
-	DEVMODE vDevMode;
+	std::string displayDevice = output;
+	if (displayDevice.empty() || displayDevice == "auto" || displayDevice == "none")
+		displayDevice = getWindowsDisplayDeviceName(Settings::getInstance()->getInt("MonitorID"));
+
+	const char* deviceName = displayDevice.empty() ? nullptr : displayDevice.c_str();
+
+	DEVMODEA vDevMode = {};
+	vDevMode.dmSize = sizeof(vDevMode);
 
 	int i = 0;
-	while (EnumDisplaySettings(nullptr, i, &vDevMode))
+	while (EnumDisplaySettingsA(deviceName, i, &vDevMode))
 	{
 		if (vDevMode.dmDisplayFixedOutput == 0)
 		{			
@@ -1014,6 +1043,8 @@ std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 		}
 
 		i++;
+		vDevMode = {};
+		vDevMode.dmSize = sizeof(vDevMode);
 	}
 
 	return ret;
