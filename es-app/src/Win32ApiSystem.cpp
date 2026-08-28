@@ -998,53 +998,109 @@ static std::string getWindowsDisplayDeviceName(int monitorId)
 	return monitorInfo.szDevice;
 }
 
+static std::string resolveWindowsDisplayDevice(const std::string& output)
+{
+	if (output.empty() || output == "auto" || output == "none")
+		return getWindowsDisplayDeviceName(Settings::getInstance()->getInt("MonitorID"));
+
+	if (Utils::String::startsWith(output, "\\\\.\\DISPLAY"))
+		return output;
+
+	if (output.find_first_not_of("0123456789") == std::string::npos)
+		return getWindowsDisplayDeviceName(atoi(output.c_str()));
+
+	for (DWORD i = 0; ; i++)
+	{
+		DISPLAY_DEVICEA adapter = {};
+		adapter.cb = sizeof(adapter);
+
+		if (!EnumDisplayDevicesA(nullptr, i, &adapter, 0))
+			break;
+
+		if ((adapter.StateFlags & DISPLAY_DEVICE_ATTACHED_TO_DESKTOP) == 0)
+			continue;
+
+		if (output == adapter.DeviceName || output == adapter.DeviceString)
+			return adapter.DeviceName;
+
+		DISPLAY_DEVICEA screen = {};
+		screen.cb = sizeof(screen);
+
+		if (EnumDisplayDevicesA(adapter.DeviceName, 0, &screen, 0))
+			if (output == screen.DeviceString || output == screen.DeviceID)
+				return adapter.DeviceName;
+	}
+
+	return "";
+}
+
+static void enumerateWindowsVideoModes(const std::string& device, std::vector<std::string>& ret)
+{
+	const char* deviceName = device.empty() ? nullptr : device.c_str();
+
+	int i = 0;
+	while (true)
+	{
+		DEVMODEA vDevMode = {};
+		vDevMode.dmSize = sizeof(vDevMode);
+
+		if (!EnumDisplaySettingsA(deviceName, i, &vDevMode))
+			break;
+
+		i++;
+
+		if (vDevMode.dmDisplayFixedOutput != 0)
+			continue;
+
+		std::string interlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? "i" : "";
+		std::string ifoInterlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? " (" + _("Interlaced") + ")" : "";
+		int displayedFreq = (vDevMode.dmDisplayFlags & 2) == 2 ? vDevMode.dmDisplayFrequency * 2 : vDevMode.dmDisplayFrequency;
+
+		std::string mode;
+
+		if (vDevMode.dmBitsPerPel == 32)
+			mode =
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + "x" +
+			std::to_string(vDevMode.dmBitsPerPel) + "x" +
+			std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + " " +
+			std::to_string(displayedFreq) + "Hz" + ifoInterlaced;
+		else
+			mode =
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + "x" +
+			std::to_string(vDevMode.dmBitsPerPel) + "x" +
+			std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + "x" +
+			std::to_string(vDevMode.dmBitsPerPel) + " " +
+			std::to_string(displayedFreq) + "Hz" + ifoInterlaced;
+
+		if (std::find(ret.cbegin(), ret.cend(), mode) == ret.cend())
+			ret.push_back(mode);
+	}
+}
+
 std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 {
 	std::vector<std::string> ret;
 
-	std::string displayDevice = output;
-	if (displayDevice.empty() || displayDevice == "auto" || displayDevice == "none")
-		displayDevice = getWindowsDisplayDeviceName(Settings::getInstance()->getInt("MonitorID"));
+	std::string device = resolveWindowsDisplayDevice(output);
 
-	const char* deviceName = displayDevice.empty() ? nullptr : displayDevice.c_str();
+	LOG(LogDebug) << "getVideoModes : enumerating modes for "
+		<< (device.empty() ? "primary display" : device)
+		<< " (requested output: '" << output << "')";
 
-	DEVMODEA vDevMode = {};
-	vDevMode.dmSize = sizeof(vDevMode);
+	enumerateWindowsVideoModes(device, ret);
 
-	int i = 0;
-	while (EnumDisplaySettingsA(deviceName, i, &vDevMode))
+	if (ret.empty() && !device.empty())
 	{
-		if (vDevMode.dmDisplayFixedOutput == 0)
-		{			
-			std::string interlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? "i": "";
-			std::string ifoInterlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? " (" + _("Interlaced") + ")": "";
+		LOG(LogWarning) << "getVideoModes : no mode returned for " << device
+			<< ", falling back to primary display";
 
-			if (vDevMode.dmBitsPerPel == 32)
-				ret.push_back(
-					std::to_string(vDevMode.dmPelsWidth)+"x" +
-					std::to_string(vDevMode.dmPelsHeight)+"x" +
-					std::to_string(vDevMode.dmBitsPerPel)+"x" +
-					std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
-					std::to_string(vDevMode.dmPelsWidth) + "x" +
-					std::to_string(vDevMode.dmPelsHeight) + " " +
-					std::to_string((vDevMode.dmDisplayFlags & 2) == 2 ? vDevMode.dmDisplayFrequency * 2 : vDevMode.dmDisplayFrequency) + "Hz" + ifoInterlaced);
-			else
-			{
-				ret.push_back(
-					std::to_string(vDevMode.dmPelsWidth) + "x" +
-					std::to_string(vDevMode.dmPelsHeight) + "x" +
-					std::to_string(vDevMode.dmBitsPerPel) + "x" +
-					std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
-					std::to_string(vDevMode.dmPelsWidth) + "x" +
-					std::to_string(vDevMode.dmPelsHeight) + "x" +
-					std::to_string(vDevMode.dmBitsPerPel) + " " +
-					std::to_string((vDevMode.dmDisplayFlags & 2) == 2 ? vDevMode.dmDisplayFrequency * 2 : vDevMode.dmDisplayFrequency) + "Hz" + ifoInterlaced);
-			}				
-		}
-
-		i++;
-		vDevMode = {};
-		vDevMode.dmSize = sizeof(vDevMode);
+		enumerateWindowsVideoModes("", ret);
 	}
 
 	return ret;
