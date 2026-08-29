@@ -933,6 +933,14 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 	return false;
 }
 
+bool Win32ApiSystem::canLocalUpdate()
+{
+	// This is a Batocera-Linux ('batocera-upgrade') function only (update from USB-key). 
+	// Without this surcharge the implementation spams a cmd.exe (popen) on the UI thread on each menu opening,
+	// which slows down the menu on Windows for nothing.
+	return false;
+}
+
 bool Win32ApiSystem::launchKodi(Window *window)
 {
 	std::string command = Paths::getKodiPath();
