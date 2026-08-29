@@ -634,7 +634,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		});
 	} 
 	else // instant
-	{ 		
+	{			
 		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this, origCamera, center, game, options]
 		{			
 			if (doLaunchGame(game, options))
@@ -884,10 +884,10 @@ bool ViewController::input(InputConfig* config, Input input)
 	}
 
 	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F3)
-	  {
-	    Settings::getInstance()->setBool("TTS", TextToSpeech::getInstance()->toogle());
-	    Settings::getInstance()->saveFile();
-	  }
+		{
+			Settings::getInstance()->setBool("TTS", TextToSpeech::getInstance()->toogle());
+			Settings::getInstance()->saveFile();
+		}
 
 	// open menu
 	if(config->isMappedTo("start", input) && input.value != 0)
@@ -904,19 +904,22 @@ bool ViewController::input(InputConfig* config, Input input)
 		return true;
 	}
 
-	if (config->isMappedTo("joystick2up", input) && input.value != 0)
+	if (Settings::getInstance()->getBool("RightStickVolume"))
 	{
-		changeVolume(5);
-		return true;
+		if (config->isMappedTo("joystick2up", input) && input.value != 0)
+		{
+			changeVolume(5);
+			return true;
+		}
+
+		if (config->isMappedTo("joystick2up", input, true) && input.value != 0)
+		{
+			changeVolume(-5);
+			return true;
+		}
 	}
 
-	if (config->isMappedTo("joystick2up", input, true) && input.value != 0)
-	{
-		changeVolume(-5);
-		return true;
-	}
-
-//	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
+//	if(UIModeController::getInstance()->listen(config, input))	// check if UI mode has changed due to passphrase completion
 //		return true;
 
 	if(mCurrentView)
@@ -1423,7 +1426,7 @@ bool ViewController::hitTest(int x, int y, Transform4x4f& parentTransform, std::
 
 	Transform4x4f trans = mCamera * parentTransform;
 
-//  Skip ViewController rect
+//	Skip ViewController rect
 
 	for (int i = 0; i < getChildCount(); i++)
 	{

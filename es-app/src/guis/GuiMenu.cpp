@@ -1049,6 +1049,11 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
+  // Keep default behavior, but make it configurable
+  s->addSwitch(_("RIGHT ANALOG STICK CHANGES VOLUME"),
+             _("Move the right stick up/down to raise or lower the audio volume."),
+             "RightStickVolume", true, nullptr);
+
 //#if !defined(WIN32)
 	{
 	  auto gun_mt = std::make_shared<SliderComponent>(mWindow, 0.f, 10.f, 0.1f, "%");

@@ -297,6 +297,7 @@ void Settings::setDefaults()
 	mBoolMap["ScreenSaverVideoMute"] = false;
 	mBoolMap["VideoLowersMusic"] = true;
 	mBoolMap["VolumePopup"] = Settings::_VolumePopup;
+	mBoolMap["RightStickVolume"] = true;
 
 	mIntMap["MusicVolume"] = 128;
 
