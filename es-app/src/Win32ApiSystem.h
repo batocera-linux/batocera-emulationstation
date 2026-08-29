@@ -32,6 +32,7 @@ public:
 	// Updates
 	std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func, bool fromlocalmedia) override;
 	bool canUpdate(std::vector<std::string>& output) override;
+	bool canLocalUpdate() override;
 
 	bool ping() override;
 
