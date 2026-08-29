@@ -216,6 +216,7 @@ void Settings::setDefaults()
 	
 	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;
 	mIntMap["FpsLimit"] = 0;
+	mIntMap["AntiAliasing"] = 0;
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 

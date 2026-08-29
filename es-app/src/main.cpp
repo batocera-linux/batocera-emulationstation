@@ -210,6 +210,24 @@ bool parseArgs(int argc, char* argv[])
 			int maxVRAM = atoi(argv[i + 1]);
 			Settings::getInstance()->setInt("MaxVRAM", maxVRAM);
 		}
+		else if (strcmp(argv[i], "--anti-aliasing") == 0)
+		{
+			if (i >= argc - 1)
+			{
+				std::cerr << "Invalid anti-aliasing supplied.";
+				return false;
+			}
+
+			int antiAliasing = atoi(argv[i + 1]);
+			if (antiAliasing != 0 && antiAliasing != 2 && antiAliasing != 4)
+			{
+				std::cerr << "Invalid anti-aliasing supplied.";
+				return false;
+			}
+
+			Settings::getInstance()->setInt("AntiAliasing", antiAliasing);
+			i++;
+		}
 		else if (strcmp(argv[i], "--force-kiosk") == 0)
 		{
 			Settings::getInstance()->setBool("ForceKiosk", true);
@@ -247,6 +265,7 @@ bool parseArgs(int argc, char* argv[])
 				"--windowed			not fullscreen, should be used with --resolution\n"
 				"--vsync [1/on or 0/off]		turn vsync on or off (default is on)\n"
 				"--max-vram [size]		Max VRAM to use in Mb before swapping. 0 for unlimited\n"
+				"--anti-aliasing [0, 2 or 4]	set MSAA anti-aliasing to disabled, 2x or 4x\n"
 				"--force-kid		Force the UI mode to be Kid\n"
 				"--force-kiosk		Force the UI mode to be Kiosk\n"
 				"--force-disable-filters		Force the UI to ignore applied filters in gamelist\n"
