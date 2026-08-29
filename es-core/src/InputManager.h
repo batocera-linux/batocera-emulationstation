@@ -92,7 +92,7 @@ private:
   	InputConfig* mGunInputConfig;
 	InputConfig* mCECInputConfig;
 
-	std::map<SDL_JoystickID, int*> mPrevAxisValues;
+	std::map<SDL_JoystickID, std::vector<int>> mPrevAxisValues;
 	std::map<int, PlayerDeviceInfo> m_lastKnownPlayersDeviceIndexes;
 	std::map<int, InputConfig*> computePlayersConfigs();
 

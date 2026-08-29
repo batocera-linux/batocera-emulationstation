@@ -19,6 +19,7 @@
 #include "GunManager.h"
 #include "renderers/Renderer.h"
 #include <fstream>
+#include <set>
 
 #ifdef HAVE_UDEV
 #include <libudev.h>
@@ -211,7 +212,11 @@ InputConfig* InputManager::getInputConfigByDevice(int device)
 	if(device == DEVICE_GUN)
 		return mGunInputConfig;
 	
-	return mInputConfigs[device];
+	auto it = mInputConfigs.find(device);
+	if (it == mInputConfigs.cend())
+		return nullptr;
+
+	return it->second;
 }
 
 void InputManager::clearJoysticks()
@@ -228,10 +233,6 @@ void InputManager::clearJoysticks()
 			delete iter->second;
 
 	mInputConfigs.clear();
-
-	for (auto iter = mPrevAxisValues.begin(); iter != mPrevAxisValues.end(); iter++)
-		if (iter->second)
-			delete[] iter->second;
 
 	mPrevAxisValues.clear();
 
@@ -277,7 +278,11 @@ public:
 	std::string SDL_JoystickPathForIndex(int device_index)
 	{
 		if (m_JoystickPathForIndex != NULL)
-			return m_JoystickPathForIndex(device_index);
+		{
+			const char* path = m_JoystickPathForIndex(device_index);
+			if (path != NULL)
+				return std::string(path);
+		}
 
 		return "";
 	}
@@ -384,13 +389,45 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 			SDL_Delay(50);
 			SDL_PumpEvents();
 			stableCount = SDL_NumJoysticks();
+			attempts++;
 		}
+
+		if (attempts >= 10)
+			LOG(LogWarning) << "Joystick count did not stabilise after 500ms, continuing with " << stableCount << " joystick(s)";
 	}
 #endif
 
 	mJoysticksLock.lock();
 
 	int numJoysticks = SDL_NumJoysticks();
+
+#if WIN32
+	// SDL can expose the same physical pad twice when its internal deduplication
+	// between RAWINPUT and XInput loses the race during a hotplug: XInput enumerates before
+	// RAWINPUT_IsDevicePresent() can respond true, and the WINDOWS backend only
+	// re-enumerates on the next WM_DEVICECHANGE notification, so the duplicate remains
+	// until restart. Cold SDL only keeps the RAWINPUT view: we restore the
+	// same result hot. The redundant XInput view exposes no HID path, the RAWINPUT view does.
+	SDL_version sdlVer;
+	SDL_GetVersion(&sdlVer);
+	bool hasPathApi = (sdlVer.major > 2 || (sdlVer.major == 2 && sdlVer.minor >= 24));
+
+	std::vector<std::string> sdlDevicePaths;
+	std::set<std::string> vendorProductWithPath;
+
+	for (int i = 0; i < numJoysticks; i++)
+	{
+		std::string path = hasPathApi ? Win32RawInput.SDL_JoystickPathForIndex(i) : "";
+		sdlDevicePaths.push_back(path);
+
+		if (path.empty())
+			continue;
+
+		char preGuid[40];
+		SDL_JoystickGetGUIDString(SDL_JoystickGetDeviceGUID(i), preGuid, 40);
+		vendorProductWithPath.insert(std::string(preGuid).substr(8, 16)); // vendor + product
+	}
+#endif
 
 	for (int idx = 0; idx < numJoysticks; idx++)
 	{
@@ -402,16 +439,30 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		// add it to our list so we can close it again later
 		SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
 
-		mJoysticks.erase(joyId);
-		mJoysticks[joyId] = joy;
-
 		char guid[40];
 		SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 40);
+
+		// SDL_JoystickName can return NULL. InputConfig takes a const std::string&,
+		// and operator<<(const char*) with NULL is undefined behaviour too.
+		const char* joyName = SDL_JoystickName(joy);
+		std::string deviceName = (joyName != nullptr) ? joyName : "Unknown joystick";
 
 #if WIN32
 		// SDL 2.26 + -> Remove new CRC-16 name hash encoding
 		for (int i = 4; i < 8; i++) guid[i] = '0';
+
+		// Drop the redundant XInput view : it carries no HID device path while the
+		// RAWINPUT view of the same VID/PID does.
+		if (hasPathApi && sdlDevicePaths[idx].empty() && vendorProductWithPath.count(std::string(guid).substr(8, 16)) > 0)
+		{
+			LOG(LogWarning) << "Skipping redundant XInput view of " << deviceName << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ")";
+			SDL_JoystickClose(joy);
+			continue;
+		}
 #endif
+
+		mJoysticks.erase(joyId);
+		mJoysticks[joyId] = joy;
 
 		// create the InputConfig
 		auto cfg = mInputConfigs.find(joyId);
@@ -427,15 +478,22 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		std::string devicePath = Utils::String::padLeft(std::to_string(idx), 4, '0') + "@" + std::string(guid);
 
 #if WIN32
-		SDL_version ver;
-		SDL_GetVersion(&ver);
-		if (ver.major >= 2 && ver.minor >= 24)
-			devicePath = Win32RawInput.getInputDeviceParent(Win32RawInput.SDL_JoystickPathForIndex(idx));
+		if (hasPathApi)
+		{
+			if (!sdlDevicePaths[idx].empty())
+				devicePath = Win32RawInput.getInputDeviceParent(sdlDevicePaths[idx]);
+			else
+				LOG(LogWarning) << "SDL_JoystickPathForIndex returned no path for index " << idx << ", falling back to index@guid";
+		}
 #elif SDL_VERSION_ATLEAST(2, 24, 0)
-		devicePath = SDL_JoystickPathForIndex(idx);
+		{
+			const char* sdlPath = SDL_JoystickPathForIndex(idx);
+			if (sdlPath != nullptr)
+				devicePath = sdlPath;
+		}
 #endif
 
-		mInputConfigs[joyId] = new InputConfig(joyId, idx, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy), devicePath);
+		mInputConfigs[joyId] = new InputConfig(joyId, idx, deviceName, guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy), devicePath);
 
 		if (!loadInputConfig(mInputConfigs[joyId]))
 		{
@@ -483,21 +541,21 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
 			{
 				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]);
-				LOG(LogInfo) << "Creating joystick from SDL Game Controller mapping " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+				LOG(LogInfo) << "Creating joystick from SDL Game Controller mapping " << deviceName << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 			}
 			else
 #endif
-				LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+				LOG(LogInfo) << "Added unconfigured joystick " << deviceName << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 		}
 		else
-			LOG(LogInfo) << "Added known joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+			LOG(LogInfo) << "Added known joystick " << deviceName << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 
 		// set up the prevAxisValues
 		int numAxes = SDL_JoystickNumAxes(joy);
-		
-		mPrevAxisValues.erase(joyId);
-		mPrevAxisValues[joyId] = new int[numAxes];
-		std::fill(mPrevAxisValues[joyId], mPrevAxisValues[joyId] + numAxes, 0); //initialize array to 0
+		if (numAxes < 0)
+			numAxes = 0;
+
+		mPrevAxisValues[joyId] = std::vector<int>(numAxes, 0);
 	}	
 
 	mJoysticksLock.unlock();
@@ -532,7 +590,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		SDL_JoyBatteryEventX* jbattery = (SDL_JoyBatteryEventX*)&ev;
 
 		auto inputConfig = mInputConfigs.find(jbattery->which);
-		if (inputConfig != mInputConfigs.cend() && inputConfig->second->isConfigured() && jbattery->level != SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_UNKNOWN)
+		if (inputConfig != mInputConfigs.cend() && inputConfig->second != nullptr && inputConfig->second->isConfigured() && jbattery->level != SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_UNKNOWN)
 		{
 			int level = 0;
 
@@ -576,31 +634,41 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		// required for several pads like xbox and 8bitdo
 
 		auto inputConfig = mInputConfigs.find(ev.jaxis.which);
-		if (inputConfig != mInputConfigs.cend())
+		if (inputConfig != mInputConfigs.cend() && inputConfig->second != nullptr)
 		{
 			std::string guid = std::to_string(ev.jaxis.axis) + "@" + inputConfig->second->getDeviceGUIDString();
 
 			auto it = mJoysticksInitialValues.find(guid);
 			if (it != mJoysticksInitialValues.cend())
 				initialValue = it->second;
-			else if (SDL_JoystickGetAxisInitialState(mJoysticks[ev.jaxis.which], ev.jaxis.axis, &x))
+			else
 			{
-				mJoysticksInitialValues[guid] = x;
-				initialValue = x;
+				// Do not use operator[] here : it would insert a null SDL_Joystick*
+				// for a removed instance id, which clearJoysticks() would then pass
+				// to SDL_JoystickClose().
+				auto joy = mJoysticks.find(ev.jaxis.which);
+				if (joy != mJoysticks.cend() && joy->second != nullptr && SDL_JoystickGetAxisInitialState(joy->second, ev.jaxis.axis, &x))
+				{
+					mJoysticksInitialValues[guid] = x;
+					initialValue = x;
+				}
 			}
 		}
 #endif
 
-		if (mPrevAxisValues.find(ev.jaxis.which) != mPrevAxisValues.cend())
-		{			
+		auto prevAxis = mPrevAxisValues.find(ev.jaxis.which);
+		if (prevAxis != mPrevAxisValues.cend() && (size_t)ev.jaxis.axis < prevAxis->second.size())
+		{
+			int& prevValue = prevAxis->second[ev.jaxis.axis];
+
 			//if it switched boundaries
-			if ((abs(ev.jaxis.value - initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE))
+			if ((abs(ev.jaxis.value - initialValue) > DEADZONE) != (abs(prevValue) > DEADZONE))
 			{
 				int normValue;
-				if (abs(ev.jaxis.value - initialValue) <= DEADZONE) 
+				if (abs(ev.jaxis.value - initialValue) <= DEADZONE)
 					normValue = 0;
 				else
-					if (ev.jaxis.value - initialValue > 0) 
+					if (ev.jaxis.value - initialValue > 0)
 						normValue = 1;
 					else
 						normValue = -1;
@@ -609,7 +677,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 				causedEvent = true;
 			}
 
-			mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value - initialValue; 
+			prevValue = ev.jaxis.value - initialValue;
 		}
 
 		return causedEvent;
@@ -678,14 +746,31 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		{
 			std::string addedDeviceName;
 			bool isWheel = false;
-			auto id = SDL_JoystickGetDeviceInstanceID(ev.jdevice.which);
-			auto it = std::find_if(mInputConfigs.cbegin(), mInputConfigs.cend(), [id](const std::pair<SDL_JoystickID, InputConfig*> & t) { return t.second != nullptr && t.second->getDeviceId() == id; });
+			int deviceIndex = ev.jdevice.which;
+			if (deviceIndex < 0 || deviceIndex >= SDL_NumJoysticks())
+			{
+				LOG(LogWarning) << "SDL_JOYDEVICEADDED : stale device index " << deviceIndex << ", event ignored";
+				return false;
+			}
+
+			auto id = SDL_JoystickGetDeviceInstanceID(deviceIndex);
+			if (id < 0)
+			{
+				LOG(LogWarning) << "SDL_JOYDEVICEADDED : no instance id for device index " << deviceIndex << ", event ignored";
+				return false;
+			}
+			
+			auto it = std::find_if(mInputConfigs.cbegin(), mInputConfigs.cend(), [id](const std::pair<SDL_JoystickID, InputConfig*>& t) { return t.second != nullptr && t.second->getDeviceId() == id; });
 			if (it == mInputConfigs.cend())
-				addedDeviceName = SDL_JoystickNameForIndex(ev.jdevice.which);
+			{
+				const char* addedName = SDL_JoystickNameForIndex(deviceIndex);
+				if (addedName != nullptr)
+					addedDeviceName = addedName;
+			}
 
 #ifdef HAVE_UDEV
 #ifdef SDL_JoystickDevicePathById
-                        SDL_Joystick* joy = SDL_JoystickOpen(ev.jdevice.which);
+                        SDL_Joystick* joy = SDL_JoystickOpen(deviceIndex);
 		        if (joy != nullptr) {
                           SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
                           isWheel = InputConfig::isWheel(SDL_JoystickDevicePathById(joyId));
