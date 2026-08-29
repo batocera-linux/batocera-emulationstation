@@ -500,6 +500,15 @@ namespace Renderer
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,       1);
 		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
 
+#if OPENGL_EXTENSIONS
+		int antiAliasing = Settings::getInstance()->getInt("AntiAliasing");
+		if (antiAliasing == 2 || antiAliasing == 4)
+		{
+			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, antiAliasing);
+		}
+#endif
+
 	} // setupWindow
 
 //////////////////////////////////////////////////////////////////////////
@@ -599,6 +608,16 @@ namespace Renderer
 		GL_CHECK_ERROR(glPixelStorei(GL_PACK_ALIGNMENT, 1));
 		GL_CHECK_ERROR(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 		
+#if OPENGL_EXTENSIONS
+		int antiAliasing = Settings::getInstance()->getInt("AntiAliasing");
+		if (antiAliasing == 2 || antiAliasing == 4)
+		{
+			GL_CHECK_ERROR(glEnable(GL_MULTISAMPLE));
+			LOG(LogInfo) << "Anti-aliasing: " << antiAliasing << "x MSAA";
+		}
+		else
+			LOG(LogInfo) << "Anti-aliasing: disabled";
+#endif
 	} // createContext
 
 //////////////////////////////////////////////////////////////////////////

@@ -707,6 +707,21 @@ void GuiMenu::openDeveloperSettings()
 	
 	s->addSwitch(_("SHOW FRAMERATE"), _("Also turns on the emulator's native FPS counter, if available."), "DrawFramerate", true, nullptr);
 	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
+	
+	// Antialiasing (solves flickering issues with AMD on Windows in some cases)
+	auto antiAliasing = std::make_shared<OptionListComponent<int>>(mWindow, _("ANTI-ALIASING (MSAA)"), false);
+	antiAliasing->add(_("DISABLED"), 0, Settings::getInstance()->getInt("AntiAliasing") == 0);
+	antiAliasing->add("2X", 2, Settings::getInstance()->getInt("AntiAliasing") == 2);
+	antiAliasing->add("4X", 4, Settings::getInstance()->getInt("AntiAliasing") == 4);
+	if (!antiAliasing->hasSelection())
+		antiAliasing->selectFirstItem();
+	s->addWithLabel(_("ANTI-ALIASING (MSAA)"), antiAliasing);
+	s->addSaveFunc([s, antiAliasing]
+		{
+			if (Settings::getInstance()->setInt("AntiAliasing", antiAliasing->getSelected()))
+				s->setVariable("reboot", true);
+		});
+
 	auto fpsLimit = std::make_shared<OptionListComponent<int>>(mWindow, _("FPS LIMIT"), false);
 	fpsLimit->add(_("NO"), 0, Settings::FpsLimit() == 0);
 	fpsLimit->add("25", 25, Settings::FpsLimit() == 25);
