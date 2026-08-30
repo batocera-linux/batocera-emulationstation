@@ -2020,6 +2020,9 @@ msgstr "Bekapcsolja az emulátor natív FPS-számlálóját is, ha elérhető."
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr ""
 
@@ -2193,6 +2196,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "AZ ES VEZÉRLÉSE CSAK AZ EGYES SZÁMÚ VEZÉRLŐVEL"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "FEGYVERMOZGÁS TŰRÉSHATÁR"

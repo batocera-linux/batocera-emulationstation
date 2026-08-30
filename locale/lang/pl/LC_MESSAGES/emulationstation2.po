@@ -2020,6 +2020,9 @@ msgstr "Włącza również natywny licznik KL/S emulatora, jeśli jest dostępny
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr "LIMIT KL/S"
 
@@ -2189,6 +2192,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "STERUJ EMULATIONSTATION TYLKO Z PIERWSZEGO JOYSTICKA"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCJA RUCHU PISTOLETU"

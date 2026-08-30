@@ -2003,6 +2003,9 @@ msgstr "如果可用，打开模拟器自带的FPS计数器。"
 msgid "VSYNC"
 msgstr "垂直同步"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr "FPS限制"
 
@@ -2161,6 +2164,12 @@ msgstr "切换为短按北按键呼出存档，长按南按键呼出游戏选项
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "仅使用第一个手柄控制主界面"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "枪支移动容忍度"

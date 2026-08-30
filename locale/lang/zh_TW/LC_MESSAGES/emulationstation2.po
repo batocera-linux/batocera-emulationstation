@@ -2002,6 +2002,9 @@ msgstr "如果可用的話，也打開模擬器原生的 FPS 計數器。"
 msgid "VSYNC"
 msgstr "垂直同步"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr ""
 
@@ -2160,6 +2163,12 @@ msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "光槍移動容忍度"

@@ -2014,6 +2014,9 @@ msgstr "可能な場合は、エミュレータ内のFPSカウンターも表示
 msgid "VSYNC"
 msgstr "VSYNC(垂直同期)有効"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr "FPS 制限"
 
@@ -2181,6 +2184,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "ガンコン移動公差(許容誤差範囲)"

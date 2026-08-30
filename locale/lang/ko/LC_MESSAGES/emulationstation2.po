@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2026-06-19 21:49+0900\n"
+"PO-Revision-Date: 2026-08-30 12:51+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -2010,6 +2010,9 @@ msgstr "사용 가능하면 에뮬레이터 자체 FPS 카운터를 켭니다."
 msgid "VSYNC"
 msgstr "수직 동기화"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr "FPS 제한"
 
@@ -2175,6 +2178,12 @@ msgstr ""
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "첫 번째 조이스틱으로만 에뮬레이션스테이션 제어"
 
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
+
 msgid "GUN MOVE TOLERENCE"
 msgstr "건 움직임 허용 오차"
 
@@ -2258,25 +2267,25 @@ msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr "정말 로컬 미디어에서 업데이트인가요?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "토렌트를 통한 소프트웨어 업데이트"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "토렌트를 통해 업데이트 공유"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "토렌트 업데이트 서비스 시작됨"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "토렌트 업데이트 서비스 중지됨"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "토렌트 파일에서 업데이트 시작"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "정말 토렌트 파일로 업데이트 하나요?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "다운로드 상태"
 
 msgid "LANGUAGE"
 msgstr "언어"
@@ -2436,19 +2445,19 @@ msgid "ENABLE LED"
 msgstr "LED 활성화"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "LED 모드"
 
 msgid "STATIC"
-msgstr ""
+msgstr "정적"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "무지개"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "채도"
 
 msgid "PULSE"
-msgstr ""
+msgstr "파형"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED 밝기"
@@ -2481,12 +2490,14 @@ msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "CPU 보안 완화 조치"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"일부 시스템에서는 완화 조치를 비활성화하면 성능이 향상될 수 있지만, 특정 CPU "
+"취약점에 대한 보호 기능이 저하될 수 있습니다."
 
 msgid "LATENCY REDUCTION"
 msgstr "지연시간 개선"
@@ -3558,7 +3569,7 @@ msgid "UKNOWN ERROR"
 msgstr "알 수 없는 오류"
 
 msgid "Checking for latest upgrade script..."
-msgstr ""
+msgstr "최신 업그레이드 스크립트를 확인 중..."
 
 msgid "Collections"
 msgstr "컬렉션"

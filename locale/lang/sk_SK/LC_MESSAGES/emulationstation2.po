@@ -2018,6 +2018,9 @@ msgstr "Tiež zapne natívne počítanie FPS emulátora, ak je dostupné."
 msgid "VSYNC"
 msgstr "Vsync"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr ""
 
@@ -2184,6 +2187,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "Ovládať EmulationStation iba prvým joystickom"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "Tolerancia pohybu zbrane"

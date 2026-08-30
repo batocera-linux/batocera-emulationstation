@@ -2061,6 +2061,9 @@ msgstr "يشغّل عدّاد الإطارات في الثانية الخاص ب
 msgid "VSYNC"
 msgstr "Vsync التزامن العمودي"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr "حد الإطارات في الثانية"
 
@@ -2222,6 +2225,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "التحكم بـِEMULATIONSTATION بذراع التحكم الأولى فقط"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "حساسية حركة المسدس"

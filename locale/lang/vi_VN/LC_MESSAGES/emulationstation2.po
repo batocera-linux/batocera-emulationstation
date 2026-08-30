@@ -2013,6 +2013,9 @@ msgstr "Đồng thời hiển thị bộ đếm FPS của trình mô phỏng n�
 msgid "VSYNC"
 msgstr "VSYNC"
 
+msgid "ANTI-ALIASING (MSAA)"
+msgstr ""
+
 msgid "FPS LIMIT"
 msgstr ""
 
@@ -2179,6 +2182,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CHỈ TAY CẦM 1 CÓ THỂ ĐIỀU KHIỂN HỆ THỐNG"
+
+msgid "RIGHT ANALOG STICK CHANGES VOLUME"
+msgstr ""
+
+msgid "Move the right stick up/down to raise or lower the audio volume."
+msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "GUN MOVE TOLERENCE"
