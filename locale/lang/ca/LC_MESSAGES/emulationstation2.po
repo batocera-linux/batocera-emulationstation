@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-07-14 19:57+0200\n"
+"PO-Revision-Date: 2026-08-31 21:57+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -1897,7 +1897,7 @@ msgid "USER INTERFACE SETTINGS"
 msgstr "AJUSTOS D'INTERFÍCIE D'USUARI"
 
 msgid "SOUND SETTINGS"
-msgstr "PARÀMETRES DEL SO"
+msgstr "PARÀMETRES DE SO"
 
 msgid "NETWORK SETTINGS"
 msgstr "PARÀMETRES DE XARXA"
@@ -2020,7 +2020,7 @@ msgid "VSYNC"
 msgstr "SINCRONITZACIÓ VERTICAL"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "ANTI-ALIASING (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "LÍMIT D’FPS"
@@ -2196,10 +2196,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR EMULATIONSTATION NOMÉS AMB EL PRIMER COMANDAMENT"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "LA PALANCA ANALÒGICA DRETA AJUSTA EL VOLUM"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "Mou la palanca dreta amunt/avall per apujar o abaixar el volum."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERÀNCIA DE MOVIMENT DE LA PISTOLA"
@@ -2242,7 +2242,7 @@ msgid "THREADED LOADING"
 msgstr "CÀRREGA PER FILS"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "CÀRREGA D'IMATGES ASSÍNCRONA"
+msgstr "CÀRREGA D'IMATGES ASÍNCRONA"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMITZAR L'ÚS DE LA VRAM PER IMATGES"
@@ -2373,7 +2373,7 @@ msgid "Do you want to proceed?"
 msgstr "Vol procedir?"
 
 msgid "KODI SETTINGS"
-msgstr "PARÀMETRES DEL KODI"
+msgstr "PARÀMETRES DE KODI"
 
 msgid "ENABLE KODI"
 msgstr "HABILITA EL KODI"
@@ -2957,10 +2957,10 @@ msgid "NOW PLAYING"
 msgstr "REPRODUÏNT ARA"
 
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "ESBORRA LA CANÇÓ ACTUAL DE LA LLISTA DE FAVORITS"
+msgstr "ESBORRAR LA CANÇÓ ACTUAL DE LA LLISTA DE FAVORITS"
 
 msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "DESA LA CANÇÓ ACTUAL A LA LLISTA DE FAVORITS"
+msgstr "DESAR LA CANÇÓ ACTUAL A LA LLISTA DE FAVORITS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR ESTALVI DE PANTALLA"
