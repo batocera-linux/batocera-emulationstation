@@ -2923,13 +2923,13 @@ msgid "HOSTNAME"
 msgstr "NOM SUR LE RÉSEAU"
 
 msgid "ENABLE WI-FI"
-msgstr "ACTIVER LE WI--FI"
+msgstr "ACTIVER LE WI-FI"
 
 msgid "WI-FI SSID"
-msgstr "NOM DU RÉSEAU WI--FI"
+msgstr "NOM DU RÉSEAU WI-FI"
 
 msgid "WI-FI KEY"
-msgstr "CLÉ WI--FI"
+msgstr "CLÉ WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI PAYS"
@@ -2941,7 +2941,7 @@ msgid "WI-FI ENABLED"
 msgstr "WI-FI ACTIVÉ"
 
 msgid "WI-FI CONFIGURATION ERROR"
-msgstr "IMPOSSIBLE DE CONFIGURER LE WI--FI"
+msgstr "IMPOSSIBLE DE CONFIGURER LE WI-FI"
 
 msgid "QUICK ACCESS"
 msgstr "ACCÈS RAPIDE"
