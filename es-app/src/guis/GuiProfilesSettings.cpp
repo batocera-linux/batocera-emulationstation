@@ -76,6 +76,26 @@ static std::string profileDisplayName(const std::string& confPath, const std::st
 	return fallback;
 }
 
+// Open the rename keyboard for a given profile conf file.
+static void openRenameKeyboard(Window* window, const std::string& confPath)
+{
+	std::string existing = readConfField(confPath, "display_name");
+	window->pushGui(new GuiTextEditPopupKeyboard(window,
+		_("DISPLAY NAME"), existing,
+		[window, confPath](const std::string& newName)
+		{
+			// Update display_name= in place, preserving all other fields.
+			std::string cmd =
+				"grep -v '^display_name=' \"" + confPath + "\" > /tmp/ra_conf.tmp 2>/dev/null;"
+				" echo 'display_name=" + newName + "' >> /tmp/ra_conf.tmp;"
+				" mv /tmp/ra_conf.tmp \"" + confPath + "\"";
+			system(cmd.c_str());
+			window->pushGui(new GuiMsgBox(window,
+				_("DISPLAY NAME SET TO:") + "\n" + newName,
+				_("OK"), nullptr));
+		}, false));
+}
+
 static bool isValidProfileName(const std::string& name)
 {
 	if (name.empty())
@@ -151,30 +171,30 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 				}, false));
 		});
 
-	// RENAME: sets display_name for any profile (default or named)
+	// RENAME: picker lists all profiles, then opens keyboard for chosen one.
 	addEntry(_("RENAME PROFILE"), true,
-		[window, current, profiles]
+		[window, profiles, defaultConf, defaultName]
 		{
-			// Build label for the profile being renamed
-			std::string confPath = current.empty()
-				? "/userdata/profiles/.default-retroachievements.conf"
-				: "/userdata/profiles/" + current + "/retroachievements.conf";
-			std::string existing = readConfField(confPath, "display_name");
+			auto* picker = new GuiSettings(window, _("RENAME WHICH PROFILE?").c_str());
 
-			window->pushGui(new GuiTextEditPopupKeyboard(window,
-				_("DISPLAY NAME"), existing,
-				[window, current, confPath](const std::string& newName)
+			picker->addEntry(defaultName, false,
+				[window, defaultConf]
 				{
-					// Write display_name= into the profile's conf file via shell
-					// (avoids rewriting the entire file in C++)
-					std::string cmd = "grep -v '^display_name=' \"" + confPath + "\" > /tmp/ra_conf.tmp 2>/dev/null;"
-						" echo 'display_name=" + newName + "' >> /tmp/ra_conf.tmp;"
-						" mv /tmp/ra_conf.tmp \"" + confPath + "\"";
-					system(cmd.c_str());
-					window->pushGui(new GuiMsgBox(window,
-						_("DISPLAY NAME SET TO:") + "\n" + newName,
-						_("OK"), nullptr));
-				}, false));
+					openRenameKeyboard(window, defaultConf);
+				});
+
+			for (const auto& p : profiles)
+			{
+				std::string conf = "/userdata/profiles/" + p + "/retroachievements.conf";
+				std::string dn = profileDisplayName(conf, p);
+				picker->addEntry(dn, false,
+					[window, conf]
+					{
+						openRenameKeyboard(window, conf);
+					});
+			}
+
+			window->pushGui(picker);
 		});
 
 	if (!current.empty())
