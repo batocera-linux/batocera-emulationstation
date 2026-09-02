@@ -41,6 +41,41 @@ static std::string readCurrentProfile()
 	return s;
 }
 
+// Read a named field from a profile conf file (key=value format).
+static std::string readConfField(const std::string& confPath, const std::string& key)
+{
+	FILE* f = fopen(confPath.c_str(), "r");
+	if (!f)
+		return "";
+	std::string prefix = key + "=";
+	char line[256];
+	while (fgets(line, sizeof(line), f))
+	{
+		std::string s(line);
+		while (!s.empty() && (s.back() == '\n' || s.back() == '\r'))
+			s.pop_back();
+		if (s.size() > prefix.size() && s.substr(0, prefix.size()) == prefix)
+		{
+			fclose(f);
+			return s.substr(prefix.size());
+		}
+	}
+	fclose(f);
+	return "";
+}
+
+// Resolve display label for a profile: display_name > RA username > fallback.
+static std::string profileDisplayName(const std::string& confPath, const std::string& fallback)
+{
+	std::string dn = readConfField(confPath, "display_name");
+	if (!dn.empty())
+		return dn;
+	std::string ra = readConfField(confPath, "username");
+	if (!ra.empty())
+		return ra;
+	return fallback;
+}
+
 static bool isValidProfileName(const std::string& name)
 {
 	if (name.empty())
@@ -60,9 +95,11 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 	addGroup(_("SWITCH PROFILE"));
 
 	// DEFAULT entry — always present
+	std::string defaultConf = "/userdata/profiles/.default-retroachievements.conf";
+	std::string defaultName = profileDisplayName(defaultConf, _("DEFAULT"));
 	std::string defaultLabel = current.empty()
-		? (_("DEFAULT") + " (" + _("ACTIVE") + ")")
-		: _("DEFAULT");
+		? (defaultName + " (" + _("ACTIVE") + ")")
+		: defaultName;
 	addEntry(defaultLabel, false,
 		[window]
 		{
@@ -75,14 +112,15 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 	for (auto p : profiles)
 	{
 		bool isActive = (p == current);
+		std::string conf = "/userdata/profiles/" + p + "/retroachievements.conf";
+		std::string displayName = profileDisplayName(conf, p);
 		std::string label = isActive
-			? (p + " (" + _("ACTIVE") + ")")
-			: p;
+			? (displayName + " (" + _("ACTIVE") + ")")
+			: displayName;
 		addEntry(label, false,
 			[window, p]
 			{
-				system(
-					("batocera-profiles switch \"" + p + "\"").c_str());
+				system(("batocera-profiles switch \"" + p + "\"").c_str());
 				window->pushGui(new GuiMsgBox(window,
 					_("SWITCHED TO PROFILE:") + "\n" + p + "\n\n" +
 					_("TAKES EFFECT ON NEXT GAME LAUNCH."),
@@ -106,10 +144,35 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 							_("OK"), nullptr));
 						return;
 					}
-					system(
-						("batocera-profiles create \"" + name + "\"").c_str());
+					system(("batocera-profiles create \"" + name + "\"").c_str());
 					window->pushGui(new GuiMsgBox(window,
 						_("PROFILE CREATED:") + "\n" + name,
+						_("OK"), nullptr));
+				}, false));
+		});
+
+	// RENAME — sets display_name for any profile (default or named)
+	addEntry(_("RENAME PROFILE"), true,
+		[window, current, profiles]
+		{
+			// Build label for the profile being renamed
+			std::string confPath = current.empty()
+				? "/userdata/profiles/.default-retroachievements.conf"
+				: "/userdata/profiles/" + current + "/retroachievements.conf";
+			std::string existing = readConfField(confPath, "display_name");
+
+			window->pushGui(new GuiTextEditPopupKeyboard(window,
+				_("DISPLAY NAME"), existing,
+				[window, current, confPath](const std::string& newName)
+				{
+					// Write display_name= into the profile's conf file via shell
+					// (avoids rewriting the entire file in C++)
+					std::string cmd = "grep -v '^display_name=' \"" + confPath + "\" > /tmp/ra_conf.tmp 2>/dev/null;"
+						" echo 'display_name=" + newName + "' >> /tmp/ra_conf.tmp;"
+						" mv /tmp/ra_conf.tmp \"" + confPath + "\"";
+					system(cmd.c_str());
+					window->pushGui(new GuiMsgBox(window,
+						_("DISPLAY NAME SET TO:") + "\n" + newName,
 						_("OK"), nullptr));
 				}, false));
 		});
@@ -126,8 +189,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 					[window, current]
 					{
 						system("batocera-profiles switch");
-						system(
-							("batocera-profiles delete \"" + current + "\"").c_str());
+						system(("batocera-profiles delete \"" + current + "\"").c_str());
 						window->pushGui(new GuiMsgBox(window,
 							_("PROFILE DELETED. SWITCHED TO DEFAULT."),
 							_("OK"), nullptr));
