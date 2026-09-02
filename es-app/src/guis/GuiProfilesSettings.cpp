@@ -94,7 +94,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 
 	addGroup(_("SWITCH PROFILE"));
 
-	// DEFAULT entry — always present
+	// DEFAULT entry: always present
 	std::string defaultConf = "/userdata/profiles/.default-retroachievements.conf";
 	std::string defaultName = profileDisplayName(defaultConf, _("DEFAULT"));
 	std::string defaultLabel = current.empty()
@@ -151,7 +151,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 				}, false));
 		});
 
-	// RENAME — sets display_name for any profile (default or named)
+	// RENAME: sets display_name for any profile (default or named)
 	addEntry(_("RENAME PROFILE"), true,
 		[window, current, profiles]
 		{
