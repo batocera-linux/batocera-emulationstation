@@ -1720,7 +1720,7 @@ void GuiMenu::openSystemSettings()
 			// audio device
 			auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
 
-			std::string selectedAudio = ApiSystem::getInstance()->getCurrentAudioOutputDevice();
+			std::string selectedAudio = SystemConf::getInstance()->get("audio.device");
 			if (selectedAudio.empty())
 				selectedAudio = "auto";
 
@@ -1769,7 +1769,7 @@ void GuiMenu::openSystemSettings()
 		{
 			auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
 
-			std::string selectedAudioProfile = ApiSystem::getInstance()->getCurrentAudioOutputProfile();
+			std::string selectedAudioProfile = SystemConf::getInstance()->get("audio.profile");
 			if (selectedAudioProfile.empty())
 				selectedAudioProfile = "auto";
 
