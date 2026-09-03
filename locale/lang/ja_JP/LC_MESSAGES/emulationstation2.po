@@ -2259,6 +2259,9 @@ msgstr "更新を確認"
 msgid "UPDATE TYPE"
 msgstr "更新データ種類"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "更新を適用"
 

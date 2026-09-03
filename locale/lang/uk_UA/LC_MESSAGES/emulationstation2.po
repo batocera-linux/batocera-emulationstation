@@ -2237,6 +2237,9 @@ msgstr "ПЕРЕВІРИТИ ОНВЛЕННЯ"
 msgid "UPDATE TYPE"
 msgstr "ТИП ОНОВЛЕННЯ"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "ЗАСТОСУВАТИ ОНОВЛЕННЯ"
 

@@ -2264,6 +2264,9 @@ msgstr "Skontrolovať aktualizácie"
 msgid "UPDATE TYPE"
 msgstr "Typ aktualizácie"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "Použiť aktualizáciu"
 

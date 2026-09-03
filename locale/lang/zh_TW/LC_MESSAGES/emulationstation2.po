@@ -2236,6 +2236,9 @@ msgstr "檢查更新"
 msgid "UPDATE TYPE"
 msgstr "更新類型"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "套用更新"
 

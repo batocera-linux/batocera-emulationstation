@@ -2300,6 +2300,9 @@ msgstr "البحث عن تحديثات"
 msgid "UPDATE TYPE"
 msgstr "نوع التحديث"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "تطبيق التحديث"
 

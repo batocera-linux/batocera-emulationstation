@@ -502,6 +502,31 @@ bool ApiSystem::canLocalUpdate() {
 	return false;
 }
 
+bool ApiSystem::canArchitectureUpdate(std::string& architecture) {
+	LOG(LogDebug) << "ApiSystem::canArchitectureUpdate";
+
+	FILE *pipe = popen("batocera-architecture-compatibility", "r");
+	if (pipe == NULL)
+		return false;
+
+	char line[1024];
+	while (fgets(line, 1024, pipe)) 
+	{
+	    strtok(line, "\n");
+	    architecture = std::string(line);
+	}
+
+	int res = WEXITSTATUS(pclose(pipe));
+	if (res == 0) 
+	{
+		LOG(LogInfo) << "Can Architecture Update";
+		return true;
+	}
+
+	LOG(LogInfo) << "Cannot Architecture Update";
+	return false;
+}
+
 bool ApiSystem::canUpdate(std::vector<std::string>& output) 
 {
 	LOG(LogDebug) << "ApiSystem::canUpdate";

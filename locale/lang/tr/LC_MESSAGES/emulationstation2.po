@@ -2267,6 +2267,9 @@ msgstr "GÜNCELLEMELERİ DENETLE"
 msgid "UPDATE TYPE"
 msgstr "GÜNCELEME TÜRÜ"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "GÜNCELLEMEYİ UYGULA"
 

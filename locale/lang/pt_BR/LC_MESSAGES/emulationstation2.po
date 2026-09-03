@@ -2282,6 +2282,9 @@ msgstr "VERIFICAR ATUALIZAÇÕES"
 msgid "UPDATE TYPE"
 msgstr "TIPO DE ATUALIZAÇÃO"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "APLICAR ATUALIZAÇÃO"
 

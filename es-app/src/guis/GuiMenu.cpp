@@ -1242,6 +1242,21 @@ void GuiMenu::openUpdatesSettings(bool selectTorrentService)
 				SystemConf::getInstance()->saveSystemConf();
 		});
 
+#if BATOCERA
+		std::string update_architecture;
+		if (ApiSystem::getInstance()->canArchitectureUpdate(update_architecture)) {
+		  auto architecture_update_switch = std::make_shared<SwitchComponent>(mWindow);
+		  architecture_update_switch->setState(SystemConf::getInstance()->get("updates.architecture") == "1");
+		  updateGui->addWithLabel(_("ARCHITECTURE UPDATE") + " (" + update_architecture + ")", architecture_update_switch);
+
+		  architecture_update_switch->setOnChangedCallback([this, architecture_update_switch]()
+		  {
+		    SystemConf::getInstance()->set("updates.architecture", architecture_update_switch->getState() ? "1" : "");
+		    SystemConf::getInstance()->saveSystemConf();
+		  });
+		}
+#endif
+
 		// Start update
 		updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
 		{

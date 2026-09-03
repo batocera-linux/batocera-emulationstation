@@ -2226,6 +2226,9 @@ msgstr ""
 msgid "UPDATE TYPE"
 msgstr ""
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr ""
 
