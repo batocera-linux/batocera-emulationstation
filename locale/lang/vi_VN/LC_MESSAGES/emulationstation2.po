@@ -2259,6 +2259,9 @@ msgstr "KIỂM TRA CẬP NHẬT"
 msgid "UPDATE TYPE"
 msgstr "LOẠI CẬP NHẬT"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "ÁP DỤNG CẬP NHẬT"
 

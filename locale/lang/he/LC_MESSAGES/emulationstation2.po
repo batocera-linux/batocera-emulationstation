@@ -2231,6 +2231,9 @@ msgstr "חיפוש עידכוני תוכנה חדשים"
 msgid "UPDATE TYPE"
 msgstr "סוג עידכון"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "החל עידכון"
 

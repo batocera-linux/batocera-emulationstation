@@ -2249,6 +2249,9 @@ msgstr "ΕΛΕΓΧΟΣ ΓΙΑ ΑΝΑΒΑΘΜΙΣΕΙΣ"
 msgid "UPDATE TYPE"
 msgstr "ΤΥΠΟΣ ΑΝΑΒΑΘΜΙΣΗΣ"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "ΕΠΙΚΥΡΩΣΗ ΑΝΑΒΑΘΜΙΣΗΣ"
 

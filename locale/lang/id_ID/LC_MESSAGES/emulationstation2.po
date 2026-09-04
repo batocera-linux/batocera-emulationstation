@@ -311,7 +311,8 @@ msgstr "MODE HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Matikan status pemuatan, mundur, dan curang /cheat untuk mendapatkan poin lebih."
+"Matikan status pemuatan, mundur, dan curang /cheat untuk mendapatkan poin "
+"lebih."
 
 msgid "LEADERBOARDS"
 msgstr "PAPAN PERINGKAT"
@@ -2184,7 +2185,9 @@ msgid "RIGHT ANALOG STICK CHANGES VOLUME"
 msgstr "STIK ANALOG KANAN UNTUK MENGUBAH VOLUME"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr "Gerakkan stik kanan ke atas/bawah untuk menaikkan atau menurunkan volume audio."
+msgstr ""
+"Gerakkan stik kanan ke atas/bawah untuk menaikkan atau menurunkan volume "
+"audio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANSI GUN MOVE"
@@ -2255,6 +2258,9 @@ msgstr "PERIKSA PEMBARUAN"
 
 msgid "UPDATE TYPE"
 msgstr "TIPE PEMBARUAN"
+
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr "TERAPKAN PEMBARUAN"

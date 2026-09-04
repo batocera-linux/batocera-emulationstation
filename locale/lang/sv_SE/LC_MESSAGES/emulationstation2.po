@@ -2267,6 +2267,9 @@ msgstr "KONTROLLERA FÖR UPPDATERINGAR"
 msgid "UPDATE TYPE"
 msgstr "UPDATE TYP"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "ANSÖK UPDATE"
 

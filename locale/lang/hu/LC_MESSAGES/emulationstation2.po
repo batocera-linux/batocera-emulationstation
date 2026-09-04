@@ -2273,6 +2273,9 @@ msgstr "FRISSÍTÉSEK KERESÉSE"
 msgid "UPDATE TYPE"
 msgstr "FRISSÍTÉS TÍPUS"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "FRISSÍTÉS ALKALMAZÁSA"
 

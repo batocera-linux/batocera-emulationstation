@@ -2197,7 +2197,9 @@ msgid "RIGHT ANALOG STICK CHANGES VOLUME"
 msgstr "O ANALÓGICO DIREITO ALTERA O VOLUME"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr "Mova o analógico direito para cima/baixo para aumentar ou diminuir o volume do áudio."
+msgstr ""
+"Mova o analógico direito para cima/baixo para aumentar ou diminuir o volume "
+"do áudio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERÂNCIA NO MOVIMENTO DA ARMA"
@@ -2268,6 +2270,9 @@ msgstr "VERIFICAR SE HÁ ATUALIZAÇÕES"
 
 msgid "UPDATE TYPE"
 msgstr "TIPO DE ATUALIZAÇÃO"
+
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
 
 msgid "APPLY UPDATE"
 msgstr "APLICAR ATUALIZAÇÃO"

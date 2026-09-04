@@ -2229,6 +2229,9 @@ msgstr "VERIFICAR MESAS A JORN"
 msgid "UPDATE TYPE"
 msgstr "TIPE DE MESA A JORN"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "APLICAR MESA A JORN"
 

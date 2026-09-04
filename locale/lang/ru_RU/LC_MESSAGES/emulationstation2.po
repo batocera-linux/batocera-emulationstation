@@ -2264,6 +2264,9 @@ msgstr "ПРОВЕРИТЬ ОБНОВЛЕНИЯ"
 msgid "UPDATE TYPE"
 msgstr "ВЕТКА ОБНОВЛЕНИЯ"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "ПРИМЕНИТЬ ОБНОВЛЕНИЕ"
 

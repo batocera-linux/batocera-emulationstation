@@ -2275,6 +2275,9 @@ msgstr "CONTROLEER OP UPDATES"
 msgid "UPDATE TYPE"
 msgstr "UPDATE TYPE"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "UPDATE TOEPASSEN"
 

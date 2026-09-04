@@ -2279,6 +2279,9 @@ msgstr "AUF UPDATES PRÜFEN"
 msgid "UPDATE TYPE"
 msgstr "UPDATE-TYP"
 
+msgid "ARCHITECTURE UPDATE"
+msgstr ""
+
 msgid "APPLY UPDATE"
 msgstr "UPDATE ANWENDEN"
 
