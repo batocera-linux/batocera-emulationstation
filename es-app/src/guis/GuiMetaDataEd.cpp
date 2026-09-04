@@ -29,6 +29,7 @@
 #include "FileTag.h"
 #include <algorithm>
 #include <set>
+#include <string>
 
 GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector<MetaDataDecl>& mdd, ScraperSearchParams scraperParams,
 	const std::string& /*header*/, std::function<void()> saveCallback, std::function<void()> deleteFunc, FileData* file) : GuiComponent(window),
@@ -290,25 +291,32 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				type = GuiFileBrowser::FileTypes::VIDEO;
 			else if (iter->key == "manual" || iter->key == "magazine" || iter->key == "map")
 				type = (GuiFileBrowser::FileTypes) (GuiFileBrowser::FileTypes::IMAGES | GuiFileBrowser::FileTypes::MANUALS);
+			else if (iter->key == "parent")
+				type = GuiFileBrowser::FileTypes::FILES;
 
 			auto updateVal = [ed, relativePath](const std::string& newVal)
-			{ 
+			{
 				auto val = Utils::FileSystem::createRelativePath(newVal, relativePath, true);
 				ed->setValue(val);
 			};
 
-			row.makeAcceptInputHandler([this, type, ed, iter, updateVal, relativePath]
-			{			
+			bool isParentField = (iter->key == "parent");
+			std::set<std::string> romExtensions = isParentField ? mScraperParams.game->getSystem()->getExtensions() : std::set<std::string>();
+
+			row.makeAcceptInputHandler([this, type, ed, iter, updateVal, relativePath, isParentField, romExtensions]
+			{
 				std::string filePath = ed->getValue();
 				if (!filePath.empty())
 					filePath = Utils::FileSystem::resolveRelativePath(filePath, relativePath, true);
-				
-				std::string dir = Utils::FileSystem::getParent(filePath);
-				//if (dir.empty())
-				//	dir = relativePath;
-					
+
+				std::string dir;
+				if (isParentField)
+					dir = relativePath;
+				else
+					dir = Utils::FileSystem::getParent(filePath);
+
 				std::string title = iter->displayName + " - " + mMetaData->getName();
-				mWindow->pushGui(new GuiFileBrowser(mWindow, dir, filePath, type, updateVal, title));
+				mWindow->pushGui(new GuiFileBrowser(mWindow, dir, filePath, type, updateVal, title, romExtensions));
 			});
 
 			break;
