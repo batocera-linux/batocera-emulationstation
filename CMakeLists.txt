@@ -201,6 +201,11 @@ find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(FRIBIDI REQUIRED fribidi)
+if(FRIBIDI_FOUND)
+add_definitions(-DHAVE_FRIBIDI)
+endif()
 
 if(NOT WIN32)
 	if(ENABLE_PULSE)
@@ -322,6 +327,7 @@ endif()
 set(COMMON_INCLUDE_DIRS
     ${FREETYPE_INCLUDE_DIRS}
     ${FreeImage_INCLUDE_DIRS}
+    ${FRIBIDI_INCLUDE_DIRS}
     # batocera / background musics
     ${SDLMIXER_INCLUDE_DIR}
     # batocera / customisations    
@@ -408,6 +414,7 @@ endif()
 set(COMMON_LIBRARIES
     ${FREETYPE_LIBRARIES}
     ${FreeImage_LIBRARIES}
+    ${FRIBIDI_LIBRARIES}
     ${SDL2_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}

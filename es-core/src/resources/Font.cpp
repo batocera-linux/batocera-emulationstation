@@ -14,6 +14,10 @@
 #include <algorithm>
 #include "math/Transform4x4f.h"
 
+#ifdef HAVE_FRIBIDI
+#include <fribidi.h>
+#endif
+
 #ifdef WIN32
 #include <Windows.h>
 #endif
@@ -623,6 +627,31 @@ bool isBidiChar(char c)
     return (c & 0xE0) == 0xC0 && (c & 0x10) == 0x10;
 }
 
+#ifdef HAVE_FRIBIDI
+std::string processRTLText(const std::string& text)
+{
+    if (text.empty()) return text;
+
+    size_t len = text.length();
+
+    // 1. Convert UTF-8 to UTF-32 for FriBidi
+    std::vector<FriBidiChar> unicode_in(len + 1);
+    std::vector<FriBidiChar> unicode_out(len + 1);
+    int ulen = fribidi_charset_to_unicode(FRIBIDI_CHAR_SET_UTF8, text.c_str(), len, unicode_in.data());
+
+    // 2. Apply FriBidi for shaping + reorganisation BiDi
+    FriBidiParType base_dir = FRIBIDI_PAR_RTL;
+    fribidi_boolean ok = fribidi_log2vis(unicode_in.data(), ulen, &base_dir, unicode_out.data(), nullptr, nullptr, nullptr);
+    if (!ok) return text;
+
+    // 3. Convert UTF-32 to UTF-8 for es
+    std::vector<char> utf8_out(len * 4 + 1);
+    int out_len = fribidi_unicode_to_charset(FRIBIDI_CHAR_SET_UTF8, unicode_out.data(), ulen, utf8_out.data());
+
+    return std::string(utf8_out.data(), out_len);
+}
+#endif
+
 std::string tryFastBidi(const std::string& text)
 {
     std::string ret = "";
@@ -875,7 +904,11 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 	// vertices by texture
 	std::map< FontTexture*, std::vector<Renderer::Vertex> > vertMap;
 
+#ifdef HAVE_FRIBIDI
+	std::string text = EsLocale::isRTL() ? processRTLText(_text) : _text;
+#else
 	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
+#endif
 
 	std::map<int, int> tabStops;
 	int tabIndex = 0;
