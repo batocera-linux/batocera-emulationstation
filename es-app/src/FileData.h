@@ -244,6 +244,7 @@ public:
 	FileData* FindByPath(const std::string& path);
 
 	inline const std::vector<FileData*>& getChildren() const { return mChildren; }
+	std::set<std::string> getMediaDirectories() const;
 	const std::vector<FileData*> getChildrenListToDisplay();
 	std::shared_ptr<std::vector<FileData*>> findChildrenListToDisplayAtCursor(FileData* toFind, std::stack<FileData*>& stack);
 
