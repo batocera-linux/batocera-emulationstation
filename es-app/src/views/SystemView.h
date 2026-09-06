@@ -29,6 +29,14 @@ struct SystemViewData
 	std::vector<GuiComponent*> backgroundExtras;
 };
 
+// Structure to store hardware categories
+struct HardwareCategory
+{
+	std::string name;
+
+	HardwareCategory(const std::string& n) : name(n) {}
+};
+
 
 class SystemView : public GuiComponent
 {
@@ -102,13 +110,23 @@ private:
 	void	 renderCarousel(const Transform4x4f& parentTrans);
 	void	 renderExtras(const Transform4x4f& parentTrans, float lower, float upper);
 	void	 renderInfoBar(const Transform4x4f& trans);
+
+	// Hardware filtering methods
+	std::vector<HardwareCategory> getUniqueHardwareTypes();
+	void	 updateSystemsForHardwareFilter();
+	void	 cycleHardwareFilter(int direction);
 	
 	ControlWrapper						mCarousel;
+
+	std::vector<HardwareCategory>		mHardwareTypes;
+	std::string							mCurrentHardwareFilter;
+	bool								mHardwareFilterEnabled;
 
 	TextComponent						mSystemInfo;
 
 	std::vector<GuiComponent*>			mStaticBackgrounds;
 	std::vector<SystemViewData>			mEntries;
+	std::vector<SystemViewData>			mAllEntries; // To store all unfiltered systems
 
 	float			mCamOffset;
 	float			mExtrasCamOffset;
