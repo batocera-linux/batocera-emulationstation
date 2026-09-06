@@ -2021,7 +2021,7 @@ msgid "VSYNC"
 msgstr "VSYNC"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "ANTYALIASING (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "LIMIT KL/S"
@@ -2194,10 +2194,11 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "STERUJ EMULATIONSTATION TYLKO Z PIERWSZEGO JOYSTICKA"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "PRAWY DRĄŻEK ANALOGOWY REGULUJE GŁOŚNOŚĆ"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
 msgstr ""
+"Przesuń prawy drążek w górę lub w dół, aby zwiększyć lub zmniejszyć głośność."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCJA RUCHU PISTOLETU"
@@ -2271,7 +2272,7 @@ msgid "UPDATE TYPE"
 msgstr "TYP AKTUALIZACJI"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "AKTUALIZACJA ARCHITEKTURY"
 
 msgid "APPLY UPDATE"
 msgstr "ZASTOSUJ AKTUALIZACJĘ"

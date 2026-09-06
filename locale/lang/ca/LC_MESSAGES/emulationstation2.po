@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-09-04 21:03+0200\n"
+"PO-Revision-Date: 2026-09-06 18:30+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -46,10 +46,10 @@ msgid "RETRY"
 msgstr "TORNA-HO A INTENTAR"
 
 msgid "SKIP"
-msgstr "OMET"
+msgstr "OMETRE"
 
 msgid "CANCEL"
-msgstr "CANCEL·LA"
+msgstr "CANCEL·LAR"
 
 msgid "Downloading"
 msgstr "Descarregant"
@@ -247,13 +247,13 @@ msgid "SELECT ACTIONS TO CHANGE"
 msgstr "SELECCIONA LES ACCIONS A CANVIAR"
 
 msgid "SAVE"
-msgstr "DESA"
+msgstr "DESAR"
 
 msgid "DELETE"
-msgstr "ESBORRA"
+msgstr "ESBORRAR"
 
 msgid "CLOSE"
-msgstr "TANCA"
+msgstr "TANCAR"
 
 msgid "PLAYER 1"
 msgstr "JUGADOR 1"
@@ -948,10 +948,10 @@ msgid "SCRAPE"
 msgstr "OBTENIR INFORMACIÓ"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "EDITAR PERFIL PAD-A-TECLA"
+msgstr "EDITAR PERFIL COMANDAMENT-A-TECLA"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "CREAR PERFIL PAD-A-TECLA"
+msgstr "CREAR PERFIL COMANDAMENT-A-TECLA"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIONS AVANÇADES DEL JOC"
@@ -1238,7 +1238,7 @@ msgid "BORDER SIZE"
 msgstr "MIDA DE LA VORA"
 
 msgid "AUTO"
-msgstr "AUTO"
+msgstr "AUTOMÀTIC"
 
 msgid "THIN"
 msgstr "FI"
@@ -1574,7 +1574,7 @@ msgid "MANUAL"
 msgstr "MANUAL"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTOS PAD-A-TECLA"
+msgstr "AJUSTOS COMANDAMENT-A-TECLA"
 
 msgid "MANUAL SCRAPE"
 msgstr "OBTENCIÓ MANUAL D’INFORMACIÓ DE JOCS"
@@ -1583,7 +1583,7 @@ msgid "INCLUDED SCRAPERS"
 msgstr "SERVIDORS D’INFORMACIÓ DE JOCS"
 
 msgid "SCREENSCRAPER"
-msgstr "OBTENIR INFORMACIÓ DE JOCS"
+msgstr "SCREENSCRAPER"
 
 msgid "IGDB"
 msgstr "IGDB"
@@ -3087,7 +3087,7 @@ msgid "Ejecting..."
 msgstr "Extraient…"
 
 msgid "EDIT METADATA"
-msgstr "EDITA LES METADADES"
+msgstr "EDICIÓ DE METADADES"
 
 msgid "TAGS"
 msgstr "ETIQUETES"
