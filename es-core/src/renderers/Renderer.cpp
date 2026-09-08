@@ -1093,11 +1093,29 @@ namespace Renderer
 
 	bool onScreenSizeChanged(int width, int height)
 	{
-		if (screenWidth == width && screenHeight == height)
+		if (windowWidth == width && windowHeight == height)
 			return false;
 
-		windowWidth = screenWidth = width;
-		windowHeight = screenHeight = height;
+		windowWidth  = width;
+		windowHeight = height;
+
+		// Geometry explicitly requested on the command line (--screensize / --screenoffset)
+		// is only read in createWindow(). Re-apply it here so that a window size change
+		// does not silently discard it. When it was not set, behaviour is unchanged.
+		int userScreenWidth  = Settings::getInstance()->getInt("ScreenWidth");
+		int userScreenHeight = Settings::getInstance()->getInt("ScreenHeight");
+
+		screenWidth   = userScreenWidth  ? userScreenWidth  : width;
+		screenHeight  = userScreenHeight ? userScreenHeight : height;
+		screenOffsetX = Settings::getInstance()->getInt("ScreenOffsetX");
+		screenOffsetY = Settings::getInstance()->getInt("ScreenOffsetY");
+
+		if (screenRotate == 1 || screenRotate == 3)
+		{
+			int tmp = screenWidth;
+			screenWidth = screenHeight;
+			screenHeight = tmp;
+		}
 
 		resetCache();
 		updateProjection();
