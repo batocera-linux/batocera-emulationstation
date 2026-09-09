@@ -18,6 +18,7 @@
 #include "Paths.h"
 #include "GunManager.h"
 #include "renderers/Renderer.h"
+#include <fstream>
 #include <set>
 
 #ifdef HAVE_UDEV
@@ -398,14 +399,13 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 
 #if WIN32
-	// Load additional controller mappings. SDL_QuitSubSystem(SDL_INIT_JOYSTICK) frees every mapping
-	// added at runtime, so this has to be done on every rebuild, not once at startup.
+	// Load additional controller mappings into SDL, before enumerating the devices.
+	// SDL_QuitSubSystem(SDL_INIT_JOYSTICK) frees every mapping added at runtime, so this has to be
+	// done on every rebuild, not once at startup.
 	// Load order defines priority : a mapping added later overrides the previous one for the same
 	// GUID, and any file entry overrides SDL's built-in database.
-	// 1. Community database shipped with RetroBat, next to the ES executable.
+	// 1. Community database shipped next to the ES executable.
 	// 2. User file, in the user configuration folder, so it is never overwritten by an update.
-	// Windows only : dropping a database file next to the executable only makes sense on a portable
-	// install. On Linux the ES folder belongs to the distribution and is read only.
 	const std::string mappingFiles[] =
 	{
 		Paths::getEmulationStationPath() + "/gamecontrollerdb.txt",
@@ -417,11 +417,43 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		if (!Utils::FileSystem::exists(mappingFile))
 			continue;
 
-		int added = SDL_GameControllerAddMappingsFromFile(mappingFile.c_str());
-		if (added < 0)
-			LOG(LogWarning) << "Unable to load controller mappings from " << mappingFile << " : " << SDL_GetError();
-		else
-			LOG(LogInfo) << "Loaded " << added << " controller mapping(s) from " << mappingFile;
+		// The file is read line by line instead of using SDL_GameControllerAddMappingsFromFile,
+		// only to be tolerant on the platform field : SDL requires it and silently drops every line
+		// that does not declare one, which is a common mistake when a mapping is pasted by hand.
+		// Everything else, and above all the GUID matching, is left to SDL.
+		std::ifstream dbFile(mappingFile);
+		std::string line;
+		int added = 0;
+		int failed = 0;
+
+		while (std::getline(dbFile, line))
+		{
+			line = Utils::String::trim(line);
+
+			if (line.empty() || line[0] == '#')
+				continue;
+
+			if (line.find("platform:") == std::string::npos)
+			{
+				// Assume Windows when the platform is not specified
+				if (line.back() != ',')
+					line += ",";
+
+				line += "platform:Windows,";
+			}
+			else if (line.find("platform:Windows,") == std::string::npos)
+				continue; // Another platform, or a custom tag like WindowsWheel / WindowsGun
+
+			if (SDL_GameControllerAddMapping(line.c_str()) >= 0)
+				added++;
+			else
+			{
+				failed++;
+				LOG(LogWarning) << "Invalid controller mapping in " << mappingFile << " : " << SDL_GetError();
+			}
+		}
+
+		LOG(LogInfo) << "Loaded " << added << " controller mapping(s) from " << mappingFile << " (" << failed << " rejected)";
 	}
 
 	// SDL's HIDAPI thread enumerates devices asynchronously after SDL_InitSubSystem.
