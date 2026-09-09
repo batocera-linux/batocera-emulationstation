@@ -366,6 +366,69 @@ private:
 };
 
 Win32RawInputApi Win32RawInput;
+
+// Normalize a SDL GUID string for comparison : the CRC-16 name hash (chars 4 to 7, added in
+// SDL 2.26) and the trailing driver/version bytes (chars 28 to 31) are zeroed, because
+// gamecontrollerdb entries may or may not carry them depending on how they were generated.
+static std::string normalizeGuidString(const std::string& guid)
+{
+	std::string ret = guid;
+	if (ret.size() < 32)
+		return ret;
+
+	for (int i = 4; i < 8; i++)
+		ret[i] = '0';
+
+	for (int i = 28; i < 32; i++)
+		ret[i] = '0';
+
+	return ret;
+}
+
+// Look for a mapping matching the given GUID in the gamecontrollerdb.txt files, in priority order :
+// 1. the user file in .emulationstation, which is never overwritten by updates
+// 2. a file dropped near the ES executable (legacy behaviour, overwritten by ES updates)
+// Entries declaring another platform are ignored ; entries with no platform field are accepted.
+static std::string getMappingFromControllerDb(const std::string& guid)
+{
+	const std::string dbPaths[] =
+	{
+		Paths::getUserEmulationStationPath() + "/gamecontrollerdb.txt",
+		Paths::getEmulationStationPath() + "/gamecontrollerdb.txt"
+	};
+
+	std::string normalizedDeviceGuid = normalizeGuidString(guid);
+
+	for (auto& dbPath : dbPaths)
+	{
+		if (!Utils::FileSystem::exists(dbPath))
+			continue;
+
+		std::ifstream dbFile(dbPath);
+		std::string line;
+
+		while (std::getline(dbFile, line))
+		{
+			if (line.empty() || line[0] == '#')
+				continue;
+
+			size_t firstComma = line.find(',');
+			if (firstComma == std::string::npos || firstComma < 8)
+				continue;
+
+			if (normalizeGuidString(line.substr(0, firstComma)) != normalizedDeviceGuid)
+				continue;
+
+			if (line.find("platform:") != std::string::npos && line.find("platform:Windows") == std::string::npos)
+				continue;
+
+			LOG(LogInfo) << "Found mapping for GUID " << guid << " in " << dbPath;
+			return line;
+		}
+	}
+
+	return "";
+}
 #endif
 
 void InputManager::rebuildAllJoysticks(bool deinit)
@@ -525,43 +588,13 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 #if !BATOCERA
 			std::string mappingString;
 			
-			if (SDL_IsGameController(idx))
-			{
 #if WIN32
-				// Try to find mapping in gamecontrollerdb.txt file dropped near ES executable
-				std::string dbPath = Paths::getEmulationStationPath() + "/gamecontrollerdb.txt";
-				if (Utils::FileSystem::exists(dbPath))
-				{
-					// Normalize device GUID: zero last 4 chars
-					std::string normalizedDeviceGuid = std::string(guid);
-					for (int i = 28; i < 32; i++)
-						normalizedDeviceGuid[i] = '0';
-
-					std::ifstream dbFile(dbPath);
-					std::string line;
-
-					while (std::getline(dbFile, line))
-					{
-						if (line.empty() || line[0] == '#')
-							continue;
-
-						size_t firstComma = line.find(',');
-						if (firstComma == std::string::npos || firstComma < 8)
-							continue;
-
-						std::string entryGuid = line.substr(0, firstComma);
-						if (entryGuid == normalizedDeviceGuid && line.find("platform:Windows") != std::string::npos)
-						{
-							mappingString = line;
-							break;
-						}
-					}
-				}
+			// Try to find mapping in gamecontrollerdb.txt file dropped near ES executable
+			mappingString = getMappingFromControllerDb(guid);
 #endif
-				// Fall back to SDL's built-in mapping if not found in db file
-				if (mappingString.empty())
-					mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
-			}
+			// Fall back to SDL's built-in mapping if nothing was found in the db files
+			if (mappingString.empty() && SDL_IsGameController(idx))
+				mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
 
 			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
 			{
