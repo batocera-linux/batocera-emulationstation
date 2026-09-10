@@ -396,9 +396,66 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 #endif
 			
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
-	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
+	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 
 #if WIN32
+	// Load additional controller mappings into SDL, before enumerating the devices.
+	// SDL_QuitSubSystem(SDL_INIT_JOYSTICK) frees every mapping added at runtime, so this has to be
+	// done on every rebuild, not once at startup.
+	// Load order defines priority : a mapping added later overrides the previous one for the same
+	// GUID, and any file entry overrides SDL's built-in database.
+	// 1. Community database shipped next to the ES executable.
+	// 2. User file, in the user configuration folder, so it is never overwritten by an update.
+	const std::string mappingFiles[] =
+	{
+		Paths::getEmulationStationPath() + "/gamecontrollerdb.txt",
+		Paths::getUserEmulationStationPath() + "/gamecontrollerdb.txt"
+	};
+
+	for (auto& mappingFile : mappingFiles)
+	{
+		if (!Utils::FileSystem::exists(mappingFile))
+			continue;
+
+		// The file is read line by line instead of using SDL_GameControllerAddMappingsFromFile,
+		// only to be tolerant on the platform field : SDL requires it and silently drops every line
+		// that does not declare one, which is a common mistake when a mapping is pasted by hand.
+		// Everything else, and above all the GUID matching, is left to SDL.
+		std::ifstream dbFile(mappingFile);
+		std::string line;
+		int added = 0;
+		int failed = 0;
+
+		while (std::getline(dbFile, line))
+		{
+			line = Utils::String::trim(line);
+
+			if (line.empty() || line[0] == '#')
+				continue;
+
+			if (line.find("platform:") == std::string::npos)
+			{
+				// Assume Windows when the platform is not specified
+				if (line.back() != ',')
+					line += ",";
+
+				line += "platform:Windows,";
+			}
+			else if (line.find("platform:Windows,") == std::string::npos)
+				continue; // Another platform, or a custom tag like WindowsWheel / WindowsGun
+
+			if (SDL_GameControllerAddMapping(line.c_str()) >= 0)
+				added++;
+			else
+			{
+				failed++;
+				LOG(LogWarning) << "Invalid controller mapping in " << mappingFile << " : " << SDL_GetError();
+			}
+		}
+
+		LOG(LogInfo) << "Loaded " << added << " controller mapping(s) from " << mappingFile << " (" << failed << " rejected)";
+	}
+
 	// SDL's HIDAPI thread enumerates devices asynchronously after SDL_InitSubSystem.
 	// For DualSense/DS4 over Bluetooth, the HID handshake is not complete by the
 	// time SDL_NumJoysticks() is called immediately after init, so the controller
@@ -525,42 +582,19 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 #if !BATOCERA
 			std::string mappingString;
 			
+			// The gamecontrollerdb.txt files are loaded into SDL itself (see rebuildAllJoysticks,
+			// right after SDL_InitSubSystem), so SDL applies them with its own GUID matching rules
+			// and with the right priority. Those files must never be parsed by hand : SDL compares
+			// the full GUID, including the backend byte, and a DirectInput entry must not be applied
+			// to the same pad seen through XInput, RAWINPUT or HIDAPI.
 			if (SDL_IsGameController(idx))
 			{
-#if WIN32
-				// Try to find mapping in gamecontrollerdb.txt file dropped near ES executable
-				std::string dbPath = Paths::getEmulationStationPath() + "/gamecontrollerdb.txt";
-				if (Utils::FileSystem::exists(dbPath))
+				char* sdlMapping = SDL_GameControllerMappingForDeviceIndex(idx);
+				if (sdlMapping != nullptr)
 				{
-					// Normalize device GUID: zero last 4 chars
-					std::string normalizedDeviceGuid = std::string(guid);
-					for (int i = 28; i < 32; i++)
-						normalizedDeviceGuid[i] = '0';
-
-					std::ifstream dbFile(dbPath);
-					std::string line;
-
-					while (std::getline(dbFile, line))
-					{
-						if (line.empty() || line[0] == '#')
-							continue;
-
-						size_t firstComma = line.find(',');
-						if (firstComma == std::string::npos || firstComma < 8)
-							continue;
-
-						std::string entryGuid = line.substr(0, firstComma);
-						if (entryGuid == normalizedDeviceGuid && line.find("platform:Windows") != std::string::npos)
-						{
-							mappingString = line;
-							break;
-						}
-					}
+					mappingString = sdlMapping;
+					SDL_free(sdlMapping); // SDL allocates this string, the caller owns it
 				}
-#endif
-				// Fall back to SDL's built-in mapping if not found in db file
-				if (mappingString.empty())
-					mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
 			}
 
 			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
@@ -975,7 +1009,18 @@ bool InputManager::loadFromSdlMapping(InputConfig* config, const std::string& ma
 		auto inputName = _sdlToEsMapping.find(key);
 		if (inputName == _sdlToEsMapping.cend())
 		{
-			LOG(LogError) << "[InputDevice] Unknown mapping: " << key;
+			// Fields that are part of a valid SDL mapping but that ES does not use. They are present
+			// in almost every gamecontrollerdb entry, so reporting them as errors only pollutes the log.
+			static const std::set<std::string> ignoredKeys =
+			{
+				"platform", "crc", "hint", "sdk", "guide", "touchpad",
+				"paddle1", "paddle2", "paddle3", "paddle4",
+				"misc1", "misc2", "misc3", "misc4", "misc5", "misc6"
+			};
+
+			if (ignoredKeys.count(key) == 0)
+				LOG(LogError) << "[InputDevice] Unknown mapping: " << key;
+
 			continue;
 		}
 
