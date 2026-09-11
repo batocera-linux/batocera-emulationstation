@@ -377,7 +377,13 @@ bool SystemView::input(InputConfig* config, Input input)
 {
 	if (mYButton.isShortPressed(config, input))
 	{
-		showQuickSearch();
+		// Quick search needs the "all games" collection : when the user disabled it, fall back
+		// to a random system instead of silently doing nothing.
+		if (SystemData::getSystem("all") != nullptr)
+			showQuickSearch();
+		else
+			mCarousel.setCursor(SystemData::getRandomSystem());
+
 		return true;
 	}
 
@@ -615,14 +621,11 @@ void SystemView::update(int deltaTime)
 
 	GuiComponent::update(deltaTime);
 
+	// Long press on the west button always selects a random system, matching the game list view.
+	// It used to do so only when netplay was enabled, and otherwise just repeated the quick
+	// search already bound to the short press.
 	if (mYButton.isLongPressed(deltaTime))
-	{
-		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
-		if (netPlay)
-			mCarousel.setCursor(SystemData::getRandomSystem());
-		else
-			showQuickSearch();
-	}
+		mCarousel.setCursor(SystemData::getRandomSystem());
 }
 
 void SystemView::updateExtraTextBinding()
@@ -904,7 +907,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	{
 		prompts.push_back(HelpPrompt("x", _("RANDOM")));
 		if (SystemData::getSystem("all") != nullptr)
-			prompts.push_back(HelpPrompt("y", _("SEARCH"), [&] { showQuickSearch(); })); // QUICK 
+			prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM"), [&] { showQuickSearch(); })); // QUICK 
+		else
+			prompts.push_back(HelpPrompt("y", _("RANDOM"), [&] { mCarousel.setCursor(SystemData::getRandomSystem()); }));
 	}
 
 	if (SystemData::IsManufacturerSupported)
