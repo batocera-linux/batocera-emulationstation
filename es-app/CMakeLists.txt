@@ -87,7 +87,8 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlay.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlaySettings.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievementsSettings.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievementsSettings.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiProfilesSettings.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemInformation.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothDevices.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothPair.h
@@ -193,6 +194,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlaySettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievementsSettings.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiProfilesSettings.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemInformation.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothDevices.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothPair.cpp
