@@ -1755,46 +1755,35 @@ namespace Utils
 			}
 		}
 #endif
-		void preloadFileSystemCache(const std::string& path, bool trySaveStates)
+		void preloadFileSystemCache(std::set<std::string> dirs)
 		{
-			if (path.empty())
+			if (dirs.empty() || !Settings::UseFileCache())
 				return;
 
-			if (!Settings::UseFileCache())
-				return;
-
+			static std::mutex preloadMutex;
 			static std::set<std::string> preloaded;
 
-			if (preloaded.find(path) != preloaded.cend())
+			std::set<std::string> todo;
+			{
+				std::lock_guard<std::mutex> lock(preloadMutex);
+				for (auto& d : dirs)
+				{
+					if (preloaded.find(d) == preloaded.cend())
+					{
+						preloaded.insert(d);
+						todo.insert(d);
+					}
+				}
+			}
+
+			if (todo.empty())
 				return;
 
-			preloaded.insert(path);
-
-			auto doWork = [&](std::string* dir)
+			std::thread([dirs = std::move(todo)]()
 			{
-				if (trySaveStates)
-				{
-					std::string systemName = Utils::FileSystem::getFileName(*dir);
-					Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName), true);
-				}
-
-				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/images"));
-				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/videos"));
-				Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*dir, "/manuals"));
-
-				delete dir;
-			};
-
-			std::thread thread(doWork, new std::string(path));
-
-#if WIN32		
-			if (Utils::Platform::isWindows10())
-				::SetThreadDescription(thread.native_handle(), L"PreloadFileSystemCache");
-
-			::SetThreadPriority(thread.native_handle(), THREAD_PRIORITY_LOWEST);
-#endif
-
-			thread.detach();
+				for (const auto& d : dirs)
+					Utils::FileSystem::getDirContent(d, false, true);
+			}).detach();
 		}
 
 	} // FileSystem::
