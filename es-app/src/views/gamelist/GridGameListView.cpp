@@ -255,14 +255,20 @@ void GridGameListView::launch(FileData* game)
 void GridGameListView::remove(FileData *game)
 {
 	mGrid.remove(game);
-
 	mRoot->removeFromVirtualFolders(game);
-	delete game;                                 // remove before repopulating (removes from parent)
 
-	if (mGrid.size() == 0)
-		addPlaceholder();
+	FileData* cursor = getCursor();
+	delete game;
 
-	ViewController::get()->reloadGameListView(this);
+	populateList(mRoot->getChildrenListToDisplay());
+	if (cursor != nullptr && !cursor->isPlaceHolder())
+		setCursor(cursor);
+
+	auto sys = mRoot->getSystem();
+	if (sys->isGroupChildSystem())
+		sys = sys->getParentGroupSystem();
+	sys->setUIModeFilters();
+	sys->updateDisplayedGameCount();
 }
 
 void GridGameListView::onFileChanged(FileData* file, FileChangeType change)

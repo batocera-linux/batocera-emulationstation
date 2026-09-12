@@ -33,4 +33,7 @@ private:
 
 	int mShowFlags;
 	int mShowTags;
+
+public:
+	static std::string getLangFlag(const std::string& lang);
 };

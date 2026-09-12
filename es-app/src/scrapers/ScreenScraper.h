@@ -53,13 +53,15 @@ class ScreenScraperRequest : public ScraperHttpRequest
 public:
 	// ctor for a GetGameList request
 	ScreenScraperRequest(
-		std::queue< std::unique_ptr<ScraperRequest> >& requestsWrite, 
-		std::vector<ScraperSearchResult>& resultsWrite, 
-		const std::string& url, 
-		const std::string& fileName) 
-		: ScraperHttpRequest(resultsWrite, url), mRequestQueue(&requestsWrite) 
+		std::queue< std::unique_ptr<ScraperRequest> >& requestsWrite,
+		std::vector<ScraperSearchResult>& resultsWrite,
+		const std::string& url,
+		const std::string& fileName,
+		bool isArcade = false)
+		: ScraperHttpRequest(resultsWrite, url), mRequestQueue(&requestsWrite)
 	{
 		mFileName = fileName;
+		mIsArcade = isArcade;
 	}
 
 	// Settings for the scraper
@@ -93,6 +95,7 @@ private:
 	pugi::xml_node				findMedia(pugi::xml_node media_list, std::string mediaName, const std::string& language, const std::string& region);
 
 	std::string mFileName;
+	bool        mIsArcade = false;
 };
 #endif
 

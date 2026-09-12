@@ -23,10 +23,11 @@ enum class ArcadeRomType
 };
 
 struct ArcadeRom
-{	
+{
 	ArcadeRom() { type = ArcadeRomType::NONE; }
 
 	std::string displayName;
+	std::string cloneOf;
 	ArcadeRomType type;
 };
 
@@ -39,6 +40,7 @@ public:
 	std::string       getRealName(const std::string& _mameName);
 	const bool        isBiosOrDevice(const std::string& _biosName);	
 	const bool        isVertical(const std::string& _nameName);
+	std::string       getCloneOf(const std::string& _romName);
 	const bool		  isLightgun(const std::string& _nameName, const std::string& systemName, bool isArcade);
   	const bool		  isWheel(const std::string& _nameName, const std::string& systemName, bool isArcade);
     	const bool		  isTrackball(const std::string& _nameName, const std::string& systemName, bool isArcade);
