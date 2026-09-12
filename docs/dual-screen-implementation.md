@@ -58,7 +58,9 @@ Existing views stay on the primary screen. Add `screen="secondary"` to a view to
 
 Positions and sizes are relative to that screen: `0.5 0.5` is its center. There is no need to account for the other panel's width or a hidden desktop area.
 
-Secondary content follows the selected system or game through the existing theme bindings. A secondary `system` view can also define an `imagegrid` named `imagegrid`. That grid follows the primary system selection; the primary grid stops drawing, but still handles controller navigation.
+Secondary content follows the selected system or game through the existing theme bindings. A secondary `system` view can define an `imagegrid` named `imagegrid`, or a `carousel` named `systemcarousel`. A secondary game-carousel view can define a `gamecarousel` named `gamecarousel`. These controls mirror the primary selection; game entries follow the active list, including folders and filters. The primary control stops drawing but continues to handle input.
+
+This allows a theme such as dii-ess-aye to keep its carousels on the lower screen while menus, the sidebar and video previews stay on the upper screen. Secondary carousels use the existing `logo`/`logoText` or `gamecarouselLogo`/`gamecarouselLogoText` templates. Keep scroll sounds on the primary control only to avoid playing them twice.
 
 Internally, the GLES3 renderer shares one graphics context between the two windows. It switches to the secondary screen's dimensions to draw its content, then restores the primary screen's state.
 
@@ -66,4 +68,8 @@ Internally, the GLES3 renderer shares one graphics context between the two windo
 
 The native Canvas DS preview was manually tested on AYN Thor running ROCKNIX 20260901. Checks covered both screen layouts, controller navigation, game lists, menus, and launching a game and returning. The contribution also builds on the newer upstream base, but that rebuilt version has not been retested on the device. These checks do not establish that every sidebar or popup issue is fixed.
 
-This is still experimental. Secondary touch is ignored. Display disconnection/window-close handling, screensavers, per-screen expression variables and video/resource lifecycle need further work. True suspend was not tested because the tested ROCKNIX setup does not support it.
+While a screensaver is active, the secondary window displays black and releases its theme components so they do not keep playing media behind it. The selected view is rebuilt when the screensaver is dismissed. This applies to both manual activation and the idle timeout. It blanks the window; it does not change compositor output power. The primary screen retains its selected screensaver behavior. On Thor, both the idle timeout and manual Launch Screensaver were tested with the black screensaver; dismissal restored both screens and navigation.
+
+This is still experimental. Secondary touch is ignored. Display disconnection/window-close handling, per-screen expression variables and broader video/resource lifecycle need further work. True suspend was not tested because the tested ROCKNIX setup does not support it.
+
+The dii-ess-aye native preview was also tested on Thor with secondary system and game carousels. The tester confirmed upper-screen menus and sidebar placement. System-scroll animation resets and image-reload flicker were corrected and retested successfully. Game launch/return was also confirmed, including navigation and the upper-screen menu afterward.

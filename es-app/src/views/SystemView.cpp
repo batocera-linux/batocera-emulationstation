@@ -1056,7 +1056,8 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 	if (Renderer::hasSecondaryWindow())
 	{
 		auto system = getSelected();
-		if (system && system->getTheme()->getElement("secondary-system", "imagegrid", "imagegrid"))
+		if (system && (system->getTheme()->getElement("secondary-system", "imagegrid", "imagegrid") ||
+            system->getTheme()->getElement("secondary-system", "systemcarousel", "carousel")))
 			return;
 	}
 	mCarousel.render(trans);
