@@ -477,13 +477,13 @@ msgid "VOLUME MUTE"
 msgstr "SES SUSTUR"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "KAYDI BAŞLAT"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "KAYDI DURDUR"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "KLAVYE AÇ/KAPAT"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TUŞ İKİ KEZ ATANDI"
@@ -1145,7 +1145,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROLCÜ PİL SEVİYESİNİ GÖSTER"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "SİLAH BİLDİRİMLERİNİ GÖSTER"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "SİLAH NİŞANGAHINI GÖSTER"
@@ -2020,10 +2020,10 @@ msgid "VSYNC"
 msgstr "VSYNC"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "KENAR YUMUŞATMA (MSAA)"
 
 msgid "FPS LIMIT"
-msgstr ""
+msgstr "FPS SINIRI"
 
 msgid "OVERSCAN"
 msgstr "AŞIRI TARAMA"
@@ -2192,10 +2192,12 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION BİRİNCİL KONTROLCÜ İLE YÖNETİLSİN"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "SAĞ ANALOG ÇUBUĞU SES SEVİYESİNİ DEĞİŞTİRİR"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
 msgstr ""
+"Ses seviyesini yükseltmek veya alçaltmak için sağ çubuğu "
+"yukarı/aşağı hareket ettirin."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "SİLAH HAREKET TÖLERANSI"
@@ -2247,7 +2249,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VİDEO VRAM KULLANIMINI İYİLEŞTİR"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "DOSYA SİSTEMİ ÖNBELLEĞİNİ KULLAN"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "YAPILANDIRILMASI İÇİN SİSTEM YENİDEN BAŞLATILMALI"
@@ -2268,7 +2270,7 @@ msgid "UPDATE TYPE"
 msgstr "GÜNCELEME TÜRÜ"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "MİMARİ GÜNCELLEME"
 
 msgid "APPLY UPDATE"
 msgstr "GÜNCELLEMEYİ UYGULA"
@@ -2280,31 +2282,31 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "GÜNCELLEYİCİ ZATEN ÇALIŞIYOR"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
+msgstr "YEREL MEDYA GÜNCELLEMESİNİ BAŞLAT"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
+msgstr "GERÇEKTEN YEREL MEDYADAN GÜNCELLENSİN Mİ?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "TORRENT ÜZERİNDEN YAZILIM GÜNCELLEMELERİ"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "GÜNCELLEMELERİ TORRENT ÜZERİNDEN PAYLAŞ"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Torrent güncelleme hizmeti başlatıldı"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Torrent güncelleme hizmeti durduruldu"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "TORRENT DOSYASINDAN GÜNCELLEMEYİ BAŞLAT"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "GERÇEKTEN TORRENT DOSYASINDAN GÜNCELLENSİN Mİ?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "İNDİRME DURUMU"
 
 msgid "LANGUAGE"
 msgstr "DİL"
@@ -2467,19 +2469,19 @@ msgid "ENABLE LED"
 msgstr "LEDİ ETKİNLEŞTİR"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "LED MODU"
 
 msgid "STATIC"
-msgstr ""
+msgstr "STATİK"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "GÖKKUŞAĞI"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "KROMA"
 
 msgid "PULSE"
-msgstr ""
+msgstr "NABIZ"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED PARLAKLIĞI"
@@ -2512,12 +2514,14 @@ msgid "ROOT PASSWORD"
 msgstr "ROOT PAROLASI"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "İŞLEMCİ GÜVENLİK ÖNLEMLERİ"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"Güvenlik önlemlerini devre dışı bırakmak, belirli işlemci güvenlik açıklarına "
+"karşı korumanın azalması pahasına bazı sistemlerde performansı artırabilir."
 
 msgid "LATENCY REDUCTION"
 msgstr "GECİKMEYİ AZALT"
@@ -3475,7 +3479,7 @@ msgid "Screenscraper Game ID"
 msgstr "Ekran bilgileri Oyun ID"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "Çoklu Disk"
 
 msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor…"
@@ -3611,7 +3615,7 @@ msgid "UKNOWN ERROR"
 msgstr "BİLİNMEYEN HATA"
 
 msgid "Checking for latest upgrade script..."
-msgstr ""
+msgstr "En son yükseltme betiği kontrol ediliyor..."
 
 msgid "Collections"
 msgstr "Koleksiyonlar"
@@ -3979,7 +3983,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Yoksayılacak sürücü listesine ekleniyor…"
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "EVET, SÜRÜCÜYÜ BİRLEŞTİR"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "YENİ SÜRÜCÜ ALGILANDI"
