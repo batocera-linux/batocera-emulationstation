@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-26 03:14+0300\n"
-"Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
+"PO-Revision-Date: 2026-09-13 03:14+0300\n"
+"Last-Translator: Real Ceday <realceday@hotmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid "Genre"
 msgstr "Tür"
 
 msgid "Players"
-msgstr "Oyuncu"
+msgstr "Oyuncular"
 
 msgid "Released"
 msgstr "Yayın"
@@ -35,7 +35,7 @@ msgid "Rating"
 msgstr "Değerlendirme"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "OYUN BULUNAMADI - ATLANDI"
+msgstr "OYUN BULUNAMADI - ATLA"
 
 msgid "AN ERROR OCCURRED"
 msgstr "BİR HATA OLUŞTU"
@@ -59,16 +59,16 @@ msgid "ACCEPT RESULT"
 msgstr "SONUCU ONAYLA"
 
 msgid "Full"
-msgstr "TAM"
+msgstr "Tam"
 
 msgid "Kiosk"
-msgstr "KİOSK"
+msgstr "Kiosk"
 
 msgid "Kid"
-msgstr "ÇOCUK"
+msgstr "Çocuk"
 
 msgid "Basic"
-msgstr "BASİT"
+msgstr "Basit"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -90,7 +90,7 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"UYARI: SİSTEMDE EKSİK BİOS DOSYALARI VAR VE OYUN DOĞRU ÇALIŞMAYABİLİR.\n"
+"UYARI: SİSTEMDE EKSİK BIOS DOSYALARI VAR VE OYUN DOĞRU ÇALIŞMAYABİLİR.\n"
 "YİNE DE BAŞLATMAK İSTER MİSİNİZ?"
 
 msgid "Preloading UI"
@@ -103,7 +103,7 @@ msgid "Loading gamelists"
 msgstr "Oyun listeleri yükleniyor"
 
 msgid "Loading..."
-msgstr "Yükleniyor…"
+msgstr "Yükleniyor..."
 
 msgid "MENU"
 msgstr "MENÜ"
@@ -293,7 +293,7 @@ msgid "SAVE CHANGES?"
 msgstr "DEĞİŞİKLİKLERİ KAYDET?"
 
 msgid "ARE YOU SURE?"
-msgstr "EMİN MİSİN ?"
+msgstr "EMİN MİSİN?"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROBAŞARIM AYARLARI"
@@ -447,7 +447,7 @@ msgid "RESET"
 msgstr "SIFIRLA"
 
 msgid "SAVE STATE"
-msgstr "DURUM KAYIT"
+msgstr "DURUMU KAYDET"
 
 msgid "RESTORE STATE"
 msgstr "DURUMU GERİ YÜKLE"
@@ -468,13 +468,13 @@ msgid "TRANSLATION"
 msgstr "ÇEVİRİ"
 
 msgid "VOLUME DOWN"
-msgstr "SES AZALT"
+msgstr "SESİ AZALT"
 
 msgid "VOLUME UP"
-msgstr "SES YÜKSELT"
+msgstr "SESİ YÜKSELT"
 
 msgid "VOLUME MUTE"
-msgstr "SES SUSTUR"
+msgstr "SESİ KAPAT"
 
 msgid "START RECORDING"
 msgstr "KAYDI BAŞLAT"
@@ -553,10 +553,10 @@ msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr "BUNU SİLMEK İSTEDİĞİNİZE EMİN MİSİNİZ '%s' ?"
 
 msgid "NO MISSING BIOS FILES"
-msgstr "EKSİK BİOS DOSYASI YOK"
+msgstr "EKSİK BIOS DOSYASI YOK"
 
 msgid "MISSING BIOS CHECK"
-msgstr "EKSİK BİOS DENETİMİ"
+msgstr "EKSİK BIOS DENETİMİ"
 
 msgid "Installed systems"
 msgstr "Kurulu sistemler"
@@ -571,7 +571,7 @@ msgid "refresh"
 msgstr "yenile"
 
 msgid "NO MISSING BIOS"
-msgstr "EKSİK BİOS YOK"
+msgstr "EKSİK BIOS YOK"
 
 msgid "GAMES TO INDEX"
 msgstr "DİZİNLENECEK OYUNLAR"
@@ -583,13 +583,13 @@ msgid "ONLY MISSING"
 msgstr "SADECE EKSİKLER"
 
 msgid "SYSTEMS INCLUDED"
-msgstr "DAHİL EDİLMİŞ SİSTEMLER"
+msgstr "DAHİL OLAN SİSTEMLER"
 
 msgid "START"
 msgstr "BAŞLAT"
 
 msgid "REALLY UPDATE?"
-msgstr "GÜNCELLE?"
+msgstr "GÜNCELLENSİN Mİ?"
 
 #, c-format
 msgid ""
@@ -626,7 +626,7 @@ msgid "REBOOT TO APPLY"
 msgstr "UYGULAMAK İÇİN ÖNYÜKLE"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "NETPLAY BAĞLAN"
+msgstr "NETPLAY'E BAĞLAN"
 
 msgid "Select a game lobby to join"
 msgstr "Katılmak için oyun lobisi seç"
@@ -647,7 +647,7 @@ msgid "UNAVAILABLE CORE"
 msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
 
 msgid "LAN GAMES"
-msgstr "YEREL AĞ OYUNLAR"
+msgstr "YEREL AĞ OYUNLARI"
 
 msgid "AVAILABLE GAMES"
 msgstr "MEVCUT OYUNLAR"
@@ -797,7 +797,7 @@ msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "BİLGİ GETİRİCİ ÇALIŞIRKEN BU ÖZELLİK DEVRE DIŞIDIR"
 
 msgid "New Collection Name"
-msgstr "Yeni Koleksiyon İsimi"
+msgstr "Yeni Koleksiyon İsmi"
 
 msgid "THEMES DOWNLOADER"
 msgstr "TEMA İNDİRİCİ"
@@ -888,10 +888,10 @@ msgid "VIEWER PASSWORD"
 msgstr "İZLEYİCİ ŞİFRESİ"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "BENZER OYUNLARI BUL…"
+msgstr "BENZER OYUNLARI BUL..."
 
 msgid "DELETE ITEM"
-msgstr "BUNU SİL"
+msgstr "ÖĞEYİ SİL"
 
 msgid "DELETE GAME"
 msgstr "OYUNU SİL"
@@ -923,7 +923,7 @@ msgid "WRITE"
 msgstr "YAZ"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "YAZICIYA ETİKET YERLEŞTİRİN…"
+msgstr "YAZICIYA ETİKET YERLEŞTİRİN..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "ETİKET BAŞARIYLA YAZILDI"
@@ -940,7 +940,7 @@ msgid "FAVORITES"
 msgstr "FAVORİLER"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ÖZEL KOLEKSİYONA EKLE…"
+msgstr "ÖZEL KOLEKSİYONA EKLE..."
 
 msgid "SCRAPE"
 msgstr "BİLGİ GETİRİCİ"
@@ -1217,7 +1217,7 @@ msgid "DEFAULT"
 msgstr "VARSAYILAN"
 
 msgid "NO DEVICE FOUND (JAMMASD, IPAC...)"
-msgstr "CİHAZ BULUNAMADI (JAMMASD, IPAC…)"
+msgstr "CİHAZ BULUNAMADI (JAMMASD, IPAC...)"
 
 msgid "DECLARE A NEW GLOBAL HOTKEY"
 msgstr "YENİ BİR GENEL KISAYOL TUŞU TANIMLA"
@@ -1598,7 +1598,7 @@ msgid ""
 msgstr ""
 "UYARI: SEÇTİĞİNİZ SİSTEMLERDEN BAZILARINDA PLATFORM SETİ BULUNMAMAKTADIR. "
 "SONUÇLAR FARKLI SİSTEMLER İÇİN OLABİLİR!\n"
-"YİNE DE DEVAM ET?"
+"YİNE DE DEVAM EDİLSİN Mİ?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "BİLGİLER GETİRİLİYOR. İŞLEM İPTAL EDİLSİN Mİ?"
@@ -2376,7 +2376,7 @@ msgid "KODI SETTINGS"
 msgstr "KODİ AYARLARI"
 
 msgid "ENABLE KODI"
-msgstr "KODİ ETKİNLEŞTİR"
+msgstr "KODİ'Yİ ETKİNLEŞTİR"
 
 msgid "LAUNCH KODI AT BOOT"
 msgstr "KODİ AÇILIŞTA BAŞLASIN"
@@ -2412,7 +2412,7 @@ msgid "SPLASH SETTING"
 msgstr "GÖRSEL AYARLARI"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "OYUNU ÇALIŞTIRMADAN ÖNCE BİOS DENETLE"
+msgstr "OYUNU ÇALIŞTIRMADAN ÖNCE BIOS'U DENETLE"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTİMEDYA TUŞLARI"
@@ -2451,7 +2451,7 @@ msgid "cyan"
 msgstr "camgöbeği"
 
 msgid "POWER LED COLOR"
-msgstr "GÜÇ IŞIĞI RENGİ"
+msgstr "GÜÇ LED'İ RENGİ"
 
 msgid "heartbeat"
 msgstr "kalpatışı"
@@ -2466,7 +2466,7 @@ msgid "LED HARDWARE"
 msgstr "LED DONANIM"
 
 msgid "ENABLE LED"
-msgstr "LEDİ ETKİNLEŞTİR"
+msgstr "LED'İ ETKİNLEŞTİR"
 
 msgid "LED MODE"
 msgstr "LED MODU"
@@ -2569,7 +2569,7 @@ msgid "Current setting"
 msgstr "Mevcut ayarlar"
 
 msgid "BIOS SETTINGS"
-msgstr "BİOS AYARLARI"
+msgstr "BIOS AYARLARI"
 
 msgid "SAVESTATES"
 msgstr "DURUM KAYITLARI"
@@ -2915,7 +2915,7 @@ msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VİDEO ÖNİZLEME SESİNİ ETKİNLEŞTİR"
 
 msgid "IP ADDRESS"
-msgstr "İP ADRESİ"
+msgstr "IP ADRESİ"
 
 msgid "CONNECTED"
 msgstr "BAĞLI"
@@ -3002,7 +3002,7 @@ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "ÜST VERİLER KAYDEDİLMEDEN KAPATILSIN MI?"
 
 msgid "QUIT EMULATIONSTATION"
-msgstr "EMULATIONSTATION ÇIKIŞ"
+msgstr "EMULATIONSTATION'DAN ÇIK"
 
 msgid "REALLY QUIT?"
 msgstr "ÇIKILSIN MI?"
@@ -3082,7 +3082,7 @@ msgid "NO DRIVE SELECTED"
 msgstr "HİÇBİR SÜRÜCÜ SEÇİLMEDİ"
 
 msgid "Ejecting..."
-msgstr "Çıkartılıyor…"
+msgstr "Çıkartılıyor..."
 
 msgid "EDIT METADATA"
 msgstr "ÜST VERİYİ DÜZENLE"
@@ -3356,10 +3356,10 @@ msgid "enter path to cartridge"
 msgstr "kartuşun yolunu girin"
 
 msgid "Alt BoxArt"
-msgstr "Alt Kutu Sanatı"
+msgstr "Alternatif Kutu Görseli"
 
 msgid "enter path to alt boxart"
-msgstr "alt kutu sanatının yolunu girin"
+msgstr "alternatif kutu görselinin yolunu girin"
 
 msgid "Box backside"
 msgstr "Kutu arkası"
@@ -3428,7 +3428,7 @@ msgid "Kidgame"
 msgstr "Çocuk oyunu"
 
 msgid "enter kidgame"
-msgstr "çocuk oyunu girin"
+msgstr "çocuk oyununu girin"
 
 msgid "Play count"
 msgstr "Oynama sayısı"
@@ -3482,10 +3482,10 @@ msgid "MultiDisk"
 msgstr "Çoklu Disk"
 
 msgid "Loading system config..."
-msgstr "Sistem yapılandırması yükleniyor…"
+msgstr "Sistem yapılandırması yükleniyor..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr "ÜST VERİ KAYDEDİLİYOR. LÜTFEN BEKLEYİN…"
+msgstr "ÜST VERİ KAYDEDİLİYOR. LÜTFEN BEKLEYİN..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "EKRANI DEĞİŞTİRMEK İSTİYOR MUSUN ?"
@@ -3543,11 +3543,11 @@ msgstr "KOLEKSİYONLAR"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "Eklendi '%s' -ye'%s'"
+msgstr "Eklendi '%s' -ye '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "Kaldırıldı'%s' -den'%s'"
+msgstr "Kaldırıldı '%s' -den '%s'"
 
 msgid "This collection is empty."
 msgstr "Bu koleksiyon boş."
@@ -3621,7 +3621,7 @@ msgid "Collections"
 msgstr "Koleksiyonlar"
 
 msgid "Searching for devices..."
-msgstr "Cihazlar aranıyor…"
+msgstr "Cihazlar aranıyor..."
 
 msgid "FORMATTING DEVICE"
 msgstr "CİHAZ BİÇİMLENDİRİLİYOR"
@@ -3713,7 +3713,7 @@ msgid "up/down"
 msgstr "yukarı/aşağı"
 
 msgid "WORKING..."
-msgstr "ÇALIŞIYOR…"
+msgstr "ÇALIŞIYOR..."
 
 msgid "accept"
 msgstr "onayla"
@@ -3913,7 +3913,7 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "KISAYOL TUŞU ATANMADI. BU KONTROLCÜ BİR OYUNDAN ÇIKARKEN GEREKECEKTİR. "
-"SELECT TUŞUNU KISAYOL TUŞU OLARAK KULLAN?"
+"SELECT TUŞU KISAYOL TUŞU OLARAK KULLANILSIN MI?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "KISAYOL TUŞU ATA"
@@ -3941,7 +3941,7 @@ msgstr ""
 "Kalibrasyon için hedeflere ateş et"
 
 msgid "Reloaded the games list..."
-msgstr "Oyun listesi yeniden yükleniyor…"
+msgstr "Oyun listesi yeniden yükleniyor..."
 
 msgid "GAME DRIVE DETECTED"
 msgstr "OYUN SÜRÜCÜSÜ ALGILANDI"
@@ -3965,7 +3965,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(Bu aynı zamanda gelecekteki botlar için de geçerli olacaktır)"
 
 msgid "Merge requested... Please wait."
-msgstr "Birleştirme isteği yapıldı… Lütfen bekleyin."
+msgstr "Birleştirme isteği yapıldı... Lütfen bekleyin."
 
 msgid "MERGE FAILED"
 msgstr "BİRLEŞTİRME BAŞARISIZ"
@@ -3980,7 +3980,7 @@ msgid "NO, IGNORE FOREVER"
 msgstr "HAYIR, SÜREKLİ YOKSAY"
 
 msgid "Adding drive to ignore list..."
-msgstr "Yoksayılacak sürücü listesine ekleniyor…"
+msgstr "Yoksayılacak sürücü listesine ekleniyor..."
 
 msgid "YES, MERGE DRIVE"
 msgstr "EVET, SÜRÜCÜYÜ BİRLEŞTİR"
@@ -3995,7 +3995,7 @@ msgid "(ALL EXISTING DATA WILL BE ERASED)"
 msgstr "(MEVCUT TÜM VERİLER SİLİNECEKTİR)"
 
 msgid "Starting format process..."
-msgstr "Biçimlendirme işlemi başlıyor…"
+msgstr "Biçimlendirme işlemi başlıyor..."
 
 msgid "FORMAT FAILED"
 msgstr "BİÇİMLENDİRME BAŞARISIZ"
@@ -4071,10 +4071,10 @@ msgstr[1] "%d saniye önce"
 #~ msgstr "Bu sürücüdeki oyunlar şimdi birleştirilsin mi?"
 
 #~ msgid "Merging drive... Please wait."
-#~ msgstr "Sürücü birleştiriliyor… Lütfen bekleyin."
+#~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak…"
+#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"
