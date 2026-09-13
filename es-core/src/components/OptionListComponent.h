@@ -550,6 +550,11 @@ public:
 		mAddRowCallback = callback;
 	}
 
+	void openPopup()
+	{
+		open();
+	}
+
 private:	
 	std::function<void(T& data, ComponentListRow& row)> mAddRowCallback;
 

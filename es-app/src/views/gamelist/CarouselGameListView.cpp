@@ -163,12 +163,19 @@ void CarouselGameListView::remove(FileData *game)
 {
 	mList.remove(game);
 	mRoot->removeFromVirtualFolders(game);
+
+	FileData* cursor = getCursor();
 	delete game;
 
-	if (mList.size() == 0)
-		addPlaceholder();
+	populateList(mRoot->getChildrenListToDisplay());
+	if (cursor != nullptr && !cursor->isPlaceHolder())
+		setCursor(cursor);
 
-	ViewController::get()->reloadGameListView(this);
+	auto sys = mRoot->getSystem();
+	if (sys->isGroupChildSystem())
+		sys = sys->getParentGroupSystem();
+	sys->setUIModeFilters();
+	sys->updateDisplayedGameCount();
 }
 
 void CarouselGameListView::setCursorIndex(int cursor)

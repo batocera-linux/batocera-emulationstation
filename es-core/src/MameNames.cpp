@@ -98,6 +98,9 @@ MameNames::MameNames()
 
 					rom.displayName = gameNode.attribute("name").value();
 
+					if (gameNode.attribute("cloneof"))
+						rom.cloneOf = gameNode.attribute("cloneof").value();
+
 					if (gameNode.attribute("vert") && gameNode.attribute("vert").value() == sTrue)
 						rom.type |= ArcadeRomType::VERTICAL;
 
@@ -322,6 +325,15 @@ const bool MameNames::isVertical(const std::string& _nameName)
 		return hasFlag(it->second.type, ArcadeRomType::VERTICAL);
 
 	return false;
+}
+
+std::string MameNames::getCloneOf(const std::string& _romName)
+{
+	auto it = mArcadeRoms.find(_romName);
+	if (it != mArcadeRoms.cend())
+		return it->second.cloneOf;
+
+	return "";
 }
 
 static std::string getIndexedName(const std::string& name)
