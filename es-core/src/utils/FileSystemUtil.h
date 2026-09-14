@@ -3,6 +3,7 @@
 #define ES_CORE_UTILS_FILE_SYSTEM_UTIL_H
 
 #include <list>
+#include <set>
 #include <string>
 #include <vector>
 #include "utils/TimeUtil.h"
@@ -82,7 +83,7 @@ namespace Utils
 #ifdef WIN32
 		void		splitCommand(const std::string& cmd, std::string* executable, std::string* parameters);
 #endif
-		void		preloadFileSystemCache(const std::string& path, bool trySaveStates = true);
+		void		preloadFileSystemCache(std::set<std::string> dirs);
 
 		std::string getFileCrc32(const std::string& filename);
 		std::string getFileMd5(const std::string& filename);
