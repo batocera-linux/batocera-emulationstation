@@ -1435,29 +1435,19 @@ unsigned int SystemData::getGameCount() const
 
 SystemData* SystemData::getRandomSystem()
 {
-	//  this is a bit brute force. It might be more efficient to just to a while (!gameSystem) do random again...
-	unsigned int total = sSystemVector.count([](auto sys) { return sys->isGameSystem(); });
+	// Only pick among systems actually shown in the system view. Hidden systems and systems
+	// merged into a group are present in sSystemVector but not in the carousel, and setting
+	// the cursor to one of them silently does nothing (IList::setCursor returns false).
+	std::vector<SystemData*> visibleSystems;
 
-	// get random number in range
-	int target = Randomizer::random(total);
-	//int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
-	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
-	{
-		if ((*it)->isGameSystem())
-		{
-			if (target > 0)
-			{
-				target--;
-			}
-			else
-			{
-				return (*it);
-			}
-		}
-	}
+	for (auto system : sSystemVector)
+		if (system->isGameSystem() && system->isVisible())
+			visibleSystems.push_back(system);
 
-	// if we end up here, there is no valid system
-	return NULL;
+	if (visibleSystems.empty())
+		return nullptr;
+
+	return visibleSystems[Randomizer::random((int)visibleSystems.size())];
 }
 
 FileData* SystemData::getRandomGame()
