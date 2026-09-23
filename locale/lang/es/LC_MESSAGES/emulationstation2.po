@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2026-05-26 00:00+0100\n"
+"PO-Revision-Date: 2026-09-23 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -2029,10 +2029,10 @@ msgid "VSYNC"
 msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "ANTI-ALIASING (MSAA)"
 
 msgid "FPS LIMIT"
-msgstr ""
+msgstr "LÍMITE DE FPS"
 
 msgid "OVERSCAN"
 msgstr "SOBREESCALADO (OVERSCAN)"
@@ -2207,10 +2207,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR SISTEMA SOLO CON EL MANDO PRINCIPAL"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "EL STICK ANALÓGICO DERECHO CAMBIA EL VOLUMEN"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "Mueva el joystick derecho hacia arriba o hacia abajo para subir o bajar el volumen del audio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCIA AL MOVIMIENTO DEL ARMA"
@@ -2283,7 +2283,7 @@ msgid "UPDATE TYPE"
 msgstr "TIPO DE ACTUALIZACIÓN"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "ARQUITECTURA DE ACTUALIZACIÓN"
 
 msgid "APPLY UPDATE"
 msgstr "APLICAR ACTUALIZACIÓN"
@@ -2295,31 +2295,31 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ACTUALIZACIÓN EN MARCHA"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
+msgstr "INICIAR ACTUALIZACIÓN DESDE MEDIOS LOCALES"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
+msgstr "¿ESTÁS SEGURO DE ACTUALIZAR DESDE MEDIOS LOCALES?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "ACTUALIZACIONES DE SOFTWARE MEDIANTE TORRENT"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "COMPARTIR ACTUALIZACIONES MEDIANTE TORRENT"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Servicio de actualización por torrent iniciado"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Servicio de actualización por torrent detenido"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "INICIAR ACTUALIZACIÓN DESDE ARCHIVO TORRENT"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "¿ESTÁS SEGURO DE ACTUALIZAR DESDE ARCHIVO TORRENT?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "ESTADO DE DESCARGA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -2482,19 +2482,19 @@ msgid "ENABLE LED"
 msgstr "ACTIVAR LED"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "MODO DE LED"
 
 msgid "STATIC"
-msgstr ""
+msgstr "ESTÁTICO"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "MULTICOLOR"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "CROMA"
 
 msgid "PULSE"
-msgstr ""
+msgstr "PULSO"
 
 msgid "LED BRIGHTNESS"
 msgstr "BRILLO DE LOS LEDS"
@@ -2527,12 +2527,14 @@ msgid "ROOT PASSWORD"
 msgstr "CONTRASEÑA ROOT"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "MEDIDAS DE MITIGACIÓN DE SEGURIDAD DE CPU"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"Deshabilitar las medidas de mitigación puede mejorar el rendimiento en algunos "
+"sistemas a costa de una menor protección contra ciertas vulnerabilidades de la CPU."
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓN DE LATENCIA"
@@ -3617,7 +3619,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONOCIDO"
 
 msgid "Checking for latest upgrade script..."
-msgstr ""
+msgstr "Comprobando si hay un script de actualización más reciente..."
 
 msgid "Collections"
 msgstr "Colecciones"
@@ -3935,13 +3937,13 @@ msgstr "EN USO"
 
 msgid ""
 "CALIBRATING GUN\n"
-"Fire on targets to calibrate"
+"Fire on targets to calibrate\n"
 msgstr ""
 "CALIBRANDO PISTOLA\n"
-"Dispara a los objetivos para calibrar"
+"Dispara a los objetivos para calibrar\n"
 
 msgid "Reloaded the games list..."
-msgstr "Recargada la lista de juegos…"
+msgstr "Recargada la lista de juegos..."
 
 msgid "GAME DRIVE DETECTED"
 msgstr "UNIDAD DE JUEGO DETECTADA"
