@@ -1558,11 +1558,22 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 	if (mSystemLedType != LED_TYPE_NONE)
 		return true;
 
+	// Anbernic RG 55G1: the stick LEDs sit behind the joypad MCU driver, not the LED class
+	if (Utils::FileSystem::exists("/sys/devices/platform/singleadc-joypad/led_set"))
+	{
+		LED_COLOUR_NAME = "rg55g1";
+		mSystemLedType = LED_TYPE_UNIFIED;
+		LOG(LogInfo) << "ApiSystem::getLED > Found Anbernic RG 55G1 joystick LEDs";
+	}
+
 	auto entries = Utils::FileSystem::getDirContent("/sys/class/leds");
 	bool found_addressable = false;
 
 	for (const auto& entry : entries)
 	{
+		if (mSystemLedType != LED_TYPE_NONE)
+			break;
+
 		if (entry.find("joystick-left") != std::string::npos)
 		{
 			LED_COLOUR_NAME = "rg_vita_pro";
@@ -1652,7 +1663,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			executeScript("batocera-led-handheld block_color_changes");
 			return true;
 		}
-		else if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") 
+		else if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo" || LED_COLOUR_NAME == "rg55g1") 
 		{
 			getLEDColours(red, green, blue);
 			executeScript("batocera-led-handheld block_color_changes");
@@ -1747,7 +1758,7 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 	{
 		if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound") return;
 
-		if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") {
+		if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo" || LED_COLOUR_NAME == "rg55g1") {
 			executeScript("batocera-led-handheld set_color_force_dec " + 
                           std::to_string(red) + " " + 
                           std::to_string(green) + " " + 
@@ -1807,7 +1818,7 @@ bool ApiSystem::getLEDBrightness(int& value)
 #endif
 
     // Handle software-controlled brightness platforms directly from configuration
-    if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo")
+    if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo" || LED_COLOUR_NAME == "rg55g1")
     {
         mSystemLedType = LED_TYPE_UNIFIED;
         std::string valStr = SystemConf::getInstance()->get("led.brightness");
@@ -1885,7 +1896,7 @@ void ApiSystem::setLEDBrightness(int value)
     if (value < 0) value = 0;
     if (value > 100) value = 100;
 
-	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") {
+	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo" || LED_COLOUR_NAME == "rg55g1") {
 		SystemConf::getInstance()->set("led.brightness", std::to_string(value));
 		SystemConf::getInstance()->saveSystemConf();
 		int r, g, b;

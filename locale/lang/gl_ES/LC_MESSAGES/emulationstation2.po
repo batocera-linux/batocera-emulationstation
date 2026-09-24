@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-23 12:57+0200\n"
+"PO-Revision-Date: 2026-09-22 12:52+0200\n"
 "Last-Translator: ninjum, enfeitizador\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -2019,7 +2019,7 @@ msgid "VSYNC"
 msgstr "SINCRONIZACIÓN VERTICAL"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "ANTI-ALIASING (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "LÍMITE DE FPS"
@@ -2195,10 +2195,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR EMULATIONSTATION SÓ COA PANCA DE XOGOS PRINCIPAL"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "A PANCA ANALÓXICADEREITA CAMBIA O VOLUME"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "Move a panca dereita cara arriba/abaixo para subir ou baixar o volume."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCIA O MOVEMENTO DA ARMA"
@@ -2271,7 +2271,7 @@ msgid "UPDATE TYPE"
 msgstr "TIPO DE ACTUALIZACIÓN"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "ACTUALIZACIÓN DA ARQUITECTURA"
 
 msgid "APPLY UPDATE"
 msgstr "APLICAR ACTUALIZACIÓN"
@@ -3785,7 +3785,7 @@ msgstr "SUR"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr "ESTE"
+msgstr "LESTE"
 
 msgctxt "joystick"
 msgid "WEST"
@@ -3857,11 +3857,11 @@ msgstr "PULSADOR DEREITO"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr "DISPARADOR ESQUERDO"
+msgstr "GATILLO ESQUERDO"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr "DISPARADOR DEREITO"
+msgstr "GATILLO DEREITO"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"

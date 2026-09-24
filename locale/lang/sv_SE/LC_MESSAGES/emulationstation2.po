@@ -1,14 +1,9 @@
-# Swedish translations for batocera-l package.
-# Copyright (C) 2026 THE batocera-l'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the batocera-l package.
-# Automatically generated, 2026.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: batocera-l 10n\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-19 08:40+0200\n"
+"PO-Revision-Date: 2026-09-11 06:00+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
@@ -150,19 +145,19 @@ msgstr "Okänd"
 msgid "CONFIGURATION"
 msgstr "KONFIGURATION"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] "%i Insamling"
-msgstr[1] "%i Insamling"
+msgstr[0] "%i SAMLING"
+msgstr[1] "%i SAMLINGAR"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
 msgstr[0] "%i OBJEKT"
 msgstr[1] "%i OBJEKT"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i SPEL"
@@ -198,11 +193,11 @@ msgstr "Speltid"
 msgid "Favorite"
 msgstr "Favorit"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This folder contains %i game, including: %s"
 msgid_plural "This folder contains %i games, including: %s"
-msgstr[0] "Den här mappen innehåller %i spel, inklusive: %s"
-msgstr[1] "Den här mappen innehåller %i spel, inklusive: %s"
+msgstr[0] "Den här mappen innehåller %i spel, bland annat: %s"
+msgstr[1] "Den här mappen innehåller %i spel, bland annat: %s"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRERA SPEL EFTER TEXT"
@@ -481,13 +476,13 @@ msgid "VOLUME MUTE"
 msgstr "VOLYM MUTE"
 
 msgid "START RECORDING"
-msgstr ""
+msgstr "STARTA INSPELNING"
 
 msgid "STOP RECORDING"
-msgstr ""
+msgstr "STOPPA INSPELNING"
 
 msgid "KEYBOARD TOGGLE"
-msgstr ""
+msgstr "VÄXLA TANGENTBORD"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TANGENT TILLDELAD TVÅ GÅNGER"
@@ -1146,7 +1141,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VISA STYRENHETENS BATTERINIVÅ"
 
 msgid "SHOW GUN NOTIFICATIONS"
-msgstr ""
+msgstr "VISA VAPENNOTISER"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DRA PISTOL HÅRKORS"
@@ -1833,35 +1828,35 @@ msgstr "Säker start"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SKANNINGSLINJER"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "FÖRBÄTTRAD"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "KRÖKNING"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA-SKALNING"
 
 msgid "VENDOR"
 msgstr "ANBUDSGIVARE"
@@ -2020,10 +2015,10 @@ msgid "VSYNC"
 msgstr "VSYNC"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "KANTUTJÄMNING (MSAA)"
 
 msgid "FPS LIMIT"
-msgstr ""
+msgstr "FPS-GRÄNS"
 
 msgid "OVERSCAN"
 msgstr "ÖVERSKANNING"
@@ -2192,10 +2187,11 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "STYR EMULERINGSSTATION MED ENDAST FÖRSTA JOYSTICKEN"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "HÖGER ANALOGSPAK ÄNDRAR VOLYMEN"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
 msgstr ""
+"Flytta den högra spaken uppåt eller nedåt för att höja eller sänka volymen."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "PISTOL FLYTTA TOLERENCE"
@@ -2247,7 +2243,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMERA ANVÄNDNINGEN AV VIDEO-VRAM"
 
 msgid "USE FILESYSTEM CACHE"
-msgstr ""
+msgstr "ANVÄND FILSYSTEMSCACHEN"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "OMSTART KRÄVS FÖR ATT TILLÄMPA DEN NYA KONFIGURATIONEN"
@@ -2268,7 +2264,7 @@ msgid "UPDATE TYPE"
 msgstr "UPDATE TYP"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "ARKITEKTURUPPDATERING"
 
 msgid "APPLY UPDATE"
 msgstr "ANSÖK UPDATE"
@@ -2280,31 +2276,31 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "UPPDATERINGSPROGRAMMET ÄR REDAN IGÅNG"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr ""
+msgstr "STARTA UPPDATERING FRÅN LOKALT MEDIA"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
-msgstr ""
+msgstr "VILL DU VERKLIGEN UPPDATERA FRÅN LOKALT MEDIA?"
 
 msgid "SOFTWARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "PROGRAMUPPDATERINGAR VIA TORRENT"
 
 msgid "SHARE UPDATES VIA TORRENT"
-msgstr ""
+msgstr "DELA UPPDATERINGAR VIA TORRENT"
 
 msgid "Torrent update service started"
-msgstr ""
+msgstr "Torrents uppdateringstjänst har startats"
 
 msgid "Torrent update service stopped"
-msgstr ""
+msgstr "Torrents uppdateringstjänst har stoppats"
 
 msgid "START UPDATE FROM TORRENT FILE"
-msgstr ""
+msgstr "STARTA UPPDATERING FRÅN TORRENTFIL"
 
 msgid "REALLY UPDATE FROM TORRENT FILE ?"
-msgstr ""
+msgstr "VILL DU VERKLIGEN UPPDATERA FRÅN TORRENTFIL?"
 
 msgid "DOWNLOAD STATUS"
-msgstr ""
+msgstr "NEDLADDNINGSSTATUS"
 
 msgid "LANGUAGE"
 msgstr "SPRÅKET"
@@ -2466,19 +2462,19 @@ msgid "ENABLE LED"
 msgstr "LED FÖR AKTIVERING"
 
 msgid "LED MODE"
-msgstr ""
+msgstr "LED-LÄGE"
 
 msgid "STATIC"
-msgstr ""
+msgstr "STATISK"
 
 msgid "RAINBOW"
-msgstr ""
+msgstr "REGNBÅGE"
 
 msgid "CHROMA"
-msgstr ""
+msgstr "CHROMA"
 
 msgid "PULSE"
-msgstr ""
+msgstr "PULSERANDE"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED-LJUSSTYRKA"
@@ -2511,12 +2507,14 @@ msgid "ROOT PASSWORD"
 msgstr "ROOT-LÖSENORD"
 
 msgid "CPU SECURITY MITIGATIONS"
-msgstr ""
+msgstr "SÄKERHETSÅTGÄRDER FÖR CPU"
 
 msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
+"Att inaktivera säkerhetsåtgärder kan förbättra prestandan på vissa system, "
+"men minskar skyddet mot vissa CPU-sårbarheter."
 
 msgid "LATENCY REDUCTION"
 msgstr "MINSKAD LATENSTID"
@@ -3468,7 +3466,7 @@ msgid "Screenscraper Game ID"
 msgstr "Screenscraper Spel-ID"
 
 msgid "MultiDisk"
-msgstr ""
+msgstr "Flera diskar"
 
 msgid "Loading system config..."
 msgstr "Läser in systemkonfiguration…"
@@ -3539,11 +3537,11 @@ msgstr "Ingen"
 msgid "Various"
 msgstr "Olika"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %i game: %s"
 msgid_plural "This collection contains %i games, including: %s"
-msgstr[0] "Den här samlingen innehåller %i game: %s"
-msgstr[1] "Den här samlingen innehåller %i game: %s"
+msgstr[0] "Den här samlingen innehåller %i spel: %s"
+msgstr[1] "Den här samlingen innehåller %i spel, bland annat: %s"
 
 msgid "INVALID CONTENT"
 msgstr "OGILTIGT INNEHÅLL"
@@ -3595,7 +3593,7 @@ msgid "UKNOWN ERROR"
 msgstr "OKÄNT FEL"
 
 msgid "Checking for latest upgrade script..."
-msgstr ""
+msgstr "Söker efter det senaste uppgraderingsskriptet..."
 
 msgid "Collections"
 msgstr "Samlingar"
@@ -3708,11 +3706,11 @@ msgstr "VÄLJ INGEN"
 msgid "select none"
 msgstr "välj ingen"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] "%i vald"
-msgstr[1] "%i vald"
+msgstr[0] "%i VALD"
+msgstr[1] "%i VALDA"
 
 msgid "CHANGE"
 msgstr "FÖRÄNDRING"
@@ -3749,11 +3747,11 @@ msgstr "KASSERA ÄNDRINGAR"
 msgid "WELCOME"
 msgstr "VÄLKOMMEN"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i GAMEPAD UPPTÄCKTES"
-msgstr[1] "%i GAMEPAD UPPTÄCKTES"
+msgstr[0] "%i HANDKONTROLL UPPTÄCKTES"
+msgstr[1] "%i HANDKONTROLLER UPPTÄCKTES"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "INGA GAMEhandkontrollS UPPTÄCKTA"
@@ -3769,103 +3767,103 @@ msgstr "TRYCK PÅ ESC ELLER EN SNABBTANGENT FÖR ATT AVBRYTA."
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "NORD"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SÖDER"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "ÖST"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "VÄST"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "VÄLJ"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "STYRKORS UPP"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "STYRKORS NED"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "STYRKORS VÄNSTER"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "STYRKORS HÖGER"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "VÄNSTER ANALOGSPAK UPP"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "VÄNSTER ANALOGSPAK NED"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "VÄNSTER ANALOGSPAK VÄNSTER"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "VÄNSTER ANALOGSPAK HÖGER"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "HÖGER ANALOGSPAK UPP"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "HÖGER ANALOGSPAK NED"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "HÖGER ANALOGSPAK VÄNSTER"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "HÖGER ANALOGSPAK HÖGER"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "VÄNSTER AXELKNAPP"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "HÖGER AXELKNAPP"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "VÄNSTER AVTRYCKARE"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "HÖGER AVTRYCKARE"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "TRYCK PÅ VÄNSTER SPAK"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "TRYCK PÅ HÖGER SPAK"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "SNABBTANGENT"
 
 msgid "CONFIGURING"
 msgstr "KONFIGURERING"
@@ -3899,11 +3897,11 @@ msgstr "STÄLLA IN SELECT SOM SNABBTANGENT"
 msgid "DO NOT ASSIGN HOTKEY"
 msgstr "TILLDELA INTE SNABBTANGENT"
 
-#, fuzzy, c-format
+#, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "HÅLL %iS FÖR ATT HOPPA ÖVER"
-msgstr[1] "HÅLL %iS FÖR ATT HOPPA ÖVER"
+msgstr[0] "HÅLL INTRYCKT I %i S FÖR ATT HOPPA ÖVER"
+msgstr[1] "HÅLL INTRYCKT I %i S FÖR ATT HOPPA ÖVER"
 
 msgid "PRESS ANYTHING"
 msgstr "TRYCK PÅ NÅGOT"
@@ -3961,7 +3959,7 @@ msgid "Adding drive to ignore list..."
 msgstr "Lägger till drive till ignoreringslistan…"
 
 msgid "YES, MERGE DRIVE"
-msgstr ""
+msgstr "JA, SLÅ SAMMAN ENHETEN"
 
 msgid "NEW DRIVE DETECTED"
 msgstr "NY ENHET UPPTÄCKT"
@@ -4000,59 +3998,35 @@ msgstr "%d m"
 msgid "%d sec"
 msgstr "%d sekunder"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d år sedan"
 msgstr[1] "%d år sedan"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag sedan"
-msgstr[1] "%d dag sedan"
+msgstr[1] "%d dagar sedan"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] "%d timme sedan"
-msgstr[1] "%d timme sedan"
+msgstr[1] "%d timmar sedan"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
 msgstr[0] "%d minut sedan"
-msgstr[1] "%d minut sedan"
+msgstr[1] "%d minuter sedan"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund sedan"
-msgstr[1] "%d sekund sedan"
-
-#~ msgid "FANART"
-#~ msgstr "FANART"
-
-#~ msgid "SHARP-BILINEAR-SIMPLE"
-#~ msgstr "SKARP-BILINJÄR-ENKEL"
-
-#~ msgid "SCANLINES"
-#~ msgstr "scanlinjer"
-
-#~ msgid "RETRO"
-#~ msgstr "RETRO"
-
-#~ msgid "CURVATURE"
-#~ msgstr "KURVATUR"
-
-#~ msgid "ZFAST"
-#~ msgstr "ZFAST"
-
-#~ msgid "FLATTEN-GLOW"
-#~ msgstr "FLATTEN-GLOW"
-
-#~ msgid "RGA SCALING"
-#~ msgstr "RGA-SKALNING"
+msgstr[1] "%d sekunder sedan"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "BYGGA UPP EN BILDCACHE"
@@ -4060,8 +4034,14 @@ msgstr[1] "%d sekund sedan"
 #~ msgid "Building image cache"
 #~ msgstr "Uppbyggnad av bildcache"
 
-#~ msgid "LEFT ANALOG UP"
-#~ msgstr "VÄNSTER ANALOG UP"
+#~ msgid "CURVATURE"
+#~ msgstr "KURVATUR"
+
+#~ msgid "FANART"
+#~ msgstr "FANART"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
 
 #~ msgid "LEFT ANALOG DOWN"
 #~ msgstr "VÄNSTER ANALOG NED"
@@ -4072,8 +4052,14 @@ msgstr[1] "%d sekund sedan"
 #~ msgid "LEFT ANALOG RIGHT"
 #~ msgstr "VÄNSTER ANALOG HÖGER"
 
-#~ msgid "RIGHT ANALOG UP"
-#~ msgstr "HÖGER ANALOG UPP"
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "VÄNSTER ANALOG UP"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA-SKALNING"
 
 #~ msgid "RIGHT ANALOG DOWN"
 #~ msgstr "HÖGER ANALOG NED"
@@ -4083,3 +4069,15 @@ msgstr[1] "%d sekund sedan"
 
 #~ msgid "RIGHT ANALOG RIGHT"
 #~ msgstr "HÖGER ANALOG HÖGER"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "HÖGER ANALOG UPP"
+
+#~ msgid "SCANLINES"
+#~ msgstr "scanlinjer"
+
+#~ msgid "SHARP-BILINEAR-SIMPLE"
+#~ msgstr "SKARP-BILINJÄR-ENKEL"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"

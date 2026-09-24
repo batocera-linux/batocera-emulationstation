@@ -2023,7 +2023,7 @@ msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "ANTICRÉNELAGE (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "LIMITE D’IPS"
@@ -2198,10 +2198,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTRÔLER EMULATIONSTATION AVEC LA 1ÈRE MANETTE UNIQUEMENT"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "MODIFICATION DU VOLUME PAR LE STICK ANALOGIQUE DROIT"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "Déplacez le joystick droit vers le haut/bas pour changer le volume audio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLÉRANCE DE MOUVEMENT DES PISTOLETS"
