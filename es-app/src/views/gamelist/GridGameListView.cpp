@@ -193,6 +193,8 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 		for (auto file : files)
 			mGrid.add(formatter.getDisplayName(file, file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file))), getImagePath(file), file);
 
+		Utils::FileSystem::preloadFileSystemCache(mRoot->getSystem()->getRootFolder()->getMediaDirectories());
+
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mGrid.size() > 1 && mGrid.getCursorIndex() == 0)
 			mGrid.setCursorIndex(1);
