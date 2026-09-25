@@ -24,6 +24,7 @@
 #include "scrapers/ThreadedScraper.h"
 #include "guis/GuiUpdate.h"
 #include "ContentInstaller.h"
+#include "InputManager.h"
 
 /* 
 
@@ -37,6 +38,7 @@ GET  /reloadgames
 POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
 POST /launch													-> body must contain the exact file path as text/plain
+POST /input														-> body must contain an input name (left, right, up, down, a, b...) as text/plain
 GET  /runningGame
 GET  /isIdle
 
@@ -618,6 +620,33 @@ void HttpServerThread::run()
 				}
 			}
 		}
+	});
+
+	mHttpServer->Post("/input", [this](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		InputConfig* config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+
+		Input input;
+		if (config == nullptr || !config->getInputByName(Utils::String::trim(req.body), &input))
+		{
+			res.set_content("400 bad request - unknown input", "text/plain");
+			res.status = 400;
+			return;
+		}
+
+		Window* w = mWindow;
+		mWindow->postToUiThread([w, config, input]()
+		{
+			Input event = input;
+			w->input(config, event);
+			event.value = 0;
+			w->input(config, event);
+		});
+
+		res.set_content("OK", "text/plain");
 	});
 
 	mHttpServer->Post(R"(/addgames/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
