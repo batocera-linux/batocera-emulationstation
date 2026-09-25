@@ -1896,7 +1896,14 @@ void ApiSystem::setLEDBrightness(int value)
     if (value < 0) value = 0;
     if (value > 100) value = 100;
 
-	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo" || LED_COLOUR_NAME == "rg55g1") {
+	if (LED_COLOUR_NAME == "rg55g1") {
+		SystemConf::getInstance()->set("led.brightness", std::to_string(value));
+		SystemConf::getInstance()->saveSystemConf();
+		executeScript("batocera-led-handheld set_brightness " + std::to_string(value));
+		return;
+	}
+
+	if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo") {
 		SystemConf::getInstance()->set("led.brightness", std::to_string(value));
 		SystemConf::getInstance()->saveSystemConf();
 		int r, g, b;
