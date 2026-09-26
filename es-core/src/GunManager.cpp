@@ -25,6 +25,8 @@
 #include <SDL_syswm.h>
 #include <hidsdi.h>
 #pragma comment(lib, "Hid.lib")
+#include <cfgmgr32.h>
+#include <map>
 
 #define WIIMOTE_GUN "Wiimote Gun"
 
@@ -87,7 +89,7 @@ public:
 		std::string xgunnerDeviceIds[] = { "VID_1209&PID_0001", "VID_1209&PID_0002", "VID_1209&PID_0003", "VID_1209&PID_0004" };
 		for (auto id : xgunnerDeviceIds)
 			if (name.find(id) != std::string::npos)
-				return LightGunType::Xgunner;
+				return isVirtualHidDevice(name) ? LightGunType::Mouse : LightGunType::Xgunner;
 
 		std::string aeDeviceIds[] = { "VID_2341&PID_8037", "VID_2341&PID_8038" };
 		for (auto id : aeDeviceIds)
@@ -154,7 +156,75 @@ public:
 
 		return ret;
 	}
+
+	// Returns true when the HID device is created by the Virtual HID Framework (VHF).
+	// Windows tags every VHF child with the "HID_DEVICE_SYSTEM_VHF" compatible ID.
+	static bool isVirtualHidDevice(const std::string& devicePath)
+	{
+		static std::map<std::string, bool> cache;
+
+		auto it = cache.find(devicePath);
+		if (it != cache.cend())
+			return it->second;
+
+		typedef CONFIGRET(WINAPI* CM_Locate_DevNodeAPtr)(PDEVINST, DEVINSTID_A, ULONG);
+		typedef CONFIGRET(WINAPI* CM_Get_DevNode_Registry_PropertyAPtr)(DEVINST, ULONG, PULONG, PVOID, PULONG, ULONG);
+
+		static HMODULE hSetupapi = ::LoadLibrary("setupapi.dll");
+		static CM_Locate_DevNodeAPtr pLocateDevNode = hSetupapi ? (CM_Locate_DevNodeAPtr) ::GetProcAddress(hSetupapi, "CM_Locate_DevNodeA") : nullptr;
+		static CM_Get_DevNode_Registry_PropertyAPtr pGetRegistryProperty = hSetupapi ? (CM_Get_DevNode_Registry_PropertyAPtr) ::GetProcAddress(hSetupapi, "CM_Get_DevNode_Registry_PropertyA") : nullptr;
+
+		// Unable to resolve : keep previous behaviour (treat as a real device)
+		bool result = false;
+
+		if (pLocateDevNode != nullptr && pGetRegistryProperty != nullptr)
+		{
+			// "\\?\HID#VID_1209&PID_0003#2&xxxx&0&0000#{guid}" -> "HID\VID_1209&PID_0003\2&xxxx&0&0000"
+			std::string instanceId = devicePath;
+
+			auto cut = instanceId.find("#{");
+			if (cut != std::string::npos)
+				instanceId = instanceId.substr(0, cut);
+
+			instanceId = Utils::String::replace(instanceId, "\\\\?\\", "");
+			instanceId = Utils::String::replace(instanceId, "#", "\\");
+
+			DEVINST devInst;
+			if (pLocateDevNode(&devInst, (DEVINSTID_A)instanceId.c_str(), CM_LOCATE_DEVNODE_NORMAL) == CR_SUCCESS)
+			{
+				ULONG properties[] = { CM_DRP_COMPATIBLEIDS, CM_DRP_HARDWAREID };
+
+				for (auto prop : properties)
+				{
+					char buf[2048] = { 0 };
+					ULONG len = sizeof(buf) - 2;   // keep room for the double null terminator
+
+					if (pGetRegistryProperty(devInst, prop, nullptr, buf, &len, 0) != CR_SUCCESS)
+						continue;
+
+					// REG_MULTI_SZ : iterate over each null-terminated string
+					for (const char* id = buf; *id != '\0'; id += strlen(id) + 1)
+					{
+						if (Utils::String::toUpper(id).find("DEVICE_SYSTEM_VHF") != std::string::npos)
+						{
+							result = true;
+							break;
+						}
+					}
+
+					if (result)
+						break;
+				}
+			}
+		}
+
+		LOG(LogInfo) << "[GunManager] " << devicePath << (result ? " : VHF virtual device, not a lightgun" : " : physical device");
+
+		cache[devicePath] = result;
+		return result;
+	}
 };
+
 bool RawInputManager::sWiimoteGunRunning = false;
 #endif
 
