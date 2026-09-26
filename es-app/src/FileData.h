@@ -6,6 +6,7 @@
 #include "MetaData.h"
 #include <unordered_map>
 #include <unordered_set>
+#include <future>
 #include <memory>
 #include <vector>
 #include <stack>
@@ -141,7 +142,8 @@ public:
 	std::string getlaunchCommand(bool includeControllers = true) { LaunchGameOptions options; return getlaunchCommand(options, includeControllers); };
 	std::string getlaunchCommand(LaunchGameOptions& options, bool includeControllers = true);
 
-	bool		launchGame(Window* window, LaunchGameOptions options = LaunchGameOptions());
+	bool prepareLaunchGame(LaunchGameOptions& options);
+	bool launchGame(Window* window, LaunchGameOptions options = LaunchGameOptions());
 
 	static void resetSettings();
 	
@@ -191,6 +193,9 @@ private:
 	std::string getKeyboardMappingFilePath();
 	std::string getMessageFromExitCode(int exitCode);
 	MetaDataList mMetadata;
+
+	std::future<int> mPreparedLaunchFuture;
+	std::string mPreparedLaunchP2k;
 
 protected:	
 	std::string  findLocalArt(const std::string& type = "", std::vector<std::string> exts = { ".png", ".jpg" });
