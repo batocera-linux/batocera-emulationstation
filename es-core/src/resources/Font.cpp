@@ -893,7 +893,12 @@ float Font::getNewlineStartOffset(const std::string& text, const unsigned int& c
 
 TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsigned int color, float xLen, Alignment alignment, float lineSpacing)
 {
-	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(_text, 0, xLen, alignment) : 0);
+#ifdef HAVE_FRIBIDI
+	std::string text = EsLocale::isRTL() ? processRTLText(_text) : _text;
+#else
+	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
+#endif
+	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(text, 0, xLen, alignment) : 0);
 	
 	auto glyph = getGlyph('S');
 	float yTop = glyph ? glyph->bearing.y() : 35;
@@ -903,12 +908,6 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 	// vertices by texture
 	std::map< FontTexture*, std::vector<Renderer::Vertex> > vertMap;
-
-#ifdef HAVE_FRIBIDI
-	std::string text = EsLocale::isRTL() ? processRTLText(_text) : _text;
-#else
-	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
-#endif
 
 	std::map<int, int> tabStops;
 	int tabIndex = 0;
