@@ -2062,7 +2062,7 @@ msgid "VSYNC"
 msgstr "Vsync التزامن العمودي"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "(MSAA) مُنعِّم الحواف"
 
 msgid "FPS LIMIT"
 msgstr "حد الإطارات في الثانية"
@@ -2227,10 +2227,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "التحكم بـِEMULATIONSTATION بذراع التحكم الأولى فقط"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "عصا التحكم التناظرية اليمنى تغير مستوى الصوت"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "حرّك العصا اليمنى للأعلى أو للأسفل لرفع مستوى الصوت أو خفضه."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "حساسية حركة المسدس"
@@ -2301,7 +2301,7 @@ msgid "UPDATE TYPE"
 msgstr "نوع التحديث"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "تحديثات معمارية"
 
 msgid "APPLY UPDATE"
 msgstr "تطبيق التحديث"

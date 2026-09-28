@@ -1165,6 +1165,39 @@ msgstr "RESTRINGIR DRECERES DELS COMANDAMENTS PER SORTIR"
 msgid "GLOBAL HOTKEYS"
 msgstr "DRECERES GLOBALS"
 
+msgid "LED HARDWARE"
+msgstr "LED DE MAQUINARI"
+
+msgid "ENABLE LED"
+msgstr "HABILITAR LED"
+
+msgid "LED MODE"
+msgstr "MODE LED"
+
+msgid "STATIC"
+msgstr "ESTÀTIC"
+
+msgid "RAINBOW"
+msgstr "ARC DE SANT MARTÍ"
+
+msgid "CHROMA"
+msgstr "CHROMA"
+
+msgid "PULSE"
+msgstr "PULSE"
+
+msgid "RED"
+msgstr "VERMELL"
+
+msgid "GREEN"
+msgstr "VERD"
+
+msgid "BLUE"
+msgstr "BLAU"
+
+msgid "LED BRIGHTNESS"
+msgstr "BRILLANTOR DEL LED"
+
 msgid "default"
 msgstr "per defecte"
 
@@ -1266,15 +1299,6 @@ msgstr "COLOR DE LES VORES"
 
 msgid "WHITE"
 msgstr "BLANC"
-
-msgid "RED"
-msgstr "VERMELL"
-
-msgid "GREEN"
-msgstr "VERD"
-
-msgid "BLUE"
-msgstr "BLAU"
 
 msgid "BORDER RATIO"
 msgstr "RELACIÓ DE LA VORA"
@@ -2465,30 +2489,6 @@ msgstr "actiu"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "LED DE MAQUINARI"
-
-msgid "ENABLE LED"
-msgstr "HABILITAR LED"
-
-msgid "LED MODE"
-msgstr "MODE LED"
-
-msgid "STATIC"
-msgstr "ESTÀTIC"
-
-msgid "RAINBOW"
-msgstr "ARC DE SANT MARTÍ"
-
-msgid "CHROMA"
-msgstr "CHROMA"
-
-msgid "PULSE"
-msgstr "PULSE"
-
-msgid "LED BRIGHTNESS"
-msgstr "BRILLANTOR DEL LED"
 
 msgid "STORAGE"
 msgstr "EMMAGATZEMATGE"

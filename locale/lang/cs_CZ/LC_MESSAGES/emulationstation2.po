@@ -1159,6 +1159,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr "LED HARDWARE"
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "ČERVENÁ"
+
+msgid "GREEN"
+msgstr "ZELENÁ"
+
+msgid "BLUE"
+msgstr "MODRÁ"
+
+msgid "LED BRIGHTNESS"
+msgstr "JAS LED"
+
 msgid "default"
 msgstr "výchozí"
 
@@ -1260,15 +1293,6 @@ msgstr "BARVA HRANICE"
 
 msgid "WHITE"
 msgstr "BÍLÁ"
-
-msgid "RED"
-msgstr "ČERVENÁ"
-
-msgid "GREEN"
-msgstr "ZELENÁ"
-
-msgid "BLUE"
-msgstr "MODRÁ"
 
 msgid "BORDER RATIO"
 msgstr "POMĚR OKRAJŮ"
@@ -2449,30 +2473,6 @@ msgstr "zapnout"
 
 msgid "OVERCLOCK"
 msgstr "PŘETAKTOVÁNÍ"
-
-msgid "LED HARDWARE"
-msgstr "LED HARDWARE"
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr "JAS LED"
 
 msgid "STORAGE"
 msgstr "ULOŽIŠTĚ"

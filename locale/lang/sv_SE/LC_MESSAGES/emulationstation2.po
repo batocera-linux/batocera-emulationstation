@@ -1158,6 +1158,39 @@ msgstr "BEGRÄNSA JOYSTICKS SNABBTANGENTER FÖR ATT AVSLUTA"
 msgid "GLOBAL HOTKEYS"
 msgstr "GLOBALA snabbtangentS"
 
+msgid "LED HARDWARE"
+msgstr "LED-HÅRDVARA"
+
+msgid "ENABLE LED"
+msgstr "LED FÖR AKTIVERING"
+
+msgid "LED MODE"
+msgstr "LED-LÄGE"
+
+msgid "STATIC"
+msgstr "STATISK"
+
+msgid "RAINBOW"
+msgstr "REGNBÅGE"
+
+msgid "CHROMA"
+msgstr "CHROMA"
+
+msgid "PULSE"
+msgstr "PULSERANDE"
+
+msgid "RED"
+msgstr "RÖD"
+
+msgid "GREEN"
+msgstr "GRÖN"
+
+msgid "BLUE"
+msgstr "BLÅ"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED-LJUSSTYRKA"
+
 msgid "default"
 msgstr "standard"
 
@@ -1261,15 +1294,6 @@ msgstr "BORDER FÄRG"
 
 msgid "WHITE"
 msgstr "VIT"
-
-msgid "RED"
-msgstr "RÖD"
-
-msgid "GREEN"
-msgstr "GRÖN"
-
-msgid "BLUE"
-msgstr "BLÅ"
 
 msgid "BORDER RATIO"
 msgstr "GRÄNSRATIO"
@@ -2454,30 +2478,6 @@ msgstr "på"
 
 msgid "OVERCLOCK"
 msgstr "ÖVERKLOCKNING"
-
-msgid "LED HARDWARE"
-msgstr "LED-HÅRDVARA"
-
-msgid "ENABLE LED"
-msgstr "LED FÖR AKTIVERING"
-
-msgid "LED MODE"
-msgstr "LED-LÄGE"
-
-msgid "STATIC"
-msgstr "STATISK"
-
-msgid "RAINBOW"
-msgstr "REGNBÅGE"
-
-msgid "CHROMA"
-msgstr "CHROMA"
-
-msgid "PULSE"
-msgstr "PULSERANDE"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED-LJUSSTYRKA"
 
 msgid "STORAGE"
 msgstr "FÖRVARING"

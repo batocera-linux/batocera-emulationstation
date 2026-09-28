@@ -1158,6 +1158,39 @@ msgstr "LIMITA HOTKEYS DEI JOYSTICKS ALL'USCITA"
 msgid "GLOBAL HOTKEYS"
 msgstr "HOTKEYS GLOBALI"
 
+msgid "LED HARDWARE"
+msgstr "HARDWARE LED"
+
+msgid "ENABLE LED"
+msgstr "ABILITA LED"
+
+msgid "LED MODE"
+msgstr "MODO LED"
+
+msgid "STATIC"
+msgstr "STATICO"
+
+msgid "RAINBOW"
+msgstr "ARCOBALENO"
+
+msgid "CHROMA"
+msgstr "CHROMA"
+
+msgid "PULSE"
+msgstr "PULSE"
+
+msgid "RED"
+msgstr "ROSSO"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "BLU"
+
+msgid "LED BRIGHTNESS"
+msgstr "LUMINOSITA' LED"
+
 msgid "default"
 msgstr "default"
 
@@ -1259,15 +1292,6 @@ msgstr "COLORE BORDO"
 
 msgid "WHITE"
 msgstr "BIANCO"
-
-msgid "RED"
-msgstr "ROSSO"
-
-msgid "GREEN"
-msgstr "VERDE"
-
-msgid "BLUE"
-msgstr "BLU"
 
 msgid "BORDER RATIO"
 msgstr "PROPORZIONE BORDI"
@@ -2450,30 +2474,6 @@ msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "HARDWARE LED"
-
-msgid "ENABLE LED"
-msgstr "ABILITA LED"
-
-msgid "LED MODE"
-msgstr "MODO LED"
-
-msgid "STATIC"
-msgstr "STATICO"
-
-msgid "RAINBOW"
-msgstr "ARCOBALENO"
-
-msgid "CHROMA"
-msgstr "CHROMA"
-
-msgid "PULSE"
-msgstr "PULSE"
-
-msgid "LED BRIGHTNESS"
-msgstr "LUMINOSITA' LED"
 
 msgid "STORAGE"
 msgstr "ARCHIVIO"

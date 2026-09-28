@@ -1164,6 +1164,39 @@ msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЖОЙСТИКОВ ТОЛЬКО ВЫ
 msgid "GLOBAL HOTKEYS"
 msgstr "ГЛОБАЛЬНЫЕ ХОТКЕИ"
 
+msgid "LED HARDWARE"
+msgstr "LED HARDWARE"
+
+msgid "ENABLE LED"
+msgstr "ВКЛЮЧИТЬ LED"
+
+msgid "LED MODE"
+msgstr "РЕЖИМ LED"
+
+msgid "STATIC"
+msgstr "СТАТИЧЕСКИЙ"
+
+msgid "RAINBOW"
+msgstr "РАДУГА"
+
+msgid "CHROMA"
+msgstr "ХРОМА"
+
+msgid "PULSE"
+msgstr "ПУЛЬСАЦИЯ"
+
+msgid "RED"
+msgstr "КРАСНЫЙ"
+
+msgid "GREEN"
+msgstr "ЗЕЛЁНЫЙ"
+
+msgid "BLUE"
+msgstr "СИНИЙ"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED ЯРКОСТЬ"
+
 msgid "default"
 msgstr "по умолчанию"
 
@@ -1265,15 +1298,6 @@ msgstr "ЦВЕТ РАМКИ"
 
 msgid "WHITE"
 msgstr "БЕЛЫЙ"
-
-msgid "RED"
-msgstr "КРАСНЫЙ"
-
-msgid "GREEN"
-msgstr "ЗЕЛЁНЫЙ"
-
-msgid "BLUE"
-msgstr "СИНИЙ"
 
 msgid "BORDER RATIO"
 msgstr "СООТНОШЕНИЕ РАМКИ"
@@ -2454,30 +2478,6 @@ msgstr "вкл"
 
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
-
-msgid "LED HARDWARE"
-msgstr "LED HARDWARE"
-
-msgid "ENABLE LED"
-msgstr "ВКЛЮЧИТЬ LED"
-
-msgid "LED MODE"
-msgstr "РЕЖИМ LED"
-
-msgid "STATIC"
-msgstr "СТАТИЧЕСКИЙ"
-
-msgid "RAINBOW"
-msgstr "РАДУГА"
-
-msgid "CHROMA"
-msgstr "ХРОМА"
-
-msgid "PULSE"
-msgstr "ПУЛЬСАЦИЯ"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED ЯРКОСТЬ"
 
 msgid "STORAGE"
 msgstr "МЕСТО ХРАНЕНИЯ"

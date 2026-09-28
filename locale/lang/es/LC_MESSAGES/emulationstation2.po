@@ -1168,6 +1168,39 @@ msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO DE LOS JOYSTICKS PARA SALIR"
 msgid "GLOBAL HOTKEYS"
 msgstr "TECLAS DE ACCESO RÁPIDO GLOBALES"
 
+msgid "LED HARDWARE"
+msgstr "LEDS"
+
+msgid "ENABLE LED"
+msgstr "ACTIVAR LED"
+
+msgid "LED MODE"
+msgstr "MODO DE LED"
+
+msgid "STATIC"
+msgstr "ESTÁTICO"
+
+msgid "RAINBOW"
+msgstr "MULTICOLOR"
+
+msgid "CHROMA"
+msgstr "CROMA"
+
+msgid "PULSE"
+msgstr "PULSO"
+
+msgid "RED"
+msgstr "ROJO"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "AZUL"
+
+msgid "LED BRIGHTNESS"
+msgstr "BRILLO DE LOS LEDS"
+
 msgid "default"
 msgstr "defecto"
 
@@ -1271,15 +1304,6 @@ msgstr "COLOR DEL BORDE"
 
 msgid "WHITE"
 msgstr "BLANCO"
-
-msgid "RED"
-msgstr "ROJO"
-
-msgid "GREEN"
-msgstr "VERDE"
-
-msgid "BLUE"
-msgstr "AZUL"
 
 msgid "BORDER RATIO"
 msgstr "RELACIÓN BORDE"
@@ -2210,7 +2234,9 @@ msgid "RIGHT ANALOG STICK CHANGES VOLUME"
 msgstr "EL STICK ANALÓGICO DERECHO CAMBIA EL VOLUMEN"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr "Mueva el joystick derecho hacia arriba o hacia abajo para subir o bajar el volumen del audio."
+msgstr ""
+"Mueva el joystick derecho hacia arriba o hacia abajo para subir o bajar el "
+"volumen del audio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCIA AL MOVIMIENTO DEL ARMA"
@@ -2475,30 +2501,6 @@ msgstr "on"
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
-msgid "LED HARDWARE"
-msgstr "LEDS"
-
-msgid "ENABLE LED"
-msgstr "ACTIVAR LED"
-
-msgid "LED MODE"
-msgstr "MODO DE LED"
-
-msgid "STATIC"
-msgstr "ESTÁTICO"
-
-msgid "RAINBOW"
-msgstr "MULTICOLOR"
-
-msgid "CHROMA"
-msgstr "CROMA"
-
-msgid "PULSE"
-msgstr "PULSO"
-
-msgid "LED BRIGHTNESS"
-msgstr "BRILLO DE LOS LEDS"
-
 msgid "STORAGE"
 msgstr "ALMACENAMIENTO"
 
@@ -2533,8 +2535,9 @@ msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
-"Deshabilitar las medidas de mitigación puede mejorar el rendimiento en algunos "
-"sistemas a costa de una menor protección contra ciertas vulnerabilidades de la CPU."
+"Deshabilitar las medidas de mitigación puede mejorar el rendimiento en "
+"algunos sistemas a costa de una menor protección contra ciertas "
+"vulnerabilidades de la CPU."
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓN DE LATENCIA"
@@ -3937,10 +3940,8 @@ msgstr "EN USO"
 
 msgid ""
 "CALIBRATING GUN\n"
-"Fire on targets to calibrate\n"
+"Fire on targets to calibrate"
 msgstr ""
-"CALIBRANDO PISTOLA\n"
-"Dispara a los objetivos para calibrar\n"
 
 msgid "Reloaded the games list..."
 msgstr "Recargada la lista de juegos..."
@@ -4053,6 +4054,13 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "hace %d segundo"
 msgstr[1] "hace %d segundos"
+
+#~ msgid ""
+#~ "CALIBRATING GUN\n"
+#~ "Fire on targets to calibrate\n"
+#~ msgstr ""
+#~ "CALIBRANDO PISTOLA\n"
+#~ "Dispara a los objetivos para calibrar\n"
 
 #~ msgid "FANART"
 #~ msgstr "FANART"

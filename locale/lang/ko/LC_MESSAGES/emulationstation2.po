@@ -1156,6 +1156,39 @@ msgstr "조이스틱 단축키를 나가기로 제한"
 msgid "GLOBAL HOTKEYS"
 msgstr "글로벌 단축키"
 
+msgid "LED HARDWARE"
+msgstr "LED 하드웨어"
+
+msgid "ENABLE LED"
+msgstr "LED 활성화"
+
+msgid "LED MODE"
+msgstr "LED 모드"
+
+msgid "STATIC"
+msgstr "정적"
+
+msgid "RAINBOW"
+msgstr "무지개"
+
+msgid "CHROMA"
+msgstr "채도"
+
+msgid "PULSE"
+msgstr "파형"
+
+msgid "RED"
+msgstr "빨간색"
+
+msgid "GREEN"
+msgstr "초록색"
+
+msgid "BLUE"
+msgstr "파란색"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED 밝기"
+
 msgid "default"
 msgstr "기본"
 
@@ -1257,15 +1290,6 @@ msgstr "테두리 색상"
 
 msgid "WHITE"
 msgstr "하얀색"
-
-msgid "RED"
-msgstr "빨간색"
-
-msgid "GREEN"
-msgstr "초록색"
-
-msgid "BLUE"
-msgstr "파란색"
 
 msgid "BORDER RATIO"
 msgstr "테두리 비율"
@@ -2440,30 +2464,6 @@ msgstr "켜짐"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
-
-msgid "LED HARDWARE"
-msgstr "LED 하드웨어"
-
-msgid "ENABLE LED"
-msgstr "LED 활성화"
-
-msgid "LED MODE"
-msgstr "LED 모드"
-
-msgid "STATIC"
-msgstr "정적"
-
-msgid "RAINBOW"
-msgstr "무지개"
-
-msgid "CHROMA"
-msgstr "채도"
-
-msgid "PULSE"
-msgstr "파형"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED 밝기"
 
 msgid "STORAGE"
 msgstr "저장소"

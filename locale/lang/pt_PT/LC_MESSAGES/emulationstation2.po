@@ -1166,6 +1166,39 @@ msgstr "RESTRINGIR TECLAS DE ATALHO DO JOYSTICK PARA SAIR"
 msgid "GLOBAL HOTKEYS"
 msgstr "TECLAS DE ATALHO GLOBAIS"
 
+msgid "LED HARDWARE"
+msgstr "LED HARDWARE"
+
+msgid "ENABLE LED"
+msgstr "ATIVAR LED"
+
+msgid "LED MODE"
+msgstr "MODO LED"
+
+msgid "STATIC"
+msgstr "ESTÁTICO"
+
+msgid "RAINBOW"
+msgstr "ARCO-ÍRIS"
+
+msgid "CHROMA"
+msgstr "CROMÁTICO"
+
+msgid "PULSE"
+msgstr "PULSAÇÃO"
+
+msgid "RED"
+msgstr "VERMELHO"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "AZUL"
+
+msgid "LED BRIGHTNESS"
+msgstr "BRILHO DO LED"
+
 msgid "default"
 msgstr "predefinição"
 
@@ -1267,15 +1300,6 @@ msgstr "COR DA BORDA"
 
 msgid "WHITE"
 msgstr "BRANCO"
-
-msgid "RED"
-msgstr "VERMELHO"
-
-msgid "GREEN"
-msgstr "VERDE"
-
-msgid "BLUE"
-msgstr "AZUL"
 
 msgid "BORDER RATIO"
 msgstr "PROPORÇÃO DA BORDA"
@@ -2465,30 +2489,6 @@ msgstr "ligado"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "LED HARDWARE"
-
-msgid "ENABLE LED"
-msgstr "ATIVAR LED"
-
-msgid "LED MODE"
-msgstr "MODO LED"
-
-msgid "STATIC"
-msgstr "ESTÁTICO"
-
-msgid "RAINBOW"
-msgstr "ARCO-ÍRIS"
-
-msgid "CHROMA"
-msgstr "CROMÁTICO"
-
-msgid "PULSE"
-msgstr "PULSAÇÃO"
-
-msgid "LED BRIGHTNESS"
-msgstr "BRILHO DO LED"
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"
@@ -4037,8 +4037,6 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
-
-
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

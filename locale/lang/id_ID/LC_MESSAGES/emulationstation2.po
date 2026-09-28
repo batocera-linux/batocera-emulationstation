@@ -89,8 +89,8 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PERINGATAN: FILE SISTEM MEMILIKI FILE BIOS YANG HILANG, DAN MUNGKIN GAME TIDAK AKAN BERJALAN "
-"GABENER.\n"
+"PERINGATAN: FILE SISTEM MEMILIKI FILE BIOS YANG HILANG, DAN MUNGKIN GAME "
+"TIDAK AKAN BERJALAN GABENER.\n"
 "APAKAH TETAP INGIN COBA JALANKAN?"
 
 msgid "Preloading UI"
@@ -1155,6 +1155,39 @@ msgstr "BATASI TOMBOL PINTAS JOYSTICK HANYA UNTUK KELUAR"
 msgid "GLOBAL HOTKEYS"
 msgstr "TOMBOL PINTAS GLOBAL"
 
+msgid "LED HARDWARE"
+msgstr "PERANGKAT LED"
+
+msgid "ENABLE LED"
+msgstr "AKTIFKAN LED"
+
+msgid "LED MODE"
+msgstr "MODE LED"
+
+msgid "STATIC"
+msgstr "STATIS"
+
+msgid "RAINBOW"
+msgstr "PELANGI"
+
+msgid "CHROMA"
+msgstr "CHROMA"
+
+msgid "PULSE"
+msgstr "DENYUT (PULSE)"
+
+msgid "RED"
+msgstr "MERAH"
+
+msgid "GREEN"
+msgstr "HIJAU"
+
+msgid "BLUE"
+msgstr "BIRU"
+
+msgid "LED BRIGHTNESS"
+msgstr "KECERAHAN LED"
+
 msgid "default"
 msgstr "standar"
 
@@ -1256,15 +1289,6 @@ msgstr "WARNA BORDER"
 
 msgid "WHITE"
 msgstr "PUTIH"
-
-msgid "RED"
-msgstr "MERAH"
-
-msgid "GREEN"
-msgstr "HIJAU"
-
-msgid "BLUE"
-msgstr "BIRU"
 
 msgid "BORDER RATIO"
 msgstr "RASIO TEPI"
@@ -2450,30 +2474,6 @@ msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "PERANGKAT LED"
-
-msgid "ENABLE LED"
-msgstr "AKTIFKAN LED"
-
-msgid "LED MODE"
-msgstr "MODE LED"
-
-msgid "STATIC"
-msgstr "STATIS"
-
-msgid "RAINBOW"
-msgstr "PELANGI"
-
-msgid "CHROMA"
-msgstr "CHROMA"
-
-msgid "PULSE"
-msgstr "DENYUT (PULSE)"
-
-msgid "LED BRIGHTNESS"
-msgstr "KECERAHAN LED"
 
 msgid "STORAGE"
 msgstr "PENYIMPANAN"

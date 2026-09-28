@@ -1149,6 +1149,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr "LED硬體"
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "紅色"
+
+msgid "GREEN"
+msgstr "綠色"
+
+msgid "BLUE"
+msgstr "藍色"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED亮度"
+
 msgid "default"
 msgstr "預設值"
 
@@ -1250,15 +1283,6 @@ msgstr "邊框顏色"
 
 msgid "WHITE"
 msgstr "白色"
-
-msgid "RED"
-msgstr "紅色"
-
-msgid "GREEN"
-msgstr "綠色"
-
-msgid "BLUE"
-msgstr "藍色"
 
 msgid "BORDER RATIO"
 msgstr "邊框比例"
@@ -2423,30 +2447,6 @@ msgstr "開啟"
 
 msgid "OVERCLOCK"
 msgstr "超頻"
-
-msgid "LED HARDWARE"
-msgstr "LED硬體"
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr "LED亮度"
 
 msgid "STORAGE"
 msgstr "儲存"

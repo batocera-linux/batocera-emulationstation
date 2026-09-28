@@ -1157,6 +1157,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr "LED MASKINVARE"
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "RØD"
+
+msgid "GREEN"
+msgstr "GRØNN"
+
+msgid "BLUE"
+msgstr "BLÅ"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED LYSSTYRKE"
+
 msgid "default"
 msgstr "standard"
 
@@ -1258,15 +1291,6 @@ msgstr "RAMME FARGE"
 
 msgid "WHITE"
 msgstr "HVIT"
-
-msgid "RED"
-msgstr "RØD"
-
-msgid "GREEN"
-msgstr "GRØNN"
-
-msgid "BLUE"
-msgstr "BLÅ"
 
 msgid "BORDER RATIO"
 msgstr "KANTFORHOLD"
@@ -2443,30 +2467,6 @@ msgstr "på"
 
 msgid "OVERCLOCK"
 msgstr "OVERKLOKKING"
-
-msgid "LED HARDWARE"
-msgstr "LED MASKINVARE"
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr "LED LYSSTYRKE"
 
 msgid "STORAGE"
 msgstr "LAGRING"

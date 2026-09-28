@@ -1152,6 +1152,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "ЧЕРВОНА"
+
+msgid "GREEN"
+msgstr "ЗЕЛЕНА"
+
+msgid "BLUE"
+msgstr "БЛАКИТНА"
+
+msgid "LED BRIGHTNESS"
+msgstr ""
+
 msgid "default"
 msgstr "за замовчуванням"
 
@@ -1253,15 +1286,6 @@ msgstr "КОЛІР РАМКИ"
 
 msgid "WHITE"
 msgstr "БІЛА"
-
-msgid "RED"
-msgstr "ЧЕРВОНА"
-
-msgid "GREEN"
-msgstr "ЗЕЛЕНА"
-
-msgid "BLUE"
-msgstr "БЛАКИТНА"
 
 msgid "BORDER RATIO"
 msgstr ""
@@ -2421,30 +2445,6 @@ msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "РОЗГІН"
-
-msgid "LED HARDWARE"
-msgstr ""
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr ""
 
 msgid "STORAGE"
 msgstr "МІСЦЕ ЗБЕРЕЖЕННЯ"

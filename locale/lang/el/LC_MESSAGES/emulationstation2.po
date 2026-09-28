@@ -1154,6 +1154,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "ΚΟΚΚΙΝΟ"
+
+msgid "GREEN"
+msgstr "ΠΡΑΣΙΝΟ"
+
+msgid "BLUE"
+msgstr "ΜΠΛΕ"
+
+msgid "LED BRIGHTNESS"
+msgstr ""
+
 msgid "default"
 msgstr "προεπιλεγμενο"
 
@@ -1255,15 +1288,6 @@ msgstr "ΧΡΩΜΑ ΠΕΡΙΓΡΑΜΜΑΤΟΣ"
 
 msgid "WHITE"
 msgstr "ΑΣΠΡΟ"
-
-msgid "RED"
-msgstr "ΚΟΚΚΙΝΟ"
-
-msgid "GREEN"
-msgstr "ΠΡΑΣΙΝΟ"
-
-msgid "BLUE"
-msgstr "ΜΠΛΕ"
 
 msgid "BORDER RATIO"
 msgstr ""
@@ -2435,30 +2459,6 @@ msgstr "ενεργο"
 
 msgid "OVERCLOCK"
 msgstr "ΥΠΕΡΧΡΟΝΙΣΜΟΣ"
-
-msgid "LED HARDWARE"
-msgstr ""
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr ""
 
 msgid "STORAGE"
 msgstr "ΑΠΟΘΗΚΕΥΣΗ"

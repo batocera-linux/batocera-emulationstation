@@ -1166,6 +1166,39 @@ msgstr "OGRANICZ HOTKEY JOYSTICKÓW DO WYJŚCIA"
 msgid "GLOBAL HOTKEYS"
 msgstr "HOTKEY GLOBALNE"
 
+msgid "LED HARDWARE"
+msgstr "TWORZYWO DIODY"
+
+msgid "ENABLE LED"
+msgstr "WŁĄCZ LED"
+
+msgid "LED MODE"
+msgstr "TRYB LED"
+
+msgid "STATIC"
+msgstr "STATYCZNE"
+
+msgid "RAINBOW"
+msgstr "TĘCZA"
+
+msgid "CHROMA"
+msgstr "CHROMA"
+
+msgid "PULSE"
+msgstr "PULS"
+
+msgid "RED"
+msgstr "CZERWONY"
+
+msgid "GREEN"
+msgstr "ZIELONY"
+
+msgid "BLUE"
+msgstr "NIEBIESKI"
+
+msgid "LED BRIGHTNESS"
+msgstr "JASNOŚĆ DIODY"
+
 msgid "default"
 msgstr "domyślnie"
 
@@ -1267,15 +1300,6 @@ msgstr "KOLOR OBRAMOWANIA"
 
 msgid "WHITE"
 msgstr "BIAŁY"
-
-msgid "RED"
-msgstr "CZERWONY"
-
-msgid "GREEN"
-msgstr "ZIELONY"
-
-msgid "BLUE"
-msgstr "NIEBIESKI"
 
 msgid "BORDER RATIO"
 msgstr "PROPORCJE OBRAMOWANIA"
@@ -2465,30 +2489,6 @@ msgstr "wł."
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
-
-msgid "LED HARDWARE"
-msgstr "TWORZYWO DIODY"
-
-msgid "ENABLE LED"
-msgstr "WŁĄCZ LED"
-
-msgid "LED MODE"
-msgstr "TRYB LED"
-
-msgid "STATIC"
-msgstr "STATYCZNE"
-
-msgid "RAINBOW"
-msgstr "TĘCZA"
-
-msgid "CHROMA"
-msgstr "CHROMA"
-
-msgid "PULSE"
-msgstr "PULS"
-
-msgid "LED BRIGHTNESS"
-msgstr "JASNOŚĆ DIODY"
 
 msgid "STORAGE"
 msgstr "PRZECHOWYWANIE DANYCH"

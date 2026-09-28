@@ -1157,6 +1157,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "GORRIA"
+
+msgid "GREEN"
+msgstr "BERDEA"
+
+msgid "BLUE"
+msgstr "URDINA"
+
+msgid "LED BRIGHTNESS"
+msgstr ""
+
 msgid "default"
 msgstr "defektuz"
 
@@ -1258,15 +1291,6 @@ msgstr "ERTZ KOLOREA"
 
 msgid "WHITE"
 msgstr "ZURIA"
-
-msgid "RED"
-msgstr "GORRIA"
-
-msgid "GREEN"
-msgstr "BERDEA"
-
-msgid "BLUE"
-msgstr "URDINA"
 
 msgid "BORDER RATIO"
 msgstr ""
@@ -2448,30 +2472,6 @@ msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr ""
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr ""
 
 msgid "STORAGE"
 msgstr "BILTEGIRATZEA"

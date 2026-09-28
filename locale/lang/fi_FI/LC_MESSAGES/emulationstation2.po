@@ -1158,6 +1158,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "PUNAINEN"
+
+msgid "GREEN"
+msgstr "VIHREÄ"
+
+msgid "BLUE"
+msgstr "SININEN"
+
+msgid "LED BRIGHTNESS"
+msgstr ""
+
 msgid "default"
 msgstr "oletus"
 
@@ -1259,15 +1292,6 @@ msgstr ""
 
 msgid "WHITE"
 msgstr "VALKOINEN"
-
-msgid "RED"
-msgstr "PUNAINEN"
-
-msgid "GREEN"
-msgstr "VIHREÄ"
-
-msgid "BLUE"
-msgstr "SININEN"
 
 msgid "BORDER RATIO"
 msgstr ""
@@ -2439,30 +2463,6 @@ msgstr "päällä"
 
 msgid "OVERCLOCK"
 msgstr "YLIKELLOTUS"
-
-msgid "LED HARDWARE"
-msgstr ""
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr ""
 
 msgid "STORAGE"
 msgstr "TALLENUSTILA"

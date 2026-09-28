@@ -1167,6 +1167,39 @@ msgstr "JOYSTICK-HOTKEYS NUR FÜR BEENDEN"
 msgid "GLOBAL HOTKEYS"
 msgstr "GLOBALE HOTKEYS"
 
+msgid "LED HARDWARE"
+msgstr "LED-HARDWARE"
+
+msgid "ENABLE LED"
+msgstr "LED AKTIVIEREN"
+
+msgid "LED MODE"
+msgstr "LED-MODUS"
+
+msgid "STATIC"
+msgstr "STATISCH"
+
+msgid "RAINBOW"
+msgstr "REGENBOGEN"
+
+msgid "CHROMA"
+msgstr "CHROMA"
+
+msgid "PULSE"
+msgstr "PULSIEREND"
+
+msgid "RED"
+msgstr "ROT"
+
+msgid "GREEN"
+msgstr "GRÜN"
+
+msgid "BLUE"
+msgstr "BLAU"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED-HELLIGKEIT"
+
 msgid "default"
 msgstr "Standard"
 
@@ -1268,15 +1301,6 @@ msgstr "RAHMENFARBE"
 
 msgid "WHITE"
 msgstr "WEISS"
-
-msgid "RED"
-msgstr "ROT"
-
-msgid "GREEN"
-msgstr "GRÜN"
-
-msgid "BLUE"
-msgstr "BLAU"
 
 msgid "BORDER RATIO"
 msgstr "RAHMENVERHÄLTNIS"
@@ -2470,30 +2494,6 @@ msgstr "an"
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
-
-msgid "LED HARDWARE"
-msgstr "LED-HARDWARE"
-
-msgid "ENABLE LED"
-msgstr "LED AKTIVIEREN"
-
-msgid "LED MODE"
-msgstr "LED-MODUS"
-
-msgid "STATIC"
-msgstr "STATISCH"
-
-msgid "RAINBOW"
-msgstr "REGENBOGEN"
-
-msgid "CHROMA"
-msgstr "CHROMA"
-
-msgid "PULSE"
-msgstr "PULSIEREND"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED-HELLIGKEIT"
 
 msgid "STORAGE"
 msgstr "DATENSPEICHER"

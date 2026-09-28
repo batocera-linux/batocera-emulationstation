@@ -1150,6 +1150,39 @@ msgstr "禁止使用手柄热键退出"
 msgid "GLOBAL HOTKEYS"
 msgstr "全局热键"
 
+msgid "LED HARDWARE"
+msgstr "LED硬件"
+
+msgid "ENABLE LED"
+msgstr "启用LED"
+
+msgid "LED MODE"
+msgstr "LED模式"
+
+msgid "STATIC"
+msgstr "静态"
+
+msgid "RAINBOW"
+msgstr "彩虹"
+
+msgid "CHROMA"
+msgstr "色度"
+
+msgid "PULSE"
+msgstr "脉冲"
+
+msgid "RED"
+msgstr "红色"
+
+msgid "GREEN"
+msgstr "绿色"
+
+msgid "BLUE"
+msgstr "蓝色"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED亮度"
+
 msgid "default"
 msgstr "默认"
 
@@ -1251,15 +1284,6 @@ msgstr "边框颜色"
 
 msgid "WHITE"
 msgstr "白色"
-
-msgid "RED"
-msgstr "红色"
-
-msgid "GREEN"
-msgstr "绿色"
-
-msgid "BLUE"
-msgstr "蓝色"
 
 msgid "BORDER RATIO"
 msgstr "边框比率"
@@ -2424,30 +2448,6 @@ msgstr "打开"
 
 msgid "OVERCLOCK"
 msgstr "超频"
-
-msgid "LED HARDWARE"
-msgstr "LED硬件"
-
-msgid "ENABLE LED"
-msgstr "启用LED"
-
-msgid "LED MODE"
-msgstr "LED模式"
-
-msgid "STATIC"
-msgstr "静态"
-
-msgid "RAINBOW"
-msgstr "彩虹"
-
-msgid "CHROMA"
-msgstr "色度"
-
-msgid "PULSE"
-msgstr "脉冲"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED亮度"
 
 msgid "STORAGE"
 msgstr "存储"

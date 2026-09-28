@@ -1160,6 +1160,39 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "LED HARDWARE"
+msgstr "PHẦN CỨNG LED"
+
+msgid "ENABLE LED"
+msgstr ""
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "ĐỎ"
+
+msgid "GREEN"
+msgstr "XANH LÁ"
+
+msgid "BLUE"
+msgstr "XANH DƯƠNG"
+
+msgid "LED BRIGHTNESS"
+msgstr "ĐỘ SÁNG LED"
+
 msgid "default"
 msgstr "mặc định"
 
@@ -1261,15 +1294,6 @@ msgstr "MÀU VIỀN"
 
 msgid "WHITE"
 msgstr "TRẮNG"
-
-msgid "RED"
-msgstr "ĐỎ"
-
-msgid "GREEN"
-msgstr "XANH LÁ"
-
-msgid "BLUE"
-msgstr "XANH DƯƠNG"
 
 msgid "BORDER RATIO"
 msgstr "TỶ LỆ VIỀN"
@@ -2449,30 +2473,6 @@ msgstr "bật"
 
 msgid "OVERCLOCK"
 msgstr "ÉP XUNG"
-
-msgid "LED HARDWARE"
-msgstr "PHẦN CỨNG LED"
-
-msgid "ENABLE LED"
-msgstr ""
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr "ĐỘ SÁNG LED"
 
 msgid "STORAGE"
 msgstr "LƯU TRỮ"

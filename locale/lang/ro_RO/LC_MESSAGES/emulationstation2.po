@@ -1170,6 +1170,39 @@ msgstr "RESTRICȚIONEAZĂ SCURTĂTURILE JOYSTICK LA IEȘIRE"
 msgid "GLOBAL HOTKEYS"
 msgstr "SCURTĂTURI GLOBALE"
 
+msgid "LED HARDWARE"
+msgstr "LED HARDWARE"
+
+msgid "ENABLE LED"
+msgstr "ACTIVEAZĂ LED"
+
+msgid "LED MODE"
+msgstr "MOD LED"
+
+msgid "STATIC"
+msgstr "STATIC"
+
+msgid "RAINBOW"
+msgstr "CURCUBEU"
+
+msgid "CHROMA"
+msgstr "CROMATIC"
+
+msgid "PULSE"
+msgstr "PULSATORIU"
+
+msgid "RED"
+msgstr "ROȘU"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "ALBASTRU"
+
+msgid "LED BRIGHTNESS"
+msgstr "LUMINOZITATE LED"
+
 msgid "default"
 msgstr "implicit"
 
@@ -1271,15 +1304,6 @@ msgstr "CULOARE CHENAR"
 
 msgid "WHITE"
 msgstr "ALBĂ"
-
-msgid "RED"
-msgstr "ROȘU"
-
-msgid "GREEN"
-msgstr "VERDE"
-
-msgid "BLUE"
-msgstr "ALBASTRU"
 
 msgid "BORDER RATIO"
 msgstr "RAPORT CHENAR"
@@ -2472,30 +2496,6 @@ msgstr "pornit"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "LED HARDWARE"
-
-msgid "ENABLE LED"
-msgstr "ACTIVEAZĂ LED"
-
-msgid "LED MODE"
-msgstr "MOD LED"
-
-msgid "STATIC"
-msgstr "STATIC"
-
-msgid "RAINBOW"
-msgstr "CURCUBEU"
-
-msgid "CHROMA"
-msgstr "CROMATIC"
-
-msgid "PULSE"
-msgstr "PULSATORIU"
-
-msgid "LED BRIGHTNESS"
-msgstr "LUMINOZITATE LED"
 
 msgid "STORAGE"
 msgstr "STOCARE"

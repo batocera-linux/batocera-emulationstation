@@ -1167,6 +1167,39 @@ msgstr "RESTREINDRE LES RACCOURCIS DES JOYSTICKS À QUITTER"
 msgid "GLOBAL HOTKEYS"
 msgstr "RACCOURCIS GLOBAUX"
 
+msgid "LED HARDWARE"
+msgstr "LEDS"
+
+msgid "ENABLE LED"
+msgstr "ACTIVE DEL"
+
+msgid "LED MODE"
+msgstr "MODE LED"
+
+msgid "STATIC"
+msgstr "STATIQUE"
+
+msgid "RAINBOW"
+msgstr "ARC-EN-CIEL"
+
+msgid "CHROMA"
+msgstr "SATURATION"
+
+msgid "PULSE"
+msgstr "PULSATION"
+
+msgid "RED"
+msgstr "ROUGE"
+
+msgid "GREEN"
+msgstr "VERTE"
+
+msgid "BLUE"
+msgstr "BLEU"
+
+msgid "LED BRIGHTNESS"
+msgstr "LUMINOSITÉ DES LEDS"
+
 msgid "default"
 msgstr "par défaut"
 
@@ -1268,15 +1301,6 @@ msgstr "COULEUR DE LA BORDURE"
 
 msgid "WHITE"
 msgstr "BLANCHE"
-
-msgid "RED"
-msgstr "ROUGE"
-
-msgid "GREEN"
-msgstr "VERTE"
-
-msgid "BLUE"
-msgstr "BLEU"
 
 msgid "BORDER RATIO"
 msgstr "RATIO DE LA BORDURE"
@@ -2201,7 +2225,8 @@ msgid "RIGHT ANALOG STICK CHANGES VOLUME"
 msgstr "MODIFICATION DU VOLUME PAR LE STICK ANALOGIQUE DROIT"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr "Déplacez le joystick droit vers le haut/bas pour changer le volume audio."
+msgstr ""
+"Déplacez le joystick droit vers le haut/bas pour changer le volume audio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLÉRANCE DE MOUVEMENT DES PISTOLETS"
@@ -2462,30 +2487,6 @@ msgstr "allumé"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "LEDS"
-
-msgid "ENABLE LED"
-msgstr "ACTIVE DEL"
-
-msgid "LED MODE"
-msgstr "MODE LED"
-
-msgid "STATIC"
-msgstr "STATIQUE"
-
-msgid "RAINBOW"
-msgstr "ARC-EN-CIEL"
-
-msgid "CHROMA"
-msgstr "SATURATION"
-
-msgid "PULSE"
-msgstr "PULSATION"
-
-msgid "LED BRIGHTNESS"
-msgstr "LUMINOSITÉ DES LEDS"
 
 msgid "STORAGE"
 msgstr "STOCKAGE"

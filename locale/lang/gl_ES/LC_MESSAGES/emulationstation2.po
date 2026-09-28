@@ -1162,6 +1162,39 @@ msgstr "RESTRINXIR AS TECLAS DE ATALLO DA PANCA DE XOGOS PARA SAÍR"
 msgid "GLOBAL HOTKEYS"
 msgstr "TECLAS DE ATALLO GLOBAIS"
 
+msgid "LED HARDWARE"
+msgstr "LED DE HARDWARE"
+
+msgid "ENABLE LED"
+msgstr "ACTIVAR LED"
+
+msgid "LED MODE"
+msgstr "MODO LED"
+
+msgid "STATIC"
+msgstr "ESTÁTICO"
+
+msgid "RAINBOW"
+msgstr "ARCO DA VELLA"
+
+msgid "CHROMA"
+msgstr "CROMA"
+
+msgid "PULSE"
+msgstr "PULSO"
+
+msgid "RED"
+msgstr "VERMELLO"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "AZUL"
+
+msgid "LED BRIGHTNESS"
+msgstr "BRILLO DO LED"
+
 msgid "default"
 msgstr "por defecto"
 
@@ -1264,15 +1297,6 @@ msgstr "COR DO BORDO"
 
 msgid "WHITE"
 msgstr "BRANCO"
-
-msgid "RED"
-msgstr "VERMELLO"
-
-msgid "GREEN"
-msgstr "VERDE"
-
-msgid "BLUE"
-msgstr "AZUL"
 
 msgid "BORDER RATIO"
 msgstr "PROPORCIÓN DE BORDO"
@@ -2463,30 +2487,6 @@ msgstr "activado"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
-
-msgid "LED HARDWARE"
-msgstr "LED DE HARDWARE"
-
-msgid "ENABLE LED"
-msgstr "ACTIVAR LED"
-
-msgid "LED MODE"
-msgstr "MODO LED"
-
-msgid "STATIC"
-msgstr "ESTÁTICO"
-
-msgid "RAINBOW"
-msgstr "ARCO DA VELLA"
-
-msgid "CHROMA"
-msgstr "CROMA"
-
-msgid "PULSE"
-msgstr "PULSO"
-
-msgid "LED BRIGHTNESS"
-msgstr "BRILLO DO LED"
 
 msgid "STORAGE"
 msgstr "ALMACENAMENTO"

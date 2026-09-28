@@ -1164,6 +1164,39 @@ msgstr "Obmedziť ukončenie tlačidlami joysticku"
 msgid "GLOBAL HOTKEYS"
 msgstr "Globálne hotkey"
 
+msgid "LED HARDWARE"
+msgstr "LED hardvér"
+
+msgid "ENABLE LED"
+msgstr "Povoliť LED"
+
+msgid "LED MODE"
+msgstr ""
+
+msgid "STATIC"
+msgstr ""
+
+msgid "RAINBOW"
+msgstr ""
+
+msgid "CHROMA"
+msgstr ""
+
+msgid "PULSE"
+msgstr ""
+
+msgid "RED"
+msgstr "červená"
+
+msgid "GREEN"
+msgstr "zelená"
+
+msgid "BLUE"
+msgstr "modrá"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED jasnosť"
+
 msgid "default"
 msgstr "predvolené"
 
@@ -1265,15 +1298,6 @@ msgstr "Farba okraja"
 
 msgid "WHITE"
 msgstr "biela"
-
-msgid "RED"
-msgstr "červená"
-
-msgid "GREEN"
-msgstr "zelená"
-
-msgid "BLUE"
-msgstr "modrá"
 
 msgid "BORDER RATIO"
 msgstr "Percento okraja"
@@ -2451,30 +2475,6 @@ msgstr "zapnuté"
 
 msgid "OVERCLOCK"
 msgstr "Pretaktovanie"
-
-msgid "LED HARDWARE"
-msgstr "LED hardvér"
-
-msgid "ENABLE LED"
-msgstr "Povoliť LED"
-
-msgid "LED MODE"
-msgstr ""
-
-msgid "STATIC"
-msgstr ""
-
-msgid "RAINBOW"
-msgstr ""
-
-msgid "CHROMA"
-msgstr ""
-
-msgid "PULSE"
-msgstr ""
-
-msgid "LED BRIGHTNESS"
-msgstr "LED jasnosť"
 
 msgid "STORAGE"
 msgstr "Úložisko"

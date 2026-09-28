@@ -1162,6 +1162,39 @@ msgstr "JOYSTICK KISAYOLLARININ ÇIKIŞ İÇİN KULLANILMASINI KISITLA"
 msgid "GLOBAL HOTKEYS"
 msgstr "GENEL KISAYOL TUŞLARI"
 
+msgid "LED HARDWARE"
+msgstr "LED DONANIM"
+
+msgid "ENABLE LED"
+msgstr "LED'İ ETKİNLEŞTİR"
+
+msgid "LED MODE"
+msgstr "LED MODU"
+
+msgid "STATIC"
+msgstr "STATİK"
+
+msgid "RAINBOW"
+msgstr "GÖKKUŞAĞI"
+
+msgid "CHROMA"
+msgstr "KROMA"
+
+msgid "PULSE"
+msgstr "NABIZ"
+
+msgid "RED"
+msgstr "KIRMIZI"
+
+msgid "GREEN"
+msgstr "YEŞİL"
+
+msgid "BLUE"
+msgstr "MAVİ"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED PARLAKLIĞI"
+
 msgid "default"
 msgstr "varsayılan"
 
@@ -1263,15 +1296,6 @@ msgstr "KENAR RENGİ"
 
 msgid "WHITE"
 msgstr "BEYAZ"
-
-msgid "RED"
-msgstr "KIRMIZI"
-
-msgid "GREEN"
-msgstr "YEŞİL"
-
-msgid "BLUE"
-msgstr "MAVİ"
 
 msgid "BORDER RATIO"
 msgstr "KENAR ORANI"
@@ -2196,8 +2220,8 @@ msgstr "SAĞ ANALOG ÇUBUĞU SES SEVİYESİNİ DEĞİŞTİRİR"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
 msgstr ""
-"Ses seviyesini yükseltmek veya alçaltmak için sağ çubuğu "
-"yukarı/aşağı hareket ettirin."
+"Ses seviyesini yükseltmek veya alçaltmak için sağ çubuğu yukarı/aşağı "
+"hareket ettirin."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "SİLAH HAREKET TÖLERANSI"
@@ -2462,30 +2486,6 @@ msgstr "açık"
 msgid "OVERCLOCK"
 msgstr "HIZ AŞIMI"
 
-msgid "LED HARDWARE"
-msgstr "LED DONANIM"
-
-msgid "ENABLE LED"
-msgstr "LED'İ ETKİNLEŞTİR"
-
-msgid "LED MODE"
-msgstr "LED MODU"
-
-msgid "STATIC"
-msgstr "STATİK"
-
-msgid "RAINBOW"
-msgstr "GÖKKUŞAĞI"
-
-msgid "CHROMA"
-msgstr "KROMA"
-
-msgid "PULSE"
-msgstr "NABIZ"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED PARLAKLIĞI"
-
 msgid "STORAGE"
 msgstr "DEPOLAMA"
 
@@ -2520,8 +2520,9 @@ msgid ""
 "Disabling mitigations may improve performance on some systems at the cost of "
 "reduced protection against certain CPU vulnerabilities."
 msgstr ""
-"Güvenlik önlemlerini devre dışı bırakmak, belirli işlemci güvenlik açıklarına "
-"karşı korumanın azalması pahasına bazı sistemlerde performansı artırabilir."
+"Güvenlik önlemlerini devre dışı bırakmak, belirli işlemci güvenlik "
+"açıklarına karşı korumanın azalması pahasına bazı sistemlerde performansı "
+"artırabilir."
 
 msgid "LATENCY REDUCTION"
 msgstr "GECİKMEYİ AZALT"
@@ -4074,7 +4075,8 @@ msgstr[1] "%d saniye önce"
 #~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
+#~ msgstr ""
+#~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"
