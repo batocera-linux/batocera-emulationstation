@@ -627,9 +627,9 @@ bool isBidiChar(char c)
     return (c & 0xE0) == 0xC0 && (c & 0x10) == 0x10;
 }
 
-#ifdef HAVE_FRIBIDI
-std::string processRTLText(const std::string& text)
+std::string Font::processRTLText(const std::string& text)
 {
+#ifdef HAVE_FRIBIDI
     if (text.empty()) return text;
 
     size_t len = text.length();
@@ -649,8 +649,10 @@ std::string processRTLText(const std::string& text)
     int out_len = fribidi_unicode_to_charset(FRIBIDI_CHAR_SET_UTF8, unicode_out.data(), ulen, utf8_out.data());
 
     return std::string(utf8_out.data(), out_len);
-}
+#else
+    return text;
 #endif
+}
 
 std::string tryFastBidi(const std::string& text)
 {

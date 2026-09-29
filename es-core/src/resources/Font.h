@@ -79,6 +79,8 @@ public:
 	size_t getMemoryUsage() const; // returns an approximation of VRAM used by this font's texture (in bytes)
 	static size_t getTotalMemoryUsage(); // returns an approximation of total VRAM used by font textures (in bytes)
 
+	static std::string processRTLText(const std::string& text);
+
 private:
 	void renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, float x, float y, bool verticesChanged = true);
 
