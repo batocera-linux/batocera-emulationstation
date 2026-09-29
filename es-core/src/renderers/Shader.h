@@ -51,7 +51,7 @@ namespace Renderer
 #endif
 		void unSelect();
 
-		void setMatrix(Transform4x4f& mvpMatrix);
+		void setMatrix(const Transform4x4f& mvpMatrix);
 		void setSaturation(GLfloat saturation);
 		void setTextureSize(const Vector2f& size);
 		void setInputSize(const Vector2f& size);
@@ -69,7 +69,7 @@ namespace Renderer
 		void deleteProgram();
 
 	private:
-		void setUniformEx(const std::string& name, const std::string value);
+		void setUniformEx(const std::string& name, const std::string& value);
 
 		GLuint mId;
 		bool linkStatus;
@@ -131,7 +131,13 @@ namespace Renderer
 		struct UniformInfo
 		{
 			GLint location;
-			GLenum type;			
+			GLenum type;
+#if defined(USE_OPENGLES_30)
+			// Last value uploaded, so unchanged parameters skip parsing and the GL call.
+			enum class State { UNKNOWN, ZERO, VALUE };
+			State state = State::UNKNOWN;
+			std::string value;
+#endif
 		};
 
 		std::map<std::string, UniformInfo> mCustomUniforms;
