@@ -31,6 +31,7 @@
 #include <algorithm>
 #include "utils/Platform.h"
 #include "utils/FileSystemUtil.h"
+#include "resources/Font.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -1415,7 +1416,7 @@ void GuiMenu::openSystemSettings()
 	if (language.empty()) 
 		language = "en_US";
 
-	language_choice->add("العربية",               "ar_YE", language == "ar_YE");
+	language_choice->add(Font::processRTLText("العربية"), "ar_YE", language == "ar_YE");
 	language_choice->add("CATALÀ",               "ca_ES", language == "ca_ES");
 	language_choice->add("ČEŠTINA",                "cs_CZ", language == "cs_CZ");
 	language_choice->add("CYMRAEG",              "cy_GB", language == "cy_GB");
@@ -1429,7 +1430,7 @@ void GuiMenu::openSystemSettings()
 	language_choice->add("SUOMI",                "fi_FI", language == "fi_FI");
 	language_choice->add("FRANÇAIS",             "fr_FR", language == "fr_FR" || language == "fr");
 	language_choice->add("GALEGO",               "gl_ES", language == "gl_ES");
-	language_choice->add("עברית",                "he_IL", language == "he_IL");
+	language_choice->add(Font::processRTLText("עברית"), "he_IL", language == "he_IL");
 	language_choice->add("HRVATSKI",            "hu_HU", language == "hu_HU");
 	language_choice->add("BAHASA INDONESIA",     "id_ID", language == "id_ID");
 	language_choice->add("ITALIANO",             "it_IT", language == "it_IT");

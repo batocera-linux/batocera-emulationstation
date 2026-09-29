@@ -1160,6 +1160,39 @@ msgstr "ジョイスティックの終了用のホットキーを制限"
 msgid "GLOBAL HOTKEYS"
 msgstr "グローバルホットキー"
 
+msgid "LED HARDWARE"
+msgstr "LED ハードウェア"
+
+msgid "ENABLE LED"
+msgstr " LED 有効"
+
+msgid "LED MODE"
+msgstr "LEDモード"
+
+msgid "STATIC"
+msgstr "スタティック"
+
+msgid "RAINBOW"
+msgstr "レインボー"
+
+msgid "CHROMA"
+msgstr "彩度"
+
+msgid "PULSE"
+msgstr "パルス"
+
+msgid "RED"
+msgstr "赤"
+
+msgid "GREEN"
+msgstr "緑"
+
+msgid "BLUE"
+msgstr "青"
+
+msgid "LED BRIGHTNESS"
+msgstr "LED 輝度"
+
 msgid "default"
 msgstr "標準"
 
@@ -1261,15 +1294,6 @@ msgstr "境界色"
 
 msgid "WHITE"
 msgstr "白"
-
-msgid "RED"
-msgstr "赤"
-
-msgid "GREEN"
-msgstr "緑"
-
-msgid "BLUE"
-msgstr "青"
 
 msgid "BORDER RATIO"
 msgstr "境界サイズ"
@@ -2451,30 +2475,6 @@ msgstr "オン"
 
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
-
-msgid "LED HARDWARE"
-msgstr "LED ハードウェア"
-
-msgid "ENABLE LED"
-msgstr " LED 有効"
-
-msgid "LED MODE"
-msgstr "LEDモード"
-
-msgid "STATIC"
-msgstr "スタティック"
-
-msgid "RAINBOW"
-msgstr "レインボー"
-
-msgid "CHROMA"
-msgstr "彩度"
-
-msgid "PULSE"
-msgstr "パルス"
-
-msgid "LED BRIGHTNESS"
-msgstr "LED 輝度"
 
 msgid "STORAGE"
 msgstr "ストレージ"
