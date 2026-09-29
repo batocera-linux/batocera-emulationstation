@@ -50,7 +50,11 @@ namespace Renderer
 	static Transform4x4f	projectionMatrix = Transform4x4f::Identity();
 	static Transform4x4f	worldViewMatrix  = Transform4x4f::Identity();
 	static Transform4x4f	mvpMatrix		 = Transform4x4f::Identity();
-	static bool			mvpMatrixDirty  = true;
+	// mvpMatrix is rebuilt on demand; batched quads never need it.
+	static bool			mvpMatrixStale  = false;
+	// Batched quads are pre-transformed on the CPU when the world-view matrix is a
+	// plain 2D affine transform, so setMatrix() does not have to break the batch.
+	static bool			worldViewIs2D   = true;
 
 	static ShaderProgram    shaderProgramColorTexture;
 	static ShaderProgram    shaderProgramColorTextureFast;
@@ -61,14 +65,24 @@ namespace Renderer
 
 	struct StreamRange
 	{
+		GLint first = 0;
 		GLsizei vertexCount = 0;
 		uint64_t generation = 0;
 		bool valid = false;
 	};
 
 	static StreamRange lastStreamRange;
-	static std::vector<Vertex> lastLogicalVertices;
 	static uint64_t streamBufferGeneration = 1;
+
+	// Append-only streaming ring. Storage is orphaned only when it wraps, so ranges
+	// written earlier in the frame are never overwritten while the GPU may read them,
+	// which makes unsynchronized mapping safe. 65536 vertices keeps every quad index
+	// addressable with GL_UNSIGNED_SHORT.
+	static const size_t STREAM_RING_VERTICES = 65536;
+	static const size_t STREAM_RING_QUADS = STREAM_RING_VERTICES / 4;
+	static size_t streamRingCapacity = 0;
+	static size_t streamRingHead = 0;
+	static bool streamRingMapSupported = true;
 
 	// Reused across every upload so the hot path never touches the allocator.
 	static std::vector<GpuVertex> packedScratch;
@@ -86,13 +100,14 @@ namespace Renderer
 	enum class QuadBatchShader
 	{
 		NO_TEXTURE,
-		COLOR_TEXTURE
+		COLOR_TEXTURE,
+		ALPHA_TEXTURE
 	};
 
 	struct QuadBatch
 	{
-		// Four vertices per quad, in triangle-strip order.
-		std::vector<Vertex> vertices;
+		// Four world-space vertices per quad, in triangle-strip order.
+		std::vector<GpuVertex> vertices;
 		unsigned int texture = 0;
 		Blend::Factor sourceBlend = Blend::SRC_ALPHA;
 		Blend::Factor destinationBlend = Blend::ONE_MINUS_SRC_ALPHA;
@@ -106,6 +121,7 @@ namespace Renderer
 		uint64_t batchFlushes = 0;
 		uint64_t singleQuadFlushes = 0;
 		uint64_t indexedFlushes = 0;
+		uint64_t streamOrphans = 0;
 		uint64_t pboUploads = 0;
 		uint64_t pboFallbacks = 0;
 	};
@@ -201,6 +217,9 @@ namespace Renderer
 	// Resolved alongside boundTexture to keep it out of the per-draw path.
 	static TextureInfo*		boundTextureInfo = nullptr;
 	static unsigned int		mShaderTexture = 0;
+	// Second ping-pong target for multi-pass post-processing, kept across frames.
+	static unsigned int		mShaderTexture2 = 0;
+	static GLuint			mShaderFrameBuffer2 = 0;
 
 	extern std::string SHADER_VERSION_STRING;
 
@@ -208,37 +227,48 @@ namespace Renderer
 
 	static ShaderProgram* currentProgram = nullptr;
 
-	static void useProgram(ShaderProgram* program)
+	static const Transform4x4f& getMvpMatrix()
 	{
-		if (program == currentProgram)
+		if (mvpMatrixStale)
 		{
-			if (currentProgram != nullptr && mvpMatrixDirty)
-			{
-				currentProgram->setMatrix(mvpMatrix);
-				mvpMatrixDirty = false;
-			}
-
-			return;
+			mvpMatrix = projectionMatrix * worldViewMatrix;
+			mvpMatrixStale = false;
 		}
 
-		if (program == nullptr && currentProgram != nullptr)
-			currentProgram->unSelect();
+		return mvpMatrix;
+	}
 
-		currentProgram = program;
+	// The program's uniform cache drops the upload when the matrix is unchanged.
+	static void useProgram(ShaderProgram* program, const Transform4x4f& matrix)
+	{
+		if (program != currentProgram)
+		{
+			if (program == nullptr && currentProgram != nullptr)
+				currentProgram->unSelect();
+
+			currentProgram = program;
+
+			if (currentProgram != nullptr)
+				currentProgram->select(vertexBuffer, quadIndexBuffer);
+		}
 
 		if (currentProgram != nullptr)
-		{
-			currentProgram->select(vertexBuffer, quadIndexBuffer);
-			currentProgram->setMatrix(mvpMatrix);
-			mvpMatrixDirty = false;
-		}
+			currentProgram->setMatrix(matrix);
+	}
+
+	static void useProgram(ShaderProgram* program)
+	{
+		if (program == nullptr)
+			useProgram(nullptr, mvpMatrix);
+		else
+			useProgram(program, getMvpMatrix());
 	}
 
 	static std::map<std::string, ShaderProgram*> _customShaders;
 
-	static ShaderProgram* getShaderProgram(const char* shaderFile)
+	static ShaderProgram* getShaderProgram(const std::string& shaderFile)
 	{
-		if (shaderFile == nullptr || strlen(shaderFile) == 0)
+		if (shaderFile.empty())
 			return nullptr;
 
 		auto it = _customShaders.find(shaderFile);
@@ -327,7 +357,7 @@ namespace Renderer
 
 				std::string full = Utils::FileSystem::resolveRelativePath(relative, path, true);
 
-				ShaderProgram* customShader = getShaderProgram(full.c_str());
+				ShaderProgram* customShader = getShaderProgram(full);
 				if (customShader != nullptr)
 					ret->push_back(customShader);
 			}
@@ -345,7 +375,7 @@ namespace Renderer
 		}
 		else
 		{
-			ShaderProgram* customShader = getShaderProgram(fullPath.c_str());
+			ShaderProgram* customShader = getShaderProgram(fullPath);
 			if (customShader != nullptr)
 				ret->push_back(customShader);
 		}
@@ -584,7 +614,8 @@ namespace Renderer
 			}
 			)=====";
 
-		auto vertexShaderAlpha = Shader::createShader(GL_VERTEX_SHADER, vertexSourceTexture);
+		// The alpha fragment shader never reads v_pos.
+		auto vertexShaderAlpha = Shader::createShader(GL_VERTEX_SHADER, vertexSourceTextureFast);
 		auto fragmentShaderAlpha = Shader::createShader(GL_FRAGMENT_SHADER, fragmentSourceAlpha);
 
 		shaderProgramAlpha.createShaderProgram(vertexShaderAlpha, fragmentShaderAlpha);
@@ -597,8 +628,10 @@ namespace Renderer
 
 	static void setupQuadIndexBuffer()
 	{
-		std::vector<GLushort> indices(MAX_BATCH_QUADS * 6);
-		for (size_t quad = 0; quad < MAX_BATCH_QUADS; ++quad)
+		// Covers every quad slot in the stream ring, so a batch starting at any
+		// 4-aligned ring offset is drawn by offsetting into this buffer.
+		std::vector<GLushort> indices(STREAM_RING_QUADS * 6);
+		for (size_t quad = 0; quad < STREAM_RING_QUADS; ++quad)
 		{
 			const GLushort base = static_cast<GLushort>(quad * 4);
 			GLushort* out = &indices[quad * 6];
@@ -642,8 +675,10 @@ namespace Renderer
 		GLES30_CALL(glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer));
 
 		streamBufferGeneration = 1;
+		streamRingCapacity = 0;
+		streamRingHead = 0;
+		streamRingMapSupported = true;
 		lastStreamRange = StreamRange();
-		lastLogicalVertices.clear();
 		quadBatch = QuadBatch();
 		performanceCounters = GLES30PerformanceCounters();
 
@@ -760,56 +795,106 @@ namespace Renderer
 		return true;
 	}
 
-	static GpuVertex packVertex(const Vertex& vertex)
+	static inline void packVertex(GpuVertex& packed, const Vertex& vertex)
 	{
-		GpuVertex packed;
 		packed.x = vertex.pos.x();
 		packed.y = vertex.pos.y();
 		packed.u = vertex.tex.x();
 		packed.v = vertex.tex.y();
 		packed.col = vertex.col;
-		return packed;
 	}
 
-	static StreamRange uploadPackedVertices(const GpuVertex* vertices, const size_t vertexCount)
+	static void orphanStreamRing(const size_t capacity)
+	{
+		GLES30_CALL(glBufferData(GL_ARRAY_BUFFER, capacity * sizeof(GpuVertex), nullptr, GL_STREAM_DRAW));
+		streamRingCapacity = capacity;
+		streamRingHead = 0;
+		++streamBufferGeneration;
+		++performanceCounters.streamOrphans;
+	}
+
+	// Reserves vertexCount vertices in the stream ring and lets fill() write them,
+	// straight into mapped storage when the driver allows it. Every range starts on
+	// a multiple of four so quad batches can address the shared index buffer.
+	template<typename Fill>
+	static StreamRange streamVertices(const size_t vertexCount, Fill fill)
 	{
 		static_assert(sizeof(GpuVertex) == 20, "GLES3 packed vertex must remain 20 bytes");
 
 		StreamRange range;
-		if (vertices == nullptr || vertexCount == 0 || vertexBuffer == 0)
+		if (vertexCount == 0 || vertexBuffer == 0)
 			return range;
 
-		if (vertexCount > std::numeric_limits<size_t>::max() / sizeof(GpuVertex))
+		if (vertexCount > static_cast<size_t>(std::numeric_limits<GLsizei>::max()) / sizeof(GpuVertex))
 			return range;
 
 		GLES30_CALL(glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer));
-		GLES30_CALL(glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(GpuVertex), vertices, GL_STREAM_DRAW));
 
-		++streamBufferGeneration;
+		size_t first = (streamRingHead + 3) & ~static_cast<size_t>(3);
+		if (vertexCount > STREAM_RING_VERTICES)
+		{
+			// Oversized one-off: dedicated storage, marked full so the next upload
+			// restores the regular ring.
+			orphanStreamRing(vertexCount);
+			first = 0;
+		}
+		else if (streamRingCapacity < STREAM_RING_VERTICES || first + vertexCount > streamRingCapacity)
+		{
+			orphanStreamRing(STREAM_RING_VERTICES);
+			first = 0;
+		}
 
+		const GLintptr offset = static_cast<GLintptr>(first * sizeof(GpuVertex));
+		const GLsizeiptr size = static_cast<GLsizeiptr>(vertexCount * sizeof(GpuVertex));
+
+		bool written = false;
+		if (streamRingMapSupported)
+		{
+			void* mapped = glMapBufferRange(GL_ARRAY_BUFFER, offset, size,
+				GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_RANGE_BIT | GL_MAP_UNSYNCHRONIZED_BIT);
+			if (mapped != nullptr)
+			{
+				fill(static_cast<GpuVertex*>(mapped));
+				written = glUnmapBuffer(GL_ARRAY_BUFFER) == GL_TRUE;
+			}
+			else
+			{
+				while (glGetError() != GL_NO_ERROR)
+					;
+				LOG(LogWarning) << "OpenGL ES 3.0 stream buffer mapping failed; using glBufferSubData";
+				streamRingMapSupported = false;
+			}
+		}
+
+		if (!written)
+		{
+			packedScratch.resize(vertexCount);
+			fill(packedScratch.data());
+			GLES30_CALL(glBufferSubData(GL_ARRAY_BUFFER, offset, size, packedScratch.data()));
+		}
+
+		streamRingHead = first + vertexCount;
+
+		range.first = static_cast<GLint>(first);
 		range.vertexCount = static_cast<GLsizei>(vertexCount);
 		range.generation = streamBufferGeneration;
 		range.valid = true;
 		return range;
 	}
 
-	static StreamRange uploadVertices(const Vertex* vertices, const size_t vertexCount, const bool updateLogicalRange = false)
+	static StreamRange uploadVertices(const Vertex* vertices, const size_t vertexCount, const bool updateLastRange = false)
 	{
-		StreamRange range;
 		if (vertices == nullptr || vertexCount == 0)
-			return range;
+			return StreamRange();
 
-		packedScratch.resize(vertexCount);
-		for (size_t i = 0; i < vertexCount; ++i)
-			packedScratch[i] = packVertex(vertices[i]);
-
-		range = uploadPackedVertices(packedScratch.data(), vertexCount);
-
-		if (range.valid && updateLogicalRange)
+		const StreamRange range = streamVertices(vertexCount, [vertices, vertexCount](GpuVertex* out)
 		{
-			lastLogicalVertices.assign(vertices, vertices + vertexCount);
+			for (size_t i = 0; i < vertexCount; ++i)
+				packVertex(out[i], vertices[i]);
+		});
+
+		if (range.valid && updateLastRange)
 			lastStreamRange = range;
-		}
 
 		return range;
 	}
@@ -886,7 +971,6 @@ namespace Renderer
 	static void resetStateCaches()
 	{
 		stateCache = GLES30StateCache();
-		mvpMatrixDirty = true;
 		setBlendState(false);
 		setScissorState(false);
 	}
@@ -903,7 +987,7 @@ namespace Renderer
 			return;
 
 		applyBlendFactors(source, destination);
-		GLES30_CALL(glDrawArrays(mode, 0, range.vertexCount));
+		GLES30_CALL(glDrawArrays(mode, range.first, range.vertexCount));
 	}
 
 	static void flushQuadBatch()
@@ -911,92 +995,125 @@ namespace Renderer
 		if (!quadBatch.active || quadBatch.vertices.empty())
 			return;
 
+		ShaderProgram* program = &shaderProgramColorNoTexture;
 		if (quadBatch.shader == QuadBatchShader::COLOR_TEXTURE)
-			useProgram(&shaderProgramColorTextureFast);
-		else
-			useProgram(&shaderProgramColorNoTexture);
+			program = &shaderProgramColorTextureFast;
+		else if (quadBatch.shader == QuadBatchShader::ALPHA_TEXTURE)
+			program = &shaderProgramAlpha;
 
-		const Vertex* logical = quadBatch.vertices.data();
+		// Vertices are already in world space.
+		useProgram(program, projectionMatrix);
+
+		const GpuVertex* batched = quadBatch.vertices.data();
 		const size_t quadCount = quadBatch.vertices.size() / 4;
 
-		if (quadCount == 1)
+		if (quadIndexBuffer != 0)
 		{
-			// Nothing merged, so draw the strip rather than expanding it.
-			packedScratch.resize(4);
-			for (size_t i = 0; i < 4; ++i)
-				packedScratch[i] = packVertex(logical[i]);
+			const StreamRange range = streamVertices(quadCount * 4, [batched, quadCount](GpuVertex* out)
+			{
+				memcpy(out, batched, quadCount * 4 * sizeof(GpuVertex));
+			});
 
-			const StreamRange range = uploadPackedVertices(packedScratch.data(), 4);
-			drawStreamRange(GL_TRIANGLE_STRIP, range, quadBatch.sourceBlend, quadBatch.destinationBlend);
-			++performanceCounters.singleQuadFlushes;
-		}
-		else if (quadIndexBuffer != 0 && quadCount <= MAX_BATCH_QUADS)
-		{
-			// Four vertices per quad; the static index buffer does the expansion.
-			packedScratch.resize(quadCount * 4);
-			for (size_t i = 0; i < quadCount * 4; ++i)
-				packedScratch[i] = packVertex(logical[i]);
-
-			const StreamRange range = uploadPackedVertices(packedScratch.data(), quadCount * 4);
 			if (range.valid)
 			{
+				const size_t indexOffset = static_cast<size_t>(range.first / 4) * 6 * sizeof(GLushort);
 				applyBlendFactors(quadBatch.sourceBlend, quadBatch.destinationBlend);
 				GLES30_CALL(glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(quadCount * 6),
-					GL_UNSIGNED_SHORT, nullptr));
+					GL_UNSIGNED_SHORT, reinterpret_cast<const void*>(indexOffset)));
 				++performanceCounters.indexedFlushes;
 			}
 		}
 		else
 		{
-			packedScratch.resize(quadCount * 6);
-			for (size_t quad = 0; quad < quadCount; ++quad)
+			const StreamRange range = streamVertices(quadCount * 6, [batched, quadCount](GpuVertex* out)
 			{
-				const Vertex* src = logical + quad * 4;
-				GpuVertex* out = &packedScratch[quad * 6];
+				for (size_t quad = 0; quad < quadCount; ++quad, out += 6)
+				{
+					const GpuVertex* src = batched + quad * 4;
+					out[0] = src[0];
+					out[1] = src[1];
+					out[2] = src[2];
+					out[3] = src[2];
+					out[4] = src[1];
+					out[5] = src[3];
+				}
+			});
 
-				out[0] = packVertex(src[0]);
-				out[1] = packVertex(src[1]);
-				out[2] = packVertex(src[2]);
-				out[3] = out[2];
-				out[4] = out[1];
-				out[5] = packVertex(src[3]);
-			}
-
-			const StreamRange range = uploadPackedVertices(packedScratch.data(), quadCount * 6);
 			drawStreamRange(GL_TRIANGLES, range, quadBatch.sourceBlend, quadBatch.destinationBlend);
 		}
+
+		if (quadCount == 1)
+			++performanceCounters.singleQuadFlushes;
 
 		++performanceCounters.batchFlushes;
 		quadBatch.vertices.clear();
 		quadBatch.active = false;
 	}
 
-	static void queueQuad(const Vertex* vertices, const Blend::Factor source, const Blend::Factor destination,
-		const QuadBatchShader shader)
+	// Queues quadCount quads read from vertices[quad * stride + offset .. + 3].
+	static void queueQuads(const Vertex* vertices, const size_t quadCount, const size_t stride, const size_t offset,
+		const Blend::Factor source, const Blend::Factor destination, const QuadBatchShader shader)
 	{
 		if (quadBatch.active && (quadBatch.texture != boundTexture || quadBatch.sourceBlend != source ||
 			quadBatch.destinationBlend != destination || quadBatch.shader != shader))
 			flushQuadBatch();
 
-		if (!quadBatch.active)
+		const float* m = reinterpret_cast<const float*>(&worldViewMatrix);
+		const float m0 = m[0], m1 = m[1], m4 = m[4], m5 = m[5], m12 = m[12], m13 = m[13];
+
+		for (size_t quad = 0; quad < quadCount; ++quad)
 		{
-			quadBatch.texture = boundTexture;
-			quadBatch.sourceBlend = source;
-			quadBatch.destinationBlend = destination;
-			quadBatch.shader = shader;
-			quadBatch.active = true;
+			if (!quadBatch.active)
+			{
+				quadBatch.texture = boundTexture;
+				quadBatch.sourceBlend = source;
+				quadBatch.destinationBlend = destination;
+				quadBatch.shader = shader;
+				quadBatch.active = true;
+			}
+
+			const size_t base = quadBatch.vertices.size();
+			quadBatch.vertices.resize(base + 4);
+			GpuVertex* out = &quadBatch.vertices[base];
+			const Vertex* src = vertices + quad * stride + offset;
+
+			for (size_t i = 0; i < 4; ++i)
+			{
+				const float x = src[i].pos.x();
+				const float y = src[i].pos.y();
+				out[i].x = m0 * x + m4 * y + m12;
+				out[i].y = m1 * x + m5 * y + m13;
+				out[i].u = src[i].tex.x();
+				out[i].v = src[i].tex.y();
+				out[i].col = src[i].col;
+			}
+
+			if (quadBatch.vertices.size() >= MAX_BATCH_VERTICES)
+				flushQuadBatch();
 		}
 
-		quadBatch.vertices.insert(quadBatch.vertices.end(), vertices, vertices + 4);
-		++performanceCounters.submittedQuads;
+		performanceCounters.submittedQuads += quadCount;
 
-		// Batched quads never feed the verticesChanged == false reuse path. Clear both so
-		// that path cannot pick up stale data.
+		// The caller's most recent strip now lives in the batch, so the
+		// verticesChanged == false reuse path must not replay an older upload.
 		lastStreamRange.valid = false;
-		lastLogicalVertices.clear();
+	}
 
-		if (quadBatch.vertices.size() >= MAX_BATCH_VERTICES)
-			flushQuadBatch();
+	// Text and nine-patches submit quads as one strip joined by degenerate
+	// vertices: [v1, v1, v2, v3, v4, v4] per quad. Those strips rasterize exactly
+	// like independent quads (v1, v2, v3, v4).
+	static bool isDegenerateQuadStrip(const Vertex* vertices, const size_t vertexCount)
+	{
+		if (vertexCount == 0 || vertexCount % 6 != 0)
+			return false;
+
+		for (size_t i = 0; i < vertexCount; i += 6)
+		{
+			if (!(vertices[i].pos == vertices[i + 1].pos) || !(vertices[i + 4].pos == vertices[i + 5].pos))
+				return false;
+		}
+
+		return true;
 	}
 
 //////////////////////////////////////////////////////////////////////////
@@ -1302,6 +1419,7 @@ namespace Renderer
 		resetStateCaches();
 
 		GLES30_CALL(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+		GLES30_CALL(glClearStencil(0));
 
 #if OPENGL_EXTENSIONS
 		GLES30_CALL(glActiveTexture_(GL_TEXTURE0));
@@ -1351,6 +1469,18 @@ namespace Renderer
 			mShaderTexture = 0;
 		}
 
+		if (mShaderTexture2 != 0)
+		{
+			destroyTexture(mShaderTexture2);
+			mShaderTexture2 = 0;
+		}
+
+		if (mShaderFrameBuffer2 != 0)
+		{
+			GLES30_CALL(glDeleteFramebuffers(1, &mShaderFrameBuffer2));
+			mShaderFrameBuffer2 = 0;
+		}
+
 		if (mFrameBuffer != -1)
 		{
 			GLES30_CALL(glDeleteFramebuffers(1, &mFrameBuffer));
@@ -1365,6 +1495,7 @@ namespace Renderer
 			<< ", batch draws=" << performanceCounters.batchFlushes
 			<< " (single-quad=" << performanceCounters.singleQuadFlushes
 			<< ", indexed=" << performanceCounters.indexedFlushes << ")"
+			<< ", stream orphans=" << performanceCounters.streamOrphans
 			<< ", quads per draw=" << (performanceCounters.batchFlushes > 0
 				? (double)performanceCounters.submittedQuads / (double)performanceCounters.batchFlushes : 0.0)
 			<< ", PBO uploads=" << performanceCounters.pboUploads
@@ -1388,8 +1519,9 @@ namespace Renderer
 		{
 			GLES30_CALL(glDeleteBuffers(1, &vertexBuffer));
 			vertexBuffer = 0;
+			streamRingCapacity = 0;
+			streamRingHead = 0;
 			lastStreamRange = StreamRange();
-			lastLogicalVertices.clear();
 			quadBatch = QuadBatch();
 			packedScratch.clear();
 			packedScratch.shrink_to_fit();
@@ -1692,34 +1824,49 @@ namespace Renderer
 		if (_vertices == nullptr || _numVertices == 0)
 			return;
 
-		bool batchableTexture = boundTexture == 0;
-		QuadBatchShader batchShader = QuadBatchShader::NO_TEXTURE;
-		if (boundTexture != 0)
+		if (worldViewIs2D)
 		{
-			batchableTexture = boundTextureInfo != nullptr && !isAlphaTexture(boundTextureInfo->type);
-			batchShader = QuadBatchShader::COLOR_TEXTURE;
-		}
+			bool batchable = true;
+			QuadBatchShader batchShader = QuadBatchShader::NO_TEXTURE;
+			if (boundTexture != 0)
+			{
+				// Mirrors the shader selection of the unbatched path below.
+				if (boundTextureInfo == nullptr)
+					batchable = false;
+				else if (isAlphaTexture(boundTextureInfo->type))
+					batchShader = QuadBatchShader::ALPHA_TEXTURE;
+				else
+				{
+					batchShader = QuadBatchShader::COLOR_TEXTURE;
+					batchable = _vertices->customShader == nullptr && _vertices->saturation == 1.0f && _vertices->cornerRadius == 0.0f;
+				}
+			}
 
-		const bool batchable = verticesChanged && _numVertices == 4 && batchableTexture &&
-			_vertices->customShader == nullptr && _vertices->saturation == 1.0f && _vertices->cornerRadius == 0.0f;
-		if (batchable)
-		{
-			queueQuad(_vertices, _srcBlendFactor, _dstBlendFactor, batchShader);
-			return;
+			// verticesChanged is irrelevant here: _vertices still holds the data.
+			if (batchable)
+			{
+				if (_numVertices == 4)
+				{
+					queueQuads(_vertices, 1, 4, 0, _srcBlendFactor, _dstBlendFactor, batchShader);
+					return;
+				}
+
+				if (isDegenerateQuadStrip(_vertices, _numVertices))
+				{
+					queueQuads(_vertices, _numVertices / 6, 6, 1, _srcBlendFactor, _dstBlendFactor, batchShader);
+					return;
+				}
+			}
 		}
 
 		flushQuadBatch();
 
 		StreamRange range;
-		if (verticesChanged)
-			range = uploadVertices(_vertices, _numVertices, true);
-		else if (lastStreamRange.valid && lastStreamRange.generation == streamBufferGeneration)
+		if (!verticesChanged && lastStreamRange.valid && lastStreamRange.generation == streamBufferGeneration &&
+			lastStreamRange.vertexCount == static_cast<GLsizei>(_numVertices))
 			range = lastStreamRange;
-		else if (!lastLogicalVertices.empty())
-		{
-			range = uploadVertices(lastLogicalVertices.data(), lastLogicalVertices.size(), false);
-			lastStreamRange = range;
-		}
+		else
+			range = uploadVertices(_vertices, _numVertices, true);
 
 		if (!range.valid)
 			return;
@@ -1737,7 +1884,7 @@ namespace Renderer
 
 				if (hasCustomShader)
 				{
-					ShaderProgram* customShader = getShaderProgram(_vertices->customShader->path.c_str());
+					ShaderProgram* customShader = getShaderProgram(_vertices->customShader->path);
 					if (customShader != nullptr)
 						shader = customShader;
 				}
@@ -1794,19 +1941,22 @@ namespace Renderer
 	{
 		flushQuadBatch();
 		projectionMatrix = _projection;
-		mvpMatrix = projectionMatrix * worldViewMatrix;
-		mvpMatrixDirty = true;
+		mvpMatrixStale = true;
 	} // setProjection
 
 //////////////////////////////////////////////////////////////////////////
 
 	void GLES30Renderer::setMatrix(const Transform4x4f& _matrix)
 	{
-		flushQuadBatch();
+		// No flush: queued quads are already in world space.
 		worldViewMatrix = _matrix;
 		// worldViewMatrix.round();
-		mvpMatrix = projectionMatrix * worldViewMatrix;
-		mvpMatrixDirty = true;
+		mvpMatrixStale = true;
+
+		// z and w must pass through untouched for a CPU transform to match the GPU.
+		const float* m = reinterpret_cast<const float*>(&worldViewMatrix);
+		worldViewIs2D = m[2] == 0.0f && m[6] == 0.0f && m[14] == 0.0f &&
+			m[3] == 0.0f && m[7] == 0.0f && m[15] == 1.0f;
 	} // setMatrix
 
 //////////////////////////////////////////////////////////////////////////
@@ -1871,7 +2021,8 @@ namespace Renderer
 		Sleep(0);
 #endif
 		SDL_GL_SwapWindow(getSDLWindow());
-		GLES30_CALL(glClear(GL_COLOR_BUFFER_BIT));
+		// Clearing stencil with color lets tiled GPUs start the frame without loading it.
+		GLES30_CALL(glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
 	} // swapBuffers
 
 //////////////////////////////////////////////////////////////////////////
@@ -1914,7 +2065,6 @@ namespace Renderer
 		useProgram(&shaderProgramColorNoTexture);
 
 		GLES30_CALL(glEnable(GL_STENCIL_TEST));
-		GLES30_CALL(glClearStencil(0));
 		GLES30_CALL(glClear(GL_STENCIL_BUFFER_BIT));
 
 		GLES30_CALL(glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE));
@@ -1923,7 +2073,7 @@ namespace Renderer
 		GLES30_CALL(glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE));
 
 		setBlendState(true, convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
-		GLES30_CALL(glDrawArrays(GL_TRIANGLE_FAN, 0, range.vertexCount));
+		GLES30_CALL(glDrawArrays(GL_TRIANGLE_FAN, range.first, range.vertexCount));
 		setBlendState(false);
 
 		GLES30_CALL(glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE));
@@ -1953,7 +2103,7 @@ namespace Renderer
 
 	bool GLES30Renderer::shaderSupportsCornerSize(const std::string& shader)
 	{
-		ShaderProgram* customShader = getShaderProgram(shader.c_str());
+		ShaderProgram* customShader = getShaderProgram(shader);
 		if (customShader == nullptr)
 			customShader = &shaderProgramColorTexture;
 
@@ -2018,271 +2168,264 @@ namespace Renderer
 		int tw = w / textureScale;
 		int th = h / textureScale;
 
-		unsigned int nTextureID = 0;
+		const bool multiTarget = shaderBatch->size() > 1 || data != nullptr;
+		// With data, the final pass lands in the target that is handed to the caller,
+		// so that one must be a fresh texture; every other target is cached.
+		const bool returnsFirst = data != nullptr && (shaderBatch->size() - 1) % 2 == 1;
+		const bool returnsSecond = data != nullptr && !returnsFirst;
 
-		if (data != nullptr && (shaderBatch->size() - 1) % 2 == 1)
+		auto cachedTarget = [&](unsigned int& cache) -> unsigned int
 		{
-			// It's the texture that will be returned into *data, so we can't cache it and we need to create a new one
-			nTextureID = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+			if (cache != 0)
+			{
+				auto it = _textures.find(cache);
+				if (it != _textures.cend() && it->second->size.x() == tw && it->second->size.y() == th)
+					return cache;
+
+				if (it != _textures.cend())
+					destroyTexture(cache);
+				cache = 0;
+			}
+
+			cache = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+			return cache;
+		};
+
+		const unsigned int nTextureID = returnsFirst
+			? createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr)
+			: cachedTarget(mShaderTexture);
+
+		if (nTextureID == 0)
+			return;
+
+		unsigned int nTexture2 = 0;
+
+		// Destroys the targets created for this call, except `keep` (the result).
+		auto releaseTargets = [&](const unsigned int keep)
+		{
+			if (nTextureID != mShaderTexture && nTextureID != keep)
+				destroyTexture(nTextureID);
+			if (nTexture2 != 0 && nTexture2 != mShaderTexture2 && nTexture2 != keep)
+				destroyTexture(nTexture2);
+		};
+
+		if (multiTarget)
+		{
+			if (mShaderFrameBuffer2 == 0)
+				GLES30_CALL(glGenFramebuffers(1, &mShaderFrameBuffer2));
+
+			nTexture2 = returnsSecond
+				? createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr)
+				: cachedTarget(mShaderTexture2);
+
+			if (mShaderFrameBuffer2 == 0 || nTexture2 == 0)
+			{
+				LOG(LogError) << "Unable to allocate OpenGL post-processing framebuffer resources";
+				releaseTargets(0);
+				bindTexture(0);
+				return;
+			}
+		}
+
+		int width = getScreenWidth();
+		int height = getScreenHeight();
+
+		auto oldProgram = currentProgram;
+		auto oldMatrix = worldViewMatrix;
+		const GLES30StateCache oldState = stateCache;
+
+		setScissorState(false);
+		setBlendState(false);
+
+		auto restoreRendererState = [&oldState]()
+		{
+			if (oldState.blendEnabled)
+				setBlendState(true, oldState.blendSource, oldState.blendDestination);
+			else
+				setBlendState(false);
+
+			if (oldState.scissorEnabled)
+				setScissorState(true, oldState.scissorRect);
+			else
+				setScissorState(false);
+		};
+
+		setMatrix(Transform4x4f::Identity());
+
+		// Parameters in the glslp, overridden by the theme. Built once for every pass.
+		std::map<std::string, std::string> mergedParameters;
+		const std::map<std::string, std::string>* passParameters = &parameters;
+		if (!shaderBatch->parameters.empty())
+		{
+			mergedParameters = shaderBatch->parameters;
+			for (const auto& entry : parameters)
+				mergedParameters[entry.first] = entry.second;
+
+			passParameters = &mergedParameters;
+		}
+
+		Vertex vertices[4];
+
+		if (shaderBatch->size() == 1 && data == nullptr)
+		{
+			vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+			vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+			if (getScreenRotate() == 2)
+			{
+				vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+				vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+				vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+				vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+			}
 		}
 		else
 		{
-			if (mShaderTexture == 0)
-				mShaderTexture = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
-			else
-			{
-				auto it = _textures.find(mShaderTexture);
-				if (it == _textures.cend() || it->second->size.x() != tw || it->second->size.y() != th)
-				{
-					destroyTexture(mShaderTexture);
-					mShaderTexture = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
-				}
-			}
-
-			nTextureID = mShaderTexture;
+			vertices[0] = { { (float)0    , (float)height - h }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[1] = { { (float)0    , (float)height },     { 0.0f, 0.0f }, 0xFFFFFFFF };
+			vertices[2] = { { (float)0 + w, (float)height - h }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[3] = { { (float)0 + w, (float)height  },    { 1.0f, 0.0f }, 0xFFFFFFFF };
 		}
 
-		if (nTextureID > 0)
+		// round vertices
+		for (int i = 0; i < 4; ++i)
+			vertices[i].pos.round();
+
+		StreamRange postProcessRange = uploadVertices(vertices, 4);
+		if (!postProcessRange.valid)
 		{
-			int width = getScreenWidth();
-			int height = getScreenHeight();
+			releaseTargets(0);
+			setMatrix(oldMatrix);
+			useProgram(oldProgram);
+			restoreRendererState();
+			return;
+		}
 
-			unsigned int nFrameBuffer2 = -1;
-			unsigned int nTexture2 = -1;
+		bool framebufferComplete = true;
+		for (int i = 0; i < shaderBatch->size(); i++)
+		{
+			auto customShader = shaderBatch->at(i);
 
-			if (shaderBatch->size() > 1 || data != nullptr)
+			if (i == 0)
 			{
-				// Multiple passes need another framebuffer and texture.
-				GLES30_CALL(glGenFramebuffers(1, &nFrameBuffer2));
-				nTexture2 = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
-				if (nFrameBuffer2 == 0 || nFrameBuffer2 == static_cast<unsigned int>(-1) || nTexture2 == 0)
+				bindTexture(nTextureID);
+
+				GLES30_CALL(glBindFramebuffer(GL_READ_FRAMEBUFFER, 0));
+				GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer));
+				GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0));
+				if (!isFramebufferComplete(GL_DRAW_FRAMEBUFFER))
 				{
-					LOG(LogError) << "Unable to allocate OpenGL post-processing framebuffer resources";
-					if (nFrameBuffer2 != 0 && nFrameBuffer2 != static_cast<unsigned int>(-1))
-						GLES30_CALL(glDeleteFramebuffers(1, &nFrameBuffer2));
-					if (nTexture2 != 0 && nTexture2 != static_cast<unsigned int>(-1))
-						destroyTexture(nTexture2);
-					if (nTextureID != mShaderTexture)
-						destroyTexture(nTextureID);
-					bindTexture(0);
-					return;
+					framebufferComplete = false;
+					break;
 				}
-			}
 
-			auto oldProgram = currentProgram;
-			auto oldMatrix = worldViewMatrix;
-			const GLES30StateCache oldState = stateCache;
-
-			setScissorState(false);
-			setBlendState(false);
-
-			auto restoreRendererState = [&oldState]()
-			{
-				if (oldState.blendEnabled)
-					setBlendState(true, oldState.blendSource, oldState.blendDestination);
-				else
-					setBlendState(false);
-
-				if (oldState.scissorEnabled)
-					setScissorState(true, oldState.scissorRect);
-				else
-					setScissorState(false);
-			};
-
-			setMatrix(Transform4x4f::Identity());
-
-			Vertex vertices[4];
-
-			if (shaderBatch->size() == 1 && data == nullptr)
-			{
-				vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
-				vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
-				vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
-				vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+				const GLenum colorAttachment = GL_COLOR_ATTACHMENT0;
+				GLES30_CALL(glInvalidateFramebuffer(GL_DRAW_FRAMEBUFFER, 1, &colorAttachment));
 
 				if (getScreenRotate() == 2)
+					GLES30_CALL(glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_NEAREST));
+				else
+					GLES30_CALL(glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_NEAREST));
+
+				if (!multiTarget)
+					GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+				else
 				{
-					vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
-					vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
-					vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
-					vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
-				}
-			}
-			else
-			{
-				vertices[0] = { { (float)0    , (float)height - h }, { 0.0f, 1.0f }, 0xFFFFFFFF };
-				vertices[1] = { { (float)0    , (float)height },     { 0.0f, 0.0f }, 0xFFFFFFFF };
-				vertices[2] = { { (float)0 + w, (float)height - h }, { 1.0f, 1.0f }, 0xFFFFFFFF };
-				vertices[3] = { { (float)0 + w, (float)height  },    { 1.0f, 0.0f }, 0xFFFFFFFF };
-			}
-
-			// round vertices
-			for (int i = 0; i < 4; ++i)
-				vertices[i].pos.round();
-
-			StreamRange postProcessRange = uploadVertices(vertices, 4);
-			if (!postProcessRange.valid)
-			{
-				if (nTextureID != mShaderTexture)
-					destroyTexture(nTextureID);
-				if (nTexture2 != static_cast<unsigned int>(-1))
-					destroyTexture(nTexture2);
-				if (nFrameBuffer2 != static_cast<unsigned int>(-1))
-					GLES30_CALL(glDeleteFramebuffers(1, &nFrameBuffer2));
-				setMatrix(oldMatrix);
-				useProgram(oldProgram);
-				restoreRendererState();
-				return;
-			}
-
-			bool framebufferComplete = true;
-			for (int i = 0; i < shaderBatch->size(); i++)
-			{
-				auto customShader = shaderBatch->at(i);
-
-				if (i == 0)
-				{
-					bindTexture(nTextureID);
-
-					GLES30_CALL(glBindFramebuffer(GL_READ_FRAMEBUFFER, 0));
-					GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer));
-					GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0));
-#if defined(USE_OPENGLES_30)
+					GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mShaderFrameBuffer2));
+					GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTexture2, 0));
 					if (!isFramebufferComplete(GL_DRAW_FRAMEBUFFER))
 					{
 						framebufferComplete = false;
 						break;
 					}
-#endif
-
-					const GLenum colorAttachment = GL_COLOR_ATTACHMENT0;
-					GLES30_CALL(glInvalidateFramebuffer(GL_DRAW_FRAMEBUFFER, 1, &colorAttachment));
-
-					if (getScreenRotate() == 2)
-						GLES30_CALL(glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_NEAREST));
-					else
-						GLES30_CALL(glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_NEAREST));
-
-					if (shaderBatch->size() == 1 && data == nullptr)
-						GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
-					else
-					{
-						GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, nFrameBuffer2));
-						GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTexture2, 0));
-#if defined(USE_OPENGLES_30)
-						if (!isFramebufferComplete(GL_DRAW_FRAMEBUFFER))
-						{
-							framebufferComplete = false;
-							break;
-						}
-#endif
-					}
 				}
-				else
-				{
-					bindTexture(i % 2 == 1 ? nTexture2 : nTextureID);
-
-					if (i == shaderBatch->size() - 1 && data == nullptr)
-					{
-						// This is the last shader in the batch.
-						vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
-						vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
-						vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
-						vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
-
-						if (getScreenRotate() == 2)
-						{
-							vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
-							vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
-							vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
-							vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
-						}
-
-						for (int i = 0; i < 4; ++i) vertices[i].pos.round();
-
-						postProcessRange = uploadVertices(vertices, 4);
-						if (!postProcessRange.valid)
-						{
-							framebufferComplete = false;
-							break;
-						}
-
-						GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
-					}
-					else
-						GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, i % 2 == 1 ? mFrameBuffer : nFrameBuffer2));
-				}
-
-				useProgram(customShader);
-
-				customShader->setSaturation(1.0f);
-				customShader->setCornerRadius(0.0f);
-				customShader->setTextureSize(Vector2f(tw, th));
-				customShader->setInputSize(Vector2f(tw, th));
-				customShader->setOutputSize(vertices[3].pos);
-				customShader->setOutputOffset(vertices[0].pos);
-				customShader->setResolution();
-				customShader->setFrameCount(Renderer::getCurrentFrame());
-
-				// Parameters in the glslp
-				std::map<std::string, std::string> params = shaderBatch->parameters;
-
-				// Parameters in the theme
-				for (const auto& entry : parameters)
-					params[entry.first] = entry.second;
-
-				customShader->setCustomUniformsParameters(params);
-
-				setBlendState(false);
-				GLES30_CALL(glDrawArrays(GL_TRIANGLE_STRIP, 0, postProcessRange.vertexCount));
-			}
-
-			if (!framebufferComplete)
-			{
-				GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
-				bindTexture(0);
-				if (nTextureID != mShaderTexture)
-					destroyTexture(nTextureID);
-				if (nTexture2 != static_cast<unsigned int>(-1))
-					destroyTexture(nTexture2);
-				useProgram(nullptr);
-				setMatrix(oldMatrix);
-				useProgram(oldProgram);
-				restoreRendererState();
-				if (nFrameBuffer2 != static_cast<unsigned int>(-1))
-					GLES30_CALL(glDeleteFramebuffers(1, &nFrameBuffer2));
-				return;
-			}
-
-			if (data != nullptr)
-			{
-				GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0)); // Detach
-				GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
-
-				bool takeFirst = (shaderBatch->size() - 1) % 2 == 1;
-				*data = takeFirst ? nTextureID : nTexture2;
-
-				if (takeFirst || nTextureID != mShaderTexture)
-					destroyTexture(takeFirst ? nTexture2 : nTextureID);
 			}
 			else
 			{
-				if (nTextureID != mShaderTexture)
-					destroyTexture(nTextureID);
+				bindTexture(i % 2 == 1 ? nTexture2 : nTextureID);
 
-				if (nTexture2 != -1)
-					destroyTexture(nTexture2);
+				if (i == shaderBatch->size() - 1 && data == nullptr)
+				{
+					// This is the last shader in the batch.
+					vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+					vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+					vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+					vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+					if (getScreenRotate() == 2)
+					{
+						vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+						vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+						vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+						vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+					}
+
+					for (int i = 0; i < 4; ++i) vertices[i].pos.round();
+
+					postProcessRange = uploadVertices(vertices, 4);
+					if (!postProcessRange.valid)
+					{
+						framebufferComplete = false;
+						break;
+					}
+
+					GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+				}
+				else
+					GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, i % 2 == 1 ? mFrameBuffer : mShaderFrameBuffer2));
 			}
 
+			useProgram(customShader);
+
+			customShader->setSaturation(1.0f);
+			customShader->setCornerRadius(0.0f);
+			customShader->setTextureSize(Vector2f(tw, th));
+			customShader->setInputSize(Vector2f(tw, th));
+			customShader->setOutputSize(vertices[3].pos);
+			customShader->setOutputOffset(vertices[0].pos);
+			customShader->setResolution();
+			customShader->setFrameCount(Renderer::getCurrentFrame());
+			customShader->setCustomUniformsParameters(*passParameters);
+
+			setBlendState(false);
+			GLES30_CALL(glDrawArrays(GL_TRIANGLE_STRIP, postProcessRange.first, postProcessRange.vertexCount));
+		}
+
+		if (!framebufferComplete)
+		{
+			GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
 			bindTexture(0);
+			releaseTargets(0);
 			useProgram(nullptr);
 			setMatrix(oldMatrix);
 			useProgram(oldProgram);
 			restoreRendererState();
-
-			if (nFrameBuffer2 != -1)
-				GLES30_CALL(glDeleteFramebuffers(1, &nFrameBuffer2));
+			return;
 		}
+
+		if (data != nullptr)
+		{
+			// Detach from both cached framebuffers so they do not keep the
+			// caller-owned texture's storage alive.
+			GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer));
+			GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0));
+			GLES30_CALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mShaderFrameBuffer2));
+			GLES30_CALL(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0));
+			GLES30_CALL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+
+			*data = returnsFirst ? nTextureID : nTexture2;
+			releaseTargets(*data);
+		}
+		else
+			releaseTargets(0);
+
+		bindTexture(0);
+		useProgram(nullptr);
+		setMatrix(oldMatrix);
+		useProgram(oldProgram);
+		restoreRendererState();
 #endif
 	}
 

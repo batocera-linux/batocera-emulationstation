@@ -356,7 +356,7 @@ namespace Renderer
 	#define SHADER_UNIFORM_CACHED(field, expression) (void)0;
 #endif
 
-	void ShaderProgram::setMatrix(Transform4x4f& mvpMatrix)
+	void ShaderProgram::setMatrix(const Transform4x4f& mvpMatrix)
 	{
 		if (mvpUniform == -1 || mvpUniform == GL_INVALID_VALUE || mvpUniform == GL_INVALID_OPERATION)
 			return;
@@ -370,7 +370,7 @@ namespace Renderer
 		mUniformCache.matrixValid = true;
 #endif
 
-		SHADER_GL_CALL(glUniformMatrix4fv(mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+		SHADER_GL_CALL(glUniformMatrix4fv(mvpUniform, 1, GL_FALSE, (const float*)&mvpMatrix));
 	}
 
 	void ShaderProgram::setSaturation(GLfloat saturation)
@@ -462,10 +462,18 @@ namespace Renderer
 	void ShaderProgram::setCustomUniformsParameters(const std::map<std::string, std::string>& parameters)
 	{
 		// Reset values of custom uniforms that are not present in the parameters
-		for (auto item : mCustomUniforms)
+		for (auto& item : mCustomUniforms)
 		{
 			if (parameters.find(item.first) != parameters.cend())
 				continue;
+
+#if defined(USE_OPENGLES_30)
+			if (item.second.state == UniformInfo::State::ZERO)
+				continue;
+
+			item.second.state = UniformInfo::State::ZERO;
+			item.second.value.clear();
+#endif
 
 			switch (item.second.type)
 			{
@@ -489,15 +497,23 @@ namespace Renderer
 			}
 		}
 
-		for (auto param : parameters)
+		for (const auto& param : parameters)
 			setUniformEx(param.first, param.second);
 	}
 
-	void ShaderProgram::setUniformEx(const std::string& name, const std::string value)
+	void ShaderProgram::setUniformEx(const std::string& name, const std::string& value)
 	{
 		auto it = mCustomUniforms.find(name);
 		if (it == mCustomUniforms.cend())
 			return;
+
+#if defined(USE_OPENGLES_30)
+		if (it->second.state == UniformInfo::State::VALUE && it->second.value == value)
+			return;
+
+		it->second.state = UniformInfo::State::VALUE;
+		it->second.value = value;
+#endif
 
 		GLint location = it->second.location;
 
