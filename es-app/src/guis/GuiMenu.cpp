@@ -32,6 +32,7 @@
 #include "utils/Platform.h"
 #include "utils/FileSystemUtil.h"
 #include "resources/Font.h"
+#include "LocaleES.h"
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -1416,7 +1417,12 @@ void GuiMenu::openSystemSettings()
 	if (language.empty()) 
 		language = "en_US";
 
-	language_choice->add(Font::processRTLText("العربية"), "ar_YE", language == "ar_YE");
+	if(EsLocale::isRTL()) {
+	  language_choice->add("العربية", "ar_YE", language == "ar_YE");
+	} else {
+	  // force rtl processing
+	  language_choice->add(Font::processRTLText("العربية"), "ar_YE", language == "ar_YE");
+	}
 	language_choice->add("CATALÀ",               "ca_ES", language == "ca_ES");
 	language_choice->add("ČEŠTINA",                "cs_CZ", language == "cs_CZ");
 	language_choice->add("CYMRAEG",              "cy_GB", language == "cy_GB");
