@@ -213,6 +213,7 @@ void Settings::setDefaults()
 	mBoolMap["DrawGunCrosshair"] = true;
 	
 	mIntMap["RecentlyScrappedFilter"] = 3;
+	mIntMap["IndexDirectoryDepth"] = 0; // 0 = unlimited
 	
 	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;
 	mIntMap["FpsLimit"] = 0;

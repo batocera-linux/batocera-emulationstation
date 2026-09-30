@@ -100,13 +100,15 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		std::unordered_map<std::string, FileData*> fileMap;
 		fileMap[mEnvData->mStartPath] = mRootFolder;
 
+		int indexDepth = getIndexDirectoryDepth();
 		if (!Settings::ParseGamelistOnly())
 		{
-			populateFolder(mRootFolder, fileMap);
+			populateFolder(mRootFolder, fileMap, 0, indexDepth);
 
 			if (!UIModeController::LoadEmptySystems())
 			{
-				if (mRootFolder->getChildren().size() == 0)
+				// With a depth limit, games may only be known from gamelist.xml : check after parsing it
+				if (mRootFolder->getChildren().size() == 0 && indexDepth == 0)
 					return;
 
 				if (mHidden && !Settings::HiddenSystemsShowGames())
@@ -121,6 +123,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 			parseGamelist(this, fileMap);
 		}
+
+    if (indexDepth > 0 && !Settings::ParseGamelistOnly() && !UIModeController::LoadEmptySystems() && mRootFolder->getChildren().size() == 0)
+      return;
 		
 		if (Settings::RemoveMultiDiskContent() || Settings::BuildMultiDiskContentCache())
 			removeMultiDiskContent(fileMap);
@@ -295,7 +300,19 @@ void SystemData::setIsGameSystemStatus()
 	mIsGameSystem = (mMetadata.name != "retropie" && mMetadata.name != "retrobat");
 }
 
-void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap)
+int SystemData::getIndexDirectoryDepth()
+{
+	// Global value depth of subfolders to index under roms/<system> (0 = unlimited by default)
+	int maxDepth = Settings::IndexDirectoryDepth();
+	// Per-system override
+	auto sysDepth = Settings::getInstance()->getString(getName() + ".IndexDirectoryDepth");
+	if (!sysDepth.empty() && sysDepth != "auto")
+		maxDepth = Utils::String::toInteger(sysDepth);
+
+	return maxDepth > 0 ? maxDepth : 0;
+}
+
+void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap, int depth, int maxDepth)
 {
 	const std::string& folderPath = folder->getPath();
 
@@ -394,8 +411,12 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 			if (mMetadata.name == "vpinball" && fn == "roms")
 				continue;			
 
+			// Index subfolder depth limit (maxDepth = 2 -> roms/<system>/<game>/<subfolder>/ is scanned, nothing deeper)
+			if (maxDepth > 0 && depth >= maxDepth)
+				continue;
+
 			FolderData* newFolder = new FolderData(filePath, this);
-			populateFolder(newFolder, fileMap);
+			populateFolder(newFolder, fileMap, depth + 1, maxDepth);
 
 			//ignore folders that do not contain games
 			if(newFolder->getChildren().size() == 0)

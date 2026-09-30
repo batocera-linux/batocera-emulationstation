@@ -119,6 +119,8 @@ public:
 	static bool loadConfig(Window* window = nullptr); //Load the system config file at getConfigPath(). Returns true if no errors were encountered. An example will be written if the file doesn't exist.	
 	static std::string getConfigPath();
 	
+	int getIndexDirectoryDepth();
+
 	bool loadFeatures();
 
 	static VectorEx<SystemData*> sSystemVector;
@@ -252,7 +254,8 @@ private:
 	SystemEnvironmentData* mEnvData;
 	std::shared_ptr<ThemeData> mTheme;
 
-	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap);
+	// maxDepth : maximum subdirectory depth to scan in the roms/<system> folder (0 = unlimited)
+	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap, int depth = 0, int maxDepth = 0);
 	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();
 	void removeMultiDiskContent(std::unordered_map<std::string, FileData*>& fileMap);
