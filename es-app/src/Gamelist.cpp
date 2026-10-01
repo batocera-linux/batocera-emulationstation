@@ -162,6 +162,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 
 	std::string relativeTo = system->getStartPath();
 	bool trustGamelist = Settings::ParseGamelistOnly();
+	int maxDepth = trustGamelist ? 0 : system->getIndexDirectoryDepth();
 
 	for (pugi::xml_node fileNode : root.children())
 	{
@@ -187,7 +188,15 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 				file = pGame->second;
 			else
 			{
-				if (!fromFile && system->getSystemEnvData()->isValidExtension(Utils::String::toLower(Utils::FileSystem::getExtension(path))) && Utils::FileSystem::exists(path))
+				bool beyondIndexDepth = false;
+				// Games deeper than the index depth were not scanned: trust gamelist.xml for them
+				if (fromFile && maxDepth > 0)
+				{
+					bool contains = false;
+					std::string relative = Utils::FileSystem::removeCommonPath(path, relativeTo, contains);
+					beyondIndexDepth = contains && (int)Utils::FileSystem::getPathList(relative).size() - 1 > maxDepth;
+				}
+				if ((!fromFile || beyondIndexDepth) && system->getSystemEnvData()->isValidExtension(Utils::String::toLower(Utils::FileSystem::getExtension(path))) && Utils::FileSystem::exists(path))
 					file = findOrCreateFile(system, path, type, fileMap);
 				else
 				{

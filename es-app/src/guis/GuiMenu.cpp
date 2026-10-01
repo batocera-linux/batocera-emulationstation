@@ -1127,6 +1127,21 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithDescription(_("PRELOAD METADATA MEDIA ON BOOT"), _("Reduces lag when scrolling through a fully scraped gamelist, increases boot time"), preloadMedias);
 	s->addSaveFunc([preloadMedias] { Settings::getInstance()->setBool("PreloadMedias", preloadMedias->getState()); });
 	
+	// directory depth to index
+	int curDepth = Settings::IndexDirectoryDepth();
+	auto dirDepth = std::make_shared<OptionListComponent<int>>(mWindow, _("DIRECTORY DEPTH TO INDEX"), false);
+	dirDepth->add(_("UNLIMITED"), 0, curDepth <= 0);
+	for (int i = 1; i <= 10; i++)
+		dirDepth->add(std::to_string(i), i, curDepth == i);
+	if (curDepth > 10)
+		dirDepth->add(std::to_string(curDepth), curDepth, true);
+	s->addWithDescription(_("DIRECTORY DEPTH TO INDEX"), _("Maximum depth scanned inside each ROM folder, to ignore subfolders with many files."), dirDepth);
+	s->addSaveFunc([s, dirDepth]
+	{
+		if (Settings::setIndexDirectoryDepth(dirDepth->getSelected()))
+			s->setVariable("reloadGames", true);
+	});
+
 	// threaded loading
 	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
 	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
@@ -1158,7 +1173,9 @@ void GuiMenu::openDeveloperSettings()
 		if (s->getVariable("reboot"))
 			window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 
-		if (s->getVariable("reloadAll"))
+		if (s->getVariable("reloadGames"))
+			ViewController::reloadAllGames(window, false);
+		else if (s->getVariable("reloadAll"))
 		{
 			ViewController::get()->reloadAll(window);
 			window->closeSplashScreen();
@@ -3612,6 +3629,27 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
+		// Directory depth to index
+		auto globalDepth = Settings::IndexDirectoryDepth();
+		auto defDepth = globalDepth <= 0 ? _("UNLIMITED") : std::to_string(globalDepth);
+		auto curDepth = Settings::getInstance()->getString(system->getName() + ".IndexDirectoryDepth");
+		auto dirDepth = std::make_shared<OptionListComponent<std::string>>(mWindow, _("DIRECTORY DEPTH TO INDEX"), false);
+		dirDepth->add(_("AUTO"), "", curDepth == "" || curDepth == "auto");
+		dirDepth->add(_("UNLIMITED"), "0", curDepth == "0");
+		for (int i = 1; i <= 10; i++)
+			dirDepth->add(std::to_string(i), std::to_string(i), curDepth == std::to_string(i));
+		if (!dirDepth->hasSelection()) // keep a hand-edited value (e.g. "15") selectable
+			dirDepth->add(curDepth, curDepth, true);
+		themeconfig->addWithDescription(_("DIRECTORY DEPTH TO INDEX"), _("DEFAULT VALUE") + " : " + defDepth, dirDepth);
+		themeconfig->addSaveFunc([themeconfig, dirDepth, system]
+		{
+			if (Settings::getInstance()->setString(system->getName() + ".IndexDirectoryDepth", dirDepth->getSelected()))
+			{
+				themeconfig->setVariable("reloadAll", true);
+				themeconfig->setVariable("forceReloadGames", true);
+			}
+		});
+
 		// Folder View Mode
 		auto folderView = Settings::getInstance()->getString("FolderViewMode");
 		auto defFol = folderView.empty() ? "" : Utils::String::toUpper(_(folderView.c_str()));
@@ -3954,6 +3992,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 				Settings::getInstance()->setString(system->getName() + ".FavoritesFirst", "");
 				Settings::getInstance()->setString(system->getName() + ".ShowHiddenFiles", "");
+				Settings::getInstance()->setString(system->getName() + ".IndexDirectoryDepth", "");
 				Settings::getInstance()->setString(system->getName() + ".FolderViewMode", "");
 				Settings::getInstance()->setString(system->getName() + ".ShowFilenames", "");
 				Settings::getInstance()->setString(system->getName() + ".ShowParentFolder", "");
