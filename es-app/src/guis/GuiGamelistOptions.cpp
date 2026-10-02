@@ -124,7 +124,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 				for (const auto& letter : letters)
 					mJumpToLetterList->add(letter, letter, letter == curChar);
 
-				row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO GAME BEGINNING WITH THE LETTER"), theme->Text.font, theme->Text.color), true);
+				row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO GAME BEGINNING WITH THE LETTER"), theme->Text.font, theme->Text.color,
+									       EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT), true);
 				row.addElement(mJumpToLetterList, false);
 				row.input_handler = [&](InputConfig* config, Input input)
 				{
@@ -299,7 +300,7 @@ void GuiGamelistOptions::addTextFilterToMenu()
 
 	ComponentListRow row;
 	
-	auto lbl = std::make_shared<TextComponent>(mWindow, _("FILTER GAMES BY TEXT"), font, color);
+	auto lbl = std::make_shared<TextComponent>(mWindow, _("FILTER GAMES BY TEXT"), font, color, EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT);
 	row.addElement(lbl, true); // label
 
 	std::string searchText;

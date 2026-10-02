@@ -109,7 +109,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 			for (auto core : file->getSystem()->getEmulators())
 				emul_choice->add(core.name, core.name, core.name == currentEmul);
 
-			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Emulator")), theme->Text.font, theme->Text.color), true);
+			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Emulator")), theme->Text.font, theme->Text.color,
+								       EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT), true);
 			row.addElement(emul_choice, false);
 
 			mList->addRow(row);
@@ -158,7 +159,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 			core_choice->setTag(iter->key);
 
-			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Core")), theme->Text.font, theme->Text.color), true);
+			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Core")), theme->Text.font, theme->Text.color,
+								       EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT), true);
 			row.addElement(core_choice, false);
 
 			mList->addRow(row);
@@ -188,7 +190,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				olTags->add(tag.displayIcon + " " + tag.Name, tag.Name, selected);
 			}
 
-			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("TAGS")), theme->Text.font, theme->Text.color), true);
+			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("TAGS")), theme->Text.font, theme->Text.color,
+								       EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT), true);
 			row.addElement(olTags, false);
 
 			mList->addRow(row);
@@ -212,7 +215,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				genres->add(genre->getLocalizedName(), std::to_string(genre->id), selected, false, genre->parentId > 0);
 			}
 
-			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("GENRES")), theme->Text.font, theme->Text.color), true);
+			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("GENRES")), theme->Text.font, theme->Text.color,
+								       EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT), true);
 			row.addElement(genres, false);
 
 			mList->addRow(row);
@@ -222,7 +226,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 			continue;
 		}
 
-		auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(iter->displayName), theme->Text.font, theme->Text.color);
+		auto lbl = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(iter->displayName), theme->Text.font, theme->Text.color,
+							   EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT);
 		row.addElement(lbl, true); // label
 
 		switch(iter->type)
