@@ -1753,8 +1753,6 @@ void GuiMenu::openSystemSettings()
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::AUDIODEVICE))
 	{
-		std::vector<std::string> availableAudio = ApiSystem::getInstance()->getAvailableAudioOutputDevices();
-		if (availableAudio.size())
 		{
 			// audio device
 			auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
@@ -1763,31 +1761,37 @@ void GuiMenu::openSystemSettings()
 			if (selectedAudio.empty())
 				selectedAudio = "auto";
 
-			bool afound = false;
-			for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
+			auto fillAudio = [selectedAudio](OptionListComponent<std::string>* list, const std::vector<std::string>& availableAudio)
 			{
-				std::vector<std::string> tokens = Utils::String::split(*it, '\t');
-
-				if (selectedAudio == tokens.at(0))
-					afound = true;
-
-				if (tokens.size() >= 2)
+				bool afound = false;
+				for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
 				{
-					// concatenat the ending words
-					std::string vname = "";
-					for (unsigned int i = 1; i < tokens.size(); i++)
-					{
-						if (i > 2) vname += " ";
-						vname += tokens.at(i);
-					}
-					optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
-				}
-				else
-					optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
-			}
+					std::vector<std::string> tokens = Utils::String::split(*it, '\t');
 
-			if (!afound)
-				optionsAudio->add(selectedAudio, selectedAudio, true);
+					if (selectedAudio == tokens.at(0))
+						afound = true;
+
+					if (tokens.size() >= 2)
+					{
+						// concatenat the ending words
+						std::string vname = "";
+						for (unsigned int i = 1; i < tokens.size(); i++)
+						{
+							if (i > 2) vname += " ";
+							vname += tokens.at(i);
+						}
+						list->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
+					}
+					else
+						list->add((*it), (*it), selectedAudio == tokens.at(0));
+				}
+
+				if (!afound)
+					list->add(selectedAudio, selectedAudio, true);
+			};
+
+			fillAudio(optionsAudio.get(), {});
+			optionsAudio->populateAsync<std::vector<std::string>>([] { return ApiSystem::getInstance()->getAvailableAudioOutputDevices(); }, fillAudio);
 
 			s->addWithLabel(_("AUDIO OUTPUT"), optionsAudio);
 
@@ -1803,8 +1807,6 @@ void GuiMenu::openSystemSettings()
 		}
 
 		// audio profile
-		std::vector<std::string> availableAudioProfiles = ApiSystem::getInstance()->getAvailableAudioOutputProfiles();
-		if (availableAudioProfiles.size())
 		{
 			auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
 
@@ -1812,44 +1814,50 @@ void GuiMenu::openSystemSettings()
 			if (selectedAudioProfile.empty())
 				selectedAudioProfile = "auto";
 
-			bool afound = false;
-			for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
+			auto fillAudioProfiles = [selectedAudioProfile](OptionListComponent<std::string>* list, const std::vector<std::string>& availableAudioProfiles)
 			{
-				std::vector<std::string> tokens = Utils::String::split(*it, '\t');
-
-				if (selectedAudioProfile == tokens.at(0))
-					afound = true;
-
-				std::string vname = "";
-				if (tokens.size() >= 2)
+				bool afound = false;
+				for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
 				{
-					// Check if the profile contains "bluez_card" and remove it from the display name
-					if (tokens.at(1).find("bluez_card") != std::string::npos)
+					std::vector<std::string> tokens = Utils::String::split(*it, '\t');
+
+					if (selectedAudioProfile == tokens.at(0))
+						afound = true;
+
+					std::string vname = "";
+					if (tokens.size() >= 2)
 					{
-						// Skip the "bluez_card" token and use the remaining tokens for the display name
-						for (unsigned int i = 2; i < tokens.size(); i++)
+						// Check if the profile contains "bluez_card" and remove it from the display name
+						if (tokens.at(1).find("bluez_card") != std::string::npos)
 						{
-							if (i > 2) vname += " ";
-							vname += tokens.at(i);
+							// Skip the "bluez_card" token and use the remaining tokens for the display name
+							for (unsigned int i = 2; i < tokens.size(); i++)
+							{
+								if (i > 2) vname += " ";
+								vname += tokens.at(i);
+							}
 						}
+						else
+						{
+							// Normal concatenation for other profiles
+							for (unsigned int i = 1; i < tokens.size(); i++)
+							{
+								if (i > 1) vname += " ";
+								vname += tokens.at(i);
+							}
+						}
+						list->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
 					}
 					else
-					{
-						// Normal concatenation for other profiles
-						for (unsigned int i = 1; i < tokens.size(); i++)
-						{
-							if (i > 1) vname += " ";
-							vname += tokens.at(i);
-						}
-					}
-					optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
+						list->add((*it), (*it), selectedAudioProfile == tokens.at(0));
 				}
-				else
-					optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
-			}
 
-			if (afound == false)
-				optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
+				if (afound == false)
+					list->add(selectedAudioProfile, selectedAudioProfile, true);
+			};
+
+			fillAudioProfiles(optionsAudioProfile.get(), {});
+			optionsAudioProfile->populateAsync<std::vector<std::string>>([] { return ApiSystem::getInstance()->getAvailableAudioOutputProfiles(); }, fillAudioProfiles);
 
 			s->addWithDescription(_("AUDIO PROFILE"), _("Available options can change depending on current audio output."), optionsAudioProfile);
 
@@ -2620,26 +2628,37 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	}
 	else if (feat.preset == "videomodes" || feat.preset == "videomode")
 	{
-		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
-
-		auto modes = ApiSystem::getInstance()->getVideoModes();
-		for (auto videoMode : modes)
+		auto fillModes = [storedValue](OptionListComponent<std::string>* list, const std::vector<std::string>& modes)
 		{
-			std::vector<std::string> tokens = Utils::String::split(videoMode, ':');
-			if (tokens.size() == 0)
-				continue;
+			list->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
 
-			std::string vname;
-			for (unsigned int i = 1; i < tokens.size(); i++)
+			for (auto videoMode : modes)
 			{
-				if (i > 1)
-					vname += ":";
+				std::vector<std::string> tokens = Utils::String::split(videoMode, ':');
+				if (tokens.size() == 0)
+					continue;
 
-				vname += tokens.at(i);
+				std::string vname;
+				for (unsigned int i = 1; i < tokens.size(); i++)
+				{
+					if (i > 1)
+						vname += ":";
+
+					vname += tokens.at(i);
+				}
+
+				list->add(_(vname.c_str()), tokens.at(0), storedValue == tokens.at(0));
 			}
+		};
 
-			item->add(_(vname.c_str()), tokens.at(0), storedValue == tokens.at(0));
-		}
+		// Listing the modes is slow, so the stored and inherited ones stand in until they arrive.
+		fillModes(item.get(), {});
+		if (!storedValue.empty() && storedValue != "auto")
+			item->add(storedValue, storedValue, true);
+		if (!inheritedValue.empty() && inheritedValue != "auto" && inheritedValue != storedValue)
+			item->add(inheritedValue, inheritedValue, false);
+
+		item->populateAsync<std::vector<std::string>>([] { return ApiSystem::getInstance()->getVideoModes(); }, fillModes);
 	}
 	else if (feat.preset == "runners")
 	{
@@ -5275,27 +5294,33 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolution
 	if (currentVideoMode.empty())
 		currentVideoMode = std::string("auto");
 	
-	std::vector<std::string> videoResolutionModeMap = ApiSystem::getInstance()->getVideoModes(output);
-	videoResolutionMode_choice->add(_("AUTO"), "auto", currentVideoMode == "auto");
-	for (auto videoMode = videoResolutionModeMap.begin(); videoMode != videoResolutionModeMap.end(); videoMode++)
+	auto fillModes = [currentVideoMode](OptionListComponent<std::string>* list, const std::vector<std::string>& videoResolutionModeMap)
 	{
-		std::vector<std::string> tokens = Utils::String::split(*videoMode, ':');
-
-		// concatenat the ending words
-		std::string vname;
-		for (unsigned int i = 1; i < tokens.size(); i++) 
+		list->add(_("AUTO"), "auto", currentVideoMode == "auto");
+		for (auto videoMode = videoResolutionModeMap.begin(); videoMode != videoResolutionModeMap.end(); videoMode++)
 		{
-			if (i > 1) 
-				vname += ":";
+			std::vector<std::string> tokens = Utils::String::split(*videoMode, ':');
 
-			vname += tokens.at(i);
+			// concatenat the ending words
+			std::string vname;
+			for (unsigned int i = 1; i < tokens.size(); i++) 
+			{
+				if (i > 1) 
+					vname += ":";
+
+				vname += tokens.at(i);
+			}
+
+			list->add(_(vname.c_str()), tokens.at(0), currentVideoMode == tokens.at(0));
 		}
+	};
 
-		videoResolutionMode_choice->add(_(vname.c_str()), tokens.at(0), currentVideoMode == tokens.at(0));
-	}
+	// Listing the modes is slow, so the current one stands in until they arrive.
+	fillModes(videoResolutionMode_choice.get(), {});
+	if (currentVideoMode != "auto")
+		videoResolutionMode_choice->add(currentVideoMode, currentVideoMode, true);
 
-	if (!videoResolutionMode_choice->hasSelection())
-		videoResolutionMode_choice->selectFirstItem();
+	videoResolutionMode_choice->populateAsync<std::vector<std::string>>([output] { return ApiSystem::getInstance()->getVideoModes(output); }, fillModes);
 
 	return videoResolutionMode_choice;
 }

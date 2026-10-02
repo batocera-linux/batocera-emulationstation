@@ -10,6 +10,9 @@
 #include "components/MultiLineMenuEntry.h"
 #include "components/MenuComponent.h"
 
+#include <functional>
+#include <memory>
+#include <thread>
 #include <tuple>
 
 //Used to display a list of options.
@@ -45,6 +48,8 @@ private:
 	private:
 		MenuComponent mMenu;
 		OptionListComponent<T>* mParent;
+		// A selection callback may delete the parent before this popup.
+		std::shared_ptr<bool> mParentAlive;
 		// for select all/none
 
 		struct CheckBoxElement
@@ -57,7 +62,7 @@ private:
 
 	public:
 		OptionListPopup(Window* window, OptionListComponent<T>* parent, const std::string& title, const std::function<void(T& data, ComponentListRow& row)> callback = nullptr) : GuiComponent(window),
-			mMenu(window, title.c_str()), mParent(parent)
+			mMenu(window, title.c_str()), mParent(parent), mParentAlive(parent->mAlive)
 		{
 			auto menuTheme = ThemeData::getMenuTheme();
 			auto font = menuTheme->Text.font;
@@ -188,6 +193,12 @@ private:
 			addChild(&mMenu);
 		}
 
+		~OptionListPopup()
+		{
+			if (*mParentAlive)
+				mParent->onPopupClosed();
+		}
+
 		bool input(InputConfig* config, Input input) override
 		{
 			if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0) 
@@ -253,6 +264,35 @@ public:
 		}
 
 		setSize(mLeftArrow.getSize().x() + mRightArrow.getSize().x(), theme->Text.font->getHeight());
+	}
+
+	~OptionListComponent()
+	{
+		*mAlive = false;
+	}
+
+	// Runs query on a worker thread, then replaces the entries with what fill adds.
+	// The selection made before the result arrived is kept.
+	template<typename R>
+	void populateAsync(const std::function<R()>& query, const std::function<void(OptionListComponent<T>*, const R&)>& fill)
+	{
+		assert(!mMultiSelect);
+
+		auto alive = mAlive;
+		auto window = mWindow;
+		std::thread([this, alive, window, query, fill]
+		{
+			R result = query();
+			window->postToUiThread([this, alive, result, fill]
+			{
+				if (!*alive)
+					return;
+
+				mPendingFill = [this, result, fill] { refill<R>(result, fill); };
+				if (!mPopupOpen)
+					applyPendingFill();
+			});
+		}).detach();
 	}
 
 	virtual void setColor(unsigned int color)
@@ -568,7 +608,62 @@ private:
 
 	void open()
 	{
+		mPopupOpen = true;
 		mWindow->pushGui(new OptionListPopup(mWindow, this, mName, mAddRowCallback));
+	}
+
+	// The popup holds references into mEntries, so a fill waits until it is closed.
+	void onPopupClosed()
+	{
+		mPopupOpen = false;
+		if (!mPendingFill)
+			return;
+
+		auto alive = mAlive;
+		mWindow->postToUiThread([this, alive]
+		{
+			if (*alive && !mPopupOpen)
+				applyPendingFill();
+		});
+	}
+
+	void applyPendingFill()
+	{
+		auto fill = mPendingFill;
+		mPendingFill = nullptr;
+		if (fill)
+			fill();
+	}
+
+	template<typename R>
+	void refill(const R& result, const std::function<void(OptionListComponent<T>*, const R&)>& fill)
+	{
+		const T initial = firstSelected;
+		const T current = hasSelection() ? getSelected() : initial;
+
+		mEntries.clear();
+		firstSelected = T();
+		fill(this, result);
+
+		if (current != initial)
+		{
+			for (auto& entry : mEntries)
+			{
+				if (entry.object != current)
+					continue;
+
+				for (auto& other : mEntries)
+					other.selected = false;
+
+				entry.selected = true;
+				break;
+			}
+		}
+
+		if (!hasSelection())
+			selectFirstItem();
+
+		onSelectedChanged();
 	}
 
 	void onSelectedChanged()
@@ -656,6 +751,10 @@ private:
 
 	std::vector<OptionListData> mEntries;
 	std::function<void(const T&)> mSelectedChangedCallback;
+
+	bool mPopupOpen = false;
+	std::function<void()> mPendingFill;
+	std::shared_ptr<bool> mAlive = std::make_shared<bool>(true);
 };
 
 #endif // ES_CORE_COMPONENTS_OPTION_LIST_COMPONENT_H
