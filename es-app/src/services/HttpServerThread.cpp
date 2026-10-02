@@ -605,7 +605,7 @@ void HttpServerThread::run()
 
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || !system->isGameSystem())
+			if (system->isCollection() || system->isGroupSystem() || !system->isGameSystem())
 				continue;
 
 			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
@@ -617,6 +617,7 @@ void HttpServerThread::run()
 						w->cancelScreenSaver();
 						ViewController::get()->launch(file);
 					});
+					return;
 				}
 			}
 		}
