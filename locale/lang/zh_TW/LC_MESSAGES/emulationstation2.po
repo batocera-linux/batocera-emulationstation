@@ -2227,6 +2227,17 @@ msgid ""
 "time"
 msgstr "藉由完全擷取遊戲清單來減少捲動時的卡頓，會增加啟動時間"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "多執行緒載入"
 

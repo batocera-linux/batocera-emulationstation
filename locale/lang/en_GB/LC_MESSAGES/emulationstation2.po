@@ -2247,6 +2247,17 @@ msgstr ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "THREADED LOADING"
 

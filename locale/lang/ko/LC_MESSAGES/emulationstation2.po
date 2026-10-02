@@ -2242,6 +2242,17 @@ msgid ""
 msgstr ""
 "완전히 스크렙한 게임 리스트를 스크롤링 할 때 지연을 감소, 부팅 시간 증가"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "스레드된 불러오기"
 

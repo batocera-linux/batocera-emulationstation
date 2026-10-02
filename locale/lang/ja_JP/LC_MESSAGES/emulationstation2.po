@@ -2250,6 +2250,17 @@ msgstr ""
 "スクレイプ済みゲームリストのスクロール時のラグを減少\n"
 "(起動時間が長くなります)"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み(CPUコアが複数ある場合)"
 

@@ -2250,6 +2250,17 @@ msgstr ""
 "Mengurangi lag saat menggulir sepenuhnya daftar game yang yang terhimpu "
 "meningkatkan waktu boot"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "MEMUAT THREAD"
 

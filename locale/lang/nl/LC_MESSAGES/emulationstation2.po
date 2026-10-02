@@ -2268,6 +2268,17 @@ msgstr ""
 "Vermindert lag bij het scrollen door volledig gescrapete spellijsten, "
 "vermeerdert opstarttijd"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "THREADED LADEN"
 

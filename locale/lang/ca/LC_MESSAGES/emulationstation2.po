@@ -2262,6 +2262,17 @@ msgstr ""
 "Redueix la latència de desplaçament a una gamelist amb tots els continguts; "
 "incrementa el temps d'arrencada"
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "CÀRREGA PER FILS"
 

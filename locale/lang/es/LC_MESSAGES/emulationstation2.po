@@ -2275,6 +2275,17 @@ msgstr ""
 "Reduce el retraso al desplazarse por las listas de juegos, aumenta el tiempo "
 "de arranque."
 
+msgid "DIRECTORY DEPTH TO INDEX"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr ""
+
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DEL SISTEMA"
 
