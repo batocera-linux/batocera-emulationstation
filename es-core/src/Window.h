@@ -84,6 +84,7 @@ public:
 
 	void stopNotificationPopups();
 
+	bool isScreenSaverRunning() const { return mRenderScreenSaver; }
 	void startScreenSaver();
 	bool cancelScreenSaver();
 	void renderScreenSaver();
