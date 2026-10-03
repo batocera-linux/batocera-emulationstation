@@ -2261,15 +2261,17 @@ msgstr ""
 "açılış süresini artırır"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "İNDEKSLENECEK DİZİN DERİNLİĞİ"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "SINIRSIZ"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
+"Her ROM klasörünün içinde taranan maksimum derinlik, çok sayıda dosya içeren "
+"alt klasörlerin göz ardı edilmesini sağlar."
 
 msgid "THREADED LOADING"
 msgstr "İŞ PARÇACIKLARI YÜKLENİYOR"
@@ -4086,8 +4088,7 @@ msgstr[1] "%d saniye önce"
 #~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr ""
-#~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
+#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"
