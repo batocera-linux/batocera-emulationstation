@@ -2262,15 +2262,17 @@ msgstr ""
 "wydłuża czas uruchamiania"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "GŁĘBOKOŚĆ INDEKSOWANIA KATALOGÓW"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "NIEOGRANICZONE"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
+"Maksymalna głębokość skanowania w obrębie każdego folderu ROM, aby pominąć "
+"podfoldery zawierające zbyt wiele plików."
 
 msgid "THREADED LOADING"
 msgstr "WCZYTYWANIE WĄTKOWE"
