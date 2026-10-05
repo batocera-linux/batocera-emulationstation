@@ -233,8 +233,8 @@ void GuiGameAchievements::render(const Transform4x4f& parentTrans)
 
 		Transform4x4f trans = parentTrans * mMenu.getTransform();
 		Renderer::setMatrix(trans);
-		Renderer::drawRoundRect(x, y + (lh - dot) / 2.0f, dot, dot, dot / 2.0f, 0x0B71C1FF);
-		Renderer::drawRoundRect(x, y + lh + (lh - dot) / 2.0f, dot, dot, dot / 2.0f, 0xCC9900FF);
+		Renderer::drawRoundRect(x, y + (lh - dot) / 2.0f, dot, dot, dot / 2.0f, RETROACHIEVEMENTS_SOFTCORE_COLOR);
+		Renderer::drawRoundRect(x, y + lh + (lh - dot) / 2.0f, dot, dot, dot / 2.0f, RETROACHIEVEMENTS_HARDCORE_COLOR);
 
 		mLabels->render(trans);
 		mValues->render(trans);
