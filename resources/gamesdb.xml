@@ -360,6 +360,12 @@
     <game id="batlgr2a">
       <wheel rotation="270"/>
     </game>
+    <game id="batlgr3" name="Battle Gear 3 (Ver.2.01A)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="batlgr3t" name="Battle Gear 3 Tuned">
+      <wheel rotation="270"/>
+    </game>
     <game id="Batman">
       <wheel/>
     </game>
@@ -917,7 +923,7 @@
     <game id="crszonev4a">
       <gun/>
     </game>
-    <game id="crtaxihr">
+    <game id="crtaxihr" name="Crazy Taxi High Roller (Rev B) (GDX-0002B)">
       <wheel rotation="270"/>
     </game>
     <game id="CruisnBlast">
@@ -1190,6 +1196,8 @@
     <game id="dpatrola">
       <gun/>
     </game>
+    <game id="dragchro" name="Dragon Chronicle Online: Great Sky Battle">
+    </game>
     <game id="dragngun">
       <gun/>
     </game>
@@ -1204,6 +1212,8 @@
     </game>
     <game id="driveyes">
       <wheel rotation="270"/>
+    </game>
+    <game id="druagaol" name="Druaga Online: The Story of Aon">
     </game>
     <game id="drugwars" name="Crime Patrol 2: Drug Wars">
       <gun/>
@@ -1535,10 +1545,10 @@
     <game id="ghostsevj" name="Ghost Squad Evolution (Japan)">
       <gun/>
     </game>
-    <game id="ghostsqo">
+    <game id="ghostsqo" name="Ghost Squad (GDX-0012)">
       <gun/>
     </game>
-    <game id="ghostsqu">
+    <game id="ghostsqu" name="Ghost Squad (Rev A) (GDX-0012A)">
       <gun/>
     </game>
     <game id="ghox">
@@ -1877,8 +1887,12 @@
     <game id="gunchamps">
       <gun/>
     </game>
+    <game id="gundamos" name="Gundam Battle Operating Simulator (GDX-0013)">
+    </game>
     <game id="GundamSpiritsOfZeon">
       <gun/>
+    </game>
+    <game id="gundzft2" name="Gundam Seed Destiny: Federation vs. Z.A.F.T. II">
     </game>
     <game id="gunhard">
       <gun/>
@@ -2081,7 +2095,7 @@
     <game id="hotd2p">
       <gun/>
     </game>
-    <game id="hotd3">
+    <game id="hotd3" name="The House of the Dead III (GDX-0001)">
       <gun/>
     </game>
     <game id="HOTD3">
@@ -2176,6 +2190,8 @@
     </game>
     <game id="ID8">
       <wheel/>
+    </game>
+    <game id="idolmstr" name="The Idolmaster">
     </game>
     <game id="IDZ">
       <wheel/>
@@ -2767,6 +2783,9 @@
     <game id="MotoGP">
       <wheel/>
     </game>
+    <game id="motogp">
+      <wheel rotation="270"/>
+    </game>
     <game id="motoraid">
       <wheel rotation="270"/>
     </game>
@@ -2868,6 +2887,8 @@
     <game id="oigas">
       <spinner/>
     </game>
+    <game id="ollie" name="Ollie King (GDX-0007)">
+    </game>
     <game id="omegrace">
       <spinner/>
     </game>
@@ -2946,7 +2967,7 @@
     <game id="otwalls">
       <spinner/>
     </game>
-    <game id="outr2">
+    <game id="outr2" name="OutRun 2 (Rev A) (GDX-0004A)">
       <wheel rotation="270"/>
     </game>
     <game id="outr2sdx" name="OutRun 2 SP SDX">
@@ -2958,16 +2979,16 @@
     <game id="outr2sdxg" name="OutRun 2 SP SDX (Bootleg)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2st">
+    <game id="outr2st" name="OutRun 2 Special Tours (Rev A) (GDX-0014A)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2stj">
+    <game id="outr2stj" name="OutRun 2 Special Tours (Japan, Rev A) (GDX-0011A)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2stjo">
+    <game id="outr2stjo" name="OutRun 2 Special Tours (Japan) (GDX-0011)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2sto">
+    <game id="outr2sto" name="OutRun 2 Special Tours (GDX-0014)">
       <wheel rotation="270"/>
     </game>
     <game id="outrun">
@@ -4320,6 +4341,20 @@
     <game id="tacscan">
       <spinner/>
     </game>
+    <game id="taiko11a" name="Taiko no Tatsujin 11 Asian Edition">
+    </game>
+    <game id="taiko11t" name="Taiko no Tatsujin 11 Asian Edition (Taiwan)">
+    </game>
+    <game id="taiko12" name="Taiko no Tatsujin 12">
+    </game>
+    <game id="taiko12a" name="Taiko no Tatsujin 12 Asian Edition">
+    </game>
+    <game id="taiko12t" name="Taiko no Tatsujin 12 Asian Edition (Taiwan)">
+    </game>
+    <game id="taiko13" name="Taiko no Tatsujin 13">
+    </game>
+    <game id="taiko14" name="Taiko no Tatsujin 14">
+    </game>
     <game id="targeth">
       <gun/>
     </game>
@@ -4349,6 +4384,8 @@
     </game>
     <game id="tdfever2b">
       <spinner/>
+    </game>
+    <game id="techbeat" name="Technic Beat">
     </game>
     <game id="techbowl">
       <trackball/>
@@ -4497,7 +4534,13 @@
     <game id="timecrs3e">
       <gun/>
     </game>
+    <game id="timecrs3u">
+      <gun/>
+    </game>
     <game id="timecrs4">
+      <gun/>
+    </game>
+    <game id="timecrs4j">
       <gun/>
     </game>
     <game id="timecrsa">
@@ -4731,10 +4774,10 @@
     <game id="vcop2">
       <gun/>
     </game>
-    <game id="vcop3">
+    <game id="vcop3" name="Virtua Cop 3 (Rev B) (GDX-0003B)">
       <gun/>
     </game>
-    <game id="vcop3a">
+    <game id="vcop3a" name="Virtua Cop 3 (Rev A) (GDX-0003A)">
       <gun/>
     </game>
     <game id="vcopa">
@@ -4828,22 +4871,22 @@
     <game id="wangmd2b">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid">
+    <game id="wangmid" name="Wangan Midnight Maximum Tune (Export, Rev B) (GDX-0009B)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2">
+    <game id="wangmid2" name="Wangan Midnight Maximum Tune 2 (Export, Rev A) (GDX-0016A)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2j">
+    <game id="wangmid2j" name="Wangan Midnight Maximum Tune 2 (Japan) (GDX-0015)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2ja">
+    <game id="wangmid2ja" name="Wangan Midnight Maximum Tune 2 (Japan, Rev A) (GDX-0015A)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2o">
+    <game id="wangmid2o" name="Wangan Midnight Maximum Tune 2 (Export) (GDX-0016)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmidj">
+    <game id="wangmidj" name="Wangan Midnight Maximum Tune (Japan, Rev B) (GDX-0008B)">
       <wheel rotation="270"/>
     </game>
     <game id="warlords">

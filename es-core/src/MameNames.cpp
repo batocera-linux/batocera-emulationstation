@@ -268,13 +268,13 @@ MameNames::MameNames()
 						    {
 						      for (auto game = allGamesNames.begin(); game != allGamesNames.end(); game++)
 							{
-							  auto it = mArcadeRoms.find(game->second);
+							  auto it = mArcadeRoms.find(game->first);
 							  if (it == mArcadeRoms.cend())
 							    {
 							      // add as simple arcade rom
 							      ArcadeRom rom;
-							      rom.displayName = allGamesNames[game->second];
-							      mArcadeRoms[game->second] = rom;
+							      rom.displayName = game->second;
+							      mArcadeRoms[game->first] = rom;
 							    }
 							}
 						    }
