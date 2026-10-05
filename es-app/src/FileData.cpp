@@ -373,6 +373,15 @@ const std::string FileData::getMarqueePath()
 	return marquee;
 }
 
+static bool isPngFile(const std::string& path)
+{
+	static const char signature[] = { '\x89', 'P', 'N', 'G', '\r', '\n', '\x1a', '\n' };
+
+	char header[sizeof(signature)];
+	std::ifstream file(WINSTRINGW(path), std::ios::binary);
+	return file.read(header, sizeof(header)) && std::equal(header, header + sizeof(header), signature);
+}
+
 const std::string FileData::getImagePath()
 {
 	std::string image = getMetadata(MetaDataId::Image);
@@ -381,7 +390,8 @@ const std::string FileData::getImagePath()
 	if (image.empty())
 	{
 		auto romExt = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
-		if (romExt == ".png" || (getSystemName() == "pico8" && romExt == ".p8"))
+		// .p8 carts can be PNG carts with a .p8 name, or plain text carts that can't be shown as an image
+		if (romExt == ".png" || (getSystemName() == "pico8" && romExt == ".p8" && isPngFile(getPath())))
 			return getPath();
 
 		if (image.empty())
