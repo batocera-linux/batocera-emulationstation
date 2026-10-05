@@ -86,7 +86,7 @@ void RetroAchievementProgress::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-	Renderer::drawRect(padding, y, w, height, 0x00000032, 0x00000032);
+	Renderer::drawRect(padding, y, w, height, 0xFFFFFF28, 0xFFFFFF28);
 
 	if (mMax > 0)
 	{
