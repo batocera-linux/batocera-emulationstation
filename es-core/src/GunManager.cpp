@@ -46,7 +46,8 @@ enum class LightGunType
 	Aimtrak,
 	AELightgun,
 	Xgunner,
-	VirtualHID
+	VirtualHID,
+	Wiimote4Guns
 };
 
 class RawInputManager
@@ -95,6 +96,17 @@ public:
 		for (auto id : aeDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::AELightgun;
+
+		std::string wiimote4GunsDeviceIds[] = { "VID_001F&PID_BACC", "VID_002F&PID_BACC", "VID_003F&PID_BACC", "VID_004F&PID_BACC" };
+		for (auto id : wiimote4GunsDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::Wiimote4Guns;
+
+		std::string lowerName = Utils::String::toLower(name);
+		std::string wiimote4GunsIds[] = { "vmultia", "vmultib", "vmultic", "vmultid" };
+		for (auto id : wiimote4GunsIds)
+			if (lowerName.find(id) != std::string::npos)
+				return LightGunType::VirtualHID;
 
 		if (sWiimoteGunRunning && name.find("vmulti") != std::string::npos)
 			return LightGunType::VirtualHID;
@@ -157,11 +169,11 @@ public:
 		return ret;
 	}
 
-	// Returns true when the HID device is created by the Virtual HID Framework (VHF).
-	// Windows tags every VHF child with the "HID_DEVICE_SYSTEM_VHF" compatible ID.
-	static bool isVirtualHidDevice(const std::string& devicePath)
+	// Returns the device hardware and compatible IDs (upper case, '|' separated), or "" if unavailable.
+	// Results are cached per device path, as updateGuns rescans devices every 11 frames.
+	static std::string getDeviceIds(const std::string& devicePath)
 	{
-		static std::map<std::string, bool> cache;
+		static std::map<std::string, std::string> cache;
 
 		auto it = cache.find(devicePath);
 		if (it != cache.cend())
@@ -174,12 +186,11 @@ public:
 		static CM_Locate_DevNodeAPtr pLocateDevNode = hSetupapi ? (CM_Locate_DevNodeAPtr) ::GetProcAddress(hSetupapi, "CM_Locate_DevNodeA") : nullptr;
 		static CM_Get_DevNode_Registry_PropertyAPtr pGetRegistryProperty = hSetupapi ? (CM_Get_DevNode_Registry_PropertyAPtr) ::GetProcAddress(hSetupapi, "CM_Get_DevNode_Registry_PropertyA") : nullptr;
 
-		// Unable to resolve : keep previous behaviour (treat as a real device)
-		bool result = false;
+		std::string result;
 
 		if (pLocateDevNode != nullptr && pGetRegistryProperty != nullptr)
 		{
-			// "\\?\HID#VID_1209&PID_0003#2&xxxx&0&0000#{guid}" -> "HID\VID_1209&PID_0003\2&xxxx&0&0000"
+			// "\\?\HID#HIDCLASS&Col01#1&xxxx&0&0000#{guid}" -> "HID\HIDCLASS&Col01\1&xxxx&0&0000"
 			std::string instanceId = devicePath;
 
 			auto cut = instanceId.find("#{");
@@ -192,7 +203,7 @@ public:
 			DEVINST devInst;
 			if (pLocateDevNode(&devInst, (DEVINSTID_A)instanceId.c_str(), CM_LOCATE_DEVNODE_NORMAL) == CR_SUCCESS)
 			{
-				ULONG properties[] = { CM_DRP_COMPATIBLEIDS, CM_DRP_HARDWAREID };
+				ULONG properties[] = { CM_DRP_HARDWAREID, CM_DRP_COMPATIBLEIDS };
 
 				for (auto prop : properties)
 				{
@@ -204,24 +215,22 @@ public:
 
 					// REG_MULTI_SZ : iterate over each null-terminated string
 					for (const char* id = buf; *id != '\0'; id += strlen(id) + 1)
-					{
-						if (Utils::String::toUpper(id).find("DEVICE_SYSTEM_VHF") != std::string::npos)
-						{
-							result = true;
-							break;
-						}
-					}
-
-					if (result)
-						break;
+						result += Utils::String::toUpper(id) + "|";
 				}
 			}
 		}
 
-		LOG(LogInfo) << "[GunManager] " << devicePath << (result ? " : VHF virtual device, not a lightgun" : " : physical device");
+		LOG(LogInfo) << "[GunManager] " << devicePath << " -> " << (result.empty() ? "<no hardware ids>" : result);
 
 		cache[devicePath] = result;
 		return result;
+	}
+
+	// Returns true when the HID device is created by the Virtual HID Framework (VHF).
+	// Windows tags every VHF child with the "HID_DEVICE_SYSTEM_VHF" compatible ID.
+	static bool isVirtualHidDevice(const std::string& devicePath)
+	{
+		return getDeviceIds(devicePath).find("DEVICE_SYSTEM_VHF") != std::string::npos;
 	}
 };
 
