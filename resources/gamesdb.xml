@@ -363,6 +363,12 @@
     <game id="batlgr3" name="Battle Gear 3 (Ver.2.01A)">
       <wheel rotation="270"/>
     </game>
+    <game id="batlgr3j" name="Battle Gear 3 (Ver.2.08J)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="batlgr3jo" name="Battle Gear 3 (Ver.2.07J)">
+      <wheel rotation="270"/>
+    </game>
     <game id="batlgr3t" name="Battle Gear 3 Tuned">
       <wheel rotation="270"/>
     </game>
@@ -485,6 +491,8 @@
     </game>
     <game id="bladestll">
       <trackball/>
+    </game>
+    <game id="bldyr3" name="Bloody Roar 3 (BRT1 Ver. A)">
     </game>
     <game id="block">
       <spinner/>
@@ -793,6 +801,9 @@
       <wheel rotation="270"/>
     </game>
     <game id="cobrata">
+      <gun/>
+    </game>
+    <game id="cobratae" name="Cobra: The Arcade (CBR2 Ver. B)">
       <gun/>
     </game>
     <game id="colt">
@@ -1196,7 +1207,9 @@
     <game id="dpatrola">
       <gun/>
     </game>
-    <game id="dragchro" name="Dragon Chronicle Online: Great Sky Battle">
+    <game id="dragchma" name="Dragon Chronicle: Legend of the Master Ark (DGC11 Ver. A2X)">
+    </game>
+    <game id="dragchmay" name="Dragon Chronicle: Legend of the Master Ark (DGC11 Ver. A2Y)">
     </game>
     <game id="dragngun">
       <gun/>
@@ -1213,7 +1226,9 @@
     <game id="driveyes">
       <wheel rotation="270"/>
     </game>
-    <game id="druagaol" name="Druaga Online: The Story of Aon">
+    <game id="druagaol" name="Druaga Online: The Story of Aon (DOL165-1-ST-I)">
+    </game>
+    <game id="druagaolf" name="Druaga Online: The Story of Aon (DOL1401-ST-F)">
     </game>
     <game id="drugwars" name="Crime Patrol 2: Drug Wars">
       <gun/>
@@ -2786,6 +2801,9 @@
     <game id="motogp">
       <wheel rotation="270"/>
     </game>
+    <game id="motogpa" name="MotoGP (MGP1004-NA-A)">
+      <wheel rotation="270"/>
+    </game>
     <game id="motoraid">
       <wheel rotation="270"/>
     </game>
@@ -3666,6 +3684,9 @@
     <game id="rrvac1">
       <wheel rotation="270"/>
     </game>
+    <game id="rrvac1b" name="Ridge Racer V Arcade Battle (RRV1 Ver. B)">
+      <wheel rotation="270"/>
+    </game>
     <game id="rrvac2">
       <wheel rotation="270"/>
     </game>
@@ -4417,6 +4438,24 @@
     <game id="tehkanwch">
       <trackball/>
     </game>
+    <game id="tekken4d" name="Tekken 4 (TEF1 Ver. D)">
+    </game>
+    <game id="tekken4e" name="Tekken 4 (TEF2 Ver. C)">
+    </game>
+    <game id="tekken4f" name="Tekken 4 (TEF3 Ver. B)">
+    </game>
+    <game id="tekken4g" name="Tekken 4 (TEF2 Ver. D)">
+    </game>
+    <game id="tekken4h" name="Tekken 4 (TEF3 Ver. D)">
+    </game>
+    <game id="tekken5" name="Tekken 5 (TE53 Ver. A)">
+    </game>
+    <game id="tekken51a" name="Tekken 5.1 (TE52 Ver. B)">
+    </game>
+    <game id="tekken5a" name="Tekken 5 (TE52 Ver. A)">
+    </game>
+    <game id="tekken5da" name="Tekken 5 Dark Resurrection (TED2 Ver. A)">
+    </game>
     <game id="tempest">
       <spinner/>
     </game>
@@ -4837,6 +4876,12 @@
     <game id="vnight">
       <gun/>
     </game>
+    <game id="vnighte" name="Vampire Night (VPN2 Ver. B)">
+      <gun/>
+    </game>
+    <game id="vnightj" name="Vampire Night (VPN1 Ver. B)">
+      <gun/>
+    </game>
     <game id="voyager">
       <gun/>
     </game>
@@ -4863,6 +4908,9 @@
       <gun/>
     </game>
     <game id="wanganmd">
+      <wheel rotation="270"/>
+    </game>
+    <game id="wanganmde" name="Wangan Midnight (WMN2 Ver. B)">
       <wheel rotation="270"/>
     </game>
     <game id="wanganmr">
