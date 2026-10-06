@@ -93,7 +93,7 @@ bool Scraper::hasAnyMedia(FileData* file)
 			return true;
 
 	if (isMediaSupported(ScraperMediaSource::Wheel) || isMediaSupported(ScraperMediaSource::Marquee))
-		if (Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !file->getMetadata(MetaDataId::Marquee).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+		if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !file->getMetadata(MetaDataId::Marquee).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
 			return true;
 
 	if (isMediaSupported(ScraperMediaSource::Manual))
