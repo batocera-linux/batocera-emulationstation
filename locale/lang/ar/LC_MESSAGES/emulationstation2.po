@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-09-27 22:52+0300\n"
+"PO-Revision-Date: 2026-10-06 01:18+0300\n"
 "Last-Translator: Yazan Ayash <yazan.n.ayash@gmail.com>\n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -111,7 +111,7 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"انتباه: المحاكي/النواة المفعل حاليا لا يدعمصيغة ملف اللعبة\n"
+"انتباه: المحاكي/النواة المفعل حاليا لا يدعم صيغة ملف اللعبة\n"
 "‫‫أتريد تشغيل اللعبة رغم ذلك؟"
 
 msgid "YES"
@@ -126,10 +126,10 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "انتباه:النظام يفتقر ملفات بايوس واللعبة \\‬\n"
-"قد لا تعمل بشكل صحيح‬أتريد تشغيل اللعبة رغم ذلك؟"
+"قد لا تعمل بشكل صحيح‬ أتريد تشغيل اللعبة رغم ذلك؟"
 
 msgid "Preloading UI"
-msgstr "تحضير واجهة المستخدم"
+msgstr "التحميل المسبق لواجهة المستخدم"
 
 msgid "Loading theme"
 msgstr "تحميل السِّمَة"
@@ -213,7 +213,7 @@ msgid "SELECT"
 msgstr "حدد"
 
 msgid "NETPLAY"
-msgstr "لعب نت"
+msgstr "نت بلاي"
 
 msgid "SEARCH"
 msgstr "بحث"
@@ -265,10 +265,10 @@ msgid "BACK"
 msgstr "رجوع"
 
 msgid "SAVE STATES (HOLD)"
-msgstr "حالات الحفظ (ابقى ضاغطا)"
+msgstr "حالات الحفظ (اضغط مع الاستمرار)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr "خيارات اللعبة (ابقى ضاغطا)"
+msgstr "خيارات اللعبة (اضغط مع الاستمرار)"
 
 msgid "OPTIONS"
 msgstr "خيارات"
@@ -362,7 +362,7 @@ msgid "PASSWORD"
 msgstr "كلمة المرور"
 
 msgid "HARDCORE MODE"
-msgstr "وضع هارد كور"
+msgstr "وضع الصعوبة القصوى"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr "قم بتعطيل حالات الحفظ والترجيع والغش للمزيد من النقاط."
@@ -371,7 +371,7 @@ msgid "LEADERBOARDS"
 msgstr "لوحات المتصدرين"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr ".تنافس في لوحات المتصدرين و أفضل الأوقات (تتطلب هاردكور)"
+msgstr "تنافس في لوحات المتصدرين و أفضل الأوقات (تتطلب الصعوبة القصوى)."
 
 msgid "VERBOSE MODE"
 msgstr "وضع مفصل"
@@ -400,7 +400,7 @@ msgstr "إشارات المنافسة"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "عرض أيقونة في الزاوية اليمنى أسفل الشاشة.إن كانت هنالك إنجازات لكسبها."
+msgstr "عرض أيقونة في الزاوية اليمنى أسفل الشاشة إن كانت هنالك إنجازات لكسبها."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
 msgstr "إنجازات غير رسمية"
@@ -433,7 +433,7 @@ msgid "INDEX GAMES"
 msgstr "فهرسة الألعاب"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "تعثر تفعيل انجازات الريترو:"
+msgstr "تعذر تفعيل انجازات الريترو:"
 
 msgid "KEYBOARDTOPADS"
 msgstr "لوحة المفاتيح إلى أذرع تحكم"
@@ -596,7 +596,7 @@ msgstr "تمت إزالة أجهزة البلوتوث."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "أترغب حقا في إزالة '%s'؟"
+msgstr "أترغب حقا في إزالة '%s' ؟"
 
 msgid "NO MISSING BIOS FILES"
 msgstr "لا يوجد أي ملف بايوس مفقود"
@@ -788,7 +788,7 @@ msgid "INVALID PARAMETERS"
 msgstr "معلمات غير صالحة"
 
 msgid "VIEW OPTIONS"
-msgstr "عرض الخيارات"
+msgstr "خيارات العرض"
 
 msgid "NAVIGATION"
 msgstr "تنقل"
@@ -968,7 +968,7 @@ msgid "WRITE"
 msgstr "كتابة"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "ضع علامة على القارئ…"
+msgstr "ضع علامةً على الكاتب..."
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "تمت كتابة العلامة بنجاح"
@@ -1424,7 +1424,7 @@ msgid "RIGHT"
 msgstr "يمين"
 
 msgid "FAVORITE SONGS"
-msgstr "الأغنيات المفضلة"
+msgstr "الأغاني المفضلة"
 
 msgid "SAVESTATE MANAGER"
 msgstr "مدير حالات الحفظ"
@@ -1481,7 +1481,7 @@ msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "انشاء لوبي بشكل اوتوماتيكي"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr "بشكل اوتوماتيكي عند تشغيل اللعبة (Netplay) انشاء لوبي."
+msgstr "انشاء لوبي (Netplay) عند تشغيل اللعبة بشكل اوتوماتيكي."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "عرض ألعاب خادم التتابع فقط"
@@ -2023,10 +2023,10 @@ msgid "DMDSERVER stopped"
 msgstr "توقف dmd خادم"
 
 msgid "DMDSERVER restarted"
-msgstr "تم اعادة تشغيل خادم dmd"
+msgstr "تم اعادة تشغيل خادم DMD"
 
 msgid "DMDSERVER started"
-msgstr "بدء تشغيل خادم dmd"
+msgstr "بدء تشغيل خادم DMD"
 
 msgid "MULTISCREENS"
 msgstr "شاشات متعددة"
@@ -2095,7 +2095,7 @@ msgid "OVERSCAN"
 msgstr "المسح الزائد"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "استعمال القارئ OMX (مُسرَّع بالأجهزة)"
+msgstr "استعمال قارئ OMX (مُسرَّع بالأجهزة)"
 
 msgid "TOOLS"
 msgstr "الأدوات"
@@ -2403,7 +2403,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "عرض الساعة بنمط 12 بدل 24"
 
 msgid "POWER SAVING MODE"
-msgstr "اقتصاد الطاقة"
+msgstr "وضع توفير الطاقة"
 
 msgid "ENHANCED"
 msgstr "تحسين"
@@ -2894,7 +2894,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "تجاهل الأغراض الرئيسية عند الفرز"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "تجاهل('The' وَ'A') في بداية اسم اللعبة."
+msgstr "تجاهل ('The'وَ'A') في بداية اسم اللعبة."
 
 msgid "VOLUME"
 msgstr "مستوى الصوت"
@@ -2915,10 +2915,10 @@ msgid "FRONTEND MUSIC"
 msgstr "موسيقى الواجهة"
 
 msgid "DISPLAY SONG TITLES"
-msgstr "عرض اسم الأغنية"
+msgstr "عرض عناوين الأغاني"
 
 msgid "SONG TITLE DISPLAY DURATION"
-msgstr "عدد الثواني لعرض اسم الاغنية"
+msgstr "مدة عرض عنوان الأغنية"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "قم بتشغيل مجلد الموسيقى الخاص بالنظام فقط"
@@ -2930,10 +2930,10 @@ msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "قم بخفض صوت الموسيقى عند تشغيل الفيديو"
 
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "تشغيل أغنيات المفضلات فقط"
+msgstr "شغّل فقط الأغاني من قائمة التشغيل المفضلة لديك"
 
 msgid "SELECTION OF FAVORITE SONGS"
-msgstr "مختارات الأغنيات المفضلة"
+msgstr "مجموعة مختارة من الأغاني المفضلة"
 
 msgid "SOUNDS"
 msgstr "أصوات"
@@ -2966,7 +2966,7 @@ msgid "WI-FI KEY"
 msgstr "كلمة سر الوايفاي"
 
 msgid "WI-FI COUNTRY"
-msgstr "دولة الواي فاي"
+msgstr "دولة الوايفاي"
 
 msgid "N/A"
 msgstr "غير متاح"
@@ -2981,16 +2981,16 @@ msgid "QUICK ACCESS"
 msgstr "الوصول السريع"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr "الموسيقى التالية"
+msgstr "الانتقال إلى الأغنية التالية"
 
 msgid "NOW PLAYING"
 msgstr "تشتغل حاليا"
 
 msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
-msgstr "أزل الأغنية الحالية من قائمة المفضلات"
+msgstr "إزالة الأغنية الحالية من قائمة تشغيل المفضلة"
 
 msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
-msgstr "احفظ الأغنية الحالية في قائمة المفضلات"
+msgstr "حفظ الأغنية الحالية في قائمة التشغيل المفضلة"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "بدء شاشة التوقف"
@@ -3637,7 +3637,7 @@ msgid "UKNOWN ERROR"
 msgstr "خطأ مجهول"
 
 msgid "Checking for latest upgrade script..."
-msgstr "جاري التحقق من أحدث نص برمجي للتحديث…"
+msgstr "جاري التحقق من أحدث نص برمجي للترقية …"
 
 msgid "Collections"
 msgstr "المجموعات"
@@ -3815,7 +3815,7 @@ msgid "PRESS ESC TO CANCEL."
 msgstr "للخروج اضغط على (ESC)."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "اضغط على (ESC) أو زر اختصار للإلغاء."
+msgstr "للإلغاءاضغط على (ESC) أو زر اختصار ."
 
 msgctxt "joystick"
 msgid "NORTH"
@@ -3973,7 +3973,7 @@ msgstr ""
 "أطلق النار على الأهداف للمعايرة"
 
 msgid "Reloaded the games list..."
-msgstr "تم إعادة تحميل قائمة الألعاب…"
+msgstr "تم إعادة تحميل قائمة الألعاب …"
 
 msgid "GAME DRIVE DETECTED"
 msgstr "تم اكتشاف محرك اللعبة"
@@ -3997,7 +3997,7 @@ msgid "(This will also apply on future boots)"
 msgstr "(سيتم تطبيق هذا أيضًا عند الإقلاع في المستقبل)"
 
 msgid "Merge requested... Please wait."
-msgstr "جاري طلب الدمج... الرجاء الانتظار."
+msgstr "جاري طلب الدمج ...الرجاء الانتظار."
 
 msgid "MERGE FAILED"
 msgstr "فشل الدمج"
