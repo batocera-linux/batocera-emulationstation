@@ -868,7 +868,7 @@ bool ApiSystem::setButtonColorR36Ultra(const std::string& selected)
 	};
 	SystemConf::getInstance()->set("led.colour", r36UltraModeMap[selected]);
 	SystemConf::getInstance()->saveSystemConf();
-	return true;
+	return executeScript("batocera-led-handheld set_color_force_dec " + r36UltraModeMap[selected]);
 }
 
 bool ApiSystem::setPowerLedR36(const std::string& selected)
