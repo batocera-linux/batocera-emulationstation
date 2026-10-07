@@ -15,6 +15,8 @@
 
 #include <SDL.h>
 #include <stack>
+#include <cstdlib>
+#include <stdexcept>
 
 #if WIN32
 #include <Windows.h>
@@ -32,6 +34,8 @@ namespace Renderer
 	static std::stack<Rect> nativeClipStack;
 
 	static SDL_Window*      sdlWindow          = nullptr;
+	static SDL_Window* secondaryWindow = nullptr;
+	static void createSecondaryWindow();
 	static int              windowWidth        = 0;
 	static int              windowHeight       = 0;
 	static int              screenWidth        = 0;
@@ -144,6 +148,17 @@ namespace Renderer
 
 	} // setIcon
 
+	static bool matchesDisplayName(const char* actual, const char* requested)
+	{
+		if (actual == nullptr || requested == nullptr)
+			return false;
+		if (std::strcmp(actual, requested) == 0)
+			return true;
+		const std::string name(actual);
+		const std::string suffix = "(" + std::string(requested) + ")";
+		return name.size() >= suffix.size() && name.compare(name.size() - suffix.size(), suffix.size(), suffix) == 0;
+	}
+
 	static bool createWindow()
 	{
 		LOG(LogInfo) << "Creating window...";
@@ -178,6 +193,13 @@ namespace Renderer
 		}
 
 		int monitorId = Settings::getInstance()->getInt("MonitorID");
+		if (const char* primaryName = std::getenv("ES_PRIMARY_DISPLAY"))
+			for (int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
+				if (matchesDisplayName(SDL_GetDisplayName(i), primaryName))
+				{
+					monitorId = i;
+					break;
+				}
 		if (monitorId >= 0 && sdlWindowPosition == Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED))
 		{
 			int displays = SDL_GetNumVideoDisplays();
@@ -322,6 +344,12 @@ namespace Renderer
 			int x; int y;
 			SDL_GetWindowPosition(sdlWindow, &x, &y);
 			sdlWindowPosition = Vector2i(x, y); // Save position to restore it later
+		}
+
+		if (secondaryWindow != nullptr)
+		{
+			SDL_DestroyWindow(secondaryWindow);
+			secondaryWindow = nullptr;
 		}
 
 		destroyContext();
@@ -498,6 +526,7 @@ namespace Renderer
 
 		updateProjection();
 		swapBuffers();
+		createSecondaryWindow();
 		return true;
 	}
 
@@ -913,6 +942,101 @@ namespace Renderer
 			_instance = createRenderer();
 
 		return _instance;
+	}
+
+	static void createSecondaryWindow()
+	{
+		const char* displayName = std::getenv("ES_SECONDARY_DISPLAY");
+		if (displayName == nullptr || *displayName == '\0')
+			return;
+
+		for (int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
+		{
+			const char* name = SDL_GetDisplayName(i);
+			LOG(LogInfo) << "Secondary probe display " << i << ": " << (name ? name : "<unnamed>") << ", primary index " << SDL_GetWindowDisplayIndex(sdlWindow);
+			if (!matchesDisplayName(name, displayName))
+				continue;
+			SDL_Rect bounds;
+			if (SDL_GetDisplayBounds(i, &bounds) != 0 || i == SDL_GetWindowDisplayIndex(sdlWindow))
+				break;
+			secondaryWindow = SDL_CreateWindow("EmulationStation Secondary", bounds.x, bounds.y,
+				bounds.w, bounds.h, getWindowFlags() | SDL_WINDOW_BORDERLESS);
+			if (secondaryWindow == nullptr)
+			{
+				LOG(LogWarning) << "Secondary window creation failed: " << SDL_GetError();
+				break;
+			}
+			if (!Instance()->makeWindowCurrent(secondaryWindow))
+			{
+				LOG(LogWarning) << "Secondary context activation failed: " << SDL_GetError();
+				SDL_DestroyWindow(secondaryWindow);
+				secondaryWindow = nullptr;
+				break;
+			}
+			SDL_GL_SetSwapInterval(0);
+			if (!Instance()->makeWindowCurrent(sdlWindow))
+				throw std::runtime_error("Unable to restore primary graphics window");
+			setSwapInterval();
+			updateProjection();
+			SDL_RaiseWindow(sdlWindow);
+			LOG(LogInfo) << "Secondary window enabled on " << displayName << " (" << bounds.w << "x" << bounds.h << ")";
+			return;
+		}
+		LOG(LogWarning) << "Secondary display unavailable: " << displayName << "; retaining single-screen mode";
+	}
+
+	bool hasSecondaryWindow() { return secondaryWindow != nullptr; }
+
+	bool isSecondaryWindow(unsigned int windowId)
+	{
+		return secondaryWindow != nullptr && SDL_GetWindowID(secondaryWindow) == windowId;
+	}
+
+	void renderSecondary(const std::function<void()>& draw)
+	{
+		if (secondaryWindow == nullptr || !clipStack.empty() || !nativeClipStack.empty())
+			return;
+		if (!Instance()->makeWindowCurrent(secondaryWindow))
+		{
+			LOG(LogWarning) << "Cannot activate secondary window: " << SDL_GetError();
+			return;
+		}
+		SDL_Window* primaryWindow = sdlWindow;
+		const int saved[] = {windowWidth, windowHeight, screenWidth, screenHeight, screenOffsetX, screenOffsetY, screenRotate};
+		const Vector2i savedMargin = screenMargin;
+		sdlWindow = secondaryWindow;
+		SDL_GetWindowSize(secondaryWindow, &windowWidth, &windowHeight);
+		screenWidth = windowWidth;
+		screenHeight = windowHeight;
+		screenOffsetX = screenOffsetY = screenRotate = 0;
+		screenMargin = Vector2i(0, 0);
+		updateProjection();
+		setScissor(Rect());
+		SDL_GL_SetSwapInterval(0);
+
+		auto restore = [&]() {
+			sdlWindow = primaryWindow;
+			windowWidth = saved[0]; windowHeight = saved[1];
+			screenWidth = saved[2]; screenHeight = saved[3];
+			screenOffsetX = saved[4]; screenOffsetY = saved[5]; screenRotate = saved[6];
+			screenMargin = savedMargin;
+			if (!Instance()->makeWindowCurrent(primaryWindow))
+				throw std::runtime_error("Unable to restore primary graphics window");
+			setSwapInterval();
+			updateProjection();
+			setScissor(Rect());
+		};
+		try
+		{
+			draw();
+			Instance()->swapBuffers();
+		}
+		catch (...)
+		{
+			restore();
+			throw;
+		}
+		restore();
 	}
 
 	//////////////////////////////////////////////////////////////////////////
