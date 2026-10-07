@@ -277,7 +277,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 		case MD_PATH:
 		{
-			ed = std::make_shared<TextComponent>(window, "", theme->Text.font, theme->Text.color, ALIGN_RIGHT);
+			ed = std::make_shared<TextComponent>(window, "", theme->Text.font, theme->Text.color, EsLocale::isRTL() ? Alignment::ALIGN_LEFT : Alignment::ALIGN_RIGHT);
 			row.addElement(ed, true);
 
 			auto spacer = std::make_shared<GuiComponent>(mWindow);
@@ -323,7 +323,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 		default:
 			{
 				// MD_STRING
-				ed = std::make_shared<TextComponent>(window, "", theme->Text.font, theme->Text.color, ALIGN_RIGHT);
+				ed = std::make_shared<TextComponent>(window, "", theme->Text.font, theme->Text.color, EsLocale::isRTL() ? Alignment::ALIGN_LEFT : Alignment::ALIGN_RIGHT);
 				row.addElement(ed, true);
 
 				auto spacer = std::make_shared<GuiComponent>(mWindow);
