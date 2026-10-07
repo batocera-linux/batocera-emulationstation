@@ -856,7 +856,7 @@ bool ApiSystem::setPowerLedGameForce(std::string selected)
 
 bool ApiSystem::setButtonColorR36Ultra(const std::string& selected)
 {
-	std::map<std::string, std::string> r36UltraModeMap = {
+	static const std::map<std::string, std::string> r36UltraModeMap = {
 		{"off", "0 0 0"},
 		{"red", "255 0 0"},
 		{"yellow", "255 255 0"},
@@ -866,9 +866,9 @@ bool ApiSystem::setButtonColorR36Ultra(const std::string& selected)
 		{"purple", "255 0 255"},
 		{"white", "255 255 255"}
 	};
-	SystemConf::getInstance()->set("led.colour", r36UltraModeMap[selected]);
+	SystemConf::getInstance()->set("led.colour", r36UltraModeMap.at(selected));
 	SystemConf::getInstance()->saveSystemConf();
-	return executeScript("batocera-led-handheld set_color_force_dec " + r36UltraModeMap[selected]);
+	return executeScript("batocera-led-handheld set_color_force_dec " + r36UltraModeMap.at(selected));
 }
 
 bool ApiSystem::setPowerLedR36(const std::string& selected)
