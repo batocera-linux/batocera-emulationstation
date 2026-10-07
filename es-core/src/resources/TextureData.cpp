@@ -174,6 +174,19 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		}
 	}
 	
+	// Never rasterize an SVG larger than the screen
+	const size_t screenWidth = (size_t)Renderer::getScreenWidth();
+	const size_t screenHeight = (size_t)Renderer::getScreenHeight();
+	if (screenWidth > 0 && screenHeight > 0 && (width > screenWidth || height > screenHeight))
+	{
+		const double ratio = std::min((double)screenWidth / (double)width, (double)screenHeight / (double)height);
+		width = std::max<size_t>(1, (size_t)Math::round((float)(width * ratio)));
+		height = std::max<size_t>(1, (size_t)Math::round((float)(height * ratio)));
+	}
+
+	LOG(LogDebug) << "TextureData::initSVGFromMemory " << mPath << " rasterized at " << width << "x" << height
+		<< " (intrinsic " << svgImage->width << "x" << svgImage->height << ", maxSize " << mMaxSize.x() << "x" << mMaxSize.y() << ")";
+
 	mSize = Vector2i(width, height);
 
 	if (width * height <= 0)
