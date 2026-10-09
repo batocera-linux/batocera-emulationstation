@@ -123,6 +123,7 @@ public:
 	DEFINE_STRING_SETTING(GameTransitionStyle)		
 	DEFINE_STRING_SETTING(PowerSaverMode)		
 	DEFINE_INT_SETTING(RecentlyScrappedFilter)
+	DEFINE_INT_SETTING(ScraperMediaFilter)
 	DEFINE_INT_SETTING(IndexDirectoryDepth)
 
 	static Delegate<ISettingsChangedEvent> settingChanged;
