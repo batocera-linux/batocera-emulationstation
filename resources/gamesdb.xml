@@ -2149,6 +2149,9 @@
     <game id="HOTDEX">
       <gun/>
     </game>
+    <game id="hotdo">
+      <gun/>
+    </game>
     <game id="hotdp">
       <gun/>
     </game>
@@ -3520,6 +3523,9 @@
       <gun/>
     </game>
     <game id="rchase2">
+      <gun/>
+    </game>
+    <game id="rchase2a" name="Rail Chase 2">
       <gun/>
     </game>
     <game id="rchasej">
