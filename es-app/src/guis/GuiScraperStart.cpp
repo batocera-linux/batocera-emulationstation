@@ -80,10 +80,14 @@ void GuiScraperStart::loadScrapPage()
 	auto scraper = Scraper::getScraper(scraperName);
 
 	// Media Filter
+	int mediaIdx = Settings::ScraperMediaFilter();
+	if (mediaIdx < 0 || mediaIdx > 2)
+		mediaIdx = 1;
+
 	mFilters = std::make_shared< OptionListComponent<FilterFunc> >(mWindow, _("GAMES TO SCRAPE FOR"), false);
-	mFilters->add(_("ALL"), [](FileData*) -> bool { return true; }, false);
-	mFilters->add(_("GAMES MISSING ANY MEDIA"), [this, scraper](FileData* g) -> bool { mOverwriteMedias = false; return scraper->hasMissingMedia(g); }, true);
-	mFilters->add(_("GAMES MISSING ALL MEDIA"), [this, scraper](FileData* g) -> bool { mOverwriteMedias = true; return !scraper->hasAnyMedia(g); }, false);
+	mFilters->add(_("ALL"), [](FileData*) -> bool { return true; }, mediaIdx == 0);
+	mFilters->add(_("GAMES MISSING ANY MEDIA"), [this, scraper](FileData* g) -> bool { mOverwriteMedias = false; return scraper->hasMissingMedia(g); }, mediaIdx == 1);
+	mFilters->add(_("GAMES MISSING ALL MEDIA"), [this, scraper](FileData* g) -> bool { mOverwriteMedias = true; return !scraper->hasAnyMedia(g); }, mediaIdx == 2);
 	addWithLabel(_("GAMES TO SCRAPE FOR"), mFilters);
 
 	// Date Filter
@@ -97,7 +101,9 @@ void GuiScraperStart::loadScrapPage()
 		return date->getTime() <= (now - (days * 86400));
 	};
 
-	int idx = 3;
+	int idx = Settings::RecentlyScrappedFilter();
+	if (idx < 0 || idx > 6)
+		idx = 3;
 
 	mDateFilters = std::make_shared< OptionListComponent<FilterFunc> >(mWindow, _("IGNORE RECENTLY SCRAPED GAMES"), false);
 	mDateFilters->add(_("NO"), [](FileData*) -> bool { return true; }, idx == 0);
@@ -108,6 +114,12 @@ void GuiScraperStart::loadScrapPage()
 	mDateFilters->add(_("LAST 3 MONTHS"), [this, scraperName, isOlderThan](FileData* g) -> bool { return isOlderThan(scraperName, g, 90); }, idx == 5);
 	mDateFilters->add(_("LAST YEAR"), [this, scraperName, isOlderThan](FileData* g) -> bool { return isOlderThan(scraperName, g, 365); }, idx == 6);
 	addWithLabel(_("IGNORE RECENTLY SCRAPED GAMES"), mDateFilters);
+
+	addSaveFunc([this]
+	{
+		Settings::setScraperMediaFilter(mFilters->getSelectedIndex());
+		Settings::setRecentlyScrappedFilter(mDateFilters->getSelectedIndex());
+	});
 
 	// System Filter
 	std::string currentSystem;

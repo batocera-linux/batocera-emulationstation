@@ -632,23 +632,44 @@ std::string Font::processRTLText(const std::string& text)
 #ifdef HAVE_FRIBIDI
     if (text.empty()) return text;
 
-    size_t len = text.length();
+    std::vector<std::string> lines = Utils::String::split(text, '\n', false);
+    std::string result;
 
-    // 1. Convert UTF-8 to UTF-32 for FriBidi
-    std::vector<FriBidiChar> unicode_in(len + 1);
-    std::vector<FriBidiChar> unicode_out(len + 1);
-    int ulen = fribidi_charset_to_unicode(FRIBIDI_CHAR_SET_UTF8, text.c_str(), len, unicode_in.data());
+    for (size_t i = 0; i < lines.size(); ++i)
+    {
+        const std::string& line = lines[i];
 
-    // 2. Apply FriBidi for shaping + reorganisation BiDi
-    FriBidiParType base_dir = FRIBIDI_PAR_RTL;
-    fribidi_boolean ok = fribidi_log2vis(unicode_in.data(), ulen, &base_dir, unicode_out.data(), nullptr, nullptr, nullptr);
-    if (!ok) return text;
+        if (!line.empty())
+        {
+            size_t len = line.length();
 
-    // 3. Convert UTF-32 to UTF-8 for es
-    std::vector<char> utf8_out(len * 4 + 1);
-    int out_len = fribidi_unicode_to_charset(FRIBIDI_CHAR_SET_UTF8, unicode_out.data(), ulen, utf8_out.data());
+            // 1. Convert UTF-8 to UTF-32 for FriBidi
+            std::vector<FriBidiChar> unicode_in(len + 1);
+            std::vector<FriBidiChar> unicode_out(len + 1);
+            int ulen = fribidi_charset_to_unicode(FRIBIDI_CHAR_SET_UTF8, line.c_str(), len, unicode_in.data());
 
-    return std::string(utf8_out.data(), out_len);
+            // 2. Apply FriBidi for shaping + reorganisation BiDi
+            FriBidiParType base_dir = FRIBIDI_PAR_RTL;
+            fribidi_boolean ok = fribidi_log2vis(unicode_in.data(), ulen, &base_dir, unicode_out.data(), nullptr, nullptr, nullptr);
+
+            if(ok)
+            {
+                // 3. Convert UTF-32 to UTF-8 for es
+                std::vector<char> utf8_out(len * 4 + 1);
+                int out_len = fribidi_unicode_to_charset(FRIBIDI_CHAR_SET_UTF8, unicode_out.data(), ulen, utf8_out.data());
+                result += std::string(utf8_out.data(), out_len);
+            }
+            else
+            {
+                result += line;
+            }
+        }
+
+        if (i < lines.size() - 1)
+            result += "\n";
+    }
+
+    return result;
 #else
     return text;
 #endif

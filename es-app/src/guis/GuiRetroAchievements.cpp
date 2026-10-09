@@ -86,20 +86,20 @@ void RetroAchievementProgress::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-	Renderer::drawRect(padding, y, w, height, 0x00000032, 0x00000032);
+	Renderer::drawRect(padding, y, w, height, 0xFFFFFF28, 0xFFFFFF28);
 
 	if (mMax > 0)
 	{
 		if (mValueSoftCore > 0 && mValueSoftCore > mValueHardCore)
 		{
 			int cur = (w * mValueSoftCore) / mMax;
-			Renderer::drawRect(padding, y, cur, height, 0x0B71C1FF);
+			Renderer::drawRect(padding, y, cur, height, RETROACHIEVEMENTS_SOFTCORE_COLOR);
 		}
 
 		if (mValueHardCore > 0)
 		{
 			int cur = (w * mValueHardCore) / mMax;
-			Renderer::drawRect(padding, y, cur, height, 0xCC9900FF);
+			Renderer::drawRect(padding, y, cur, height, RETROACHIEVEMENTS_HARDCORE_COLOR);
 		}
 	}
 
