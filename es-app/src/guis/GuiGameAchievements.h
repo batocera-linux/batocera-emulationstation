@@ -26,4 +26,6 @@ protected:
 
 	FileData* mFile;
 	std::shared_ptr<RetroAchievementProgress> mProgress;
+	std::shared_ptr<TextComponent> mLabels;
+	std::shared_ptr<TextComponent> mValues;
 };
