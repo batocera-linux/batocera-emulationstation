@@ -156,7 +156,7 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		height = (size_t)Math::round(((float)width / svgImage->width) * svgImage->height);
 	}
 
-	if (OPTIMIZEVRAM && !mMaxSize.empty() && (width > mMaxSize.x() || height > mMaxSize.y()))
+	if (!mMaxSize.empty() && (width > mMaxSize.x() || height > mMaxSize.y()))
 	{
 		auto imageSize = Vector2i(width, height);
 		auto displaySize = Vector2i((int)Math::round(mMaxSize.x()), (int)Math::round(mMaxSize.y()));
@@ -174,6 +174,19 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 		}
 	}
 	
+	// Never rasterize an SVG larger than the screen
+	const size_t screenWidth = (size_t)Renderer::getScreenWidth();
+	const size_t screenHeight = (size_t)Renderer::getScreenHeight();
+	if (screenWidth > 0 && screenHeight > 0 && (width > screenWidth || height > screenHeight))
+	{
+		const double ratio = std::min((double)screenWidth / (double)width, (double)screenHeight / (double)height);
+		width = std::max<size_t>(1, (size_t)Math::round((float)(width * ratio)));
+		height = std::max<size_t>(1, (size_t)Math::round((float)(height * ratio)));
+	}
+
+	LOG(LogDebug) << "TextureData::initSVGFromMemory " << mPath << " rasterized at " << width << "x" << height
+		<< " (intrinsic " << svgImage->width << "x" << svgImage->height << ", maxSize " << mMaxSize.x() << "x" << mMaxSize.y() << ")";
+
 	mSize = Vector2i(width, height);
 
 	if (width * height <= 0)
@@ -212,7 +225,7 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 
 	// Don't load images greater than screen resolution
 	MaxSizeInfo maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight(), false);
-	if (!mMaxSize.empty() && mMaxSize.x() < maxSize.x() && mMaxSize.y() < maxSize.y())
+	if (OPTIMIZEVRAM && !mMaxSize.empty() && mMaxSize.x() < maxSize.x() && mMaxSize.y() < maxSize.y())
 		maxSize = mMaxSize;
 		
 	auto oldSize = mSize;
@@ -415,8 +428,8 @@ bool TextureData::loadFromPdf(int pageIndex)
 	
 	int dpi = 48;
 
-	if (!mMaxSize.empty())
-		dpi = (int) Math::clamp(mMaxSize.y() / 6, 32, 300);
+	if (OPTIMIZEVRAM && !mMaxSize.empty())
+		dpi = (int)Math::clamp(mMaxSize.y() / 6, 32, 300);
 
 	auto files = PdfHandler->extractPdfImages(mPath, pageIndex, pageIndex, dpi);
 	if (files.size() > 0)
@@ -601,8 +614,10 @@ void TextureData::releaseRAM()
 
 void TextureData::setMaxSize(const MaxSizeInfo& maxSize)
 {
-	if (!OPTIMIZEVRAM)
-		return;
+	// Always record the display size: SVG needs it to pick its raster size.
+	// Bitmap usage of mMaxSize stays gated by OptimizeVRAM (initImageFromMemory, loadFromPdf, rasterizeAt).
+	//if (!OPTIMIZEVRAM)
+	//	return;
 
 	if (mPhysicalSize.empty())
 		mMaxSize = maxSize;
