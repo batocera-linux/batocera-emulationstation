@@ -649,6 +649,18 @@ bool ApiSystem::enableWifi(std::string ssid, std::string key)
 }
 #endif
 
+#if !WIN32
+bool ApiSystem::configureWifi()
+{
+	return executeScript("batocera-wifi configure");
+}
+
+bool ApiSystem::connectWifi(const std::string& ssid)
+{
+	return executeScript("batocera-wifi connect \"" + ssid + "\"");
+}
+#endif
+
 bool ApiSystem::disableWifi() 
 {
 	return executeScript("batocera-wifi disable");
