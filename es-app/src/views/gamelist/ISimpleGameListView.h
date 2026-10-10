@@ -8,8 +8,10 @@
 #include <stack>
 #include <set>
 #include "MultiStateInput.h"
+#include "watchers/WatchersManager.h"
+#include <atomic>
 
-class ISimpleGameListView : public IGameListView
+class ISimpleGameListView : public IGameListView, public IWatcherNotify
 {
 public:
 	ISimpleGameListView(Window* window, FolderData* root, bool temporary = false);
@@ -31,6 +33,7 @@ public:
 	virtual void resetLastCursor() = 0;
 
 	virtual void update(int deltaTime) override;
+	void OnWatcherChanged(IWatcher* component) override;
 	virtual bool input(InputConfig* config, Input input) override;
 	virtual void launch(FileData* game) = 0;
 	
@@ -88,6 +91,7 @@ protected:
 	std::function<void()> mOnExitPopup;
 
 	std::vector<GuiComponent*> mThemeExtras;
+	std::atomic<bool> mNetworkBindingsDirty{false};
 
 	std::stack<FileData*> mCursorStack;
 

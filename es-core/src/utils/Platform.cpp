@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <ifaddrs.h>
+#include <net/if.h>
 #include <netinet/in.h>
 #include <sys/stat.h>
 #include <arpa/inet.h>
@@ -319,26 +320,40 @@ namespace Utils
 			struct ifaddrs* ifa = NULL;
 			void* tmpAddrPtr = NULL;
 
-			getifaddrs(&ifAddrStruct);
+			if (getifaddrs(&ifAddrStruct) != 0)
+				return "";
+
+			auto isActiveInterface = [](const struct ifaddrs* interface)
+			{
+				return interface->ifa_addr != nullptr &&
+					(interface->ifa_flags & (IFF_UP | IFF_RUNNING)) == (IFF_UP | IFF_RUNNING) &&
+					(interface->ifa_flags & IFF_LOOPBACK) == 0;
+			};
 
 			for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next)
 			{
-				if (!ifa->ifa_addr)
+				if (!isActiveInterface(ifa))
 					continue;
 
 				// check it is IP4 is a valid IP4 Address
 				if (ifa->ifa_addr->sa_family == AF_INET)
 				{
 					tmpAddrPtr = &((struct sockaddr_in*)ifa->ifa_addr)->sin_addr;
-					char addressBuffer[INET_ADDRSTRLEN];
-					inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
+					uint32_t address = ntohl(((struct in_addr*)tmpAddrPtr)->s_addr);
+					if (address == INADDR_ANY || address == INADDR_BROADCAST ||
+						(address >> 24) == 127 || IN_MULTICAST(address))
+						continue;
 
-					std::string ifName = ifa->ifa_name;
-					if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("mlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos || ifName.find("usb") != std::string::npos)
-					{
-						result = std::string(addressBuffer);
+					char addressBuffer[INET_ADDRSTRLEN];
+					if (inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN) == nullptr)
+						continue;
+
+					// Prefer a configured IPv4 address over an automatic link-local address.
+					bool linkLocal = (address & 0xffff0000) == 0xa9fe0000;
+					if (result.empty() || !linkLocal)
+						result = addressBuffer;
+					if (!linkLocal)
 						break;
-					}
 				}
 			}
 			// Seeking for ipv6 if no IPV4
@@ -346,26 +361,24 @@ namespace Utils
 			{
 				for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next)
 				{
-					if (!ifa->ifa_addr)
+					if (!isActiveInterface(ifa))
 						continue;
 
 					// check it is IP6 is a valid IP6 Address
 					if (ifa->ifa_addr->sa_family == AF_INET6)
 					{
 						tmpAddrPtr = &((struct sockaddr_in6*)ifa->ifa_addr)->sin6_addr;
-						char addressBuffer[INET6_ADDRSTRLEN];
-						inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
-
-						// Skip IPv6 link-local address
-						if (strncmp(addressBuffer, "fe80:", 5) == 0)
+						const struct in6_addr* address = (struct in6_addr*)tmpAddrPtr;
+						if (IN6_IS_ADDR_UNSPECIFIED(address) || IN6_IS_ADDR_LOOPBACK(address) ||
+							IN6_IS_ADDR_MULTICAST(address) || IN6_IS_ADDR_LINKLOCAL(address))
 							continue;
 
-						std::string ifName = ifa->ifa_name;
-						if (ifName.find("eth") != std::string::npos || ifName.find("wlan") != std::string::npos || ifName.find("mlan") != std::string::npos || ifName.find("en") != std::string::npos || ifName.find("wl") != std::string::npos || ifName.find("p2p") != std::string::npos || ifName.find("usb") != std::string::npos)
-						{
-							result = std::string(addressBuffer);
-							break;
-						}
+						char addressBuffer[INET6_ADDRSTRLEN];
+						if (inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN) == nullptr)
+							continue;
+
+						result = addressBuffer;
+						break;
 					}
 				}
 			}
