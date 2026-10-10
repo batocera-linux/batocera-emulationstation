@@ -224,6 +224,15 @@ std::string SystemConf::get(const std::string &name)
     return "";
 }
 
+std::vector<std::string> SystemConf::getKeysStartingWith(const std::string &prefix)
+{
+	std::vector<std::string> keys;
+	for (auto it = confMap.lower_bound(prefix); it != confMap.cend() && Utils::String::startsWith(it->first, prefix); ++it)
+		keys.push_back(it->first);
+
+	return keys;
+}
+
 bool SystemConf::set(const std::string &name, const std::string &value) 
 {
 	if (mSystemConfFile.empty())

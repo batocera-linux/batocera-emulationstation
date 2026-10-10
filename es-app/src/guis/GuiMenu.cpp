@@ -4391,6 +4391,161 @@ void GuiMenu::openWifiSettings(Window* win, std::string title, std::string data,
 	win->pushGui(new GuiWifi(win, title, data, onsave));
 }
 
+#if !WIN32
+// other networks are wifi2.ssid/wifi2.key, wifi3.*, ... in batocera.conf
+static std::vector<std::string> getOtherWifiSlots()
+{
+	std::vector<std::string> slots;
+
+	for (auto& key : SystemConf::getInstance()->getKeysStartingWith("wifi"))
+	{
+		if (!Utils::String::endsWith(key, ".ssid"))
+			continue;
+
+		std::string number = key.substr(4, key.size() - 9);
+		if (!number.empty() && std::all_of(number.cbegin(), number.cend(), ::isdigit) && !SystemConf::getInstance()->get(key).empty())
+			slots.push_back(key.substr(0, key.size() - 5));
+	}
+
+	// numeric order
+	std::sort(slots.begin(), slots.end(), [](const std::string& a, const std::string& b) { return a.size() != b.size() ? a.size() < b.size() : a < b; });
+	return slots;
+}
+
+static std::string getOtherWifiNetworksState()
+{
+	std::string state;
+	for (auto& slot : getOtherWifiSlots())
+		state += slot + "=" + SystemConf::getInstance()->get(slot + ".ssid") + "/" + SystemConf::getInstance()->get(slot + ".key") + "\n";
+
+	return state;
+}
+
+// the primary wifi.ssid first, then wifi2, wifi3, ...
+static std::vector<std::string> getWifiSlots()
+{
+	std::vector<std::string> slots = getOtherWifiSlots();
+	if (!SystemConf::getInstance()->get("wifi.ssid").empty())
+		slots.insert(slots.begin(), "wifi");
+
+	return slots;
+}
+
+static std::string getFreeWifiSlot()
+{
+	if (SystemConf::getInstance()->get("wifi.ssid").empty())
+		return "wifi";
+
+	for (int i = 2; ; i++)
+	{
+		std::string slot = "wifi" + std::to_string(i);
+		if (SystemConf::getInstance()->get(slot + ".ssid").empty())
+			return slot;
+	}
+}
+
+// renumber to wifi, wifi2, ... once a network is dropped
+static void compactWifiSlots()
+{
+	std::vector<std::pair<std::string, std::string>> networks;
+	for (auto& slot : getWifiSlots())
+	{
+		networks.push_back({ SystemConf::getInstance()->get(slot + ".ssid"), SystemConf::getInstance()->get(slot + ".key") });
+		SystemConf::getInstance()->set(slot + ".ssid", "");
+		SystemConf::getInstance()->set(slot + ".key", "");
+	}
+
+	int i = 1;
+	for (auto& network : networks)
+	{
+		std::string slot = i == 1 ? "wifi" : "wifi" + std::to_string(i);
+		SystemConf::getInstance()->set(slot + ".ssid", network.first);
+		SystemConf::getInstance()->set(slot + ".key", network.second);
+		i++;
+	}
+}
+
+static void useWifiNetwork(Window* window, const std::string& ssid)
+{
+	// the script provisions connman from the saved file
+	SystemConf::getInstance()->saveSystemConf();
+
+	window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"),
+		[ssid](auto gui) { return ApiSystem::getInstance()->connectWifi(ssid); },
+		[window, ssid](bool connected)
+		{
+			window->pushGui(new GuiMsgBox(window, connected ? _("CONNECTED") : Utils::String::format(_("UNABLE TO CONNECT TO '%s'").c_str(), ssid.c_str())));
+		}));
+}
+
+void GuiMenu::openWifiNetworks()
+{
+	auto s = new GuiSettings(mWindow, _("WI-FI NETWORKS"));
+
+	auto reopen = [this, s] { delete s; openWifiNetworks(); };
+
+	for (auto& slot : getWifiSlots())
+		s->addEntry(SystemConf::getInstance()->get(slot + ".ssid"), true, [this, slot, reopen] { openWifiNetwork(slot, reopen); });
+
+	s->addEntry(_("ADD A WI-FI NETWORK"), true, [this, reopen] { openWifiNetwork(getFreeWifiSlot(), reopen); });
+
+	mWindow->pushGui(s);
+}
+
+void GuiMenu::openWifiNetwork(const std::string& slot, const std::function<void()>& onClose)
+{
+	Window* window = mWindow;
+	std::string ssid = SystemConf::getInstance()->get(slot + ".ssid");
+
+	auto s = new GuiSettings(mWindow, ssid.empty() ? _("ADD A WI-FI NETWORK") : ssid, std::string("-----"));
+
+	s->addInputTextConfigRow(_("WI-FI SSID"), slot + ".ssid", false, false, &openWifiSettings);
+	s->addInputTextConfigRow(_("WI-FI KEY"), slot + ".key", true);
+
+	if (!ssid.empty())
+	{
+		s->getMenu().addButton(_("USE"), "use", [window, slot] { useWifiNetwork(window, SystemConf::getInstance()->get(slot + ".ssid")); });
+
+		s->getMenu().addButton(_("FORGET"), "forget", [window, slot, ssid, s]
+		{
+			window->pushGui(new GuiMsgBox(window, Utils::String::format(_("ARE YOU SURE YOU WANT TO FORGET '%s' ?").c_str(), ssid.c_str()),
+				_("YES"), [slot, s]
+				{
+					SystemConf::getInstance()->set(slot + ".ssid", "");
+					SystemConf::getInstance()->set(slot + ".key", "");
+					s->close();
+				},
+				_("NO"), nullptr));
+		});
+	}
+
+	s->getMenu().addButton(_("BACK"), _("go back"), [s] { s->close(); });
+
+	// a network without an SSID is dropped
+	s->addSaveFunc([slot]
+	{
+		if (SystemConf::getInstance()->get(slot + ".ssid").empty())
+		{
+			SystemConf::getInstance()->set(slot + ".key", "");
+			compactWifiSlots();
+		}
+	});
+
+	// a new network is tried straight away, like the primary one
+	bool isNew = ssid.empty();
+	s->onFinalize([window, slot, isNew, onClose]
+	{
+		onClose();
+
+		std::string newSsid = SystemConf::getInstance()->get(slot + ".ssid");
+		if (isNew && !newSsid.empty())
+			useWifiNetwork(window, newSsid);
+	});
+
+	mWindow->pushGui(s);
+}
+#endif
+
 void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 {
 	bool baseWifiEnabled = SystemConf::getInstance()->getBool("wifi.enabled");
@@ -4432,15 +4587,15 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 	const std::string baseSSID = SystemConf::getInstance()->get("wifi.ssid");
 	const std::string baseKEY = SystemConf::getInstance()->get("wifi.key");
 #if !WIN32
+	const std::string baseOthers = getOtherWifiNetworksState();
 	const std::string baseCountry = SystemConf::getInstance()->get("wifi.country");
 #endif
 
 	if (baseWifiEnabled)
 	{
-		s->addInputTextConfigRow(_("WI-FI SSID"), "wifi.ssid", false, false, &openWifiSettings);
-		s->addInputTextConfigRow(_("WI-FI KEY"), "wifi.key", true);
-
 #if !WIN32
+		s->addSubMenu(_("WI-FI NETWORKS"), [this] { openWifiNetworks(); });
+
         // Batocera-specific WI-FI COUNTRY option
         auto country_codes = getCountryCodes();
         auto country = std::make_shared<OptionListComponent<std::string>>(mWindow, _("WI-FI COUNTRY"), false);
@@ -4455,12 +4610,15 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 
         s->addWithLabel(_("WI-FI COUNTRY"), country);
         s->addSaveFunc([country] { SystemConf::getInstance()->set("wifi.country", country->getSelected()); });
+#else
+		s->addInputTextConfigRow(_("WI-FI SSID"), "wifi.ssid", false, false, &openWifiSettings);
+		s->addInputTextConfigRow(_("WI-FI KEY"), "wifi.key", true);
 #endif
 	}
 
 	s->addSaveFunc([baseWifiEnabled, baseSSID, baseKEY,
 #if !WIN32
-	baseCountry,
+	baseOthers, baseCountry,
 #endif
 	enable_wifi, window]
 	{
@@ -4482,6 +4640,8 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 				else
 					window->pushGui(new GuiMsgBox(window, _("WI-FI CONFIGURATION ERROR")));
 			}
+			else if (baseOthers != getOtherWifiNetworksState())
+				ApiSystem::getInstance()->configureWifi();
 #else
 			if (baseSSID != newSSID || baseKEY != newKey || !baseWifiEnabled)
 			{

@@ -248,6 +248,10 @@ public:
 #else
 	bool enableWifi(std::string ssid, std::string key);
 #endif
+#if !WIN32
+	bool configureWifi();
+	bool connectWifi(const std::string& ssid);
+#endif
     bool disableWifi();
 
 	virtual std::string getIpAddress();
