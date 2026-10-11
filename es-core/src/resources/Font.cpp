@@ -649,7 +649,7 @@ std::string Font::processRTLText(const std::string& text)
             int ulen = fribidi_charset_to_unicode(FRIBIDI_CHAR_SET_UTF8, line.c_str(), len, unicode_in.data());
 
             // 2. Apply FriBidi for shaping + reorganisation BiDi
-            FriBidiParType base_dir = FRIBIDI_PAR_RTL;
+            FriBidiParType base_dir = FRIBIDI_PAR_ON; // auto dectect, to apply ponctuation depending on the language
             fribidi_boolean ok = fribidi_log2vis(unicode_in.data(), ulen, &base_dir, unicode_out.data(), nullptr, nullptr, nullptr);
 
             if(ok)
