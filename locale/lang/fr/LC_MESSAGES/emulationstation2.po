@@ -2266,15 +2266,15 @@ msgstr ""
 "le temps de démarrage"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "PROFONDEUR DES RÉPERTOIRES À INDEXER"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "ILLIMITÉ"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
-msgstr ""
+msgstr "Profondeur maximale dans chaque dossier ROM, afin d'ignorer ceux ayant de nombreux fichiers."
 
 msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
@@ -2925,11 +2925,37 @@ msgstr "ACTIVER LES SONS DE NAVIGATION"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ACTIVER LE SON DES VIDÉOS"
 
-msgid "IP ADDRESS"
-msgstr "ADRESSE IP"
-
 msgid "CONNECTED"
 msgstr "CONNECTÉ"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr "IMPOSSIBLE DE SE CONNECTER À '%s'"
+
+msgid "WI-FI NETWORKS"
+msgstr "RÉSEAUX WI-FI"
+
+msgid "ADD A WI-FI NETWORK"
+msgstr "AJOUTER UN RÉSEAU WI-FI"
+
+msgid "WI-FI SSID"
+msgstr "NOM DU RÉSEAU WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "CLÉ WI-FI"
+
+msgid "USE"
+msgstr "UTILISER"
+
+msgid "FORGET"
+msgstr "OUBLIER"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ÊTES VOUS SÛR DE VOULOIR OUBLIER '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "ADRESSE IP"
 
 msgid "INTERNET STATUS"
 msgstr "STATUT INTERNET"
@@ -2939,12 +2965,6 @@ msgstr "NOM SUR LE RÉSEAU"
 
 msgid "ENABLE WI-FI"
 msgstr "ACTIVER LE WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "NOM DU RÉSEAU WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "CLÉ WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI PAYS"
@@ -3127,13 +3147,6 @@ msgstr "DÉCONNECTER"
 
 msgid "CONNECT"
 msgstr "CONNECTER"
-
-msgid "FORGET"
-msgstr "OUBLIER"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ÊTES VOUS SÛR DE VOULOIR OUBLIER '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
