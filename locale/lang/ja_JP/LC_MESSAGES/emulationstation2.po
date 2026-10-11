@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v44b(2026/10/02)\n"
+"Project-Id-Version: batocera-es v44b(2026/10/11)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-10-02 19:23+0900\n"
+"PO-Revision-Date: 2026-10-11 18:23+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -2914,13 +2914,13 @@ msgstr "接続中"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "'%s' に接続できません"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "Wi-Fiネットワーク"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "Wi-Fiネットワークを追加"
 
 msgid "WI-FI SSID"
 msgstr "WI-FI SSID"
@@ -2929,7 +2929,7 @@ msgid "WI-FI KEY"
 msgstr "WI-FI キー"
 
 msgid "USE"
-msgstr ""
+msgstr "使用"
 
 msgid "FORGET"
 msgstr "削除"

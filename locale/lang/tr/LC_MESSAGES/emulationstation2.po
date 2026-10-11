@@ -2914,7 +2914,7 @@ msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "VİDEO OYNATIRKEN MÜZİĞİ KIS"
 
 msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
-msgstr "SADECE FAVORİ OYNATMA LİSTENIZDEKİ ŞARKILARI OYNAT"
+msgstr "SADECE FAVORİ OYNATMA LİSTENİZDEKİ ŞARKILARI OYNAT"
 
 msgid "SELECTION OF FAVORITE SONGS"
 msgstr "FAVORİ ŞARKILARDAN SEÇMELER"
@@ -2933,13 +2933,13 @@ msgstr "BAĞLI"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "'%s' AĞINA BAĞLANILAMADI"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "WİFİ AĞLARI"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "WİFİ AĞI EKLE"
 
 msgid "WI-FI SSID"
 msgstr "WİFİ SSID"
@@ -2948,7 +2948,7 @@ msgid "WI-FI KEY"
 msgstr "WİFİ ANAHTARI"
 
 msgid "USE"
-msgstr ""
+msgstr "KULLAN"
 
 msgid "FORGET"
 msgstr "UNUT"
