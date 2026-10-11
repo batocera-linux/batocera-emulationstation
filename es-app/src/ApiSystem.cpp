@@ -3196,7 +3196,13 @@ void ApiSystem::saveKeyboardtopads(Keyboardtopad ktp, const std::vector<Keyboard
 
       cmd_dev = "";
       cmd_dev += " --device-number " +  std::to_string(ndev);
-      cmd_dev += " --device-name \"" + ktp_devices[d].name + "\"";
+
+      if(ktp_devices[d].type == "hotkeys" && ktp_devices[d].name == "") {
+	// force a name for hotkeys
+	cmd_dev += " --device-name \"ktp hotkeys\"";
+      } else {
+	cmd_dev += " --device-name \"" + ktp_devices[d].name + "\"";
+      }
       cmd_dev += " --device-type "   + ktp_devices[d].type;
 
       cmd_dev += " --set-values \"";
