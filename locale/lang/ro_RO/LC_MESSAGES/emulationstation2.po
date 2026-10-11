@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-16 22:56+0300\n"
+"PO-Revision-Date: 2026-10-09 19:43+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -2053,7 +2053,7 @@ msgid "VSYNC"
 msgstr "VSYNC"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "ANTI-ALIASING (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "LIMITĂ FPS"
@@ -2226,10 +2226,11 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLEAZĂ ES DOAR CU PRIMUL JOYSTICK"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "JOYSTICK-UL ANALOGIC DREPT AJUSTEAZĂ VOLUMUL"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
 msgstr ""
+"Mișcă joystick-ul drept sus/jos pentru a crește sau scădea volumul audio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANȚA LA MIȘCAREA PUȘTII"
@@ -2269,15 +2270,17 @@ msgstr ""
 "dar mărește timpul de boot"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "ADÂNCIMEA DOSARELOR DE INDEXAT"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "NELIMITATĂ"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
+"Adâncimea maximă de scanat în interiorul fiecărui dosar ROM, pentru a ignora "
+"subdosarele cu multe fișiere."
 
 msgid "THREADED LOADING"
 msgstr "ÎNCĂRCARE PE FIRE DE EXECUȚIE"
@@ -2313,7 +2316,7 @@ msgid "UPDATE TYPE"
 msgstr "TIP ACTUALIZARE"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "ACTUALIZARE ARHITECTURĂ"
 
 msgid "APPLY UPDATE"
 msgstr "APLICĂ ACTUALIZAREA"
@@ -3528,7 +3531,7 @@ msgid "never played"
 msgstr "jucat niciodată"
 
 msgid "RetroAchievements"
-msgstr "retrorealizări"
+msgstr "RetroRealizări"
 
 msgid "arcade"
 msgstr "arcade"
