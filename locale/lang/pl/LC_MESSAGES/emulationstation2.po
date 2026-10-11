@@ -2927,11 +2927,37 @@ msgstr "WŁĄCZ DŹWIĘKI NAWIGACJI"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "WŁĄCZ DŹWIĘK WIDEO"
 
-msgid "IP ADDRESS"
-msgstr "ADRES IP"
-
 msgid "CONNECTED"
 msgstr "POŁĄCZONO"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "HASŁO WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "ZAPOMNIJ"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "CZY NA PEWNO ZAPOMNIEĆ '%s'?"
+
+msgid "IP ADDRESS"
+msgstr "ADRES IP"
 
 msgid "INTERNET STATUS"
 msgstr "STATUS INTERNETU"
@@ -2941,12 +2967,6 @@ msgstr "NAZWA HOSTA"
 
 msgid "ENABLE WI-FI"
 msgstr "WŁĄCZ WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "HASŁO WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "KRAJ WI-FI"
@@ -3130,13 +3150,6 @@ msgstr "ROZŁĄCZ"
 
 msgid "CONNECT"
 msgstr "POŁĄCZ"
-
-msgid "FORGET"
-msgstr "ZAPOMNIJ"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "CZY NA PEWNO ZAPOMNIEĆ '%s'?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

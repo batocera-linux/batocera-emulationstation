@@ -2908,11 +2908,37 @@ msgstr "Povoliť zvuky navigácie"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "Povoliť zvuk pri video náhľade"
 
-msgid "IP ADDRESS"
-msgstr "IP adresa"
-
 msgid "CONNECTED"
 msgstr "Pripojené"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "Názov siete"
+
+msgid "WI-FI KEY"
+msgstr "Wi-Fi heslo"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "Zabudnúť"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "Určite chcete zabudnúť '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "IP adresa"
 
 msgid "INTERNET STATUS"
 msgstr "Stav internetu"
@@ -2922,12 +2948,6 @@ msgstr "Názov hostiteľa"
 
 msgid "ENABLE WI-FI"
 msgstr "Povoliť Wi-Fi"
-
-msgid "WI-FI SSID"
-msgstr "Názov siete"
-
-msgid "WI-FI KEY"
-msgstr "Wi-Fi heslo"
 
 msgid "WI-FI COUNTRY"
 msgstr "Krajina WI-FI"
@@ -3111,13 +3131,6 @@ msgstr "Odpojiť"
 
 msgid "CONNECT"
 msgstr "Pripojiť"
-
-msgid "FORGET"
-msgstr "Zabudnúť"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "Určite chcete zabudnúť '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

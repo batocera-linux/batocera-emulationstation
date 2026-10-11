@@ -2860,10 +2860,36 @@ msgstr ""
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr ""
 
-msgid "IP ADDRESS"
+msgid "CONNECTED"
 msgstr ""
 
-msgid "CONNECTED"
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr ""
+
+msgid "WI-FI KEY"
+msgstr ""
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "IP ADDRESS"
 msgstr ""
 
 msgid "INTERNET STATUS"
@@ -2873,12 +2899,6 @@ msgid "HOSTNAME"
 msgstr ""
 
 msgid "ENABLE WI-FI"
-msgstr ""
-
-msgid "WI-FI SSID"
-msgstr ""
-
-msgid "WI-FI KEY"
 msgstr ""
 
 msgid "WI-FI COUNTRY"
@@ -3058,13 +3078,6 @@ msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
 
 #, c-format

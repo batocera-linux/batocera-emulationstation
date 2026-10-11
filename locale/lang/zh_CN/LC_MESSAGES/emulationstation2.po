@@ -2877,11 +2877,37 @@ msgstr "启用导航声音"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "启用视频预览声音"
 
-msgid "IP ADDRESS"
-msgstr "IP地址"
-
 msgid "CONNECTED"
 msgstr "已连接"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI 名称"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI 密码"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "忘记"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "你确定要忘记 '%s' 吗?"
+
+msgid "IP ADDRESS"
+msgstr "IP地址"
 
 msgid "INTERNET STATUS"
 msgstr "网络状态"
@@ -2891,12 +2917,6 @@ msgstr "主机名"
 
 msgid "ENABLE WI-FI"
 msgstr "启用 WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI 名称"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI 密码"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI国家代码"
@@ -3078,13 +3098,6 @@ msgstr "断开连接"
 
 msgid "CONNECT"
 msgstr "连接"
-
-msgid "FORGET"
-msgstr "忘记"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "你确定要忘记 '%s' 吗?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

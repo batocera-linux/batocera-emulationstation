@@ -2895,11 +2895,37 @@ msgstr ""
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "OTA KÄYTTÖÖN VIDEOIDEN ESIKATSELUN ÄÄNI"
 
-msgid "IP ADDRESS"
-msgstr "IP-OSOITE"
-
 msgid "CONNECTED"
 msgstr "YHDISTETTY"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI:N SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI:N SALASANA"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "IP ADDRESS"
+msgstr "IP-OSOITE"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNET-YHTEYDEN TILA"
@@ -2909,12 +2935,6 @@ msgstr "ISÄNTÄNIMI"
 
 msgid "ENABLE WI-FI"
 msgstr "OTA WI-FI KÄYTTÖÖN"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI:N SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI:N SALASANA"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3098,13 +3118,6 @@ msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
 
 #, c-format

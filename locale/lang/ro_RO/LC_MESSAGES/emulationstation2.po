@@ -2936,11 +2936,37 @@ msgstr "ACTIVEAZĂ SUNETELE ÎN NAVIGARE"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ACTIVEAZĂ PREVIZUALIZARE VIDEO CU SUNET"
 
-msgid "IP ADDRESS"
-msgstr "ADRESĂ IP"
-
 msgid "CONNECTED"
 msgstr "CONECTAT"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "CHEIE WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "UITĂ"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "EȘTI SIGUR CĂ VREI SĂ UIȚI „%s”?"
+
+msgid "IP ADDRESS"
+msgstr "ADRESĂ IP"
 
 msgid "INTERNET STATUS"
 msgstr "STARE INTERNET"
@@ -2950,12 +2976,6 @@ msgstr "NUME SISTEM"
 
 msgid "ENABLE WI-FI"
 msgstr "ACTIVEAZĂ WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "SSID WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "CHEIE WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "ȚARĂ WI-FI"
@@ -3139,13 +3159,6 @@ msgstr "DECONECTEAZĂ"
 
 msgid "CONNECT"
 msgstr "CONECTEAZĂ"
-
-msgid "FORGET"
-msgstr "UITĂ"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "EȘTI SIGUR CĂ VREI SĂ UIȚI „%s”?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

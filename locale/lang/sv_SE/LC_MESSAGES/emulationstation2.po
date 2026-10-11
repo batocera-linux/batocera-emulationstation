@@ -2913,11 +2913,37 @@ msgstr "AKTIVERA NAVIGATIONSLJUD"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "AKTIVERA FÖRHANDSGRANSKNING AV VIDEO LJUD"
 
-msgid "IP ADDRESS"
-msgstr "IP-ADRESS"
-
 msgid "CONNECTED"
 msgstr "ANSLUTEN"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI-NYCKEL"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "FÖRGLÖM"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL GLÖMMA \\\"%s\\\"?"
+
+msgid "IP ADDRESS"
+msgstr "IP-ADRESS"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNETSTATUS"
@@ -2927,12 +2953,6 @@ msgstr "VÄRDNAMN"
 
 msgid "ENABLE WI-FI"
 msgstr "AKTIVERA WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI-NYCKEL"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI LAND"
@@ -3115,13 +3135,6 @@ msgstr "FRÅNKOPPLING"
 
 msgid "CONNECT"
 msgstr "ANSLUTA"
-
-msgid "FORGET"
-msgstr "FÖRGLÖM"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL GLÖMMA \\\"%s\\\"?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

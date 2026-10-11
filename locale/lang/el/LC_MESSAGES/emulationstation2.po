@@ -2887,11 +2887,37 @@ msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΗΧΩΝ ΠΛΟΗΓΗΣΗΣ"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΗΧΩΝ ΒΙΝΤΕΟ"
 
-msgid "IP ADDRESS"
-msgstr "ΔΙΕΥΘΥΝΣΗ IP"
-
 msgid "CONNECTED"
 msgstr "ΣΥΝΔΕΔΕΜΕΝΟ"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "SSID ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
+
+msgid "WI-FI KEY"
+msgstr "ΚΛΕΙΔΙ ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "IP ADDRESS"
+msgstr "ΔΙΕΥΘΥΝΣΗ IP"
 
 msgid "INTERNET STATUS"
 msgstr "ΚΑΤΑΣΤΑΣΗ ΙΝΤΕΡΝΕΤ"
@@ -2901,12 +2927,6 @@ msgstr "ΟΝΟΜΑ ΥΠΟΛΟΓΙΣΤΗ"
 
 msgid "ENABLE WI-FI"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗΣ"
-
-msgid "WI-FI SSID"
-msgstr "SSID ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
-
-msgid "WI-FI KEY"
-msgstr "ΚΛΕΙΔΙ ΑΣΥΡΜΑΤΟΥ ΔΙΚΤΥΟΥ"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3088,13 +3108,6 @@ msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
 
 #, c-format

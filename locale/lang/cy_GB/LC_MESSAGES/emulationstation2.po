@@ -2875,11 +2875,37 @@ msgstr "GALLUOGI SEINIAU MORDWYO"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "GALLUOGI SAIN FIDEO"
 
-msgid "IP ADDRESS"
-msgstr "CYFEIRIAD IP"
-
 msgid "CONNECTED"
 msgstr "WEDI CYSYLLTU"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "ALLWEDD WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "IP ADDRESS"
+msgstr "CYFEIRIAD IP"
 
 msgid "INTERNET STATUS"
 msgstr "STATWS RHYNGRWYD"
@@ -2889,12 +2915,6 @@ msgstr "ENW HOST"
 
 msgid "ENABLE WI-FI"
 msgstr "GALLUOGI WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "SSID WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "ALLWEDD WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3073,13 +3093,6 @@ msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
 
 #, c-format

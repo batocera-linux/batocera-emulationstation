@@ -2909,11 +2909,37 @@ msgstr "操作音を有効"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "デモ動画のBGMを有効"
 
-msgid "IP ADDRESS"
-msgstr "IP アドレス"
-
 msgid "CONNECTED"
 msgstr "接続中"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI キー"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "削除"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "'%s' を削除しますか？"
+
+msgid "IP ADDRESS"
+msgstr "IP アドレス"
 
 msgid "INTERNET STATUS"
 msgstr "接続状態"
@@ -2923,12 +2949,6 @@ msgstr "ホスト名"
 
 msgid "ENABLE WI-FI"
 msgstr "WI-FI 有効"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI キー"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI 使用国"
@@ -3111,13 +3131,6 @@ msgstr "接続解除"
 
 msgid "CONNECT"
 msgstr "接続"
-
-msgid "FORGET"
-msgstr "削除"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "'%s' を削除しますか？"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

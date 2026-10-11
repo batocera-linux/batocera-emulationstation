@@ -2873,11 +2873,37 @@ msgstr "啟動導覽音效"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "啟動影片音訊"
 
-msgid "IP ADDRESS"
-msgstr "IP 位址"
-
 msgid "CONNECTED"
 msgstr "已連線"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI 連線名稱"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI 連線金鑰"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "忘記"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "你確定要忘記「%s」嗎？"
+
+msgid "IP ADDRESS"
+msgstr "IP 位址"
 
 msgid "INTERNET STATUS"
 msgstr "網路狀態"
@@ -2887,12 +2913,6 @@ msgstr "主機名稱"
 
 msgid "ENABLE WI-FI"
 msgstr "啟用 WI-FI 無線網絡"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI 連線名稱"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI 連線金鑰"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3074,13 +3094,6 @@ msgstr "斷開連線"
 
 msgid "CONNECT"
 msgstr "連線"
-
-msgid "FORGET"
-msgstr "忘記"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "你確定要忘記「%s」嗎？"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

@@ -2896,11 +2896,37 @@ msgstr "탐색 사운드 활성화"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "비디오 미리보기 오디오 활성화"
 
-msgid "IP ADDRESS"
-msgstr "IP 주소"
-
 msgid "CONNECTED"
 msgstr "연결됨"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI 비밀번호"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "제거"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "'%s'을(를) 정말로 제거할까요?"
+
+msgid "IP ADDRESS"
+msgstr "IP 주소"
 
 msgid "INTERNET STATUS"
 msgstr "인터넷 상태"
@@ -2910,12 +2936,6 @@ msgstr "호스트 이름"
 
 msgid "ENABLE WI-FI"
 msgstr "WI-FI 활성화"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI 비밀번호"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI 국가"
@@ -3097,13 +3117,6 @@ msgstr "연결 해제"
 
 msgid "CONNECT"
 msgstr "연결"
-
-msgid "FORGET"
-msgstr "제거"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "'%s'을(를) 정말로 제거할까요?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

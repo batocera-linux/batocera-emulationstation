@@ -2905,11 +2905,37 @@ msgstr "POVOLIT NAVIGAČNÍ ZVUKY"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "POVOLIT NÁHLED VIDEA SE ZVUKEM"
 
-msgid "IP ADDRESS"
-msgstr "IP ADRESA"
-
 msgid "CONNECTED"
 msgstr "PŘIPOJEN"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "HESLO WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "ZAPOMENOUT"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "JSTE SI JISTI, ŽE CHCETE ZAPOMENOUT '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "IP ADRESA"
 
 msgid "INTERNET STATUS"
 msgstr "STAV INTERNETU"
@@ -2919,12 +2945,6 @@ msgstr "HOSTNAME"
 
 msgid "ENABLE WI-FI"
 msgstr "POVOLIT WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "HESLO WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3109,13 +3129,6 @@ msgstr "ODPOJIT"
 
 msgid "CONNECT"
 msgstr "PŘIPOJIT"
-
-msgid "FORGET"
-msgstr "ZAPOMENOUT"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "JSTE SI JISTI, ŽE CHCETE ZAPOMENOUT '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

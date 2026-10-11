@@ -2908,11 +2908,37 @@ msgstr "GAITU NABIGATZE SOINUAK"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "GAITU BIDEO AURREIKUSPENAREN AUDIOA"
 
-msgid "IP ADDRESS"
-msgstr "IP HELBIDEA"
-
 msgid "CONNECTED"
 msgstr "KONEKTATUTA"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID-a"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI GAKOA"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "IP ADDRESS"
+msgstr "IP HELBIDEA"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNET EGOERA"
@@ -2922,12 +2948,6 @@ msgstr "GAILUAREN IZENA"
 
 msgid "ENABLE WI-FI"
 msgstr "WI-FI-a AKTIBATU"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID-a"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI GAKOA"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3111,13 +3131,6 @@ msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
 
 #, c-format

@@ -2930,11 +2930,37 @@ msgstr "HABILITAR ELS SONS DE NAVEGACIÓ"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "HABILITAR L'ÀUDIO A LES PREVISUALITZACIONS DE VÍDEO"
 
-msgid "IP ADDRESS"
-msgstr "ADREÇA IP"
-
 msgid "CONNECTED"
 msgstr "CONNECTAT"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "SSID DEL WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "CLAU DEL WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "OBLIDAR"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ESTÀS SEGUR DE VOLER OBLIDAR ‘%s’?"
+
+msgid "IP ADDRESS"
+msgstr "ADREÇA IP"
 
 msgid "INTERNET STATUS"
 msgstr "ESTAT D'INTERNET"
@@ -2944,12 +2970,6 @@ msgstr "NOM DE LA MÀQUINA"
 
 msgid "ENABLE WI-FI"
 msgstr "ACTIVAR WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "SSID DEL WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "CLAU DEL WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "PAÍS DE LA WI-FI"
@@ -3133,13 +3153,6 @@ msgstr "DESCONNECTAR"
 
 msgid "CONNECT"
 msgstr "CONNECTAR"
-
-msgid "FORGET"
-msgstr "OBLIDAR"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ESTÀS SEGUR DE VOLER OBLIDAR ‘%s’?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

@@ -2901,11 +2901,37 @@ msgstr "AKTIVER NAVIGASJONSLYDER"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "AKTIVER VIDEO FORHÅNDSVISNING LYD"
 
-msgid "IP ADDRESS"
-msgstr "IP ADRESSE"
-
 msgid "CONNECTED"
 msgstr "TILKOBLET"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "NETTVERKSNAVN"
+
+msgid "WI-FI KEY"
+msgstr "NETTVERKSPASSORD"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "GLEM"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ER DU SIKKER PÅ AT DU VIL GLEMME '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "IP ADRESSE"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNETT STATUS"
@@ -2915,12 +2941,6 @@ msgstr "ENHETSNAVN"
 
 msgid "ENABLE WI-FI"
 msgstr "AKTIVER WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "NETTVERKSNAVN"
-
-msgid "WI-FI KEY"
-msgstr "NETTVERKSPASSORD"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3104,13 +3124,6 @@ msgstr "FRAKOBLE"
 
 msgid "CONNECT"
 msgstr "TILKOBLE"
-
-msgid "FORGET"
-msgstr "GLEM"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ER DU SIKKER PÅ AT DU VIL GLEMME '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

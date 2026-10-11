@@ -2908,11 +2908,37 @@ msgstr "BẬT ĐIỀU HƯỚNG ÂM THANH"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "BẬT NGHE TRƯỚC ÂM THANH VIDEO"
 
-msgid "IP ADDRESS"
-msgstr "ĐỊA CHỈ IP"
-
 msgid "CONNECTED"
 msgstr "ĐÃ KẾT NỐI"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "QUÊN"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "BẠN CÓ CHẮC MUỐN QUÊN '%s' KHÔNG?"
+
+msgid "IP ADDRESS"
+msgstr "ĐỊA CHỈ IP"
 
 msgid "INTERNET STATUS"
 msgstr "TRẠNG THÁI MẠNG"
@@ -2922,12 +2948,6 @@ msgstr "TÊN MÁY CHỦ"
 
 msgid "ENABLE WI-FI"
 msgstr "BẬT WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI KEY"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3112,13 +3132,6 @@ msgstr "NGẮT KẾT NỐI"
 
 msgid "CONNECT"
 msgstr "KẾT NỐI"
-
-msgid "FORGET"
-msgstr "QUÊN"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "BẠN CÓ CHẮC MUỐN QUÊN '%s' KHÔNG?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

@@ -2907,11 +2907,37 @@ msgstr "AKTIFKAN SUARA NAVIGASI"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "AKTIFKAN AUDIO PREVIEW VIDEO"
 
-msgid "IP ADDRESS"
-msgstr "ALAMAT IP"
-
 msgid "CONNECTED"
 msgstr "TERHUBUNG"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "NAMA WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "PASSWORD WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "LUPAKAN"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ANDA YAKIN INGIN MELUPAKAN '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "ALAMAT IP"
 
 msgid "INTERNET STATUS"
 msgstr "STATUS INTERNET"
@@ -2921,12 +2947,6 @@ msgstr "NAMA HOST"
 
 msgid "ENABLE WI-FI"
 msgstr "AKTIFKAN WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "NAMA WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "PASSWORD WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "NEGARA WI-FI"
@@ -3108,13 +3128,6 @@ msgstr "PUTUSKAN"
 
 msgid "CONNECT"
 msgstr "SAMBUNGKAN"
-
-msgid "FORGET"
-msgstr "LUPAKAN"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ANDA YAKIN INGIN MELUPAKAN '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

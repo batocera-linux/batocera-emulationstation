@@ -2936,11 +2936,37 @@ msgstr "NAVIGATIEGELUIDEN INSCHAKELEN"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VIDEO PREVIEW AUDIO INSCHAKELEN"
 
-msgid "IP ADDRESS"
-msgstr "IP ADRES"
-
 msgid "CONNECTED"
 msgstr "VERBONDEN"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI KEY"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "VERGEET"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "WEET U ZEKER DAT U '%s' WILT VERGETEN?"
+
+msgid "IP ADDRESS"
+msgstr "IP ADRES"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNET STATUS"
@@ -2950,12 +2976,6 @@ msgstr "HOSTNAAM"
 
 msgid "ENABLE WI-FI"
 msgstr "WI-FI INSCHAKELEN"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI KEY"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI LAND"
@@ -3139,13 +3159,6 @@ msgstr "VERBREEK"
 
 msgid "CONNECT"
 msgstr "VERBIND"
-
-msgid "FORGET"
-msgstr "VERGEET"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "WEET U ZEKER DAT U '%s' WILT VERGETEN?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

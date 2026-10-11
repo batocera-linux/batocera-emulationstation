@@ -2938,11 +2938,37 @@ msgstr "NAVIGATIONS-SOUNDS AKTIVIEREN"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "TON IN VIDEOVORSCHAU AKTIVIEREN"
 
-msgid "IP ADDRESS"
-msgstr "IP-ADDRESSE"
-
 msgid "CONNECTED"
 msgstr "VERBUNDEN"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WLAN SSID"
+
+msgid "WI-FI KEY"
+msgstr "WLAN PASSWORT"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "VERGESSEN"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "SIND SIE SICHER, DASS SIE '%s' VERGESSEN WOLLEN?"
+
+msgid "IP ADDRESS"
+msgstr "IP-ADDRESSE"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNET STATUS"
@@ -2952,12 +2978,6 @@ msgstr "HOSTNAME"
 
 msgid "ENABLE WI-FI"
 msgstr "WLAN AKTIVIEREN"
-
-msgid "WI-FI SSID"
-msgstr "WLAN SSID"
-
-msgid "WI-FI KEY"
-msgstr "WLAN PASSWORT"
 
 msgid "WI-FI COUNTRY"
 msgstr "WLAN-LAND"
@@ -3142,13 +3162,6 @@ msgstr "VERBINDUNG TRENNEN"
 
 msgid "CONNECT"
 msgstr "VERBINDEN"
-
-msgid "FORGET"
-msgstr "VERGESSEN"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "SIND SIE SICHER, DASS SIE '%s' VERGESSEN WOLLEN?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

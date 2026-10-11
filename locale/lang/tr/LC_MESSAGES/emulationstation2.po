@@ -2928,11 +2928,37 @@ msgstr "GEZİNTİ SESLERİNİ ETKİNLEŞTİR"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VİDEO ÖNİZLEME SESİNİ ETKİNLEŞTİR"
 
-msgid "IP ADDRESS"
-msgstr "IP ADRESİ"
-
 msgid "CONNECTED"
 msgstr "BAĞLI"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WİFİ SSID"
+
+msgid "WI-FI KEY"
+msgstr "WİFİ ANAHTARI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "UNUT"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "UNUTMAK İSTEDİĞİNİZDEN EMİN MİSİNİZ '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "IP ADRESİ"
 
 msgid "INTERNET STATUS"
 msgstr "İNTERNET DURUMU"
@@ -2942,12 +2968,6 @@ msgstr "SUNUCU ADI"
 
 msgid "ENABLE WI-FI"
 msgstr "WİFİ ETKİNLEŞTİR"
-
-msgid "WI-FI SSID"
-msgstr "WİFİ SSID"
-
-msgid "WI-FI KEY"
-msgstr "WİFİ ANAHTARI"
 
 msgid "WI-FI COUNTRY"
 msgstr "WİFİ ÜLKESİ"
@@ -3131,13 +3151,6 @@ msgstr "BAĞLANTIYI KES"
 
 msgid "CONNECT"
 msgstr "BAĞLAN"
-
-msgid "FORGET"
-msgstr "UNUT"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "UNUTMAK İSTEDİĞİNİZDEN EMİN MİSİNİZ '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
@@ -4088,7 +4101,8 @@ msgstr[1] "%d saniye önce"
 #~ msgstr "Sürücü birleştiriliyor... Lütfen bekleyin."
 
 #~ msgid "New drive content will be available after games list is refreshed..."
-#~ msgstr "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
+#~ msgstr ""
+#~ "Oyun listesi yenilendikten sonra yeni sürücü içeriği mevcut olacak..."
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "OYUN BİLGİ AYARLARI"

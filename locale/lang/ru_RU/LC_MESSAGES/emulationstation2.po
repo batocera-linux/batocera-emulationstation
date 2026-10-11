@@ -2911,11 +2911,37 @@ msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
 
-msgid "IP ADDRESS"
-msgstr "IP АДРЕС"
-
 msgid "CONNECTED"
 msgstr "ПОДКЛЮЧЕНО"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "ИМЯ СЕТИ WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "ПАРОЛЬ СЕТИ WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "ЗАБЫТЬ"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ЗАБЫТЬ '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "IP АДРЕС"
 
 msgid "INTERNET STATUS"
 msgstr "СТАТУС СЕТИ"
@@ -2925,12 +2951,6 @@ msgstr "ИМЯ ХОСТА"
 
 msgid "ENABLE WI-FI"
 msgstr "ВКЛЮЧИТЬ WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "ИМЯ СЕТИ WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "ПАРОЛЬ СЕТИ WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "СТРАНА WI-FI"
@@ -3114,13 +3134,6 @@ msgstr "ОТКЛЮЧИТЬ"
 
 msgid "CONNECT"
 msgstr "ПОДКЛЮЧИТЬ"
-
-msgid "FORGET"
-msgstr "ЗАБЫТЬ"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ЗАБЫТЬ '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

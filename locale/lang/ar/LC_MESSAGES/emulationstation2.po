@@ -2944,11 +2944,37 @@ msgstr "تفعيل أصوات التنقل"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "تفعيل صوت فيديو المعاينة"
 
-msgid "IP ADDRESS"
-msgstr "عنوان بروتوكول الإنترنت"
-
 msgid "CONNECTED"
 msgstr "متصل"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "اسم الشبكة"
+
+msgid "WI-FI KEY"
+msgstr "كلمة سر الوايفاي"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "نسيان"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "هل أنت متأكد أنك تريد أن تنسى '%s' ؟"
+
+msgid "IP ADDRESS"
+msgstr "عنوان بروتوكول الإنترنت"
 
 msgid "INTERNET STATUS"
 msgstr "حالة الإنترنت"
@@ -2958,12 +2984,6 @@ msgstr "اسم المضيف"
 
 msgid "ENABLE WI-FI"
 msgstr "تفعيل الوايفاي"
-
-msgid "WI-FI SSID"
-msgstr "اسم الشبكة"
-
-msgid "WI-FI KEY"
-msgstr "كلمة سر الوايفاي"
 
 msgid "WI-FI COUNTRY"
 msgstr "دولة الوايفاي"
@@ -3145,13 +3165,6 @@ msgstr "قطع الاتصال"
 
 msgid "CONNECT"
 msgstr "اتصال"
-
-msgid "FORGET"
-msgstr "نسيان"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "هل أنت متأكد أنك تريد أن تنسى '%s' ؟"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

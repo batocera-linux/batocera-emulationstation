@@ -2923,11 +2923,37 @@ msgstr "ATIVAR SOM DE NAVEGAÇÃO"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ATIVAR SOM DE VÍDEOS DE PRÉ-VISUALIZAÇÃO"
 
-msgid "IP ADDRESS"
-msgstr "ENDEREÇO IP"
-
 msgid "CONNECTED"
 msgstr "CONECTADO"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "NOME DA REDE WI-FI (SSID)"
+
+msgid "WI-FI KEY"
+msgstr "SENHA DO WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "ESQUECER"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "VOCÊ TEM A CERTEZA QUE QUER ESQUECER '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "ENDEREÇO IP"
 
 msgid "INTERNET STATUS"
 msgstr "ESTADO DA INTERNET"
@@ -2937,12 +2963,6 @@ msgstr "NOME DA REDE"
 
 msgid "ENABLE WI-FI"
 msgstr "ATIVAR WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "NOME DA REDE WI-FI (SSID)"
-
-msgid "WI-FI KEY"
-msgstr "SENHA DO WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "PAÍS WI-FI"
@@ -3127,13 +3147,6 @@ msgstr "DESCONECTAR"
 
 msgid "CONNECT"
 msgstr "CONECTAR"
-
-msgid "FORGET"
-msgstr "ESQUECER"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "VOCÊ TEM A CERTEZA QUE QUER ESQUECER '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

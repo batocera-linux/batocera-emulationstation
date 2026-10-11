@@ -2929,11 +2929,37 @@ msgstr "NAVIGÁCIÓS HANGOK ENGEDÉLYEZÉSE"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VIDEÓ HANGJÁNAK ENGEDÉLYEZÉSE"
 
-msgid "IP ADDRESS"
-msgstr "IP CÍM"
-
 msgid "CONNECTED"
 msgstr "CSATLAKOZVA"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "WI-FI SSID"
+
+msgid "WI-FI KEY"
+msgstr "WI-FI JELSZÓ"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "ELFELEJT"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "BIZTOS, HOGY EL AKAROD FELEJTENI A '%s' -T?"
+
+msgid "IP ADDRESS"
+msgstr "IP CÍM"
 
 msgid "INTERNET STATUS"
 msgstr "INTERNET ÁLLAPOTA"
@@ -2943,12 +2969,6 @@ msgstr "HOSZTNÉV"
 
 msgid "ENABLE WI-FI"
 msgstr "WI-FI ENGEDÉLYEZÉSE"
-
-msgid "WI-FI SSID"
-msgstr "WI-FI SSID"
-
-msgid "WI-FI KEY"
-msgstr "WI-FI JELSZÓ"
 
 msgid "WI-FI COUNTRY"
 msgstr "WI-FI ORSZÁG"
@@ -3132,13 +3152,6 @@ msgstr "SZÉTKAPCSOL"
 
 msgid "CONNECT"
 msgstr "KAPCSOLAT"
-
-msgid "FORGET"
-msgstr "ELFELEJT"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "BIZTOS, HOGY EL AKAROD FELEJTENI A '%s' -T?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

@@ -2910,11 +2910,37 @@ msgstr "ABILITA SUONI DI NAVIGAZIONE"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "AUDIO DELLE ANTEPRIME VIDEO"
 
-msgid "IP ADDRESS"
-msgstr "INDIRIZZO IP"
-
 msgid "CONNECTED"
 msgstr "CONNESSO"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "SSID WI-FI"
+
+msgid "WI-FI KEY"
+msgstr "CHIAVE WI-FI"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr "DIMENTICA"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr "SEI SICURO DI VOLER RIMUOVERE '%s' ?"
+
+msgid "IP ADDRESS"
+msgstr "INDIRIZZO IP"
 
 msgid "INTERNET STATUS"
 msgstr "STATO DI RETE"
@@ -2924,12 +2950,6 @@ msgstr "NOME HOST"
 
 msgid "ENABLE WI-FI"
 msgstr "ATTIVA WI-FI"
-
-msgid "WI-FI SSID"
-msgstr "SSID WI-FI"
-
-msgid "WI-FI KEY"
-msgstr "CHIAVE WI-FI"
 
 msgid "WI-FI COUNTRY"
 msgstr "PAESE WI-FI"
@@ -3112,13 +3132,6 @@ msgstr "DISCONNETTI"
 
 msgid "CONNECT"
 msgstr "CONNETTI"
-
-msgid "FORGET"
-msgstr "DIMENTICA"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "SEI SICURO DI VOLER RIMUOVERE '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"

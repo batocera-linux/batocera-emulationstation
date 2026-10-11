@@ -2865,11 +2865,37 @@ msgstr "הוך צלילי ניווט לפעילים"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr ""
 
-msgid "IP ADDRESS"
-msgstr "כתובת IP"
-
 msgid "CONNECTED"
 msgstr "מחובר"
+
+#, c-format
+msgid "UNABLE TO CONNECT TO '%s'"
+msgstr ""
+
+msgid "WI-FI NETWORKS"
+msgstr ""
+
+msgid "ADD A WI-FI NETWORK"
+msgstr ""
+
+msgid "WI-FI SSID"
+msgstr "שם רשת (WI-FI SSID)"
+
+msgid "WI-FI KEY"
+msgstr "סיסמה (WI-FI KEY)"
+
+msgid "USE"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "IP ADDRESS"
+msgstr "כתובת IP"
 
 msgid "INTERNET STATUS"
 msgstr "מצב אינטרנט"
@@ -2879,12 +2905,6 @@ msgstr "שם מארח"
 
 msgid "ENABLE WI-FI"
 msgstr "הפוך WI-FI לזמין"
-
-msgid "WI-FI SSID"
-msgstr "שם רשת (WI-FI SSID)"
-
-msgid "WI-FI KEY"
-msgstr "סיסמה (WI-FI KEY)"
 
 msgid "WI-FI COUNTRY"
 msgstr ""
@@ -3063,13 +3083,6 @@ msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
-msgstr ""
-
-msgid "FORGET"
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
 msgstr ""
 
 #, c-format
