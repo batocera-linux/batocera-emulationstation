@@ -741,6 +741,13 @@ std::vector<std::string> ApiSystem::getVideoModes(const std::string output)
   }
 }
 
+#ifdef BATOCERA
+bool ApiSystem::isHdrSupported()
+{
+	return executeScript("batocera-resolution supportHdr", nullptr).second == 0;
+}
+#endif
+
 std::vector<std::string> ApiSystem::getCustomRunners() 
 {
 	return executeEnumerationScript("batocera-wine-runners");

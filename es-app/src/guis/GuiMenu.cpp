@@ -1898,6 +1898,9 @@ void GuiMenu::openSystemSettings()
 	  }
 	});
 
+	if (ApiSystem::getInstance()->isHdrSupported())
+		s->addSwitch(_("HDR"), _("Allows HDR content such as Moonlight HDR streams to the display."), "display.hdr", false, [s] { s->setVariable("exitreboot", true); });
+
 	// splash
 	auto optionsSplash = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BOOT SPLASH"), false);
 
