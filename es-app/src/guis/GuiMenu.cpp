@@ -2044,16 +2044,18 @@ void GuiMenu::openSystemSettings()
 	});
 #endif
 
-	// Overclock choice
+	// Overclock choice, only when the device offers more than the default
+	std::vector<std::string> availableOverclocking;
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::OVERCLOCK))
+		availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
+
+	if (availableOverclocking.size() > 1)
 	{
 		auto overclock_choice = std::make_shared<OptionListComponent<std::string>>(window, _("OVERCLOCK"), false);
 
 		std::string currentOverclock = Settings::getInstance()->getString("Overclock");
 		if (currentOverclock == "")
 			currentOverclock = "none";
-
-		std::vector<std::string> availableOverclocking = ApiSystem::getInstance()->getAvailableOverclocking();
 
 		// Overclocking device
 		bool isOneSet = false;
