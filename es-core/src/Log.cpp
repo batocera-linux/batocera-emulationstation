@@ -18,6 +18,8 @@
 
 #if WIN32
 #include <Windows.h>
+#elif defined(__linux__)
+#include <unistd.h>
 #endif
 
 LogLevel Log::mReportingLevel = (LogLevel) -1;
