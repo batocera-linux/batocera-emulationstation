@@ -8181,7 +8181,7 @@
       <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
   </system>
-  <system id="segacd">
+  <system id="megacd">
     <game id="maddogii">
       <gun/>
     </game>
