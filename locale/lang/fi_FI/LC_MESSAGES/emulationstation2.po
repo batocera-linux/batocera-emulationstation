@@ -220,7 +220,7 @@ msgstr "VALITSE"
 msgid "BACK"
 msgstr "TAKAISIN"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
@@ -235,7 +235,7 @@ msgstr "PELIN ASETUKSET"
 msgid "FAVORITE"
 msgstr "SUOSIKKI"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "PELITILA TALLENNUKSET"
 
 #, c-format
@@ -3017,7 +3017,7 @@ msgstr "LOPETETAANKO?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "TALLENNA/LATAA PELI AUTOMAATTISESTI KÄYNNISTYKSESSÄ"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Lataa viimeisin tilatallennus käynnistyksessä ja tallenna tilatallennus "
 "poistuttaessa pelistä."

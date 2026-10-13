@@ -264,7 +264,7 @@ msgstr "اختار"
 msgid "BACK"
 msgstr "رجوع"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "حالات الحفظ (اضغط مع الاستمرار)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -279,7 +279,7 @@ msgstr "خيارات الألعاب"
 msgid "FAVORITE"
 msgstr "المفضلة"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "حالات الحفظ"
 
 #, c-format
@@ -3066,7 +3066,7 @@ msgstr "هل فعلا تريد الخروج؟"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "حفظ/تحميل تلقائي"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr "تحميل آخر مِلف حفظ حين تشغيل اللعبة وحفظ حالة اللعبة حين الخروج."
 
 msgid "SHOW CONTROLLER OVERLAYS"

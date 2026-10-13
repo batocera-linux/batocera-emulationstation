@@ -219,7 +219,7 @@ msgstr "ALEGE"
 msgid "BACK"
 msgstr "ÎNAPOI"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "STĂRI SALVATE (ȚINE APĂSAT)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -234,7 +234,7 @@ msgstr "OPȚIUNI JOC"
 msgid "FAVORITE"
 msgstr "FAVORITE"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "STĂRI SALVATE"
 
 #, c-format
@@ -3058,7 +3058,7 @@ msgstr "DOREȘTI SĂ ÎNCHIZI?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT LA LANSARE"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Încarcă ultima stare salvată la lansarea jocului și salvează starea la "
 "închiderea acestuia."

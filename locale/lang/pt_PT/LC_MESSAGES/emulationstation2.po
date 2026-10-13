@@ -214,7 +214,7 @@ msgstr "ESCOLHA"
 msgid "BACK"
 msgstr "VOLTAR"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "ESTADO DO SAVE STATE (SEGURE)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -229,7 +229,7 @@ msgstr "OPÇÕES DE JOGO"
 msgid "FAVORITE"
 msgstr "FAVORITO"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "JOGOS GUARDADOS"
 
 #, c-format
@@ -3047,7 +3047,7 @@ msgstr "DESEJA SAIR?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAVES/LOADING AO INICIAR JOGO"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Carregar o ultimo save state mais recente ao iniciar o jogo e guardar o "
 "state ao sair do jogo."

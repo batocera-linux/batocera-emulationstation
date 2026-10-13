@@ -208,7 +208,7 @@ msgstr "选择"
 msgid "BACK"
 msgstr "返回"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "存档（按住）"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -223,7 +223,7 @@ msgstr "游戏设置"
 msgid "FAVORITE"
 msgstr "加入收藏夹"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "存档槽"
 
 #, c-format
@@ -2999,7 +2999,7 @@ msgstr "确定退出?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自动保存/加载"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr "在游戏启动时加载最新存档，在退出游戏时存档。"
 
 msgid "SHOW CONTROLLER OVERLAYS"

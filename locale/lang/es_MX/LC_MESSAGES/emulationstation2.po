@@ -215,7 +215,7 @@ msgstr "ELEGIR"
 msgid "BACK"
 msgstr "VOLVER"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "PARTIDAS GUARDADAS (MANTENER)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -230,7 +230,7 @@ msgstr "OPCIONES DEL JUEGO"
 msgid "FAVORITE"
 msgstr "FAVORITO"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "PARTIDAS GUARDADAS"
 
 #, c-format
@@ -3036,7 +3036,7 @@ msgstr "¿SALIR DE EMULATIONSTATION?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO GUARDAR/CARGAR PARTIDAS"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Carga la última partida guardada al iniciar un juego y la guarda al salir."
 

@@ -215,8 +215,8 @@ msgstr "CHOISIR"
 msgid "BACK"
 msgstr "RETOUR"
 
-msgid "SAVE STATES (HOLD)"
-msgstr "SAUVEGARDES (MAINTENU)"
+msgid "SAVESTATES (HOLD)"
+msgstr "SAUVEGARDES D'ÉTAT (MAINTENU)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPTIONS DU JEU (MAINTENU)"
@@ -230,7 +230,7 @@ msgstr "OPTIONS DU JEU"
 msgid "FAVORITE"
 msgstr "FAVORIS"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "SAUVEGARDES D’ÉTAT"
 
 #, c-format
@@ -3051,7 +3051,7 @@ msgstr "VOULEZ-VOUS VRAIMENT QUITTER ?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAUV./CHARG. AUTO AU LANCEMENT"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Charge la dernière sauvegarde d'état automatiquement et sauve en quittant le "
 "jeu."

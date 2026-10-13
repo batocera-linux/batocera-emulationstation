@@ -221,7 +221,7 @@ msgstr "Vybrať"
 msgid "BACK"
 msgstr "Späť"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "Uložiť stavy (podržať)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -236,7 +236,7 @@ msgstr "Herné voľby"
 msgid "FAVORITE"
 msgstr "Obľúbené"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "Uložené pozície"
 
 #, c-format
@@ -3030,7 +3030,7 @@ msgstr "Naozaj ukončiť?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "Automaticky uložiť/načítať pri spustení hry"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Načítať najnovší uložený stav pri spustení hry a uložiť stav pri ukočení hry."
 

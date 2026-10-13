@@ -216,7 +216,7 @@ msgstr "KIES"
 msgid "BACK"
 msgstr "TERUG"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "SAVESTATES (INGEDRUKT HOUDEN)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -231,7 +231,7 @@ msgstr "SPELOPTIES"
 msgid "FAVORITE"
 msgstr "FAVORIET"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "SAVESTATES"
 
 #, c-format
@@ -3058,7 +3058,7 @@ msgstr "WILT U ECHT STOPPEN?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOMATISCH OPSLAAN/LADEN BIJ STARTEN VAN EEN SPEL"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Laad de nieuwste savestate bij het starten van het spel en de savestate bij "
 "het afsluiten van het spel."

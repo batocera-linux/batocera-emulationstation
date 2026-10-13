@@ -225,7 +225,7 @@ msgstr "DEWIS"
 msgid "BACK"
 msgstr "NÔL"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
@@ -240,7 +240,7 @@ msgstr "OPSIYNAU GÊM"
 msgid "FAVORITE"
 msgstr ""
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr ""
 
 #, c-format
@@ -2997,7 +2997,7 @@ msgstr "GADAEL GO IAWN?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AWTO ARBED / LLWYTH"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"

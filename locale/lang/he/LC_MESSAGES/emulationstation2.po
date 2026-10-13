@@ -217,7 +217,7 @@ msgstr "בחירה"
 msgid "BACK"
 msgstr "הקודם"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
@@ -232,7 +232,7 @@ msgstr ""
 msgid "FAVORITE"
 msgstr "מועדף"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "שמור סטטיסטיקות"
 
 #, c-format
@@ -2987,7 +2987,7 @@ msgstr "לצאת, בטוח?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr ""
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"

@@ -214,7 +214,7 @@ msgstr "ESCOLLER"
 msgid "BACK"
 msgstr "VOLVER"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "GARDAR PROGRESOS (PREMER)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -229,7 +229,7 @@ msgstr "OPCIÓNS DO XOGO"
 msgid "FAVORITE"
 msgstr "FAVORITO"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "GARDAR PROGRESOS"
 
 #, c-format
@@ -3045,7 +3045,7 @@ msgstr "SEGURO DE SAÍR?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO CARGAR/GARDAR AO INICIAR O XOGO"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Carga a partida máis recente ao iniciar o xogo e gárdaa ao saír do xogo."
 

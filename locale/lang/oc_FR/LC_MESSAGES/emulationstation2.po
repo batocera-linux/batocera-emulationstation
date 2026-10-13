@@ -215,7 +215,7 @@ msgstr "CAUSIR"
 msgid "BACK"
 msgstr "TORNAR"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
@@ -230,7 +230,7 @@ msgstr "OPCIONS DE JÒCS"
 msgid "FAVORITE"
 msgstr ""
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr ""
 
 #, c-format
@@ -2985,7 +2985,7 @@ msgstr "QUITAR PER DE BON ?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVAGARDA/CARGAMENT AUTO"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"

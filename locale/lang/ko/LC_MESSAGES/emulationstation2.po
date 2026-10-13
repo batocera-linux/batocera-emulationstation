@@ -212,7 +212,7 @@ msgstr "이동"
 msgid "BACK"
 msgstr "뒤로 가기"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "상태 저장 (유지)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -227,7 +227,7 @@ msgstr "게임 옵션"
 msgid "FAVORITE"
 msgstr "즐겨찾기"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "상태 저장"
 
 #, c-format
@@ -3018,7 +3018,7 @@ msgstr "정말 종료할까요?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "게임 시작 시 자동 저장/불러오기"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr "게임 실행 시 최근 상태저장을 불러오고 종료 시 상태저장합니다."
 
 msgid "SHOW CONTROLLER OVERLAYS"

@@ -216,7 +216,7 @@ msgstr "VELG"
 msgid "BACK"
 msgstr "TILBAKE"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "LAGRINGSTILSTAND (HOLD)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -231,7 +231,7 @@ msgstr "SPILLVALG"
 msgid "FAVORITE"
 msgstr "FAVORITT"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "LAGRE TILSTAND"
 
 #, c-format
@@ -3023,7 +3023,7 @@ msgstr "VIRKELIG AVSLUTTE?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO LAGRE/LASTE"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Last inn siste lagringstilstand ved spillstart og lagringstilstand når du "
 "avslutter spillet."

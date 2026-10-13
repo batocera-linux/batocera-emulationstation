@@ -209,7 +209,7 @@ msgstr "PILIH"
 msgid "BACK"
 msgstr "KEMBALI"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "SIMPAN STATUS (HOLD)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -224,7 +224,7 @@ msgstr "PILIHAN GAME"
 msgid "FAVORITE"
 msgstr "FAVORIT"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "SIMPAN STATUS"
 
 #, c-format
@@ -3029,7 +3029,7 @@ msgstr "YAKIN KELUAR?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAVE/LOAD OTOMATIS SAAT PELUNCURAN GAME"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr "Muat status terbaru di awal game dan simpan status di akhir game."
 
 msgid "SHOW CONTROLLER OVERLAYS"

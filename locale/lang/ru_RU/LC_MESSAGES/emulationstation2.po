@@ -217,7 +217,7 @@ msgstr "ВЫБРАТЬ"
 msgid "BACK"
 msgstr "НАЗАД"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "БЫСТРЫЕ СОХРАНЕНИЯ (УДЕРЖИВАТЬ)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -232,7 +232,7 @@ msgstr "ПАРАМЕТРЫ"
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "БЫСТРОЕ СОХРАНЕНИЕ"
 
 #, c-format
@@ -3033,7 +3033,7 @@ msgstr "ВЫЙТИ?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА ПРИ ЗАПУСКЕ"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Загружает последнее сохранение при запуске игры и сохраняет при выходе из "
 "игры."

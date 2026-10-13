@@ -217,7 +217,7 @@ msgstr "POHYB"
 msgid "BACK"
 msgstr "ZPĚT"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "ULOŽENÉ"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -232,7 +232,7 @@ msgstr "HERNÍ MOŽNOSTI"
 msgid "FAVORITE"
 msgstr "OBLÍBENÉ"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "ULOŽENÉ"
 
 #, c-format
@@ -3027,7 +3027,7 @@ msgstr "OPRAVDU UKONČIT?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO. UKLÁDÁNÍ/NAČÍTÁNÍ PŘI STARTU HRY"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Načtení poslední pozice uložení při spuštění hry a uložení pozice při "
 "ukončení hry."
