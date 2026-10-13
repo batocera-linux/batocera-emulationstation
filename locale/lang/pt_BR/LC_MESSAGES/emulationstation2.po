@@ -2054,7 +2054,7 @@ msgid "VSYNC"
 msgstr "SINCRONIZAÇÃO VERTICAL"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "SUAVIZAÇÃO DE SERRILHADO (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "LIMITE DE FPS"
@@ -2231,10 +2231,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO CONTROLE"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "ANALÓGICO DIREITO MUDA O VOLUME"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "Mova o analógico direito para cima/baixo para aumentar ou diminuir o volume do áudio."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERÂNCIA DE MOVIMENTO DA PISTOLA"
@@ -2274,15 +2274,17 @@ msgstr ""
 "inicialização"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "PROFUNDIDADE DE PASTA PARA ÍNDICE"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "SEM LIMITE"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
+"Máximo de profundidade dentro de cada pasta de ROM, para ignorar sub-pastas "
+"com muitos arquivos."
 
 msgid "THREADED LOADING"
 msgstr "CARREGANDO EM PARALELO"
@@ -2318,7 +2320,7 @@ msgid "UPDATE TYPE"
 msgstr "TIPO DE ATUALIZAÇÃO"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "ATUALIZAÇÃO DE ARQUITETURA"
 
 msgid "APPLY UPDATE"
 msgstr "APLICAR ATUALIZAÇÃO"
@@ -2940,13 +2942,13 @@ msgstr "CONECTADO"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "INCAPAZ DE CONECTAR A '%s'"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "REDES WI-FI"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "ADICIONAR UMA REDE WI-FI"
 
 msgid "WI-FI SSID"
 msgstr "NOME DA REDE WI-FI (SSID)"
@@ -2955,7 +2957,7 @@ msgid "WI-FI KEY"
 msgstr "SENHA DO WI-FI"
 
 msgid "USE"
-msgstr ""
+msgstr "USAR"
 
 msgid "FORGET"
 msgstr "ESQUECER"

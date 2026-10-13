@@ -1410,10 +1410,10 @@ msgid "INPUT MANUALLY"
 msgstr "INSERIR MANUALMENTE"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "NENHUMA REDE WI-FI ENCONTRADA"
+msgstr "NENHUMA REDE WIFI ENCONTRADA"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "A PROCURA DE REDES WI-FI"
+msgstr "A PROCURA DE REDES WIFI"
 
 msgid "PARIS"
 msgstr "PARIS"
@@ -2263,15 +2263,17 @@ msgstr ""
 "inicialização"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "PROFUNDIDADE DO DIRETÓRIO A INDEXAR"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "ILIMITADO"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
+"Profundidade máxima de pesquisa dentro de cada pasta de ROMs, para ignorar subpastas com muitos "
+"ficheiros."
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
@@ -2928,22 +2930,22 @@ msgstr "CONECTADO"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "NÃO FOI POSSÍVEL LIGAR A '%s'"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "REDES WIFI"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "ADICIONAR UMA REDE WIFI"
 
 msgid "WI-FI SSID"
-msgstr "NOME DA REDE WI-FI (SSID)"
+msgstr "NOME DA REDE WIFI (SSID)"
 
 msgid "WI-FI KEY"
-msgstr "SENHA DO WI-FI"
+msgstr "SENHA DO WIFI"
 
 msgid "USE"
-msgstr ""
+msgstr "USAR"
 
 msgid "FORGET"
 msgstr "ESQUECER"
@@ -2962,19 +2964,19 @@ msgid "HOSTNAME"
 msgstr "NOME DA REDE"
 
 msgid "ENABLE WI-FI"
-msgstr "ATIVAR WI-FI"
+msgstr "ATIVAR WIFI"
 
 msgid "WI-FI COUNTRY"
-msgstr "PAÍS WI-FI"
+msgstr "PAÍS WIFI"
 
 msgid "N/A"
 msgstr "NÃO APLICÁVEL"
 
 msgid "WI-FI ENABLED"
-msgstr "WI-FI ATIVADO"
+msgstr "WIFI ATIVADO"
 
-msgid "WI-FI CONFIGURATION ERROR"
-msgstr "ERRO NA CONFIGURAÇÃO WI-FI"
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "ERRO NA CONFIGURAÇÃO WIFI"
 
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
