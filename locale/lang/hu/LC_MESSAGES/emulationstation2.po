@@ -230,7 +230,7 @@ msgid "FAVORITE"
 msgstr "KEDVENC"
 
 msgid "SAVESTATES"
-msgstr "ÁLLAPOTOK MENTÉSE"
+msgstr "JÁTÉKÁLLÁS REKESZ"
 
 #, c-format
 msgid "Back to %s"
@@ -2594,16 +2594,13 @@ msgstr "Aktuális beállítás"
 msgid "BIOS SETTINGS"
 msgstr "BIOS BEÁLLÍTÁSOK"
 
-msgid "SAVESTATES"
-msgstr "JÁTÉKÁLLÁS REKESZ"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATIKUS MENTÉS/BETÖLTÉS"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Töltse be a legújabb játékállást a játék indításakor és mentse a játékállást "
-"a játékból való kilépéskor."
+"Töltse be a legújabb mentési állapotot a játék indításakor, és mentse az "
+"állapotot a játékból való kilépéskor."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "NÖVEKVŐ JÁTÉKÁLLÁS REKESZ"
@@ -3050,11 +3047,6 @@ msgstr "BIZTOS KILÉPSZ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO MENTÉS/TÖLTÉS"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Töltse be a legújabb mentési állapotot a játék indításakor, és mentse az "
-"állapotot a játékból való kilépéskor."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VEZÉRLŐÁTFEDÉSEK MEGJELENÍTÉSE"
@@ -4075,6 +4067,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d másodperce"
 msgstr[1] "%d másodperce"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Töltse be a legújabb játékállást a játék indításakor és mentse a "
+#~ "játékállást a játékból való kilépéskor."
 
 #~ msgid "FANART"
 #~ msgstr "RAJONGÓI ALKOTÁS"

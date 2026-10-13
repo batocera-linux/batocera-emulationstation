@@ -2607,13 +2607,10 @@ msgstr "Ajuste atual"
 msgid "BIOS SETTINGS"
 msgstr "AJUSTES DA BIOS"
 
-msgid "SAVESTATES"
-msgstr "ESTADOS DE SALVAMENTO"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "SALVAR/CARREGAR AUTOMÁTICO"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
 "estado ao sair do jogo."
@@ -3060,11 +3057,6 @@ msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "CARREGAR/SALVAR AO INICIAR JOGO"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
-"estado ao sair do jogo."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO CONTROLE"
@@ -4086,6 +4078,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
+#~ "estado ao sair do jogo."
 
 #~ msgid "FANART"
 #~ msgstr "FÃ-ARTE"

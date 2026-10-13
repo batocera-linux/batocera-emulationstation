@@ -2577,16 +2577,12 @@ msgstr "Aktuálne nastavenie"
 msgid "BIOS SETTINGS"
 msgstr "Nastavenia BIOSu"
 
-msgid "SAVESTATES"
-msgstr "Uložené pozície"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "Automaticky uložiť/načítať"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Načítať posledný uložený stav pri spustení hry a uložiť stav pri ukončení "
-"hry."
+"Načítať najnovší uložený stav pri spustení hry a uložiť stav pri ukočení hry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "Inkrementálne stavy uloženia"
@@ -3029,10 +3025,6 @@ msgstr "Naozaj ukončiť?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "Automaticky uložiť/načítať pri spustení hry"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Načítať najnovší uložený stav pri spustení hry a uložiť stav pri ukočení hry."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "Zobraziť prekrytia ovládačov"
@@ -4062,6 +4054,12 @@ msgid_plural "%d seconds ago"
 msgstr[0] "Pred %d sekundou"
 msgstr[1] "Pred %d sekundami"
 msgstr[2] "Pred %d sekundami"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Načítať posledný uložený stav pri spustení hry a uložiť stav pri ukončení "
+#~ "hry."
 
 #~ msgid "FANART"
 #~ msgstr "Fanart"

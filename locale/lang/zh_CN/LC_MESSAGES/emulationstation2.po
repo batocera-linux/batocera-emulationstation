@@ -2549,14 +2549,11 @@ msgstr "当前设置"
 msgid "BIOS SETTINGS"
 msgstr "BIOS设置"
 
-msgid "SAVESTATES"
-msgstr "存档槽"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "自动存档/读取"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "在游戏启动时加载最新的存档，在退出游戏时保存存档。"
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr "在游戏启动时加载最新存档，在退出游戏时存档。"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "递增存档"
@@ -2998,9 +2995,6 @@ msgstr "确定退出?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自动保存/加载"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr "在游戏启动时加载最新存档，在退出游戏时存档。"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "显示控制器覆盖"
@@ -4010,6 +4004,10 @@ msgstr[0] "%d 分钟前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr "在游戏启动时加载最新的存档，在退出游戏时保存存档。"
 
 #~ msgid "FANART"
 #~ msgstr "同人"

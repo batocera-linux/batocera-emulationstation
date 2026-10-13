@@ -2437,7 +2437,8 @@ msgid "HDR"
 msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr "Moonlight HDR yayınları gibi HDR içeriklerin ekrana aktarılmasını sağlar."
+msgstr ""
+"Moonlight HDR yayınları gibi HDR içeriklerin ekrana aktarılmasını sağlar."
 
 msgid "BOOT SPLASH"
 msgstr "AÇILIŞ GÖRSELİ"
@@ -2591,15 +2592,12 @@ msgstr "Mevcut ayarlar"
 msgid "BIOS SETTINGS"
 msgstr "BIOS AYARLARI"
 
-msgid "SAVESTATES"
-msgstr "DURUM KAYITLARI"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "OTOMATİK KAYDET/YÜKLE"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Oyun başlatıldığında son durum kaydını yükle, oyundan çıkarken durum kaydını "
+"Oyun başlatıldığında en son durum kaydını yükle ve oyundan çıkarken durumu "
 "kaydet."
 
 msgid "INCREMENTAL SAVESTATES"
@@ -3049,11 +3047,6 @@ msgstr "ÇIKILSIN MI?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "OYUN BAŞLATILDIĞINDA OTOMATİK KAYDET/YÜKLE"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Oyun başlatıldığında en son durum kaydını yükle ve oyundan çıkarken durumu "
-"kaydet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "KONTROLCÜ KAPLAMALARINI GÖSTER"
@@ -4084,6 +4077,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d saniye önce"
 msgstr[1] "%d saniye önce"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Oyun başlatıldığında son durum kaydını yükle, oyundan çıkarken durum "
+#~ "kaydını kaydet."
 
 #~ msgid "FANART"
 #~ msgstr "FAN GÖRSELİ"

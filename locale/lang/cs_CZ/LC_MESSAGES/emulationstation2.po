@@ -2575,14 +2575,13 @@ msgstr "Aktuální nastavení"
 msgid "BIOS SETTINGS"
 msgstr "NASTAVENÍ BIOSU"
 
-msgid "SAVESTATES"
-msgstr "ULOŽENÉ POZICE"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr ""
+"Načtení poslední pozice uložení při spuštění hry a uložení pozice při "
+"ukončení hry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
@@ -3026,11 +3025,6 @@ msgstr "OPRAVDU UKONČIT?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO. UKLÁDÁNÍ/NAČÍTÁNÍ PŘI STARTU HRY"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Načtení poslední pozice uložení při spuštění hry a uložení pozice při "
-"ukončení hry."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ZOBRAZIT PŘEKRYTÍ HER.OVLADAČE"
@@ -4060,6 +4054,11 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d před sekundou"
 msgstr[1] "%d před sekundami"
 msgstr[2] "%d před sekundami"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
 
 #~ msgid "FANART"
 #~ msgstr "UMĚNÍ FANOUŠKŮ"

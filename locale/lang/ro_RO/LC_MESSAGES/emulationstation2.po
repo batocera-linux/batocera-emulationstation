@@ -2603,16 +2603,13 @@ msgstr "Setare curentă"
 msgid "BIOS SETTINGS"
 msgstr "SETĂRI BIOS"
 
-msgid "SAVESTATES"
-msgstr "STĂRI SALVATE"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Încarcă ultima stare salvată la lansarea jocului și salvează starea la "
-"închiderea lui."
+"închiderea acestuia."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INCREMENTARE"
@@ -3057,11 +3054,6 @@ msgstr "DOREȘTI SĂ ÎNCHIZI?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT LA LANSARE"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Încarcă ultima stare salvată la lansarea jocului și salvează starea la "
-"închiderea acestuia."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "AFIȘEAZĂ GHIDUL CONTROLERULUI"
@@ -4091,6 +4083,12 @@ msgid_plural "%d seconds ago"
 msgstr[0] "acum %d secundă"
 msgstr[1] "acum %d secunde"
 msgstr[2] "acum %d de secunde"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Încarcă ultima stare salvată la lansarea jocului și salvează starea la "
+#~ "închiderea lui."
 
 #~ msgid "FANART"
 #~ msgstr "FANART"

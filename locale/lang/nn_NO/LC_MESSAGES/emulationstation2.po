@@ -2525,13 +2525,10 @@ msgstr ""
 msgid "BIOS SETTINGS"
 msgstr ""
 
-msgid "SAVESTATES"
-msgstr ""
-
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2974,9 +2971,6 @@ msgstr ""
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO LAGRE/LASTE"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""

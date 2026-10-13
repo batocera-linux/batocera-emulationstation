@@ -2616,14 +2616,11 @@ msgstr "الإعدادات الحالية"
 msgid "BIOS SETTINGS"
 msgstr "إعدادات النظام الأساسي والإخراج"
 
-msgid "SAVESTATES"
-msgstr "حالات الحفظ"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "الحفظ/التحميل التلقائي"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "تشغيل آخر حالة حفظ للعبة حين تشغيلها وحفظ الحالة عند الخروج منها."
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr "تحميل آخر مِلف حفظ حين تشغيل اللعبة وحفظ حالة اللعبة حين الخروج."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "حالات حفظ متزايدة"
@@ -3065,9 +3062,6 @@ msgstr "هل فعلا تريد الخروج؟"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "حفظ/تحميل تلقائي"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr "تحميل آخر مِلف حفظ حين تشغيل اللعبة وحفظ حالة اللعبة حين الخروج."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "عرض أوشام لوحة التحكم"
@@ -4122,6 +4116,10 @@ msgstr[2] "منذ %d ثانيتين"
 msgstr[3] "منذ %d ثوانٍ"
 msgstr[4] "منذ %d ثانية"
 msgstr[5] "منذ %d ثانية"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr "تشغيل آخر حالة حفظ للعبة حين تشغيلها وحفظ الحالة عند الخروج منها."
 
 #~ msgid "FANART"
 #~ msgstr "تصاميم الهواة"

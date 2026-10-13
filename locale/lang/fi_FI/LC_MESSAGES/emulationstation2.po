@@ -236,7 +236,7 @@ msgid "FAVORITE"
 msgstr "SUOSIKKI"
 
 msgid "SAVESTATES"
-msgstr "PELITILA TALLENNUKSET"
+msgstr "TILATALLENNUKSET"
 
 #, c-format
 msgid "Back to %s"
@@ -2563,16 +2563,13 @@ msgstr "Nykyinen asetus"
 msgid "BIOS SETTINGS"
 msgstr ""
 
-msgid "SAVESTATES"
-msgstr "TILATALLENNUKSET"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMAATTINEN TALLENNUS/LATAUS"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Lataa viimeisin tilatallennus, kun avaat pelin, ja tallenna tila kun poistut "
-"pelistä."
+"Lataa viimeisin tilatallennus käynnistyksessä ja tallenna tilatallennus "
+"poistuttaessa pelistä."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr ""
@@ -3016,11 +3013,6 @@ msgstr "LOPETETAANKO?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "TALLENNA/LATAA PELI AUTOMAATTISESTI KÄYNNISTYKSESSÄ"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Lataa viimeisin tilatallennus käynnistyksessä ja tallenna tilatallennus "
-"poistuttaessa pelistä."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -4035,6 +4027,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekuntti sitten"
 msgstr[1] "%d sekunttia sitten"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Lataa viimeisin tilatallennus, kun avaat pelin, ja tallenna tila kun "
+#~ "poistut pelistä."
 
 #~ msgid "FANART"
 #~ msgstr "FANITAIDE"

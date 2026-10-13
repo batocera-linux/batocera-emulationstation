@@ -2574,16 +2574,12 @@ msgstr "Uneko ezarpena"
 msgid "BIOS SETTINGS"
 msgstr ""
 
-msgid "SAVESTATES"
-msgstr "EGOERA GORDETZEA"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "GORDE/KARGATU AUTOMATIKOKI"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Kargatu gordetako azken egoera jokua abiaraztean eta gorde egoera jokotik "
-"irtetean"
+"Kargatu azken gordetze egoera jokoa abiaraztean eta gorde jokutik irtetean."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "EGOERA GORDETZE INKREMENTALAK"
@@ -3029,10 +3025,6 @@ msgstr "BENETAN ITXI?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO GORDE/KARGATU"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Kargatu azken gordetze egoera jokoa abiaraztean eta gorde jokutik irtetean."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ERAKUTSI KONTROLATZAILEEK KAPAK"
@@ -4052,6 +4044,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "duela segundu %d"
 msgstr[1] "duela %d segundu"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Kargatu gordetako azken egoera jokua abiaraztean eta gorde egoera jokotik "
+#~ "irtetean"
 
 #~ msgid "FANART"
 #~ msgstr "ZALE ARTEA"

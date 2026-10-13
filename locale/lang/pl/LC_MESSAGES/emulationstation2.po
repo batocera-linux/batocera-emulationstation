@@ -2594,13 +2594,10 @@ msgstr "Aktualne ustawienie"
 msgid "BIOS SETTINGS"
 msgstr "USTAWIENIA BIOSU"
 
-msgid "SAVESTATES"
-msgstr "ZAPISANE STANY GRY"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
 "wychodzeniu z gry."
@@ -3048,11 +3045,6 @@ msgstr "RZECZYWIŚCIE WYJŚĆ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
-"wychodzeniu z gry."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "POKAŻ NAKŁADKI KONTROLERA"
@@ -4080,6 +4072,12 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d sekundę temu"
 msgstr[1] "%d sekundy temu"
 msgstr[2] "%d sekund temu"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
+#~ "wychodzeniu z gry."
 
 #~ msgid "FANART"
 #~ msgstr "FAN ART"

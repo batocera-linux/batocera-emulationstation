@@ -233,7 +233,7 @@ msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
 
 msgid "SAVESTATES"
-msgstr "БЫСТРОЕ СОХРАНЕНИЕ"
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
 
 #, c-format
 msgid "Back to %s"
@@ -2580,15 +2580,13 @@ msgstr "Текущая настройка"
 msgid "BIOS SETTINGS"
 msgstr "НАСТРОЙКИ BIOS"
 
-msgid "SAVESTATES"
-msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
+"Загружает последнее сохранение при запуске игры и сохраняет при выходе из "
+"игры."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
@@ -3032,11 +3030,6 @@ msgstr "ВЫЙТИ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА ПРИ ЗАПУСКЕ"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Загружает последнее сохранение при запуске игры и сохраняет при выходе из "
-"игры."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ КОНТРОЛЛЕРА"
@@ -4065,6 +4058,12 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Загрузка последнего сохранения при запуске и сохранение при выходе из "
+#~ "игры."
 
 #~ msgid "FANART"
 #~ msgstr "ФАН-АРТ"

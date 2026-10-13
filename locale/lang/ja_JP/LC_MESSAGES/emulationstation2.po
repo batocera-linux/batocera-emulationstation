@@ -226,7 +226,7 @@ msgid "FAVORITE"
 msgstr "お気に入り"
 
 msgid "SAVESTATES"
-msgstr "ステートマネージャ"
+msgstr "ステートセーブ"
 
 #, c-format
 msgid "Back to %s"
@@ -2579,16 +2579,11 @@ msgstr "現在の設定"
 msgid "BIOS SETTINGS"
 msgstr "BIOS 設定"
 
-msgid "SAVESTATES"
-msgstr "ステートセーブ"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "自動ステートセーブ/読込み"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"ゲームの起動時に最新のステートセーブを読込み、\n"
-"終了時にステートセーブを保存します"
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr "ゲーム開始時にステートを読込み、終了時にステートセーブします"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ステートセーブの方法"
@@ -3030,9 +3025,6 @@ msgstr "本当に終了しますか？"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自動ステート読込みでゲームを開始"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr "ゲーム開始時にステートを読込み、終了時にステートセーブします"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "コントローラーイメージを表示"
@@ -4046,6 +4038,12 @@ msgstr[0] "%d 分前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "ゲームの起動時に最新のステートセーブを読込み、\n"
+#~ "終了時にステートセーブを保存します"
 
 #~ msgid "FANART"
 #~ msgstr "ファンアート画像<fanart>"

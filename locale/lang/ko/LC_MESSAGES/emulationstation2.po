@@ -228,7 +228,7 @@ msgid "FAVORITE"
 msgstr "즐겨찾기"
 
 msgid "SAVESTATES"
-msgstr "상태 저장"
+msgstr "상태저장"
 
 #, c-format
 msgid "Back to %s"
@@ -2566,16 +2566,11 @@ msgstr "현재 설정"
 msgid "BIOS SETTINGS"
 msgstr "바이오스 설정"
 
-msgid "SAVESTATES"
-msgstr "상태저장"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "자동 저장/불러오기"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"게임 시작 시 최신 저장 상태를 로드하고, 게임을 종료할 때 저장 상태를 로드합니"
-"다."
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr "게임 실행 시 최근 상태저장을 불러오고 종료 시 상태저장합니다."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "추가하는 상태저장"
@@ -3017,9 +3012,6 @@ msgstr "정말 종료할까요?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "게임 시작 시 자동 저장/불러오기"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr "게임 실행 시 최근 상태저장을 불러오고 종료 시 상태저장합니다."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "컨트롤러 오버레이 표시"
@@ -4028,6 +4020,12 @@ msgstr[0] "%d 분 전"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 초 전"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "게임 시작 시 최신 저장 상태를 로드하고, 게임을 종료할 때 저장 상태를 로드"
+#~ "합니다."
 
 #~ msgid "FANART"
 #~ msgstr "팬아트"

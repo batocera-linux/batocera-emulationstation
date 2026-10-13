@@ -2581,15 +2581,12 @@ msgstr "Aktuell inställning"
 msgid "BIOS SETTINGS"
 msgstr "BIOS-INSTÄLLNINGAR"
 
-msgid "SAVESTATES"
-msgstr "SPARADE TILLSTÅND"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "LÄS IN/SPARA AUTOMATISKT"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Ladda senaste savestate vid spelstart och savestate när du avslutar spelet."
+"Ladda senaste sparläget vid spelstart och spara läget när du avslutar spelet."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SAVESTATES"
@@ -3034,10 +3031,6 @@ msgstr "SLUTADE DU VERKLIGEN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Ladda senaste sparläget vid spelstart och spara läget när du avslutar spelet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA ÖVERLAPPNINGAR FÖR STYRENHET"
@@ -4057,6 +4050,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund sedan"
 msgstr[1] "%d sekunder sedan"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Ladda senaste savestate vid spelstart och savestate när du avslutar "
+#~ "spelet."
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "BYGGA UPP EN BILDCACHE"

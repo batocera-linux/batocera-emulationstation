@@ -232,7 +232,7 @@ msgid "FAVORITE"
 msgstr "FAVORITT"
 
 msgid "SAVESTATES"
-msgstr "LAGRE TILSTAND"
+msgstr "LAGRINGSTILSTAND"
 
 #, c-format
 msgid "Back to %s"
@@ -2568,13 +2568,10 @@ msgstr "Nåværende innstilling"
 msgid "BIOS SETTINGS"
 msgstr "BIOS INNSTILLINGER"
 
-msgid "SAVESTATES"
-msgstr "LAGRINGSTILSTAND"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO LAGRE/LAST"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Last inn siste lagringstilstand ved spillstart og lagringstilstand når du "
 "avslutter spillet."
@@ -3022,11 +3019,6 @@ msgstr "VIRKELIG AVSLUTTE?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO LAGRE/LASTE"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Last inn siste lagringstilstand ved spillstart og lagringstilstand når du "
-"avslutter spillet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VIS KONTROLLOVERLEGG"
@@ -4046,6 +4038,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund siden"
 msgstr[1] "%d sekunder siden"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Last inn siste lagringstilstand ved spillstart og lagringstilstand når du "
+#~ "avslutter spillet."
 
 #~ msgid "FANART"
 #~ msgstr "FAN KUNST"

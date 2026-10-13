@@ -2578,14 +2578,11 @@ msgstr "Pengaturan saat ini"
 msgid "BIOS SETTINGS"
 msgstr "PENGATURAN BIOS"
 
-msgid "SAVESTATES"
-msgstr "SIMPAN STATUS"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "SAVE/LOAD OTOMATIS"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Muat kondisi terbaru ketika mulai dan simpan status ketika keluar."
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr "Muat status terbaru di awal game dan simpan status di akhir game."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SIMPAN STATUS SECARA BERTAHAP"
@@ -3028,9 +3025,6 @@ msgstr "YAKIN KELUAR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAVE/LOAD OTOMATIS SAAT PELUNCURAN GAME"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr "Muat status terbaru di awal game dan simpan status di akhir game."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "TAMPILKAN KONTROLER MENYELURUH"
@@ -4043,6 +4037,10 @@ msgstr[0] "%d menit lalu"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d detik lalu"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr "Muat kondisi terbaru ketika mulai dan simpan status ketika keluar."
 
 #~ msgid "FANART"
 #~ msgstr "SENI"

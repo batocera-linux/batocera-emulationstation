@@ -2603,13 +2603,10 @@ msgstr "Aktuelle Einstellung"
 msgid "BIOS SETTINGS"
 msgstr "BIOS EINSTELLUNGEN"
 
-msgid "SAVESTATES"
-msgstr "SPEICHERSTÄNDE"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO SPEICHERN/LADEN"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Laden des aktuellsten Speicherstands bei Spielstart und automatisches "
 "Speichern des Spielstandes bei Spielende."
@@ -3061,11 +3058,6 @@ msgstr "WIRKLICH BEENDEN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOM. SPEICHERN/LADEN BEIM SPIELSTART"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Laden des aktuellsten Speicherstands bei Spielstart und automatisches "
-"Speichern des Spielstandes bei Spielende."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "CONTROLLER-OVERLAYS ANZEIGEN"
@@ -4088,3 +4080,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d Sekunde her"
 msgstr[1] "%d Sekunden her"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Laden des aktuellsten Speicherstands bei Spielstart und automatisches "
+#~ "Speichern des Spielstandes bei Spielende."

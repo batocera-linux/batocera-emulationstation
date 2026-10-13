@@ -2602,13 +2602,10 @@ msgstr "Huidige instelling"
 msgid "BIOS SETTINGS"
 msgstr "INSTELLINGEN BIOS"
 
-msgid "SAVESTATES"
-msgstr "SAVESTATES"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Laad de nieuwste savestate bij het starten van het spel en de savestate bij "
 "het afsluiten van het spel."
@@ -3057,11 +3054,6 @@ msgstr "WILT U ECHT STOPPEN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOMATISCH OPSLAAN/LADEN BIJ STARTEN VAN EEN SPEL"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Laad de nieuwste savestate bij het starten van het spel en de savestate bij "
-"het afsluiten van het spel."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "TOON OVERLAYS CONTROLLER"
@@ -4081,3 +4073,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d seconden geleden"
 msgstr[1] "%d secondes geleden"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Laad de nieuwste savestate bij het starten van het spel en de savestate "
+#~ "bij het afsluiten van het spel."

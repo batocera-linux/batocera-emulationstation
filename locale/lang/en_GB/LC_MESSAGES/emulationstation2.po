@@ -2568,14 +2568,11 @@ msgstr "Current setting"
 msgid "BIOS SETTINGS"
 msgstr "BIOS SETTINGS"
 
-msgid "SAVESTATES"
-msgstr "SAVESTATES"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO SAVE/LOAD"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr "Load latest savestate on game launch and save state when exiting game."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INCREMENTAL SAVESTATES"
@@ -3018,10 +3015,6 @@ msgstr "REALLY QUIT?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO SAVE/LOAD ON GAME LAUNCH"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Load latest savestate on game launch and save state when exiting game."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "SHOW CONTROLLER OVERLAYS"
@@ -4041,6 +4034,11 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d second ago"
 msgstr[1] "%d seconds ago"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
 
 #~ msgid "FANART"
 #~ msgstr "FAN ART"

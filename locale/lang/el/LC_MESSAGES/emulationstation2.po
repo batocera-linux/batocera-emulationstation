@@ -2557,16 +2557,11 @@ msgstr ""
 msgid "BIOS SETTINGS"
 msgstr ""
 
-msgid "SAVESTATES"
-msgstr ""
-
 msgid "AUTO SAVE/LOAD"
 msgstr "ΑΥΤΟΜΑΤΗ ΑΠΟΘΗΚΕΥΣΗ/ΦΟΡΤΩΣΗ"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Φορτωση τελευταιας καταστασης παιχνιδιου κατα την εναρξη και αποθηκευση κατα "
-"την εξοδο."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ΑΥΞΗΤΙΚΗ ΑΠΟΘΗΚΕΥΣΗ ΚΑΤΑΣΤΑΣΗΣ ΠΑΙΧΝΙΔΙΟΥ"
@@ -3008,9 +3003,6 @@ msgstr "ΘΕΛΕΤΕ ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ;"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "ΑΥΤΟΜΑΤΗ ΑΠΟΘΗΚΕΥΣΗ/ΦΟΡΤΩΣΗ"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -4032,6 +4024,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d δευτεροπλεπτο πριν"
 msgstr[1] "%d δευτερολεπτα πριν"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Φορτωση τελευταιας καταστασης παιχνιδιου κατα την εναρξη και αποθηκευση "
+#~ "κατα την εξοδο."
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "ΔΗΜΙΟΥΡΓΙΑ ΚΡΥΦΗΣ ΜΝΗΜΗΣ ΕΙΚΟΝΑΣ"

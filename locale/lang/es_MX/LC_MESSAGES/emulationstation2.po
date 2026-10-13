@@ -2582,14 +2582,12 @@ msgstr "Configuración actual"
 msgid "BIOS SETTINGS"
 msgstr ""
 
-msgid "SAVESTATES"
-msgstr "PARTIDAS GUARDADAS"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO GUARDAR/CARGAR"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Carga el ultimo estado guardado al lanzar el juego y guarda al salir."
+msgid "Load latest savestate on game launch and save state when exiting game."
+msgstr ""
+"Carga la última partida guardada al iniciar un juego y la guarda al salir."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
@@ -3035,10 +3033,6 @@ msgstr "¿SALIR DE EMULATIONSTATION?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO GUARDAR/CARGAR PARTIDAS"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Carga la última partida guardada al iniciar un juego y la guarda al salir."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR SUPERPOSICIONES DEL MANDO"
@@ -4059,6 +4053,11 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "hace %d segundo"
 msgstr[1] "hace %d segundos"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Carga el ultimo estado guardado al lanzar el juego y guarda al salir."
 
 #~ msgid "FANART"
 #~ msgstr "FANART"

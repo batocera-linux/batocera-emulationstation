@@ -2577,15 +2577,12 @@ msgstr "Impostazioni correnti"
 msgid "BIOS SETTINGS"
 msgstr "IMPOSTAZIONI BIOS"
 
-msgid "SAVESTATES"
-msgstr "SALVATAGGI ISTANTANEI"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOSALVATAGGIO/CARICAMENTO"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Carica l'ultimo salvataggio al momento del lancio e salva prima di uscire."
+"Carica l'ultimo salvataggio al lancio del gioco e salva prima di uscire."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INCREMENTA SALVATAGGIO INSTANT."
@@ -3031,10 +3028,6 @@ msgstr "VUOI USCIRE?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVA/CARICA AUTOMATICO"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Carica l'ultimo salvataggio al lancio del gioco e salva prima di uscire."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRA MAPPA DEL CONTROLLER"
@@ -4055,6 +4048,11 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d secondo fa"
 msgstr[1] "%d secondi fa"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Carica l'ultimo salvataggio al momento del lancio e salva prima di uscire."
 
 #~ msgid "FANART"
 #~ msgstr "ARTE DEI FAN"

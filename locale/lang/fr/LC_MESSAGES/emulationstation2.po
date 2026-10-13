@@ -231,7 +231,7 @@ msgid "FAVORITE"
 msgstr "FAVORIS"
 
 msgid "SAVESTATES"
-msgstr "SAUVEGARDES D’ÉTAT"
+msgstr "SAUVEGARDES D'ÉTAT"
 
 #, c-format
 msgid "Back to %s"
@@ -2596,13 +2596,10 @@ msgstr "Paramètre actuel"
 msgid "BIOS SETTINGS"
 msgstr "PARAMÈTRES BIOS"
 
-msgid "SAVESTATES"
-msgstr "SAUVEGARDES D'ÉTAT"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "SAUV./CHARG. AUTO"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Charge la dernière sauvegarde d'état automatiquement et sauve en quittant le "
 "jeu."
@@ -3050,11 +3047,6 @@ msgstr "VOULEZ-VOUS VRAIMENT QUITTER ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAUV./CHARG. AUTO AU LANCEMENT"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Charge la dernière sauvegarde d'état automatiquement et sauve en quittant le "
-"jeu."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "AFFICHER LA MANETTE EN SURIMPRESSION"
@@ -4075,6 +4067,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "il y a %d seconde"
 msgstr[1] "il y a %d secondes"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Charge la dernière sauvegarde d'état automatiquement et sauve en quittant "
+#~ "le jeu."
 
 #~ msgid "FANART"
 #~ msgstr "FANART"

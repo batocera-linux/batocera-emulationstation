@@ -2596,15 +2596,12 @@ msgstr "Ajust actual"
 msgid "BIOS SETTINGS"
 msgstr "AJUSTOS DE BIOS"
 
-msgid "SAVESTATES"
-msgstr "ESTATS DESATS"
-
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO DESAR/CARREGAR"
 
-msgid "Load latest savestate on game launch and savestate when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Carregar últim estat desat al iniciar un joc i desar estat al treure'l."
+"Carrega el darrer estat desat del joc a l'iniciar-lo i el desa al sortir."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ESTATS DESATS INCREMENTALS"
@@ -3051,10 +3048,6 @@ msgstr "ESTÀS SEGUR DE VOLER SORTIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "DESA / CARREGA AUTOMÀTICAMENT"
-
-msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr ""
-"Carrega el darrer estat desat del joc a l'iniciar-lo i el desa al sortir."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR SUPERPOSICIONS DE COMANDAMENT"
@@ -4076,6 +4069,11 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "fa %d segon"
 msgstr[1] "fa %d segons"
+
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
+#~ msgstr ""
+#~ "Carregar últim estat desat al iniciar un joc i desar estat al treure'l."
 
 #~ msgid "FANART"
 #~ msgstr "FANART"
