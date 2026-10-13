@@ -214,7 +214,7 @@ msgstr "VÁLASZT"
 msgid "BACK"
 msgstr "VISSZA"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "JÁTÉKÁLLÁS MENTÉSE (TARTÁS)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -229,7 +229,7 @@ msgstr "JÁTÉK BEÁLLÍTÁSOK"
 msgid "FAVORITE"
 msgstr "KEDVENC"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "ÁLLAPOTOK MENTÉSE"
 
 #, c-format
@@ -3051,7 +3051,7 @@ msgstr "BIZTOS KILÉPSZ?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO MENTÉS/TÖLTÉS"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Töltse be a legújabb mentési állapotot a játék indításakor, és mentse az "
 "állapotot a játékból való kilépéskor."

@@ -215,7 +215,7 @@ msgstr "TRIAR"
 msgid "BACK"
 msgstr "ENRERE"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "ESTATS DESATS (MANTENIR)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -230,7 +230,7 @@ msgstr "OPCIONS DEL JOC"
 msgid "FAVORITE"
 msgstr "FAVORIT"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "ESTATS DESATS"
 
 #, c-format
@@ -3052,7 +3052,7 @@ msgstr "ESTÀS SEGUR DE VOLER SORTIR?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "DESA / CARREGA AUTOMÀTICAMENT"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Carrega el darrer estat desat del joc a l'iniciar-lo i el desa al sortir."
 

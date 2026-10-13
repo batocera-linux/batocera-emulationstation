@@ -211,7 +211,7 @@ msgstr "HAUTATU"
 msgid "BACK"
 msgstr "ATZERA"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "GORDETAKO EGOERAK (MANTENDU)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -226,7 +226,7 @@ msgstr "JOKU AUKERAK"
 msgid "FAVORITE"
 msgstr "GOGOKOAK"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "GORDETAKO EGOERAK"
 
 #, c-format
@@ -3030,7 +3030,7 @@ msgstr "BENETAN ITXI?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO GORDE/KARGATU"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Kargatu azken gordetze egoera jokoa abiaraztean eta gorde jokutik irtetean."
 

@@ -205,7 +205,7 @@ msgstr "VELG"
 msgid "BACK"
 msgstr "TILBAKE"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
@@ -220,7 +220,7 @@ msgstr ""
 msgid "FAVORITE"
 msgstr ""
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr ""
 
 #, c-format
@@ -2975,7 +2975,7 @@ msgstr ""
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO LAGRE/LASTE"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"

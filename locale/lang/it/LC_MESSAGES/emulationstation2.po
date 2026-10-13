@@ -213,7 +213,7 @@ msgstr "SCEGLIERE"
 msgid "BACK"
 msgstr "INDIETRO"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "SALVATAGGI (PREMI)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -228,7 +228,7 @@ msgstr "OPZIONI GIOCO"
 msgid "FAVORITE"
 msgstr "PREFERITO"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "SALVATAGGI ISTANTANEI"
 
 #, c-format
@@ -3032,7 +3032,7 @@ msgstr "VUOI USCIRE?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVA/CARICA AUTOMATICO"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Carica l'ultimo salvataggio al lancio del gioco e salva prima di uscire."
 

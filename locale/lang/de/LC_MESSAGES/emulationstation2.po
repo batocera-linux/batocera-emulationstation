@@ -216,7 +216,7 @@ msgstr "AUSWÄHLEN"
 msgid "BACK"
 msgstr "ZURÜCK"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "SPEICHERSTÄNDE (HALTEN)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -231,7 +231,7 @@ msgstr "SPIELOPTIONEN"
 msgid "FAVORITE"
 msgstr "FAVORIT"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "SPEICHERSTÄNDE"
 
 #, c-format
@@ -3062,7 +3062,7 @@ msgstr "WIRKLICH BEENDEN?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOM. SPEICHERN/LADEN BEIM SPIELSTART"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Laden des aktuellsten Speicherstands bei Spielstart und automatisches "
 "Speichern des Spielstandes bei Spielende."

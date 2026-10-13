@@ -214,8 +214,8 @@ msgstr "CHOOSE"
 msgid "BACK"
 msgstr "BACK"
 
-msgid "SAVE STATES (HOLD)"
-msgstr "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
+msgstr "SAVESTATES (HOLD)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "GAME OPTIONS (HOLD)"
@@ -229,8 +229,8 @@ msgstr "GAME OPTIONS"
 msgid "FAVORITE"
 msgstr "FAVOURITE"
 
-msgid "SAVE STATES"
-msgstr "SAVE STATES"
+msgid "SAVESTATES"
+msgstr "SAVESTATES"
 
 #, c-format
 msgid "Back to %s"
@@ -3019,9 +3019,9 @@ msgstr "REALLY QUIT?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO SAVE/LOAD ON GAME LAUNCH"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
-"Load latest save state on game launch and save state when exiting game."
+"Load latest savestate on game launch and save state when exiting game."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "SHOW CONTROLLER OVERLAYS"

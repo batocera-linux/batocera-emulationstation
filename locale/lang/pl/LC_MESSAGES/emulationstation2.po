@@ -217,7 +217,7 @@ msgstr "PRZEJDŹ"
 msgid "BACK"
 msgstr "WSTECZ"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "ZAPISANE STANY GRY (PRZYTRZYMAJ)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -232,7 +232,7 @@ msgstr "OPCJE GRY"
 msgid "FAVORITE"
 msgstr "ULUBIONE"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "ZAPISANE STANY GRY"
 
 #, c-format
@@ -3049,7 +3049,7 @@ msgstr "RZECZYWIŚCIE WYJŚĆ?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
 "wychodzeniu z gry."

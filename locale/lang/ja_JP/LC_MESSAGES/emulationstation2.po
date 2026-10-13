@@ -210,7 +210,7 @@ msgstr "移動選択"
 msgid "BACK"
 msgstr "戻る"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "セーブメニュー (長押し)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -225,7 +225,7 @@ msgstr "ゲーム設定"
 msgid "FAVORITE"
 msgstr "お気に入り"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "ステートマネージャ"
 
 #, c-format
@@ -3031,7 +3031,7 @@ msgstr "本当に終了しますか？"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自動ステート読込みでゲームを開始"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr "ゲーム開始時にステートを読込み、終了時にステートセーブします"
 
 msgid "SHOW CONTROLLER OVERLAYS"

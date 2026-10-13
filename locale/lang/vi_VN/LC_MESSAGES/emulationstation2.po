@@ -216,7 +216,7 @@ msgstr "CHỌN"
 msgid "BACK"
 msgstr "TRỞ VỀ"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "LƯU TRẠNG THÁI (GIỮ)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -231,7 +231,7 @@ msgstr "TÙY CHỌN TRÒ CHƠI"
 msgid "FAVORITE"
 msgstr "ƯA THÍCH"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "ĐIỂM LƯU"
 
 #, c-format
@@ -3030,7 +3030,7 @@ msgstr "XÁC NHẬN THOÁT?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "TỰ ĐỘNG LƯU/NẠP KHI KHỞI ĐỘNG TRÒ CHƠI"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Tải điểm lưu mới nhất khi khởi chạy trò chơi và lưu trạng thái khi thoát "
 "khỏi trò chơi."

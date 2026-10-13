@@ -210,7 +210,7 @@ msgstr "瀏覽"
 msgid "BACK"
 msgstr "返回"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "即時存檔（按住）"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -225,7 +225,7 @@ msgstr "遊戲設定"
 msgid "FAVORITE"
 msgstr "我的最愛"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "即時存檔"
 
 #, c-format
@@ -2995,7 +2995,7 @@ msgstr "確定要退出？"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "遊戲啟動時自動儲存/讀取"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr "在遊戲啟動時載入最近的即時存檔，並在離開遊戲時儲存即時存檔。"
 
 msgid "SHOW CONTROLLER OVERLAYS"

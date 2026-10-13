@@ -213,7 +213,7 @@ msgstr "SEÇ"
 msgid "BACK"
 msgstr "GERİ"
 
-msgid "SAVE STATES (HOLD)"
+msgid "SAVESTATES (HOLD)"
 msgstr "DURUM KAYITLARI (TUT)"
 
 msgid "GAME OPTIONS (HOLD)"
@@ -228,7 +228,7 @@ msgstr "OYUN SEÇENEKLERİ"
 msgid "FAVORITE"
 msgstr "FAVORİ"
 
-msgid "SAVE STATES"
+msgid "SAVESTATES"
 msgstr "DURUM KAYITLARI"
 
 #, c-format
@@ -3050,7 +3050,7 @@ msgstr "ÇIKILSIN MI?"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "OYUN BAŞLATILDIĞINDA OTOMATİK KAYDET/YÜKLE"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and save state when exiting game."
 msgstr ""
 "Oyun başlatıldığında en son durum kaydını yükle ve oyundan çıkarken durumu "
 "kaydet."
