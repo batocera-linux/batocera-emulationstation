@@ -2393,6 +2393,12 @@ msgstr "音訊設定檔"
 msgid "Available options can change depending on current audio output."
 msgstr "可用的選項會依目前的音訊輸出而改變。"
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "開機畫面"
 

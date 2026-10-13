@@ -2394,6 +2394,12 @@ msgstr "音频输出配置文件"
 msgid "Available options can change depending on current audio output."
 msgstr "可用选项会根据当前音频输出而改变。"
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "开机画面"
 

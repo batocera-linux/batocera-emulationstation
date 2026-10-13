@@ -2391,6 +2391,12 @@ msgstr ""
 msgid "Available options can change depending on current audio output."
 msgstr ""
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr ""
 

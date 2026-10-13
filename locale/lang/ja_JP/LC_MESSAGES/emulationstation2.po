@@ -2423,6 +2423,12 @@ msgstr "音声プロファイル"
 msgid "Available options can change depending on current audio output."
 msgstr "現在の音声出力設定に応じて設定項目が変わる場合があります"
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "ブートスプラッシュ映像"
 

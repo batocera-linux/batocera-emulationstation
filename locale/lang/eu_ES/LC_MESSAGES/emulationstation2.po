@@ -2418,6 +2418,12 @@ msgid "Available options can change depending on current audio output."
 msgstr ""
 "Aukeragarri dauden ezarpenak aldatu daitezke uneko audio irteeraren arabera."
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "ABIARAZTE PANTAILA"
 

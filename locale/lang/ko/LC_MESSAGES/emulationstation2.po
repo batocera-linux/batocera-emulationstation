@@ -2410,6 +2410,12 @@ msgstr "오디오 프로파일"
 msgid "Available options can change depending on current audio output."
 msgstr "현재의 오디오 출력에 따라 사용 가능한 옵션이 변경될 수 있습니다."
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "스플래시 부팅"
 

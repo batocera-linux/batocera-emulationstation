@@ -2460,6 +2460,12 @@ msgstr "وضع الصوت"
 msgid "Available options can change depending on current audio output."
 msgstr "بعض الميزات تظهر حسب مخرج الصوت الحالي."
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "شاشة الافتتاحية"
 

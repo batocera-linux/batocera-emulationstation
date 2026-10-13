@@ -2413,6 +2413,12 @@ msgstr "LYDPROFIL"
 msgid "Available options can change depending on current audio output."
 msgstr "Tilgjengelige valg kan endres avhengig av gjeldende lydutgang."
 
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "OPPSTART SPLASH"
 

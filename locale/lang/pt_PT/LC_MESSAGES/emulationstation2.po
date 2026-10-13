@@ -2272,8 +2272,8 @@ msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
-"Profundidade máxima de pesquisa dentro de cada pasta de ROMs, para ignorar subpastas com muitos "
-"ficheiros."
+"Profundidade máxima de pesquisa dentro de cada pasta de ROMs, para ignorar "
+"subpastas com muitos ficheiros."
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
@@ -2436,6 +2436,12 @@ msgstr "PERFIL DE ÁUDIO"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Opções disponíveis podem mudar dependendo da saída de áudio atual."
+
+msgid "HDR"
+msgstr ""
+
+msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
 
 msgid "BOOT SPLASH"
 msgstr "ECRÃ DE ABERTURA"
@@ -2975,8 +2981,8 @@ msgstr "NÃO APLICÁVEL"
 msgid "WI-FI ENABLED"
 msgstr "WIFI ATIVADO"
 
-msgid "WIFI CONFIGURATION ERROR"
-msgstr "ERRO NA CONFIGURAÇÃO WIFI"
+msgid "WI-FI CONFIGURATION ERROR"
+msgstr ""
 
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
@@ -4063,6 +4069,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
+
+#~ msgid "WIFI CONFIGURATION ERROR"
+#~ msgstr "ERRO NA CONFIGURAÇÃO WIFI"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
