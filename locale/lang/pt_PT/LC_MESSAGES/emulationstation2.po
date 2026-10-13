@@ -2438,10 +2438,10 @@ msgid "Available options can change depending on current audio output."
 msgstr "Opções disponíveis podem mudar dependendo da saída de áudio atual."
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr ""
+msgstr "Permite apresentar conteúdos HDR, como transmissões Moonlight HDR no ecrã."
 
 msgid "BOOT SPLASH"
 msgstr "ECRÃ DE ABERTURA"
@@ -2982,7 +2982,7 @@ msgid "WI-FI ENABLED"
 msgstr "WIFI ATIVADO"
 
 msgid "WI-FI CONFIGURATION ERROR"
-msgstr ""
+msgstr "ERRO NA CONFIGURAÇÃO DO WIFI"
 
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
@@ -4070,8 +4070,7 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
 
-#~ msgid "WIFI CONFIGURATION ERROR"
-#~ msgstr "ERRO NA CONFIGURAÇÃO WIFI"
+
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

@@ -2450,10 +2450,10 @@ msgid "Available options can change depending on current audio output."
 msgstr "Opções disponíveis podem mudar dependendo da saída de áudio atual."
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr ""
+msgstr "Permite conteúdo HDR como transmissões de Moonlight HDR para a tela."
 
 msgid "BOOT SPLASH"
 msgstr "TELA DE ABERTURA"
