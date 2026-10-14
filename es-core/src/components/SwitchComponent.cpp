@@ -14,9 +14,7 @@ SwitchComponent::SwitchComponent(Window* window, bool state, bool hasAuto, bool 
 	mImage.setImage(menuTheme->Icons.off);
 	mImage.setColorShift(menuTheme->Text.color);
 	mImage.setResize(0, height);
-
-	if (EsLocale::isRTL())
-		mImage.setFlipX(true);
+	updateAutoImage();
 
 	mSize = mImage.getSize();
 }
@@ -37,6 +35,12 @@ void SwitchComponent::onSizeChanged()
 	mImage.setSize(mSize);
 }
 
+void SwitchComponent::updateAutoImage() {
+  // assume that the auto state is not flippable (text by default), and that true/false are flippable
+  if(EsLocale::isRTL())
+    mImage.setFlipX(!(mHasAuto && mAutoState)); // don't flip when it is auto text
+}
+
 bool SwitchComponent::input(InputConfig* config, Input input)
 {
 	if(config->isMappedTo(BUTTON_OK, input) && input.value)
@@ -50,6 +54,7 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 			} else {
 			       mAutoState = true;
 			}
+			updateAutoImage();
 		} else {
 			mState = !mState;
 		}
@@ -65,6 +70,7 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 			mAutoState = false;
 			mState = false;
 		}
+		updateAutoImage();
 		onStateChanged();
 		return true;
 	}
@@ -77,6 +83,7 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 			mAutoState = false;
 			mState = true;
 		}
+		updateAutoImage();
 		onStateChanged();
 		return true;
 	}
@@ -115,6 +122,7 @@ void SwitchComponent::setValue(const std::string& statestring)
 {
 	if(mHasAuto && statestring == "auto") {
 		mAutoState = true;
+		updateAutoImage();
 	} else {
 		if (statestring == "true")
 		{
@@ -133,6 +141,7 @@ bool SwitchComponent::hasAuto() const {
 
 void SwitchComponent::setHasAuto(bool hasAuto) {
      mHasAuto = hasAuto;
+     updateAutoImage();
 }
 
 bool SwitchComponent::getAutoState() const {
