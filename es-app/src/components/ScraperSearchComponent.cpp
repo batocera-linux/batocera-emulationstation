@@ -46,7 +46,7 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window) : GuiComponent(wi
 	mResultThumbnail->setIsLinear(true);
 	mResultThumbnail->setOnImageLoaded([this]() { mGrid.onSizeChanged(); });
 
-	mGrid.setEntry(mResultThumbnail, Vector2i(2, 1), false, false);
+	mGrid.setEntry(mResultThumbnail, Vector2i(EsLocale::isRTL() ? 3 : 2, 1), false, false);
 
 	// selected result desc + container
 	mResultDesc = std::make_shared<TextComponent>(mWindow, "Result desc", theme->TextSmall.font, theme->Text.color);	
@@ -79,12 +79,17 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window) : GuiComponent(wi
 	unsigned int i = 0;
 	for (auto it = mMD_Pairs.cbegin(); it != mMD_Pairs.cend(); it++)
 	{
-		mMD_Grid->setEntry(it->first, Vector2i(0, i), false, true);
-		mMD_Grid->setEntry(it->second, Vector2i(1, i), false, it->resize);
-		i += 2;
+	  if(EsLocale::isRTL()) {
+	    mMD_Grid->setEntry(it->first, Vector2i(1, i), false, true);
+	    mMD_Grid->setEntry(it->second, Vector2i(0, i), false, it->resize);
+	  } else {
+	    mMD_Grid->setEntry(it->first, Vector2i(0, i), false, true);
+	    mMD_Grid->setEntry(it->second, Vector2i(1, i), false, it->resize);
+	  }
+	    i += 2;
 	}
 
-	mGrid.setEntry(mMD_Grid, Vector2i(3, 1), false, false);
+	mGrid.setEntry(mMD_Grid, Vector2i(EsLocale::isRTL() ? 2 : 3, 1), false, false);
 
 	// result list
 	mResultList = std::make_shared<ComponentList>(mWindow);
