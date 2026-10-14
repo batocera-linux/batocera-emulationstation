@@ -8,6 +8,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "InputConfig.h"
+#include "LocaleES.h"
 
 // space between [icon] and [text] (px)
 #define ICON_TEXT_SPACING Renderer::getScreenWidth() * 0.0042f
@@ -119,7 +120,7 @@ void HelpComponent::updateGrid()
 				text = text.substr(0, split);
 		}
 
-		auto lbl = std::make_shared<TextComponent>(mWindow, text, font, mStyle.textColor);
+		auto lbl = std::make_shared<TextComponent>(mWindow, text, font, mStyle.textColor, EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT);
 		
 		width += icon->getSize().x() + lbl->getSize().x() + ICON_TEXT_SPACING + ENTRY_SPACING;
 		if (width >= maxWidth)
@@ -139,16 +140,29 @@ void HelpComponent::updateGrid()
 	mGrid->setSize(width, height);
 	for (unsigned int i = 0; i < items.size(); i++)
 	{
-		auto item = items.at(i);
+		int n = i;
+		if(EsLocale::isRTL()) {
+		  n = items.size()-1-i;
+		}
+		auto item = items.at(n);
 
 		const int col = i * 4;
-		mGrid->setColWidthPerc(col, item.first->getSize().x() / width);
-		mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
-		mGrid->setColWidthPerc(col + 2, item.second->getSize().x() / width);
-		mGrid->setColWidthPerc(col + 3, ENTRY_SPACING / width);
 
-		mGrid->setEntry(item.first, Vector2i(col, 0), false, false);
-		mGrid->setEntry(item.second, Vector2i(col + 2, 0), false, false);
+		if(EsLocale::isRTL()) {
+		  mGrid->setColWidthPerc(col, item.second->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 1, ENTRY_SPACING / width);
+		  mGrid->setColWidthPerc(col + 2, item.first->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 3, ICON_TEXT_SPACING / width);
+		  mGrid->setEntry(item.first, Vector2i(col + 2, 0), false, false);
+		  mGrid->setEntry(item.second, Vector2i(col, 0), false, false);
+		} else {
+		  mGrid->setColWidthPerc(col, item.first->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
+		  mGrid->setColWidthPerc(col + 2, item.second->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 3, ENTRY_SPACING / width);
+		  mGrid->setEntry(item.first, Vector2i(col, 0), false, false);
+		  mGrid->setEntry(item.second, Vector2i(col + 2, 0), false, false);
+		}
 	}
 
 	mGrid->setPosition(Vector3f(mStyle.position.x(), mStyle.position.y(), 0.0f));
