@@ -26,12 +26,18 @@
 #include "guis/GuiImageViewer.h"
 #include "ApiSystem.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiSettings.h"
 #include "utils/ThreadPool.h"
 #include <SDL_timer.h>
 #include "TextToSpeech.h"
 #include "VolumeControl.h"
 #include "guis/GuiNetPlay.h"
 #include "Gamelist.h"
+#include "SaveStateRepository.h"
+#include "guis/GuiSaveState.h"
+#include "LocaleES.h"
+#include "LangParser.h"
+#include "views/gamelist/GameNameFormatter.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -523,6 +529,99 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		LOG(LogError) << "tried to launch something that isn't a game";
 		return;
+	}
+
+	if (allowCheckLaunchOptions)
+	{
+		auto childGames = game->getSourceFileData()->getChildGames();
+		if (!childGames.empty())
+		{
+			auto getLabel = [](FileData* fd) -> std::string {
+				std::string name = fd->getMetadata().getName();
+				return name.empty() ? fd->getDisplayName() : name;
+			};
+
+			auto getBadges = [](FileData* fd) -> std::string {
+				std::string badges;
+
+				if (fd->getFavorite())
+					badges += _U("\uF006");  // star - favorite
+
+				fd->detectLanguageAndRegion(false);
+				std::string lang   = fd->getMetadata(MetaDataId::Language);
+				std::string region = fd->getMetadata(MetaDataId::Region);
+				if (!lang.empty() || !region.empty())
+				{
+					if (!badges.empty()) badges += "  ";
+					std::string flag = GameNameFormatter::getLangFlag(LangInfo::getFlag(lang, region));
+					if (!flag.empty())
+						badges += flag;
+				}
+
+				auto system = fd->getSourceFileData()->getSystem();
+				if (SaveStateRepository::isEnabled(fd) && system->getSaveStateRepository()->hasSaveStates(fd))
+				{
+					if (!badges.empty()) badges += "  ";
+					badges += _U("\uF0C7");  // floppy disk - has save states
+				}
+
+				if (fd->hasCheevos())
+				{
+					if (!badges.empty()) badges += "  ";
+					badges += _U("\uF091");  // trophy - has achievements
+				}
+
+				return badges;
+			};
+
+			std::function<void(FileData*)> launchVersion = [this, options, center](FileData* selectedGame)
+			{
+				bool showSaveState = SaveStateRepository::isEnabled(selectedGame) &&
+					(options.forceShowSaveState ||
+					 selectedGame->getCurrentGameSetting("savestates") == "1" ||
+					 (selectedGame->getCurrentGameSetting("savestates") == "2" &&
+					  selectedGame->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(selectedGame)));
+
+				if (showSaveState)
+				{
+					mWindow->pushGui(new GuiSaveState(mWindow, selectedGame, [this, selectedGame, options, center](SaveState* state)
+					{
+						LaunchGameOptions newOptions = options;
+						newOptions.saveStateInfo = state;
+						newOptions.forceShowSaveState = false;
+						launch(selectedGame, newOptions, center, false);
+					}));
+				}
+				else
+				{
+					launch(selectedGame, options, center, false);
+				}
+			};
+
+			GuiSettings* menu = new GuiSettings(mWindow, _("SELECT VERSION"));
+			menu->setSubTitle(getLabel(game->getSourceFileData()));
+
+			{
+				auto src = game->getSourceFileData();
+				menu->addWithDescription(getLabel(src), getBadges(src), nullptr, [game, menu, launchVersion]
+				{
+					launchVersion(game);
+					menu->close();
+				});
+			}
+
+			for (auto child : childGames)
+			{
+				menu->addWithDescription(getLabel(child), getBadges(child), nullptr, [child, menu, launchVersion]
+				{
+					launchVersion(child);
+					menu->close();
+				});
+			}
+
+			mWindow->pushGui(menu);
+			return;
+		}
 	}
 
 	if (game->getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
