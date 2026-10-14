@@ -2679,7 +2679,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	{
 		item->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
 
-		for (auto fval : feat.choices)
+		for (auto fval : feat.availableChoices())
 			item->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
 	}
 
@@ -2762,9 +2762,11 @@ static std::string getFeatureMenuDescription(const std::string& configName, cons
 }
 
 
-void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
+void GuiMenu::addFeatures(const VectorEx<CustomFeature>& allFeatures, Window* window, GuiSettings* settings, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
 {
 	bool firstGroup = true;
+
+	auto features = allFeatures.where([](auto x) { return x.isAvailable(); });
 
 	auto groups = features.groupBy([](auto x) { return x.group; });
 	for (auto group : groups)
