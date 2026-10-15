@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-10-09 19:43+0300\n"
+"PO-Revision-Date: 2026-10-15 02:22+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 msgid "Searching"
 msgstr "Se caută"
@@ -2446,10 +2446,10 @@ msgstr ""
 "Opțiunile disponibile se pot schimba în funcție de ieșirea audio curentă."
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr ""
+msgstr "Permite conținut HDR cum ar fi fluxurile Moonlight HDR către ecran."
 
 msgid "BOOT SPLASH"
 msgstr "ECRAN DE PORNIRE"
@@ -2944,13 +2944,13 @@ msgstr "CONECTAT"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "NU SE POATE CONECTA LA '%s'"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "REȚELE WI-FI"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "ADAUGĂ O REȚEA WI-FI"
 
 msgid "WI-FI SSID"
 msgstr "SSID WI-FI"
@@ -2959,7 +2959,7 @@ msgid "WI-FI KEY"
 msgstr "CHEIE WI-FI"
 
 msgid "USE"
-msgstr ""
+msgstr "FOLOSEȘTE"
 
 msgid "FORGET"
 msgstr "UITĂ"
