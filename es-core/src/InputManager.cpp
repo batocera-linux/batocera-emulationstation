@@ -1481,6 +1481,17 @@ std::string InputManager::configureEmulators() {
       command << " ";
     }
   }
+
+#ifndef WIN32
+  // the launcher reads the configs resolved here instead of searching every es_input.cfg
+  pugi::xml_document doc;
+  pugi::xml_node root = doc.append_child("inputList");
+  for (int player = 0; player < MAX_PLAYERS; player++)
+    if (playerJoysticks[player] != NULL)
+      playerJoysticks[player]->writeToXML(root);
+  doc.save_file("/tmp/es_input_players.cfg");
+#endif
+
   LOG(LogInfo) << "Configure emulators command : " << command.str().c_str();
   return command.str();
 }
