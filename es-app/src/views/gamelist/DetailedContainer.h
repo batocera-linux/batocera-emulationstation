@@ -51,7 +51,7 @@ public:
 	~DetailedContainer();
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
-	Vector3f getLaunchTarget();
+	Vector3f getLaunchTarget(Vector2f* size = nullptr);
 
 	void updateControls(FileData* file, bool isClearing, int moveBy = 0, bool isDeactivating = false);
 
@@ -168,7 +168,7 @@ public:
 	~DetailedContainerHost();
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
-	Vector3f getLaunchTarget();
+	Vector3f getLaunchTarget(Vector2f* size = nullptr);
 
 	void updateControls(FileData* file, bool isClearing, int moveBy = 0);
 	void update(int deltaTime);

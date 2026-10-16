@@ -7,6 +7,7 @@
 #include "GuiComponent.h"
 #include <vector>
 #include <functional>
+#include <future>
 
 class IGameListView;
 class ISimpleGameListView;
@@ -63,8 +64,8 @@ public:
 
 	// Plays a nice launch effect and launches the game at the end of it.
 	// Once the game terminates, plays a return effect.
-	void launch(FileData* game, LaunchGameOptions options, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0), bool allowCheckLaunchOptions = true);
-	void launch(FileData* game, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0)) { launch(game, LaunchGameOptions(), centerCameraOn); }
+	void launch(FileData* game, LaunchGameOptions options, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0), Vector2f targetSize = Vector2f::Zero(), bool allowCheckLaunchOptions = true);
+	void launch(FileData* game, Vector3f centerCameraOn = Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0), Vector2f targetSize = Vector2f::Zero()) { launch(game, LaunchGameOptions(), centerCameraOn, targetSize); }
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
@@ -121,7 +122,9 @@ private:
 
 	void playViewTransition(bool forceImmediate);
 	bool doLaunchGame(FileData* game, LaunchGameOptions options);
-	bool checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center);
+	bool checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize);
+	std::shared_future<bool> checkMissingBiosAsync(FileData* game);
+	void promptMissingBios(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize);
 	int getSystemId(SystemData* system);
 	void changeVolume(int increment);
 

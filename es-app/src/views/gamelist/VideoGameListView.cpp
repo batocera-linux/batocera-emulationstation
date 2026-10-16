@@ -48,8 +48,9 @@ void VideoGameListView::launch(FileData* game)
 	float screenWidth = (float) Renderer::getScreenWidth();
 	float screenHeight = (float) Renderer::getScreenHeight();
 
-	Vector3f target = mDetails.getLaunchTarget();
-	ViewController::get()->launch(game, target);
+	Vector2f targetSize = Vector2f::Zero();
+	Vector3f target = mDetails.getLaunchTarget(&targetSize);
+	ViewController::get()->launch(game, target, targetSize);
 }
 
 void VideoGameListView::update(int deltaTime)

@@ -536,16 +536,64 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	mParent->sortChildren();
 }
 
-Vector3f DetailedContainer::getLaunchTarget()
+static GuiComponent* findGameMedia(GuiComponent* comp)
+{
+	if (!comp->isVisible())
+		return nullptr;
+
+	auto bindings = comp->getBindingExpressions();
+	auto path = bindings.find("path");
+	if (path != bindings.cend() && path->second.find("{game:") != std::string::npos)
+	{
+		auto image = dynamic_cast<ImageComponent*>(comp);
+		auto video = dynamic_cast<VideoComponent*>(comp);
+		if ((image != nullptr && image->hasImage()) || (video != nullptr && !video->getVideoPath().empty()))
+			return comp;
+	}
+
+	for (unsigned int i = 0; i < comp->getChildCount(); i++)
+		if (auto media = findGameMedia(comp->getChild(i)))
+			return media;
+
+	return nullptr;
+}
+
+Vector3f DetailedContainer::getLaunchTarget(Vector2f* size)
 {
 	Vector3f target(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0);
+	GuiComponent* media = nullptr;
 
-	if (mVideo != nullptr)
-		target = Vector3f(mVideo->getCenter().x(), mVideo->getCenter().y(), 0);
-	else if (mImage != nullptr && mImage->hasImage())
-		target = Vector3f(mImage->getCenter().x(), mImage->getCenter().y(), 0);
-	else if (mThumbnail != nullptr && mThumbnail->hasImage())
-		target = Vector3f(mThumbnail->getCenter().x(), mThumbnail->getCenter().y(), 0);
+	if (mVideo != nullptr && mVideo->isVisible())
+		media = mVideo;
+	else if (mImage != nullptr && mImage->isVisible() && mImage->hasImage())
+		media = mImage;
+	else if (mThumbnail != nullptr && mThumbnail->isVisible() && mThumbnail->hasImage())
+		media = mThumbnail;
+
+	if (media != nullptr)
+		target = Vector3f(media->getCenter().x(), media->getCenter().y(), 0);
+	else
+	{
+		// themes that hide the md_ elements show the game media through extras
+		std::vector<GuiComponent*> extras = mThemeExtras;
+		extras.insert(extras.end(), mParent->getThemeExtras().cbegin(), mParent->getThemeExtras().cend());
+
+		for (auto extra : extras)
+		{
+			if ((media = findGameMedia(extra)) != nullptr)
+			{
+				auto center = media->getCenter();
+				for (auto parent = media->getParent(); parent != nullptr && parent != mParent; parent = parent->getParent())
+					center += parent->getPosition().v2() - parent->getSize() * parent->getOrigin();
+
+				target = Vector3f(center.x(), center.y(), 0);
+				break;
+			}
+		}
+	}
+
+	if (size != nullptr && media != nullptr)
+		*size = media->getSize();
 
 	return target;
 }
@@ -1374,9 +1422,9 @@ void DetailedContainerHost::update(int deltaTime)
 	}
 }
 
-Vector3f DetailedContainerHost::getLaunchTarget()
+Vector3f DetailedContainerHost::getLaunchTarget(Vector2f* size)
 {
-	return mContainer->getLaunchTarget();
+	return mContainer->getLaunchTarget(size);
 }
 
 void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy)

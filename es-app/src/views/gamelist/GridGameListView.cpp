@@ -241,15 +241,19 @@ void GridGameListView::addPlaceholder()
 
 void GridGameListView::launch(FileData* game)
 {
-	Vector3f target = mDetails.getLaunchTarget();
+	Vector2f targetSize = Vector2f::Zero();
+	Vector3f target = mDetails.getLaunchTarget(&targetSize);
 	if (target == Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0))
 	{
 		auto tile = mGrid.getSelectedTile();
 		if (tile != nullptr)
+		{
 			target = mGrid.getPosition() + tile->getLaunchTarget() - mGrid.getCameraOffset();
+			targetSize = tile->getLaunchTargetSize();
+		}
 	}
 
-	ViewController::get()->launch(game, target);
+	ViewController::get()->launch(game, target, targetSize);
 }
 
 void GridGameListView::remove(FileData *game)

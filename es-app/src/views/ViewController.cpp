@@ -471,7 +471,7 @@ bool ViewController::doLaunchGame(FileData* game, LaunchGameOptions options)
 	return false;
 }
 
-bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center)
+bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize)
 {
 #ifdef _RPI_
 	if (Settings::getInstance()->getBool("VideoOmxPlayer") && mCurrentView)
@@ -481,42 +481,45 @@ bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions option
 	if (!game->isExtensionCompatible())
 	{
 		auto gui = new GuiMsgBox(mWindow, _("WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE FORMAT.\nDO YOU WANT TO LAUNCH IT ANYWAY?"),
-			_("YES"), [this, game, options, center] { launch(game, options, center, false); },
+			_("YES"), [this, game, options, center, targetSize] { launch(game, options, center, targetSize, false); },
 			_("NO"), nullptr, ICON_ERROR);
 
 		mWindow->pushGui(gui);
 		return false;
 	}
 
-	if (Settings::getInstance()->getBool("CheckBiosesAtLaunch") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::BIOSINFORMATION))
-	{
-		auto bios = ApiSystem::getInstance()->getBiosInformations(game->getSourceFileData()->getSystem()->getName());
-		if (bios.size() != 0)
-		{
-			auto systemName = game->getSystem()->getName();
-			auto it = std::find_if(bios.cbegin(), bios.cend(), [&systemName](const BiosSystem& x) { return x.name == systemName; });
-			if (it != bios.cend() && it->bios.size() > 0)
-			{
-				bool hasMissing = std::find_if(it->bios.cbegin(), it->bios.cend(), [&systemName](const BiosFile& x) { return x.status == "MISSING"; }) != it->bios.cend();
-				if (hasMissing)
-				{
-					auto gui = new GuiMsgBox(mWindow, _("WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY?"),
-						_("YES"), [this, game, options, center] { launch(game, options, center, false); },
-						_("NO"), nullptr, ICON_ERROR);
-
-					mWindow->pushGui(gui);
-					return false;
-				}
-			}
-		}
-	}
-
 	return true;
 }
 
-void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center, bool allowCheckLaunchOptions)
+std::shared_future<bool> ViewController::checkMissingBiosAsync(FileData* game)
 {
-	if (allowCheckLaunchOptions && !checkLaunchOptions(game, options, center))
+	if (!Settings::getInstance()->getBool("CheckBiosesAtLaunch") || !ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::BIOSINFORMATION))
+		return std::shared_future<bool>();
+
+	auto sourceSystemName = game->getSourceFileData()->getSystem()->getName();
+	auto systemName = game->getSystem()->getName();
+
+	return std::async(std::launch::async, [sourceSystemName, systemName]
+	{
+		auto bios = ApiSystem::getInstance()->getBiosInformations(sourceSystemName);
+		auto it = std::find_if(bios.cbegin(), bios.cend(), [&systemName](const BiosSystem& x) { return x.name == systemName; });
+		if (it == bios.cend())
+			return false;
+
+		return std::find_if(it->bios.cbegin(), it->bios.cend(), [](const BiosFile& x) { return x.status == "MISSING"; }) != it->bios.cend();
+	}).share();
+}
+
+void ViewController::promptMissingBios(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize)
+{
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY?"),
+		_("YES"), [this, game, options, center, targetSize] { launch(game, options, center, targetSize, false); },
+		_("NO"), nullptr, ICON_ERROR));
+}
+
+void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize, bool allowCheckLaunchOptions)
+{
+	if (allowCheckLaunchOptions && !checkLaunchOptions(game, options, center, targetSize))
 		return;
 
 	if(game->getType() != GAME)
@@ -557,6 +560,16 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	else if (options.netPlayMode == DISABLED && Settings::getInstance()->getBool("NetPlayAutomaticallyCreateLobby"))
 		options.netPlayMode = SERVER;
 	
+	// runs during the launch transition
+	std::shared_future<bool> missingBios;
+	if (allowCheckLaunchOptions)
+		missingBios = checkMissingBiosAsync(game);
+
+	// stop zooming once the game art fills the screen, keeping its aspect ratio
+	float zoom = 4.25f;
+	if (targetSize.x() > 0 && targetSize.y() > 0)
+		zoom = Math::clamp(Math::min(Renderer::getScreenWidth() / targetSize.x(), Renderer::getScreenHeight() / targetSize.y()), 1.0f, 4.25f);
+
 	Transform4x4f origCamera = mCamera;
 	origCamera.translation() = -mCurrentView->getPosition();
 
@@ -567,9 +580,6 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 	GuiComponent::isLaunchTransitionRunning = true;
 		
-	if (!Settings::getInstance()->getBool("HideWindow"))
-		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName(), game);
-
 	std::string transition_style = Settings::GameTransitionStyle();
 	if (transition_style.empty() || transition_style == "auto")
 		transition_style = Settings::TransitionStyle();
@@ -586,6 +596,14 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if (transition_style == "fade & slide")
 		transition_style = "slide";
 
+	bool keepSplash = true;
+#ifndef _WIN32
+	// the slide ends zoomed on the game art, which stays on screen until the emulator covers it
+	keepSplash = transition_style != "slide" && transition_style != "fast slide";
+#endif
+	if (!Settings::getInstance()->getBool("HideWindow") && keepSplash)
+		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName(), game);
+
 	// Workaround, the grid scale has problems when sliding giving bad effects
 	//if (transition_style == "slide" && mCurrentView->isKindOf<GridGameListView>())
 		//transition_style = "fade";
@@ -596,8 +614,14 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		// fade out, launch game, fade back in
 		auto fadeFunc = [this](float t) { mFadeOpacity = Math::lerp(0.0f, 1.0f, t); };
 
-		setAnimation(new LambdaAnimation(fadeFunc, fadeDuration), 0, [this, game, fadeFunc, options]
+		setAnimation(new LambdaAnimation(fadeFunc, fadeDuration), 0, [this, game, fadeFunc, options, center, targetSize, missingBios]
 		{
+			if (missingBios.valid() && missingBios.get())
+			{
+				setAnimation(new LambdaAnimation(fadeFunc, 800), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
+				return;
+			}
+
 			if (doLaunchGame(game, options))
 			{
 				GuiComponent::isLaunchTransitionRunning = false;
@@ -616,8 +640,15 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		int slideDuration = (transition_style == "fast slide") ? 750 : 1500; // Halve the duration for fast slide
 		// move camera to zoom in on center + fade out, launch game, come back in
-		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, slideDuration), 0, [this, origCamera, center, game, options]
+		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, slideDuration, zoom), 0, [this, origCamera, center, targetSize, zoom, game, options, missingBios]
 		{			
+			if (missingBios.valid() && missingBios.get())
+			{
+				mCamera = origCamera;
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600, zoom), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
+				return;
+			}
+
 			if (doLaunchGame(game, options))
 			{
 				GuiComponent::isLaunchTransitionRunning = false;
@@ -628,15 +659,22 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			else
 			{
 				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600, zoom), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
 	} 
 	else // instant
 	{			
-		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this, origCamera, center, game, options]
+		setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10, zoom), 0, [this, origCamera, center, targetSize, zoom, game, options, missingBios]
 		{			
+			if (missingBios.valid() && missingBios.get())
+			{
+				mCamera = origCamera;
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10, zoom), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
+				return;
+			}
+
 			if (doLaunchGame(game, options))
 			{
 				GuiComponent::isLaunchTransitionRunning = false;
@@ -647,7 +685,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			else
 			{
 				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10, zoom), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -981,8 +1019,9 @@ void ViewController::render(const Transform4x4f& parentTrans)
 		}
 	}
 
+	// the help bar is outside the camera, so it fades out instead of zooming with the view at launch
 	if(mWindow->peekGui() == this)
-		mWindow->renderHelpPromptsEarly(parentTrans);
+		mWindow->renderHelpPromptsEarly(parentTrans, mLockInput ? (unsigned char)((1.0f - sqrtf(mFadeOpacity)) * 255) : 255);
 
 	// fade out
 	if (mFadeOpacity)

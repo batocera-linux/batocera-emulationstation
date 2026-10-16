@@ -1532,6 +1532,14 @@ Vector3f GridTileComponent::getLaunchTarget()
 	return Vector3f(getCenter().x(), getCenter().y(), 0);
 }
 
+Vector2f GridTileComponent::getLaunchTargetSize()
+{
+	if (mImage != nullptr && mImage->hasImage())
+		return mImage->getSize();
+
+	return getSize();
+}
+
 void GridTileComponent::updateBindings(IBindable* bindable)
 {
 	if (bindable != nullptr)
