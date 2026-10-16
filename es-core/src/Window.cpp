@@ -979,9 +979,18 @@ void Window::closeSplashScreen()
 	mSplash = nullptr;
 }
 
-void Window::renderHelpPromptsEarly(const Transform4x4f& transform)
+void Window::renderHelpPromptsEarly(const Transform4x4f& transform, unsigned char opacity)
 {
-	mHelp->render(transform);
+	if (opacity == 255)
+		mHelp->render(transform);
+	else if (opacity > 0)
+	{
+		auto previous = mHelp->getOpacity();
+		mHelp->setOpacity(opacity);
+		mHelp->render(transform);
+		mHelp->setOpacity(previous);
+	}
+
 	mRenderedHelpPrompts = true;
 }
 

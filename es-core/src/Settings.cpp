@@ -351,10 +351,11 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowFilenames"] = false;
 
-#if defined(_WIN32) || defined(X86) || defined(X86_64)
-	mBoolMap["HideWindow"] = false;
-#else
+#if defined(RK3128)
+	// no compositor, so the emulator needs the display ES would keep
 	mBoolMap["HideWindow"] = true;
+#else
+	mBoolMap["HideWindow"] = false;
 #endif
 
 	mBoolMap["HideWindowFullReinit"] = false;

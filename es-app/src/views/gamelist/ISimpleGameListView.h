@@ -61,6 +61,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual bool onAction(const std::string& action) override;
 
+	const std::vector<GuiComponent*>& getThemeExtras() const { return mThemeExtras; }
+
 protected:	
 	FolderData* createParentFolderData();
 	FileData*   createNoEntriesPlaceholder();
