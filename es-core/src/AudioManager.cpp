@@ -68,6 +68,10 @@ void AudioManager::init()
 	mPlayingSystemThemeSong = "none";
 	std::deque<std::string> mLastPlayed;
 
+#ifdef __linux__
+	SDL_SetHint(SDL_HINT_AUDIODRIVER, "pipewire,alsa");
+#endif
+
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
 		LOG(LogError) << "Error initializing SDL audio!\n" << SDL_GetError();
