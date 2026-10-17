@@ -35,6 +35,9 @@ void CarouselGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	ISimpleGameListView::onThemeChanged(theme);
 
 	mList.applyTheme(theme, getName(), "gamecarousel", ThemeFlags::ALL);
+	// Keep input and selection in this view while the secondary carousel draws.
+	mList.setVisible(!(Renderer::hasSecondaryWindow() && theme->getElement(
+		"secondary-" + std::string(getName()), "gamecarousel", "gamecarousel")));
 	mDetails.onThemeChanged(theme);
 
 	sortChildren();
