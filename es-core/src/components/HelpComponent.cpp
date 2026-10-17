@@ -203,10 +203,14 @@ std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const std::string
 
 void HelpComponent::setOpacity(unsigned char opacity)
 {
-	GuiComponent::setOpacity(opacity);
+    GuiComponent::setOpacity(opacity);
 
-	for (auto i = 0; i < mGrid->getChildCount(); i++)
-		mGrid->getChild(i)->setOpacity(opacity);
+    // mGrid is null when ShowHelpPrompts is disabled or there are no prompts
+    if (mGrid == nullptr)
+        return;
+
+    for (auto i = 0; i < mGrid->getChildCount(); i++)
+        mGrid->getChild(i)->setOpacity(opacity);
 }
 
 void HelpComponent::render(const Transform4x4f& parentTrans)
