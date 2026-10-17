@@ -28,6 +28,7 @@
 #include "BindingManager.h"
 #include "guis/GuiRetroAchievements.h"
 #include "components/CarouselComponent.h"
+#include "watchers/NetworkStateWatcher.h"
 
 SystemView::SystemView(Window* window) : GuiComponent(window),
 	mViewNeedsReload(true),
@@ -55,10 +56,12 @@ SystemView::SystemView(Window* window) : GuiComponent(window),
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	populate();
+	WatchersManager::RegisterNotify(this);
 }
 
 SystemView::~SystemView()
 {
+	WatchersManager::UnregisterNotify(this);
 	mCarousel.attach(nullptr);
 
 	for (auto sb : mStaticBackgrounds)
@@ -607,8 +610,18 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
 	mWindow->pushGui(gs);
 }
 
+void SystemView::OnWatcherChanged(IWatcher* component)
+{
+	if (dynamic_cast<NetworkStateWatcher*>(component) != nullptr)
+		mNetworkBindingsDirty = true;
+}
+
 void SystemView::update(int deltaTime)
 {
+	// Watcher notifications arrive on a worker thread; refresh the theme here.
+	if (mNetworkBindingsDirty.exchange(false))
+		updateExtraTextBinding();
+
 	mCarousel.update(deltaTime);
 	mSystemInfo.update(deltaTime);
 
