@@ -335,7 +335,51 @@ namespace Renderer
 
 	} // destroyWindow
 
-#if WIN32	
+#if WIN32
+	// A game may have changed the desktop resolution : Windows then moves windows so that their title bar stays visible.
+	// Put a screen-sized window (windowed or borderless) back on its monitor origin, so its title bar is hidden again.
+	// Win32 only : the borderless style is applied behind SDL's back, so SDL_SetWindowPosition would compute a wrong frame and could resize the window.
+	static void restoreScreenSizedWindow(HWND hWnd)
+	{
+		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_FULLSCREEN)
+			return;
+
+		// Never touch minimized or maximized windows, Windows manages them
+		if (IsIconic(hWnd) || IsZoomed(hWnd))
+			return;
+
+		HMONITOR hMonitor = MonitorFromWindow(hWnd, MONITOR_DEFAULTTONEAREST);
+		if (hMonitor == NULL)
+			return;
+
+		MONITORINFO mi;
+		mi.cbSize = sizeof(MONITORINFO);
+		if (!GetMonitorInfo(hMonitor, &mi))
+			return;
+
+		RECT rcClient;
+		if (!GetClientRect(hWnd, &rcClient))
+			return;
+
+		// Only screen-sized windows : user-sized windows keep their position
+		if (rcClient.right - rcClient.left != mi.rcMonitor.right - mi.rcMonitor.left ||
+			rcClient.bottom - rcClient.top != mi.rcMonitor.bottom - mi.rcMonitor.top)
+			return;
+
+		POINT ptClient = { 0, 0 };
+		RECT rcWindow;
+		if (!ClientToScreen(hWnd, &ptClient) || !GetWindowRect(hWnd, &rcWindow))
+			return;
+
+		if (ptClient.x == mi.rcMonitor.left && ptClient.y == mi.rcMonitor.top)
+			return;
+
+		// Keep the current frame : only the client area origin must match the monitor origin
+		int x = mi.rcMonitor.left - (ptClient.x - rcWindow.left);
+		int y = mi.rcMonitor.top - (ptClient.y - rcWindow.top);
+		SetWindowPos(hWnd, NULL, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOOWNERZORDER | SWP_NOACTIVATE);
+	}
+
 	void activateWindow()
 	{
 		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
@@ -354,6 +398,8 @@ namespace Renderer
 			hWnd = hWndParent;
 			hWndParent = GetParent(hWnd);
 		}
+
+		restoreScreenSizedWindow(hWnd);
 
 		DWORD currentThread = GetCurrentThreadId();
 
