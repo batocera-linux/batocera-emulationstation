@@ -76,6 +76,7 @@ public:
 	void renderSplashScreen(std::string text, float percent = -1, float opacity = 1);
 	void renderSplashScreen(float opacity = 1, bool swapBuffers = true);
 	void closeSplashScreen();
+	bool hasSplashScreen() const { return mSplash != nullptr; }
 
 	void renderHelpPromptsEarly(const Transform4x4f& transform, unsigned char opacity = 255); // used to render HelpPrompts before a fade
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
