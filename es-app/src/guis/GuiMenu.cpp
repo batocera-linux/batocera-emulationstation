@@ -4477,6 +4477,12 @@ static void useWifiNetwork(Window* window, const std::string& ssid)
 	// the script provisions connman from the saved file
 	SystemConf::getInstance()->saveSystemConf();
 
+	if (!ssid.empty() && ssid == ApiSystem::getInstance()->getConnectedWifiSsid())
+	{
+		window->pushGui(new GuiMsgBox(window, _("ALREADY CONNECTED")));
+		return;
+	}
+
 	window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"),
 		[ssid](auto gui) { return ApiSystem::getInstance()->connectWifi(ssid); },
 		[window, ssid](bool connected)
@@ -4485,16 +4491,35 @@ static void useWifiNetwork(Window* window, const std::string& ssid)
 		}));
 }
 
-void GuiMenu::openWifiNetworks()
+void GuiMenu::openWifiNetworks(int cursorIndex)
 {
 	auto s = new GuiSettings(mWindow, _("WI-FI NETWORKS"));
 
-	auto reopen = [this, s] { delete s; openWifiNetworks(); };
+	auto reopen = [this, s]
+	{
+		int index = s->getMenu().getCursorIndex();
+		delete s;
+		openWifiNetworks(index);
+	};
 
-	for (auto& slot : getWifiSlots())
-		s->addEntry(SystemConf::getInstance()->get(slot + ".ssid"), true, [this, slot, reopen] { openWifiNetwork(slot, reopen); });
+	const std::string connectedSsid = ApiSystem::getInstance()->getConnectedWifiSsid();
+	const auto slots = getWifiSlots();
+	const int selectedIndex = std::max(0, std::min(cursorIndex, static_cast<int>(slots.size())));
 
-	s->addEntry(_("ADD A WI-FI NETWORK"), true, [this, reopen] { openWifiNetwork(getFreeWifiSlot(), reopen); });
+	int index = 0;
+	for (const auto& slot : slots)
+	{
+		const std::string ssid = SystemConf::getInstance()->get(slot + ".ssid");
+		const std::string label = !connectedSsid.empty() && ssid == connectedSsid
+			? ssid + " (" + _("CONNECTED") + ")"
+			: ssid;
+
+		s->getMenu().addEntry(label, true,
+			[this, slot, reopen] { openWifiNetwork(slot, reopen); }, "", index++ == selectedIndex);
+	}
+
+	s->getMenu().addEntry(_("ADD A WI-FI NETWORK"), true,
+		[this, reopen] { openWifiNetwork(getFreeWifiSlot(), reopen); }, "", index == selectedIndex);
 
 	mWindow->pushGui(s);
 }
@@ -4640,15 +4665,23 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 #if !WIN32
 			std::string newCountry = SystemConf::getInstance()->get("wifi.country");
 
-			if (baseSSID != newSSID || baseKEY != newKey || baseCountry != newCountry || !baseWifiEnabled)
+			const bool primaryChanged = baseSSID != newSSID || baseKEY != newKey;
+			const bool countryChanged = baseCountry != newCountry;
+
+			if (!baseWifiEnabled || countryChanged)
 			{
+				SystemConf::getInstance()->saveSystemConf();
+
 				if (ApiSystem::getInstance()->enableWifi(newSSID, newKey, newCountry))
 					window->pushGui(new GuiMsgBox(window, _("WI-FI ENABLED")));
 				else
 					window->pushGui(new GuiMsgBox(window, _("WI-FI CONFIGURATION ERROR")));
 			}
-			else if (baseOthers != getOtherWifiNetworksState())
+			else if (primaryChanged || baseOthers != getOtherWifiNetworksState())
+			{
+				SystemConf::getInstance()->saveSystemConf();
 				ApiSystem::getInstance()->configureWifi();
+			}
 #else
 			if (baseSSID != newSSID || baseKEY != newKey || !baseWifiEnabled)
 			{
