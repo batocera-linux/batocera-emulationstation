@@ -55,7 +55,7 @@ private:
         void openGamesSettings();       
         void openNetworkSettings(bool selectWifiEnable = false);        
 #if !WIN32
-        void openWifiNetworks();
+        void openWifiNetworks(int cursorIndex = 0);
         void openWifiNetwork(const std::string& slot, const std::function<void()>& onClose);
 #endif
         void openQuitMenu();

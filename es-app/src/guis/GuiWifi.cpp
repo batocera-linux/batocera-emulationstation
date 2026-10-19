@@ -41,17 +41,35 @@ GuiWifi::GuiWifi(Window* window, const std::string title, std::string data, cons
 
 void GuiWifi::load(std::vector<std::string> ssids)
 {
+	const bool stayOnButtons = mMenu.isCursorToButtons();
+
 	mMenu.clear();
 
 	if (ssids.size() == 0)
 		mMenu.addEntry(_("NO WI-FI NETWORKS FOUND"), false, std::bind(&GuiWifi::onRefresh, this));
 	else
 	{
-		for (auto ssid : ssids)
-			mMenu.addEntry(ssid, false, [this, ssid]() { GuiWifi::onSave(ssid); });
+		const std::string connectedSsid = ApiSystem::getInstance()->getConnectedWifiSsid();
+
+		for (size_t i = 0; i < ssids.size(); i++)
+		{
+			const auto& ssid = ssids[i];
+			const std::string label = !connectedSsid.empty() && ssid == connectedSsid
+				? ssid + " (" + _("CONNECTED") + ")"
+				: ssid;
+
+			mMenu.addEntry(label, false,
+				[this, ssid]() { GuiWifi::onSave(ssid); },
+				"", stayOnButtons && i == ssids.size() - 1);
+		}
 	}
 
 	mMenu.updateSize();
+
+	if (stayOnButtons)
+		mMenu.setCursorToButtons();
+	else
+		mMenu.setCursorToList();
 
 	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
@@ -71,6 +89,12 @@ void GuiWifi::onSave(const std::string& value)
 {
 	if (mWaitingLoad)
 		return;
+
+	if (!value.empty() && value == ApiSystem::getInstance()->getConnectedWifiSsid())
+	{
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("ALREADY CONNECTED")));
+		return;
+	}
 
 	mSaveFunction(value);
 	delete this;

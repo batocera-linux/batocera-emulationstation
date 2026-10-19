@@ -638,9 +638,13 @@ bool ApiSystem::launchFileManager(Window *window)
 }
 
 #if !WIN32
-bool ApiSystem::enableWifi(std::string ssid, std::string key, std::string country) 
+bool ApiSystem::enableWifi(std::string ssid, std::string key, std::string country)
 {
-	return executeScript("batocera-wifi enable \"" + ssid + "\" \"" + key + "\" \"" + country + "\"");
+	ssid = Utils::String::replace(ssid, "'", "'\\''");
+	key = Utils::String::replace(key, "'", "'\\''");
+	country = Utils::String::replace(country, "'", "'\\''");
+
+	return executeScript("batocera-wifi enable '" + ssid + "' '" + key + "' '" + country + "'");
 }
 #else
 bool ApiSystem::enableWifi(std::string ssid, std::string key) 
@@ -657,7 +661,8 @@ bool ApiSystem::configureWifi()
 
 bool ApiSystem::connectWifi(const std::string& ssid)
 {
-	return executeScript("batocera-wifi connect \"" + ssid + "\"");
+	const std::string escapedSSID = Utils::String::replace(ssid, "'", "'\\''");
+	return executeScript("batocera-wifi connect '" + escapedSSID + "'");
 }
 #endif
 
@@ -2086,6 +2091,12 @@ bool ApiSystem::isLEDMonochrome()
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)
 {
 	return executeEnumerationScript(scan ? "batocera-wifi scanlist" : "batocera-wifi list");
+}
+
+std::string ApiSystem::getConnectedWifiSsid()
+{
+	std::vector<std::string> result = executeEnumerationScript("batocera-wifi connected");
+	return result.empty() ? "" : result[0];
 }
 
 std::vector<std::string> ApiSystem::executeEnumerationScript(const std::string command)
