@@ -1410,6 +1410,12 @@ msgstr "ВВОД ВРУЧНУЮ"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "СЕТЬ WI-FI НЕ НАЙДЕНА"
 
+msgid "CONNECTED"
+msgstr "ПОДКЛЮЧЕНО"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ПОИСК WI-FI СЕТИ"
 
@@ -2914,9 +2920,6 @@ msgstr "ВКЛЮЧИТЬ ЗВУКИ НАВИГАЦИИ"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ВКЛЮЧИТЬ ЗВУК В ВИДЕО"
-
-msgid "CONNECTED"
-msgstr "ПОДКЛЮЧЕНО"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

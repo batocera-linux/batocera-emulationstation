@@ -1412,6 +1412,12 @@ msgstr "WPROWADŹ RĘCZNE"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NIE ZNALEZIONO SIECI WI-FI"
 
+msgid "CONNECTED"
+msgstr "POŁĄCZONO"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WI-FI"
 
@@ -2929,9 +2935,6 @@ msgstr "WŁĄCZ DŹWIĘKI NAWIGACJI"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "WŁĄCZ DŹWIĘK WIDEO"
-
-msgid "CONNECTED"
-msgstr "POŁĄCZONO"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

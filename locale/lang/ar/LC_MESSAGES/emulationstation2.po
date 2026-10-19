@@ -1145,13 +1145,13 @@ msgstr "ضبط أزرار وحدة التحكم"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. "
-"PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "ستقوم بتعديل لوحة التحكم. تلك التعديلات تعتمد على مكان الزر، ليس الاسم "
-"المكتوب عليه. إن لم يكن لديك زر خاص بزر الاختصار، استعمل الزر (SELECT). لتخطي "
-"(الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط على زر "
-"الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
+"المكتوب عليه. إن لم يكن لديك زر خاص بزر الاختصار، استعمل الزر (SELECT). "
+"لتخطي (الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط "
+"على زر الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "إعدادات مسدس سِينْدِن"
@@ -1453,6 +1453,12 @@ msgstr "الإدخال اليدوي"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "لم يتم العثور على شبكة وايفاي"
 
+msgid "CONNECTED"
+msgstr "متصل"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "جارِ البحث عن شبكة WI-FI"
 
@@ -1665,8 +1671,8 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد تكون !"
-"مختلفة من نظام لآخر\n"
+"انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد "
+"تكون !مختلفة من نظام لآخر\n"
 "أترغب في المواصلة؟"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -2279,7 +2285,8 @@ msgstr "التحميل المسبق لعناصر واجهة المستخدم خ�
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr "تخفيض التباطؤ خلال دخول قائمة الألعاب من قائمة النظام، يزيد مدة الإقلاع"
+msgstr ""
+"تخفيض التباطؤ خلال دخول قائمة الألعاب من قائمة النظام، يزيد مدة الإقلاع"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "التحميل المسبق لبيانات الوسائط خلال الإقلاع"
@@ -2666,7 +2673,8 @@ msgstr "نسبة ارتفاع عرض الشاشة"
 msgid "Force the game to render in this aspect ratio."
 msgstr "إرغام اللعبة على العرض (render) بنسبة ارتفاع الشاشة هذه."
 
-msgid "Sets the display's resolution. Does not affect the rendering resolution."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "تغيير دقة الشاشة.لن يؤثر على دقة شاشة التَّصيِيِر."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
@@ -2947,9 +2955,6 @@ msgstr "تفعيل أصوات التنقل"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "تفعيل صوت فيديو المعاينة"
-
-msgid "CONNECTED"
-msgstr "متصل"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
@@ -3951,8 +3956,8 @@ msgid "-NOT DEFINED-"
 msgstr "-غير محدد-"
 
 msgid ""
-"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A "
-"CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "لم يتم تعيين مفتاح اختصار. هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة "
 "التحكم. أترغب في استعمال سيليكت (SELECT) كمفتاح الاختصار الخاص بك؟"
@@ -4118,7 +4123,8 @@ msgstr[3] "منذ %d ثوانٍ"
 msgstr[4] "منذ %d ثانية"
 msgstr[5] "منذ %d ثانية"
 
-#~ msgid "Load latest savestate on game launch and savestate when exiting game."
+#~ msgid ""
+#~ "Load latest savestate on game launch and savestate when exiting game."
 #~ msgstr "تشغيل آخر حالة حفظ للعبة حين تشغيلها وحفظ الحالة عند الخروج منها."
 
 #~ msgid "FANART"

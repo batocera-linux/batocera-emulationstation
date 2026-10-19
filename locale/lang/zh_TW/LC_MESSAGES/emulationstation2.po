@@ -1395,6 +1395,12 @@ msgstr "手動輸入"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "沒有找到 WI-FI 網路"
 
+msgid "CONNECTED"
+msgstr "已連線"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "搜尋 WI-FI 網路"
 
@@ -2875,9 +2881,6 @@ msgstr "啟動導覽音效"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "啟動影片音訊"
-
-msgid "CONNECTED"
-msgstr "已連線"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

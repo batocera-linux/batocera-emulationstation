@@ -1408,6 +1408,12 @@ msgstr "EL İLE GİRİŞ"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WİFİ AĞI BULUNAMADI"
 
+msgid "CONNECTED"
+msgstr "BAĞLI"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WİFİ AĞLARI TARANIYOR"
 
@@ -2931,9 +2937,6 @@ msgstr "GEZİNTİ SESLERİNİ ETKİNLEŞTİR"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VİDEO ÖNİZLEME SESİNİ ETKİNLEŞTİR"
-
-msgid "CONNECTED"
-msgstr "BAĞLI"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

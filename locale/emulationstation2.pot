@@ -1387,6 +1387,12 @@ msgstr ""
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr ""
 
+msgid "CONNECTED"
+msgstr ""
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr ""
 
@@ -2861,9 +2867,6 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr ""
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr ""
-
-msgid "CONNECTED"
 msgstr ""
 
 #, c-format

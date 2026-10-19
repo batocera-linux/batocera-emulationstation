@@ -1410,6 +1410,12 @@ msgstr "Zadať ručne"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "Nenašli sa žiadne Wi-Fi siete"
 
+msgid "CONNECTED"
+msgstr "Pripojené"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "Hľadám Wi-Fi siete"
 
@@ -2909,9 +2915,6 @@ msgstr "Povoliť zvuky navigácie"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "Povoliť zvuk pri video náhľade"
-
-msgid "CONNECTED"
-msgstr "Pripojené"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

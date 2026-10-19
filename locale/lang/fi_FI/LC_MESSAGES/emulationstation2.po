@@ -1404,6 +1404,12 @@ msgstr "SYÖTÄ MANUAALISESTI"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WI-FI VERKKOJA EI LÖYTYNYT"
 
+msgid "CONNECTED"
+msgstr "YHDISTETTY"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ETSITÄÄN WI-FI VERKKOJA"
 
@@ -2897,9 +2903,6 @@ msgstr ""
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "OTA KÄYTTÖÖN VIDEOIDEN ESIKATSELUN ÄÄNI"
-
-msgid "CONNECTED"
-msgstr "YHDISTETTY"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

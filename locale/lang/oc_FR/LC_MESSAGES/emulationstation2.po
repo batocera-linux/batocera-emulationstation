@@ -1390,6 +1390,12 @@ msgstr ""
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "CAP DE RET WI-FI PAS TROBAT"
 
+msgid "CONNECTED"
+msgstr "CONNECTAT"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RECÈRCA DE RET WI-FI"
 
@@ -2865,9 +2871,6 @@ msgstr ""
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr ""
-
-msgid "CONNECTED"
-msgstr "CONNECTAT"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

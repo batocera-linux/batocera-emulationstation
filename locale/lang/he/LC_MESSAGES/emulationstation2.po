@@ -1392,6 +1392,12 @@ msgstr "הזן ידנית"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "לא נמצאו רשתות אלחוטיות"
 
+msgid "CONNECTED"
+msgstr "מחובר"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "סורק רשתות אלחוטיות"
 
@@ -2867,9 +2873,6 @@ msgstr "הוך צלילי ניווט לפעילים"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr ""
-
-msgid "CONNECTED"
-msgstr "מחובר"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

@@ -1402,6 +1402,12 @@ msgstr "수동 입력"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "Wi-Fi 네트워크를 찾을 수 없음"
 
+msgid "CONNECTED"
+msgstr "연결됨"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WI-FI 네트워크 검색 중"
 
@@ -2896,9 +2902,6 @@ msgstr "탐색 사운드 활성화"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "비디오 미리보기 오디오 활성화"
-
-msgid "CONNECTED"
-msgstr "연결됨"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

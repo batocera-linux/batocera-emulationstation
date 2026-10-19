@@ -1380,6 +1380,12 @@ msgstr ""
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr ""
 
+msgid "CONNECTED"
+msgstr "TILKOBLET"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr ""
 
@@ -2855,9 +2861,6 @@ msgstr ""
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr ""
-
-msgid "CONNECTED"
-msgstr "TILKOBLET"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

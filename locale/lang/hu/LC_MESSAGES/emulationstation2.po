@@ -1412,6 +1412,12 @@ msgstr "KÉZI BEVITEL"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NINCS WI-FI HÁLÓZAT"
 
+msgid "CONNECTED"
+msgstr "CSATLAKOZVA"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WI-FI HÁLÓZAT KERESÉSE"
 
@@ -2931,9 +2937,6 @@ msgstr "NAVIGÁCIÓS HANGOK ENGEDÉLYEZÉSE"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VIDEÓ HANGJÁNAK ENGEDÉLYEZÉSE"
-
-msgid "CONNECTED"
-msgstr "CSATLAKOZVA"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

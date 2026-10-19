@@ -1405,6 +1405,12 @@ msgstr "MANUÁLNÍ VSTUP"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NEBYLY NALEZENY ŽÁDNÉ SÍTĚ WI-FI"
 
+msgid "CONNECTED"
+msgstr "PŘIPOJEN"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "VYHLEDÁVÁNÍ SÍTÍ WI-FI"
 
@@ -2909,9 +2915,6 @@ msgstr "POVOLIT NAVIGAČNÍ ZVUKY"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "POVOLIT NÁHLED VIDEA SE ZVUKEM"
-
-msgid "CONNECTED"
-msgstr "PŘIPOJEN"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

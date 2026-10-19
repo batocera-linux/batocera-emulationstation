@@ -1406,6 +1406,12 @@ msgstr "手動 入力"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WI-FI ネットワークが見つかりません"
 
+msgid "CONNECTED"
+msgstr "接続中"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WI-FIネットワークの検索"
 
@@ -2910,9 +2916,6 @@ msgstr "操作音を有効"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "デモ動画のBGMを有効"
-
-msgid "CONNECTED"
-msgstr "接続中"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"

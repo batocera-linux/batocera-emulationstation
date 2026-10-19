@@ -1406,6 +1406,12 @@ msgstr "NHẬP THỦ CÔNG"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "KHÔNG TÌM THẤY MẠNG WI-FI"
 
+msgid "CONNECTED"
+msgstr "ĐÃ KẾT NỐI"
+
+msgid "ALREADY CONNECTED"
+msgstr ""
+
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "TÌM KIẾM MẠNG WI-FI"
 
@@ -2910,9 +2916,6 @@ msgstr "BẬT ĐIỀU HƯỚNG ÂM THANH"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "BẬT NGHE TRƯỚC ÂM THANH VIDEO"
-
-msgid "CONNECTED"
-msgstr "ĐÃ KẾT NỐI"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
