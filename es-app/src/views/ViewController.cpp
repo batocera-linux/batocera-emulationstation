@@ -512,10 +512,16 @@ std::shared_future<bool> ViewController::checkMissingBiosAsync(FileData* game)
 
 void ViewController::promptMissingBios(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize)
 {
+	// Reset local coordinates before retrying the launch.
+	center -= mCurrentView->getPosition();
+
 	mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY?"),
 		_("YES"), [this, game, options, center, targetSize] { launch(game, options, center, targetSize, false); },
 		_("NO"), nullptr, ICON_ERROR));
 }
+
+// textures are dropped while a game runs and fade back in, so stay zoomed until the view is drawn again
+static const int RETURN_HOLD = 250;
 
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize, bool allowCheckLaunchOptions)
 {
@@ -644,8 +650,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		{			
 			if (missingBios.valid() && missingBios.get())
 			{
-				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600, zoom), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, origCamera, mFadeOpacity, center, 600, zoom), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
 				return;
 			}
 
@@ -658,8 +663,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			}
 			else
 			{
-				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 600, zoom), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, origCamera, mFadeOpacity, center, 600, zoom), RETURN_HOLD, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
@@ -670,8 +674,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		{			
 			if (missingBios.valid() && missingBios.get())
 			{
-				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10, zoom), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, origCamera, mFadeOpacity, center, 10, zoom), 0, [this, game, options, center, targetSize] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); promptMissingBios(game, options, center, targetSize); }, true, 3);
 				return;
 			}
 
@@ -684,12 +687,13 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 			}
 			else
 			{
-				mCamera = origCamera;
-				setAnimation(new LaunchAnimation(mCamera, mFadeOpacity, center, 10, zoom), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
+				setAnimation(new LaunchAnimation(mCamera, origCamera, mFadeOpacity, center, 10, zoom), 0, [this] { GuiComponent::isLaunchTransitionRunning = false; mLockInput = false; mWindow->closeSplashScreen(); }, true, 3);
 				this->onFileChanged(game, FILE_METADATA_CHANGED);
 			}
 		});
 	}
+
+	mWindow->normalizeNextUpdate(); // Ensure the beginning of the animation plays
 }
 
 void ViewController::removeGameListView(SystemData* system)
