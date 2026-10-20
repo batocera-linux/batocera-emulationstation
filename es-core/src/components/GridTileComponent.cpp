@@ -1527,17 +1527,66 @@ void GridTileComponent::forceMarquee(const std::string& path)
 	}	
 }
 
+static void findGameMedia(GuiComponent* comp, GuiComponent*& media, float& area)
+{
+	if (!comp->isVisible())
+		return;
+
+	auto bindings = comp->getBindingExpressions();
+	auto path = bindings.find("path");
+	if (path != bindings.cend() && path->second.find("{game:") != std::string::npos)
+	{
+		auto image = dynamic_cast<ImageComponent*>(comp);
+		auto video = dynamic_cast<VideoComponent*>(comp);
+		if ((image != nullptr && image->hasImage()) || (video != nullptr && !video->getVideoPath().empty()))
+		{
+			auto size = VideoComponent::getShownMedia(comp)->getSize();
+			if (size.x() * size.y() > area)
+			{
+				media = comp;
+				area = size.x() * size.y();
+			}
+		}
+	}
+
+	for (unsigned int i = 0; i < comp->getChildCount(); i++)
+		findGameMedia(comp->getChild(i), media, area);
+}
+
+GuiComponent* GridTileComponent::getLaunchMedia()
+{
+	if (!mHasItemTemplate)
+		return mImage != nullptr && mImage->hasImage() ? mImage : nullptr;
+
+	GuiComponent* media = nullptr;
+	float area = 0;
+	for (unsigned int i = 0; i < getChildCount(); i++)
+		findGameMedia(getChild(i), media, area);
+
+	return media;
+}
+
 Vector3f GridTileComponent::getLaunchTarget()
 {
-	return Vector3f(getCenter().x(), getCenter().y(), 0);
+	auto media = getLaunchMedia();
+	if (media == nullptr)
+		return Vector3f(getCenter().x(), getCenter().y(), 0);
+
+	Vector2f center = VideoComponent::getShownMedia(media)->getCenter();
+	for (auto parent = media->getParent(); parent != nullptr && parent != this; parent = parent->getParent())
+		center += parent->getPosition().v2() - parent->getSize() * parent->getOrigin();
+
+	center += mPosition.v2() - mSize * mOrigin;
+	return Vector3f(center.x(), center.y(), 0);
 }
 
 Vector2f GridTileComponent::getLaunchTargetSize()
 {
-	if (mImage != nullptr && mImage->hasImage())
-		return mImage->getSize();
+	auto media = getLaunchMedia();
+	if (media == nullptr)
+		return getSize();
 
-	return getSize();
+	return VideoComponent::getShownMedia(media)->getSize();
 }
 
 void GridTileComponent::updateBindings(IBindable* bindable)

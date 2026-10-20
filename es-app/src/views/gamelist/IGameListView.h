@@ -36,6 +36,7 @@ public:
 
 	virtual const char* getName() const = 0;
 	virtual void launch(FileData* game) = 0;
+	virtual Vector3f getLaunchTarget(Vector2f* size) { return Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0); }
 
 	virtual HelpStyle getHelpStyle() override;
 

@@ -571,7 +571,10 @@ Vector3f DetailedContainer::getLaunchTarget(Vector2f* size)
 		media = mThumbnail;
 
 	if (media != nullptr)
-		target = Vector3f(media->getCenter().x(), media->getCenter().y(), 0);
+	{
+		auto center = VideoComponent::getShownMedia(media)->getCenter();
+		target = Vector3f(center.x(), center.y(), 0);
+	}
 	else
 	{
 		// themes that hide the md_ elements show the game media through extras
@@ -582,7 +585,7 @@ Vector3f DetailedContainer::getLaunchTarget(Vector2f* size)
 		{
 			if ((media = findGameMedia(extra)) != nullptr)
 			{
-				auto center = media->getCenter();
+				auto center = VideoComponent::getShownMedia(media)->getCenter();
 				for (auto parent = media->getParent(); parent != nullptr && parent != mParent; parent = parent->getParent())
 					center += parent->getPosition().v2() - parent->getSize() * parent->getOrigin();
 
@@ -593,7 +596,7 @@ Vector3f DetailedContainer::getLaunchTarget(Vector2f* size)
 	}
 
 	if (size != nullptr && media != nullptr)
-		*size = media->getSize();
+		*size = VideoComponent::getShownMedia(media)->getSize();
 
 	return target;
 }

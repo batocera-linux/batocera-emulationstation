@@ -525,6 +525,14 @@ static const int RETURN_HOLD = 250;
 
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize, bool allowCheckLaunchOptions)
 {
+	if (targetSize.x() <= 0 || targetSize.y() <= 0)
+	{
+		auto view = dynamic_cast<IGameListView*>(mCurrentView.get());
+		auto cursor = view != nullptr ? view->getCursor() : nullptr;
+		if (cursor != nullptr && cursor->getSourceFileData() == game->getSourceFileData())
+			center = view->getLaunchTarget(&targetSize);
+	}
+
 	if (allowCheckLaunchOptions && !checkLaunchOptions(game, options, center, targetSize))
 		return;
 
@@ -572,7 +580,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		missingBios = checkMissingBiosAsync(game);
 
 	// stop zooming once the game art fills the screen, keeping its aspect ratio
-	float zoom = 4.25f;
+	float zoom = 1.0f;
 	if (targetSize.x() > 0 && targetSize.y() > 0)
 		zoom = Math::clamp(Math::min(Renderer::getScreenWidth() / targetSize.x(), Renderer::getScreenHeight() / targetSize.y()), 1.0f, 4.25f);
 
@@ -605,7 +613,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	bool keepSplash = true;
 #ifndef _WIN32
 	// the slide ends zoomed on the game art, which stays on screen until the emulator covers it
-	keepSplash = transition_style != "slide" && transition_style != "fast slide";
+	keepSplash = (transition_style != "slide" && transition_style != "fast slide") || zoom <= 1.0f;
 #endif
 	if (!Settings::getInstance()->getBool("HideWindow") && keepSplash)
 		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName(), game);

@@ -154,9 +154,16 @@ std::string CarouselGameListView::getQuickSystemSelectLeftButton()
 	return "left";
 }
 
+Vector3f CarouselGameListView::getLaunchTarget(Vector2f* size)
+{
+	return mDetails.getLaunchTarget(size);
+}
+
 void CarouselGameListView::launch(FileData* game)
 {
-	ViewController::get()->launch(game);
+	Vector2f targetSize = Vector2f::Zero();
+	Vector3f target = getLaunchTarget(&targetSize);
+	ViewController::get()->launch(game, target, targetSize);
 }
 
 void CarouselGameListView::remove(FileData *game)

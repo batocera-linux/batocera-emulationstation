@@ -37,6 +37,7 @@ public:
 	}
 
 	virtual void launch(FileData* game) override;
+	virtual Vector3f getLaunchTarget(Vector2f* size) override;
 	virtual void onFileChanged(FileData* file, FileChangeType change);
 
 	virtual void setThemeName(std::string name);
