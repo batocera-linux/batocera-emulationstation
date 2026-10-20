@@ -506,6 +506,9 @@
     <nom_es>Juegos de rol</nom_es>
     <nom_pt>Jogos de RPG</nom_pt>
     <nom_ja>ロールプレイング</nom_ja>
+    <altname>Role Playing Game</altname>
+    <altname>Role-Playing Game</altname>
+    <altname>Role Playing</altname>
   </genre>
   <genre>
     <id>20688</id>
