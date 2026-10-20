@@ -447,6 +447,20 @@ namespace Utils
 						chargerRootPath = file;
 				}
 
+				// Some laptops name their battery after the ACPI device (BAPM), so fall back to its type; skip pad batteries
+				if (batteryRootPath.empty() && fuelgaugeRootPath.empty())
+				{
+					for (auto file : files)
+					{
+						if (Utils::String::trim(Utils::FileSystem::readAllText(file + "/type")) == "Battery" &&
+							Utils::String::trim(Utils::FileSystem::readAllText(file + "/scope")) != "Device")
+						{
+							batteryRootPath = file;
+							break;
+						}
+					}
+				}
+
 				// If there's no battery device, look for discrete charger and fuel gauge
 				if (batteryRootPath.empty())
 				{
