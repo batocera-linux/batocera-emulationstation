@@ -1416,7 +1416,7 @@ msgid "CONNECTED"
 msgstr "CONECTADO"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "JÁ CONECTADO"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "A PROCURA DE REDES WIFI"

@@ -1412,7 +1412,7 @@ msgid "CONNECTED"
 msgstr "BAĞLI"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "ZATEN BAĞLI"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WİFİ AĞLARI TARANIYOR"
