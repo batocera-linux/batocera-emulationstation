@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-10-02 18:11+0200\n"
+"PO-Revision-Date: 2026-10-20 20:09+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -1415,7 +1415,7 @@ msgid "CONNECTED"
 msgstr "CONNECTAT"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "JA CONNECTAT"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "BUSCANT XARXES WI-FI"
@@ -2444,10 +2444,10 @@ msgstr ""
 "Les opcions disponibles poden canviar depenent de la sortida d'àudio actual."
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr ""
+msgstr "Permet el streaming HDR amb Moonlight HDR."
 
 msgid "BOOT SPLASH"
 msgstr "PANTALLA DE PRESENTACIÓ"
@@ -2941,13 +2941,13 @@ msgstr "HABILITAR L'ÀUDIO A LES PREVISUALITZACIONS DE VÍDEO"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "NO S’HA POGUT CONNECTAR AMB ‘%s’"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "XARXES WI-FI"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "AFEGIR UNA XARXA WI-FI"
 
 msgid "WI-FI SSID"
 msgstr "SSID DEL WI-FI"
@@ -2956,7 +2956,7 @@ msgid "WI-FI KEY"
 msgstr "CLAU DEL WI-FI"
 
 msgid "USE"
-msgstr ""
+msgstr "USAR"
 
 msgid "FORGET"
 msgstr "OBLIDAR"
@@ -3264,10 +3264,10 @@ msgid "SCRAPING"
 msgstr "OBTENINT INFORMACIÓ DELS JOCS"
 
 msgid "SCRAPE FAILED"
-msgstr "EL PROCÉS D’OBTENCIÓ D’INFORMACIÓ DELS JOCS HA FALLAT"
+msgstr "L’OBTENCIÓ D’INFORMACIÓ DE JOCS HA FALLAT"
 
 msgid "SCRAPING FINISHED"
-msgstr "EL PROCÉS D’OBTENCIÓ D’INFORMACIÓ DELS JOC HA FINALITZAT"
+msgstr "OBTENCIÓ D’INFORMACIÓ DE JOCS FINALITZADA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ACTUALITZA LES LLISTES DE JOCS PER A APLICAR ELS CANVIS."
@@ -3540,7 +3540,7 @@ msgid "never played"
 msgstr "mai jugat"
 
 msgid "RetroAchievements"
-msgstr "trofeus"
+msgstr "Trofeus"
 
 msgid "arcade"
 msgstr "arcade"
