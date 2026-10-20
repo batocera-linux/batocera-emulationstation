@@ -245,6 +245,18 @@ void SystemScreenSaver::stopScreenSaver()
 
 	if(isExitingScreenSaver && mState != STATE_INACTIVE) {
 	  Scripting::fireEvent("screensaver-stop");
+
+	  // the screensaver fired game-selected for its own games, so tell the listeners what is selected again
+	  auto state = ViewController::get()->getState();
+	  if (state.viewing == ViewController::GAME_LIST)
+	  {
+		  auto view = ViewController::get()->getGameListView(state.getSystem(), false);
+		  FileData* cursor = view ? view->getCursor() : nullptr;
+		  if (cursor != nullptr)
+			  Scripting::fireEvent("game-selected", cursor->getSourceFileData()->getSystem()->getName(), cursor->getPath(), cursor->getName());
+	  }
+	  else if (state.viewing == ViewController::SYSTEM_SELECT)
+		  Scripting::fireEvent("system-selected", state.getSystem()->getName());
 	}
 
 	// we need this to loop through different videos
