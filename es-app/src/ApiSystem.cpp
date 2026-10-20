@@ -1580,7 +1580,11 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 #endif
 
 	if (mSystemLedType != LED_TYPE_NONE)
+	{
+		// keep the LED daemon away each time the menu is opened, not only the first time
+		executeScript("batocera-led-handheld block_color_changes");
 		return true;
+	}
 
 	// Anbernic RG 55G1: the stick LEDs sit behind the joypad MCU driver, not the LED class
 	if (Utils::FileSystem::exists("/sys/devices/platform/singleadc-joypad/led_set"))
@@ -1751,6 +1755,23 @@ void ApiSystem::getLEDColours(int& red, int& green, int& blue)
 	LOG(LogInfo) << "ApiSystem::getLEDColours > LED colours are: " << red << " " << green << " " << blue;
 }
 
+// multi_intensity follows the channel order of multi_index, which is not always "red green blue"
+// (the Retroid Pocket 5 lists "blue green red")
+static std::string ledMultiIntensity(const std::string& ledPath, int red, int green, int blue)
+{
+	std::string content;
+	for (const auto& channel : Utils::String::split(Utils::String::trim(Utils::FileSystem::readAllText(ledPath + "/multi_index")), ' ', true))
+	{
+		int value = channel == "red" ? red : channel == "green" ? green : channel == "blue" ? blue : 0;
+		content += (content.empty() ? "" : " ") + std::to_string(value);
+	}
+
+	if (content.empty())
+		content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+
+	return content;
+}
+
 void ApiSystem::setLEDColours(int red, int green, int blue)
 {
 #if WIN32    
@@ -1800,14 +1821,13 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 			}
 		}
 		else if (LED_COLOUR_NAME.find("rgb:l") != std::string::npos) {
-			std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
 			auto allLeds = Utils::FileSystem::getDirContent("/sys/class/leds");
 			for (const auto& ledPath : allLeds) {
 				if (ledPath.find("/rgb:l") != std::string::npos || 
 					ledPath.find("/rgb:r") != std::string::npos) {
 					std::string intensityPath = ledPath + "/multi_intensity";
 					if (Utils::FileSystem::exists(intensityPath)) {
-						Utils::FileSystem::writeAllText(intensityPath, content);
+						Utils::FileSystem::writeAllText(intensityPath, ledMultiIntensity(ledPath, red, green, blue));
 					}
 				}
 			}
@@ -2031,12 +2051,15 @@ void ApiSystem::setLEDMode(const std::string& mode)
 
     executeScript("batocera-led-handheld unblock_color_changes");
 
+    // effects run in the background so the menu does not freeze while they play
     if (mode == "rainbow") {
-        executeScript("batocera-led-handheld rainbow");
+        executeScript("batocera-led-handheld rainbow &");
     } else if (mode == "chroma") {
-        executeScript("batocera-led-handheld chroma");
+        executeScript("batocera-led-handheld chroma &");
     } else if (mode == "pulse") {
-        executeScript("batocera-led-handheld pulse");
+        executeScript("batocera-led-handheld pulse &");
+    } else if (mode == "battery") {
+        // the LED daemon picks the colour from the battery level
     } else {
         // Fall back to the user's customized static colors
         int r, g, b;
@@ -2060,7 +2083,7 @@ void ApiSystem::setLEDEnabled(bool enabled)
 	else
 	{
 		std::string mode = SystemConf::getInstance()->get("led.mode");
-		if (mode == "rainbow" || mode == "chroma" || mode == "pulse") {
+		if (mode == "rainbow" || mode == "chroma" || mode == "pulse" || mode == "battery") {
 			setLEDMode(mode);
 		} else {
 			std::string lastColorStr = SystemConf::getInstance()->get("led.colour");
