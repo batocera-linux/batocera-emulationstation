@@ -260,6 +260,8 @@ public:
 	bool    hasItemTemplate() { return mHasItemTemplate; }
 
 private:
+	GuiComponent* getLaunchMedia();
+
 	void	handleStoryBoard(bool activate);
 	void	resetProperties();
 	void	createVideo();

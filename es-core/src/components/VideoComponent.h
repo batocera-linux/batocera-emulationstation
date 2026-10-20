@@ -100,6 +100,13 @@ public:
 	inline void setMinSize(const Vector2f& size) { setMinSize(size.x(), size.y()); }
 
 	Vector2f getVideoSize() { return Vector2f(mVideoWidth, mVideoHeight); }
+
+	// the snapshot is shown until the video plays
+	static GuiComponent* getShownMedia(GuiComponent* media)
+	{
+		auto video = dynamic_cast<VideoComponent*>(media);
+		return video != nullptr && !video->mIsPlaying && video->mStaticImage.hasImage() ? &video->mStaticImage : media;
+	}
 	bool isPlaying() {
 		return mIsPlaying;
 	}
