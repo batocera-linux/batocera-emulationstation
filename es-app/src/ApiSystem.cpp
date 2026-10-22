@@ -1580,11 +1580,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 #endif
 
 	if (mSystemLedType != LED_TYPE_NONE)
-	{
-		// keep the LED daemon away each time the menu is opened, not only the first time
-		executeScript("batocera-led-handheld block_color_changes");
 		return true;
-	}
 
 	// Anbernic RG 55G1: the stick LEDs sit behind the joypad MCU driver, not the LED class
 	if (Utils::FileSystem::exists("/sys/devices/platform/singleadc-joypad/led_set"))
@@ -1883,7 +1879,8 @@ bool ApiSystem::getLEDBrightness(int& value)
             if (directory.find("multicolor") != std::string::npos || 
                 directory.find(":rgb:joystick_rings") != std::string::npos ||
                 directory.find("rgb:l1") != std::string::npos ||
-                directory.find("l:r1") != std::string::npos ||
+                // raw l:r1 channels are busy when they belong to an rgb:l* group (Retroid Pocket 5)
+                (directory.find("l:r1") != std::string::npos && !Utils::FileSystem::exists("/sys/class/leds/rgb:l1")) ||
                 directory.find("left_joystick") != std::string::npos ||
                 directory.find("rgb:kbd_backlight") != std::string::npos ||
                 directory.find("joystick-left") != std::string::npos)
@@ -2051,15 +2048,12 @@ void ApiSystem::setLEDMode(const std::string& mode)
 
     executeScript("batocera-led-handheld unblock_color_changes");
 
-    // effects run in the background so the menu does not freeze while they play
     if (mode == "rainbow") {
-        executeScript("batocera-led-handheld rainbow &");
+        executeScript("batocera-led-handheld rainbow");
     } else if (mode == "chroma") {
-        executeScript("batocera-led-handheld chroma &");
+        executeScript("batocera-led-handheld chroma");
     } else if (mode == "pulse") {
-        executeScript("batocera-led-handheld pulse &");
-    } else if (mode == "battery") {
-        // the LED daemon picks the colour from the battery level
+        executeScript("batocera-led-handheld pulse");
     } else {
         // Fall back to the user's customized static colors
         int r, g, b;
@@ -2083,7 +2077,7 @@ void ApiSystem::setLEDEnabled(bool enabled)
 	else
 	{
 		std::string mode = SystemConf::getInstance()->get("led.mode");
-		if (mode == "rainbow" || mode == "chroma" || mode == "pulse" || mode == "battery") {
+		if (mode == "rainbow" || mode == "chroma" || mode == "pulse") {
 			setLEDMode(mode);
 		} else {
 			std::string lastColorStr = SystemConf::getInstance()->get("led.colour");
