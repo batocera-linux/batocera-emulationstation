@@ -1254,6 +1254,12 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 
 	const char* delim = " \t\r\n,";
 	const std::string nameAttr = node.attribute("name").as_string();
+	const std::string screen = node.attribute("screen").as_string("primary");
+	if (screen != "primary" && screen != "secondary")
+	{
+		LOG(LogWarning) << "Unknown theme screen: " << screen;
+		return;
+	}
 	size_t prevOff = nameAttr.find_first_not_of(delim, 0);
 	size_t off = nameAttr.find_first_of(delim, prevOff);
 	std::string viewKey;
@@ -1265,12 +1271,13 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 
 		if (sSupportedViews.find(viewKey) != sSupportedViews.cend())
 		{	
-			ThemeView& view = mViews.insert(viewKey, std::move(ThemeView())).first->second;
+			const std::string targetKey = screen == "secondary" ? "secondary-" + viewKey : viewKey;
+			ThemeView& view = mViews.insert(targetKey, std::move(ThemeView())).first->second;
 			parseView(node, view);
 
 			for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 			{
-				if (it->second.isCustomView && it->second.baseType == viewKey)
+				if (screen == "primary" && it->second.isCustomView && it->second.baseType == viewKey)
 				{
 					ThemeView& customView = (ThemeView&)it->second;
 					parseView(node, customView);
@@ -2657,7 +2664,7 @@ std::vector<std::pair<std::string, std::string>> ThemeData::getViewsOfTheme()
 	std::vector<std::pair<std::string, std::string>> ret;
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 	{
-		if (it->first == "menu" || it->first == "system" || it->first == "screen" || it->first == "splash")
+		if (it->first.compare(0, 10, "secondary-") == 0 || it->first == "menu" || it->first == "system" || it->first == "screen" || it->first == "splash")
 			continue;
 
 		ret.emplace_back(it->first, it->second.displayName.empty() ? it->first : it->second.displayName);
