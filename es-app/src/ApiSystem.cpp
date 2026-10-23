@@ -751,6 +751,11 @@ bool ApiSystem::isHdrSupported()
 {
 	return executeScript("batocera-resolution supportHdr", nullptr).second == 0;
 }
+
+bool ApiSystem::isVrrSupported()
+{
+	return executeScript("batocera-resolution supportVrr", nullptr).second == 0;
+}
 #endif
 
 std::vector<std::string> ApiSystem::getCustomRunners() 

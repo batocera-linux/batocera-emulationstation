@@ -1901,6 +1901,21 @@ void GuiMenu::openSystemSettings()
 	if (ApiSystem::getInstance()->isHdrSupported())
 		s->addSwitch(_("HDR"), _("Allows HDR content such as Moonlight HDR streams to the display."), "display.hdr", false, [s] { s->setVariable("exitreboot", true); });
 
+	if (ApiSystem::getInstance()->isVrrSupported())
+	{
+		auto vrr = std::make_shared<SwitchComponent>(mWindow);
+		vrr->setState(SystemConf::getInstance()->getBool("display.vrr", true));
+		s->addWithDescription(_("VARIABLE REFRESH RATE"), _("Lets the display follow the frame rate. Turn off if the screen flickers."), vrr);
+		s->addSaveFunc([vrr, s]
+		{
+			if (vrr->getState() != SystemConf::getInstance()->getBool("display.vrr", true))
+			{
+				SystemConf::getInstance()->set("display.vrr", vrr->getState() ? "1" : "0");
+				s->setVariable("exitreboot", true);
+			}
+		});
+	}
+
 	// splash
 	auto optionsSplash = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BOOT SPLASH"), false);
 
