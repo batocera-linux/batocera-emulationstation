@@ -277,6 +277,7 @@ public:
     virtual std::vector<std::string> getVideoModes(const std::string output = "");
 #ifdef BATOCERA
     bool isHdrSupported();
+    bool isVrrSupported();
 #endif
 	std::vector<std::string> getCustomRunners();
 
