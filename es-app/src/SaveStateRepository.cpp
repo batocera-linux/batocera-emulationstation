@@ -217,7 +217,7 @@ int SaveStateRepository::getNextFreeSlot(FileData* game, std::shared_ptr<SaveSta
 			return i + 1;
 	}
 
-	return -99;
+	return config != nullptr ? config->firstslot : 0;
 }
 
 void SaveStateRepository::renumberSlots(FileData* game, std::shared_ptr<SaveStateConfig> config)
