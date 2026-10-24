@@ -7778,7 +7778,7 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game id="rageracer">
-      <wheel rotation="360" type="negcon"/>
+      <wheel rotation="360" type="negcon" downshift="up" upshift="down"/>
     </game>
     <game id="rcrevenge">
       <wheel rotation="360" type="negcon"/>
@@ -7850,7 +7850,7 @@
       <gun/>
     </game>
     <game id="granturismo">
-      <wheel rotation="360" type="negcon"/>
+      <wheel rotation="360" type="negcon" downshift="down" upshift="up"/>
     </game>
     <game id="hardcore4x4">
       <wheel rotation="360" type="negcon"/>
