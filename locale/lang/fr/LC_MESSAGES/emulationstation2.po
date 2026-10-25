@@ -2454,7 +2454,7 @@ msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr ""
+msgstr "Suivre la fréquence de raffraîchissement de l’écran. À désactiver si l’écran scintille."
 
 msgid "BOOT SPLASH"
 msgstr "SPLASH AU DÉMARRAGE"
