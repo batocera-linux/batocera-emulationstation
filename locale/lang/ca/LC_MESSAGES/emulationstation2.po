@@ -2449,6 +2449,13 @@ msgstr "HDR"
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr "Permet el streaming HDR amb Moonlight HDR."
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "FREQÜÈNCIA DE MOSTRATGE VARIABLE"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "PANTALLA DE PRESENTACIÓ"
 
@@ -2583,9 +2590,6 @@ msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "FREQÜÈNCIA DE MOSTRATGE VARIABLE (G-SYNC; FREESYNC)"
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "FREQÜÈNCIA DE MOSTRATGE VARIABLE"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."

@@ -1407,7 +1407,7 @@ msgid "INPUT"
 msgstr "WEJŚCIE"
 
 msgid "INPUT MANUALLY"
-msgstr "WPROWADŹ RĘCZNE"
+msgstr "WPROWADŹ RĘCZNIE"
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NIE ZNALEZIONO SIECI WI-FI"
@@ -1416,7 +1416,7 @@ msgid "CONNECTED"
 msgstr "POŁĄCZONO"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "JUŻ POŁĄCZONO"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WI-FI"
@@ -2444,9 +2444,17 @@ msgstr ""
 "Dostępne opcje mogą się zmieniać w zależności od bieżącego wyjścia audio."
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
+msgstr ""
+"Umożliwia wyświetlanie treści HDR, takich jak transmisje Moonlight HDR."
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
 
 msgid "BOOT SPLASH"
@@ -2583,9 +2591,6 @@ msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA (G-SYNC, FREESYNC)"
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
@@ -2938,13 +2943,13 @@ msgstr "WŁĄCZ DŹWIĘK WIDEO"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "NIE MOŻNA POŁĄCZYĆ SIĘ Z '%s'"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "SIECI WI-FI"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "DODAJ SIEĆ WI-FI"
 
 msgid "WI-FI SSID"
 msgstr "WI-FI SSID"
@@ -2953,7 +2958,7 @@ msgid "WI-FI KEY"
 msgstr "HASŁO WI-FI"
 
 msgid "USE"
-msgstr ""
+msgstr "UŻYJ"
 
 msgid "FORGET"
 msgstr "ZAPOMNIJ"

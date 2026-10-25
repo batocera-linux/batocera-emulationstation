@@ -2436,6 +2436,13 @@ msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr ""
 "Moonlight HDR などのHDRコンテンツをディスプレイにストリーミング配信できます"
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "可変リフレッシュレート"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "ブートスプラッシュ映像"
 
@@ -2569,9 +2576,6 @@ msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "可変リフレッシュレート（G-SYNC、FREESYNC）"
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "可変リフレッシュレート"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."

@@ -2406,6 +2406,13 @@ msgstr ""
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr ""
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "可变刷新率"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "开机画面"
 
@@ -2537,9 +2544,6 @@ msgstr "自动暂时减少帧延迟以防止丢帧，可能导致卡顿。"
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "可变刷新率（G-SYNC、FREESYNC）"
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "可变刷新率"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."

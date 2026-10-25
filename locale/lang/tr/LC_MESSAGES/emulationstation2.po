@@ -2446,6 +2446,13 @@ msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr ""
 "Moonlight HDR yayınları gibi HDR içeriklerin ekrana aktarılmasını sağlar."
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "DEĞİŞKEN YENİLEME HIZI"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "AÇILIŞ GÖRSELİ"
 
@@ -2580,9 +2587,6 @@ msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "DEĞİŞKEN YENİLEME HIZI (G-SYNC, FREESYNC)"
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "DEĞİŞKEN YENİLEME HIZI"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."

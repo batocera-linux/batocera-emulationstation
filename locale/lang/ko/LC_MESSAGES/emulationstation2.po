@@ -2422,6 +2422,13 @@ msgstr ""
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr ""
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "가변 주사율"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+
 msgid "BOOT SPLASH"
 msgstr "스플래시 부팅"
 
@@ -2555,9 +2562,6 @@ msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "가변 주사율 (G-SYNC, FREESYNC)"
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "가변 주사율"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
