@@ -1756,6 +1756,23 @@ void ApiSystem::getLEDColours(int& red, int& green, int& blue)
 	LOG(LogInfo) << "ApiSystem::getLEDColours > LED colours are: " << red << " " << green << " " << blue;
 }
 
+// multi_intensity follows the channel order of multi_index, which is not always "red green blue"
+// (the Retroid Pocket 5 lists "blue green red")
+static std::string ledMultiIntensity(const std::string& ledPath, int red, int green, int blue)
+{
+	std::string content;
+	for (const auto& channel : Utils::String::split(Utils::String::trim(Utils::FileSystem::readAllText(ledPath + "/multi_index")), ' ', true))
+	{
+		int value = channel == "red" ? red : channel == "green" ? green : channel == "blue" ? blue : 0;
+		content += (content.empty() ? "" : " ") + std::to_string(value);
+	}
+
+	if (content.empty())
+		content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+
+	return content;
+}
+
 void ApiSystem::setLEDColours(int red, int green, int blue)
 {
 #if WIN32    
@@ -1805,14 +1822,13 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 			}
 		}
 		else if (LED_COLOUR_NAME.find("rgb:l") != std::string::npos) {
-			std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
 			auto allLeds = Utils::FileSystem::getDirContent("/sys/class/leds");
 			for (const auto& ledPath : allLeds) {
 				if (ledPath.find("/rgb:l") != std::string::npos || 
 					ledPath.find("/rgb:r") != std::string::npos) {
 					std::string intensityPath = ledPath + "/multi_intensity";
 					if (Utils::FileSystem::exists(intensityPath)) {
-						Utils::FileSystem::writeAllText(intensityPath, content);
+						Utils::FileSystem::writeAllText(intensityPath, ledMultiIntensity(ledPath, red, green, blue));
 					}
 				}
 			}
@@ -1868,7 +1884,8 @@ bool ApiSystem::getLEDBrightness(int& value)
             if (directory.find("multicolor") != std::string::npos || 
                 directory.find(":rgb:joystick_rings") != std::string::npos ||
                 directory.find("rgb:l1") != std::string::npos ||
-                directory.find("l:r1") != std::string::npos ||
+                // raw l:r1 channels are busy when they belong to an rgb:l* group (Retroid Pocket 5)
+                (directory.find("l:r1") != std::string::npos && !Utils::FileSystem::exists("/sys/class/leds/rgb:l1")) ||
                 directory.find("left_joystick") != std::string::npos ||
                 directory.find("rgb:kbd_backlight") != std::string::npos ||
                 directory.find("joystick-left") != std::string::npos)
