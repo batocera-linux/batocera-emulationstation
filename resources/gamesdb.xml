@@ -82,7 +82,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="acedrive">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="acedrvrw">
       <wheel rotation="270"/>
@@ -472,7 +472,7 @@
       <trackball/>
     </game>
     <game id="bigrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" brake="y"/>
     </game>
     <game id="bking">
       <trackball/>
@@ -570,7 +570,7 @@
       <gun/>
     </game>
     <game id="buggyboy">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="buggyboyjr">
       <wheel rotation="360"/>
@@ -693,7 +693,7 @@
       <spinner/>
     </game>
     <game id="changela">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a"/>
     </game>
     <game id="champbwl">
       <trackball/>
@@ -702,7 +702,7 @@
       <trackball/>
     </game>
     <game id="chasehq">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x"/>
     </game>
     <game id="chasehq2">
       <wheel rotation="360"/>
@@ -738,7 +738,7 @@
       <spinner/>
     </game>
     <game id="cischeat">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y" accelerate="b" brake="a"/>
     </game>
     <game id="claybust">
       <gun/>
@@ -825,7 +825,7 @@
       <gun/>
     </game>
     <game id="contcirc">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="contcircj">
       <wheel rotation="270"/>
@@ -843,7 +843,7 @@
       <trackball/>
     </game>
     <game id="coolridr">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="x" upshift="y"/>
     </game>
     <game id="cops">
       <gun/>
@@ -1058,7 +1058,7 @@
       <wheel/>
     </game>
     <game id="dangcurv">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="dangcurvj">
       <wheel rotation="270"/>
@@ -1103,7 +1103,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="dblaxle">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="dblaxleu">
       <wheel rotation="360"/>
@@ -1175,7 +1175,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="dirtdash">
-      <wheel rotation="360"/>
+      <wheel rotation="360" downshift="up" upshift="down"/>
     </game>
     <game id="dirtdasha">
       <wheel rotation="360"/>
@@ -1193,7 +1193,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="dirtfoxj">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="DirtyDrivin">
       <wheel/>
@@ -1342,7 +1342,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="f1gpstar">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" brake="y"/>
     </game>
     <game id="f1gpstar2">
       <wheel rotation="270"/>
@@ -1351,7 +1351,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="f1gpstr2">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" brake="y"/>
     </game>
     <game id="f1lap">
       <wheel rotation="270"/>
@@ -1363,7 +1363,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="f1superb">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b" brake="a"/>
     </game>
     <game id="f355">
       <wheel rotation="270"/>
@@ -1402,13 +1402,13 @@
       <wheel/>
     </game>
     <game id="finalap2">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b"/>
     </game>
     <game id="finalap2j">
       <wheel rotation="270"/>
     </game>
     <game id="finalap3">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b"/>
     </game>
     <game id="finalap3a">
       <wheel rotation="270"/>
@@ -1429,7 +1429,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="finalapr">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x"/>
     </game>
     <game id="finalaprj">
       <wheel rotation="270"/>
@@ -1438,7 +1438,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="finallap">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b"/>
     </game>
     <game id="finallapc">
       <wheel rotation="270"/>
@@ -1459,7 +1459,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="firetrk">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="firetrka">
       <wheel rotation="360"/>
@@ -1471,7 +1471,7 @@
       <trackball/>
     </game>
     <game id="fourtrax">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="fourtraxa">
       <wheel rotation="270"/>
@@ -1495,7 +1495,7 @@
       <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="fullthrl">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x"/>
     </game>
     <game id="futflash">
       <trackball/>
@@ -1627,7 +1627,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="grally">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="grchamp">
       <wheel rotation="360"/>
@@ -2090,7 +2090,7 @@
       <gun/>
     </game>
     <game id="hotchase">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y" brake="a"/>
     </game>
     <game id="hotchasea">
       <wheel rotation="270"/>
@@ -2413,7 +2413,7 @@
       <wheel/>
     </game>
     <game id="konamigt">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y" accelerate="b" brake="a"/>
     </game>
     <game id="kroozr">
       <spinner/>
@@ -2449,7 +2449,7 @@
       <gun/>
     </game>
     <game id="lbeach">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="LGS">
       <wheel/>
@@ -2682,7 +2682,7 @@
       <wheel/>
     </game>
     <game id="maxrpm">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="maxspeed">
       <wheel rotation="270" downshift="down" upshift="up"/>
@@ -2715,7 +2715,7 @@
       <spinner/>
     </game>
     <game id="midnrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="midnruna">
       <wheel rotation="270"/>
@@ -2850,7 +2850,7 @@
       <wheel/>
     </game>
     <game id="nitedrvr">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="nstocker">
       <gun/>
@@ -3013,7 +3013,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="outrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="outruna">
       <wheel rotation="270"/>
@@ -3106,7 +3106,7 @@
       <gun/>
     </game>
     <game id="pdrift">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="pdrifta">
       <wheel rotation="270"/>
@@ -3151,7 +3151,7 @@
       <gun/>
     </game>
     <game id="polepos">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="polepos1">
       <wheel rotation="360"/>
@@ -3244,7 +3244,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="ppspeed">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="primevah" name="Primeval Hunt">
       <gun/>
@@ -3298,7 +3298,7 @@
       <gun/>
     </game>
     <game id="pwheelsj">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="quantum">
       <trackball/>
@@ -3433,19 +3433,19 @@
       <wheel rotation="270"/>
     </game>
     <game id="racinfrc">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a" brake="b"/>
     </game>
     <game id="racinfrcu">
       <wheel rotation="360"/>
     </game>
     <game id="racingb">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="racingbj">
       <wheel rotation="270"/>
     </game>
     <game id="racingj">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="racingj2">
       <wheel rotation="270"/>
@@ -3646,7 +3646,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="roadburn">
-      <wheel rotation="270"/>
+      <wheel rotation="270" brake="a"/>
     </game>
     <game id="roadburn1">
       <wheel rotation="270"/>
@@ -3727,7 +3727,7 @@
       <gun/>
     </game>
     <game id="sci">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="scia">
       <wheel rotation="360"/>
@@ -3913,7 +3913,7 @@
       <trackball/>
     </game>
     <game id="sidebs">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="sidebs2">
       <wheel rotation="270"/>
@@ -4087,7 +4087,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="sprint2">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="sprint2a">
       <wheel rotation="360"/>
@@ -4096,7 +4096,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="sprint4">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="sprint4a">
       <wheel rotation="360"/>
@@ -4288,10 +4288,10 @@
       <wheel rotation="270"/>
     </game>
     <game id="superbug">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="superchs">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x" brake="a"/>
     </game>
     <game id="superchsj">
       <wheel rotation="270"/>
@@ -4508,7 +4508,7 @@
       <gun/>
     </game>
     <game id="thrild2">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="b" upshift="a"/>
     </game>
     <game id="thrild2a">
       <wheel rotation="270"/>
@@ -4604,7 +4604,7 @@
       <gun/>
     </game>
     <game id="topracer">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="topracera">
       <wheel rotation="360"/>
@@ -4616,7 +4616,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="topspeed">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x"/>
     </game>
     <game id="topspeedu">
       <wheel rotation="360"/>
@@ -4697,22 +4697,22 @@
       <gun/>
     </game>
     <game id="turboa">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbob">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbobl">
       <wheel rotation="360"/>
     </game>
     <game id="turboc">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbod">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbotag">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a"/>
     </game>
     <game id="turkhunt">
       <gun/>
@@ -4730,7 +4730,7 @@
       <spinner/>
     </game>
     <game id="tx1">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="tx1a">
       <wheel rotation="360"/>
@@ -4856,7 +4856,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="victlap">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="victlapa">
       <wheel rotation="270"/>
@@ -5010,7 +5010,7 @@
       <gun/>
     </game>
     <game id="wecleman">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y" brake="a"/>
     </game>
     <game id="wecleman2">
       <wheel rotation="270"/>
@@ -5043,7 +5043,7 @@
       <gun/>
     </game>
     <game id="windheat">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="windheata">
       <wheel rotation="270"/>
@@ -5055,7 +5055,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="winrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="winrun91">
       <wheel rotation="270"/>
@@ -5091,7 +5091,7 @@
       <wheel/>
     </game>
     <game id="wrally">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" accelerate="b"/>
     </game>
     <game id="wrally2">
       <wheel rotation="270"/>
@@ -5205,13 +5205,13 @@
       <gun/>
     </game>
     <game id="spdheat">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="b"/>
     </game>
     <game id="spdheatj">
       <wheel rotation="360"/>
     </game>
     <game id="speedrs">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a" accelerate="b"/>
     </game>
     <game id="speedup12">
       <wheel rotation="270"/>
