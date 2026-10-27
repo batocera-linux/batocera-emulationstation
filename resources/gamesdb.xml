@@ -2,19 +2,19 @@
 <systems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gamesdb.xsd">
   <system id="arcade">
     <game id="18wheelr">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheelro">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheelrt">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheels">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheelu">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="2spicy" name="2 Spicy">
       <gun/>
@@ -2248,37 +2248,37 @@
       <wheel rotation="270"/>
     </game>
     <game id="initd">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdexp">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdexpo">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdo">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2e">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2j">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2ja">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2jo">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv3e">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv3j">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv3jb">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initiad4" name="Initial D Arcade Stage 4 (Rev G)">
       <wheel rotation="270"/>
@@ -5752,7 +5752,7 @@
   </system>
   <system id="dreamcast">
     <game id="default">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" downshift="down" upshift="up"/>
     </game>
     <game id="4x4evo">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="50"/>
