@@ -1850,6 +1850,17 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 			}
 		}
 
+		// the raw channels have no group brightness, so apply it to the colour
+		std::string brightnessStr = SystemConf::getInstance()->get("led.brightness");
+		int brightness = brightnessStr.empty() ? 100 : Utils::String::toInteger(brightnessStr);
+		if (brightness < 0) brightness = 0;
+		if (brightness > 100) brightness = 100;
+
+		float factor = brightness / 100.0f;
+		red = static_cast<int>(red * factor + 0.5f);
+		green = static_cast<int>(green * factor + 0.5f);
+		blue = static_cast<int>(blue * factor + 0.5f);
+
 		for(const auto& file : r_files) Utils::FileSystem::writeAllText(file, std::to_string(red));
 		for(const auto& file : g_files) Utils::FileSystem::writeAllText(file, std::to_string(green));
 		for(const auto& file : b_files) Utils::FileSystem::writeAllText(file, std::to_string(blue));
@@ -1898,8 +1909,9 @@ bool ApiSystem::getLEDBrightness(int& value)
                     LED_BRIGHTNESS_VALUE = ledBrightnessPath;
                     LED_MAX_BRIGHTNESS_VALUE = ledMaxBrightnessPath;
 
-                    // FORCE ENABLE: If we found a valid path, we MUST be in Unified mode
-                    mSystemLedType = LED_TYPE_UNIFIED;
+                    // FORCE ENABLE: a valid path means Unified mode, unless the LEDs are raw addressable channels
+                    if (mSystemLedType != LED_TYPE_ADDRESSABLE)
+                        mSystemLedType = LED_TYPE_UNIFIED;
 
                     LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path resolved to " << directory;
                     break;
@@ -1908,11 +1920,19 @@ bool ApiSystem::getLEDBrightness(int& value)
         }
     }
 
-    if (mSystemLedType != LED_TYPE_UNIFIED)
+    if (mSystemLedType != LED_TYPE_UNIFIED && mSystemLedType != LED_TYPE_ADDRESSABLE)
         return false;
 
     if (LED_BRIGHTNESS_VALUE == "notfound" || LED_BRIGHTNESS_VALUE.empty())
         return false;
+
+    // a raw channel holds one colour component, not the brightness
+    if (mSystemLedType == LED_TYPE_ADDRESSABLE)
+    {
+        std::string valStr = SystemConf::getInstance()->get("led.brightness");
+        value = valStr.empty() ? 100 : Utils::String::toInteger(valStr);
+        return true;
+    }
 
     value = 0;
 
@@ -1936,7 +1956,7 @@ void ApiSystem::setLEDBrightness(int value)
     int dummy;
     if (LED_BRIGHTNESS_VALUE.empty()) getLEDBrightness(dummy);
 
-    if (mSystemLedType != LED_TYPE_UNIFIED || LED_BRIGHTNESS_VALUE == "notfound")
+    if ((mSystemLedType != LED_TYPE_UNIFIED && mSystemLedType != LED_TYPE_ADDRESSABLE) || LED_BRIGHTNESS_VALUE == "notfound")
         return;
 
     if (value < 0) value = 0;
@@ -1986,17 +2006,13 @@ void ApiSystem::setLEDBrightness(int value)
     {
         int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
         int brightnessValue = static_cast<int>(factor * max + 0.5f);
-        for (int i = 1; i <= 7; i++) {
-            std::string leftBrightPath = "/sys/class/leds/rgb:l" + std::to_string(i) + "/brightness";
-            std::string rightBrightPath = "/sys/class/leds/rgb:r" + std::to_string(i) + "/brightness";
-            
-            // Validate existence before writing
-            if (Utils::FileSystem::exists(leftBrightPath)) {
-                Utils::FileSystem::writeAllText(leftBrightPath, std::to_string(brightnessValue) + "\n");
-            }
-            if (Utils::FileSystem::exists(rightBrightPath)) {
-                Utils::FileSystem::writeAllText(rightBrightPath, std::to_string(brightnessValue) + "\n");
-            }
+        for (const auto& ledPath : Utils::FileSystem::getDirContent("/sys/class/leds")) {
+            if (ledPath.find("/rgb:l") == std::string::npos && ledPath.find("/rgb:r") == std::string::npos)
+                continue;
+
+            std::string brightPath = ledPath + "/brightness";
+            if (Utils::FileSystem::exists(brightPath))
+                Utils::FileSystem::writeAllText(brightPath, std::to_string(brightnessValue) + "\n");
         }
     }
     // Check if we are on an addressable device (Retroid/Ayn style)
@@ -2053,12 +2069,13 @@ void ApiSystem::setLEDMode(const std::string& mode)
 
     executeScript("batocera-led-handheld unblock_color_changes");
 
+    // the effects run for seconds, don't hold the UI while they play
     if (mode == "rainbow") {
-        executeScript("batocera-led-handheld rainbow");
+        executeScript("batocera-led-handheld rainbow &");
     } else if (mode == "chroma") {
-        executeScript("batocera-led-handheld chroma");
+        executeScript("batocera-led-handheld chroma &");
     } else if (mode == "pulse") {
-        executeScript("batocera-led-handheld pulse");
+        executeScript("batocera-led-handheld pulse &");
     } else {
         // Fall back to the user's customized static colors
         int r, g, b;
