@@ -2456,6 +2456,7 @@ msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
+"Permite que o ecrã acompanhe a frequência de atualização. Desactive esta opção se o ecrã apresentar cintilação."
 
 msgid "BOOT SPLASH"
 msgstr "ECRÃ DE ABERTURA"
@@ -4072,9 +4073,7 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
 
-#~ msgid ""
-#~ "Load latest savestate on game launch and savestate when exiting game."
-#~ msgstr "Carregar o último savestate no jogo e guardar ao sair do jogo."
+
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

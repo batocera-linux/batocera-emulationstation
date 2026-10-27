@@ -2452,6 +2452,7 @@ msgstr "DEĞİŞKEN YENİLEME HIZI"
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
+"Ekranın kare hızıyla uyumlu olmasını sağlar. Ekran titriyorsa kapatın."
 
 msgid "BOOT SPLASH"
 msgstr "AÇILIŞ GÖRSELİ"

@@ -2466,6 +2466,8 @@ msgstr "FRECUENCIA DE ACTUALIZACIÓN VARIABLE"
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
+"Permite que la pantalla siga la velocidad de fotogramas. Desactívelo si la "
+"pantalla parpadea."
 
 msgid "BOOT SPLASH"
 msgstr "PANTALLA DE ARRANQUE"

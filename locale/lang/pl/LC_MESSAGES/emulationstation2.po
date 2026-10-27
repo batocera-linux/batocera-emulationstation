@@ -2456,6 +2456,8 @@ msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
+"Sprawia, że częstotliwość odświeżania ekranu dostosowuje się do liczby "
+"klatek na sekundę. Wyłącz tę opcję, jeśli ekran migocze."
 
 msgid "BOOT SPLASH"
 msgstr "EKRAN STARTOWY"
