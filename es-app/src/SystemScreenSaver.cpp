@@ -14,6 +14,7 @@
 #include "Scripting.h"
 #include "Sound.h"
 #include "SystemData.h"
+#include "CustomFeatures.h"
 #include "CollectionSystemManager.h"
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
@@ -736,6 +737,21 @@ void GameScreenSaverBase::setGame(FileData* game)
 	mViewport = Renderer::Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
 	std::string decos = Settings::getInstance()->getString("ScreenSaverDecorations");
+
+	// Only draw a decoration if the game would actually run with one :
+	// the effective bezel setting (game > system > global) must not be "none",
+	// and the game's emulator/core must support bezels. With es_features loaded, bezel support
+	// is the "bezel" shared feature attached to the emulator/core (the per-system DECORATIONS menu
+	// uses the same source) ; without it, fall back to the legacy "decoration" feature flag.
+	if (decos != "none")
+	{
+		bool bezelSupported = CustomFeatures::FeaturesLoaded
+			? game->getSourceFileData()->getSystem()->getCustomFeatures(game->getEmulator(), game->getCore()).hasFeature("bezel")
+			: game->isFeatureSupported(EmulatorFeatures::decoration);
+
+		if (!bezelSupported || game->getCurrentGameSetting("bezel") == "none")
+			decos = "none";
+	}
 
 #ifdef _RPI_
 	if (!Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
