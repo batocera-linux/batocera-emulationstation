@@ -10,6 +10,8 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "guis/GuiFileBrowser.h"
+#include "CollectionSystemManager.h"
+#include "utils/StringUtil.h"
 
 #define fake_gettext_dim			_("dim")
 #define fake_gettext_black			_("black")
@@ -160,6 +162,9 @@ void GuiGeneralScreensaverOptions::addVideoScreensaverOptions(int selectItem)
 	advancedOptions = !Settings::getInstance()->getBool("ScreenSaverOmxPlayer");
 #endif
 
+	if (!useCustomVideoSource)
+		addGamesSourceOption();
+
 	if (advancedOptions && !useCustomVideoSource)
 	{
 		auto marquee_screensaver = std::make_shared<SwitchComponent>(mWindow);
@@ -223,6 +228,37 @@ void GuiGeneralScreensaverOptions::addVideoScreensaverOptions(int selectItem)
 	}
 }
 
+// Lets the user restrict the random video / slideshow screensavers to the games of one collection
+void GuiGeneralScreensaverOptions::addGamesSourceOption()
+{
+	std::vector<std::pair<std::string, std::string>> sources;
+	sources.push_back(std::make_pair(_("ALL GAMES"), "all"));
+
+	// Auto collections, in declaration order. "all" is skipped : it is equivalent to the default
+	auto& autoCollections = CollectionSystemManager::get()->getAutoCollectionSystems();
+	for (auto decl : CollectionSystemManager::getSystemDecls())
+	{
+		if (decl.name == "all")
+			continue;
+
+		auto it = autoCollections.find(decl.name);
+		if (it == autoCollections.cend() || !it->second.isEnabled)
+			continue;
+
+		sources.push_back(std::make_pair(Utils::String::toUpper(it->second.decl.longName), it->second.decl.name));
+	}
+
+	for (auto& custom : CollectionSystemManager::get()->getCustomCollectionSystems())
+		if (custom.second.isEnabled)
+			sources.push_back(std::make_pair(Utils::String::toUpper(custom.second.decl.longName), custom.second.decl.name));
+
+	// addRange falls back to the first entry ("all") when the saved collection is no longer enabled
+	auto games_source = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GAMES SOURCE"), false);
+	games_source->addRange(sources, Settings::getInstance()->getString("ScreenSaverCollection"));
+	addWithLabel(_("GAMES SOURCE"), games_source);
+	addSaveFunc([games_source] { Settings::getInstance()->setString("ScreenSaverCollection", games_source->getSelected()); });
+}
+
 void GuiGeneralScreensaverOptions::addSlideShowScreensaverOptions(int selectItem)
 {
 	mMenu.addGroup(_("SLIDESHOW SCREENSAVER SETTINGS"));
@@ -276,6 +312,9 @@ void GuiGeneralScreensaverOptions::addSlideShowScreensaverOptions(int selectItem
 			addSaveFunc([sss_time_format] { Settings::getInstance()->setString("ScreenSaverTimeFormat", sss_time_format->getSelected()); });
 		}
 	}
+
+	if (!Settings::getInstance()->getBool("SlideshowScreenSaverCustomImageSource"))
+		addGamesSourceOption();
 
 	auto marquee_screensaver = std::make_shared<SwitchComponent>(mWindow);
 	marquee_screensaver->setState(Settings::getInstance()->getBool("ScreenSaverMarquee"));

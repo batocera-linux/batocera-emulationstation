@@ -8,6 +8,7 @@
 
 class ImageComponent;
 class Sound;
+class SystemData;
 class VideoComponent;
 class TextComponent;
 
@@ -96,6 +97,7 @@ public:
 
 private:
 	unsigned long countGameListNodes(bool video = false);
+	SystemData* getSourceCollection();
 
 	std::string pickRandomGameMedia(bool video = false);
 	std::string pickRandomCustomImage(bool video = false);

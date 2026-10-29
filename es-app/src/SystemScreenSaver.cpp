@@ -14,6 +14,8 @@
 #include "Scripting.h"
 #include "Sound.h"
 #include "SystemData.h"
+#include "CustomFeatures.h"
+#include "CollectionSystemManager.h"
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
 #include <unordered_map>
@@ -353,32 +355,83 @@ unsigned long SystemScreenSaver::countGameListNodes(bool video)
 
 	std::unordered_set<FileData*> seen;
 
+	auto addGame = [this, video, &seen, &nodeCount](FileData* game)
+	{
+		if (!seen.insert(game).second)
+			return;
+
+		if (video && !game->getVideoPath().empty())
+		{
+			mGamesWithVideos.push_back(game);
+			nodeCount++;
+		}
+		else if (!video && !game->getImagePath().empty())
+		{
+			mGamesWithImages.push_back(game);
+			nodeCount++;
+		}
+	};
+
+	// Optionally restrict the screensaver to the games of a single collection (favorites, auto or custom)
+	SystemData* collection = getSourceCollection();
+	if (collection != nullptr)
+	{
+		for (auto entry : collection->getRootFolder()->getFilesRecursive(GAME, true))
+		{
+			// Collection entries are CollectionFileData wrappers : keep the real game so launching and the gamelist cursor work
+			FileData* game = entry->getSourceFileData();
+			if (game == nullptr)
+				continue;
+
+			SystemData* system = game->getSystem();
+			if (system == nullptr || !system->isGameSystem() || system->hasPlatformId(PlatformIds::IMAGEVIEWER) || system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+				continue;
+
+			addGame(game);
+		}
+
+		if (nodeCount == 0)
+			LOG(LogWarning) << "SystemScreenSaver : collection \"" << collection->getName() << "\" has no game with " << (video ? "a video" : "an image") << ", nothing to show";
+
+		return nodeCount;
+	}
+
 	for (auto system : SystemData::sSystemVector)
 	{
 		// We only want nodes from game systems that are not collections
 		if (!system->isGameSystem() || system->isCollection() || system->hasPlatformId(PlatformIds::IMAGEVIEWER) || system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 			continue;
 
-		auto games = system->getRootFolder()->getFilesRecursive(GAME, true);
-		for (auto game : games)
-		{
-			if (!seen.insert(game).second)
-				continue;
-
-			if (video && !game->getVideoPath().empty())
-			{
-				mGamesWithVideos.push_back(game);
-				nodeCount++;
-			}
-			else if (!video && !game->getImagePath().empty())
-			{
-				mGamesWithImages.push_back(game);
-				nodeCount++;
-			}
-		}
+		for (auto game : system->getRootFolder()->getFilesRecursive(GAME, true))
+			addGame(game);
 	}
 
 	return nodeCount;
+}
+
+SystemData* SystemScreenSaver::getSourceCollection()
+{
+	std::string name = Settings::getInstance()->getString("ScreenSaverCollection");
+	if (name.empty() || name == "all")
+		return nullptr;
+
+	auto findEnabled = [&name](const std::map<std::string, CollectionSystemData>& collections) -> SystemData*
+	{
+		auto it = collections.find(name);
+		if (it == collections.cend() || !it->second.isEnabled || it->second.system == nullptr)
+			return nullptr;
+
+		return it->second.system;
+	};
+
+	SystemData* system = findEnabled(CollectionSystemManager::get()->getAutoCollectionSystems());
+	if (system == nullptr)
+		system = findEnabled(CollectionSystemManager::get()->getCustomCollectionSystems());
+
+	if (system == nullptr)
+		LOG(LogWarning) << "SystemScreenSaver : collection \"" << name << "\" is not enabled or does not exist, falling back to all games";
+
+	return system;
 }
 
 std::string  SystemScreenSaver::selectGameMedia(FileData* game, bool video)
@@ -684,6 +737,21 @@ void GameScreenSaverBase::setGame(FileData* game)
 	mViewport = Renderer::Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
 	std::string decos = Settings::getInstance()->getString("ScreenSaverDecorations");
+
+	// Only draw a decoration if the game would actually run with one :
+	// the effective bezel setting (game > system > global) must not be "none",
+	// and the game's emulator/core must support bezels. With es_features loaded, bezel support
+	// is the "bezel" shared feature attached to the emulator/core (the per-system DECORATIONS menu
+	// uses the same source) ; without it, fall back to the legacy "decoration" feature flag.
+	if (decos != "none")
+	{
+		bool bezelSupported = CustomFeatures::FeaturesLoaded
+			? game->getSourceFileData()->getSystem()->getCustomFeatures(game->getEmulator(), game->getCore()).hasFeature("bezel")
+			: game->isFeatureSupported(EmulatorFeatures::decoration);
+
+		if (!bezelSupported || game->getCurrentGameSetting("bezel") == "none")
+			decos = "none";
+	}
 
 #ifdef _RPI_
 	if (!Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
