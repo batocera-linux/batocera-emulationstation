@@ -41,16 +41,16 @@ void CarouselGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& them
 	updateInfoPanel();
 }
 
-void CarouselGameListView::updateInfoPanel()
+void CarouselGameListView::updateInfoPanel(bool forceSelection)
 {
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
 	
 	updateThemeExtrasBindings();
 
-	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : getCursor();
+	FileData* file = (mList.size() == 0 || (!forceSelection && mList.isScrolling())) ? NULL : getCursor();
 	bool isClearing = mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0;
-	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor());
+	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor(), forceSelection);
 }
 
 void CarouselGameListView::onFileChanged(FileData* file, FileChangeType change)
@@ -100,7 +100,7 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 void CarouselGameListView::onShow()
 {
 	ISimpleGameListView::onShow();
-	updateInfoPanel();
+	updateInfoPanel(true);
 }
 
 FileData* CarouselGameListView::getCursor()

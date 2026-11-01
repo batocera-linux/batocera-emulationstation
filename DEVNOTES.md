@@ -10,6 +10,12 @@ I personally launch ES in windowed mode with a smaller resolution than my monito
 
 `emulationstation --windowed --debug --resolution 1280 720`
 
+Selection scripts
+=================
+
+See [SCRIPTING.md](SCRIPTING.md) for collection selection events, their
+arguments, and a manual verification checklist.
+
 
 Creating a new GuiComponent
 ===========================

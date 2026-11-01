@@ -349,6 +349,7 @@ void ViewController::playViewTransition(bool forceImmediate)
 {
 	if (mCurrentView)
 		mCurrentView->onShow();
+	requestCollectionSelectionUpdate();
 
 	Vector3f target(Vector3f::Zero());
 	if(mCurrentView)
@@ -866,6 +867,7 @@ std::shared_ptr<IGameListView> ViewController::getGameListView(SystemData* syste
 		mCurrentView = view;
 		mCurrentView->onShow();
 		mCurrentView->topWindow(true);
+		requestCollectionSelectionUpdate();
 	}
 	else
 	{
@@ -997,6 +999,48 @@ void ViewController::update(int deltaTime)
 
 		playViewTransition(false); 
 	}
+
+	// Folder navigation restores the cursor after populating the list. Wait until
+	// that and any deferred view activation are complete before taking a snapshot.
+	if (mCollectionSelectionPending)
+	{
+		mCollectionSelectionPending = false;
+		updateCollectionSelection();
+	}
+}
+
+void ViewController::updateCollectionSelection()
+{
+	auto view = dynamic_cast<ISimpleGameListView*>(mCurrentView.get());
+	SystemData* collection = nullptr;
+	if (view != nullptr)
+	{
+		auto folder = view->getCurrentFolder();
+		auto system = (folder != nullptr ? folder : view->getRoot())->getSystem();
+
+		// Bundled collections share one view; use the entered folder's system,
+		// not the bundle and not the highlighted game's source system.
+		if (system->isCollection() && system != CollectionSystemManager::get()->getCustomCollectionsBundle())
+			collection = system;
+	}
+
+	std::string name = collection != nullptr ? collection->getName() : "";
+	if (name == mLastSelectedCollection)
+		return;
+
+	mLastSelectedCollection = name;
+	if (collection == nullptr)
+	{
+		// No arguments means that the user has left collection browsing.
+		Scripting::fireEvent("collection-selected");
+		return;
+	}
+
+	auto game = view->getCursor();
+	if (game != nullptr && game->getType() == GAME)
+		Scripting::fireEvent("collection-selected", name, game->getSourceFileData()->getSystem()->getName(), game->getPath());
+	else
+		Scripting::fireEvent("collection-selected", name);
 }
 
 void ViewController::render(const Transform4x4f& parentTrans)
@@ -1332,6 +1376,7 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	if (mCurrentView != nullptr)
 		mCurrentView->onShow();
 
+	requestCollectionSelectionUpdate();
 	updateHelpPrompts();
 }
 
@@ -1468,6 +1513,7 @@ void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)
 	mCurrentView = view;
 	mCurrentView->onShow();
 	mCurrentView->topWindow(true);
+	requestCollectionSelectionUpdate();
 }
 
 

@@ -170,7 +170,7 @@ public:
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 	Vector3f getLaunchTarget(Vector2f* size = nullptr);
 
-	void updateControls(FileData* file, bool isClearing, int moveBy = 0);
+	void updateControls(FileData* file, bool isClearing, int moveBy = 0, bool forceSelection = false);
 	void update(int deltaTime);
 
 private:

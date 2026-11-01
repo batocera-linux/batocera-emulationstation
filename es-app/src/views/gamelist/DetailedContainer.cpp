@@ -1430,7 +1430,7 @@ Vector3f DetailedContainerHost::getLaunchTarget(Vector2f* size)
 	return mContainer->getLaunchTarget(size);
 }
 
-void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy)
+void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy, bool forceSelection)
 {
 	if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
 	{
@@ -1442,7 +1442,13 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 	}
 	
 	if (mActiveFile == file)
+	{
+		// Returning to a cached view selects its game again even when its
+		// storyboard does not need rebuilding.
+		if (forceSelection)
+			file->setSelectedGame();
 		return;
+	}
 
 	if (file == nullptr || isClearing)
 	{

@@ -630,6 +630,9 @@ void ISimpleGameListView::updateFolderPath()
 	}
 	else
 		mFolderPath.setText("");
+
+	if (ViewController::hasInstance())
+		ViewController::get()->requestCollectionSelectionUpdate();
 }
 
 void ISimpleGameListView::repopulate()
