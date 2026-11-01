@@ -1443,8 +1443,6 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 	
 	if (mActiveFile == file)
 	{
-		// Returning to a cached view selects its game again even when its
-		// storyboard does not need rebuilding.
 		if (forceSelection)
 			file->setSelectedGame();
 		return;

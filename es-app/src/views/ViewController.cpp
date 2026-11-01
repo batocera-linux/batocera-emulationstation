@@ -1000,8 +1000,6 @@ void ViewController::update(int deltaTime)
 		playViewTransition(false); 
 	}
 
-	// Folder navigation restores the cursor after populating the list. Wait until
-	// that and any deferred view activation are complete before taking a snapshot.
 	if (mCollectionSelectionPending)
 	{
 		mCollectionSelectionPending = false;
@@ -1018,8 +1016,6 @@ void ViewController::updateCollectionSelection()
 		auto folder = view->getCurrentFolder();
 		auto system = (folder != nullptr ? folder : view->getRoot())->getSystem();
 
-		// Bundled collections share one view; use the entered folder's system,
-		// not the bundle and not the highlighted game's source system.
 		if (system->isCollection() && system != CollectionSystemManager::get()->getCustomCollectionsBundle())
 			collection = system;
 	}
@@ -1031,7 +1027,6 @@ void ViewController::updateCollectionSelection()
 	mLastSelectedCollection = name;
 	if (collection == nullptr)
 	{
-		// No arguments means that the user has left collection browsing.
 		Scripting::fireEvent("collection-selected");
 		return;
 	}
