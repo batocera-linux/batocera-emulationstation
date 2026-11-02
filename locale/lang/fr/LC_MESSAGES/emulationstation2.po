@@ -368,13 +368,13 @@ msgid "Enable unlocking of unofficial achievements."
 msgstr "Activer le déverrouillage des succès non officiels."
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr "SON DE DÉBLOQUAGE DE RETROACHIEVEMENTS"
+msgstr "SON DE DÉBLOCAGE DE RETROACHIEVEMENTS"
 
 msgid "none"
 msgstr "aucun"
 
 msgid "UNLOCK SOUND"
-msgstr "SON DE DÉBLOQUAGE"
+msgstr "SON DE DÉBLOCAGE"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AFFICHER LES RETROACHIEVEMENTS DANS LE MENU PRINCIPAL"
@@ -542,7 +542,7 @@ msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "AUCUN PERIPHÉRIQUE BLUETOOTH TROUVÉ"
+msgstr "AUCUN PÉRIPHÉRIQUE BLUETOOTH TROUVÉ"
 
 msgid " (Connected)"
 msgstr " (Connecté)"
@@ -695,7 +695,7 @@ msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' AJOUTÉ DANS LA LISTE DE TÉLÉCHARGEMENT"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "DÉSINSTALLATION AJOUTÉE A LA FILE D’ATTENTE"
+msgstr "DÉSINSTALLATION AJOUTÉE À LA FILE D’ATTENTE"
 
 msgid "INSTALL"
 msgstr "INSTALLER"
@@ -1264,10 +1264,10 @@ msgid "YOU'VE 4 SECONDS TO PRESS EXACTLY 2 TIMES THE GLOBAL HOTKEY"
 msgstr "VOUS AVEZ 4 SECONDES POUR PRESSER 2 FOIS LE RACCOURCI GLOBAL"
 
 msgid "NO GLOBAL HOTKEY DETECTED"
-msgstr "PAS DE RACCOURCI GLOBAL DÉTECTÉE"
+msgstr "PAS DE RACCOURCI GLOBAL DÉTECTÉ"
 
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
-msgstr "PLUSIEURS RACCOURCIS GLOBAUX DÉTECTÉES"
+msgstr "PLUSIEURS RACCOURCIS GLOBAUX DÉTECTÉS"
 
 msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"
@@ -1413,9 +1413,6 @@ msgstr "SAISIE MANUELLE"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "AUCUN RÉSEAU WI-FI TROUVÉ"
 
-msgid "CONNECTED"
-msgstr "CONNECTÉ"
-
 msgid "ALREADY CONNECTED"
 msgstr "DÉJÀ CONNECTÉ"
 
@@ -1481,7 +1478,7 @@ msgid "CUSTOM"
 msgstr "PERSONNALISÉ"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr "SERVEUR RELAI PERSONNALISÉ"
+msgstr "SERVEUR RELAIS PERSONNALISÉ"
 
 msgid "SCRAPER"
 msgstr "SCRAPEUR"
@@ -1838,7 +1835,7 @@ msgid "Display Resolution"
 msgstr "Résolution de l’écran"
 
 msgid "Display Refresh Rate"
-msgstr "Taux de raffraîchissemenet de l’écran"
+msgstr "Taux de rafraîchissemenet de l’écran"
 
 msgid "OpenGL Driver Version"
 msgstr "Version du driver OpenGL"
@@ -2089,7 +2086,7 @@ msgstr ""
 "DOSSIER SYSTÈME."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "FICHIER DE SUPPORT CRÉE DANS LE DOSSIER SAVES"
+msgstr "FICHIER DE SUPPORT CRÉÉ DANS LE DOSSIER SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "ECHEC DE CRÉATION DU FICHIER SUPPORT"
@@ -2244,7 +2241,7 @@ msgid "Might have negative impact on security."
 msgstr "Peut avoir un impact négatif sur la sécurité."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr "ACTIVER LE PILOTE  POUR MANETTES HID"
+msgstr "ACTIVER LE PILOTE POUR MANETTES HID"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AFFICHER L’INDICATEUR RÉSEAU"
@@ -2414,7 +2411,7 @@ msgid ""
 msgstr ""
 "Vous allez passer à une interface restreinte:\n"
 "Cela cachera la plupart des options pouvant modifier le système.\n"
-"Pour revenir à l’interface complète, utilisez ce code de déverouillage :"
+"Pour revenir à l’interface complète, utilisez ce code de déverrouillage :"
 
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous continuer ?"
@@ -2448,13 +2445,6 @@ msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr "Permet le contenu HDR tel que les flux Moonlight HDR."
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE"
-
-msgid ""
-"Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr "Suivre la fréquence de raffraîchissement de l’écran. À désactiver si l’écran scintille."
 
 msgid "BOOT SPLASH"
 msgstr "SPLASH AU DÉMARRAGE"
@@ -2589,13 +2579,20 @@ msgstr ""
 "des sauts. Peut introduire des défaut visuels."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE (G-SYNC, FREESYNC)"
+msgstr "TAUX DE RAFRAÎCHISSEMENT VARIABLE (G-SYNC, FREESYNC)"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
 "Ne pas s’écarter des temps demandés par le core. G-Sync, FreeSync, HDMI 2.1 "
 "VRR."
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "TAUX DE RAFRAÎCHISSEMENT VARIABLE"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr "Suivre la fréquence de rafraîchissement de l’écran. À désactiver si l’écran scintille."
 
 msgid "DECORATION SET"
 msgstr "PACK DE DÉCORATIONS"
@@ -2814,10 +2811,10 @@ msgid "SHOW TAGS ICONS"
 msgstr "AFFICHER LES ICÔNES DES BALISES"
 
 msgid "SHOW REGION FLAG"
-msgstr "AFFICHER LE DRAPEAU LANGUE DANS LES LISTES"
+msgstr "AFFICHER LE DRAPEAU RÉGION DANS LES LISTES"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "AFFICHER LE DRAPEAU SAUV. INSTANTANÉE DANS LES LISTES"
+msgstr "AFFICHER L'ICÔNE SAUV. D’ÉTAT DANS LES LISTES"
 
 msgid "SHOW MANUAL ICON"
 msgstr "AFFICHER L’ICÔNE MANUEL DANS LES LISTES"
@@ -2941,6 +2938,9 @@ msgstr "ACTIVER LES SONS DE NAVIGATION"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ACTIVER LE SON DES VIDÉOS"
+
+msgid "CONNECTED"
+msgstr "CONNECTÉ"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
@@ -3257,7 +3257,7 @@ msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANNÉE DE SORTIE, SYSTÈME, DÉCROISSANT"
 
 msgid "A,AN,THE"
-msgstr "LE,LA,LES,L’,UN,UNE,DE,DES,D’,AU,A,AUX"
+msgstr "LE,LA,LES,L’,UN,UNE,DE,DES,D’,AU,A,AUX,L',D'"
 
 msgid "INVALID CREDENTIALS"
 msgstr "IDENTIFIANTS INVALIDES"
@@ -3636,6 +3636,9 @@ msgid "CORE IS MISSING"
 msgstr "LE CŒUR EST MANQUANT"
 
 msgid "UKNOWN ERROR"
+msgstr "ERREUR INCONNUE"
+
+msgid "UNKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
 msgid "Checking for latest upgrade script..."
@@ -4021,7 +4024,7 @@ msgid "Starting format process..."
 msgstr "Démarrage du processus de formatage…"
 
 msgid "FORMAT FAILED"
-msgstr "ÉCHEC DU FORMATTAGE"
+msgstr "ÉCHEC DU FORMATAGE"
 
 msgid "YES, FORMAT & MERGE"
 msgstr "OUI, FORMATER & FUSIONNER"
@@ -4054,26 +4057,26 @@ msgstr[1] "Il y a %d ans"
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] "il y a %d jour"
-msgstr[1] "il y a %d jours"
+msgstr[0] "Il y a %d jour"
+msgstr[1] "Il y a %d jours"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] "il y a %d heure"
-msgstr[1] "il y a %d heures"
+msgstr[0] "Il y a %d heure"
+msgstr[1] "Il y a %d heures"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] "il y a %d minute"
-msgstr[1] "il y a %d minutes"
+msgstr[0] "Il y a %d minute"
+msgstr[1] "Il y a %d minutes"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] "il y a %d seconde"
-msgstr[1] "il y a %d secondes"
+msgstr[0] "Il y a %d seconde"
+msgstr[1] "Il y a %d secondes"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."
