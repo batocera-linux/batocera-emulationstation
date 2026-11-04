@@ -2636,7 +2636,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	{
 		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
 
-		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getSelectedSystem());
 		if (sets.size() > 0)
 		{
 			item->setRowTemplate([window, sets](std::string data, ComponentListRow& row) { createDecorationItemTemplate(window, sets, data, row); });
@@ -3034,7 +3034,7 @@ void GuiMenu::openGamesSettings()
 	// decorations
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS) && !hasGlobalFeature("bezel"))
 	{
-		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getSelectedSystem());
 		if (sets.size() > 0)
 		{
 #ifdef BATOCERA
@@ -4938,7 +4938,7 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 
 	// spacer between icon and text
 	auto spacer = std::make_shared<GuiComponent>(window);
-	spacer->setSize(IMGPADDING, maxSize.y());
+	spacer->setSize(IMGPADDING, 0);
 	row.addElement(spacer, false);
 
 	std::string label = data;
@@ -4960,6 +4960,7 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 	// image
 	if (!imageUrl.empty())
 	{
+		spacer->setSize(IMGPADDING, maxSize.y());
 		auto icon = std::make_shared<ImageComponent>(window);
 		icon->setImage(imageUrl, false, maxSize);
 		icon->setMaxSize(maxSize);
