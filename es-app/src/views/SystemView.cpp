@@ -198,7 +198,7 @@ void SystemView::populate()
 	TextureLoader::paused = true;
 
 	clearEntries();
-	
+
 	for (auto system : SystemData::sSystemVector)
 	{
 		const std::shared_ptr<ThemeData>& theme = system->getTheme();
@@ -248,7 +248,7 @@ void SystemView::populate()
 
 	auto grid = mCarousel.asGrid();
 	if (grid)
-		grid->preloadTiles();
+		grid->preloadTiles();	
 }
 
 void SystemView::goToSystem(SystemData* system, bool animate)
@@ -522,6 +522,10 @@ bool SystemView::input(InputConfig* config, Input input)
 bool SystemView::showNavigationBar()
 {
 	if (!SystemData::IsManufacturerSupported)
+		return false;
+
+	auto grid = mCarousel.asGrid();
+	if (grid && !grid->getGroupBy().empty())
 		return false;
 
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
@@ -978,6 +982,23 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 			getDefaultElements();
 
 			mCarousel.applyTheme(theme, "system", "imagegrid", ThemeFlags::ALL);
+
+			auto grid = mCarousel.asGrid();
+			if (grid)
+			{
+				// If the grid is grouped, then put the collections at end
+				std::string groupBy = grid->getGroupBy();
+				if (!groupBy.empty())
+				{
+					std::unordered_set<std::string> atEnd;
+
+					for (auto system : SystemData::sSystemVector)
+						if (system->isCollection() || system->getName() == "retropie" || system->getName() == "retrobat")
+							atEnd.insert(system->getProperty(groupBy).toString());
+
+					grid->setGroupsAtEnd(std::vector<std::string>(atEnd.begin(), atEnd.end()));
+				}
+			}
 		}
 		else
 		{
