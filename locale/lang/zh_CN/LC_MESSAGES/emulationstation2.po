@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-13 10:22+0800\n"
+"PO-Revision-Date: 2026-10-31 01:31+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -1400,7 +1400,7 @@ msgid "CONNECTED"
 msgstr "已连接"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "已连接"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "正在查询WI-FI网络"
@@ -2235,15 +2235,15 @@ msgid ""
 msgstr "减少扫描完整的游戏列表时的延迟，增加启动时间"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "目录深度至索引"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "无限"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
-msgstr ""
+msgstr "在每个ROM文件夹内扫描的最大深度，忽略包含许多文件的子文件夹。"
 
 msgid "THREADED LOADING"
 msgstr "线程载入中"
@@ -2401,17 +2401,17 @@ msgid "Available options can change depending on current audio output."
 msgstr "可用选项会根据当前音频输出而改变。"
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR（高动态范围）"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr ""
+msgstr "允许将HDR内容（如Moonlight HDR流）传输到显示器。"
 
 msgid "VARIABLE REFRESH RATE"
 msgstr "可变刷新率"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr ""
+msgstr "让显示器跟随帧速率。如果屏幕闪烁请关闭。"
 
 msgid "BOOT SPLASH"
 msgstr "开机画面"
@@ -2892,13 +2892,13 @@ msgstr "启用视频预览声音"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "无法连接到 '%s'"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "WI-FI网络"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "添加WI-FI网络"
 
 msgid "WI-FI SSID"
 msgstr "WI-FI 名称"
@@ -2907,7 +2907,7 @@ msgid "WI-FI KEY"
 msgstr "WI-FI 密码"
 
 msgid "USE"
-msgstr ""
+msgstr "使用"
 
 msgid "FORGET"
 msgstr "忘记"
