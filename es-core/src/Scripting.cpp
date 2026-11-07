@@ -81,7 +81,7 @@ namespace Scripting
 #endif
     }
 
-    static std::set<std::string> _asyncEvents = { "game-start", "game-end", "game-selected", "system-selected", "screensaver-start", "screensaver-stop", "sleep", "wake" };
+    static std::set<std::string> _asyncEvents = { "game-start", "game-end", "game-selected", "system-selected", "collection-selected", "screensaver-start", "screensaver-stop", "sleep", "wake" };
 
     static inline bool isAsyncEvent(const std::string& eventName) { return _asyncEvents.find(eventName) != _asyncEvents.cend(); }
 

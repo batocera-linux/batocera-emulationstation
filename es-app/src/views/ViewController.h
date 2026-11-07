@@ -113,6 +113,7 @@ public:
 	static void reloadAllGames(Window* window, bool deleteCurrentGui = false, bool doCallExternalTriggers = false, bool updateGameLists = false);
 
 	void setActiveView(std::shared_ptr<GuiComponent> view);
+	void requestCollectionSelectionUpdate() { mCollectionSelectionPending = true; }
 	
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
@@ -127,6 +128,7 @@ private:
 	void promptMissingBios(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize);
 	int getSystemId(SystemData* system);
 	void changeVolume(int increment);
+	void updateCollectionSelection();
 
 	std::shared_ptr<GuiComponent> mCurrentView;
 	std::map< SystemData*, std::shared_ptr<IGameListView> > mGameListViews;
@@ -137,6 +139,8 @@ private:
 	bool mLockInput;
 	std::shared_ptr<GuiComponent>	mDeferPlayViewTransitionTo;
 	State mState;
+	bool mCollectionSelectionPending = false;
+	std::string mLastSelectedCollection;
 };
 
 #endif // ES_APP_VIEWS_VIEW_CONTROLLER_H
