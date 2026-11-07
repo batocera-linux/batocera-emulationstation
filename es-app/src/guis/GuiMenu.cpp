@@ -4487,21 +4487,27 @@ static void compactWifiSlots()
 	}
 }
 
-static void useWifiNetwork(Window* window, const std::string& ssid)
+static void useWifiNetwork(Window* window, const std::string& ssid, const std::function<void()>& onComplete = {})
 {
 	// the script provisions connman from the saved file
 	SystemConf::getInstance()->saveSystemConf();
 
 	if (!ssid.empty() && ssid == ApiSystem::getInstance()->getConnectedWifiSsid())
 	{
+		if (onComplete)
+			onComplete();
+
 		window->pushGui(new GuiMsgBox(window, _("ALREADY CONNECTED")));
 		return;
 	}
 
 	window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"),
 		[ssid](auto gui) { return ApiSystem::getInstance()->connectWifi(ssid); },
-		[window, ssid](bool connected)
+		[window, ssid, onComplete](bool connected)
 		{
+			if (onComplete)
+				onComplete();
+
 			window->pushGui(new GuiMsgBox(window, connected ? _("CONNECTED") : Utils::String::format(_("UNABLE TO CONNECT TO '%s'").c_str(), ssid.c_str())));
 		}));
 }
@@ -4582,11 +4588,11 @@ void GuiMenu::openWifiNetwork(const std::string& slot, const std::function<void(
 	bool isNew = ssid.empty();
 	s->onFinalize([window, slot, isNew, onClose]
 	{
-		onClose();
-
-		std::string newSsid = SystemConf::getInstance()->get(slot + ".ssid");
+		const std::string newSsid = SystemConf::getInstance()->get(slot + ".ssid");
 		if (isNew && !newSsid.empty())
-			useWifiNetwork(window, newSsid);
+			useWifiNetwork(window, newSsid, onClose);
+		else
+			onClose();
 	});
 
 	mWindow->pushGui(s);
