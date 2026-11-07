@@ -22,12 +22,13 @@
 #define VIDEO_ICON		_U("\uF03D ")
 #define DOCUMENT_ICON	_U("\uF02D ")
 
-GuiFileBrowser::GuiFileBrowser(Window* window, const std::string startPath, const std::string selectedFile, FileTypes types, const std::function<void(const std::string&)>& okCallback, const std::string& title)
+GuiFileBrowser::GuiFileBrowser(Window* window, const std::string startPath, const std::string selectedFile, FileTypes types, const std::function<void(const std::string&)>& okCallback, const std::string& title, const std::set<std::string>& extensionFilter)
 	: GuiComponent(window), mMenu(window, title.empty() ? _("FILE BROWSER") : title)
 {
 	setTag("popup");
 
 	mTypes = types;
+	mExtensionFilter = extensionFilter;
 	mSelectedFile = Utils::FileSystem::getCanonicalPath(selectedFile);
 	mOkCallback = okCallback;
 
@@ -122,7 +123,10 @@ void GuiFileBrowser::navigateTo(const std::string path)
 					icon = VIDEO_ICON;
 
 			if ((mTypes & FileTypes::FILES) == FileTypes::FILES)
+			{
+				if (mExtensionFilter.empty() || mExtensionFilter.count(ext))
 					icon = DOCUMENT_ICON;
+			}
 
 			if (icon.empty())
 				continue;

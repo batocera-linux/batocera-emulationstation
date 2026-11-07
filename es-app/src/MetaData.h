@@ -78,6 +78,7 @@ enum MetaDataId
 	Bezel = 41,
 	Tags = 42,
 	MultiDisk = 43,
+	ParentGame = 44,
 
 	// Important : Control value
 	MetaDataIdCount

@@ -362,6 +362,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	addSwitch(_("SHOW EMPTY SYSTEMS"), "LoadEmptySystems", true, [&] { setVariable("reloadSystems", true); });
 	addSwitch(_("DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"), "HideUniqueGroups", true, [&] { setVariable("reloadSystems", true); });
+	addSwitch(_("GROUP GAME CLONES/VERSIONS"), _("Show single entry for games with clones / multiple versions"), "GroupCloneGames", true, [&] { setVariable("reloadAll", true); });
 		
 #if defined(WIN32) && !defined(_DEBUG)		
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
