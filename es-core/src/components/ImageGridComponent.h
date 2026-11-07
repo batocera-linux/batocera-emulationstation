@@ -12,7 +12,14 @@
 #include <algorithm>
 #include "LocaleES.h"
 #include "components/ScrollbarComponent.h"
+#include "components/TextComponent.h"
 #include <set>
+#include <map>
+#include <numeric>
+#include <cctype>
+#include <climits>
+#include <cstdlib>
+#include <unordered_map>
 #include "InputManager.h"
 #include "utils/Delegate.h"
 #include "BindingManager.h"
@@ -53,7 +60,99 @@ struct ImageGridData
 {
 	std::shared_ptr<GridTileComponent> tile;
 	std::string texturePath;
+	int sourceIndex = 0;						// original insertion order (restored when ungrouping)
 };
+
+// Group of consecutive entries sharing the same property value (see setGroupBy)
+struct ImageGridGroup
+{
+	std::string label;
+	int firstIndex = 0;						 // index of the group's first entry
+	int count = 0;
+	float y = 0;								// top of the header (before padding / camera)
+	std::shared_ptr<TextComponent> text;		// created on demand, themed via <text name="gridgroup">
+	int scrollCol = 0;						  // band mode: first visible column of the band (target)
+	float scrollX = 0;						  // band mode: current horizontal offset in px (animated)
+};
+
+// Sort value of an entry (sortBy): numeric if the whole text is a number, otherwise natural comparison
+struct ImageGridSortKey
+{
+	std::string text;
+	double number = 0;
+	bool isNumber = false;
+};
+
+inline ImageGridSortKey makeImageGridSortKey(const std::string& text)
+{
+	ImageGridSortKey key;
+	key.text = text;
+
+	if (!text.empty() && (std::isdigit((unsigned char) text[0]) || text[0] == '-' || text[0] == '+' || text[0] == '.'))
+	{
+		char* end = nullptr;
+		double value = std::strtod(text.c_str(), &end);
+		if (end != text.c_str() && *end == '\0')
+		{
+			key.number = value;
+			key.isNumber = true;
+		}
+	}
+
+	return key;
+}
+
+// "Natural" order: "Game 2" < "Game 10", case-insensitive (ASCII)
+inline int compareImageGridNatural(const std::string& a, const std::string& b)
+{
+	size_t i = 0, j = 0;
+	while (i < a.size() && j < b.size())
+	{
+		if (std::isdigit((unsigned char) a[i]) && std::isdigit((unsigned char) b[j]))
+		{
+			size_t si = i, sj = j;
+			while (si < a.size() && a[si] == '0') si++;
+			while (sj < b.size() && b[sj] == '0') sj++;
+
+			size_t ei = si, ej = sj;
+			while (ei < a.size() && std::isdigit((unsigned char) a[ei])) ei++;
+			while (ej < b.size() && std::isdigit((unsigned char) b[ej])) ej++;
+
+			const size_t li = ei - si, lj = ej - sj;
+			if (li != lj)
+				return li < lj ? -1 : 1;
+
+			int c = a.compare(si, li, b, sj, lj);
+			if (c != 0)
+				return c < 0 ? -1 : 1;
+
+			i = ei;
+			j = ej;
+		}
+		else
+		{
+			int ca = std::toupper((unsigned char) a[i]);
+			int cb = std::toupper((unsigned char) b[j]);
+			if (ca != cb)
+				return ca < cb ? -1 : 1;
+
+			i++;
+			j++;
+		}
+	}
+
+	if (i < a.size()) return 1;
+	if (j < b.size()) return -1;
+	return 0;
+}
+
+inline int compareImageGridSortKeys(const ImageGridSortKey& a, const ImageGridSortKey& b)
+{
+	if (a.isNumber && b.isNumber)
+		return a.number < b.number ? -1 : (a.number > b.number ? 1 : 0);
+
+	return compareImageGridNatural(a.text, b.text);
+}
 
 // Type trait to check if a type derives from IBindable
 template <typename T>
@@ -124,6 +223,43 @@ public:
 	virtual bool onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	virtual int getCursorIndex() override
+	{
+		if (mEntriesReordered && mCursor >= 0 && mCursor < (int)mEntries.size())
+			return mEntries[mCursor].data.sourceIndex;
+
+		return mCursor;
+	}
+
+	virtual void setCursorIndex(int index, bool force = false) override
+	{
+		if (mEntriesReordered && index >= 0 && index < (int)mEntries.size())
+		{
+			int current = -1;
+
+			if (mEntries[index].data.sourceIndex == index) // common case: entry stayed in place
+				current = index;
+			else
+			{
+				for (int i = 0; i < (int)mEntries.size(); i++)
+				{
+					if (mEntries[i].data.sourceIndex == index)
+					{
+						current = i;
+						break;
+					}
+				}
+			}
+
+			if (current < 0)
+				return;
+
+			index = current;
+		}
+
+		IList<ImageGridData, T>::setCursorIndex(index, force);
+	}
+
 	Vector3f getCameraOffset() 
 	{ 
 		if (isVertical())
@@ -135,6 +271,79 @@ public:
 	Delegate<ILongMouseClickEvent> longMouseClick;
 
 	void		preloadTiles();
+
+	// Groups entries according to IBindable::getProperty(property). Empty = no groups.
+	// Entries are physically reordered (stable sort) so that each group is contiguous; the original order
+	// is restored when ungrouping. sortByLabel=true (default): groups in alphabetical order (case-insensitive);
+	// false: groups in order of first appearance.
+	void setGroupBy(const std::string& property, bool sortByLabel = true)
+	{
+		if (mGroupBy == property && mGroupSortByLabel == sortByLabel)
+			return;
+
+		mGroupBy = property;
+		mGroupSortByLabel = sortByLabel;
+
+		for (auto& entry : mEntries)
+			entry.data.tile = nullptr;
+
+		resetGrid();
+	}
+
+	const std::string& getGroupBy() const { return mGroupBy; }
+
+	// Sorts entries according to IBindable::getProperty(property) (within each group if groups are active).
+	// Numbers are compared numerically, text in case-insensitive natural order, missing values last.
+	// Empty = original insertion order. Theme: <sortBy>name</sortBy> and <sortDescending>true</sortDescending>
+	void setSortBy(const std::string& property, bool descending = false)
+	{
+		if (mSortBy == property && mSortDescending == descending)
+			return;
+
+		mSortBy = property;
+		mSortDescending = descending;
+
+		for (auto& entry : mEntries)
+			entry.data.tile = nullptr;
+
+		resetGrid();
+	}
+
+	const std::string& getSortBy() const { return mSortBy; }
+
+	// Groups always placed at the end, in the given order, regardless of how groups are sorted (e.g. {"collections"}).
+	// Case-insensitive comparison with the value of the groupBy property. To be called by the code that fills the grid.
+	void setGroupsAtEnd(const std::vector<std::string>& labels)
+	{
+		if (mGroupsAtEnd == labels)
+			return;
+
+		mGroupsAtEnd = labels;
+
+		for (auto& entry : mEntries)
+			entry.data.tile = nullptr;
+
+		resetGrid();
+	}
+
+	const std::vector<std::string>& getGroupsAtEnd() const { return mGroupsAtEnd; }
+
+	// Band mode (Netflix / Prime Video style): each group fits on a single row that scrolls horizontally,
+	// the bands scroll vertically. No effect if groups are not active. Theme: <groupBands>true</groupBands>
+	void setGroupBands(bool bands)
+	{
+		if (mGroupBands == bands)
+			return;
+
+		mGroupBands = bands;
+
+		for (auto& entry : mEntries)
+			entry.data.tile = nullptr;
+
+		resetGrid();
+	}
+
+	bool getGroupBands() const { return mGroupBands; }
 
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;
@@ -150,6 +359,65 @@ private:
 	std::shared_ptr<GridTileComponent> createTile(int i, int dimOpposite, Vector2f tileDistance, Vector2f startPosition);
 
 	inline bool isVertical() { return mScrollDirection == SCROLL_VERTICALLY; };
+
+	// GROUPS (vertical scrolling only, without centerSelection)
+	inline bool hasGroups() { return !mGroupBy.empty() && isVertical() && mCenterSelection == CenterSelection::NEVER; }
+
+	std::string getGroupKey(const typename IList<ImageGridData, T>::Entry& entry);
+	void computeLayout();
+	float getGroupedCameraOffset();
+	int moveByRows(int rows);
+	void ensureGroupText(ImageGridGroup& group);
+
+	bool arrangeEntries(std::vector<std::string>& groupKeys, bool grouped);
+	bool restoreEntryOrder();
+	std::string getSortValue(const typename IList<ImageGridData, T>::Entry& entry);
+
+	std::string mSortBy;
+	bool mSortDescending;
+
+	std::vector<std::string> mGroupsAtEnd;
+	int getGroupAtEndIndex(const std::string& label);
+	void applyEntryOrder(const std::vector<int>& order);
+
+	bool mGroupSortByLabel;
+	bool mEntriesReordered;					 // mEntries has been permuted by grouping
+	int mNextSourceIndex;
+
+	// BANDS
+	inline bool hasBands() { return hasGroups() && mGroupBands; }
+
+	int remapBandMove(int from, int axis, int step);
+	void scrollBandToCursor(bool animate);
+	float getBandScrollX(const std::shared_ptr<GridTileComponent>& tile);
+	bool isInBandWindow(int i);
+	void animateBandTo(int band, float targetX, bool animate);
+	int getBandAtScreenY(int y);
+	void dragBand(int dx);
+	void endBandDrag();
+
+	int mDragAxis;							  // mouse drag in band mode: 0 = undecided, 1 = horizontal, 2 = vertical
+	int mDragBand;							  // band grabbed at press time
+	int mScreenY;							   // top of the component on screen (updated at render)
+	float mScreenScaleY;
+
+	bool mGroupBands;
+	int mBandAxis;							  // keyboard-driven movement: 0 = none, 1 = horizontal, 2 = vertical
+	int mBandStep;							  // number of bands per vertical step (page up/down)
+	int mWantedSlot;							// visual column kept during vertical moves
+	int mWantedSlotCursor;					  // cursor to which mWantedSlot applies
+
+	std::string mGroupBy;
+	float mGroupHeaderHeight;				   // px
+	float mGroupSpacing;						// px between the end of a group and the next header
+	bool mLayoutDirty;
+	float mGroupCamera;						 // camera target (independent of the animation in progress)
+
+	std::vector<ImageGridGroup> mGroups;
+	std::vector<Vector2i> mCells;			   // (col, row) of each entry
+	std::vector<float> mRowTop;				 // y of the top of each row
+	std::vector<float> mRowReveal;			  // y to make visible in order to show the row (header if first row of the group)
+	std::vector<int> mRowFirst;				 // index of the first entry of each row
 
 	bool mEntriesDirty;
 
@@ -228,8 +496,632 @@ private:
 
 
 template<typename T>
+std::string ImageGridComponent<T>::getGroupKey(const typename IList<ImageGridData, T>::Entry& entry)
+{
+	IBindable* bindable = getBindable(entry);
+	if (bindable == nullptr)
+		return "";
+
+	return bindable->getProperty(mGroupBy).toString();
+}
+
+// Reorders mEntries: order[k] = old index of the entry that takes position k. The cursor follows its entry.
+template<typename T>
+void ImageGridComponent<T>::applyEntryOrder(const std::vector<int>& order)
+{
+	const int count = (int)mEntries.size();
+
+	std::vector<int> newPosition(count);
+	std::vector<typename IList<ImageGridData, T>::Entry> sorted;
+	sorted.reserve(count);
+
+	for (int k = 0; k < count; k++)
+	{
+		newPosition[order[k]] = k;
+		sorted.push_back(std::move(mEntries[order[k]]));
+		sorted.back().data.tile = nullptr; // tile positions are stale: they will be recreated
+	}
+
+	mEntries = std::move(sorted);
+
+	mVisibleTiles.clear();
+	mScrollLoopTiles.clear();
+
+	if (mCursor >= 0 && mCursor < count)
+		mCursor = newPosition[mCursor];
+
+	mLastCursor = -1;
+	mLastCursorState = CursorState::CURSOR_STOPPED;
+	mEntriesDirty = true;
+}
+
+// Position of the group in the list of groups pinned to the end (case-insensitive), -1 if it is not pinned
+template<typename T>
+int ImageGridComponent<T>::getGroupAtEndIndex(const std::string& label)
+{
+	for (int i = 0; i < (int)mGroupsAtEnd.size(); i++)
+	{
+		const std::string& pinned = mGroupsAtEnd[i];
+		if (pinned.size() != label.size())
+			continue;
+
+		bool same = true;
+		for (size_t c = 0; c < label.size() && same; c++)
+			same = std::toupper((unsigned char) pinned[c]) == std::toupper((unsigned char) label[c]);
+
+		if (same)
+			return i;
+	}
+
+	return -1;
+}
+
+template<typename T>
+std::string ImageGridComponent<T>::getSortValue(const typename IList<ImageGridData, T>::Entry& entry)
+{
+	IBindable* bindable = getBindable(entry);
+	if (bindable == nullptr)
+		return "";
+
+	return bindable->getProperty(mSortBy).toString();
+}
+
+// Orders mEntries: contiguous groups (according to mGroupBy), then inner sort according to mSortBy, then original insertion order
+// (stable sort, total order: the result does not depend on the current order). groupKeys[i] = group key of entry i,
+// ignored if !grouped; it is permuted along with the entries. Returns true if the order changed.
+template<typename T>
+bool ImageGridComponent<T>::arrangeEntries(std::vector<std::string>& groupKeys, bool grouped)
+{
+	const int count = (int)mEntries.size();
+
+	std::vector<int> ranks(count, 0);
+
+	if (grouped)
+	{
+		// Entries traversed in original insertion order, so that "first appearance" has a stable meaning
+		std::vector<int> source(count);
+		std::iota(source.begin(), source.end(), 0);
+		std::stable_sort(source.begin(), source.end(), [this](int a, int b) { return mEntries[a].data.sourceIndex < mEntries[b].data.sourceIndex; });
+
+		std::unordered_map<std::string, int> rankByKey;
+		std::vector<std::string> distinct;
+		for (int idx : source)
+			if (rankByKey.emplace(groupKeys[idx], (int)distinct.size()).second)
+				distinct.push_back(groupKeys[idx]);
+
+		if (mGroupSortByLabel)
+		{
+			// Case-insensitive alphabetical (ASCII); on ties, binary order to stay deterministic
+			std::sort(distinct.begin(), distinct.end(), [](const std::string& a, const std::string& b)
+			{
+				const size_t n = std::min(a.size(), b.size());
+				for (size_t i = 0; i < n; i++)
+				{
+					int ca = std::toupper((unsigned char) a[i]);
+					int cb = std::toupper((unsigned char) b[i]);
+					if (ca != cb)
+						return ca < cb;
+				}
+
+				return a.size() != b.size() ? a.size() < b.size() : a < b;
+			});
+		}
+
+		// Pinned groups (setGroupsAtEnd): after all the others, in the order given by the caller
+		auto firstPinned = std::stable_partition(distinct.begin(), distinct.end(), [this](const std::string& key) { return getGroupAtEndIndex(key) < 0; });
+		std::sort(firstPinned, distinct.end(), [this](const std::string& a, const std::string& b) { return getGroupAtEndIndex(a) < getGroupAtEndIndex(b); });
+
+		// distinct is now in the final group order
+		for (int g = 0; g < (int)distinct.size(); g++)
+			rankByKey[distinct[g]] = g;
+
+		for (int i = 0; i < count; i++)
+			ranks[i] = rankByKey[groupKeys[i]];
+	}
+
+	std::vector<ImageGridSortKey> sortKeys;
+	if (!mSortBy.empty())
+	{
+		sortKeys.reserve(count);
+		for (int i = 0; i < count; i++)
+			sortKeys.push_back(makeImageGridSortKey(getSortValue(mEntries[i])));
+	}
+
+	std::vector<int> order(count);
+	std::iota(order.begin(), order.end(), 0);
+	std::stable_sort(order.begin(), order.end(), [this, &ranks, &sortKeys](int a, int b)
+	{
+		if (ranks[a] != ranks[b])
+			return ranks[a] < ranks[b];
+
+		if (!sortKeys.empty())
+		{
+			const ImageGridSortKey& ka = sortKeys[a];
+			const ImageGridSortKey& kb = sortKeys[b];
+
+			if (ka.text.empty() != kb.text.empty())
+				return !ka.text.empty(); // missing values last, regardless of direction
+
+			int c = compareImageGridSortKeys(ka, kb);
+			if (c != 0)
+				return mSortDescending ? c > 0 : c < 0;
+		}
+
+		return mEntries[a].data.sourceIndex < mEntries[b].data.sourceIndex;
+	});
+
+	if (std::is_sorted(order.begin(), order.end())) // already in the wanted order, nothing moves
+		return false;
+
+	applyEntryOrder(order);
+	mEntriesReordered = true;
+
+	if (grouped)
+	{
+		std::vector<std::string> sortedKeys;
+		sortedKeys.reserve(count);
+		for (int k = 0; k < count; k++)
+			sortedKeys.push_back(std::move(groupKeys[order[k]]));
+
+		groupKeys = std::move(sortedKeys);
+	}
+
+	return true;
+}
+
+// No groups and no sort: recovers the original insertion order. Returns true if the order changed.
+template<typename T>
+bool ImageGridComponent<T>::restoreEntryOrder()
+{
+	if (!mEntriesReordered)
+		return false;
+
+	mEntriesReordered = false;
+
+	std::vector<int> order(mEntries.size());
+	std::iota(order.begin(), order.end(), 0);
+	std::stable_sort(order.begin(), order.end(), [this](int a, int b) { return mEntries[a].data.sourceIndex < mEntries[b].data.sourceIndex; });
+
+	if (std::is_sorted(order.begin(), order.end()))
+		return false;
+
+	applyEntryOrder(order);
+	return true;
+}
+
+template<typename T>
+void ImageGridComponent<T>::computeLayout()
+{
+	mLayoutDirty = false;
+
+	// Band mode: keep each band's horizontal scroll across a recomputation
+	std::unordered_map<std::string, int> oldScroll;
+	if (hasBands())
+		for (const auto& g : mGroups)
+			oldScroll[g.label] = g.scrollCol;
+
+	mGroups.clear();
+	mCells.clear();
+	mRowTop.clear();
+	mRowReveal.clear();
+	mRowFirst.clear();
+
+	if (!hasGroups())
+	{
+		std::vector<std::string> noKeys;
+		const bool changed = mSortBy.empty() ? restoreEntryOrder() : arrangeEntries(noKeys, false);
+
+		if (changed)
+		{
+			// Without groups the camera relies on mStartPosition: restart from the beginning and realign on the cursor
+			mStartPosition = 0;
+			mCameraOffset = 0;
+			onCursorChanged(CURSOR_STOPPED);
+		}
+
+		return;
+	}
+
+	// Group keys, then physical grouping of entries with the same key
+	std::vector<std::string> keys(mEntries.size());
+	for (int i = 0; i < (int)mEntries.size(); i++)
+		keys[i] = getGroupKey(mEntries[i]);
+
+	const bool reordered = arrangeEntries(keys, true);
+	if (reordered)
+	{
+		mGroupCamera = 0;
+		mCameraOffset = 0;
+	}
+
+	const bool bands = hasBands();
+	const int dimOpposite = bands ? INT_MAX : Math::max(1, mGridDimension.x()); // in bands mode, a single row per group
+	const Vector2f tileDistance = mTileSize + mMargin;
+
+	mCells.assign(mEntries.size(), Vector2i::Zero());
+
+	int col = 0;
+	float y = 0;
+	bool first = true;
+	bool groupStart = false;
+	std::string lastKey;
+
+	auto closeRow = [&]()
+	{
+		if (col != 0)
+		{
+			col = 0;
+			y += tileDistance.y();
+		}
+	};
+
+	for (int i = 0; i < (int)mEntries.size(); i++)
+	{
+		const std::string& key = keys[i];
+		if (first || key != lastKey)
+		{
+			closeRow(); // finishes the last (partial) row of the previous group
+
+			if (!first)
+				y += mGroupSpacing;
+
+			ImageGridGroup group;
+			group.label = key;
+			group.firstIndex = i;
+			group.y = y;
+
+			if (bands)
+			{
+				auto it = oldScroll.find(key);
+				if (it != oldScroll.end())
+					group.scrollCol = it->second;
+			}
+
+			mGroups.push_back(group);
+
+			y += mGroupHeaderHeight;
+
+			lastKey = key;
+			first = false;
+			groupStart = true;
+		}
+
+		mGroups.back().count++;
+
+		if (col == 0)
+		{
+			mRowTop.push_back(y);
+			mRowReveal.push_back(groupStart ? mGroups.back().y : y);
+			mRowFirst.push_back(i);
+			groupStart = false;
+		}
+
+		mCells[i] = Vector2i(col, (int)mRowTop.size() - 1);
+
+		if (++col == dimOpposite)
+			closeRow();
+	}
+
+	closeRow();
+
+	// Same semantics as the historical calculation: top of the second-to-last row
+	mTotalHeight = mRowTop.empty() ? 0.0f : Math::max(0.0f, mRowTop.back() - tileDistance.y());
+
+	if (bands)
+	{
+		const int visibleCols = Math::max(1, mGridDimension.x());
+		for (auto& g : mGroups)
+		{
+			g.scrollCol = Math::max(0, Math::min(g.scrollCol, Math::max(0, g.count - visibleCols)));
+			g.scrollX = g.scrollCol * tileDistance.x();
+		}
+
+		scrollBandToCursor(false);
+	}
+
+	// The cursor may have changed row: realign the camera (mLayoutDirty is already false, no recursion)
+	if (reordered)
+		mCameraOffset = getGroupedCameraOffset();
+}
+
+// Target camera (NEVER mode): keeps the selected tile fully visible,
+// and the group header when on its first row
+template<typename T>
+float ImageGridComponent<T>::getGroupedCameraOffset()
+{
+	if (mLayoutDirty)
+		computeLayout();
+
+	if (mCursor < 0 || mCursor >= (int)mCells.size())
+		return mGroupCamera;
+
+	const int row = mCells[mCursor].y();
+	const float viewHeight = mSize.y() - mPadding.y() - mPadding.w();
+
+	const float top = mRowReveal[row];
+	const float bottom = mRowTop[row] + mTileSize.y();
+
+	float camera = mGroupCamera;
+
+	if (top < camera)
+		camera = top;
+	else if (bottom > camera + viewHeight)
+		camera = bottom - viewHeight;
+
+	mGroupCamera = Math::max(0.0f, camera);
+	return mGroupCamera;
+}
+
+// Vertical movement in rows: same column, or last tile if the target row is partial
+// Band mode: movement starting from entry "from". axis 1 = horizontal (bounded to the band),
+// axis 2 = vertical (step bands, keeping the same visual column)
+template<typename T>
+int ImageGridComponent<T>::remapBandMove(int from, int axis, int step)
+{
+	if (from < 0 || from >= (int)mCells.size() || mGroups.empty())
+		return from;
+
+	const Vector2i cell = mCells[from];
+	const ImageGridGroup& current = mGroups[cell.y()];
+
+	if (axis == 1)
+		return Math::max(current.firstIndex, Math::min(from + step, current.firstIndex + current.count - 1));
+
+	const int visibleCols = Math::max(1, mGridDimension.x());
+
+	int slot = (mWantedSlotCursor == from && mWantedSlot >= 0) ? mWantedSlot : cell.x() - current.scrollCol;
+	slot = Math::max(0, Math::min(slot, visibleCols - 1));
+
+	const int band = Math::max(0, Math::min(cell.y() + step, (int)mGroups.size() - 1));
+	if (band == cell.y())
+		return from;
+
+	const ImageGridGroup& target = mGroups[band];
+	const int col = Math::max(0, Math::min(target.scrollCol + slot, target.count - 1));
+
+	mWantedSlot = slot;
+	mWantedSlotCursor = target.firstIndex + col;
+
+	return mWantedSlotCursor;
+}
+
+// Band mode: keeps the selected tile within the horizontal window of its band
+template<typename T>
+void ImageGridComponent<T>::scrollBandToCursor(bool animate)
+{
+	if (!hasBands() || mCursor < 0 || mCursor >= (int)mCells.size() || mGroups.empty())
+		return;
+
+	const int band = mCells[mCursor].y();
+	const int col = mCells[mCursor].x();
+	ImageGridGroup& group = mGroups[band];
+
+	const int visibleCols = Math::max(1, mGridDimension.x());
+	const float distance = mTileSize.x() + mMargin.x();
+
+	int target = group.scrollCol;
+	if (col < target)
+		target = col;
+	else if (col >= target + visibleCols)
+		target = col - visibleCols + 1;
+
+	target = Math::max(0, Math::min(target, Math::max(0, group.count - visibleCols)));
+	group.scrollCol = target;
+
+	const float targetX = target * distance;
+	if (group.scrollX == targetX)
+		return;
+
+	animateBandTo(band, targetX, animate);
+}
+
+// Brings the band to its target offset (animated or not)
+template<typename T>
+void ImageGridComponent<T>::animateBandTo(int band, float targetX, bool animate)
+{
+	if (band < 0 || band >= (int)mGroups.size())
+		return;
+
+	ImageGridGroup& group = mGroups[band];
+	const float distance = mTileSize.x() + mMargin.x();
+
+	// Only one band animates at a time: the others are snapped to their target
+	for (int b = 0; b < (int)mGroups.size(); b++)
+		if (b != band)
+			mGroups[b].scrollX = mGroups[b].scrollCol * distance;
+
+	if (!animate || group.scrollX == targetX)
+	{
+		group.scrollX = targetX;
+		mEntriesDirty = true;
+		return;
+	}
+
+	const float fromX = group.scrollX;
+
+	auto func = [this, band, fromX, targetX](float t)
+	{
+		if (band >= (int)mGroups.size())
+			return;
+
+		t -= 1; // cubic ease out
+		float pct = Math::lerp(0, 1, t*t*t + 1);
+
+		mGroups[band].scrollX = targetX * pct + fromX * (1.0 - pct);
+		mEntriesDirty = true;
+	};
+
+	((GuiComponent*)this)->setAnimation(new LambdaAnimation(func, 200), 0, [this, band, targetX] {
+		if (band < (int)mGroups.size())
+			mGroups[band].scrollX = targetX;
+
+		mEntriesDirty = true;
+	}, false, 3);
+}
+
+// Band located under a screen y coordinate (mouse)
+template<typename T>
+int ImageGridComponent<T>::getBandAtScreenY(int y)
+{
+	if (mGroups.empty())
+		return -1;
+
+	const float localY = (y - mScreenY) / (mScreenScaleY > 0 ? mScreenScaleY : 1.0f);
+	const float worldY = localY + mCameraOffset - mPadding.y(); // same reference frame as group.y
+
+	int band = 0;
+	for (int b = 0; b < (int)mGroups.size(); b++)
+	{
+		if (mGroups[b].y > worldY)
+			break;
+
+		band = b;
+	}
+
+	return band;
+}
+
+// Horizontal drag: the band follows the finger / mouse, bounded at its ends
+template<typename T>
+void ImageGridComponent<T>::dragBand(int dx)
+{
+	if (mDragBand < 0 || mDragBand >= (int)mGroups.size())
+		return;
+
+	ImageGridGroup& group = mGroups[mDragBand];
+
+	const float distance = mTileSize.x() + mMargin.x();
+	const int visibleCols = Math::max(1, mGridDimension.x());
+	const float maxX = Math::max(0, group.count - visibleCols) * distance;
+
+	group.scrollX = Math::max(0.0f, Math::min(group.scrollX + dx, maxX));
+	mEntriesDirty = true;
+}
+
+// End of horizontal drag: snaps the band to the nearest column, and brings the selection back into the window
+template<typename T>
+void ImageGridComponent<T>::endBandDrag()
+{
+	if (mDragBand < 0 || mDragBand >= (int)mGroups.size())
+		return;
+
+	ImageGridGroup& group = mGroups[mDragBand];
+
+	const float distance = mTileSize.x() + mMargin.x();
+	const int visibleCols = Math::max(1, mGridDimension.x());
+	const int maxScroll = Math::max(0, group.count - visibleCols);
+
+	int col = (int)(group.scrollX / distance + 0.5f);
+	col = Math::max(0, Math::min(col, maxScroll));
+
+	group.scrollCol = col;
+	animateBandTo(mDragBand, col * distance, ALLOWANIMATIONS);
+
+	if (mCursor >= 0 && mCursor < (int)mCells.size() && mCells[mCursor].y() == mDragBand)
+	{
+		const int cursorCol = mCells[mCursor].x();
+		const int clamped = Math::max(col, Math::min(cursorCol, Math::min(col + visibleCols - 1, group.count - 1)));
+
+		if (clamped != cursorCol)
+		{
+			mCursor = group.firstIndex + clamped;
+			onCursorChanged(CURSOR_STOPPED);
+		}
+	}
+}
+
+// Band mode: is the tile within the horizontal window (+ margin) of its band? If not, no need to create it
+template<typename T>
+bool ImageGridComponent<T>::isInBandWindow(int i)
+{
+	if (!hasBands() || i < 0 || i >= (int)mCells.size() || mCells[i].y() >= (int)mGroups.size())
+		return true;
+
+	const float distance = mTileSize.x() + mMargin.x();
+	const ImageGridGroup& group = mGroups[mCells[i].y()];
+
+	const float x = mCells[i].x() * distance;
+	const float viewWidth = mSize.x();
+
+	return x + mTileSize.x() >= group.scrollX - EXTRAITEMS * distance && x <= group.scrollX + viewWidth + EXTRAITEMS * distance;
+}
+
+// Band mode: horizontal offset of the band containing this tile (found by its vertical position)
+template<typename T>
+float ImageGridComponent<T>::getBandScrollX(const std::shared_ptr<GridTileComponent>& tile)
+{
+	if (mGroups.empty() || mRowTop.empty())
+		return 0;
+
+	const float rowTop = tile->getPosition().y() - mTileSize.y() / 2 - mPadding.y();
+	const float half = (mTileSize.y() + mMargin.y()) / 2;
+
+	int band = (int)(std::upper_bound(mRowTop.begin(), mRowTop.end(), rowTop + half) - mRowTop.begin()) - 1;
+	band = Math::max(0, Math::min(band, (int)mGroups.size() - 1));
+
+	return mGroups[band].scrollX;
+}
+
+template<typename T>
+int ImageGridComponent<T>::moveByRows(int rows)
+{
+	if (mLayoutDirty)
+		computeLayout();
+
+	if (hasBands())
+		return remapBandMove(mCursor, 2, rows);
+
+	if (mCursor < 0 || mCursor >= (int)mCells.size() || mRowTop.empty())
+		return mCursor;
+
+	const Vector2i cell = mCells[mCursor];
+	const int row = Math::max(0, Math::min(cell.y() + rows, (int)mRowTop.size() - 1));
+
+	const int first = mRowFirst[row];
+	const int last = (row + 1 < (int)mRowFirst.size() ? mRowFirst[row + 1] : (int)mEntries.size()) - 1;
+
+	return Math::min(first + cell.x(), last);
+}
+
+template<typename T>
+void ImageGridComponent<T>::ensureGroupText(ImageGridGroup& group)
+{
+	group.text = std::make_shared<TextComponent>(mWindow);
+	group.text->setVerticalAlignment(ALIGN_CENTER); // default, overridable by the theme
+
+	if (mTheme)
+		group.text->applyTheme(mTheme, mName, "gridgroup", ThemeFlags::ALL & ~(ThemeFlags::POSITION | ThemeFlags::SIZE));
+
+	group.text->setPosition(mPadding.x(), group.y + mPadding.y());
+	group.text->setSize(mSize.x() - mPadding.x() - mPadding.z(), mGroupHeaderHeight);
+	group.text->setText(group.label);
+}
+
+template<typename T>
 Vector2i ImageGridComponent<T>::getVisibleRange()
 {
+	if (hasGroups())
+	{
+		if (mLayoutDirty)
+			computeLayout();
+
+		if (mRowTop.empty())
+			return Vector2i(0, -1);
+
+		const Vector2f tileDistance = mTileSize + mMargin;
+
+		const float top = mCameraOffset - EXTRAITEMS * tileDistance.y() - mTileSize.y();
+		const float bottom = mCameraOffset + mSize.y() + EXTRAITEMS * tileDistance.y();
+
+		const int r0 = (int)(std::lower_bound(mRowTop.begin(), mRowTop.end(), top) - mRowTop.begin());
+		const int r1 = (int)(std::upper_bound(mRowTop.begin(), mRowTop.end(), bottom) - mRowTop.begin());
+
+		const int start = r0 < (int)mRowFirst.size() ? mRowFirst[r0] : (int)mEntries.size();
+		const int end = r1 < (int)mRowFirst.size() ? mRowFirst[r1] - 1 : (int)mEntries.size() - 1;
+
+		return Vector2i(start, end);
+	}
+
 	int dimExt = isVertical() ? mGridDimension.y() : mGridDimension.x();
 	int dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
@@ -262,7 +1154,10 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::createTile(int i, int 
 		std::swap(X, Y);
 
 	tile->setOrigin(0.5f, 0.5f);
-	tile->setPosition(X * tileDistance.x() + startPosition.x(), Y * tileDistance.y() + startPosition.y());
+	if (hasGroups() && i >= 0 && i < (int)mCells.size())
+		tile->setPosition(mCells[i].x() * tileDistance.x() + startPosition.x(), mRowTop[mCells[i].y()] + startPosition.y());
+	else
+		tile->setPosition(X * tileDistance.x() + startPosition.x(), Y * tileDistance.y() + startPosition.y());
 	tile->setSize(mTileSize);
 
 	if (mTheme)
@@ -277,6 +1172,9 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::createTile(int i, int 
 template<typename T>
 void ImageGridComponent<T>::preloadTiles()
 {
+	if (mLayoutDirty)
+		computeLayout();
+
 	int dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
 	Vector2f startPosition = mTileSize / 2;
@@ -309,6 +1207,9 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 
 	Vector2f tileDistance = mTileSize + mMargin;
 
+	if (mLayoutDirty)
+		computeLayout();
+
 	auto range = getVisibleRange();
 	int startIndex = range.x(); // position - EXTRAITEMS * dimOpposite;
 	int endIndex = range.y(); // startIndex + dimExt * dimOpposite;
@@ -319,8 +1220,11 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 	if (endIndex > mEntries.size() - 1)
 		endIndex = mEntries.size() - 1;
 
-	int totalCols = Math::max(0, mEntries.size() - 1) / dimOpposite;
-	mTotalHeight = Math::max(0.0f, (float) (isVertical() ? tileDistance.y() : tileDistance.x()) * (totalCols - 1));
+	if (!hasGroups()) // with groups, mTotalHeight is computed by computeLayout()
+	{
+		int totalCols = Math::max(0, mEntries.size() - 1) / dimOpposite;
+		mTotalHeight = Math::max(0.0f, (float) (isVertical() ? tileDistance.y() : tileDistance.x()) * (totalCols - 1));
+	}
 
 	Vector2f startPosition = mTileSize / 2;
 	startPosition += Vector2f(mPadding.x(), mPadding.y());
@@ -357,7 +1261,7 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 
 		typename IList<ImageGridData, T>::Entry& entry = mEntries[i];
 
-		if ((mScrollLoop && idx >= range.x() && idx <= range.y()) || (!mScrollLoop && i >= startIndex && i <= endIndex))
+		if ((mScrollLoop && idx >= range.x() && idx <= range.y()) || (!mScrollLoop && i >= startIndex && i <= endIndex && isInBandWindow(i)))
 		{
 			if (entry.data.tile == nullptr)
 			{
@@ -397,7 +1301,7 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 					entry.data.tile->onShow();
 			}
 
-			if (mScrollLoop && i < startIndex || i > endIndex)
+			if (mScrollLoop && (i < startIndex || i > endIndex))
 			{
 				auto tile = createTile(idx, dimOpposite, tileDistance, startPosition);
 				loadTile(tile, entry);
@@ -431,6 +1335,24 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 
 	mCameraOffset = 0;
 	mTotalHeight = 0;
+
+	mGroupHeaderHeight = 0;
+	mGroupSpacing = 0;
+	mGroupCamera = 0;
+	mLayoutDirty = true;
+	mGroupSortByLabel = true;
+	mSortDescending = false;
+	mEntriesReordered = false;
+	mNextSourceIndex = 0;
+	mGroupBands = false;
+	mBandAxis = 0;
+	mBandStep = 1;
+	mWantedSlot = -1;
+	mWantedSlotCursor = -1;
+	mDragAxis = 0;
+	mDragBand = -1;
+	mScreenY = 0;
+	mScreenScaleY = 1;
 
 	mPressedCursor = -1;
 	mPressedPoint = Vector2i(-1, -1);
@@ -476,16 +1398,20 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	entry.name = name;
 	entry.object = obj;
 	entry.data.texturePath = imagePath;
+	entry.data.sourceIndex = mNextSourceIndex++;
 
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 
 	mEntriesDirty = true;
+	mLayoutDirty = true;
 }
 
 template<typename T>
 void ImageGridComponent<T>::clear()
 {	
 	IList<ImageGridData, T>::clear();
+	mNextSourceIndex = 0;
+	mEntriesReordered = false;
 	resetGrid();
 }
 
@@ -549,7 +1475,31 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 
 		if (dir != Vector2i::Zero())
 		{
-			if (isVertical())
+			if (hasBands())
+			{
+				// Speed ±1: IList replays this step on every tick, onCursorChanged converts it
+				// (bounded to the band horizontally, band jump vertically)
+				mBandAxis = (dir.y() != 0) ? 2 : 1;
+
+				int amount = (dir.y() != 0) ? dir.y() : dir.x();
+				mBandStep = Math::max(1, std::abs(amount));
+
+				listInput(amount < 0 ? -1 : 1);
+			}
+			else if (hasGroups())
+			{
+				// Partial rows at the end of a group break index arithmetic: we navigate by rows
+				int delta = dir.x();
+				if (dir.y() != 0)
+				{
+					int target = moveByRows(dir.y()); // may reorder entries: mCursor is read after the call
+					delta = target - mCursor;
+				}
+
+				if (delta != 0)
+					listInput(delta);
+			}
+			else if (isVertical())
 				listInput(dir.x() + dir.y() * mGridDimension.x());
 			else
 				listInput(dir.x() + dir.y() * mGridDimension.y());
@@ -563,6 +1513,7 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 			config->isMappedLike("left", input) || config->isMappedLike("right", input) ||
 			config->isMappedTo("pagedown", input) || config->isMappedTo("pageup", input))
 		{
+			mBandAxis = 0;
 			stopScrolling();
 		}
 	}
@@ -706,6 +1657,9 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
+	mScreenY = rect.y;
+	mScreenScaleY = mSize.y() > 0 ? (float)rect.h / mSize.y() : 1.0f;
+
 	if (Settings::DebugGrid())
 	{
 		Renderer::setMatrix(trans);
@@ -743,25 +1697,52 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	for (auto scrollLoopTile : mScrollLoopTiles)
 		scrollLoopTile.second->render(tileTrans);
 
+	// Group labels (styled by <text name="gridgroup">), under the tiles so that the zoomed selected tile passes over them
+	if (hasGroups())
+	{
+		for (auto& group : mGroups)
+		{
+			float groupTop = group.y + mPadding.y();
+			if (groupTop + mGroupHeaderHeight < mCameraOffset || groupTop > mCameraOffset + mSize.y())
+				continue;
+
+			if (group.text == nullptr)
+				ensureGroupText(group);
+
+			group.text->render(tileTrans);
+		}
+	}
+
+	// Band mode: each band has its own horizontal offset
+	const bool bands = hasBands();
+	auto tileTransFor = [&](const std::shared_ptr<GridTileComponent>& tile) -> Transform4x4f
+	{
+		Transform4x4f t = tileTrans;
+		if (bands)
+			t.translate(-getBandScrollX(tile), 0.0f);
+
+		return t;
+	};
+
 	for (auto tile : mVisibleTiles)
 	{
 		if (tile->isSelected())
 		{
 			selectedTile = tile;
 			if (splittedRendering && tile->shouldSplitRendering())
-				tile->renderBackground(tileTrans);
+				tile->renderBackground(tileTransFor(tile));
 		}
 		else
-			tile->render(tileTrans);
+			tile->render(tileTransFor(tile));
 	}
 
 	// Render the selected image content on top of the others
 	if (selectedTile != nullptr)
 	{
 		if (splittedRendering && selectedTile->shouldSplitRendering())
-			selectedTile->renderContent(tileTrans);
+			selectedTile->renderContent(tileTransFor(selectedTile));
 		else
-			selectedTile->render(tileTrans);
+			selectedTile->render(tileTransFor(selectedTile));
 	}
 
 	Renderer::popClipRect();
@@ -788,7 +1769,9 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 		auto scrollableSize = mTileSize + mMargin;
 
 		mScrollbar.setContainerBounds(pos, sz, isVertical());
-		mScrollbar.setRange(0, mTotalHeight + (isVertical() ? scrollableSize.y() : scrollableSize.y()), isVertical() ? scrollableSize.y() : scrollableSize.y());
+
+		float ss = isVertical() ? scrollableSize.y() : scrollableSize.x();
+		mScrollbar.setRange(0, mTotalHeight + ss, ss);
 		mScrollbar.setScrollPosition(mCameraOffset);
 		mScrollbar.render(parentTrans);
 	}
@@ -1000,6 +1983,32 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 
 		if (elem->has("scrollSound"))
 			mScrollSound = elem->get<std::string>("scrollSound");
+
+		if (elem->has("groupBy"))
+			mGroupBy = elem->get<std::string>("groupBy");
+
+		if (elem->has("groupHeight"))
+		{
+			float height = elem->get<float>("groupHeight");
+			mGroupHeaderHeight = (abs(height) < 1) ? height * screen.y() : height; // same convention as margin
+		}
+
+		if (elem->has("groupSpacing"))
+		{
+			float spacing = elem->get<float>("groupSpacing");
+			mGroupSpacing = (abs(spacing) < 1) ? spacing * screen.y() : spacing;
+		}
+
+		if (elem->has("groupBands"))
+			mGroupBands = elem->get<bool>("groupBands");
+
+		if (elem->has("sortBy"))
+			mSortBy = elem->get<std::string>("sortBy");
+
+		if (elem->has("sortDescending"))
+			mSortDescending = elem->get<bool>("sortDescending");
+
+		mLayoutDirty = true;
 	}
 
 
@@ -1040,6 +2049,7 @@ void ImageGridComponent<T>::onSizeChanged()
 
 	calcGridDimension();
 	mEntriesDirty = true;
+	mLayoutDirty = true;
 }
 
 template<typename T>
@@ -1047,6 +2057,13 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 {
 	if (mEntries.size() == 0)
 		return;
+
+	if (mLayoutDirty)
+		computeLayout(); // may reorder entries and move the cursor
+
+	// Keyboard navigation in band mode: IList moved the cursor by ±1 entry, we reinterpret this step
+	if (hasBands() && mBandAxis != 0 && mLastCursor >= 0 && mLastCursor < (int)mEntries.size() && std::abs(mCursor - mLastCursor) == 1)
+		mCursor = remapBandMove(mLastCursor, mBandAxis, (mCursor - mLastCursor) * mBandStep);
 
 	if (mCursor == mLastCursor && state == mLastCursorState)
 		return;
@@ -1129,7 +2146,7 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 					if (tile->hasItemTemplate())
 						tile->setSelected(false);
 		}
-		else if (mLastCursor = -9999)
+		else if (mLastCursor == -9999)
 			mEntries[mCursor].data.tile->startVideo();
 	}
 
@@ -1170,11 +2187,16 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 
 	float newCameraOffset = mCameraOffset;
 
-	if (mStartPosition != oldStartPosition)
+	if (hasGroups())
+		newCameraOffset = getGroupedCameraOffset();
+	else if (mStartPosition != oldStartPosition)
 	{
 		auto tileDistance = mTileSize + mMargin;
 		newCameraOffset = (isVertical() ? tileDistance.y() : tileDistance.x()) * (mStartPosition / dimOpposite);
 	}
+
+	if (hasBands())
+		scrollBandToCursor(mLastCursor >= 0 && mLastCursor != -9999 && ALLOWANIMATIONS);
 
 	auto lastCursor = mLastCursor;
 
@@ -1362,6 +2384,8 @@ template<typename T>
 void ImageGridComponent<T>::resetGrid()
 {
 	mVisibleTiles.clear();
+	mLayoutDirty = true;
+	mGroupCamera = 0;
 
 	if (mGridSizeOverride.x() != 0 && mGridSizeOverride.y() != 0)
 		mAutoLayout = mGridSizeOverride;
@@ -1444,6 +2468,26 @@ void ImageGridComponent<T>::calcGridDimension()
 		auto x = (mSize.x() - (mMargin.x() * (mAutoLayout.x() - 1)) - mPadding.x() - mPadding.z()) / (int)mAutoLayout.x();
 		auto y = (mSize.y() - (mMargin.y() * (mAutoLayout.y() - 1)) - mPadding.y() - mPadding.w()) / (int)mAutoLayout.y();
 
+		if (hasBands())
+		{
+			// Ratio as it would be without bands (the one wanted by the theme): we keep it
+			const float ratio = (y > 0) ? x / y : 1.0f;
+
+			const float rows = (float)(int)mAutoLayout.y();
+			const float availableW = mSize.x() - mPadding.x() - mPadding.z();
+			const float availableH = mSize.y() - mPadding.y() - mPadding.w();
+
+			// Height: N × (header + tile) + (N-1) × (vertical margin + group spacing)
+			y = (availableH - rows * mGroupHeaderHeight - (rows - 1) * (mMargin.y() + mGroupSpacing)) / rows;
+			y = Math::max(1.0f, y);
+
+			// Width derived from the height, to keep the tiles' shape
+			x = Math::min(y * ratio, availableW);
+
+			// Fully visible columns (used for the bands' horizontal scroll)
+			mGridDimension.x() = Math::max(1, (int)Math::floorf((availableW + mMargin.x()) / (x + mMargin.x())));
+		}
+
 		mTileSize = Vector2f(x, y);
 	}
 };
@@ -1458,7 +2502,16 @@ bool ImageGridComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform
 	trans.translate(isVertical() ? 0 : -mCameraOffset, isVertical() ? -mCameraOffset : 0);
 	
 	for (auto tile : mVisibleTiles)
-		tile->hitTest(x, y, trans, pResult);
+	{
+		if (hasBands())
+		{
+			Transform4x4f bandTrans = trans;
+			bandTrans.translate(-getBandScrollX(tile), 0.0f);
+			tile->hitTest(x, y, bandTrans, pResult);
+		}
+		else
+			tile->hitTest(x, y, trans, pResult);
+	}
 
 	return ret;
 }
@@ -1468,7 +2521,7 @@ bool ImageGridComponent<T>::onMouseWheel(int delta)
 {
 	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
-	auto newCursor = mCursor - delta * dimOpposite;
+	auto newCursor = hasGroups() ? moveByRows(-delta) : mCursor - delta * dimOpposite;
 	/*
 	if (newCursor < 0)
 		newCursor += mEntries.size();
@@ -1559,6 +2612,8 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 
 			mIsDragging = false;
 			mPressedPoint = Vector2i(x, y);
+			mDragAxis = 0;
+			mDragBand = hasBands() ? getBandAtScreenY(y) : -1;
 			mWindow->setMouseCapture(this);
 		}
 		else if (mWindow->hasMouseCapture(this))
@@ -1568,6 +2623,11 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 			auto btnDownCursor = mPressedCursor;
 			mPressedCursor = -1;
 			mPressedPoint = Vector2i(-1, -1);
+
+			if (hasBands() && mDragAxis == 1)
+				endBandDrag();
+
+			mDragAxis = 0;
 
 			if (mCenterSelection != CenterSelection::NEVER)
 			{
@@ -1608,6 +2668,34 @@ void ImageGridComponent<T>::onMouseMove(int x, int y)
 {
 	if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
 	{
+		if (hasBands())
+		{
+			// Band mode: the gesture axis is decided after a few pixels
+			const int dx = mPressedPoint.x() - x;
+			const int dy = mPressedPoint.y() - y;
+
+			if (mDragAxis == 0)
+			{
+				if (std::abs(dx) < 8 && std::abs(dy) < 8)
+					return; // not a drag yet: the click is still possible
+
+				mDragAxis = std::abs(dx) > std::abs(dy) ? 1 : 2;
+
+				if (mDragAxis == 1)
+					((GuiComponent*)this)->cancelAnimation(3); // stops the band animation
+			}
+
+			if (mDragAxis == 1)
+			{
+				mIsDragging = true;
+				mTimeHoldingButton = -1;
+
+				dragBand(dx);
+				mPressedPoint = Vector2i(x, y);
+				return;
+			}
+		}
+
 		mIsDragging = true;
 		mTimeHoldingButton = -1;
 
@@ -1677,6 +2765,8 @@ void ImageGridComponent<T>::onMouseMove(int x, int y)
 			}
 		}
 
+
+		mGroupCamera = mCameraOffset;
 
 		mEntriesDirty = true;
 		mPressedPoint = Vector2i(x, y);
