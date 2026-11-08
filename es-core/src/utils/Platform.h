@@ -70,7 +70,11 @@ namespace Utils
 		unsigned long long getTotalSystemMemory();
 
 #if WIN32
+		bool isWindows10();
 		bool isWindows11();
+		void setDpiAwareness();
+#else
+		bool isBuildroot();
 #endif
 	}
 }

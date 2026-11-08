@@ -324,20 +324,20 @@ std::vector<HelpPrompt> ComponentTab::getHelpPrompts()
 
 	std::vector<HelpPrompt> prompts = mEntries.at(mCursor).data.elements.back().component->getHelpPrompts();
 
-	if(size() > 1)
+	if (size() > 1)
 	{
 		bool addMovePrompt = true;
-		for(auto it = prompts.cbegin(); it != prompts.cend(); it++)
+		for (auto it = prompts.cbegin(); it != prompts.cend(); it++)
 		{
-			if(it->first == "up/down" || it->first == "up/down/left/right")
+			if (it->first == "up/down" || it->first == "up/down/left/right")
 			{
 				addMovePrompt = false;
 				break;
 			}
 		}
 
-		if(addMovePrompt)
-			prompts.push_back(HelpPrompt(_("up/down"), _("CHOOSE")));
+		if (addMovePrompt)
+			prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
 	}
 
 	return prompts;

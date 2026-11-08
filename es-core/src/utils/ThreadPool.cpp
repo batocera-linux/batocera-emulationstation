@@ -1,17 +1,21 @@
 #include "ThreadPool.h"
+#include "utils/Platform.h"
 
 #if WIN32
 #include <Windows.h>
+#include "StringUtil.h"
 #endif
 
 #include <stdlib.h>
 #include <algorithm>
 #include <chrono>
+#include "Log.h"
 
 namespace Utils
 {
-	ThreadPool::ThreadPool(int threadByCore) : mRunning(false), mWaiting(false), mNumWork(0)
+	ThreadPool::ThreadPool(const std::string& poolName, int threadByCore) : mRunning(false), mWaiting(false), mNumWork(0)
 	{
+		mPoolName = poolName;
 		mThreadByCore = threadByCore;
 	}
 
@@ -24,7 +28,16 @@ namespace Utils
 		auto doWork = [&](size_t id)
 		{
 #if WIN32
-			SetThreadDescription(GetCurrentThread(), L"ThreadPool::thread");
+			if (Utils::Platform::isWindows10())
+			{
+				if (!mPoolName.empty())
+				{
+					std::wstring name = Utils::String::convertToWideString("ThreadPool::thread(" + mPoolName + ")");
+					SetThreadDescription(GetCurrentThread(), name.c_str());
+				}
+				else
+					SetThreadDescription(GetCurrentThread(), L"ThreadPool::thread");
+			}
 
 			auto mask = (static_cast<DWORD_PTR>(1) << id);
 			SetThreadAffinityMask(GetCurrentThread(), mask);
@@ -43,7 +56,10 @@ namespace Utils
 					{
 						entry.fn();
 					}
-					catch (...) {}
+					catch (std::exception& e)
+					{
+						LOG(LogError) << "Exception occured. ThreadPool::" << mPoolName << " : " << e.what();
+					}
 
 					entry.item->mDone.store(true);
 					mNumWork--;

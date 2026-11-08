@@ -148,11 +148,21 @@ GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress
 		setSubTitle(_("THIS GAME HAS NO ACHIEVEMENTS YET"));
 	else
 	{
-		auto txt = _("Achievements (softcore)") + ": \t" + std::to_string(ra.NumAwardedToUser) + "/" + std::to_string(ra.NumAchievements);
-		txt += "\r\n" + _("Achievements (hardcore)") + ": \t" + std::to_string(ra.NumAwardedToUserHardcore) + "/" + std::to_string(ra.NumAchievements);
-		txt += "\r\n" + _("Points") + ": \t" + std::to_string(userPoints) + "/" + std::to_string(totalPoints);
+		auto theme = ThemeData::getMenuTheme();
 
-		setSubTitle(txt);
+		auto labels = _("Achievements (softcore)") + "\n" + _("Achievements (hardcore)") + "\n" + _("Points");
+		mLabels = std::make_shared<TextComponent>(mWindow, labels, theme->TextSmall.font, theme->TextSmall.color, ALIGN_LEFT);
+		mLabels->setVerticalAlignment(ALIGN_TOP);
+		mLabels->setLineSpacing(1.1);
+
+		auto values = std::to_string(ra.NumAwardedToUser) + "/" + std::to_string(ra.NumAchievements);
+		values += "\n" + std::to_string(ra.NumAwardedToUserHardcore) + "/" + std::to_string(ra.NumAchievements);
+		values += "\n" + std::to_string(userPoints) + "/" + std::to_string(totalPoints);
+		mValues = std::make_shared<TextComponent>(mWindow, values, theme->TextSmall.font, theme->TextSmall.color, ALIGN_RIGHT);
+		mValues->setVerticalAlignment(ALIGN_TOP);
+		mValues->setLineSpacing(1.1);
+
+		setSubTitle("\r\n\r\n"); // empty lines, the stats and the progress bar are drawn there
 	}
 
 	auto image = std::make_shared<WebImageComponent>(mWindow);
@@ -201,18 +211,33 @@ void GuiGameAchievements::render(const Transform4x4f& parentTrans)
 	{
 		auto theme = ThemeData::getMenuTheme();
 
-		float h = theme->TextSmall.font->sizeText("A8O\rA8O", 1.1).y();
-		float sz = mMenu.getHeaderGridHeight() + Renderer::getScreenHeight() * 0.005;
+		float w = mMenu.getSize().x();
+		float x = w * 0.05f;
+		float y = mMenu.getHeaderGridHeight();
+		float lh = theme->TextSmall.font->sizeText("A8O", 1.1).y();
+		float dot = theme->TextSmall.font->getLetterHeight() * 0.6f;
 
-		float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
-		float iw = mMenu.getTitleHeight() / width;
+		float labelsWidth = theme->TextSmall.font->sizeText(mLabels->getText()).x();
+		float valuesWidth = theme->TextSmall.font->sizeText(mValues->getText()).x();
+		float valuesRight = Math::max(w * 0.43f, x + dot * 4.0f + labelsWidth + valuesWidth);
+		float barLeft = Math::max(w * 0.48f, valuesRight + dot * 2.0f);
 
-		float xx = mMenu.getSize().x() - (mMenu.getSize().x() * iw);
+		mLabels->setPosition(x + dot * 2.0f, y);
+		mLabels->setSize(labelsWidth, lh * 3.0f);
 
-		mProgress->setPosition(xx * 0.55f, sz);
-		mProgress->setSize(xx * 0.36f, h);
+		mValues->setPosition(valuesRight - valuesWidth, y);
+		mValues->setSize(valuesWidth, lh * 3.0f);
+
+		mProgress->setPosition(barLeft, y + lh * 0.5f);
+		mProgress->setSize(w * 0.8f - barLeft, lh * 2.0f);
 
 		Transform4x4f trans = parentTrans * mMenu.getTransform();
+		Renderer::setMatrix(trans);
+		Renderer::drawRoundRect(x, y + (lh - dot) / 2.0f, dot, dot, dot / 2.0f, RETROACHIEVEMENTS_SOFTCORE_COLOR);
+		Renderer::drawRoundRect(x, y + lh + (lh - dot) / 2.0f, dot, dot, dot / 2.0f, RETROACHIEVEMENTS_HARDCORE_COLOR);
+
+		mLabels->render(trans);
+		mValues->render(trans);
 		mProgress->render(trans);
 	}
 }

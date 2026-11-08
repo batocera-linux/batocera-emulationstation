@@ -1,6 +1,19 @@
-build
-/Debug/
+# Directories
+lib/
+bin/
+build/
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Misc files
 .cproject
 .project
 .DS_Store
-test
+.idea/
+.vscode/
+.ccls-cache/
+main_test

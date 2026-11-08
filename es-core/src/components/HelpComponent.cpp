@@ -8,6 +8,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "InputConfig.h"
+#include "LocaleES.h"
 
 // space between [icon] and [text] (px)
 #define ICON_TEXT_SPACING Renderer::getScreenWidth() * 0.0042f
@@ -15,7 +16,8 @@
 // space between [text] and next [icon] (px)
 #define ENTRY_SPACING (ICON_TEXT_SPACING * 2.0f)
 
-static const std::map<std::string, const char*> ICON_PATH_MAP{
+static const std::map<std::string, std::string> ICON_PATH_MAP
+{
 	{ "up/down", ":/help/dpad_updown.svg" },
 	{ "left/right", ":/help/dpad_leftright.svg" },
 	{ "up/down/left/right", ":/help/dpad_all.svg" },
@@ -53,8 +55,11 @@ void HelpComponent::setPrompts(const std::vector<HelpPrompt>& prompts)
 
 void HelpComponent::setStyle(const HelpStyle& style)
 {
-
 	mGrid.reset();
+
+	if (mStyle.iconMap != style.iconMap)
+		mIconCache.clear();
+
 	mStyle = style;
 	updateGrid();
 }
@@ -93,16 +98,12 @@ void HelpComponent::updateGrid()
 	const float height = Math::round(font->getLetterHeight() * 1.25f);
 	for (auto it = mPrompts.cbegin(); it != mPrompts.cend(); it++)
 	{
-		auto icon = std::make_shared<ImageComponent>(mWindow, true);
+		auto icon = std::make_shared<ImageComponent>(mWindow, false);
 		icon->setIsLinear(true);
 
 		auto label = InputConfig::buttonLabel(it->first);
 
-		if (mStyle.iconMap.find(label) != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(mStyle.iconMap[label]))
-			icon->setImage(mStyle.iconMap[label]);
-		else
-			icon->setImage(getIconTexture(label.c_str()));
-
+		icon->setImage(getIconTexture(label));
 		icon->setColorShift(mStyle.iconColor);
 		icon->setResize(0, height);		
 
@@ -120,7 +121,7 @@ void HelpComponent::updateGrid()
 				text = text.substr(0, split);
 		}
 
-		auto lbl = std::make_shared<TextComponent>(mWindow, text, font, mStyle.textColor);
+		auto lbl = std::make_shared<TextComponent>(mWindow, text, font, mStyle.textColor, EsLocale::isRTL() ? Alignment::ALIGN_RIGHT : Alignment::ALIGN_LEFT);
 		
 		width += icon->getSize().x() + lbl->getSize().x() + ICON_TEXT_SPACING + ENTRY_SPACING;
 		if (width >= maxWidth)
@@ -140,27 +141,48 @@ void HelpComponent::updateGrid()
 	mGrid->setSize(width, height);
 	for (unsigned int i = 0; i < items.size(); i++)
 	{
-		auto item = items.at(i);
+		int n = i;
+		if(EsLocale::isRTL()) {
+		  n = items.size()-1-i;
+		}
+		auto item = items.at(n);
 
 		const int col = i * 4;
-		mGrid->setColWidthPerc(col, item.first->getSize().x() / width);
-		mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
-		mGrid->setColWidthPerc(col + 2, item.second->getSize().x() / width);
-		mGrid->setColWidthPerc(col + 3, ENTRY_SPACING / width);
 
-		mGrid->setEntry(item.first, Vector2i(col, 0), false, false);
-		mGrid->setEntry(item.second, Vector2i(col + 2, 0), false, false);
+		if(EsLocale::isRTL()) {
+		  mGrid->setColWidthPerc(col, item.second->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 1, ENTRY_SPACING / width);
+		  mGrid->setColWidthPerc(col + 2, item.first->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 3, ICON_TEXT_SPACING / width);
+		  mGrid->setEntry(item.first, Vector2i(col + 2, 0), false, false);
+		  mGrid->setEntry(item.second, Vector2i(col, 0), false, false);
+		} else {
+		  mGrid->setColWidthPerc(col, item.first->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
+		  mGrid->setColWidthPerc(col + 2, item.second->getSize().x() / width);
+		  mGrid->setColWidthPerc(col + 3, ENTRY_SPACING / width);
+		  mGrid->setEntry(item.first, Vector2i(col, 0), false, false);
+		  mGrid->setEntry(item.second, Vector2i(col + 2, 0), false, false);
+		}
 	}
 
 	mGrid->setPosition(Vector3f(mStyle.position.x(), mStyle.position.y(), 0.0f));
 	mGrid->setOrigin(mStyle.origin);
 }
 
-std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const char* name)
+std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const std::string& name)
 {
 	auto it = mIconCache.find(name);
 	if (it != mIconCache.cend())
 		return it->second;
+
+	auto itMap = mStyle.iconMap.find(name);
+	if (itMap != mStyle.iconMap.end() && ResourceManager::getInstance()->fileExists(itMap->second))
+	{
+		auto tmp = TextureResource::get(itMap->second, false, false, true);
+		mIconCache[name] = tmp;
+		return tmp;
+	}
 
 	auto pathLookup = ICON_PATH_MAP.find(name);
 	if (pathLookup == ICON_PATH_MAP.cend())
@@ -175,17 +197,21 @@ std::shared_ptr<TextureResource> HelpComponent::getIconTexture(const char* name)
 		return nullptr;
 	}
 
-	std::shared_ptr<TextureResource> tex = TextureResource::get(pathLookup->second);
-	mIconCache[std::string(name)] = tex;
+	std::shared_ptr<TextureResource> tex = TextureResource::get(pathLookup->second, false, false, true);
+	mIconCache[name] = tex;
 	return tex;
 }
 
 void HelpComponent::setOpacity(unsigned char opacity)
 {
-	GuiComponent::setOpacity(opacity);
+    GuiComponent::setOpacity(opacity);
 
-	for (auto i = 0; i < mGrid->getChildCount(); i++)
-		mGrid->getChild(i)->setOpacity(opacity);
+    // mGrid is null when ShowHelpPrompts is disabled or there are no prompts
+    if (mGrid == nullptr)
+        return;
+
+    for (auto i = 0; i < mGrid->getChildCount(); i++)
+        mGrid->getChild(i)->setOpacity(opacity);
 }
 
 void HelpComponent::render(const Transform4x4f& parentTrans)

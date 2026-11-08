@@ -10,6 +10,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include <vector>
+#include <unordered_map>
 
 class TextCache;
 class TextureResource;
@@ -49,7 +50,7 @@ public:
 
 	virtual ~Font();
 
-	Vector2f sizeText(std::string text, float lineSpacing = 1.5f); // Returns the expected size of a string when rendered.  Extra spacing is applied to the Y axis.
+	Vector2f sizeText(const std::string& text, float lineSpacing = 1.5f); // Returns the expected size of a string when rendered.  Extra spacing is applied to the Y axis.
 	TextCache* buildTextCache(const std::string& text, float offsetX, float offsetY, unsigned int color);
 	TextCache* buildTextCache(const std::string& text, Vector2f offset, unsigned int color, float xLen, Alignment alignment = ALIGN_LEFT, float lineSpacing = 1.5f);
 	
@@ -59,8 +60,8 @@ public:
 	void renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz = false);
 	
 	std::string wrapText(std::string text, float xLen); // Inserts newlines into text to make it wrap properly.
-	Vector2f sizeWrappedText(std::string text, float xLen, float lineSpacing = 1.5f); // Returns the expected size of a string after wrapping is applied.
-	Vector2f getWrappedTextCursorOffset(std::string text, float xLen, size_t cursor, float lineSpacing = 1.5f); // Returns the position of of the cursor after moving "cursor" characters.
+	Vector2f sizeWrappedText(const std::string& text, float xLen, float lineSpacing = 1.5f); // Returns the expected size of a string after wrapping is applied.
+	Vector2f getWrappedTextCursorOffset(const std::string& text, float xLen, size_t cursor, float lineSpacing = 1.5f); // Returns the position of of the cursor after moving "cursor" characters.
 
 	float getHeight(float lineSpacing = 1.5f) const;
 	float getLetterHeight();
@@ -77,6 +78,8 @@ public:
 
 	size_t getMemoryUsage() const; // returns an approximation of VRAM used by this font's texture (in bytes)
 	static size_t getTotalMemoryUsage(); // returns an approximation of total VRAM used by font textures (in bytes)
+
+	static std::string processRTLText(const std::string& text);
 
 private:
 	void renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, float x, float y, bool verticesChanged = true);
@@ -138,7 +141,7 @@ private:
 	};
 
 	Glyph* mGlyphCacheArray[255]; // used to cache 255 first chars
-	std::map<unsigned int, Glyph*> mGlyphMap;
+	std::unordered_map<unsigned int, Glyph*> mGlyphMap;
 
 	Glyph* getGlyph(unsigned int id);
 

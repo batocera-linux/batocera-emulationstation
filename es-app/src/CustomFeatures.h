@@ -35,7 +35,13 @@ struct CustomFeature
 	std::string group;
 	int order;
 
+	// batocera.conf key written by the system when the feature is supported
+	std::string requiredSetting;
+
 	std::vector<CustomFeatureChoice> choices;
+
+	bool isAvailable() const;
+	std::vector<CustomFeatureChoice> availableChoices() const;
 };
 
 struct EmulatorData;

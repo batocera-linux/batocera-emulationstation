@@ -284,7 +284,7 @@ void ImageComponent::onSizeChanged()
 	recalcChildrenLayout();
 }
 
-void ImageComponent::setDefaultImage(std::string path)
+void ImageComponent::setDefaultImage(const std::string& path)
 {
 	mDefaultPath = path;
 }
@@ -622,6 +622,8 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 {
 	if (!mVisible)
 		return;
+
+	watchTextureLoading(); // Required when hosted in a grid/list
 
 	if (!mTextureLoaded && mTexture && !mTexture->isLoaded())
 	{
@@ -1068,7 +1070,7 @@ void ImageComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	watchTextureLoading();
+	watchTextureLoading(); // Required when preloading
 
 	if (mPlaylist && isShowing())
 	{

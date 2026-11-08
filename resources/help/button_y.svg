@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="64" height="64" version="1.1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
- <circle id="outline" cx="32" cy="32" r="28" fill="none" stroke="#fff" stroke-width="2"/>
- <path id="button_y" d="m32 4a28 28 0 0 0-28 28 28 28 0 0 0 28 28 28 28 0 0 0 28-28 28 28 0 0 0-28-28zm-10.107422 13.722656h7.148438l2.988281 8.847656c0.963542-2.82552 1.953125-5.774739 2.96875-8.847656h7.109375l-6.738281 17.03125v11.523438h-6.757813v-11.328125l-6.71875-17.226563z" fill="#fff"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#fff" stroke-width="2"/><path fill="#fff" d="M32 4A28 28 0 0 0 4 32a28 28 0 0 0 28 28 28 28 0 0 0 28-28A28 28 0 0 0 32 4M21.893 17.723h7.148l2.988 8.847a990 990 0 0 0 2.969-8.847h7.11l-6.739 17.03v11.524h-6.758V34.95z"/></svg>

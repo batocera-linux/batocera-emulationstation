@@ -362,9 +362,11 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 		return Utils::String::toInteger(game->getMetadata(MetaDataId::PlayCount)) == 0 ? "FALSE" : "TRUE";		
 
 	case YEAR_FILTER:
+	{
 		key = game->getMetadata(MetaDataId::ReleaseDate);
 		key = (key.length() >= 4 && key[0] >= '1' && key[0] <= '2') ? key.substr(0, 4) : "";
-		return key;
+		break;
+	}
 
 	case CHEEVOS_FILTER:
 	{

@@ -419,7 +419,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 }
 
-void GuiCollectionSystemsOptions::createCollection(std::string inName) 
+void GuiCollectionSystemsOptions::createCollection(const std::string& inName) 
 {
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 	SystemData* newSys = CollectionSystemManager::get()->addNewCustomCollection(name);
@@ -446,7 +446,7 @@ void GuiCollectionSystemsOptions::createCollection(std::string inName)
 	window->closeSplashScreen();
 }
 
-void GuiCollectionSystemsOptions::createFilterCollection(std::string inName, bool editFilters)
+void GuiCollectionSystemsOptions::createFilterCollection(const std::string& inName, bool editFilters)
 {
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 	if (name.empty())
@@ -595,7 +595,7 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 		addWithLabel(_("CUSTOM GAME COLLECTIONS"), customOptionList);
 }
 
-void GuiCollectionSystemsOptions::updateSettings(std::string newAutoSettings, std::string newCustomSettings)
+void GuiCollectionSystemsOptions::updateSettings(const std::string& newAutoSettings, const std::string& newCustomSettings)
 {
 	bool dirty = Settings::getInstance()->setString("CollectionSystemsAuto", newAutoSettings);
 	dirty |= Settings::getInstance()->setString("CollectionSystemsCustom", newCustomSettings);

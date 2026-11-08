@@ -32,8 +32,12 @@ class LaunchAnimation : public Animation
 {
 public:
 	//Target is a centerpoint
-	LaunchAnimation(Transform4x4f& camera, float& fade, const Vector3f& target, int duration) : 
-	  mCameraStart(camera), mTarget(target), mDuration(duration), cameraOut(camera), fadeOut(fade) {}
+	LaunchAnimation(Transform4x4f& camera, float& fade, const Vector3f& target, int duration, float zoom = 4.25f) :
+	  LaunchAnimation(camera, camera, fade, target, duration, zoom) {}
+
+	// The end frame doesn't depend on start, so a reverse animation can leave the camera zoomed until its first frame
+	LaunchAnimation(Transform4x4f& camera, const Transform4x4f& start, float& fade, const Vector3f& target, int duration, float zoom) :
+	  mCameraStart(start), mTarget(target), mDuration(duration), mZoom(zoom), cameraOut(camera), fadeOut(fade) {}
 
 	int getDuration() const override { return mDuration; }
 
@@ -41,7 +45,7 @@ public:
 	{
 		cameraOut = Transform4x4f::Identity();
 
-		float zoom = Math::lerp(1.0, 4.25f, t*t);
+		float zoom = Math::lerp(1.0, mZoom, t*t);
 		cameraOut.scale(zoom);
 
 		const float sw = (float)Renderer::getScreenWidth() / zoom;
@@ -59,6 +63,7 @@ private:
 	Transform4x4f mCameraStart;
 	Vector3f mTarget;
 	int mDuration;
+	float mZoom;
 
 	Transform4x4f& cameraOut;
 	float& fadeOut;

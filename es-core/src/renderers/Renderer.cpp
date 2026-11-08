@@ -3,6 +3,7 @@
 #include "Renderer_GL21.h"
 #include "Renderer_GLES10.h"
 #include "Renderer_GLES20.h"
+#include "Renderer_GLES30.h"
 
 #include "math/Transform4x4f.h"
 #include "math/Vector2i.h"
@@ -334,7 +335,51 @@ namespace Renderer
 
 	} // destroyWindow
 
-#if WIN32	
+#if WIN32
+	// A game may have changed the desktop resolution : Windows then moves windows so that their title bar stays visible.
+	// Put a screen-sized window (windowed or borderless) back on its monitor origin, so its title bar is hidden again.
+	// Win32 only : the borderless style is applied behind SDL's back, so SDL_SetWindowPosition would compute a wrong frame and could resize the window.
+	static void restoreScreenSizedWindow(HWND hWnd)
+	{
+		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_FULLSCREEN)
+			return;
+
+		// Never touch minimized or maximized windows, Windows manages them
+		if (IsIconic(hWnd) || IsZoomed(hWnd))
+			return;
+
+		HMONITOR hMonitor = MonitorFromWindow(hWnd, MONITOR_DEFAULTTONEAREST);
+		if (hMonitor == NULL)
+			return;
+
+		MONITORINFO mi;
+		mi.cbSize = sizeof(MONITORINFO);
+		if (!GetMonitorInfo(hMonitor, &mi))
+			return;
+
+		RECT rcClient;
+		if (!GetClientRect(hWnd, &rcClient))
+			return;
+
+		// Only screen-sized windows : user-sized windows keep their position
+		if (rcClient.right - rcClient.left != mi.rcMonitor.right - mi.rcMonitor.left ||
+			rcClient.bottom - rcClient.top != mi.rcMonitor.bottom - mi.rcMonitor.top)
+			return;
+
+		POINT ptClient = { 0, 0 };
+		RECT rcWindow;
+		if (!ClientToScreen(hWnd, &ptClient) || !GetWindowRect(hWnd, &rcWindow))
+			return;
+
+		if (ptClient.x == mi.rcMonitor.left && ptClient.y == mi.rcMonitor.top)
+			return;
+
+		// Keep the current frame : only the client area origin must match the monitor origin
+		int x = mi.rcMonitor.left - (ptClient.x - rcWindow.left);
+		int y = mi.rcMonitor.top - (ptClient.y - rcWindow.top);
+		SetWindowPos(hWnd, NULL, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOOWNERZORDER | SWP_NOACTIVATE);
+	}
+
 	void activateWindow()
 	{
 		if (SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_MINIMIZED)
@@ -353,6 +398,8 @@ namespace Renderer
 			hWnd = hWndParent;
 			hWndParent = GetParent(hWnd);
 		}
+
+		restoreScreenSizedWindow(hWnd);
 
 		DWORD currentThread = GetCurrentThreadId();
 
@@ -819,7 +866,12 @@ namespace Renderer
 	{
 		std::vector<std::string> ret;
 	
-#ifdef RENDERER_GLES_20
+#if defined(RENDERER_GLES_30)
+		{
+			GLES30Renderer rd;
+			ret.push_back(rd.getDriverName());
+		}
+#elif defined(RENDERER_GLES_20)
 		{
 			GLES20Renderer rd;				
 			ret.push_back(rd.getDriverName());
@@ -847,7 +899,13 @@ namespace Renderer
 		if (name.empty())
 			return nullptr;
 
-#ifdef RENDERER_GLES_20
+#if defined(RENDERER_GLES_30)
+		{
+			GLES30Renderer rd;
+			if (rd.getDriverName() == name)
+				return new GLES30Renderer();
+		}
+#elif defined(RENDERER_GLES_20)
 		{
 			GLES20Renderer rd;
 			if (rd.getDriverName() == name)
@@ -879,7 +937,9 @@ namespace Renderer
 		IRenderer* instance = getRendererFromName(Settings::getInstance()->getString("Renderer"));
 		if (instance == nullptr)
 		{
-#ifdef RENDERER_GLES_20
+#if defined(RENDERER_GLES_30)
+			instance = new GLES30Renderer();
+#elif defined(RENDERER_GLES_20)
 			instance = new GLES20Renderer();
 #elif RENDERER_OPENGL_21
 			instance = new OpenGL21Renderer();
@@ -941,6 +1001,13 @@ namespace Renderer
 	{
 		return Instance()->createTexture(_type, _linear, _repeat, _width, _height, _data);
 	}
+
+#if defined(USE_OPENGLES_30)
+	unsigned int createMipmappedTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
+	{
+		return Instance()->createMipmappedTexture(_type, _linear, _repeat, _width, _height, _data);
+	}
+#endif
 
 	void  destroyTexture(const unsigned int _texture)
 	{
@@ -1072,11 +1139,29 @@ namespace Renderer
 
 	bool onScreenSizeChanged(int width, int height)
 	{
-		if (screenWidth == width && screenHeight == height)
+		if (windowWidth == width && windowHeight == height)
 			return false;
 
-		windowWidth = screenWidth = width;
-		windowHeight = screenHeight = height;
+		windowWidth  = width;
+		windowHeight = height;
+
+		// Geometry explicitly requested on the command line (--screensize / --screenoffset)
+		// is only read in createWindow(). Re-apply it here so that a window size change
+		// does not silently discard it. When it was not set, behaviour is unchanged.
+		int userScreenWidth  = Settings::getInstance()->getInt("ScreenWidth");
+		int userScreenHeight = Settings::getInstance()->getInt("ScreenHeight");
+
+		screenWidth   = userScreenWidth  ? userScreenWidth  : width;
+		screenHeight  = userScreenHeight ? userScreenHeight : height;
+		screenOffsetX = Settings::getInstance()->getInt("ScreenOffsetX");
+		screenOffsetY = Settings::getInstance()->getInt("ScreenOffsetY");
+
+		if (screenRotate == 1 || screenRotate == 3)
+		{
+			int tmp = screenWidth;
+			screenWidth = screenHeight;
+			screenHeight = tmp;
+		}
 
 		resetCache();
 		updateProjection();

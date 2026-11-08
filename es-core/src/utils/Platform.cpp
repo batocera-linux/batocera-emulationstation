@@ -447,6 +447,20 @@ namespace Utils
 						chargerRootPath = file;
 				}
 
+				// Some laptops name their battery after the ACPI device (BAPM), so fall back to its type; skip pad batteries
+				if (batteryRootPath.empty() && fuelgaugeRootPath.empty())
+				{
+					for (auto file : files)
+					{
+						if (Utils::String::trim(Utils::FileSystem::readAllText(file + "/type")) == "Battery" &&
+							Utils::String::trim(Utils::FileSystem::readAllText(file + "/scope")) != "Device")
+						{
+							batteryRootPath = file;
+							break;
+						}
+					}
+				}
+
 				// If there's no battery device, look for discrete charger and fuel gauge
 				if (batteryRootPath.empty())
 				{
@@ -569,13 +583,111 @@ namespace Utils
 			return false;
 		}
 
+		bool isWindows10()
+		{
+			static const bool result = []()
+			{
+				WORD major, minor, build, revision;
+
+				if (_getWindowsVersion(major, minor, build, revision))
+					return major > 10 || (major == 10);
+
+				return false;
+			}();
+
+			return result;
+		}
+
 		bool isWindows11()
 		{
-			WORD major, minor, build, revision;
-			if (_getWindowsVersion(major, minor, build, revision))
-				return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
+			static const bool result = []()
+			{
+				WORD major, minor, build, revision;
 
-			return false;
+				if (_getWindowsVersion(major, minor, build, revision))
+					return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
+
+				return false;
+			}();
+
+			return result;
+		}
+
+		// Declared locally (instead of pulled from ShellScalingApi.h / a newer
+		// winuser.h) so this builds regardless of which Windows SDK version ES is
+		// compiled against; on older SDKs the constant/type simply doesn't exist yet.
+#ifndef DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
+		DECLARE_HANDLE(DPI_AWARENESS_CONTEXT);
+#define DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 ((DPI_AWARENESS_CONTEXT)-4)
+#endif
+
+		typedef BOOL(WINAPI* SetProcessDpiAwarenessContext_t)(DPI_AWARENESS_CONTEXT);
+		typedef HRESULT(WINAPI* SetProcessDpiAwareness_t)(int);
+		typedef BOOL(WINAPI* SetProcessDPIAware_t)();
+
+		// Marks the process Per-Monitor-V2 DPI aware so Windows stops bitmap-
+		// stretching our output on displays scaled above 100% (e.g. 4K @ 150%).
+		// Without this, ES is treated as DPI-unaware, gets handed a virtualized
+		// logical resolution, and users have to manually enable the "Override high
+		// DPI scaling" compatibility option for fullscreen/video sizing to be correct.
+		// Resolved dynamically (rather than via an app manifest or direct linking) so
+		// the same binary degrades gracefully on Windows 8.1/7, where PMv2 and even
+		// PROCESS_PER_MONITOR_DPI_AWARE don't exist.
+		void setDpiAwareness()
+		{
+			HMODULE user32 = LoadLibraryA("user32.dll");
+			if (user32 != NULL)
+			{
+				auto setContext = (SetProcessDpiAwarenessContext_t)GetProcAddress(user32, "SetProcessDpiAwarenessContext");
+				if (setContext != NULL && setContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2))
+				{
+					FreeLibrary(user32);
+					return;
+				}
+			}
+
+			HMODULE shcore = LoadLibraryA("Shcore.dll");
+			if (shcore != NULL)
+			{
+				auto setAwareness = (SetProcessDpiAwareness_t)GetProcAddress(shcore, "SetProcessDpiAwareness");
+				if (setAwareness != NULL && SUCCEEDED(setAwareness(2 /* PROCESS_PER_MONITOR_DPI_AWARE */)))
+				{
+					FreeLibrary(shcore);
+					if (user32 != NULL)
+						FreeLibrary(user32);
+					return;
+				}
+
+				FreeLibrary(shcore);
+			}
+
+			if (user32 != NULL)
+			{
+				auto setAware = (SetProcessDPIAware_t)GetProcAddress(user32, "SetProcessDPIAware");
+				if (setAware != NULL)
+					setAware();
+
+				FreeLibrary(user32);
+			}
+		}
+#else
+		bool isBuildroot()
+		{
+			static const bool cached = []() 
+			{
+				std::ifstream f("/etc/os-release");
+				if (!f)
+					return false;
+
+				std::string line;
+				while (std::getline(f, line))
+					if (line == "ID=buildroot")
+						return true;
+
+				return false;
+			}();
+
+			return cached;
 		}
 #endif
 

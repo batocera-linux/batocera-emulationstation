@@ -66,8 +66,12 @@ namespace Renderer
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 		// Antialias : Not supported on every machine
-		// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-		// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2);
+		int antiAliasing = Settings::getInstance()->getInt("AntiAliasing");
+		if (antiAliasing == 2 || antiAliasing == 4)
+		{
+			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, antiAliasing);
+		}
 
 	} // setupWindow
 
@@ -107,6 +111,15 @@ namespace Renderer
 		std::string glExts = (const char*)glGetString(GL_EXTENSIONS);
 		LOG(LogInfo) << "Checking available OpenGL extensions...";
 		LOG(LogInfo) << " ARB_texture_non_power_of_two: " << (glExts.find("ARB_texture_non_power_of_two") != std::string::npos ? "ok" : "MISSING");
+
+		int antiAliasing = Settings::getInstance()->getInt("AntiAliasing");
+		if (antiAliasing == 2 || antiAliasing == 4)
+		{
+			glEnable(GL_MULTISAMPLE);
+			LOG(LogInfo) << "Anti-aliasing: " << antiAliasing << "x MSAA";
+		}
+		else
+			LOG(LogInfo) << "Anti-aliasing: disabled";
 
 	} // createContext
 
@@ -311,7 +324,10 @@ namespace Renderer
 
 	void OpenGL21Renderer::drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
-		glEnable(GL_MULTISAMPLE);
+		int antiAliasing = Settings::getInstance()->getInt("AntiAliasing");
+		bool hasAntiAliasing = antiAliasing == 2 || antiAliasing == 4;
+		if (!hasAntiAliasing)
+			glEnable(GL_MULTISAMPLE);
 
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -331,7 +347,8 @@ namespace Renderer
 		glDisableClientState(GL_VERTEX_ARRAY);
 
 		glDisable(GL_BLEND);
-		glDisable(GL_MULTISAMPLE);
+		if (!hasAntiAliasing)
+			glDisable(GL_MULTISAMPLE);
 	}
 
 	void OpenGL21Renderer::drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth, float cornerRadius)

@@ -79,15 +79,20 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 		mImage->setIsLinear(true);
 		mImage->setColorShift(theme->Text.color);
 		mImage->setOrigin(0.5f, 0.5f);
-		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);		
+		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);
 
-		mGrid.setEntry(mImage, Vector2i(0, 0), false, false);
+		if (EsLocale::isRTL())
+		  mGrid.setEntry(mImage, Vector2i(1, 0), false, false);
+		else
+		  mGrid.setEntry(mImage, Vector2i(0, 0), false, false);
 	}
 
-	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, mImage == nullptr || Renderer::isSmallScreen() ? ALIGN_CENTER : ALIGN_LEFT); // CENTER
+	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, mImage == nullptr || Renderer::isSmallScreen() ? ALIGN_CENTER : (EsLocale::isRTL() ? ALIGN_RIGHT : ALIGN_LEFT)); // CENTER
 	mMsg->setPadding(Vector4f(Renderer::getScreenWidth()*0.015f, 0, Renderer::getScreenWidth()*0.015f, 0));
-	
-	mGrid.setEntry(mMsg, Vector2i(mImage == nullptr ? 0 : 1, 0), false, false, Vector2i(mImage == nullptr ? 2 : 1, 1));
+	if (EsLocale::isRTL())
+	  mMsg->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
+	mGrid.setEntry(mMsg, Vector2i((mImage == nullptr || EsLocale::isRTL()) ? 0 : 1, 0), false, false, Vector2i(mImage == nullptr ? 2 : 1, 1));
 
 	// create the buttons
 	mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name1, name1, std::bind(&GuiMsgBox::deleteMeAndCall, this, func1)));
@@ -193,7 +198,7 @@ void GuiMsgBox::onSizeChanged()
 	if (mImage != nullptr)
 	{
 		auto width = mImage->getSize().x() + (Renderer::isSmallScreen() ? 5 : 2) * HORIZONTAL_PADDING_PX;
-		mGrid.setColWidthPerc(0, width / mSize.x(), true);
+		mGrid.setColWidthPerc(EsLocale::isRTL() ? 1 : 0, width / mSize.x(), true);
 	}
 
 	mGrid.setRowHeightPerc(1, mButtonGrid->getSize().y() / mSize.y());

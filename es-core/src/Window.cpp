@@ -138,6 +138,7 @@ bool Window::init(bool initRenderer, bool initInputManager)
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_SMALL));
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_MEDIUM));
 		mDefaultFonts.push_back(Font::get(FONT_SIZE_LARGE));
+		mDefaultFonts.push_back(Font::get(FONT_SIZE_MINI));
 	}
 
 	mBackgroundOverlay->setImage(":/scroll_gradient.png");
@@ -431,6 +432,8 @@ void Window::processSongTitleNotifications()
 
 void Window::update(int deltaTime)
 {
+	TextureResource::cleanupVRAM();
+
 	if (mLastShowCursor >= 0)
 	{
 		mLastShowCursor += deltaTime;
@@ -460,7 +463,7 @@ void Window::update(int deltaTime)
 
 	mFrameTimeElapsed += deltaTime;
 	mFrameCountElapsed++;
-	if (mFrameTimeElapsed > 500)
+	if (mFrameTimeElapsed > 250)
 	{
 		mAverageDeltaTime = mFrameTimeElapsed / mFrameCountElapsed;
 
@@ -479,9 +482,11 @@ void Window::update(int deltaTime)
 			float fontVramUsageMb = Font::getTotalMemoryUsage() / 1024.0f / 1024.0f;
 			size_t max_texture = Settings::getInstance()->getInt("MaxVRAM");
 
-			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureKnownUsageMb << " Max VRAM: " << max_texture;
+			int queueSize = TextureResource::getQueueSize();
 
-			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));			
+			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Cached Tex RAM: " << textureCacheUsageMb << " Known Tex: " << textureKnownUsageMb << " Max VRAM: " << max_texture << " Queued : " << queueSize;
+			
+			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts[3]->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));
 		}
 
 		mFrameTimeElapsed = 0;
@@ -974,9 +979,18 @@ void Window::closeSplashScreen()
 	mSplash = nullptr;
 }
 
-void Window::renderHelpPromptsEarly(const Transform4x4f& transform)
+void Window::renderHelpPromptsEarly(const Transform4x4f& transform, unsigned char opacity)
 {
-	mHelp->render(transform);
+	if (opacity == 255)
+		mHelp->render(transform);
+	else if (opacity > 0)
+	{
+		auto previous = mHelp->getOpacity();
+		mHelp->setOpacity(opacity);
+		mHelp->render(transform);
+		mHelp->setOpacity(previous);
+	}
+
 	mRenderedHelpPrompts = true;
 }
 
@@ -1007,8 +1021,8 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 				// yes, it has!
 
 				// can we combine? (dpad only)
-				if((it->first == "up/down" && addPrompts.at(mappedTo->second).first != "left/right") ||
-					(it->first == "left/right" && addPrompts.at(mappedTo->second).first != "up/down"))
+				if((it->first == "up/down" && addPrompts.at(mappedTo->second).first == "left/right") ||
+					(it->first == "left/right" && addPrompts.at(mappedTo->second).first == "up/down"))
 				{
 					// yes!
 					addPrompts.at(mappedTo->second).first = "up/down/left/right";

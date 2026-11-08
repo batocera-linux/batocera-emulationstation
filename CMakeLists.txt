@@ -2,7 +2,18 @@ cmake_minimum_required(VERSION 3.10)
 
 option(GLES "Set to ON if targeting Embedded OpenGL" ${GLES})
 option(GLES2 "Set to ON if targeting OpenGL ES 2.0" ${GLES2})
+option(GLES3 "Set to ON if targeting OpenGL ES 3.0" ${GLES3})
 option(GL "Set to ON if targeting Desktop OpenGL" ${GL})
+
+set(OPENGL_OPTION_COUNT 0)
+foreach(OPENGL_OPTION GLES GLES2 GLES3 GL)
+    if(${OPENGL_OPTION})
+        math(EXPR OPENGL_OPTION_COUNT "${OPENGL_OPTION_COUNT} + 1")
+    endif()
+endforeach()
+if(OPENGL_OPTION_COUNT GREATER 1)
+    message(FATAL_ERROR "GLES, GLES2, GLES3, and GL are mutually exclusive; enable only one graphics API")
+endif()
 option(RPI "Set to ON to enable the Raspberry PI video player (omxplayer)" ${RPI})
 option(CEC "CEC" ON)
 option(BCM "BCM host" OFF)
@@ -122,11 +133,13 @@ endif()
 #-------------------------------------------------------------------------------
 #set up OpenGL system variable
 if(GLES)
-    set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used")
+    set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used" FORCE)
 elseif(GLES2)
-    set(GLSystem "OpenGL ES 2.0" CACHE STRING "The OpenGL system to be used")
+    set(GLSystem "OpenGL ES 2.0" CACHE STRING "The OpenGL system to be used" FORCE)
+elseif(GLES3)
+    set(GLSystem "OpenGL ES 3.0" CACHE STRING "The OpenGL system to be used" FORCE)
 elseif(GL)
-    set(GLSystem "Desktop OpenGL" CACHE STRING "The OpenGL system to be used")
+    set(GLSystem "Desktop OpenGL" CACHE STRING "The OpenGL system to be used" FORCE)
 #-------------------------------------------------------------------------------
 #check if we're running on Raspberry Pi
 elseif(EXISTS "${CMAKE_FIND_ROOT_PATH}/opt/vc/include/bcm_host.h")
@@ -149,16 +162,31 @@ elseif(EXISTS "${CMAKE_FIND_ROOT_PATH}/usr/lib/libMali.so" OR
     EXISTS "${CMAKE_FIND_ROOT_PATH}/usr/lib/arm-linux-gnueabihf/libmali.so")
     MESSAGE("libMali.so found")
     set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used")
-else()
-    set(GLSystem "Desktop OpenGL" CACHE STRING "The OpenGL system to be used")
-endif(GLES)
+elseif(NOT GLSystem)
+    set(_ES_DEFAULT_GLSYSTEM "Desktop OpenGL")
+    if(NOT WIN32 AND NOT APPLE)
+        find_package(OpenGLES2 QUIET)
+        if(OPENGLES2_FOUND OR OpenGLES2_FOUND)
+            set(_ES_DEFAULT_GLSYSTEM "OpenGL ES 2.0")
+        endif()
+    endif()
+    set(GLSystem "${_ES_DEFAULT_GLSYSTEM}" CACHE STRING "The OpenGL system to be used" FORCE)
+    unset(_ES_DEFAULT_GLSYSTEM)
+endif()
 
-set_property(CACHE GLSystem PROPERTY STRINGS "Desktop OpenGL" "Embedded OpenGL")
+set_property(CACHE GLSystem PROPERTY STRINGS "Desktop OpenGL" "Embedded OpenGL" "OpenGL ES 2.0" "OpenGL ES 3.0")
+
+MESSAGE("-- Graphics API: ${GLSystem}")
+if(NOT GLES AND NOT GLES2 AND NOT GLES3 AND NOT GL)
+    MESSAGE("-- No graphics API selected; using ${GLSystem}. Pass -DGLES3=ON for the OpenGL ES 3.0 renderer.")
+endif()
 
 #finding necessary packages
 #-------------------------------------------------------------------------------
 if(${GLSystem} MATCHES "Desktop OpenGL")
     find_package(OpenGL REQUIRED)
+elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+    find_package(OpenGLES3 REQUIRED)
 elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
     find_package(OpenGLES2 REQUIRED)
 else()
@@ -173,6 +201,22 @@ find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
+
+# FriBidi is only used to reorder right-to-left scripts (Arabic, Hebrew) at render time.
+# It is optional on purpose: when it is missing, Font.cpp falls back on tryFastBidi(), which
+# is what every build used before RTL support was added. pkg-config is a Unix mechanism and
+# the Windows dependency package does not ship FriBidi, so this must never be REQUIRED.
+find_package(PkgConfig QUIET)
+if(PKG_CONFIG_FOUND)
+	pkg_check_modules(FRIBIDI QUIET fribidi)
+endif()
+
+if(FRIBIDI_FOUND)
+	MESSAGE("-- FriBidi found, using it for right-to-left text reordering")
+	add_definitions(-DHAVE_FRIBIDI)
+else()
+	MESSAGE("-- FriBidi not found, falling back on the built-in right-to-left reordering")
+endif()
 
 if(NOT WIN32)
 	if(ENABLE_PULSE)
@@ -281,6 +325,8 @@ endif()
 
 if(${GLSystem} MATCHES "Desktop OpenGL")
     add_definitions(-DUSE_OPENGL_21)
+elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+    add_definitions(-DUSE_OPENGLES_30)
 elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
     add_definitions(-DUSE_OPENGLES_20)
 else()
@@ -292,6 +338,7 @@ endif()
 set(COMMON_INCLUDE_DIRS
     ${FREETYPE_INCLUDE_DIRS}
     ${FreeImage_INCLUDE_DIRS}
+    ${FRIBIDI_INCLUDE_DIRS}
     # batocera / background musics
     ${SDLMIXER_INCLUDE_DIR}
     # batocera / customisations    
@@ -347,6 +394,10 @@ else()
         LIST(APPEND COMMON_INCLUDE_DIRS
             ${OPENGL_INCLUDE_DIR}
         )
+    elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+        LIST(APPEND COMMON_INCLUDE_DIRS
+            ${OPENGLES3_INCLUDE_DIR}
+        )
     elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
         LIST(APPEND COMMON_INCLUDE_DIRS
             ${OPENGLES2_INCLUDE_DIR}
@@ -374,6 +425,7 @@ endif()
 set(COMMON_LIBRARIES
     ${FREETYPE_LIBRARIES}
     ${FreeImage_LIBRARIES}
+    ${FRIBIDI_LIBRARIES}
     ${SDL2_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}
@@ -381,11 +433,11 @@ set(COMMON_LIBRARIES
     ${CURL_LIBRARIES}
     ${VLC_LIBRARIES}
     pugixml
-    nanosvg
-    id3v2
+    nanosvg 
+    id3v2lib	
 	libcheevos	
 )
-
+  
 if(UDEV_FOUND)
  LIST(APPEND COMMON_LIBRARIES
     ${UDEV_LIBRARY}
@@ -432,16 +484,22 @@ if(DEFINED BCMHOST)
         bcm_host
         brcmEGL
 	)
-    if(GLES)
+    if(${GLSystem} MATCHES "Embedded OpenGL")
       LIST(APPEND COMMON_LIBRARIES ${OPENGLES_LIBRARIES})
+    elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+      LIST(APPEND COMMON_LIBRARIES ${OPENGLES3_LIBRARIES})
     else()
       LIST(APPEND COMMON_LIBRARIES ${OPENGLES2_LIBRARIES})
     endif()
 elseif(DEFINED VERO4K)
-    LIST(APPEND COMMON_LIBRARIES
-        EGL
-        ${OPENGLES_LIBRARIES}
-    )
+    LIST(APPEND COMMON_LIBRARIES EGL)
+    if(${GLSystem} MATCHES "OpenGL ES 3.0")
+        LIST(APPEND COMMON_LIBRARIES ${OPENGLES3_LIBRARIES})
+    elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+        LIST(APPEND COMMON_LIBRARIES ${OPENGLES2_LIBRARIES})
+    else()
+        LIST(APPEND COMMON_LIBRARIES ${OPENGLES_LIBRARIES})
+    endif()
 else()
     if(MSVC)
         LIST(APPEND COMMON_LIBRARIES
@@ -451,6 +509,11 @@ else()
     if(${GLSystem} MATCHES "Desktop OpenGL")
         LIST(APPEND COMMON_LIBRARIES
             ${OPENGL_LIBRARIES}
+        )
+    elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+        LIST(APPEND COMMON_LIBRARIES
+            EGL
+            ${OPENGLES3_LIBRARIES}
         )
     elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
         LIST(APPEND COMMON_LIBRARIES

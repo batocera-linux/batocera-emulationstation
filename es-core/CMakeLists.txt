@@ -108,7 +108,6 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GL21.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES10.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES20.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/GlExtensions.h	
 
 	# Resources
@@ -240,7 +239,6 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GL21.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES10.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES20.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/GlExtensions.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Shader.cpp	
 
@@ -269,6 +267,14 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/BatteryLevelWatcher.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/NetworkStateWatcher.cpp
 )
+
+if(${GLSystem} MATCHES "OpenGL ES 3.0")
+	LIST(APPEND CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES30.h)
+	LIST(APPEND CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES30.cpp)
+else()
+	LIST(APPEND CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES20.h)
+	LIST(APPEND CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES20.cpp)
+endif()
 
 # Keep Directory structure in Visual Studio
 if(MSVC)

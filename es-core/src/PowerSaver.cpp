@@ -24,9 +24,10 @@ void PowerSaver::pushRefreshEvent()
 	if (mPushEventID == -1)
 		mPushEventID = SDL_RegisterEvents(1);
 
-	SDL_Event ev;
+	SDL_Event ev {};
 	ev.type = mPushEventID;
-	SDL_PushEvent(&ev);
+	if (SDL_PushEvent(&ev) > 0)
+		mHasPushedEvent = true;
 }
 
 void PowerSaver::resetRefreshEvent()

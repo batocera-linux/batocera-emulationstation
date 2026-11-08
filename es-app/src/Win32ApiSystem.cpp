@@ -225,7 +225,7 @@ int Win32ApiSystem::executeCMD(const char* lpCommandLine, std::string& output, c
 			//spawn the child process
 			std::wstring commandLineW = Utils::String::convertToWideString(lpCommandLine);
 			std::wstring directory = lpCurrentDirectory == NULL ? L"" : Utils::String::convertToWideString(lpCurrentDirectory);
-			if (CreateProcessW(NULL, (LPWSTR)commandLineW.c_str(), NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, lpCurrentDirectory == NULL ? NULL : (LPWSTR)directory.c_str(), &si, &pi))
+			if (CreateProcessW(NULL, (LPWSTR)commandLineW.c_str(), NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, lpCurrentDirectory == NULL ? NULL : (LPWSTR)directory.c_str(), &si, &pi))
 			{
 				if (m_hJob != nullptr)
 					AssignProcessToJobObject(m_hJob, pi.hProcess);
@@ -753,7 +753,7 @@ void Win32ApiSystem::installEmulationStationZip(const std::string& zipFile)
 	Utils::FileSystem::deleteDirectoryFiles(path);
 }
 
-std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
+std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func, bool fromlocalmedia)
 {
 	std::string esUpdateScript = getScriptPath("es-update");
 	if (!esUpdateScript.empty())
@@ -933,6 +933,14 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 	return false;
 }
 
+bool Win32ApiSystem::canLocalUpdate()
+{
+	// This is a Batocera-Linux ('batocera-upgrade') function only (update from USB-key). 
+	// Without this surcharge the implementation spams a cmd.exe (popen) on the UI thread on each menu opening,
+	// which slows down the menu on Windows for nothing.
+	return false;
+}
+
 bool Win32ApiSystem::launchKodi(Window *window)
 {
 	std::string command = Paths::getKodiPath();
@@ -976,44 +984,131 @@ bool Win32ApiSystem::isReadyFlagSet()
 	return Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "/tmp/emulationstation.ready");
 }
 
+static std::string getWindowsDisplayDeviceName(int monitorId)
+{
+	if (monitorId < 0 || monitorId >= SDL_GetNumVideoDisplays())
+		return "";
+
+	SDL_Rect bounds;
+	if (SDL_GetDisplayBounds(monitorId, &bounds) != 0)
+		return "";
+
+	POINT point = { bounds.x + bounds.w / 2, bounds.y + bounds.h / 2 };
+	HMONITOR monitor = MonitorFromPoint(point, MONITOR_DEFAULTTONULL);
+	if (monitor == nullptr)
+		return "";
+
+	MONITORINFOEXA monitorInfo = {};
+	monitorInfo.cbSize = sizeof(monitorInfo);
+	if (!GetMonitorInfoA(monitor, &monitorInfo))
+		return "";
+
+	return monitorInfo.szDevice;
+}
+
+static std::string resolveWindowsDisplayDevice(const std::string& output)
+{
+	if (output.empty() || output == "auto" || output == "none")
+		return getWindowsDisplayDeviceName(Settings::getInstance()->getInt("MonitorID"));
+
+	if (Utils::String::startsWith(output, "\\\\.\\DISPLAY"))
+		return output;
+
+	if (output.find_first_not_of("0123456789") == std::string::npos)
+		return getWindowsDisplayDeviceName(atoi(output.c_str()));
+
+	for (DWORD i = 0; ; i++)
+	{
+		DISPLAY_DEVICEA adapter = {};
+		adapter.cb = sizeof(adapter);
+
+		if (!EnumDisplayDevicesA(nullptr, i, &adapter, 0))
+			break;
+
+		if ((adapter.StateFlags & DISPLAY_DEVICE_ATTACHED_TO_DESKTOP) == 0)
+			continue;
+
+		if (output == adapter.DeviceName || output == adapter.DeviceString)
+			return adapter.DeviceName;
+
+		DISPLAY_DEVICEA screen = {};
+		screen.cb = sizeof(screen);
+
+		if (EnumDisplayDevicesA(adapter.DeviceName, 0, &screen, 0))
+			if (output == screen.DeviceString || output == screen.DeviceID)
+				return adapter.DeviceName;
+	}
+
+	return "";
+}
+
+static void enumerateWindowsVideoModes(const std::string& device, std::vector<std::string>& ret)
+{
+	const char* deviceName = device.empty() ? nullptr : device.c_str();
+
+	int i = 0;
+	while (true)
+	{
+		DEVMODEA vDevMode = {};
+		vDevMode.dmSize = sizeof(vDevMode);
+
+		if (!EnumDisplaySettingsA(deviceName, i, &vDevMode))
+			break;
+
+		i++;
+
+		if (vDevMode.dmDisplayFixedOutput != 0)
+			continue;
+
+		std::string interlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? "i" : "";
+		std::string ifoInterlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? " (" + _("Interlaced") + ")" : "";
+		int displayedFreq = (vDevMode.dmDisplayFlags & 2) == 2 ? vDevMode.dmDisplayFrequency * 2 : vDevMode.dmDisplayFrequency;
+
+		std::string mode;
+
+		if (vDevMode.dmBitsPerPel == 32)
+			mode =
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + "x" +
+			std::to_string(vDevMode.dmBitsPerPel) + "x" +
+			std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + " " +
+			std::to_string(displayedFreq) + "Hz" + ifoInterlaced;
+		else
+			mode =
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + "x" +
+			std::to_string(vDevMode.dmBitsPerPel) + "x" +
+			std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
+			std::to_string(vDevMode.dmPelsWidth) + "x" +
+			std::to_string(vDevMode.dmPelsHeight) + "x" +
+			std::to_string(vDevMode.dmBitsPerPel) + " " +
+			std::to_string(displayedFreq) + "Hz" + ifoInterlaced;
+
+		if (std::find(ret.cbegin(), ret.cend(), mode) == ret.cend())
+			ret.push_back(mode);
+	}
+}
+
 std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 {
 	std::vector<std::string> ret;
 
-	DEVMODE vDevMode;
+	std::string device = resolveWindowsDisplayDevice(output);
 
-	int i = 0;
-	while (EnumDisplaySettings(nullptr, i, &vDevMode))
+	LOG(LogDebug) << "getVideoModes : enumerating modes for "
+		<< (device.empty() ? "primary display" : device)
+		<< " (requested output: '" << output << "')";
+
+	enumerateWindowsVideoModes(device, ret);
+
+	if (ret.empty() && !device.empty())
 	{
-		if (vDevMode.dmDisplayFixedOutput == 0)
-		{			
-			std::string interlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? "i": "";
-			std::string ifoInterlaced = (vDevMode.dmDisplayFlags & 2) == 2 ? " (" + _("Interlaced") + ")": "";
+		LOG(LogWarning) << "getVideoModes : no mode returned for " << device
+			<< ", falling back to primary display";
 
-			if (vDevMode.dmBitsPerPel == 32)
-				ret.push_back(
-					std::to_string(vDevMode.dmPelsWidth)+"x" +
-					std::to_string(vDevMode.dmPelsHeight)+"x" +
-					std::to_string(vDevMode.dmBitsPerPel)+"x" +
-					std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
-					std::to_string(vDevMode.dmPelsWidth) + "x" +
-					std::to_string(vDevMode.dmPelsHeight) + " " +
-					std::to_string((vDevMode.dmDisplayFlags & 2) == 2 ? vDevMode.dmDisplayFrequency * 2 : vDevMode.dmDisplayFrequency) + "Hz" + ifoInterlaced);
-			else
-			{
-				ret.push_back(
-					std::to_string(vDevMode.dmPelsWidth) + "x" +
-					std::to_string(vDevMode.dmPelsHeight) + "x" +
-					std::to_string(vDevMode.dmBitsPerPel) + "x" +
-					std::to_string(vDevMode.dmDisplayFrequency) + interlaced + ":" +
-					std::to_string(vDevMode.dmPelsWidth) + "x" +
-					std::to_string(vDevMode.dmPelsHeight) + "x" +
-					std::to_string(vDevMode.dmBitsPerPel) + " " +
-					std::to_string((vDevMode.dmDisplayFlags & 2) == 2 ? vDevMode.dmDisplayFrequency * 2 : vDevMode.dmDisplayFrequency) + "Hz" + ifoInterlaced);
-			}				
-		}
-
-		i++;
+		enumerateWindowsVideoModes("", ret);
 	}
 
 	return ret;
@@ -1022,8 +1117,6 @@ std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 
 std::vector<std::string> Win32ApiSystem::getShaderList(const std::string& system, const std::string& emulator, const std::string& core)
 {
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	std::vector<std::string> ret;
 
 	std::vector<std::string> folderList;

@@ -100,10 +100,17 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	mText.setHorizontalAlignment(ALIGN_CENTER);
 	mText.setFont(font);
 
+#ifdef BATOCERA
+	if (fullScreenBackGround)
+		mText.setPosition(0, Renderer::getScreenHeight() * 0.83f);
+	else
+		mText.setPosition(0, Renderer::getScreenHeight() * 0.86f);
+#else
 	if (fullScreenBackGround)
 		mText.setPosition(0, Renderer::getScreenHeight() * 0.78f);
 	else
 		mText.setPosition(0, Renderer::getScreenHeight() * 0.835f);
+#endif
 
 	mText.setSize(Renderer::getScreenWidth(), font->getLetterHeight());
 

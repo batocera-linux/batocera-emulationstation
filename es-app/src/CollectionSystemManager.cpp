@@ -42,7 +42,7 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_AT2PLAYERS,			"2players",			_("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, 
 		{ AUTO_AT4PLAYERS,			"4players",			_("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, 
 		{ AUTO_NEVER_PLAYED,		"neverplayed",		_("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, 
-		{ AUTO_RETROACHIEVEMENTS,	"retroachievements",_("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
+		{ AUTO_RETROACHIEVEMENTS,	"retroachievements",_("RetroAchievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
 
 		// Arcade meta 
 		{ AUTO_ARCADE,				 "arcade",			_("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, 
@@ -849,8 +849,8 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		games_counter = games.size();
 
 		snprintf(trstring, 1024, ngettext(
-			"This collection contains %i game:%s",
-			"This collection contains %i games, including:%s", games_counter), games_counter, games_list.c_str());
+			"This collection contains %i game: %s",
+			"This collection contains %i games, including: %s", games_counter), games_counter, games_list.c_str());
 
 		desc = trstring;
 
@@ -1236,7 +1236,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 		{
 			getAllGamesCollection();
 
-			Utils::ThreadPool pool;
+			Utils::ThreadPool pool("addEnabledCollectionsToDisplayedSystems", -(int)(std::min(collectionsToPopulate.size(), (size_t)4)));
 
 			for (auto collection : collectionsToPopulate)
 			{

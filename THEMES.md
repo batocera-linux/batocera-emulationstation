@@ -194,7 +194,7 @@ Notice that properties that were not specified got merged (`<fontPath>`) and the
 
 ** Batocera 5.24
 
-Subset are usefull to create multiple variations in a theme ( colorsets, iconsets, different system views...)
+Subset are usefull to create multiple variations in a theme ( colorsets, iconsets, different system views... )
 
 When a subset is defined, you can choose one of the named elements in the subset. Only one is active at a time. Only the active item is included, the other includes of the same subset are ignored.
 
@@ -448,7 +448,7 @@ These attributes apply to every XML element in the theme.
   
 * `lang` - type : STRING
   Allow elements to be used only if the lang is the current language in EmulationStation.
-  lang is 2 lower characters. ( fr, br, en, ru, pt.... )
+  lang is 2 lower characters. ( fr, br, en, ru, pt... )
   
 * `ifSubset` - type : STRING
     
@@ -969,7 +969,7 @@ Can be created as an extra.
 	- Possible combinations:
 	- `0 0` - automatically size so text fits on one line (expanding horizontally).
 	- `w 0` - automatically wrap text so it doesn't go beyond `w` (expanding vertically).
-	- `w h` - works like a "text box."  If `h` is non-zero and `h` <= `fontSize` (implying it should be a single line of text), text that goes beyond `w` will be truncated with an elipses (...).
+	- `w h` - works like a "text box."  If `h` is non-zero and `h` <= `fontSize` (implying it should be a single line of text), text that goes beyond `w` will be truncated with an ellipsis (...).
 * `origin` - type: NORMALIZED_PAIR.
 	- Where on the component `pos` refers to.  For example, an origin of `0.5 0.5` and a `pos` of `0.5 0.5` would place the component exactly in the middle of the screen.  If the "POSITION" and "SIZE" attributes are themable, "ORIGIN" is implied.
 * `rotation` - type: FLOAT.
@@ -1154,7 +1154,7 @@ EmulationStation borrows the concept of "nine patches" from Android (or "9-Slice
 	- Possible combinations:
 	- `0 0` - automatically size so text fits on one line (expanding horizontally).
 	- `w 0` - automatically wrap text so it doesn't go beyond `w` (expanding vertically).
-	- `w h` - works like a "text box."  If `h` is non-zero and `h` <= `fontSize` (implying it should be a single line of text), text that goes beyond `w` will be truncated with an elipses (...).
+	- `w h` - works like a "text box."  If `h` is non-zero and `h` <= `fontSize` (implying it should be a single line of text), text that goes beyond `w` will be truncated with an ellipsis (...).
 * `origin` - type: NORMALIZED_PAIR.
 	
 	- Where on the component `pos` refers to.  For example, an origin of `0.5 0.5` and a `pos` of `0.5 0.5` would place the component exactly in the middle of the screen.  If the "POSITION" and "SIZE" attributes are themable, "ORIGIN" is implied.
@@ -1433,7 +1433,7 @@ This element is designed to set a list of properties to transform, given a timin
 
   - Required : Name of the property to animate. 
 
-    Value is one of the property in the object (pos, size, x, y, w, h, scale, scaleOrigin, color, opacity, rotation, rotationOrigin, zIndex...)
+    Value is one of the property in the object ( pos, size, x, y, w, h, scale, scaleOrigin, color, opacity, rotation, rotationOrigin, zIndex... )
 
     Note : It's not possible to animate STRING and BOOLEAN properties. Only FLOAT, NORMALIZED_PAIR, NORMALIZED_RECT and COLOR elements can be animated.
 

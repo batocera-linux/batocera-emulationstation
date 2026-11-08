@@ -1,10 +1,9 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
-PROJECT(id3v2lib)
+cmake_minimum_required(VERSION 3.1...3.22)
+project(id3v2lib VERSION 2.0)
 
-ADD_DEFINITIONS(-std=c99)
-ADD_DEFINITIONS(-fPIC)
+include(GNUInstallDirs)
 
-SET(VERSION_MAJOR 1)
-SET(VERSION_MINOR 0)
+option(BUILD_SHARED_LIBS "Build shared libraries instead of static ones." OFF)
 
-ADD_SUBDIRECTORY(src)
+add_subdirectory(src)
+add_subdirectory(test)

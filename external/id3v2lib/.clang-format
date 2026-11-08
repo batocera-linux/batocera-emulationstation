@@ -1,0 +1,12 @@
+AlignAfterOpenBracket: BlockIndent
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortIfStatementsOnASingleLine: true
+BasedOnStyle: Microsoft
+BinPackArguments: false
+BinPackParameters: false
+ColumnLimit: 100
+IndentCaseLabels: true
+IndentPPDirectives: BeforeHash
+PointerAlignment: Left
+SpaceAfterCStyleCast: true

@@ -35,7 +35,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	mHasAdvancedGameOptions = false;
 
 	mGame = game;
-	mSystem = game->getSystem();	
+	mSystem = game->getSystem();
 
 	auto logo = game->getMarqueePath();
 	if (Utils::FileSystem::exists(logo))
@@ -44,7 +44,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		image->setIsLinear(true);
 		image->setImage(logo);
 		mMenu.setSubTitle("fake");
-		mMenu.setTitleImage(image, true);		
+		mMenu.setTitleImage(image, true);
 	}
 
 	addChild(&mMenu);
@@ -78,7 +78,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				GuiImageViewer::showPdf(window, game->getMetadata(MetaDataId::Magazine));
 				close();
 			});
-		}		
+		}
 
 		if (hasMap)
 		{
@@ -99,7 +99,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				close();
 			});
 		}
-		
+
 		if (hasAlternateMedias)
 		{
 			mMenu.addEntry(_("VIEW GAME MEDIA"), false, [window, game, this]
@@ -147,7 +147,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 		if (SaveStateRepository::isEnabled(game))
 		{
-			mMenu.addEntry(_("SAVE STATES"), false, [window, game, this]
+			mMenu.addEntry(_("SAVESTATES"), false, [window, game, this]
 			{
 				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState* state)
 				{
@@ -268,14 +268,14 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					{
 						if (!ok) {
 							mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURRED"),
-							_("CLOSE"), nullptr, ICON_ERROR)); 
+							_("CLOSE"), nullptr, ICON_ERROR));
 						} else {
 							mWindow->pushGui(new GuiMsgBox(mWindow, _("THE TAG WAS WRITTEN SUCCESSFULLY"),
-							_("OK"), nullptr, ICON_INFORMATION)); 
+							_("OK"), nullptr, ICON_INFORMATION));
 						}
 					}));
 					return;
-				}, 
+				},
 				_("CANCEL"), nullptr));
 		});
 	}
@@ -313,7 +313,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 					GuiSettings* msgBox = new GuiSettings(mWindow, _("ADD TO CUSTOM COLLECTION..."));
 					msgBox->setTag("popup");
-					
+
 					for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
 					{
 						if (customCollection.second.filteredIndex != nullptr || !customCollection.second.isEnabled)
@@ -322,7 +322,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 						std::string collectionName = customCollection.first;
 						if (CollectionSystemManager::get()->inInCustomCollection(game, collectionName))
 							continue;
-						
+
 						msgBox->addEntry(Utils::String::toUpper(collectionName), false, [pThis, window, msgBox, collectionName, game]
 						{
 							auto parent = pThis;
@@ -364,7 +364,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 	bool fromPlaceholder = game->isPlaceHolder();
 	if (isImageViewer)
-		fromPlaceholder = true; 
+		fromPlaceholder = true;
 	else if (game->getType() == FOLDER && ((FolderData*)game)->isVirtualStorage())
 		fromPlaceholder = true;
 	else if (game->getType() == FOLDER && mSystem->isCollection()) // >getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
@@ -373,7 +373,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	if (!fromPlaceholder && !isCustomCollection && UIModeController::getInstance()->isUIModeFull())
 	{
 		mMenu.addGroup(_("OPTIONS"));
-		
+
 		mMenu.addEntry(_("SCRAPE"), false, [this, game]
 		{
 			ScraperSearchParams scraperParams;
@@ -383,7 +383,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			GuiGameScraper* scr = new GuiGameScraper(mWindow, scraperParams, [game, scraperParams](const ScraperSearchResult& result)
 			{
 				game->importP2k(result.p2k);
-				game->getMetadata().importScrappedMetadata(result.mdl);	
+				game->getMetadata().importScrappedMetadata(result.mdl);
 				game->detectLanguageAndRegion(true);
 				game->getMetadata().setScrapeDate(result.scraper);
 
@@ -400,15 +400,15 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			if (game->hasKeyboardMapping())
 			{
 				mMenu.addEntry(_("EDIT PADTOKEY PROFILE"), false, [this, game]
-				{ 
-					GuiMenu::editKeyboardMappings(mWindow, game, true); 
+				{
+					GuiMenu::editKeyboardMappings(mWindow, game, true);
 					close();
 				});
 			}
 			else if (game->isFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 			{
 				mMenu.addEntry(_("CREATE PADTOKEY PROFILE"), false, [this, game]
-				{ 
+				{
 					GuiMenu::editKeyboardMappings(mWindow, game, true);
 					close();
 				});
@@ -442,14 +442,14 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	else if (game->hasKeyboardMapping())
 	{
 		mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), false, [this, game]
-		{ 
+		{
 			GuiMenu::editKeyboardMappings(mWindow, game, false);
 			close();
 		});
 	}
 
 	if (Renderer::ScreenSettings::fullScreenMenus())
-	{	
+	{
 		mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 
 		mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);
@@ -588,7 +588,7 @@ std::vector<HelpPrompt> GuiGameOptions::getHelpPrompts()
 
 	if (mHasAdvancedGameOptions)
 	{
-		prompts.push_back(HelpPrompt("x", _("ADVANCED GAME OPTIONS"), [&] 
+		prompts.push_back(HelpPrompt("x", _("ADVANCED GAME OPTIONS"), [&]
 		{
 			GuiMenu::popGameConfigurationGui(mWindow, mGame);
 			close();
@@ -625,16 +625,16 @@ void GuiGameOptions::deleteCollection()
 				ViewController::get()->goToStart();
 				ViewController::get()->reloadAll(mWindow);
 
-				mWindow->closeSplashScreen();			
+				mWindow->closeSplashScreen();
 			}
 			delete this;
-		}, 
-		_("NO"), [this] 
+		},
+		_("NO"), [this]
 		{
 			delete this;
 		}));
 
-	
+
 }
 
 void GuiGameOptions::close()

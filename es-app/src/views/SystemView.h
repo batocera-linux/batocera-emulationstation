@@ -76,7 +76,7 @@ protected:
 
 private:
 	void	 loadExtras(SystemData* system);
-	void	 ensureTexture(GuiComponent* extra, bool reload);
+	void	 ensureTexture(GuiComponent* extra, TextureLoadMode mode = TextureLoadMode::LOADNOMOVETOTOP);
 
 	void	 updateExtraTextBinding();
 	void	 showQuickSearch();

@@ -2,19 +2,19 @@
 <systems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gamesdb.xsd">
   <system id="arcade">
     <game id="18wheelr">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheelro">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheelrt">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheels">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="18wheelu">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
+      <wheel rotation="270" downshift="y" upshift="a" y="down"/>
     </game>
     <game id="2spicy" name="2 Spicy">
       <gun/>
@@ -82,7 +82,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="acedrive">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="acedrvrw">
       <wheel rotation="270"/>
@@ -360,6 +360,18 @@
     <game id="batlgr2a">
       <wheel rotation="270"/>
     </game>
+    <game id="batlgr3" name="Battle Gear 3 (Ver.2.01A)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="batlgr3j" name="Battle Gear 3 (Ver.2.08J)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="batlgr3jo" name="Battle Gear 3 (Ver.2.07J)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="batlgr3t" name="Battle Gear 3 Tuned">
+      <wheel rotation="270"/>
+    </game>
     <game id="Batman">
       <wheel/>
     </game>
@@ -460,7 +472,7 @@
       <trackball/>
     </game>
     <game id="bigrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" brake="y"/>
     </game>
     <game id="bking">
       <trackball/>
@@ -479,6 +491,8 @@
     </game>
     <game id="bladestll">
       <trackball/>
+    </game>
+    <game id="bldyr3" name="Bloody Roar 3 (BRT1 Ver. A)">
     </game>
     <game id="block">
       <spinner/>
@@ -556,7 +570,7 @@
       <gun/>
     </game>
     <game id="buggyboy">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="buggyboyjr">
       <wheel rotation="360"/>
@@ -679,7 +693,7 @@
       <spinner/>
     </game>
     <game id="changela">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a"/>
     </game>
     <game id="champbwl">
       <trackball/>
@@ -688,7 +702,7 @@
       <trackball/>
     </game>
     <game id="chasehq">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x"/>
     </game>
     <game id="chasehq2">
       <wheel rotation="360"/>
@@ -724,7 +738,7 @@
       <spinner/>
     </game>
     <game id="cischeat">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y" accelerate="b" brake="a"/>
     </game>
     <game id="claybust">
       <gun/>
@@ -789,6 +803,9 @@
     <game id="cobrata">
       <gun/>
     </game>
+    <game id="cobratae" name="Cobra: The Arcade (CBR2 Ver. B)">
+      <gun/>
+    </game>
     <game id="colt">
       <gun/>
     </game>
@@ -808,7 +825,7 @@
       <gun/>
     </game>
     <game id="contcirc">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="contcircj">
       <wheel rotation="270"/>
@@ -826,7 +843,7 @@
       <trackball/>
     </game>
     <game id="coolridr">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="x" upshift="y"/>
     </game>
     <game id="cops">
       <gun/>
@@ -917,7 +934,7 @@
     <game id="crszonev4a">
       <gun/>
     </game>
-    <game id="crtaxihr">
+    <game id="crtaxihr" name="Crazy Taxi High Roller (Rev B) (GDX-0002B)">
       <wheel rotation="270"/>
     </game>
     <game id="CruisnBlast">
@@ -1041,7 +1058,7 @@
       <wheel/>
     </game>
     <game id="dangcurv">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="dangcurvj">
       <wheel rotation="270"/>
@@ -1086,7 +1103,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="dblaxle">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="dblaxleu">
       <wheel rotation="360"/>
@@ -1158,7 +1175,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="dirtdash">
-      <wheel rotation="360"/>
+      <wheel rotation="360" downshift="up" upshift="down"/>
     </game>
     <game id="dirtdasha">
       <wheel rotation="360"/>
@@ -1176,7 +1193,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="dirtfoxj">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="DirtyDrivin">
       <wheel/>
@@ -1189,6 +1206,10 @@
     </game>
     <game id="dpatrola">
       <gun/>
+    </game>
+    <game id="dragchma" name="Dragon Chronicle: Legend of the Master Ark (DGC11 Ver. A2X)">
+    </game>
+    <game id="dragchmay" name="Dragon Chronicle: Legend of the Master Ark (DGC11 Ver. A2Y)">
     </game>
     <game id="dragngun">
       <gun/>
@@ -1204,6 +1225,10 @@
     </game>
     <game id="driveyes">
       <wheel rotation="270"/>
+    </game>
+    <game id="druagaol" name="Druaga Online: The Story of Aon (DOL165-1-ST-I)">
+    </game>
+    <game id="druagaolf" name="Druaga Online: The Story of Aon (DOL1401-ST-F)">
     </game>
     <game id="drugwars" name="Crime Patrol 2: Drug Wars">
       <gun/>
@@ -1317,7 +1342,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="f1gpstar">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" brake="y"/>
     </game>
     <game id="f1gpstar2">
       <wheel rotation="270"/>
@@ -1326,7 +1351,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="f1gpstr2">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" brake="y"/>
     </game>
     <game id="f1lap">
       <wheel rotation="270"/>
@@ -1338,7 +1363,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="f1superb">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b" brake="a"/>
     </game>
     <game id="f355">
       <wheel rotation="270"/>
@@ -1377,13 +1402,13 @@
       <wheel/>
     </game>
     <game id="finalap2">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b"/>
     </game>
     <game id="finalap2j">
       <wheel rotation="270"/>
     </game>
     <game id="finalap3">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b"/>
     </game>
     <game id="finalap3a">
       <wheel rotation="270"/>
@@ -1404,7 +1429,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="finalapr">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x"/>
     </game>
     <game id="finalaprj">
       <wheel rotation="270"/>
@@ -1413,7 +1438,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="finallap">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="b"/>
     </game>
     <game id="finallapc">
       <wheel rotation="270"/>
@@ -1434,7 +1459,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="firetrk">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="firetrka">
       <wheel rotation="360"/>
@@ -1446,7 +1471,7 @@
       <trackball/>
     </game>
     <game id="fourtrax">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="fourtraxa">
       <wheel rotation="270"/>
@@ -1470,7 +1495,7 @@
       <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="fullthrl">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x"/>
     </game>
     <game id="futflash">
       <trackball/>
@@ -1535,10 +1560,10 @@
     <game id="ghostsevj" name="Ghost Squad Evolution (Japan)">
       <gun/>
     </game>
-    <game id="ghostsqo">
+    <game id="ghostsqo" name="Ghost Squad (GDX-0012)">
       <gun/>
     </game>
-    <game id="ghostsqu">
+    <game id="ghostsqu" name="Ghost Squad (Rev A) (GDX-0012A)">
       <gun/>
     </game>
     <game id="ghox">
@@ -1602,7 +1627,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="grally">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="grchamp">
       <wheel rotation="360"/>
@@ -1877,8 +1902,12 @@
     <game id="gunchamps">
       <gun/>
     </game>
+    <game id="gundamos" name="Gundam Battle Operating Simulator (GDX-0013)">
+    </game>
     <game id="GundamSpiritsOfZeon">
       <gun/>
+    </game>
+    <game id="gundzft2" name="Gundam Seed Destiny: Federation vs. Z.A.F.T. II">
     </game>
     <game id="gunhard">
       <gun/>
@@ -2061,7 +2090,7 @@
       <gun/>
     </game>
     <game id="hotchase">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y" brake="a"/>
     </game>
     <game id="hotchasea">
       <wheel rotation="270"/>
@@ -2081,7 +2110,10 @@
     <game id="hotd2p">
       <gun/>
     </game>
-    <game id="hotd3">
+    <game id="hotd3" name="The House of the Dead III (GDX-0001)">
+      <gun/>
+    </game>
+    <game id="HOTD3">
       <gun/>
     </game>
     <game id="hotd4" name="The House of the Dead 4 (Rev C)">
@@ -2115,6 +2147,9 @@
       <gun/>
     </game>
     <game id="HOTDEX">
+      <gun/>
+    </game>
+    <game id="hotdo">
       <gun/>
     </game>
     <game id="hotdp">
@@ -2174,6 +2209,8 @@
     <game id="ID8">
       <wheel/>
     </game>
+    <game id="idolmstr" name="The Idolmaster">
+    </game>
     <game id="IDZ">
       <wheel/>
     </game>
@@ -2211,37 +2248,37 @@
       <wheel rotation="270"/>
     </game>
     <game id="initd">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdexp">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdexpo">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdo">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2e">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2j">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2ja">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv2jo">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv3e">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv3j">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initdv3jb">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="a" upshift="b"/>
     </game>
     <game id="initiad4" name="Initial D Arcade Stage 4 (Rev G)">
       <wheel rotation="270"/>
@@ -2376,7 +2413,7 @@
       <wheel/>
     </game>
     <game id="konamigt">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y" accelerate="b" brake="a"/>
     </game>
     <game id="kroozr">
       <spinner/>
@@ -2412,7 +2449,7 @@
       <gun/>
     </game>
     <game id="lbeach">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="LGS">
       <wheel/>
@@ -2645,7 +2682,7 @@
       <wheel/>
     </game>
     <game id="maxrpm">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="maxspeed">
       <wheel rotation="270" downshift="down" upshift="up"/>
@@ -2678,7 +2715,7 @@
       <spinner/>
     </game>
     <game id="midnrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="midnruna">
       <wheel rotation="270"/>
@@ -2718,6 +2755,9 @@
     </game>
     <game id="missile2a">
       <trackball/>
+    </game>
+    <game id="MissionImpossible">
+      <gun/>
     </game>
     <game id="moonwar">
       <spinner/>
@@ -2760,6 +2800,12 @@
     </game>
     <game id="MotoGP">
       <wheel/>
+    </game>
+    <game id="motogp">
+      <wheel rotation="270"/>
+    </game>
+    <game id="motogpa" name="MotoGP (MGP1004-NA-A)">
+      <wheel rotation="270"/>
     </game>
     <game id="motoraid">
       <wheel rotation="270"/>
@@ -2804,7 +2850,7 @@
       <wheel/>
     </game>
     <game id="nitedrvr">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="nstocker">
       <gun/>
@@ -2861,6 +2907,8 @@
     </game>
     <game id="oigas">
       <spinner/>
+    </game>
+    <game id="ollie" name="Ollie King (GDX-0007)">
     </game>
     <game id="omegrace">
       <spinner/>
@@ -2940,7 +2988,7 @@
     <game id="otwalls">
       <spinner/>
     </game>
-    <game id="outr2">
+    <game id="outr2" name="OutRun 2 (Rev A) (GDX-0004A)">
       <wheel rotation="270"/>
     </game>
     <game id="outr2sdx" name="OutRun 2 SP SDX">
@@ -2952,20 +3000,20 @@
     <game id="outr2sdxg" name="OutRun 2 SP SDX (Bootleg)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2st">
+    <game id="outr2st" name="OutRun 2 Special Tours (Rev A) (GDX-0014A)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2stj">
+    <game id="outr2stj" name="OutRun 2 Special Tours (Japan, Rev A) (GDX-0011A)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2stjo">
+    <game id="outr2stjo" name="OutRun 2 Special Tours (Japan) (GDX-0011)">
       <wheel rotation="270"/>
     </game>
-    <game id="outr2sto">
+    <game id="outr2sto" name="OutRun 2 Special Tours (GDX-0014)">
       <wheel rotation="270"/>
     </game>
     <game id="outrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="outruna">
       <wheel rotation="270"/>
@@ -3058,7 +3106,7 @@
       <gun/>
     </game>
     <game id="pdrift">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y"/>
     </game>
     <game id="pdrifta">
       <wheel rotation="270"/>
@@ -3103,7 +3151,7 @@
       <gun/>
     </game>
     <game id="polepos">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="polepos1">
       <wheel rotation="360"/>
@@ -3196,7 +3244,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="ppspeed">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="primevah" name="Primeval Hunt">
       <gun/>
@@ -3250,7 +3298,7 @@
       <gun/>
     </game>
     <game id="pwheelsj">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="quantum">
       <trackball/>
@@ -3385,19 +3433,19 @@
       <wheel rotation="270"/>
     </game>
     <game id="racinfrc">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a" brake="b"/>
     </game>
     <game id="racinfrcu">
       <wheel rotation="360"/>
     </game>
     <game id="racingb">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="racingbj">
       <wheel rotation="270"/>
     </game>
     <game id="racingj">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="racingj2">
       <wheel rotation="270"/>
@@ -3475,6 +3523,9 @@
       <gun/>
     </game>
     <game id="rchase2">
+      <gun/>
+    </game>
+    <game id="rchase2a" name="Rail Chase 2">
       <gun/>
     </game>
     <game id="rchasej">
@@ -3595,7 +3646,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="roadburn">
-      <wheel rotation="270"/>
+      <wheel rotation="270" brake="a"/>
     </game>
     <game id="roadburn1">
       <wheel rotation="270"/>
@@ -3639,6 +3690,9 @@
     <game id="rrvac1">
       <wheel rotation="270"/>
     </game>
+    <game id="rrvac1b" name="Ridge Racer V Arcade Battle (RRV1 Ver. B)">
+      <wheel rotation="270"/>
+    </game>
     <game id="rrvac2">
       <wheel rotation="270"/>
     </game>
@@ -3673,7 +3727,7 @@
       <gun/>
     </game>
     <game id="sci">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x" accelerate="b" brake="a"/>
     </game>
     <game id="scia">
       <wheel rotation="360"/>
@@ -3859,7 +3913,7 @@
       <trackball/>
     </game>
     <game id="sidebs">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="sidebs2">
       <wheel rotation="270"/>
@@ -4033,7 +4087,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="sprint2">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="sprint2a">
       <wheel rotation="360"/>
@@ -4042,7 +4096,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="sprint4">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="sprint4a">
       <wheel rotation="360"/>
@@ -4234,10 +4288,10 @@
       <wheel rotation="270"/>
     </game>
     <game id="superbug">
-      <wheel rotation="360"/>
+      <wheel rotation="360" accelerate="b"/>
     </game>
     <game id="superchs">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="x" brake="a"/>
     </game>
     <game id="superchsj">
       <wheel rotation="270"/>
@@ -4314,6 +4368,20 @@
     <game id="tacscan">
       <spinner/>
     </game>
+    <game id="taiko11a" name="Taiko no Tatsujin 11 Asian Edition">
+    </game>
+    <game id="taiko11t" name="Taiko no Tatsujin 11 Asian Edition (Taiwan)">
+    </game>
+    <game id="taiko12" name="Taiko no Tatsujin 12">
+    </game>
+    <game id="taiko12a" name="Taiko no Tatsujin 12 Asian Edition">
+    </game>
+    <game id="taiko12t" name="Taiko no Tatsujin 12 Asian Edition (Taiwan)">
+    </game>
+    <game id="taiko13" name="Taiko no Tatsujin 13">
+    </game>
+    <game id="taiko14" name="Taiko no Tatsujin 14">
+    </game>
     <game id="targeth">
       <gun/>
     </game>
@@ -4344,6 +4412,8 @@
     <game id="tdfever2b">
       <spinner/>
     </game>
+    <game id="techbeat" name="Technic Beat">
+    </game>
     <game id="techbowl">
       <trackball/>
     </game>
@@ -4373,6 +4443,24 @@
     </game>
     <game id="tehkanwch">
       <trackball/>
+    </game>
+    <game id="tekken4d" name="Tekken 4 (TEF1 Ver. D)">
+    </game>
+    <game id="tekken4e" name="Tekken 4 (TEF2 Ver. C)">
+    </game>
+    <game id="tekken4f" name="Tekken 4 (TEF3 Ver. B)">
+    </game>
+    <game id="tekken4g" name="Tekken 4 (TEF2 Ver. D)">
+    </game>
+    <game id="tekken4h" name="Tekken 4 (TEF3 Ver. D)">
+    </game>
+    <game id="tekken5" name="Tekken 5 (TE53 Ver. A)">
+    </game>
+    <game id="tekken51a" name="Tekken 5.1 (TE52 Ver. B)">
+    </game>
+    <game id="tekken5a" name="Tekken 5 (TE52 Ver. A)">
+    </game>
+    <game id="tekken5da" name="Tekken 5 Dark Resurrection (TED2 Ver. A)">
     </game>
     <game id="tempest">
       <spinner/>
@@ -4420,7 +4508,7 @@
       <gun/>
     </game>
     <game id="thrild2">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="b" upshift="a"/>
     </game>
     <game id="thrild2a">
       <wheel rotation="270"/>
@@ -4491,7 +4579,13 @@
     <game id="timecrs3e">
       <gun/>
     </game>
+    <game id="timecrs3u">
+      <gun/>
+    </game>
     <game id="timecrs4">
+      <gun/>
+    </game>
+    <game id="timecrs4j">
       <gun/>
     </game>
     <game id="timecrsa">
@@ -4510,7 +4604,7 @@
       <gun/>
     </game>
     <game id="topracer">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="topracera">
       <wheel rotation="360"/>
@@ -4522,7 +4616,7 @@
       <wheel rotation="360"/>
     </game>
     <game id="topspeed">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="x"/>
     </game>
     <game id="topspeedu">
       <wheel rotation="360"/>
@@ -4603,22 +4697,22 @@
       <gun/>
     </game>
     <game id="turboa">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbob">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbobl">
       <wheel rotation="360"/>
     </game>
     <game id="turboc">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbod">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="turbotag">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a"/>
     </game>
     <game id="turkhunt">
       <gun/>
@@ -4636,7 +4730,7 @@
       <spinner/>
     </game>
     <game id="tx1">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="y"/>
     </game>
     <game id="tx1a">
       <wheel rotation="360"/>
@@ -4713,6 +4807,9 @@
     <game id="vbowlj">
       <trackball/>
     </game>
+    <game id="vc3">
+      <gun/>
+    </game>
     <game id="vcombat">
       <gun/>
     </game>
@@ -4722,10 +4819,10 @@
     <game id="vcop2">
       <gun/>
     </game>
-    <game id="vcop3">
+    <game id="vcop3" name="Virtua Cop 3 (Rev B) (GDX-0003B)">
       <gun/>
     </game>
-    <game id="vcop3a">
+    <game id="vcop3a" name="Virtua Cop 3 (Rev A) (GDX-0003A)">
       <gun/>
     </game>
     <game id="vcopa">
@@ -4759,7 +4856,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="victlap">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="victlapa">
       <wheel rotation="270"/>
@@ -4783,6 +4880,12 @@
       <wheel/>
     </game>
     <game id="vnight">
+      <gun/>
+    </game>
+    <game id="vnighte" name="Vampire Night (VPN2 Ver. B)">
+      <gun/>
+    </game>
+    <game id="vnightj" name="Vampire Night (VPN1 Ver. B)">
       <gun/>
     </game>
     <game id="voyager">
@@ -4813,28 +4916,31 @@
     <game id="wanganmd">
       <wheel rotation="270"/>
     </game>
+    <game id="wanganmde" name="Wangan Midnight (WMN2 Ver. B)">
+      <wheel rotation="270"/>
+    </game>
     <game id="wanganmr">
       <wheel rotation="270"/>
     </game>
     <game id="wangmd2b">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid">
+    <game id="wangmid" name="Wangan Midnight Maximum Tune (Export, Rev B) (GDX-0009B)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2">
+    <game id="wangmid2" name="Wangan Midnight Maximum Tune 2 (Export, Rev A) (GDX-0016A)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2j">
+    <game id="wangmid2j" name="Wangan Midnight Maximum Tune 2 (Japan) (GDX-0015)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2ja">
+    <game id="wangmid2ja" name="Wangan Midnight Maximum Tune 2 (Japan, Rev A) (GDX-0015A)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmid2o">
+    <game id="wangmid2o" name="Wangan Midnight Maximum Tune 2 (Export) (GDX-0016)">
       <wheel rotation="270"/>
     </game>
-    <game id="wangmidj">
+    <game id="wangmidj" name="Wangan Midnight Maximum Tune (Japan, Rev B) (GDX-0008B)">
       <wheel rotation="270"/>
     </game>
     <game id="warlords">
@@ -4904,7 +5010,7 @@
       <gun/>
     </game>
     <game id="wecleman">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="y" brake="a"/>
     </game>
     <game id="wecleman2">
       <wheel rotation="270"/>
@@ -4937,7 +5043,7 @@
       <gun/>
     </game>
     <game id="windheat">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game id="windheata">
       <wheel rotation="270"/>
@@ -4949,7 +5055,7 @@
       <wheel rotation="270"/>
     </game>
     <game id="winrun">
-      <wheel rotation="270"/>
+      <wheel rotation="270" downshift="up" upshift="down"/>
     </game>
     <game id="winrun91">
       <wheel rotation="270"/>
@@ -4985,7 +5091,7 @@
       <wheel/>
     </game>
     <game id="wrally">
-      <wheel rotation="270"/>
+      <wheel rotation="270" upshift="a" accelerate="b"/>
     </game>
     <game id="wrally2">
       <wheel rotation="270"/>
@@ -5099,13 +5205,13 @@
       <gun/>
     </game>
     <game id="spdheat">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="b"/>
     </game>
     <game id="spdheatj">
       <wheel rotation="360"/>
     </game>
     <game id="speedrs">
-      <wheel rotation="360"/>
+      <wheel rotation="360" upshift="a" accelerate="b"/>
     </game>
     <game id="speedup12">
       <wheel rotation="270"/>
@@ -5646,7 +5752,7 @@
   </system>
   <system id="dreamcast">
     <game id="default">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" downshift="down" upshift="up"/>
     </game>
     <game id="4x4evo">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="50"/>
@@ -7672,7 +7778,7 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game id="rageracer">
-      <wheel rotation="360" type="negcon"/>
+      <wheel rotation="360" type="negcon" downshift="up" upshift="down"/>
     </game>
     <game id="rcrevenge">
       <wheel rotation="360" type="negcon"/>
@@ -7744,7 +7850,7 @@
       <gun/>
     </game>
     <game id="granturismo">
-      <wheel rotation="360" type="negcon"/>
+      <wheel rotation="360" type="negcon" downshift="down" upshift="up"/>
     </game>
     <game id="hardcore4x4">
       <wheel rotation="360" type="negcon"/>
@@ -8075,7 +8181,7 @@
       <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
   </system>
-  <system id="segacd">
+  <system id="megacd">
     <game id="maddogii">
       <gun/>
     </game>
@@ -8154,6 +8260,29 @@
     </game>
     <game id="macsbasicriflemarksmanship">
       <gun type="macsrifle"/>
+    </game>
+  </system>
+  <system id="triforce">
+    <game id="fzeroaxmonsterride">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="fzeroax">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartgp1">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartgp2">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartarcadegp2dolrelseur">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartarcadegp2">
+      <wheel type="Steering Wheel" rotation="200"/>
+    </game>
+    <game id="mariokartarcadegp">
+      <wheel type="Steering Wheel" rotation="200"/>
     </game>
   </system>
   <system id="wii">

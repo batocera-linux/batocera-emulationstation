@@ -6,6 +6,7 @@
 #include "math/Vector2f.h"
 #include "ThemeData.h"
 #include "utils/HtmlColor.h"
+#include "LocaleES.h"
 
 #define SUBSTRING_OPACITY	192
 
@@ -21,8 +22,14 @@ MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, 
 	mText->setMultiLine(TextComponent::MultiLineType::SINGLELINE);
 	mText->setVerticalAlignment(ALIGN_TOP);
 
+	if (EsLocale::isRTL())
+	  mText->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+
 	mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, Utils::HtmlColor::applyColorOpacity(theme->Text.color, SUBSTRING_OPACITY));
 	mSubstring->setVerticalAlignment(ALIGN_TOP);
+
+	if (EsLocale::isRTL())
+	  mSubstring->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
 
 	if (!multiLine)
 		mSubstring->setMultiLine(TextComponent::MultiLineType::SINGLELINE);

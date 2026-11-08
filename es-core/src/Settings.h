@@ -27,7 +27,7 @@ private: \
 static int _##XX; \
 public: \
 inline static int XX() { return _##XX; }; \
-static bool set##XX(bool val) { _##XX = val; return Settings::getInstance()->setInt(#XX, val); };
+static bool set##XX(int val) { _##XX = val; return Settings::getInstance()->setInt(#XX, val); };
 
 // Cached static settings macros. To use in cpp to implement cached settings
 #define IMPLEMENT_STATIC_BOOL_SETTING(XX, VAL) bool Settings::_##XX = VAL;
@@ -87,6 +87,7 @@ public:
 	DECLARE_STATIC_BOOL_SETTING(ShowControllerBattery)
 	DECLARE_STATIC_BOOL_SETTING(ShowNetworkIndicator)
 	DECLARE_STATIC_BOOL_SETTING(DrawFramerate)
+	DECLARE_STATIC_BOOL_SETTING(UseFileCache)
 	DECLARE_STATIC_BOOL_SETTING(VolumePopup)
 	DECLARE_STATIC_BOOL_SETTING(BackgroundMusic)
 	DECLARE_STATIC_BOOL_SETTING(ClockMode12)
@@ -96,6 +97,7 @@ public:
 	DECLARE_STATIC_BOOL_SETTING(ShowFoldersFirst)
 	DECLARE_STATIC_BOOL_SETTING(ScrollLoadMedias)
 	DECLARE_STATIC_INT_SETTING(ScreenSaverTime);
+	DECLARE_STATIC_INT_SETTING(FpsLimit);
 
 	// Non-cached settings with only shortcut methods
 	DEFINE_BOOL_SETTING(ShowHiddenFiles)
@@ -121,6 +123,8 @@ public:
 	DEFINE_STRING_SETTING(GameTransitionStyle)		
 	DEFINE_STRING_SETTING(PowerSaverMode)		
 	DEFINE_INT_SETTING(RecentlyScrappedFilter)
+	DEFINE_INT_SETTING(ScraperMediaFilter)
+	DEFINE_INT_SETTING(IndexDirectoryDepth)
 
 	static Delegate<ISettingsChangedEvent> settingChanged;
 

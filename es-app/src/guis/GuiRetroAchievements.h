@@ -20,6 +20,9 @@ protected:
 	void	centerWindow();
 };
 
+#define RETROACHIEVEMENTS_SOFTCORE_COLOR 0x0B71C1FF
+#define RETROACHIEVEMENTS_HARDCORE_COLOR 0xCC9900FF
+
 class RetroAchievementProgress : public GuiComponent
 {
 public:

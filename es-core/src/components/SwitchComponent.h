@@ -38,6 +38,7 @@ public:
 
 private:
 	void onStateChanged();
+	void updateAutoImage();
 
 	ImageComponent mImage;
 	bool mState;

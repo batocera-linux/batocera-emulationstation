@@ -383,7 +383,8 @@ public:
 
 	static std::map<std::string, ThemeSet> getThemeSets();
 	static std::string getThemeFromCurrentSet(const std::string& system);
-	
+	static std::string getCurrentThemeRootPath();
+
 	bool hasSubsets() { return mSubsets.size() > 0; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
 

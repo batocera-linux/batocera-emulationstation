@@ -252,6 +252,7 @@ public:
 	std::shared_ptr<TextureResource> getTexture(bool marquee = false);
 
 	Vector3f getLaunchTarget();
+	Vector2f getLaunchTargetSize();
 
 	void	startVideo();
 
@@ -259,6 +260,8 @@ public:
 	bool    hasItemTemplate() { return mHasItemTemplate; }
 
 private:
+	GuiComponent* getLaunchMedia();
+
 	void	handleStoryBoard(bool activate);
 	void	resetProperties();
 	void	createVideo();

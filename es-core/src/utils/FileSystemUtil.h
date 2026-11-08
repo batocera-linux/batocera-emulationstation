@@ -32,7 +32,7 @@ namespace Utils
 		bool        removeFile         (const std::string& _path);
 		bool        createDirectory    (const std::string& _path);
 		bool        removeDirectory    (const std::string& _path);
-		bool        exists             (const std::string& _path);
+		bool        exists             (const std::string& _path, bool enableCache = true);
 		bool        isAbsolute         (const std::string& _path);
 		bool        isRegularFile      (const std::string& _path);
 		bool        isDirectory        (const std::string& _path);
@@ -69,9 +69,9 @@ namespace Utils
 		std::vector<char> readAllBytes(const std::string& fileName);
 
 		void		writeAllText(const std::string& fileName, const std::string& text);
-		bool		copyFile(const std::string src, const std::string dst);
-		void		deleteDirectoryFiles(const std::string path, bool deleteDirectory = false);
-		bool		renameFile(const std::string src, const std::string dst, bool overWrite = true);
+		bool		copyFile(const std::string& src, const std::string& dst);
+		void		deleteDirectoryFiles(const std::string& path, bool deleteDirectory = false);
+		bool		renameFile(const std::string& src, const std::string& dst, bool overWrite = true);
 
 		std::string megaBytesToString(unsigned long size);
 		std::string kiloBytesToString(unsigned long size);
@@ -80,7 +80,7 @@ namespace Utils
 		std::string getPdfTempPath();
 
 #ifdef WIN32
-		void		splitCommand(std::string cmd, std::string* executable, std::string* parameters);
+		void		splitCommand(const std::string& cmd, std::string* executable, std::string* parameters);
 #endif
 		void		preloadFileSystemCache(const std::string& path, bool trySaveStates = true);
 
@@ -89,14 +89,11 @@ namespace Utils
 
 		std::string changeExtension(const std::string& _path, const std::string& extension);
 
-		class FileSystemCacheActivator
+		class FileSystemCache
 		{
 		public:
-			FileSystemCacheActivator();
-			~FileSystemCacheActivator();
-
-		private:
-			static int mReferenceCount;
+			static void reset();
+			static void reset(const std::string& file);
 		};
 
 	} // FileSystem::

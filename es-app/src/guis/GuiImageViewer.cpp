@@ -348,7 +348,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 	
 	if (pages > INITIALPAGES)
 	{
-		mPdfThreads = new Utils::ThreadPool(1);
+		mPdfThreads = new Utils::ThreadPool("loadPdf", 1);
 
 		for (int i = INITIALPAGES; i < pages; i += PAGESPERTHREAD)
 		{
@@ -483,7 +483,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 
 	if (pages > INITIALPAGES)
 	{
-		mPdfThreads = new Utils::ThreadPool(1);
+		mPdfThreads = new Utils::ThreadPool("loadCbz", 1);
 
 		for (int i = INITIALPAGES; i < pages; i += PAGESPERTHREAD)
 		{

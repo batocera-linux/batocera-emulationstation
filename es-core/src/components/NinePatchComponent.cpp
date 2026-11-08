@@ -191,7 +191,7 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 				float xM = 0.0f;
 				float yM = 0.0f;
 
-				unsigned int color = 0xFFFFFF00 | getOpacity();
+				unsigned int color = Renderer::convertColor(0xFFFFFF00 | getOpacity());
 
 				Renderer::Vertex vertices[4];
 				vertices[0] = { { (float)x    , (float)y       }, { xM,        1.0f - yM }, color };
@@ -412,8 +412,19 @@ void NinePatchComponent::onHide()
 {
 	GuiComponent::onHide();
 
+#if defined(USE_OPENGLES_30)
+	// Post-process textures are raw renderer objects rather than reloadable
+	// TextureResources. Release the cache while the context is still valid so a
+	// renderer/context restart cannot leave this component holding a stale name.
+	if (mPostProcessTextureId != (unsigned int)-1)
+	{
+		Renderer::destroyTexture(mPostProcessTextureId);
+		mPostProcessTextureId = (unsigned int)-1;
+	}
+#endif
+
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);	
+		mTexture->setRequired(false);
 }
 
 ThemeData::ThemeElement::Property NinePatchComponent::getProperty(const std::string name)

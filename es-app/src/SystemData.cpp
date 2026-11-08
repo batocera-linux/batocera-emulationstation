@@ -100,13 +100,15 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		std::unordered_map<std::string, FileData*> fileMap;
 		fileMap[mEnvData->mStartPath] = mRootFolder;
 
+		int indexDepth = getIndexDirectoryDepth();
 		if (!Settings::ParseGamelistOnly())
 		{
-			populateFolder(mRootFolder, fileMap);
+			populateFolder(mRootFolder, fileMap, 0, indexDepth);
 
 			if (!UIModeController::LoadEmptySystems())
 			{
-				if (mRootFolder->getChildren().size() == 0)
+				// With a depth limit, games may only be known from gamelist.xml : check after parsing it
+				if (mRootFolder->getChildren().size() == 0 && indexDepth == 0)
 					return;
 
 				if (mHidden && !Settings::HiddenSystemsShowGames())
@@ -121,6 +123,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 			parseGamelist(this, fileMap);
 		}
+
+    if (indexDepth > 0 && !Settings::ParseGamelistOnly() && !UIModeController::LoadEmptySystems() && mRootFolder->getChildren().size() == 0)
+      return;
 		
 		if (Settings::RemoveMultiDiskContent() || Settings::BuildMultiDiskContentCache())
 			removeMultiDiskContent(fileMap);
@@ -197,20 +202,27 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 		{
 			if (it->getType() == GAME && it->hasContentFiles())
 			{
+				std::string stamp = "mtime:" + std::to_string(
+					(long long)Utils::FileSystem::getFileModificationDate(it->getPath()).getTime());
+
+				bool fromCache = false;
+
 				std::string json = loadFromJson ? it->getMetadata().get("multidisk") : "";
 				if (!json.empty())
 				{
 					rapidjson::Document doc;
 					doc.Parse(json.c_str());
 
-					if (doc.IsArray())
+					if (doc.IsArray() && doc.Size() > 0 && doc[0].IsString() && stamp == doc[0].GetString())
 					{
+						fromCache = true;
+
 						for (auto& v : doc.GetArray())
 						{
 							if (v.IsString())
 							{
 								std::string file = v.GetString();
-								if (Utils::String::endsWith(file, "/"))
+								if (Utils::String::startsWith(file, "mtime:") || Utils::String::endsWith(file, "/"))
 									continue;
 
 								file = Utils::FileSystem::getAbsolutePath(file, relativeTo);
@@ -219,12 +231,13 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 						}
 					}
 				}
-				else
+				if (!fromCache)
 				{
 					rapidjson::Document doc;
 					doc.SetArray();
 
 					auto& allocator = doc.GetAllocator();
+					doc.PushBack(rapidjson::Value(stamp.c_str(), allocator), allocator);
 
 					for (auto ct : it->getContentFiles())
 					{
@@ -287,7 +300,19 @@ void SystemData::setIsGameSystemStatus()
 	mIsGameSystem = (mMetadata.name != "retropie" && mMetadata.name != "retrobat");
 }
 
-void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap)
+int SystemData::getIndexDirectoryDepth()
+{
+	// Global value depth of subfolders to index under roms/<system> (0 = unlimited by default)
+	int maxDepth = Settings::IndexDirectoryDepth();
+	// Per-system override
+	auto sysDepth = Settings::getInstance()->getString(getName() + ".IndexDirectoryDepth");
+	if (!sysDepth.empty() && sysDepth != "auto")
+		maxDepth = Utils::String::toInteger(sysDepth);
+
+	return maxDepth > 0 ? maxDepth : 0;
+}
+
+void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap, int depth, int maxDepth)
 {
 	const std::string& folderPath = folder->getPath();
 
@@ -372,8 +397,10 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 				}
 			}
 
+			static std::set<std::string> excludedFolders = { "media", "medias", "images", "manuals", "videos", "assets", "html_arrm", "bezels", "fonts", "logs", "screenshots" };
+
 			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
-			if (fn == "media" || fn == "medias" || fn == "images" || fn == "manuals" || fn == "videos" || fn == "assets" || Utils::String::startsWith(fn, "downloaded_") || Utils::String::startsWith(fn, "."))
+			if (fn[0] == '.' || excludedFolders.find(fn) != excludedFolders.cend() || Utils::String::startsWith(fn, "downloaded_"))
 				continue;
 			
 			// Hardcoded optimisation : WiiU has so many files in content & meta directories
@@ -384,8 +411,12 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 			if (mMetadata.name == "vpinball" && fn == "roms")
 				continue;			
 
+			// Index subfolder depth limit (maxDepth = 2 -> roms/<system>/<game>/<subfolder>/ is scanned, nothing deeper)
+			if (maxDepth > 0 && depth >= maxDepth)
+				continue;
+
 			FolderData* newFolder = new FolderData(filePath, this);
-			populateFolder(newFolder, fileMap);
+			populateFolder(newFolder, fileMap, depth + 1, maxDepth);
 
 			//ignore folders that do not contain games
 			if(newFolder->getChildren().size() == 0)
@@ -570,8 +601,8 @@ void SystemData::createGroupedSystems()
 					games_counter = childSystem->getGameCountInfo()->totalGames;
 
 					snprintf(trstring, 1024, ngettext(
-						"This collection contains %i game:%s",
-						"This collection contains %i games, including:%s", games_counter), games_counter, games_list.c_str());
+						"This collection contains %i game: %s",
+						"This collection contains %i games, including: %s", games_counter), games_counter, games_list.c_str());
 
 					folder->setMetadata(MetaDataId::Desc, std::string(trstring));
 				}
@@ -907,8 +938,6 @@ bool SystemData::loadConfig(Window* window)
 		return false;
 	}
 
-	Utils::FileSystem::FileSystemCacheActivator fsc;
-
 	CustomFeatures::loadEsFeaturesFile();
 
 	int currentSystem = 0;
@@ -921,7 +950,7 @@ bool SystemData::loadConfig(Window* window)
 	// Allow threaded loading only if processor threads > 1 so it does not apply on machines like Pi0.
 	if (std::thread::hardware_concurrency() > 1 && Settings::ThreadedLoading())
 	{
-		pThreadPool = new ThreadPool();
+		pThreadPool = new ThreadPool("loadConfig");
 
 		systems = new SystemDataPtr[systemCount];
 		for (int i = 0; i < systemCount; i++)
@@ -1427,29 +1456,19 @@ unsigned int SystemData::getGameCount() const
 
 SystemData* SystemData::getRandomSystem()
 {
-	//  this is a bit brute force. It might be more efficient to just to a while (!gameSystem) do random again...
-	unsigned int total = sSystemVector.count([](auto sys) { return sys->isGameSystem(); });
+	// Only pick among systems actually shown in the system view. Hidden systems and systems
+	// merged into a group are present in sSystemVector but not in the carousel, and setting
+	// the cursor to one of them silently does nothing (IList::setCursor returns false).
+	std::vector<SystemData*> visibleSystems;
 
-	// get random number in range
-	int target = Randomizer::random(total);
-	//int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
-	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
-	{
-		if ((*it)->isGameSystem())
-		{
-			if (target > 0)
-			{
-				target--;
-			}
-			else
-			{
-				return (*it);
-			}
-		}
-	}
+	for (auto system : sSystemVector)
+		if (system->isGameSystem() && system->isVisible())
+			visibleSystems.push_back(system);
 
-	// if we end up here, there is no valid system
-	return NULL;
+	if (visibleSystems.empty())
+		return nullptr;
+
+	return visibleSystems[Randomizer::random((int)visibleSystems.size())];
 }
 
 FileData* SystemData::getRandomGame()
@@ -2301,6 +2320,15 @@ BindableProperty SystemData::getProperty(const std::string& name)
 			return BindableProperty(clockBuf, BindablePropertyType::String);
 		}
 
+		return BindableProperty::EmptyString;
+	}
+
+	if (name == "lastPlayedDateTime")
+	{
+		Utils::Time::DateTime dt = info->lastPlayedDate;
+		if (dt.getTime() != 0)
+			return info->lastPlayedDate;
+		
 		return BindableProperty::EmptyString;
 	}
 

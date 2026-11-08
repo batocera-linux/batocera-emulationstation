@@ -33,6 +33,7 @@ public:
 	}
 
 	virtual void launch(FileData* game) override;
+	virtual Vector3f getLaunchTarget(Vector2f* size) override;
 	virtual std::vector<FileData*> getFileDataEntries() override;
 	virtual void update(int deltaTime) override;
 

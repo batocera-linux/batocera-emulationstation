@@ -239,17 +239,29 @@ void GridGameListView::addPlaceholder()
 	mGrid.add(placeholder->getName(), "", placeholder);
 }
 
-void GridGameListView::launch(FileData* game)
+Vector3f GridGameListView::getLaunchTarget(Vector2f* size)
 {
-	Vector3f target = mDetails.getLaunchTarget();
+	Vector3f target = mDetails.getLaunchTarget(size);
 	if (target == Vector3f(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f, 0))
 	{
 		auto tile = mGrid.getSelectedTile();
 		if (tile != nullptr)
+		{
 			target = mGrid.getPosition() + tile->getLaunchTarget() - mGrid.getCameraOffset();
+			if (size != nullptr)
+				*size = tile->getLaunchTargetSize();
+		}
 	}
 
-	ViewController::get()->launch(game, target);
+	return target;
+}
+
+void GridGameListView::launch(FileData* game)
+{
+	Vector2f targetSize = Vector2f::Zero();
+	Vector3f target = getLaunchTarget(&targetSize);
+
+	ViewController::get()->launch(game, target, targetSize);
 }
 
 void GridGameListView::remove(FileData *game)

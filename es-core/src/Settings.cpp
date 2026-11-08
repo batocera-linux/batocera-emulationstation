@@ -23,6 +23,7 @@ IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerBattery, true)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawClock, true)
 IMPLEMENT_STATIC_BOOL_SETTING(ClockMode12, false)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawFramerate, false)
+IMPLEMENT_STATIC_BOOL_SETTING(UseFileCache, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VolumePopup, true)
 IMPLEMENT_STATIC_BOOL_SETTING(BackgroundMusic, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VSync, true)
@@ -31,6 +32,7 @@ IMPLEMENT_STATIC_BOOL_SETTING(IgnoreLeadingArticles, false)
 IMPLEMENT_STATIC_BOOL_SETTING(ShowFoldersFirst, true)
 IMPLEMENT_STATIC_BOOL_SETTING(ScrollLoadMedias, false)
 IMPLEMENT_STATIC_INT_SETTING(ScreenSaverTime, 5 * 60 * 1000)
+IMPLEMENT_STATIC_INT_SETTING(FpsLimit, 0)
 
 #if WIN32
 IMPLEMENT_STATIC_BOOL_SETTING(ShowNetworkIndicator, false)
@@ -51,6 +53,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(DrawClock)
 	UPDATE_STATIC_BOOL_SETTING(ClockMode12)
 	UPDATE_STATIC_BOOL_SETTING(DrawFramerate)
+	UPDATE_STATIC_BOOL_SETTING(UseFileCache)
 	UPDATE_STATIC_BOOL_SETTING(ScrollLoadMedias)
 	UPDATE_STATIC_BOOL_SETTING(VolumePopup)
 	UPDATE_STATIC_BOOL_SETTING(VSync)
@@ -58,6 +61,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(IgnoreLeadingArticles)		
 	UPDATE_STATIC_BOOL_SETTING(ShowFoldersFirst)
 	UPDATE_STATIC_INT_SETTING(ScreenSaverTime)
+	UPDATE_STATIC_INT_SETTING(FpsLimit)
 
 	if (name == "HiddenSystems")
 	{
@@ -142,7 +146,8 @@ void Settings::setDefaults()
 	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "lastsystem";
 	mStringMap["ShowTags"] = "";
-	
+	mBoolMap["UseFileCache"] = true;
+
 #if WIN32
 	mBoolMap["HidJoysticks"] = true;
 	mBoolMap["ShowOnlyExit"] = true;
@@ -209,24 +214,30 @@ void Settings::setDefaults()
 	mBoolMap["DrawGunCrosshair"] = true;
 	
 	mIntMap["RecentlyScrappedFilter"] = 3;
+	mIntMap["ScraperMediaFilter"] = 1;
+	mIntMap["IndexDirectoryDepth"] = 0; // 0 = unlimited
 	
 	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;
+	mIntMap["FpsLimit"] = 0;
+	mIntMap["AntiAliasing"] = 0;
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 
-#if defined(_WIN32) || defined(TINKERBOARD) || defined(X86) || defined(X86_64) || defined(ODROIDN2) || defined(ODROIDC2) || defined(ODROIDXU4) || defined(RPI4)
-	// Boards > 1Gb RAM
-	mIntMap["MaxVRAM"] = 256;
-#elif defined(ODROIDGOA) || defined(GAMEFORCE) || defined(RK3326) || defined(RPIZERO2) || defined(RPI2) || defined(RPI3) || defined(ROCKPRO64)
-	// Boards with 1Gb RAM
-	mIntMap["MaxVRAM"] = 128;
-#elif defined(_RPI_)
-	// Rpi 0, 1
-	mIntMap["MaxVRAM"] = 128;
-#else
-	// Other boards
-	mIntMap["MaxVRAM"] = 100;
-#endif
+	// Dynamically scale MaxVRAM based on total system RAM
+	// getTotalSystemMemory returns bytes, divide by 1024^2 for MB
+	unsigned long long totalRamBytes = Utils::Platform::getTotalSystemMemory();
+	int totalRamMB = static_cast<int>(totalRamBytes / (1024ULL * 1024ULL));
+
+	// Fallback to 128MB VRAM if RAM detection fails (returns 0)
+	if (totalRamMB == 0 || totalRamMB <= 1024) {
+		mIntMap["MaxVRAM"] = 128;
+	} else if (totalRamMB <= 2048) {
+		mIntMap["MaxVRAM"] = 256;
+	} else if (totalRamMB <= 4096) {
+		mIntMap["MaxVRAM"] = 384;
+	} else {
+		mIntMap["MaxVRAM"] = 512;
+	}
 
 	mStringMap["TransitionStyle"] = "auto";
 	mStringMap["GameTransitionStyle"] = "auto";
@@ -290,6 +301,7 @@ void Settings::setDefaults()
 	mBoolMap["ScreenSaverVideoMute"] = false;
 	mBoolMap["VideoLowersMusic"] = true;
 	mBoolMap["VolumePopup"] = Settings::_VolumePopup;
+	mBoolMap["RightStickVolume"] = true;
 
 	mIntMap["MusicVolume"] = 128;
 
@@ -340,10 +352,11 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowFilenames"] = false;
 
-#if defined(_WIN32) || defined(X86) || defined(X86_64)
-	mBoolMap["HideWindow"] = false;
-#else
+#if defined(RK3128)
+	// no compositor, so the emulator needs the display ES would keep
 	mBoolMap["HideWindow"] = true;
+#else
+	mBoolMap["HideWindow"] = false;
 #endif
 
 	mBoolMap["HideWindowFullReinit"] = false;

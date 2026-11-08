@@ -10,6 +10,7 @@
 #include "LocaleES.h"
 #include "renderers/Renderer.h"
 #include "InputManager.h"
+#include <vector>
 
 #ifdef HAVE_UDEV
 #include <poll.h>
@@ -24,6 +25,8 @@
 #include <SDL_syswm.h>
 #include <hidsdi.h>
 #pragma comment(lib, "Hid.lib")
+#include <cfgmgr32.h>
+#include <map>
 
 #define WIIMOTE_GUN "Wiimote Gun"
 
@@ -43,16 +46,17 @@ enum class LightGunType
 	Aimtrak,
 	AELightgun,
 	Xgunner,
-	VirtualHID
+	VirtualHID,
+	Wiimote4Guns
 };
 
 class RawInputManager
 {
 public:
-	static LightGunType getLightGunType(HANDLE hDevice)
-	{
-		std::string name = GetRawInputDevicePath(hDevice);
+	static bool sWiimoteGunRunning;
 
+	static LightGunType getLightGunType(const std::string& name)
+	{
 		std::string sindenDeviceIds[] = { "VID_16C0&PID_0F01", "VID_16C0&PID_0F02", "VID_16C0&PID_0F38", "VID_16C0&PID_0F39" };
 		for (auto id : sindenDeviceIds)
 			if (name.find(id) != std::string::npos)
@@ -86,63 +90,151 @@ public:
 		std::string xgunnerDeviceIds[] = { "VID_1209&PID_0001", "VID_1209&PID_0002", "VID_1209&PID_0003", "VID_1209&PID_0004" };
 		for (auto id : xgunnerDeviceIds)
 			if (name.find(id) != std::string::npos)
-				return LightGunType::Xgunner;
+				return isVirtualHidDevice(name) ? LightGunType::Mouse : LightGunType::Xgunner;
 
 		std::string aeDeviceIds[] = { "VID_2341&PID_8037", "VID_2341&PID_8038" };
 		for (auto id : aeDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::AELightgun;
 
-		if (name.find("vmulti") != std::string::npos)
+		std::string wiimote4GunsDeviceIds[] = { "VID_001F&PID_BACC", "VID_002F&PID_BACC", "VID_003F&PID_BACC", "VID_004F&PID_BACC" };
+		for (auto id : wiimote4GunsDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::Wiimote4Guns;
+
+		std::string lowerName = Utils::String::toLower(name);
+		std::string wiimote4GunsIds[] = { "vmultia", "vmultib", "vmultic", "vmultid" };
+		for (auto id : wiimote4GunsIds)
+			if (lowerName.find(id) != std::string::npos)
+				return LightGunType::VirtualHID;
+
+		if (sWiimoteGunRunning && name.find("vmulti") != std::string::npos)
 			return LightGunType::VirtualHID;
 
 		return LightGunType::Mouse;
+	}
+
+	static LightGunType getLightGunType(HANDLE hDevice)
+	{
+		return getLightGunType(GetRawInputDevicePath(hDevice));
 	}
 
 	static std::string GetRawInputDevicePath(HANDLE hDevice)
 	{
 		UINT bufferSize = 0;
 
-		// Get the required buffer size for the device name
-		if (GetRawInputDeviceInfoA(hDevice, RIDI_DEVICENAME, nullptr, &bufferSize) != 0) {
-			return "";
-		}
-
-		// Allocate memory for the device name
-		char* lpDeviceName = new char[bufferSize];
-		if (lpDeviceName == nullptr)
+		// Required size. With pData == nullptr, the API returns 0 on success.
+		if (GetRawInputDeviceInfoA(hDevice, RIDI_DEVICENAME, nullptr, &bufferSize) != 0)
 			return "";
 
-		// Get the device name
-		if (GetRawInputDeviceInfoA(hDevice, RIDI_DEVICENAME, lpDeviceName, &bufferSize) == -1) {
-			delete[] lpDeviceName;
+		// Safeguard: a device path is never 4 KB.
+		if (bufferSize == 0 || bufferSize > 4096)
 			return "";
-		}
 
-		std::string deviceName(lpDeviceName);
-		delete[] lpDeviceName;
-		return deviceName;
+		std::vector<char> buffer(bufferSize + 1, '\0');
+
+		if (GetRawInputDeviceInfoA(hDevice, RIDI_DEVICENAME, buffer.data(), &bufferSize) == (UINT)-1)
+			return "";
+
+		buffer[buffer.size() - 1] = '\0';   // guaranteed termination
+		return std::string(buffer.data());
 	}
 
 	static std::string GetRawInputDeviceName(HANDLE hDevice)
 	{
 		std::string path = GetRawInputDevicePath(hDevice);
+		if (path.empty())
+			return "";
 
 		std::string ret;
 
-		HANDLE hhid = CreateFileA(path.c_str(), 0, 3, nullptr, 3, 0x00000080, nullptr);
+		HANDLE hhid = CreateFileA(path.c_str(), 0,
+			FILE_SHARE_READ | FILE_SHARE_WRITE, nullptr,
+			OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+
 		if (hhid != INVALID_HANDLE_VALUE)
 		{
-			wchar_t buf[255];
-			if (HidD_GetProductString(hhid, &buf[0], 255))
+			wchar_t buf[256] = { 0 };
+
+			// HidD_GetProductString attend une longueur en OCTETS, pas en caractères.
+			if (HidD_GetProductString(hhid, &buf[0], sizeof(buf) - sizeof(wchar_t)))
+			{
+				buf[255] = L'\0';
 				ret = Utils::String::convertFromWideString(buf);
+			}
 
 			CloseHandle(hhid);
 		}
 
 		return ret;
 	}
+
+	// Returns the device hardware and compatible IDs (upper case, '|' separated), or "" if unavailable.
+	// Results are cached per device path, as updateGuns rescans devices every 11 frames.
+	static std::string getDeviceIds(const std::string& devicePath)
+	{
+		static std::map<std::string, std::string> cache;
+
+		auto it = cache.find(devicePath);
+		if (it != cache.cend())
+			return it->second;
+
+		typedef CONFIGRET(WINAPI* CM_Locate_DevNodeAPtr)(PDEVINST, DEVINSTID_A, ULONG);
+		typedef CONFIGRET(WINAPI* CM_Get_DevNode_Registry_PropertyAPtr)(DEVINST, ULONG, PULONG, PVOID, PULONG, ULONG);
+
+		static HMODULE hSetupapi = ::LoadLibrary("setupapi.dll");
+		static CM_Locate_DevNodeAPtr pLocateDevNode = hSetupapi ? (CM_Locate_DevNodeAPtr) ::GetProcAddress(hSetupapi, "CM_Locate_DevNodeA") : nullptr;
+		static CM_Get_DevNode_Registry_PropertyAPtr pGetRegistryProperty = hSetupapi ? (CM_Get_DevNode_Registry_PropertyAPtr) ::GetProcAddress(hSetupapi, "CM_Get_DevNode_Registry_PropertyA") : nullptr;
+
+		std::string result;
+
+		if (pLocateDevNode != nullptr && pGetRegistryProperty != nullptr)
+		{
+			// "\\?\HID#HIDCLASS&Col01#1&xxxx&0&0000#{guid}" -> "HID\HIDCLASS&Col01\1&xxxx&0&0000"
+			std::string instanceId = devicePath;
+
+			auto cut = instanceId.find("#{");
+			if (cut != std::string::npos)
+				instanceId = instanceId.substr(0, cut);
+
+			instanceId = Utils::String::replace(instanceId, "\\\\?\\", "");
+			instanceId = Utils::String::replace(instanceId, "#", "\\");
+
+			DEVINST devInst;
+			if (pLocateDevNode(&devInst, (DEVINSTID_A)instanceId.c_str(), CM_LOCATE_DEVNODE_NORMAL) == CR_SUCCESS)
+			{
+				ULONG properties[] = { CM_DRP_HARDWAREID, CM_DRP_COMPATIBLEIDS };
+
+				for (auto prop : properties)
+				{
+					char buf[2048] = { 0 };
+					ULONG len = sizeof(buf) - 2;   // keep room for the double null terminator
+
+					if (pGetRegistryProperty(devInst, prop, nullptr, buf, &len, 0) != CR_SUCCESS)
+						continue;
+
+					// REG_MULTI_SZ : iterate over each null-terminated string
+					for (const char* id = buf; *id != '\0'; id += strlen(id) + 1)
+						result += Utils::String::toUpper(id) + "|";
+				}
+			}
+		}
+
+		LOG(LogInfo) << "[GunManager] " << devicePath << " -> " << (result.empty() ? "<no hardware ids>" : result);
+
+		cache[devicePath] = result;
+		return result;
+	}
+
+	// Returns true when the HID device is created by the Virtual HID Framework (VHF).
+	// Windows tags every VHF child with the "HID_DEVICE_SYSTEM_VHF" compatible ID.
+	static bool isVirtualHidDevice(const std::string& devicePath)
+	{
+		return getDeviceIds(devicePath).find("DEVICE_SYSTEM_VHF") != std::string::npos;
+	}
 };
+
+bool RawInputManager::sWiimoteGunRunning = false;
 #endif
 
 GunManager::GunManager()
@@ -183,6 +275,10 @@ GunManager::~GunManager()
 	}
 #elif WIN32
 	enableRawInputCapture(false);
+	for (auto gun : mGuns)
+		delete gun;
+
+	mGuns.clear();
 #endif
 }
 
@@ -514,11 +610,11 @@ void GunManager::updateGuns(Window* window)
 			bGunborder = false;
 
 			if (val_gunborder != NULL && strncmp(val_gunborder, "1", 1) == 0)
-			  bGunborder = true;
+				bGunborder = true;
 
 			action = udev_device_get_action(dev);
 
-			if (val_gun != NULL && strncmp(val_gun, "1", 1) == 0)
+			if (action != NULL && val_gun != NULL && strncmp(val_gun, "1", 1) == 0)
 			{
 				if (strncmp(action, "add", 3) == 0)
 				{
@@ -545,39 +641,62 @@ void GunManager::updateGuns(Window* window)
 	{
 		updateGunCheck = 0;
 
-		// Get the number of raw input devices
-		UINT numDevices;
-		if (GetRawInputDeviceList(NULL, &numDevices, sizeof(RAWINPUTDEVICELIST)) == -1)
-			return;
+		std::vector<RAWINPUTDEVICELIST> deviceList;
+		UINT numDevices = 0;
 
-		// Allocate memory for the device list
-		RAWINPUTDEVICELIST* deviceList = new RAWINPUTDEVICELIST[numDevices];
-		if (deviceList == nullptr)
-			return;
+		for (int attempt = 0; attempt < 3; attempt++)
+		{
+			UINT count = 0;
+			if (GetRawInputDeviceList(nullptr, &count, sizeof(RAWINPUTDEVICELIST)) == (UINT)-1 || count == 0)
+				return;
 
-		// Get the raw input device list
-		if (GetRawInputDeviceList(deviceList, &numDevices, sizeof(RAWINPUTDEVICELIST)) == -1)
-			delete[] deviceList;
+			deviceList.resize(count);
 
-		// Enumerate and print information about connected mice
+			UINT ret = GetRawInputDeviceList(deviceList.data(), &count, sizeof(RAWINPUTDEVICELIST));
+			if (ret != (UINT)-1)
+			{
+				numDevices = ret;   // number actually written, not the allocated size
+				break;
+			}
+
+			deviceList.clear();
+
+			if (GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+				return;             // real failure, no need to retry
+		}
+
+		if (numDevices == 0)
+			return;                 // unstable list: will try again in 11 frames
+
+		// Only one GetRawInputDeviceInfo call per device and per pass.
+		std::vector<std::string> devicePaths(numDevices);
+		for (UINT i = 0; i < numDevices; i++)
+			devicePaths[i] = RawInputManager::GetRawInputDevicePath(deviceList[i].hDevice);
+
+		// Diagnostic : trace rawinput list when it changes.
+		{
+			static std::set<std::string> lastKnownRawPaths;
+			std::set<std::string> currentRawPaths;
+
+			for (UINT i = 0; i < numDevices; i++)
+				currentRawPaths.insert(std::to_string(deviceList[i].dwType) + "|" + devicePaths[i]);
+
+			if (currentRawPaths != lastKnownRawPaths)
+			{
+				LOG(LogInfo) << "[RawInput] device list changed (" << numDevices << " device(s))";
+				for (const auto& p : currentRawPaths)
+					LOG(LogInfo) << "[RawInput]   " << p;
+
+				lastKnownRawPaths = currentRawPaths;
+			}
+		}
+
+		Window* notifyWindow = mInitialScan ? nullptr : window;
 
 		std::set<std::string> knownPaths;
 
-		bool hasPhysicalGuns = false;
-
-#if FORCE_REPLACEMOUSE
-		hasPhysicalGuns = true;
-#else
-		for (UINT i = 0; i < numDevices; i++)
-		{
-			std::string devicePath = RawInputManager::GetRawInputDevicePath(deviceList[i].hDevice);
-			if (deviceList[i].dwType != RIM_TYPEMOUSE && RawInputManager::getLightGunType(deviceList[i].hDevice) != LightGunType::Mouse)
-			{
-				hasPhysicalGuns = true;
-				break;
-			}
-		}
-#endif
+		// WiimoteGun must be detected BEFORE classifying devices:
+		// it allows interpreting "vmulti" as a lightgun.
 		bool hasWiimoteGun = false;
 
 		HWND hWndWiimoteGun = FindWindow("WiimoteGun", NULL);
@@ -587,6 +706,24 @@ void GunManager::updateGuns(Window* window)
 			hasWiimoteGun = (mode == 1);
 		}
 
+		RawInputManager::sWiimoteGunRunning = hasWiimoteGun;
+
+		bool hasPhysicalGuns = false;
+
+#if FORCE_REPLACEMOUSE
+		hasPhysicalGuns = true;
+#else
+		for (UINT i = 0; i < numDevices; i++)
+		{
+			if (deviceList[i].dwType != RIM_TYPEMOUSE &&
+				RawInputManager::getLightGunType(devicePaths[i]) != LightGunType::Mouse)
+			{
+				hasPhysicalGuns = true;
+				break;
+			}
+		}
+#endif
+
 		if (hasPhysicalGuns || hasWiimoteGun)
 		{
 			for (UINT i = 0; i < numDevices; i++)
@@ -595,15 +732,18 @@ void GunManager::updateGuns(Window* window)
 					continue;
 
 				HANDLE hDevice = deviceList[i].hDevice;
+				const std::string& devicePath = devicePaths[i];
 
-				auto gunType = RawInputManager::getLightGunType(hDevice);
+				if (devicePath.empty())
+					continue;
+
+				auto gunType = RawInputManager::getLightGunType(devicePath);
 				if (hasWiimoteGun && gunType == LightGunType::Mouse)
 					continue;
 
-				std::string devicePath = RawInputManager::GetRawInputDevicePath(hDevice);
 				knownPaths.insert(devicePath);
 
-				if (std::any_of(mGuns.cbegin(), mGuns.cend(), [devicePath](Gun* pGun) { return pGun->mPath == devicePath; }))
+				if (std::any_of(mGuns.cbegin(), mGuns.cend(), [&devicePath](Gun* pGun) { return pGun->mPath == devicePath; }))
 					continue;
 
 				Gun* newgun = new Gun();
@@ -621,8 +761,8 @@ void GunManager::updateGuns(Window* window)
 					newgun->mX = newgun->m_internalX = x;
 					newgun->mY = newgun->m_internalY = y;
 				}
-				else if (window != NULL && !newgun->mName.empty() && Settings::getInstance()->getBool("ShowGunsNotifications"))
-					window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
+				else if (notifyWindow != NULL && !newgun->mName.empty() && Settings::getInstance()->getBool("ShowGunsNotifications"))
+					notifyWindow->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
 
 				mGuns.push_back(newgun);
 			}
@@ -638,8 +778,8 @@ void GunManager::updateGuns(Window* window)
 				iter++;
 			else
 			{
-				if (window != NULL && !gun->m_isMouse && Settings::getInstance()->getBool("ShowGunsNotifications"))
-					window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
+				if (notifyWindow != NULL && !gun->m_isMouse && Settings::getInstance()->getBool("ShowGunsNotifications"))
+					notifyWindow->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
 
 				LOG(LogInfo) << "Gun removed found at " << gun->mPath;
 
@@ -659,8 +799,8 @@ void GunManager::updateGuns(Window* window)
 
 			mGuns.push_back(newgun);
 
-			if (window != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
-				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
+			if (notifyWindow != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
+				notifyWindow->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
 		}
 		else if (!hasWiimoteGun && mGuns.size())
 		{
@@ -669,8 +809,8 @@ void GunManager::updateGuns(Window* window)
 				Gun* gun = *it;
 				if (gun->mName == WIIMOTE_GUN)
 				{
-					if (window != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
-						window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
+					if (notifyWindow != NULL && Settings::getInstance()->getBool("ShowGunsNotifications"))
+						notifyWindow->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
 
 					mGuns.erase(it);
 					delete gun;
@@ -689,7 +829,7 @@ void GunManager::updateGuns(Window* window)
 		else if (!hasPhysicalGuns && mMessageHookRegistered)
 			enableRawInputCapture(false);
 
-		delete[] deviceList;
+		mInitialScan = false;
 	}
 #endif
 
@@ -747,6 +887,8 @@ void GunManager::updateGuns(Window* window)
 		if (gun->isMButtonDown() != oldGun.isMButtonDown())
 		{
 			auto config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+			if (config == nullptr)
+				continue;
 
 			Input input;
 			if (config->getInputByName(BUTTON_OK, &input))
@@ -756,6 +898,8 @@ void GunManager::updateGuns(Window* window)
 		if (gun->isStartButtonDown() != oldGun.isStartButtonDown())
 		{
 			auto config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+			if (config == nullptr)
+				continue;
 
 			Input input;
 			if (config->getInputByName("start", &input))
@@ -765,6 +909,8 @@ void GunManager::updateGuns(Window* window)
 		if (gun->isSelectButtonDown() != oldGun.isSelectButtonDown())
 		{
 			auto config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+			if (config == nullptr)
+				continue;
 
 			Input input;
 			if (config->getInputByName("select", &input))

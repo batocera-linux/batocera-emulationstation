@@ -49,11 +49,15 @@ private:
         void openScreensaverOptions();  
         void openSoundSettings();
         void openUISettings();
-        void openUpdatesSettings();
+        void openUpdatesSettings(bool selectTorrentService = false);
         
         void openSystemSettings();
         void openGamesSettings();       
         void openNetworkSettings(bool selectWifiEnable = false);        
+#if !WIN32
+        void openWifiNetworks(int cursorIndex = 0);
+        void openWifiNetwork(const std::string& slot, const std::function<void()>& onClose);
+#endif
         void openQuitMenu();
         void openSystemInformations();
         void openServicesSettings();

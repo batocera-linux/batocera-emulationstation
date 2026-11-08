@@ -25,9 +25,11 @@
 #include "utils/Randomizer.h"
 #include "Paths.h"
 #include "ApiSystem.h"
+#include <algorithm>
 
 #define FADE_TIME					(500)
 #define DATE_TIME_UPDATE_INTERVAL	(100)
+#define STATIC_SCREENSAVER_POLL_INTERVAL	(100)
 
 SystemScreenSaver::SystemScreenSaver(Window* window) :
 	mVideoScreensaver(NULL),
@@ -67,6 +69,29 @@ bool SystemScreenSaver::allowSleep()
 bool SystemScreenSaver::isScreenSaverActive()
 {
 	return (mState != STATE_INACTIVE);
+}
+
+int SystemScreenSaver::getNextUpdateTimeout()
+{
+	// Fades and video require continuous rendering.
+	if (mState != STATE_SCREENSAVER_ACTIVE || mVideoScreensaver)
+		return 0;
+
+	// Black/dim periodically wake for polling-based input such as lightguns.
+	if (!mImageScreensaver)
+		return STATIC_SCREENSAVER_POLL_INTERVAL;
+
+	// Slideshow: wake for the next image change.
+	int timeout = mVideoChangeTime - mTimer;
+	if (timeout < 1)
+		timeout = 1;
+
+	// Without the clock, periodically wake for polling-based input.
+	if (!Settings::getInstance()->getBool("ScreenSaverDateTime"))
+		return std::min(timeout, STATIC_SCREENSAVER_POLL_INTERVAL);
+
+	// Use the existing date/time update cadence.
+	return std::min(timeout, DATE_TIME_UPDATE_INTERVAL);
 }
 
 void SystemScreenSaver::startScreenSaver()
@@ -220,6 +245,18 @@ void SystemScreenSaver::stopScreenSaver()
 
 	if(isExitingScreenSaver && mState != STATE_INACTIVE) {
 	  Scripting::fireEvent("screensaver-stop");
+
+	  // the screensaver fired game-selected for its own games, so tell the listeners what is selected again
+	  auto state = ViewController::get()->getState();
+	  if (state.viewing == ViewController::GAME_LIST)
+	  {
+		  auto view = ViewController::get()->getGameListView(state.getSystem(), false);
+		  FileData* cursor = view ? view->getCursor() : nullptr;
+		  if (cursor != nullptr)
+			  Scripting::fireEvent("game-selected", cursor->getSourceFileData()->getSystem()->getName(), cursor->getPath(), cursor->getName());
+	  }
+	  else if (state.viewing == ViewController::SYSTEM_SELECT)
+		  Scripting::fireEvent("system-selected", state.getSystem()->getName());
 	}
 
 	// we need this to loop through different videos
@@ -485,7 +522,7 @@ void SystemScreenSaver::update(int deltaTime)
 	{
 		// Update the timer that swaps the videos
 		mTimer += deltaTime;
-		if (mTimer > mVideoChangeTime)
+		if (mTimer >= mVideoChangeTime)
 			nextVideo();
 	}
 

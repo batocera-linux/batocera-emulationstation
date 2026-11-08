@@ -160,7 +160,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
-
+		
 		{ "x", FLOAT },
 		{ "y", FLOAT },
 		{ "h", FLOAT },
@@ -191,6 +191,13 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarCorner", FLOAT },
 		{ "scrollbarAlignment", STRING },		// left, right, outer left, outer right
 
+		{ "groupBy", STRING },
+		{ "groupHeight", FLOAT },
+		{ "groupSpacing", FLOAT },
+		{ "groupBands", BOOLEAN },
+		{ "sortBy", STRING },
+		{ "sortDescending", BOOLEAN },
+		
 		{ "centerSelection", STRING },			// true, false, partial
 		{ "scrollLoop", BOOLEAN } } },
 
@@ -2394,6 +2401,23 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 	}
 
 	return sets;
+}
+
+std::string ThemeData::getCurrentThemeRootPath()
+{
+	auto themeSets = ThemeData::getThemeSets();
+	if (themeSets.empty())
+		return "";
+
+	std::map<std::string, ThemeSet>::const_iterator set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+	if (set == themeSets.cend())
+	{
+		// currently selected theme set is missing, so just pick the first available set
+		set = themeSets.cbegin();
+		Settings::getInstance()->setString("ThemeSet", set->first);
+	}
+
+	return set->second.path;
 }
 
 std::string ThemeData::getThemeFromCurrentSet(const std::string& system)

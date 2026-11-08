@@ -173,6 +173,7 @@ public:
 		WRITEPLANEMODE = 30,
 		BACKGLASS = 31,
 		NFC = 32,
+		UPGRADEVIATORRENT = 33,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -197,7 +198,12 @@ public:
 
     bool setOverclock(std::string mode);
 
-    virtual std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr);
+#ifdef BATOCERA
+    bool areCpuMitigationsEnabled();
+    bool setCpuMitigationsEnabled(bool enabled);
+#endif
+
+    virtual std::pair<std::string, int> updateSystem(const std::function<void(const std::string)>& func = nullptr, bool fromlocalmedia = false);
 
     std::pair<std::string, int> backupSystem(BusyComponent* ui, std::string device);
     std::pair<std::string, int> installSystem(BusyComponent* ui, std::string device, std::string architecture);
@@ -205,8 +211,14 @@ public:
 
     virtual bool ping();
     virtual bool canUpdate(std::vector<std::string>& output);
+    virtual bool canLocalUpdate(); // update from a local media
+    virtual bool canArchitectureUpdate(std::string& architecture); // allow to upgrade architectures
 	virtual void setReadyFlag(bool ready = true);
 	virtual bool isReadyFlagSet();
+
+    virtual bool torrentIsReadyForUpdate();
+    virtual std::string torrentStatus();
+    virtual std::pair<std::string, int> torrentUpdateSystem(const std::function<void(const std::string)>& func = nullptr);
 
     virtual bool launchKodi(Window *window);
     bool launchFileManager(Window *window);
@@ -236,6 +248,10 @@ public:
 #else
 	bool enableWifi(std::string ssid, std::string key);
 #endif
+#if !WIN32
+	bool configureWifi();
+	bool connectWifi(const std::string& ssid);
+#endif
     bool disableWifi();
 
 	virtual std::string getIpAddress();
@@ -259,6 +275,10 @@ public:
     std::vector<std::string> getAvailableOverclocking();
     std::vector<BiosSystem> getBiosInformations(const std::string system = "");
     virtual std::vector<std::string> getVideoModes(const std::string output = "");
+#ifdef BATOCERA
+    bool isHdrSupported();
+    bool isVrrSupported();
+#endif
 	std::vector<std::string> getCustomRunners();
 
 	virtual std::vector<std::string> getAvailableStorageDevices();
@@ -273,6 +293,10 @@ public:
 	bool setButtonColorGameForce(std::string basic_string);
 
 	bool setPowerLedGameForce(std::string basic_string);    
+
+	bool setButtonColorR36Ultra(const std::string& basic_string);
+
+	bool setPowerLedR36(const std::string& basic_string);
 
     /* audio card */
     bool setAudioOutputDevice(std::string device);
@@ -330,7 +354,13 @@ public:
 	bool getLEDBrightness(int& value);
 	void setLEDBrightness(int value);
 
+	bool isLEDMonochrome();
+
+	// LED Mode
+	void setLEDMode(const std::string& mode);
+
 	std::vector<std::string> getWifiNetworks(bool scan = false);
+	std::string getConnectedWifiSsid();
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
 	

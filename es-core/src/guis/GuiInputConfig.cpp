@@ -74,7 +74,7 @@ void GuiInputConfig::initInputConfigStructure(InputConfig* target)
 		{ "l3",              true,  "LEFT STICK PRESS",   ":/help/analog_thumb.svg" },
 		{ "r3",              true,  "RIGHT STICK PRESS",  ":/help/analog_thumb.svg" },
 
-		{ "hotkey",          true,  "HOTKEY",             ":/help/button_hotkey.svg" }
+		{ "hotkey",          false, "HOTKEY",             ":/help/button_hotkey.svg" }
 	};
 	
 #ifdef INVERTEDINPUTCONFIG

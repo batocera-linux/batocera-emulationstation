@@ -9,7 +9,7 @@
 #include "components/SwitchComponent.h"
 #include "components/OptionListComponent.h"
 
-GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : GuiSettings(window, _("RETROACHIEVEMENT SETTINGS").c_str())
+GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : GuiSettings(window, _("RETROACHIEVEMENTS SETTINGS").c_str())
 {
 	addGroup(_("SETTINGS"));
 
@@ -43,7 +43,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	{
 		std::string currentSound = SystemConf::getInstance()->get("global.retroachievements.sound");
 
-		auto rsounds_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RETROACHIEVEMENT UNLOCK SOUND"), false);
+		auto rsounds_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RETROACHIEVEMENTS UNLOCK SOUND"), false);
 		rsounds_choices->add(_("none"), "none", currentSound.empty() || currentSound == "none");
 
 		for (auto snd : installedRSounds)
@@ -57,7 +57,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	}
 
 	// retroachievements_hardcore_mode
-	addSwitch(_("SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"), _("View your RetroAchievement stats right from the main menu!"), "RetroachievementsMenuitem", true, nullptr);
+	addSwitch(_("SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"), _("View your RetroAchievements stats right from the main menu!"), "RetroachievementsMenuitem", true, nullptr);
 
 	addGroup(_("GAME INDEXES"));
 	addSwitch(_("INDEX NEW GAMES AT STARTUP"), "CheevosCheckIndexesAtStart", true);

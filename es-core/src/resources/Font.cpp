@@ -14,6 +14,10 @@
 #include <algorithm>
 #include "math/Transform4x4f.h"
 
+#ifdef HAVE_FRIBIDI
+#include <fribidi.h>
+#endif
+
 #ifdef WIN32
 #include <Windows.h>
 #endif
@@ -623,6 +627,54 @@ bool isBidiChar(char c)
     return (c & 0xE0) == 0xC0 && (c & 0x10) == 0x10;
 }
 
+std::string Font::processRTLText(const std::string& text)
+{
+#ifdef HAVE_FRIBIDI
+    if (text.empty()) return text;
+
+    std::vector<std::string> lines = Utils::String::split(text, '\n', false);
+    std::string result;
+
+    for (size_t i = 0; i < lines.size(); ++i)
+    {
+        const std::string& line = lines[i];
+
+        if (!line.empty())
+        {
+            size_t len = line.length();
+
+            // 1. Convert UTF-8 to UTF-32 for FriBidi
+            std::vector<FriBidiChar> unicode_in(len + 1);
+            std::vector<FriBidiChar> unicode_out(len + 1);
+            int ulen = fribidi_charset_to_unicode(FRIBIDI_CHAR_SET_UTF8, line.c_str(), len, unicode_in.data());
+
+            // 2. Apply FriBidi for shaping + reorganisation BiDi
+            FriBidiParType base_dir = FRIBIDI_PAR_ON; // auto dectect, to apply ponctuation depending on the language
+            fribidi_boolean ok = fribidi_log2vis(unicode_in.data(), ulen, &base_dir, unicode_out.data(), nullptr, nullptr, nullptr);
+
+            if(ok)
+            {
+                // 3. Convert UTF-32 to UTF-8 for es
+                std::vector<char> utf8_out(len * 4 + 1);
+                int out_len = fribidi_unicode_to_charset(FRIBIDI_CHAR_SET_UTF8, unicode_out.data(), ulen, utf8_out.data());
+                result += std::string(utf8_out.data(), out_len);
+            }
+            else
+            {
+                result += line;
+            }
+        }
+
+        if (i < lines.size() - 1)
+            result += "\n";
+    }
+
+    return result;
+#else
+    return text;
+#endif
+}
+
 std::string tryFastBidi(const std::string& text)
 {
     std::string ret = "";
@@ -681,7 +733,7 @@ std::string tryFastBidi(const std::string& text)
     return ret;
 }
 
-Vector2f Font::sizeText(std::string text, float lineSpacing)
+Vector2f Font::sizeText(const std::string& text, float lineSpacing)
 {
 	float lineWidth = 0.0f;
 	float highestWidth = 0.0f;
@@ -791,13 +843,13 @@ std::string Font::wrapText(std::string text, float maxWidth)
 	return out;
 }
 
-Vector2f Font::sizeWrappedText(std::string text, float xLen, float lineSpacing)
+Vector2f Font::sizeWrappedText(const std::string& text, float xLen, float lineSpacing)
 {
-	text = wrapText(text, xLen);
-	return sizeText(text, lineSpacing);
+	auto wrapped = wrapText(text, xLen);
+	return sizeText(wrapped, lineSpacing);
 }
 
-Vector2f Font::getWrappedTextCursorOffset(std::string text, float xLen, size_t stop, float lineSpacing)
+Vector2f Font::getWrappedTextCursorOffset(const std::string& text, float xLen, size_t stop, float lineSpacing)
 {
 	std::string wrappedText = wrapText(text, xLen);
 
@@ -864,7 +916,12 @@ float Font::getNewlineStartOffset(const std::string& text, const unsigned int& c
 
 TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsigned int color, float xLen, Alignment alignment, float lineSpacing)
 {
-	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(_text, 0, xLen, alignment) : 0);
+#ifdef HAVE_FRIBIDI
+	std::string text = EsLocale::isRTL() ? processRTLText(_text) : _text;
+#else
+	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
+#endif
+	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(text, 0, xLen, alignment) : 0);
 	
 	auto glyph = getGlyph('S');
 	float yTop = glyph ? glyph->bearing.y() : 35;
@@ -874,8 +931,6 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 	// vertices by texture
 	std::map< FontTexture*, std::vector<Renderer::Vertex> > vertMap;
-
-	std::string text = EsLocale::isRTL() ? tryFastBidi(_text) : _text;
 
 	std::map<int, int> tabStops;
 	int tabIndex = 0;

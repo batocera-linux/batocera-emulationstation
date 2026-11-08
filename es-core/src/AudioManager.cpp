@@ -9,14 +9,15 @@
 #include "utils/StringUtil.h"
 #include "utils/Randomizer.h"
 #include "SystemConf.h"
-#include "id3v2lib/include/id3v2lib.h"
 #include "ThemeData.h"
 #include "Paths.h"
+#include "id3v2lib/include/id3v2lib.h"
 
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 #ifdef WIN32
 #include <time.h>
@@ -66,6 +67,10 @@ void AudioManager::init()
 	mSongNameChanged = false;
 	mPlayingSystemThemeSong = "none";
 	std::deque<std::string> mLastPlayed;
+
+#ifdef __linux__
+	SDL_SetHint(SDL_HINT_AUDIODRIVER, "pipewire,alsa");
+#endif
 
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
@@ -189,9 +194,9 @@ void AudioManager::addLastPlayed(const std::string& newSong, int totalMusic)
 		return;
 	}
 	
-	while (mLastPlayed.size() > historySize) {
+	while (mLastPlayed.size() > historySize)
 		mLastPlayed.pop_back();
-	}
+
 	mLastPlayed.push_front(newSong);
 	
 	LOG(LogDebug) << "Adding " << newSong << " to last played, " << mLastPlayed.size() << " in history";
@@ -246,6 +251,9 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
         }
     }
 
+	if (mCurrentMusic != nullptr && continueIfPlaying)
+		return;
+
     std::vector<std::string> musics;
 
     if (!mCurrentThemeMusicDirectory.empty())
@@ -262,24 +270,142 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
     if (musics.empty())
         return;
+retry:
 
     int randomIndex = Randomizer::random(musics.size());
-    while (songWasPlayedRecently(musics.at(randomIndex)))
+
+	int maxRecent = musics.size() - 1; // Security for retry goto
+    while (maxRecent > 0 && songWasPlayedRecently(musics[randomIndex]))
     {
         LOG(LogDebug) << "Music "" << musics.at(randomIndex) << "" was played recently, trying again";
         randomIndex = Randomizer::random(musics.size());
+
+		maxRecent--;
     }
 
-    if (mCurrentMusic != nullptr && continueIfPlaying)
-        return;
+	std::string path = musics[randomIndex];
+    playMusic(path);
 
-    playMusic(musics.at(randomIndex));
-    playSong(musics.at(randomIndex));
-    addLastPlayed(musics.at(randomIndex), musics.size());
+	if (mInitialized && mCurrentMusic == nullptr && Settings::BackgroundMusic() && musics.size() > 1)
+	{
+		musics.erase(std::remove(musics.begin(), musics.end(), path), musics.end());		
+		goto retry;
+	}
+
+    playSong(path);
+    addLastPlayed(path, musics.size());
     mPlayingSystemThemeSong = "";
 }
 
-void AudioManager::playMusic(std::string path)
+static std::string utf16_to_utf8(const std::u16string& u16)
+{
+    std::string out;
+    out.reserve(u16.size() * 3); // upper bound for BMP chars
+
+    for (size_t i = 0; i < u16.size(); ++i)
+    {
+        uint32_t code = u16[i];
+
+        // Handle surrogate pairs (just in case)
+        if (code >= 0xD800 && code <= 0xDBFF && (i + 1) < u16.size())
+        {
+            uint32_t low = u16[i + 1];
+            if (low >= 0xDC00 && low <= 0xDFFF)
+            {
+                code = (((code - 0xD800) << 10) | (low - 0xDC00)) + 0x10000;
+                ++i; // consumed low surrogate
+            }
+        }
+
+        if (code <= 0x7F)
+        {
+            out.push_back(static_cast<char>(code));
+        }
+        else if (code <= 0x7FF)
+        {
+            out.push_back(static_cast<char>(0xC0 | (code >> 6)));
+            out.push_back(static_cast<char>(0x80 | (code & 0x3F)));
+        }
+        else if (code <= 0xFFFF)
+        {
+            out.push_back(static_cast<char>(0xE0 | (code >> 12)));
+            out.push_back(static_cast<char>(0x80 | ((code >> 6) & 0x3F)));
+            out.push_back(static_cast<char>(0x80 | (code & 0x3F)));
+        }
+        else
+        {
+            out.push_back(static_cast<char>(0xF0 | (code >> 18)));
+            out.push_back(static_cast<char>(0x80 | ((code >> 12) & 0x3F)));
+            out.push_back(static_cast<char>(0x80 | ((code >> 6) & 0x3F)));
+            out.push_back(static_cast<char>(0x80 | (code & 0x3F)));
+        }
+    }
+
+    return out;
+}
+
+static std::string decode_text_frame(const ID3v2_TextFrameData* data)
+{
+    if (!data || !data->text || data->size <= 0)
+        return {};
+
+    const unsigned char* bytes =
+        reinterpret_cast<const unsigned char*>(data->text);
+    size_t len = static_cast<size_t>(data->size);
+
+    // ISO-8859-1 / “ANSI” branch
+    if (data->encoding == ID3v2_ENCODING_ISO)
+    {
+        if (len > 0 && bytes[len - 1] == 0x00)
+            --len; // drop trailing NUL
+
+        return std::string(reinterpret_cast<const char*>(bytes),
+                           reinterpret_cast<const char*>(bytes) + len);
+    }
+
+    // UNICODE branch: UTF‑16 with BOM + 0x0000 terminator
+    if (len < 4)
+        return {};
+
+    bool little_endian = false;
+    size_t offset = 0;
+
+    if (bytes[0] == 0xFF && bytes[1] == 0xFE) {
+        little_endian = true;
+        offset = 2;
+    } else if (bytes[0] == 0xFE && bytes[1] == 0xFF) {
+        little_endian = false;
+        offset = 2;
+    }
+
+    if (offset >= len)
+        return {};
+
+    const unsigned char* p = bytes + offset;
+    len -= offset;
+
+    // Trim trailing UTF‑16 0x0000
+    if (len >= 2 && p[len - 2] == 0x00 && p[len - 1] == 0x00)
+        len -= 2;
+
+    std::u16string u16;
+    u16.reserve(len / 2);
+
+    for (size_t i = 0; i + 1 < len; i += 2)
+    {
+        char16_t ch;
+        if (little_endian)
+            ch = static_cast<char16_t>(p[i] | (p[i + 1] << 8));
+        else
+            ch = static_cast<char16_t>(p[i + 1] | (p[i] << 8));
+
+        u16.push_back(ch);
+    }
+
+	return utf16_to_utf8(u16);
+}
+
+void AudioManager::playMusic(const std::string& path)
 {
 	if (!mInitialized)
 		return;
@@ -450,39 +576,28 @@ void AudioManager::playSong(const std::string& song)
 	LOG(LogDebug) << "AudioManager::setSongName";
 
 	// First let's try with an ID3 v2 tag
-#define MAX_STR_SIZE 255 // Empiric max size of a MP3 title
-
-	ID3v2_tag* tag = load_tag(song.c_str());
-	if (tag != NULL)
+	ID3v2_Tag* tag = ID3v2_read_tag(song.c_str());
+	if (tag != nullptr)
 	{
-		ID3v2_frame* title_frame = tag_get_title(tag);
-		if (title_frame != NULL)
+		ID3v2_TextFrame* title_frame = ID3v2_Tag_get_title_frame(tag);
+		if (title_frame != nullptr)
 		{
-			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-			if (title_content != NULL && title_content->size > 0)
+			std::string song_name = decode_text_frame(title_frame->data);
+
+			ID3v2_TextFrame* artist_frame = ID3v2_Tag_get_artist_frame(tag);
+			if (artist_frame != nullptr)
 			{
-				std::string song_name(title_content->data, title_content->size);
-				ID3v2_frame* artist_frame = tag_get_artist(tag);
-				if (artist_frame != NULL)
-				{
-					ID3v2_frame_text_content* artist_content = parse_text_frame_content(artist_frame);
-					if (artist_content != NULL && artist_content->size > 0)
-					{
-						std::string artist(artist_content->data, artist_content->size);
-						song_name += " - " + artist;
-						free(artist_content->data);
-						free(artist_content);
-					}
-				}
-				song_name.erase(std::remove_if(song_name.begin(), song_name.end(), [](unsigned char c) { return !Utils::String::isPrintableChar(c); }), song_name.end());
-				setSongName(song_name);
-				free(title_content->data);
-				free(title_content);
-				free_tag(tag);
-				return;
+				song_name += " - " + decode_text_frame(artist_frame->data);
+				free(artist_frame);
 			}
+
+			setSongName(Utils::String::trim(song_name));
+
+			free(title_frame);
+			free(tag);
+			return;
 		}
-		free_tag(tag);
+		free(tag);
 	}
 
 	// Then, if no v2, let's try with an ID3 v1 tag	

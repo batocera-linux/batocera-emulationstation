@@ -3,6 +3,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include "Settings.h"
+#include "LocaleES.h"
 
 #define AUTO_SCROLL_RESET_DELAY 6000
 #define AUTO_SCROLL_DELAY 6000 // ms to wait before we start to scroll
@@ -404,8 +405,13 @@ void TextComponent::buildTextCache()
 
 			text.append(abbrev);
 		}
-		else if (sx && text.size() && size.x() > (sx + 1) && mAutoScroll == AutoScrollType::HORIZONTAL)
-			align = ALIGN_LEFT;
+		else if (sx && text.size() && size.x() > (sx + 1) && mAutoScroll == AutoScrollType::HORIZONTAL) {
+		  if(EsLocale::isRTL()) {
+		    align = ALIGN_RIGHT;
+		  } else {
+		    align = ALIGN_LEFT;
+		  }
+		}
 
 		mTextCache = std::shared_ptr<TextCache>(f->buildTextCache(text, Vector2f(0, 0), color, sx, align, mLineSpacing));
 	}

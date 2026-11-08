@@ -46,11 +46,17 @@ void DetailedGameListView::updateInfoPanel()
 	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor());
 }
 
+Vector3f DetailedGameListView::getLaunchTarget(Vector2f* size)
+{
+	return mDetails.getLaunchTarget(size);
+}
+
 void DetailedGameListView::launch(FileData* game)
 {
-	Vector3f target = mDetails.getLaunchTarget();
+	Vector2f targetSize = Vector2f::Zero();
+	Vector3f target = getLaunchTarget(&targetSize);
 	
-	ViewController::get()->launch(game, target);
+	ViewController::get()->launch(game, target, targetSize);
 }
 
 void DetailedGameListView::onShow()

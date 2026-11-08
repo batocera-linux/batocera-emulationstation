@@ -198,7 +198,7 @@ void SystemView::populate()
 	TextureLoader::paused = true;
 
 	clearEntries();
-	
+
 	for (auto system : SystemData::sSystemVector)
 	{
 		const std::shared_ptr<ThemeData>& theme = system->getTheme();
@@ -218,7 +218,7 @@ void SystemView::populate()
 			{
 				auto logo = carousel->getLogo(mCarousel.size() - 1);
 				if (logo)
-					ensureTexture(logo.get(), true);
+					ensureTexture(logo.get(), TextureLoadMode::STANDARD);
 			}
 		}
 	}
@@ -248,7 +248,7 @@ void SystemView::populate()
 
 	auto grid = mCarousel.asGrid();
 	if (grid)
-		grid->preloadTiles();
+		grid->preloadTiles();	
 }
 
 void SystemView::goToSystem(SystemData* system, bool animate)
@@ -377,7 +377,13 @@ bool SystemView::input(InputConfig* config, Input input)
 {
 	if (mYButton.isShortPressed(config, input))
 	{
-		showQuickSearch();
+		// Quick search needs the "all games" collection : when the user disabled it, fall back
+		// to a random system instead of silently doing nothing.
+		if (SystemData::getSystem("all") != nullptr)
+			showQuickSearch();
+		else
+			mCarousel.setCursor(SystemData::getRandomSystem());
+
 		return true;
 	}
 
@@ -518,6 +524,10 @@ bool SystemView::showNavigationBar()
 	if (!SystemData::IsManufacturerSupported)
 		return false;
 
+	auto grid = mCarousel.asGrid();
+	if (grid && !grid->getGroupBy().empty())
+		return false;
+
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
 	if (sortMode == "alpha")
 	{
@@ -615,14 +625,11 @@ void SystemView::update(int deltaTime)
 
 	GuiComponent::update(deltaTime);
 
+	// Long press on the west button always selects a random system, matching the game list view.
+	// It used to do so only when netplay was enabled, and otherwise just repeated the quick
+	// search already bound to the short press.
 	if (mYButton.isLongPressed(deltaTime))
-	{
-		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
-		if (netPlay)
-			mCarousel.setCursor(SystemData::getRandomSystem());
-		else
-			showQuickSearch();
-	}
+		mCarousel.setCursor(SystemData::getRandomSystem());
 }
 
 void SystemView::updateExtraTextBinding()
@@ -904,7 +911,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	{
 		prompts.push_back(HelpPrompt("x", _("RANDOM")));
 		if (SystemData::getSystem("all") != nullptr)
-			prompts.push_back(HelpPrompt("y", _("SEARCH"), [&] { showQuickSearch(); })); // QUICK 
+			prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM"), [&] { showQuickSearch(); })); // QUICK 
+		else
+			prompts.push_back(HelpPrompt("y", _("RANDOM"), [&] { mCarousel.setCursor(SystemData::getRandomSystem()); }));
 	}
 
 	if (SystemData::IsManufacturerSupported)
@@ -976,6 +985,23 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 			getDefaultElements();
 
 			mCarousel.applyTheme(theme, "system", "imagegrid", ThemeFlags::ALL);
+
+			auto grid = mCarousel.asGrid();
+			if (grid)
+			{
+				// If the grid is grouped, then put the collections at end
+				std::string groupBy = grid->getGroupBy();
+				if (!groupBy.empty())
+				{
+					std::unordered_set<std::string> atEnd;
+
+					for (auto system : SystemData::sSystemVector)
+						if (system->isCollection() || system->getName() == "retropie" || system->getName() == "retrobat")
+							atEnd.insert(system->getProperty(groupBy).toString());
+
+					grid->setGroupsAtEnd(std::vector<std::string>(atEnd.begin(), atEnd.end()));
+				}
+			}
 		}
 		else
 		{
@@ -1082,7 +1108,7 @@ void SystemView::setExtraRequired(SystemViewData& data, bool required)
 		setTexture(extra, [required](std::shared_ptr<TextureResource> x) { x->setRequired(required); });
 }
 
-void SystemView::ensureTexture(GuiComponent* extra, bool reload)
+void SystemView::ensureTexture(GuiComponent* extra, TextureLoadMode mode)
 {
 	if (extra == nullptr)
 		return;
@@ -1091,13 +1117,10 @@ void SystemView::ensureTexture(GuiComponent* extra, bool reload)
 	if (image != nullptr)
 	{
 		auto tex = image->getTexture();
-		if (tex == nullptr)
+		if (tex == nullptr || tex->isLoaded())
 			return;
 
-		if (reload)
-			tex->reload();
-		else
-			tex->prioritize();
+		tex->reload(mode);
 	}
 
 	for (auto child : extra->enumerateExtraChildrens())
@@ -1109,27 +1132,15 @@ void SystemView::ensureTexture(GuiComponent* extra, bool reload)
 			if (tex == nullptr)
 				return;
 
-			if (reload)
-				tex->reload();
-			else
-				tex->prioritize();
+			tex->reload(mode);
 		}
 	}
-};
+}
 
 void SystemView::preloadExtraNeighbours(int cursor)
 {
 	// Make sure near textures are in at top position & will be released last if VRAM is required
-	int distancesStatic[] = { -2, 2, -1, 1, 0 };
-	int distancesRight[] = { 3, -1, 2, 1, 0 };
-	int distancesLeft[] = { -3, 1, -2, -1, 0 };
-
-	int* distances = &distancesStatic[0];
-
-	if (mCarousel.getScrollingVelocity() > 0)
-		distances = &distancesRight[0];
-	else if (mCarousel.getScrollingVelocity() < 0)
-		distances = &distancesLeft[0];
+	int distances[] = { -2, 2, -1, 1, 0 };
 
 	for (int dx = 0; dx < 5; dx++)
 	{
@@ -1138,18 +1149,19 @@ void SystemView::preloadExtraNeighbours(int cursor)
 		if (index < 0)
 			index += (int)mEntries.size();
 
-		SystemViewData& entry = mEntries.at(index);
+		TextureLoadMode loadMode = abs(distances[dx]) <= 1 ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP;
 
 		auto carousel = mCarousel.asCarousel();
 		if (carousel)
 		{
-			auto logo = carousel->getLogo(dx);
+			auto logo = carousel->getLogo(index);
 			if (logo)
-				ensureTexture(logo.get(), dx > 1);
+				ensureTexture(logo.get(), loadMode);
 		}
 
+		SystemViewData& entry = mEntries.at(index);
 		for (auto extra : entry.backgroundExtras)
-			ensureTexture(extra, dx > 1);
+			ensureTexture(extra, loadMode);
 	}
 }
 
@@ -1509,7 +1521,11 @@ void SystemView::activateExtras(int cursor, bool activate)
 	if (cursor < 0 || cursor >= mEntries.size())
 		return;
 
+
 	bool show = activate && isShowing() && !mScreensaverActive && !mDisable;
+
+	if (show)
+		preloadExtraNeighbours(cursor);
 
 	SystemViewData& data = mEntries.at(cursor);
 	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
@@ -1517,15 +1533,16 @@ void SystemView::activateExtras(int cursor, bool activate)
 		GuiComponent* extra = data.backgroundExtras[j];
 
 		if (show && activate)
+		{
+			ensureTexture(extra, TextureLoadMode::STANDARD);
 			extra->onShow();
+		}
 		else
 			extra->onHide();
 	}
 
 	setExtraRequired(data, activate);
 
-	if (activate)
-		preloadExtraNeighbours(cursor);
 }
 
 SystemData* SystemView::getActiveSystem()

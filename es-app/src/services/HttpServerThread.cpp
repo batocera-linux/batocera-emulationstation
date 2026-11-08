@@ -24,6 +24,7 @@
 #include "scrapers/ThreadedScraper.h"
 #include "guis/GuiUpdate.h"
 #include "ContentInstaller.h"
+#include "InputManager.h"
 
 /* 
 
@@ -37,6 +38,7 @@ GET  /reloadgames
 POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
 POST /launch													-> body must contain the exact file path as text/plain
+POST /input														-> body must contain an input name (left, right, up, down, a, b...) as text/plain
 GET  /runningGame
 GET  /isIdle
 
@@ -140,7 +142,11 @@ static bool isAllowed(const httplib::Request& req, httplib::Response& res)
 void HttpServerThread::run()
 {
 	mHttpServer = new httplib::Server();
-
+	
+	mHttpServer->new_task_queue = [] {
+		return new httplib::ThreadPool(2, CPPHTTPLIB_THREAD_POOL_COUNT);
+	};
+	
 	mHttpServer->Get("/", [=](const httplib::Request & req, httplib::Response &res) 
 	{
 		if (!isAllowed(req, res))
@@ -599,7 +605,7 @@ void HttpServerThread::run()
 
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || !system->isGameSystem())
+			if (system->isCollection() || system->isGroupSystem() || !system->isGameSystem())
 				continue;
 
 			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
@@ -611,9 +617,37 @@ void HttpServerThread::run()
 						w->cancelScreenSaver();
 						ViewController::get()->launch(file);
 					});
+					return;
 				}
 			}
 		}
+	});
+
+	mHttpServer->Post("/input", [this](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		InputConfig* config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+
+		Input input;
+		if (config == nullptr || !config->getInputByName(Utils::String::trim(req.body), &input))
+		{
+			res.set_content("400 bad request - unknown input", "text/plain");
+			res.status = 400;
+			return;
+		}
+
+		Window* w = mWindow;
+		mWindow->postToUiThread([w, config, input]()
+		{
+			Input event = input;
+			w->input(config, event);
+			event.value = 0;
+			w->input(config, event);
+		});
+
+		res.set_content("OK", "text/plain");
 	});
 
 	mHttpServer->Post(R"(/addgames/(/?.*))", [this](const httplib::Request& req, httplib::Response& res)
@@ -645,9 +679,12 @@ void HttpServerThread::run()
 
 			deleteSystem = true;
 		}
+
+		Utils::FileSystem::FileSystemCache::reset();
 			
 		std::unordered_map<std::string, FileData*> fileMap;
-		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+		fileMap[system->getRootFolder()->getPath()] = system->getRootFolder();
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME | FOLDER))
 			fileMap[file->getPath()] = file;
 
 		auto fileList = loadGamelistFile(req.body, system, fileMap, SIZE_MAX, false);
@@ -715,7 +752,8 @@ void HttpServerThread::run()
 		}
 
 		std::unordered_map<std::string, FileData*> fileMap;
-		for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
+		fileMap[system->getRootFolder()->getPath()] = system->getRootFolder();
+		for (auto file : system->getRootFolder()->getFilesRecursive(GAME | FOLDER))
 			fileMap[file->getPath()] = file;
 
 		auto fileList = loadGamelistFile(req.body, system, fileMap, SIZE_MAX, false);

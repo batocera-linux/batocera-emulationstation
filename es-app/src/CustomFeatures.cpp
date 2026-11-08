@@ -3,6 +3,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include "Paths.h"
+#include "SystemConf.h"
 
 bool CustomFeatures::FeaturesLoaded = false;
 
@@ -462,6 +463,9 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 				if (featureNode.attribute("order"))
 					cs.order = Utils::String::toInteger(featureNode.attribute("order").value());
 
+				if (featureNode.attribute("requires"))
+					cs.requiredSetting = featureNode.attribute("requires").value();
+
 				ret.push_back(cs);
 			}
 
@@ -492,6 +496,9 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 		if (featureNode.attribute("order"))
 			feat.order = Utils::String::toInteger(featureNode.attribute("order").value());
 
+		if (featureNode.attribute("requires"))
+			feat.requiredSetting = featureNode.attribute("requires").value();
+
 		if (featureNode.attribute("value"))
 			feat.value = featureNode.attribute("value").value();
 		else
@@ -516,6 +523,27 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 		if (feat.choices.size() > 0 || !feat.preset.empty())
 			ret.push_back(feat);
 	}
+
+	return ret;
+}
+
+bool CustomFeature::isAvailable() const
+{
+	return requiredSetting.empty() || !SystemConf::getInstance()->get(requiredSetting).empty();
+}
+
+// with a required setting, only the choices it lists are offered
+std::vector<CustomFeatureChoice> CustomFeature::availableChoices() const
+{
+	if (requiredSetting.empty())
+		return choices;
+
+	auto supported = Utils::String::split(SystemConf::getInstance()->get(requiredSetting), ' ', true);
+
+	std::vector<CustomFeatureChoice> ret;
+	for (auto choice : choices)
+		if (std::find(supported.cbegin(), supported.cend(), choice.value) != supported.cend())
+			ret.push_back(choice);
 
 	return ret;
 }

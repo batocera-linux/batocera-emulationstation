@@ -148,6 +148,7 @@ private:
 	static bool mMessageHookRegistered;	
 	static void WindowsMessageHook(void* userdata, void* hWnd, unsigned int message, Uint64 wParam, Sint64 lParam);
 	void enableRawInputCapture(bool enable);
+	bool mInitialScan = true;
 #endif
 };
 
