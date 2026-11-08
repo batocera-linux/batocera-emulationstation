@@ -192,11 +192,11 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 			? (displayName + " (" + _("ACTIVE") + ")")
 			: displayName;
 		addEntry(label, false,
-			[window, p]
+			[window, p, displayName]
 			{
 				system(("batocera-profiles switch " + shellQuote(p)).c_str());
 				window->pushGui(new GuiMsgBox(window,
-					_("SWITCHED TO PROFILE:") + "\n" + p + "\n\n" +
+					_("SWITCHED TO PROFILE:") + "\n" + displayName + "\n\n" +
 					_("TAKES EFFECT ON NEXT GAME LAUNCH."),
 					_("OK"), nullptr));
 			});
