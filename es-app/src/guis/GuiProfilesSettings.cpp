@@ -5,6 +5,7 @@
 #include <cctype>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <string>
 #include <vector>
 
@@ -76,6 +77,59 @@ static std::string profileDisplayName(const std::string& confPath, const std::st
 	return fallback;
 }
 
+// Make a text safe to put between single quotes in a shell command: ' becomes '\'' (close the quote, an escaped quote, open it again).
+// Used for every name that is handed to batocera-profiles, so a name can never be read as part of the command.
+static std::string shellQuote(const std::string& text)
+{
+	std::string out = "'";
+	for (char c : text)
+	{
+		if (c == '\'')
+			out += "'\\''";
+		else
+			out += c;
+	}
+	return out + "'";
+}
+
+// Set display_name= in a profile's conf file without a shell: keep every other line, replace (or add) the display_name line, write to a
+// temporary file next to it and rename it over the original.  Control characters (a new line would add a fake setting) are dropped and the
+// name is cut to 40 characters.  Returns false if the file could not be written.
+static bool writeDisplayName(const std::string& confPath, const std::string& rawName)
+{
+	std::string name;
+	for (unsigned char c : rawName)
+		if (c >= 32 && c != 127 && name.size() < 40)
+			name += (char)c;
+
+	std::string text;
+	FILE* in = fopen(confPath.c_str(), "r");
+	if (in)
+	{
+		char line[1024];
+		while (fgets(line, sizeof(line), in))
+			if (strncmp(line, "display_name=", 13) != 0)
+				text += line;
+		fclose(in);
+		if (!text.empty() && text.back() != '\n')
+			text += '\n';
+	}
+	text += "display_name=" + name + "\n";
+
+	std::string tmp = confPath + ".tmp";
+	FILE* out = fopen(tmp.c_str(), "w");
+	if (!out)
+		return false;
+	bool ok = fputs(text.c_str(), out) >= 0;
+	ok = (fclose(out) == 0) && ok;
+	if (!ok || rename(tmp.c_str(), confPath.c_str()) != 0)
+	{
+		remove(tmp.c_str());
+		return false;
+	}
+	return true;
+}
+
 // Open the rename keyboard for a given profile conf file.
 static void openRenameKeyboard(Window* window, const std::string& confPath)
 {
@@ -84,12 +138,12 @@ static void openRenameKeyboard(Window* window, const std::string& confPath)
 		_("DISPLAY NAME"), existing,
 		[window, confPath](const std::string& newName)
 		{
-			// Update display_name= in place, preserving all other fields.
-			std::string cmd =
-				"grep -v '^display_name=' \"" + confPath + "\" > /tmp/ra_conf.tmp 2>/dev/null;"
-				" echo 'display_name=" + newName + "' >> /tmp/ra_conf.tmp;"
-				" mv /tmp/ra_conf.tmp \"" + confPath + "\"";
-			system(cmd.c_str());
+			// Update display_name= in place, preserving all other fields (no shell is involved).
+			if (!writeDisplayName(confPath, newName))
+			{
+				window->pushGui(new GuiMsgBox(window, _("THE NAME COULD NOT BE SAVED."), _("OK"), nullptr));
+				return;
+			}
 			window->pushGui(new GuiMsgBox(window,
 				_("DISPLAY NAME SET TO:") + "\n" + newName,
 				_("OK"), nullptr));
@@ -140,7 +194,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 		addEntry(label, false,
 			[window, p]
 			{
-				system(("batocera-profiles switch \"" + p + "\"").c_str());
+				system(("batocera-profiles switch " + shellQuote(p)).c_str());
 				window->pushGui(new GuiMsgBox(window,
 					_("SWITCHED TO PROFILE:") + "\n" + p + "\n\n" +
 					_("TAKES EFFECT ON NEXT GAME LAUNCH."),
@@ -164,7 +218,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 							_("OK"), nullptr));
 						return;
 					}
-					system(("batocera-profiles create \"" + name + "\"").c_str());
+					system(("batocera-profiles create " + shellQuote(name)).c_str());
 					window->pushGui(new GuiMsgBox(window,
 						_("PROFILE CREATED:") + "\n" + name,
 						_("OK"), nullptr));
@@ -209,7 +263,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 					[window, current]
 					{
 						system("batocera-profiles switch");
-						system(("batocera-profiles delete \"" + current + "\"").c_str());
+						system(("batocera-profiles delete " + shellQuote(current)).c_str());
 						window->pushGui(new GuiMsgBox(window,
 							_("PROFILE DELETED. SWITCHED TO DEFAULT."),
 							_("OK"), nullptr));
