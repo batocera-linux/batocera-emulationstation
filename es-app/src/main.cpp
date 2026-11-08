@@ -465,11 +465,11 @@ void launchStartupGame()
 // #include "utils/MathExpr.h"
 
 #ifdef BATOCERA
-// The hotkey double tap opens the profile screen only when the "ProfilesHotkey" setting is on, from the normal views (no menu or message
-// in front) and in the full interface.
+// The hotkey double tap opens the profile screen only when the "ProfilesHotkey" setting allows it (auto: once a profile exists), from the
+// normal views (no menu or message in front) and in the full interface.
 static bool ProfilesHotkeyAllowed(Window* window)
 {
-	return Settings::getInstance()->getBool("ProfilesHotkey") &&
+	return GuiProfilesSettings::isHotkeyEnabled() &&
 		window->peekGui() == ViewController::get() && UIModeController::getInstance()->isUIModeFull();
 }
 #endif

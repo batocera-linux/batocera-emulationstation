@@ -1,6 +1,7 @@
 #include "views/gamelist/ISimpleGameListView.h"
 
 #include "views/UIModeController.h"
+#include "guis/GuiProfilesSettings.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
 #include "Settings.h"
@@ -700,7 +701,7 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("OPTIONS"), [&] { showGamelistOptions(); }));
 
-	if (UIModeController::getInstance()->isUIModeFull() && Settings::getInstance()->getBool("ProfilesHotkey"))
+	if (UIModeController::getInstance()->isUIModeFull() && GuiProfilesSettings::isHotkeyEnabled())
 		prompts.push_back(HelpPrompt("hotkey", _("PROFILES") + std::string(" (2x)")));
 
 	if (cursorHasSaveStatesEnabled())

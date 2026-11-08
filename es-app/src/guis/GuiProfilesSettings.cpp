@@ -2,10 +2,12 @@
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "LocaleES.h"
+#include "Settings.h"
 #include <cctype>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <dirent.h>
 #include <string>
 #include <vector>
 
@@ -128,6 +130,32 @@ static bool writeDisplayName(const std::string& confPath, const std::string& raw
 		return false;
 	}
 	return true;
+}
+
+// True if at least one named profile exists (a folder in /userdata/profiles that does not start with a dot; the main profile is the
+// hidden .default folder).
+static bool anyNamedProfile()
+{
+	DIR* d = opendir("/userdata/profiles");
+	if (!d)
+		return false;
+	bool found = false;
+	struct dirent* e;
+	while (!found && (e = readdir(d)) != nullptr)
+		if (e->d_name[0] != '.')
+			found = true;
+	closedir(d);
+	return found;
+}
+
+bool GuiProfilesSettings::isHotkeyEnabled()
+{
+	std::string mode = Settings::getInstance()->getString("ProfilesHotkey");
+	if (mode == "on")
+		return true;
+	if (mode == "off")
+		return false;
+	return anyNamedProfile();
 }
 
 // Open the rename keyboard for a given profile conf file.
@@ -276,5 +304,7 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 	// Two quick taps of the hotkey button open this screen from the system and game lists.  Off by default, because the hotkey
 	// button is also the start of many button combinations.
 	addGroup(_("SHORTCUT"));
-	addSwitch(_("DOUBLE TAP HOTKEY OPENS PROFILES"), "ProfilesHotkey", true);
+	addOptionList(_("DOUBLE TAP HOTKEY OPENS PROFILES"),
+		{ { _("AUTO (WHEN THERE ARE PROFILES)"), "auto" }, { _("ALWAYS"), "on" }, { _("NEVER"), "off" } },
+		"ProfilesHotkey", true);
 }
