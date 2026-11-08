@@ -330,6 +330,12 @@
     <game id="atarifb4">
       <trackball/>
     </game>
+    <game id="atvtrack">
+      <wheel rotation="270"/>
+    </game>
+    <game id="atvtracka">
+      <wheel rotation="270"/>
+    </game>
     <game id="avalnche">
       <spinner/>
     </game>
@@ -3810,6 +3816,12 @@
     <game id="sfrushrkwo">
       <wheel rotation="270"/>
     </game>
+    <game id="sgnascar">
+      <wheel rotation="270"/>
+    </game>
+    <game id="sgnascaro">
+      <wheel rotation="270"/>
+    </game>
     <game id="sgt24h">
       <wheel rotation="270"/>
     </game>
@@ -3953,6 +3965,15 @@
     </game>
     <game id="slithera">
       <trackball/>
+    </game>
+    <game id="smashdrv">
+      <wheel rotation="270"/>
+    </game>
+    <game id="smashdrvb">
+      <wheel rotation="270"/>
+    </game>
+    <game id="smashdrvs">
+      <wheel rotation="270"/>
     </game>
     <game id="smgp">
       <wheel rotation="270"/>
@@ -4887,6 +4908,8 @@
     </game>
     <game id="vnightj" name="Vampire Night (VPN1 Ver. B)">
       <gun/>
+    </game>
+    <game id="von4" name="Cyber Troopers Virtual-On 4: Force (Rev E)">
     </game>
     <game id="voyager">
       <gun/>
