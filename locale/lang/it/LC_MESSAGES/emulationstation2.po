@@ -3712,9 +3712,6 @@ msgstr "SINTESI VOCALE DISATTIVATA"
 msgid "ENABLED"
 msgstr "ATTIVATO"
 
-msgid "up/down"
-msgstr "su/giù"
-
 msgid "WORKING..."
 msgstr "ATTENDERE…"
 
@@ -4055,6 +4052,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d secondo fa"
 msgstr[1] "%d secondi fa"
+
+#~ msgid "up/down"
+#~ msgstr "su/giù"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

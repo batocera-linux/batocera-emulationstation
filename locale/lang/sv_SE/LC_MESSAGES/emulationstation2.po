@@ -3721,9 +3721,6 @@ msgstr "SKÄRMLÄSARE FUNKTIONSHINDRAD"
 msgid "ENABLED"
 msgstr "AKTIVERAD"
 
-msgid "up/down"
-msgstr "upp/ned"
-
 msgid "WORKING..."
 msgstr "ARBETAR…"
 
@@ -4063,6 +4060,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund sedan"
 msgstr[1] "%d sekunder sedan"
+
+#~ msgid "up/down"
+#~ msgstr "upp/ned"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -3710,9 +3710,6 @@ msgstr "PEMBACA LAYAR DIMATIKAN"
 msgid "ENABLED"
 msgstr "AKTIFKAN"
 
-msgid "up/down"
-msgstr "atas/bawah"
-
 msgid "WORKING..."
 msgstr "MEMPROSES…"
 
@@ -4044,6 +4041,9 @@ msgstr[0] "%d menit lalu"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d detik lalu"
+
+#~ msgid "up/down"
+#~ msgstr "atas/bawah"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -2451,8 +2451,7 @@ msgstr "DEĞİŞKEN YENİLEME HIZI"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr ""
-"Ekranın kare hızıyla uyumlu olmasını sağlar. Ekran titriyorsa kapatın."
+msgstr "Ekranın kare hızıyla uyumlu olmasını sağlar. Ekran titriyorsa kapatın."
 
 msgid "BOOT SPLASH"
 msgstr "AÇILIŞ GÖRSELİ"
@@ -3743,9 +3742,6 @@ msgstr "EKRAN OKUYUCUSU PASİF EDİLDİ"
 msgid "ENABLED"
 msgstr "AKTİF"
 
-msgid "up/down"
-msgstr "yukarı/aşağı"
-
 msgid "WORKING..."
 msgstr "ÇALIŞIYOR..."
 
@@ -4085,6 +4081,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d saniye önce"
 msgstr[1] "%d saniye önce"
+
+#~ msgid "up/down"
+#~ msgstr "yukarı/aşağı"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

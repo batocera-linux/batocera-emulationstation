@@ -3715,9 +3715,6 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 msgid "ENABLED"
 msgstr "ВКЛЮЧЕНО"
 
-msgid "up/down"
-msgstr "вверх/вниз"
-
 msgid "WORKING..."
 msgstr "ОБРАБОТКА…"
 
@@ -4065,6 +4062,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
+
+#~ msgid "up/down"
+#~ msgstr "вверх/вниз"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

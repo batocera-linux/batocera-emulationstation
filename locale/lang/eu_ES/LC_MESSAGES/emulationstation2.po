@@ -3738,9 +3738,6 @@ msgstr "PANTAILA-IRAKURGAILUA DESGAITUTA"
 msgid "ENABLED"
 msgstr "GAITUTA"
 
-msgid "up/down"
-msgstr "gora/behera"
-
 msgid "WORKING..."
 msgstr "LANEAN..."
 
@@ -4080,6 +4077,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "duela segundo %d"
 msgstr[1] "duela %d segundo"
+
+#~ msgid "up/down"
+#~ msgstr "gora/behera"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

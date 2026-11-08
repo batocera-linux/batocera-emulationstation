@@ -3732,9 +3732,6 @@ msgstr "WYŁĄCZONY CZYTNIK EKRANU"
 msgid "ENABLED"
 msgstr "WŁĄCZONE"
 
-msgid "up/down"
-msgstr "góra/dół"
-
 msgid "WORKING..."
 msgstr "PRACUJĘ…"
 
@@ -4082,6 +4079,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d sekundę temu"
 msgstr[1] "%d sekundy temu"
 msgstr[2] "%d sekund temu"
+
+#~ msgid "up/down"
+#~ msgstr "góra/dół"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

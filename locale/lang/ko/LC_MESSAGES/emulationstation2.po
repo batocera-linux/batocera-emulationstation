@@ -3693,9 +3693,6 @@ msgstr "스크린 리더 비활성화"
 msgid "ENABLED"
 msgstr "활성화"
 
-msgid "up/down"
-msgstr "위/아래"
-
 msgid "WORKING..."
 msgstr "작업 중…"
 
@@ -4027,6 +4024,9 @@ msgstr[0] "%d 분 전"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 초 전"
+
+#~ msgid "up/down"
+#~ msgstr "위/아래"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

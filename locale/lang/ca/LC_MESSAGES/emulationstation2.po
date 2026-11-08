@@ -3736,9 +3736,6 @@ msgstr "LECTOR DE PANTALLA DESHABILITAT"
 msgid "ENABLED"
 msgstr "HABILITAT"
 
-msgid "up/down"
-msgstr "amunt/avall"
-
 msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
 
@@ -4078,6 +4075,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "fa %d segon"
 msgstr[1] "fa %d segons"
+
+#~ msgid "up/down"
+#~ msgstr "amunt/avall"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

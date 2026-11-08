@@ -3741,9 +3741,6 @@ msgstr "CITITOR DE ECRAN DEZACTIVAT"
 msgid "ENABLED"
 msgstr "ACTIVAT"
 
-msgid "up/down"
-msgstr "sus/jos"
-
 msgid "WORKING..."
 msgstr "SE LUCREAZĂ…"
 
@@ -4092,6 +4089,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "acum %d secundă"
 msgstr[1] "acum %d secunde"
 msgstr[2] "acum %d de secunde"
+
+#~ msgid "up/down"
+#~ msgstr "sus/jos"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

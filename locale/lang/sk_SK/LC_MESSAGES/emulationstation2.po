@@ -3711,9 +3711,6 @@ msgstr "Čítačka obrazovky zakázaná"
 msgid "ENABLED"
 msgstr "Povolené"
 
-msgid "up/down"
-msgstr "hore/dolu"
-
 msgid "WORKING..."
 msgstr "Pracujem…"
 
@@ -4061,6 +4058,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "Pred %d sekundou"
 msgstr[1] "Pred %d sekundami"
 msgstr[2] "Pred %d sekundami"
+
+#~ msgid "up/down"
+#~ msgstr "hore/dolu"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

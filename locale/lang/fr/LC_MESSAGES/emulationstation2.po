@@ -113,8 +113,7 @@ msgid "SYSTEM INFO"
 msgstr "INFO SYSTÈME"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr ""
-"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, LES RÉAFFICHER IMMÉDIATEMENT"
+msgstr "ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, LES RÉAFFICHER IMMÉDIATEMENT"
 
 msgid "OK"
 msgstr "OK"
@@ -1413,6 +1412,9 @@ msgstr "SAISIE MANUELLE"
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "AUCUN RÉSEAU WI-FI TROUVÉ"
 
+msgid "CONNECTED"
+msgstr "CONNECTÉ"
+
 msgid "ALREADY CONNECTED"
 msgstr "DÉJÀ CONNECTÉ"
 
@@ -2446,6 +2448,15 @@ msgstr "HDR"
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr "Permet le contenu HDR tel que les flux Moonlight HDR."
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "TAUX DE RAFRAÎCHISSEMENT VARIABLE"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+"Suivre la fréquence de rafraîchissement de l’écran. À désactiver si l’écran "
+"scintille."
+
 msgid "BOOT SPLASH"
 msgstr "IMAGE SPLASH AU DÉMARRAGE"
 
@@ -2586,13 +2597,6 @@ msgid ""
 msgstr ""
 "Ne pas s’écarter des temps demandés par le core. G-Sync, FreeSync, HDMI 2.1 "
 "VRR."
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "TAUX DE RAFRAÎCHISSEMENT VARIABLE"
-
-msgid ""
-"Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr "Suivre la fréquence de rafraîchissement de l’écran. À désactiver si l’écran scintille."
 
 msgid "DECORATION SET"
 msgstr "PACK DE DÉCORATIONS"
@@ -2938,9 +2942,6 @@ msgstr "ACTIVER LES SONS DE NAVIGATION"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ACTIVER LE SON DES VIDÉOS"
-
-msgid "CONNECTED"
-msgstr "CONNECTÉ"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
@@ -3638,9 +3639,6 @@ msgstr "LE CŒUR EST MANQUANT"
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
-msgid "UNKNOWN ERROR"
-msgstr "ERREUR INCONNUE"
-
 msgid "Checking for latest upgrade script..."
 msgstr "Recherche d’un nouveau script de mise à niveau…"
 
@@ -3733,9 +3731,6 @@ msgstr "LECTEUR D’ÉCRAN DÉSACTIVÉ"
 
 msgid "ENABLED"
 msgstr "ACTIVÉ"
-
-msgid "up/down"
-msgstr "haut/bas"
 
 msgid "WORKING..."
 msgstr "EN COURS…"
@@ -4077,6 +4072,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "Il y a %d seconde"
 msgstr[1] "Il y a %d secondes"
+
+#~ msgid "UNKNOWN ERROR"
+#~ msgstr "ERREUR INCONNUE"
+
+#~ msgid "up/down"
+#~ msgstr "haut/bas"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

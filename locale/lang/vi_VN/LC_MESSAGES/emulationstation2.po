@@ -3710,9 +3710,6 @@ msgstr "TẮT TRÌNH ĐỌC MÀN HÌNH"
 msgid "ENABLED"
 msgstr "BẬT"
 
-msgid "up/down"
-msgstr "lên/xuống"
-
 msgid "WORKING..."
 msgstr "ĐANG LÀM VIỆC…"
 
@@ -4044,6 +4041,9 @@ msgstr[0] "%d phút trước"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d giây trước"
+
+#~ msgid "up/down"
+#~ msgstr "lên/xuống"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -3670,9 +3670,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr ""
 
-msgid "up/down"
-msgstr "вгору/вниз"
-
 msgid "WORKING..."
 msgstr "ОБРОБКА…"
 
@@ -4016,6 +4013,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#~ msgid "up/down"
+#~ msgstr "вгору/вниз"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "ЗА ТИПОМ ОБЛАДНАННЯ"

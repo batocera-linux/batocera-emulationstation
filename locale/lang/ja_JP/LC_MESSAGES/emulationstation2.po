@@ -3714,9 +3714,6 @@ msgstr "スクリーンリーダー無効"
 msgid "ENABLED"
 msgstr "有効"
 
-msgid "up/down"
-msgstr "上 / 下"
-
 msgid "WORKING..."
 msgstr "処理中…"
 
@@ -4048,6 +4045,9 @@ msgstr[0] "%d 分前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
+
+#~ msgid "up/down"
+#~ msgstr "上 / 下"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -3699,9 +3699,6 @@ msgstr "SCREEN READER DISABLED"
 msgid "ENABLED"
 msgstr "ENABLED"
 
-msgid "up/down"
-msgstr "up/down"
-
 msgid "WORKING..."
 msgstr "WORKING…"
 
@@ -4041,6 +4038,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d second ago"
 msgstr[1] "%d seconds ago"
+
+#~ msgid "up/down"
+#~ msgstr "up/down"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."
