@@ -700,6 +700,9 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("OPTIONS"), [&] { showGamelistOptions(); }));
 
+	if (UIModeController::getInstance()->isUIModeFull() && Settings::getInstance()->getBool("ProfilesHotkey"))
+		prompts.push_back(HelpPrompt("hotkey", _("PROFILES") + std::string(" (2x)")));
+
 	if (cursorHasSaveStatesEnabled())
 	{
 		if (invertNorthButton)

@@ -218,4 +218,9 @@ GuiProfilesSettings::GuiProfilesSettings(Window* window)
 					GuiMsgBoxIcon::ICON_WARNING));
 			});
 	}
+
+	// Two quick taps of the hotkey button open this screen from the system and game lists.  Off by default, because the hotkey
+	// button is also the start of many button combinations.
+	addGroup(_("SHORTCUT"));
+	addSwitch(_("DOUBLE TAP HOTKEY OPENS PROFILES"), "ProfilesHotkey", true);
 }

@@ -180,6 +180,7 @@ void Settings::setDefaults()
 	mBoolMap["FirstJoystickOnly"] = false;
     mBoolMap["EnableSounds"] = false;
 	mBoolMap["ShowHelpPrompts"] = true;
+	mBoolMap["ProfilesHotkey"] = false; // double tap of the hotkey opens the profile screen
 	mBoolMap["ScrapeRatings"] = true;
 	mBoolMap["ScrapeNames"] = true;	
 	mBoolMap["ScrapeDescription"] = true;

@@ -4,6 +4,8 @@
 #include "services/HttpServerThread.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
+#include "guis/GuiProfilesSettings.h"
+#include "views/UIModeController.h"
 #include "utils/FileSystemUtil.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
@@ -441,6 +443,16 @@ void launchStartupGame()
 
 // #include "utils/MathExpr.h"
 
+#ifdef BATOCERA
+// The hotkey double tap opens the profile screen only when the "ProfilesHotkey" setting is on, from the normal views (no menu or message
+// in front) and in the full interface.
+static bool ProfilesHotkeyAllowed(Window* window)
+{
+	return Settings::getInstance()->getBool("ProfilesHotkey") &&
+		window->peekGui() == ViewController::get() && UIModeController::getInstance()->isUIModeFull();
+}
+#endif
+
 int main(int argc, char* argv[])
 {	
 	// Utils::MathExpr::performUnitTests();
@@ -667,6 +679,9 @@ int main(int argc, char* argv[])
 
 #ifdef BATOCERA
 	bool hotkeyPressed = false;
+	bool hotkeyUsed = false;      // another button was pressed while the hotkey was held (a combo, not a tap)
+	int  lastHotkeyTap = 0;       // SDL_GetTicks() of the last lone tap of the hotkey, 0 = none
+	const int HOTKEY_DOUBLE_TAP_MS = 450;
 #endif
 
 	while(running)
@@ -703,7 +718,31 @@ int main(int argc, char* argv[])
 					{
 					  Input input = Input(event.jbutton.which, TYPE_BUTTON, event.jbutton.button, event.jbutton.state == SDL_PRESSED, false);
 					  if (config->isMappedTo("hotkey", input))
-					    hotkeyPressed = input.value != 0;
+					    {
+					      hotkeyPressed = input.value != 0;
+					      if (hotkeyPressed)
+						hotkeyUsed = false;
+					      else if (!hotkeyUsed && !ProfilesHotkeyAllowed(&window))
+						lastHotkeyTap = 0;
+					      else if (!hotkeyUsed)
+						{
+						  // Released with nothing else pressed: a tap.  Two taps close together open the profile screen.
+						  // (A single tap does nothing, so the hotkey combos and games are never disturbed.)
+						  int now = SDL_GetTicks();
+						  if (lastHotkeyTap != 0 && now - lastHotkeyTap <= HOTKEY_DOUBLE_TAP_MS)
+						    {
+						      lastHotkeyTap = 0;
+						      window.pushGui(new GuiProfilesSettings(&window));
+						    }
+						  else
+						    lastHotkeyTap = now;
+						}
+					    }
+					  else if (input.value != 0)
+					    {
+					      hotkeyUsed = hotkeyUsed || hotkeyPressed;
+					      lastHotkeyTap = 0;
+					    }
 
 					  if(hotkeyPressed && input.value != 0)
 					    {
