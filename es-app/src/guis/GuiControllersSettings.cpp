@@ -207,6 +207,7 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 
 	addEntry(_("GLOBAL HOTKEYS"), true, [this] { openGlobalHotkeys(); });
 	addEntry(_("KEYBOARDTOPADS"), true, [this] { openKeyboardtopads(); });
+	addEntry(_("TRACKBALLS AND SPINNERS"), true, [this] { openTrackballSpinners(); });
 #endif
 
 #ifdef BATOCERA
@@ -660,6 +661,14 @@ void GuiControllersSettings::openGlobalHotkeys()
 	mWindow->pushGui(s);
 }
 
+void GuiControllersSettings::openTrackballSpinners()
+{
+	GuiSettings* s = new GuiSettings(mWindow, _("TRACKBALLS AND SPINNERS"));
+	initializeTrackballSpinners(mWindow, s);
+
+	mWindow->pushGui(s);
+}
+
 void GuiControllersSettings::openKeyboardtopads()
 {
 	GuiSettings* s = new GuiSettings(mWindow, _("KEYBOARDTOPADS"), true);
@@ -785,6 +794,81 @@ void GuiControllersSettings::declareGlobalHotkey(Window* window, GuiSettings* s)
 				else if (ret > 1)
 					window->pushGui(new GuiMsgBox(window, _("MORE THAN ONE GLOBAL HOTKEY DETECTED")));				
 			}
+		}));
+}
+
+void GuiControllersSettings::initializeTrackballSpinners(Window* window, GuiSettings* s)
+{
+	std::vector<TrackballSpinner> trackballspinners = ApiSystem::getInstance()->getTrackballSpinners();
+
+	s->clear();
+	s->addEntry(_("DECLARE A NEW TRACKBALL"), false, [this, window, s] { declareTrackballSpinners(window, s, "trackball"); });
+	s->addEntry(_("DECLARE A NEW SPINNER"), false, [this, window, s] { declareTrackballSpinners(window, s, "spinner"); });
+
+	// trackballs
+	bool group_trackball_set = false;
+	for (unsigned int i = 0; i < trackballspinners.size(); i++) 
+	{
+	  if(trackballspinners[i].type == "trackball") {
+	    if(group_trackball_set == false) {
+	      group_trackball_set = true;
+	      s->addGroup(_("TRACKBALLS"));
+	    }
+	    std::string key = trackballspinners[i].key;
+	    std::string name;
+
+	    if(trackballspinners[i].source == "user") {
+	      name = trackballspinners[i].name + " - " + _("USER DEFINED");
+	      s->addEntry(name, false, [this, window, s, key] { window->pushGui(new GuiMsgBox(window,
+											      _("DO YOU WANT TO REMOVE THIS TRACKBALL"),
+											      _("NO"), []{},
+											      _("YES"), [this, window, s, key] {
+												ApiSystem::getInstance()->removeTrackballSpinners(key);
+												initializeTrackballSpinners(window, s);
+											      })); });
+	    } else {
+	      name = trackballspinners[i].name;
+	      s->addEntry(name, false);
+	    }
+	  }
+	}
+
+	// spinners
+	bool group_spinner_set = false;
+	for (unsigned int i = 0; i < trackballspinners.size(); i++) 
+	{
+	  if(trackballspinners[i].type == "spinner") {
+	    if(group_spinner_set == false) {
+	      group_spinner_set = true;
+	      s->addGroup(_("SPINNERS"));
+	    }
+	    std::string key = trackballspinners[i].key;
+	    std::string name;
+
+	    if(trackballspinners[i].source == "user") {
+	      name = trackballspinners[i].name + " - " + _("USER DEFINED");
+	      s->addEntry(name, false, [this, window, s, key] { window->pushGui(new GuiMsgBox(window,
+											      _("DO YOU WANT TO REMOVE THIS SPINNER"),
+											      _("NO"), []{},
+											      _("YES"), [this, window, s, key] {
+												ApiSystem::getInstance()->removeTrackballSpinners(key);
+												initializeTrackballSpinners(window, s);
+											      })); });
+	    } else {
+	      name = trackballspinners[i].name;
+	      s->addEntry(name, false);
+	    }
+	  }
+	}
+}
+
+void GuiControllersSettings::declareTrackballSpinners(Window* window, GuiSettings* s, const std::string& type)
+{
+  window->pushGui(new GuiLoading<bool>(window, _("YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"), [this, window, type, s](auto gui)
+		{
+		  ApiSystem::getInstance()->detectTrackballSpinners(type);
+		  initializeTrackballSpinners(window, s);
+		  return true;
 		}));
 }
 

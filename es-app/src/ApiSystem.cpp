@@ -3058,6 +3058,71 @@ std::vector<GlobalHotkey> ApiSystem::getGlobalHotkeys() {
   return hotkeys;
 }
 
+void ApiSystem::detectTrackballSpinners(const std::string& type) {
+  LOG(LogDebug) << "ApiSystem::detectTrackballSpinners";
+  if(type == "trackball") {
+    executeScript("batocera-trackballs-spinners --detect-trackball --save-detection");
+  } else if(type == "spinner") {
+    executeScript("batocera-trackballs-spinners --detect-spinner --save-detection");
+  }
+}
+
+std::vector<TrackballSpinner> ApiSystem::getTrackballSpinners() {
+  std::vector<TrackballSpinner> trackballspinners;
+
+  LOG(LogDebug) << "ApiSystem::getTrackballSpinners";
+
+  auto res = executeEnumerationScript("batocera-trackballs-spinners --list --xml");
+
+  std::string data = Utils::String::join(res, "\n");
+  if (data.empty())
+    {
+      LOG(LogError) << "List is empty";
+      return trackballspinners;
+    }
+
+  pugi::xml_document doc;
+  pugi::xml_parse_result result = doc.load_string(data.c_str());
+  if (!result)
+    {
+      LOG(LogError) << "Unable to parse trackballspinners";
+      return trackballspinners;
+    }
+
+  pugi::xml_node root = doc.child("trackballspinners");
+  if (!root)
+    {
+      LOG(LogError) << "Could not find <trackballspinners> node";
+      return trackballspinners;
+    }
+
+  for (pugi::xml_node device = root.child("trackballspinner"); device; device = device.next_sibling("trackballspinner"))
+    {
+	  TrackballSpinner ts;
+
+	  if (device.attribute("name"))
+	  	ts.name = device.attribute("name").as_string();
+
+	  if (device.attribute("type"))
+	  	ts.type = device.attribute("type").as_string();
+
+	  if (device.attribute("source"))
+	  	ts.source = device.attribute("source").as_string();
+
+	  if (device.attribute("key"))
+	  	ts.key = device.attribute("key").as_string();
+
+	  trackballspinners.push_back(ts);
+    }
+
+  return trackballspinners;
+}
+
+void ApiSystem::removeTrackballSpinners(const std::string& key) {
+  LOG(LogDebug) << "ApiSystem::removeTrackballSpinners";
+  executeScript("batocera-trackballs-spinners --unregister " + key);
+}
+
 std::vector<Keyboardtopad> ApiSystem::getKeyboardtopads() {
   std::vector<Keyboardtopad> keyboardtopads;
 
