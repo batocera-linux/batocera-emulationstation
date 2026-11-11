@@ -44,7 +44,7 @@ protected:
 	virtual void remove(FileData* game) override;
 	virtual void addPlaceholder();
 
-	void updateInfoPanel();
+	void updateInfoPanel(bool forceSelection = false);
 
 	CarouselComponent mList;
 	DetailedContainerHost mDetails;
