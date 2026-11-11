@@ -46,6 +46,7 @@ enum class LightGunType
 	Aimtrak,
 	AELightgun,
 	Xgunner,
+	OpenFire,
 	VirtualHID,
 	Wiimote4Guns
 };
@@ -91,6 +92,11 @@ public:
 		for (auto id : xgunnerDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return isVirtualHidDevice(name) ? LightGunType::Mouse : LightGunType::Xgunner;
+
+		std::string openFireDeviceIds[] = { "VID_F143&PID_0001", "VID_F143&PID_0002", "VID_F143&PID_0003", "VID_F143&PID_0004" };
+		for (auto id : openFireDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::OpenFire;
 
 		std::string aeDeviceIds[] = { "VID_2341&PID_8037", "VID_2341&PID_8038" };
 		for (auto id : aeDeviceIds)
