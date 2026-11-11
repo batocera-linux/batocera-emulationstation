@@ -195,6 +195,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "groupHeight", FLOAT },
 		{ "groupSpacing", FLOAT },
 		{ "groupBands", BOOLEAN },
+		{ "groupsAtStart", STRING },
+		{ "groupsAtEnd", STRING },
 		{ "sortBy", STRING },
 		{ "sortDescending", BOOLEAN },
 		

@@ -933,8 +933,8 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(const std::string&
 	md.name = name;
 	md.fullName = sysDecl.longName;
 	md.themeFolder = sysDecl.themeFolder;
-	md.manufacturer = "Collections";
-	md.hardwareType = sysDecl.isCustom ? "custom collection" : "auto collection";
+	//md.manufacturer = "Collections";
+	md.manufacturer = md.hardwareType = sysDecl.isCustom ? "Custom collections" : "Collections";
 	md.releaseYear = 0;
 	
 	// we parse the auto collection settings list

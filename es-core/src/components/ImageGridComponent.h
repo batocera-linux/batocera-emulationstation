@@ -328,6 +328,24 @@ public:
 
 	const std::vector<std::string>& getGroupsAtEnd() const { return mGroupsAtEnd; }
 
+	// Groups always placed at the start, in the given order (e.g. {"favorites"}), before all the others.
+	// Case-insensitive comparison with the value of the groupBy property.
+	// Theme: <groupsAtStart>favorites;recent</groupsAtStart> and <groupsAtEnd>collections;other</groupsAtEnd>
+	void setGroupsAtStart(const std::vector<std::string>& labels)
+	{
+		if (mGroupsAtStart == labels)
+			return;
+
+		mGroupsAtStart = labels;
+
+		for (auto& entry : mEntries)
+			entry.data.tile = nullptr;
+
+		resetGrid();
+	}
+
+	const std::vector<std::string>& getGroupsAtStart() const { return mGroupsAtStart; }
+
 	// Band mode (Netflix / Prime Video style): each group fits on a single row that scrolls horizontally,
 	// the bands scroll vertically. No effect if groups are not active. Theme: <groupBands>true</groupBands>
 	void setGroupBands(bool bands)
@@ -376,7 +394,10 @@ private:
 	std::string mSortBy;
 	bool mSortDescending;
 
+	std::vector<std::string> mGroupsAtStart;
 	std::vector<std::string> mGroupsAtEnd;
+	static int findGroupLabel(const std::vector<std::string>& labels, const std::string& label);
+	int getGroupAtStartIndex(const std::string& label);
 	int getGroupAtEndIndex(const std::string& label);
 	void applyEntryOrder(const std::vector<int>& order);
 
@@ -535,13 +556,13 @@ void ImageGridComponent<T>::applyEntryOrder(const std::vector<int>& order)
 	mEntriesDirty = true;
 }
 
-// Position of the group in the list of groups pinned to the end (case-insensitive), -1 if it is not pinned
+// Position of the label in a list of pinned groups (case-insensitive), -1 if it is not in the list
 template<typename T>
-int ImageGridComponent<T>::getGroupAtEndIndex(const std::string& label)
+int ImageGridComponent<T>::findGroupLabel(const std::vector<std::string>& labels, const std::string& label)
 {
-	for (int i = 0; i < (int)mGroupsAtEnd.size(); i++)
+	for (int i = 0; i < (int)labels.size(); i++)
 	{
-		const std::string& pinned = mGroupsAtEnd[i];
+		const std::string& pinned = labels[i];
 		if (pinned.size() != label.size())
 			continue;
 
@@ -554,6 +575,18 @@ int ImageGridComponent<T>::getGroupAtEndIndex(const std::string& label)
 	}
 
 	return -1;
+}
+
+template<typename T>
+int ImageGridComponent<T>::getGroupAtStartIndex(const std::string& label)
+{
+	return findGroupLabel(mGroupsAtStart, label);
+}
+
+template<typename T>
+int ImageGridComponent<T>::getGroupAtEndIndex(const std::string& label)
+{
+	return findGroupLabel(mGroupsAtEnd, label);
 }
 
 template<typename T>
@@ -607,9 +640,13 @@ bool ImageGridComponent<T>::arrangeEntries(std::vector<std::string>& groupKeys, 
 			});
 		}
 
-		// Pinned groups (setGroupsAtEnd): after all the others, in the order given by the caller
-		auto firstPinned = std::stable_partition(distinct.begin(), distinct.end(), [this](const std::string& key) { return getGroupAtEndIndex(key) < 0; });
-		std::sort(firstPinned, distinct.end(), [this](const std::string& a, const std::string& b) { return getGroupAtEndIndex(a) < getGroupAtEndIndex(b); });
+		// Pinned groups: setGroupsAtStart first, then all the others, then setGroupsAtEnd (each in the order given by the caller).
+		// A label present in both lists stays at the start.
+		auto endOfStart = std::stable_partition(distinct.begin(), distinct.end(), [this](const std::string& key) { return getGroupAtStartIndex(key) >= 0; });
+		std::stable_sort(distinct.begin(), endOfStart, [this](const std::string& a, const std::string& b) { return getGroupAtStartIndex(a) < getGroupAtStartIndex(b); });
+
+		auto firstAtEnd = std::stable_partition(endOfStart, distinct.end(), [this](const std::string& key) { return getGroupAtEndIndex(key) < 0; });
+		std::stable_sort(firstAtEnd, distinct.end(), [this](const std::string& a, const std::string& b) { return getGroupAtEndIndex(a) < getGroupAtEndIndex(b); });
 
 		// distinct is now in the final group order
 		for (int g = 0; g < (int)distinct.size(); g++)
@@ -2002,15 +2039,20 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 		if (elem->has("groupBands"))
 			mGroupBands = elem->get<bool>("groupBands");
 
-		if (elem->has("sortBy"))
-			mSortBy = elem->get<std::string>("sortBy");
-
 		if (elem->has("sortDescending"))
 			mSortDescending = elem->get<bool>("sortDescending");
 
+		if (elem->has("groupsAtStart"))
+			mGroupsAtStart = Utils::String::split(elem->get<std::string>("groupsAtStart"), ';', true);
+
+		if (elem->has("groupsAtEnd"))
+			mGroupsAtEnd = Utils::String::split(elem->get<std::string>("groupsAtEnd"), ';', true);
+
+		if (elem->has("sortBy"))
+			mSortBy = elem->get<std::string>("sortBy");
+
 		mLayoutDirty = true;
 	}
-
 
 	// We still need to manually get the grid tile size here,
 	// so we can recalculate the new grid dimension, and THEN (re)build the tiles
