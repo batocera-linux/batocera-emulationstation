@@ -982,23 +982,6 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 			getDefaultElements();
 
 			mCarousel.applyTheme(theme, "system", "imagegrid", ThemeFlags::ALL);
-
-			auto grid = mCarousel.asGrid();
-			if (grid)
-			{
-				// If the grid is grouped, then put the collections at end
-				std::string groupBy = grid->getGroupBy();
-				if (!groupBy.empty())
-				{
-					std::unordered_set<std::string> atEnd;
-
-					for (auto system : SystemData::sSystemVector)
-						if (system->isCollection() || system->getName() == "retropie" || system->getName() == "retrobat")
-							atEnd.insert(system->getProperty(groupBy).toString());
-
-					grid->setGroupsAtEnd(std::vector<std::string>(atEnd.begin(), atEnd.end()));
-				}
-			}
 		}
 		else
 		{

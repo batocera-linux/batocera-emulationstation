@@ -45,7 +45,7 @@ static std::map<std::string, std::function<BindableProperty(SystemData*)>> prope
 	{ "manufacturer",		[] (SystemData* sys) { return sys->getSystemMetadata().manufacturer; } },
 	{ "theme",				[] (SystemData* sys) { return sys->getThemeFolder(); } },
 	{ "releaseYear",		[] (SystemData* sys) { return sys->getSystemMetadata().releaseYear <= 0 ? std::string() : std::to_string(sys->getSystemMetadata().releaseYear); } },
-	{ "hardwareType",		[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
+	{ "hardwareType",		[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType.empty()?"system": sys->getSystemMetadata().hardwareType; } },
 	{ "command",			[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
 	{ "group",				[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },		
 	{ "collection",			[] (SystemData* sys) { return sys->isCollection(); } },		
@@ -549,7 +549,7 @@ void SystemData::createGroupedSystems()
 				SystemData* syss = *item.second.cbegin();
 				md.manufacturer = syss->getSystemMetadata().manufacturer;
 				md.releaseYear = syss->getSystemMetadata().releaseYear;
-				md.hardwareType = "system";
+				md.hardwareType = syss->getSystemMetadata().hardwareType;
 			}
 
 			system = new SystemData(md, envData, nullptr, false, true);
