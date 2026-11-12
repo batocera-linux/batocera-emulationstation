@@ -169,19 +169,21 @@ std::string FileData::findLocalArt(const std::string& type, std::vector<std::str
 {
 	if (Settings::getInstance()->getBool("LocalArt"))
 	{
+		const std::string& mediaRoot = getSourceFileData()->getSystem()->getMetadataRootPath();
+
 		for (auto ext : exts)
 		{
-			std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + (type.empty() ? "" :  "-" + type) + ext;
+			std::string path = mediaRoot + "/images/" + getDisplayName() + (type.empty() ? "" :  "-" + type) + ext;
 			if (Utils::FileSystem::exists(path))
 				return path;
 
 			if (type == "video")
 			{
-				path = getSystemEnvData()->mStartPath + "/videos/" + getDisplayName() + "-" + type + ext;
+				path = mediaRoot + "/videos/" + getDisplayName() + "-" + type + ext;
 				if (Utils::FileSystem::exists(path))
 					return path;
 
-				path = getSystemEnvData()->mStartPath + "/videos/" + getDisplayName() + ext;
+				path = mediaRoot + "/videos/" + getDisplayName() + ext;
 				if (Utils::FileSystem::exists(path))
 					return path;
 			}

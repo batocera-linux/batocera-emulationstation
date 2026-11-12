@@ -267,7 +267,7 @@ bool addFileDataNode(pugi::xml_node& parent, FileData* file, const char* tag, Sy
 	pugi::xml_node newNode = parent.append_child(tag);
 
 	//write metadata
-	file->getMetadata().appendToXML(newNode, true, system->getStartPath(), fullPaths);
+	file->getMetadata().appendToXML(newNode, true, system->getMetadataRootPath(), fullPaths);
 
 	if(newNode.children().begin() == newNode.child("name") //first element is name
 		&& ++newNode.children().begin() == newNode.children().end() //theres only one element
@@ -560,6 +560,10 @@ void packGamelist(SystemData* system)
 	for (auto file : Utils::FileSystem::getDirContent(system->getStartPath(), true))
 		files.insert(Utils::FileSystem::getCanonicalPath(file));
 
+	if (system->getMetadataRootPath() != system->getStartPath())
+		for (auto file : Utils::FileSystem::getDirContent(system->getMetadataRootPath(), true))
+			files.insert(Utils::FileSystem::getCanonicalPath(file));
+
 	std::set<std::string> pathMdds;
 	for (auto mdd : MetaDataList::getMDD())
 		if (mdd.type == MetaDataType::MD_PATH)
@@ -602,7 +606,7 @@ void packGamelist(SystemData* system)
 				continue;
 
 			std::string path = xelement.text().get();		
-			std::string mddFullPath = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::resolveRelativePath(path, system->getStartPath(), true));
+			std::string mddFullPath = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::resolveRelativePath(path, system->getMetadataRootPath(), true));
 
 			if (mddFullPath.size() && files.find(mddFullPath) != files.cend())
 				continue;
@@ -710,7 +714,7 @@ void cleanupGamelist(SystemData* system)
 
 			pugi::xml_node mddPath = fileNode.child(mdd.key.c_str());
 
-			std::string mddFullPath = (mddPath ? Utils::FileSystem::getCanonicalPath(Utils::FileSystem::resolveRelativePath(mddPath.text().get(), system->getStartPath(), true)) : "");
+			std::string mddFullPath = (mddPath ? Utils::FileSystem::getCanonicalPath(Utils::FileSystem::resolveRelativePath(mddPath.text().get(), system->getMetadataRootPath(), true)) : "");
 			if (!Utils::FileSystem::exists(mddFullPath))
 			{
 				std::string ext = ".jpg";
@@ -736,27 +740,27 @@ void cleanupGamelist(SystemData* system)
 
 				if (!suffix.empty())
 				{					
-					std::string mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + "-"+ suffix + ext;
+					std::string mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + "-"+ suffix + ext;
 
 					if (ext == ".pdf" && !Utils::FileSystem::exists(mediaPath))
 					{
-						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ".pdf";
+						mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + ".pdf";
 						if (!Utils::FileSystem::exists(mediaPath))
-							mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ".cbz";
+							mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + ".cbz";
 					}
 					else if (ext != ".jpg" && !Utils::FileSystem::exists(mediaPath))
-						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ext;
+						mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + ext;
 					else if (ext == ".jpg" && !Utils::FileSystem::exists(mediaPath))
-						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + "-" + suffix + ".png";
+						mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + "-" + suffix + ".png";
 
 					if (mdd.id == MetaDataId::Image && !Utils::FileSystem::exists(mediaPath))
-						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ".jpg";
+						mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + ".jpg";
 					if (mdd.id == MetaDataId::Image && !Utils::FileSystem::exists(mediaPath))
-						mediaPath = system->getStartPath() + folder + file->second->getDisplayName() + ".png";
+						mediaPath = system->getMetadataRootPath() + folder + file->second->getDisplayName() + ".png";
 
 					if (Utils::FileSystem::exists(mediaPath))
 					{
-						auto relativePath = Utils::FileSystem::createRelativePath(mediaPath, system->getStartPath(), true);
+						auto relativePath = Utils::FileSystem::createRelativePath(mediaPath, system->getMetadataRootPath(), true);
 
 						fileNode.append_child(mdd.key.c_str()).text().set(relativePath.c_str());
 
@@ -803,8 +807,8 @@ void cleanupGamelist(SystemData* system)
 		}
 	}
 
-	// Cleanup unknown files in system rom path
-	auto allFiles = Utils::FileSystem::getDirContent(system->getStartPath(), true);
+	// Cleanup unknown files in system media folders
+	auto allFiles = Utils::FileSystem::getDirContent(system->getMetadataRootPath(), true);
 	for (auto dirFile : allFiles)
 	{
 		if (knownXmlPaths.find(dirFile) != knownXmlPaths.cend())
@@ -823,7 +827,7 @@ void cleanupGamelist(SystemData* system)
 		if (parent != "images" && parent != "videos" && parent != "manuals" && parent != "downloaded_images" && parent != "downloaded_videos")
 			continue;
 
-		if (Utils::FileSystem::getParent(Utils::FileSystem::getParent(dirFile)) != system->getStartPath())
+		if (Utils::FileSystem::getParent(Utils::FileSystem::getParent(dirFile)) != system->getMetadataRootPath())
 			if (Utils::FileSystem::getFileName(Utils::FileSystem::getParent(Utils::FileSystem::getParent(dirFile))) != "media")
 				continue;
 
