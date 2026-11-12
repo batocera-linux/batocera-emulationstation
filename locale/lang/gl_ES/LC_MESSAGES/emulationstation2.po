@@ -3724,9 +3724,6 @@ msgstr "LECTOR DE PANTALLA DESACTIVADO"
 msgid "ENABLED"
 msgstr "ACTIVADO"
 
-msgid "up/down"
-msgstr "arriba/abaixo"
-
 msgid "WORKING..."
 msgstr "TRABALLANDO…"
 
@@ -4066,6 +4063,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "hai %d segundo"
 msgstr[1] "hai %d segundos"
+
+#~ msgid "up/down"
+#~ msgstr "arriba/abaixo"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -113,8 +113,7 @@ msgid "SYSTEM INFO"
 msgstr "INFO SYSTÈME"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr ""
-"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, TOUS LES RÉAFFICHER IMMÉDIATEMENT"
+msgstr "ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, LES RÉAFFICHER IMMÉDIATEMENT"
 
 msgid "OK"
 msgstr "OK"
@@ -177,7 +176,7 @@ msgid "RANDOM"
 msgstr "ALÉATOIRE"
 
 msgid "NAVIGATION BAR"
-msgstr "VOLET NAVIGATION"
+msgstr "VOLET DE NAVIGATION"
 
 msgid "FILES"
 msgstr "FICHIERS"
@@ -488,7 +487,7 @@ msgid "STOP RECORDING"
 msgstr "ARRÊTER L’ENREGISTREMENT"
 
 msgid "KEYBOARD TOGGLE"
-msgstr "BASCULE CLAVIER"
+msgstr "BASCULE DE CLAVIER"
 
 msgid "KEY ASSIGNED TWICE"
 msgstr "TOUCHE ASSIGNÉE 2 FOIS"
@@ -679,7 +678,7 @@ msgid "SELECT CONTENT TO INSTALL/REMOVE"
 msgstr "SÉLECTIONNER LE CONTENU À INSTALLER/SUPPRIMER"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr "MÀJ LE CONTENU INSTALLÉ"
+msgstr "METTRE À JOUR LE CONTENU INSTALLÉ"
 
 msgid "No items"
 msgstr "Aucun élément"
@@ -723,7 +722,7 @@ msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "ÉDITER LES FILTRES DE LA COLLECTION"
 
 msgid "RESET ALL FILTERS"
-msgstr "RAZ DE TOUS LES FILTRES"
+msgstr "RÉINITIALISATION DE TOUS LES FILTRES"
 
 msgid "FIND GAMES"
 msgstr "RECHERCHER DES JEUX"
@@ -789,13 +788,13 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "PERSONNALISER LA VUE"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "VOIR LE PROFIL MANETTE À CLAVIER"
+msgstr "VOIR LE PROFIL PADTOKEY"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
 
 msgid "RESET FILTERS"
-msgstr "RAZ DES FILTRES"
+msgstr "RÉINITIALISATION DES FILTRES"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU’UN SCRAPE EST EN COURS"
@@ -927,7 +926,7 @@ msgid "WRITE"
 msgstr "ÉCRIRE"
 
 msgid "PLACE A TAG ON THE WRITER..."
-msgstr "PLACER UNE BALISE SUR LE LECTEUR…"
+msgstr "PLACEMENT D'UNE BALISE SUR LE LECTEUR…"
 
 msgid "THE TAG WAS WRITTEN SUCCESSFULLY"
 msgstr "LA BALISE A ÉTÉ ÉCRITE AVEC SUCCÈS"
@@ -1061,7 +1060,7 @@ msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr "COLLECTIONS EDITABLES"
+msgstr "COLLECTIONS ÉDITABLES"
 
 msgid "DYNAMIC COLLECTIONS"
 msgstr "COLLECTIONS DYNAMIQUES"
@@ -1159,10 +1158,10 @@ msgid "BEHAVIOR"
 msgstr "COMPORTEMENT"
 
 msgid "JOYSTICKS HOTKEYS"
-msgstr "RACCOURCIS JOYSTICKS"
+msgstr "RACCOURCIS DES MANETTES"
 
 msgid "RESTRICT JOYSTICKS HOTKEYS TO EXIT"
-msgstr "RESTREINDRE LES RACCOURCIS DES JOYSTICKS À QUITTER"
+msgstr "RESTREINDRE LES RACCOURCIS DES MANETTES À QUITTER"
 
 msgid "GLOBAL HOTKEYS"
 msgstr "RACCOURCIS GLOBAUX"
@@ -1309,7 +1308,7 @@ msgid "CAMERA CONTRAST"
 msgstr "CONTRASTE DE LA CAMÉRA"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr "Journée/Lumière du soleil (40)"
+msgstr "Journée/Plein soleil (40)"
 
 msgid "Default (50)"
 msgstr "Par défaut (50)"
@@ -1321,7 +1320,7 @@ msgid "CAMERA BRIGHTNESS"
 msgstr "LUMINOSITÉ DE LA CAMÉRA"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr "Journée/Lumière du Soleil (80)"
+msgstr "Journée/Plein Soleil (80)"
 
 msgid "Default (100)"
 msgstr "Par défaut (100)"
@@ -1369,7 +1368,7 @@ msgid "MODE"
 msgstr "MODE"
 
 msgid "JOYSTICK"
-msgstr "JOYSTICK"
+msgstr "MANETTE"
 
 msgid "MOUSE ONLY"
 msgstr "SOURIS SEULEMENT"
@@ -1412,6 +1411,9 @@ msgstr "SAISIE MANUELLE"
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "AUCUN RÉSEAU WI-FI TROUVÉ"
+
+msgid "CONNECTED"
+msgstr "CONNECTÉ"
 
 msgid "ALREADY CONNECTED"
 msgstr "DÉJÀ CONNECTÉ"
@@ -1592,7 +1594,7 @@ msgid "VIDEO"
 msgstr "VIDÉO"
 
 msgid "BEZEL (16:9)"
-msgstr "DÉCORATION (16:9)"
+msgstr "DÉCORATION (16/9)"
 
 msgid "BOX BACKSIDE"
 msgstr "ARRIÈRE DES BOÎTES"
@@ -1712,7 +1714,7 @@ msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES D’ÉCRAN DE VEILLE VIDÉO ALÉATOIRE"
 
 msgid "VIDEO DURATION (SECS)"
-msgstr "DURÉE VIDÉO (SECS)"
+msgstr "DURÉE VIDÉO (SECONDES)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UTILISER OMX COMME ÉCRAN DE VEILLE"
@@ -1721,13 +1723,13 @@ msgid "SHOW GAME INFO"
 msgstr "AFFICHER LES INFORMATIONS DU JEU"
 
 msgid "SHOW DATE TIME"
-msgstr "AFFICHER DATE HEURE"
+msgstr "AFFICHER LA DATE ET L'HEURE"
 
 msgid "DATE FORMAT"
-msgstr "FORMAT DATE"
+msgstr "FORMAT DE LA DATE"
 
 msgid "TIME FORMAT"
-msgstr "FORMAT HORAIRE"
+msgstr "FORMAT DE L'HEURE"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UTILISER LES LOGOS POUR LES INFOS JEU"
@@ -1760,7 +1762,7 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "PARAMÈTRES ÉCRAN DE VEILLE DIAPORAMA"
 
 msgid "IMAGE DURATION (SECS)"
-msgstr "DURÉE IMAGE (SECS)"
+msgstr "DURÉE IMAGE (SECONDES)"
 
 msgid "STRETCH IMAGES"
 msgstr "ÉTIRER LES IMAGES"
@@ -1769,7 +1771,7 @@ msgid "USE CUSTOM IMAGES"
 msgstr "UTILISER DES IMAGES PERSONNALISÉES"
 
 msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "RÉPERTOIRE D’IMAGES PERSONNALISÉES"
+msgstr "RÉPERTOIRE D’IMAGES PERSONNALISÉ"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr "UTILISER LES IMAGES DES SOUS-RÉPERTOIRES PERSONNALISÉS"
@@ -1790,7 +1792,7 @@ msgid "fast slide"
 msgstr "glissement rapide"
 
 msgid "fade & slide"
-msgstr "fondu & glissement"
+msgstr "fondu et glissement"
 
 msgid "instant"
 msgstr "instantané"
@@ -1867,7 +1869,7 @@ msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "BALAYAGE"
+msgstr "LIGNES DE BALAYAGE"
 
 msgctxt "game_options"
 msgid "RETRO"
@@ -1879,15 +1881,15 @@ msgstr "AMÉLIORÉ"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "BALAYAGE COURBÉ"
+msgstr "LIGNES DE BALAYAGE COURBÉES"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr "NID D’ABEILLE"
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "APPLATI ET BRILLANT"
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
@@ -1939,13 +1941,13 @@ msgid "EMULATOR SETTINGS"
 msgstr "PARAMÈTRES DES EMULATEURS"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "MISES À JOUR & TÉLÉCHARGEMENTS"
+msgstr "MISES À JOUR ET TÉLÉCHARGEMENTS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "PARAMÈTRES SYSTÈME"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr "DÉVERROUILLER L’INTERFACE"
+msgstr "DÉVERROUILLER L'INTERFACE"
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -2026,7 +2028,7 @@ msgid "270 DEGREES"
 msgstr "270 DEGRÉS"
 
 msgid "SCREEN ROTATION"
-msgstr "ROTATION DE L’ÉCRAN"
+msgstr "ROTATION DE L'ÉCRAN"
 
 msgid "DMD SCREEN"
 msgstr "ÉCRAN DMD"
@@ -2041,7 +2043,7 @@ msgid "VRAM LIMIT"
 msgstr "LIMITE MÉMOIRE VIDÉO"
 
 msgid "SHOW FRAMERATE"
-msgstr "AFFICHER LE NOMBRE D’IMAGES/SEC"
+msgstr "AFFICHER LE NOMBRE D’IMAGES/SECONDE"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr "Active également le compteur d’IPS de l’émulateur si disponible."
@@ -2053,7 +2055,7 @@ msgid "ANTI-ALIASING (MSAA)"
 msgstr "ANTICRÉNELAGE (MSAA)"
 
 msgid "FPS LIMIT"
-msgstr "LIMITE D’IPS"
+msgstr "LIMITE D'IPS"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
@@ -2075,7 +2077,7 @@ msgid "Allow public web access API using %s"
 msgstr "Autoriser l’accès public à l’API via %s"
 
 msgid "LOG LEVEL"
-msgstr "NIVEAU DE LOG"
+msgstr "NIVEAU DE JOURNALISATION"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRÉER UN FICHIER DE SUPPORT"
@@ -2089,7 +2091,7 @@ msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "FICHIER DE SUPPORT CRÉÉ DANS LE DOSSIER SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr "ECHEC DE CRÉATION DU FICHIER SUPPORT"
+msgstr "ÉCHEC DE CRÉATION DU FICHIER SUPPORT"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATER UN DISQUE"
@@ -2113,7 +2115,7 @@ msgstr ""
 "Réinitialise les valeurs des métadonnées GameTime, PlayCount et LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "RAZ DES EXTENSIONS DE FICHIER"
+msgstr "RÉINITIALISATION DES EXTENSIONS DE FICHIER"
 
 msgid "Reset customized file extensions filters to default."
 msgstr "Réinitialiser les filtres d’extensions de fichiers personnalisés."
@@ -2327,7 +2329,7 @@ msgid "UPDATER IS ALREADY RUNNING"
 msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
 
 msgid "START LOCAL MEDIA UPDATE"
-msgstr "LANCER LA MISE À JOUR DEPUIS LE MEDIA"
+msgstr "LANCER LA MISE À JOUR DEPUIS LE MÉDIA"
 
 msgid "REALLY UPDATE FROM LOCAL MEDIA?"
 msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR DEPUIS LE MÉDIA ?"
@@ -2409,7 +2411,7 @@ msgid ""
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Vous allez passer à une interface restreinte:\n"
+"Vous allez passer à une interface restreinte :\n"
 "Cela cachera la plupart des options pouvant modifier le système.\n"
 "Pour revenir à l’interface complète, utilisez ce code de déverrouillage :"
 
@@ -2446,14 +2448,23 @@ msgstr "HDR"
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr "Permet le contenu HDR tel que les flux Moonlight HDR."
 
+msgid "VARIABLE REFRESH RATE"
+msgstr "TAUX DE RAFRAÎCHISSEMENT VARIABLE"
+
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+"Suivre la fréquence de rafraîchissement de l’écran. À désactiver si l’écran "
+"scintille."
+
 msgid "BOOT SPLASH"
-msgstr "SPLASH AU DÉMARRAGE"
+msgstr "IMAGE SPLASH AU DÉMARRAGE"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VIDÉO PAR DÉFAUT / PERSONNALISÉE"
+msgstr "VIDÉO PAR DÉFAUT/PERSONNALISÉE"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "VIDÉO SILENCIEUSE / PERSONNALISÉE"
+msgstr "VIDÉO SILENCIEUSE/PERSONNALISÉE"
 
 msgid "BATOCERA SPLASH IMAGE"
 msgstr "IMAGE SPLASH BATOCERA"
@@ -2563,7 +2574,7 @@ msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "UTILISER DEUX INSTANCES (SI IMAGES EN AVANCE)"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "Peut prévenir des sauts audios sur pression des boutons."
+msgstr "Peut prévenir des coupures audio lors de l’appui sur les boutons."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "RETARD D’IMAGE AUTOMATIQUE"
@@ -2586,13 +2597,6 @@ msgid ""
 msgstr ""
 "Ne pas s’écarter des temps demandés par le core. G-Sync, FreeSync, HDMI 2.1 "
 "VRR."
-
-msgid "VARIABLE REFRESH RATE"
-msgstr "TAUX DE RAFRAÎCHISSEMENT VARIABLE"
-
-msgid ""
-"Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr "Suivre la fréquence de rafraîchissement de l’écran. À désactiver si l’écran scintille."
 
 msgid "DECORATION SET"
 msgstr "PACK DE DÉCORATIONS"
@@ -2666,7 +2670,7 @@ msgstr ""
 "permet."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "ÉCHELLE ENTIÈRE (PIXEL PARFAIT)"
+msgstr "ÉCHELLE ENTIÈRE (AU PIXEL PRÈS)"
 
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
@@ -2678,7 +2682,7 @@ msgid "DECORATIONS"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "ÉTIRER LES DÉCORATIONS (4K & ULTRAWIDE)"
+msgstr "ÉTIRER LES DÉCORATIONS (4K & ÉCRAN LARGE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
 msgstr "AFFICHER LE TATOUAGE"
@@ -2939,9 +2943,6 @@ msgstr "ACTIVER LES SONS DE NAVIGATION"
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ACTIVER LE SON DES VIDÉOS"
 
-msgid "CONNECTED"
-msgstr "CONNECTÉ"
-
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
 msgstr "IMPOSSIBLE DE SE CONNECTER À '%s'"
@@ -2981,7 +2982,7 @@ msgid "ENABLE WI-FI"
 msgstr "ACTIVER LE WI-FI"
 
 msgid "WI-FI COUNTRY"
-msgstr "WI-FI PAYS"
+msgstr "PAYS DU WI-FI"
 
 msgid "N/A"
 msgstr "N/D"
@@ -3179,10 +3180,10 @@ msgid "FILENAME, DESCENDING"
 msgstr "NOM DU JEU, DÉCROISSANT"
 
 msgid "RATING, ASCENDING"
-msgstr "NOTATION, CROISSANTE"
+msgstr "NOTATION, CROISSANT"
 
 msgid "RATING, DESCENDING"
-msgstr "NOTATION, DÉCROISSANTE"
+msgstr "NOTATION, DÉCROISSANT"
 
 msgid "TIMES PLAYED, ASCENDING"
 msgstr "PARTIES JOUÉES, CROISSANT"
@@ -3215,16 +3216,16 @@ msgid "GENRE, DESCENDING"
 msgstr "GENRE, DÉCROISSANT"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr "DEVELOPPEUR, CROISSANT"
+msgstr "DÉVELOPPEUR, CROISSANT"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr "DEVELOPPEUR, DÉCROISSANT"
+msgstr "DÉVELOPPEUR, DÉCROISSANT"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr "EDITEUR, CROISSANT"
+msgstr "ÉDITEUR, CROISSANT"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr "EDITEUR, DÉCROISSANT"
+msgstr "ÉDITEUR, DÉCROISSANT"
 
 msgid "SYSTEM, ASCENDING"
 msgstr "SYSTÈME, CROISSANT"
@@ -3257,7 +3258,7 @@ msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANNÉE DE SORTIE, SYSTÈME, DÉCROISSANT"
 
 msgid "A,AN,THE"
-msgstr "LE,LA,LES,L’,UN,UNE,DE,DES,D’,AU,A,AUX,L',D'"
+msgstr "LE,LA,LES,L’,UN,UNE,DE,DES,D’,AU,A,AUX"
 
 msgid "INVALID CREDENTIALS"
 msgstr "IDENTIFIANTS INVALIDES"
@@ -3341,7 +3342,7 @@ msgid "enter path to logo"
 msgstr "entrer le chemin vers le logo"
 
 msgid "Box"
-msgstr "Boite"
+msgstr "Boîte"
 
 msgid "enter path to box"
 msgstr "entrer le chemin vers la boîte"
@@ -3458,10 +3459,10 @@ msgid "enter hidden"
 msgstr "entrer le jeu caché"
 
 msgid "Kidgame"
-msgstr "Jeu enfant"
+msgstr "Jeu pour enfant"
 
 msgid "enter kidgame"
-msgstr "entrer le jeu enfant"
+msgstr "entrer le jeu pour enfant"
 
 msgid "Play count"
 msgstr "Nombre de parties"
@@ -3512,7 +3513,7 @@ msgid "Screenscraper Game ID"
 msgstr "Game ID Screenscraper"
 
 msgid "MultiDisk"
-msgstr "MultiDisque"
+msgstr "Multi-disque"
 
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système…"
@@ -3521,7 +3522,7 @@ msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "VOULEZ-VOUS CHANGER D’ÉCRAN ?"
+msgstr "VOULEZ VOUS CHANGER D’ÉCRAN ?"
 
 msgid "all games"
 msgstr "tous les jeux"
@@ -3638,9 +3639,6 @@ msgstr "LE CŒUR EST MANQUANT"
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
-msgid "UNKNOWN ERROR"
-msgstr "ERREUR INCONNUE"
-
 msgid "Checking for latest upgrade script..."
 msgstr "Recherche d’un nouveau script de mise à niveau…"
 
@@ -3687,7 +3685,7 @@ msgid "REGION"
 msgstr "RÉGION"
 
 msgid "KIDGAME"
-msgstr "JEU ENFANT"
+msgstr "JEU POUR ENFANT"
 
 msgid "ALREADY PLAYED"
 msgstr "DÉJÀ JOUÉ"
@@ -3733,9 +3731,6 @@ msgstr "LECTEUR D’ÉCRAN DÉSACTIVÉ"
 
 msgid "ENABLED"
 msgstr "ACTIVÉ"
-
-msgid "up/down"
-msgstr "haut/bas"
 
 msgid "WORKING..."
 msgstr "EN COURS…"
@@ -3938,7 +3933,7 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "VOUS N’AVEZ PAS ASSIGNÉ DE BOUTON DE RACCOURCI. CECI EST NÉCESSAIRE POUR "
-"QUITTER UN JEU AVEC UNE MANETTE. VOULEZ-VOUS UTILISER LE BOUTON SELECT COMME "
+"QUITTER UN JEU AVEC UNE MANETTE. VOULEZ VOUS UTILISER LE BOUTON SELECT COMME "
 "RACCOURCI ?"
 
 msgid "SET SELECT AS HOTKEY"
@@ -4003,7 +3998,7 @@ msgid "NO, IGNORE THIS TIME"
 msgstr "NON, IGNORER CETTE FOIS"
 
 msgid "NO, IGNORE FOREVER"
-msgstr "NON, IGNORER À JAMAIS"
+msgstr "NON, IGNORER TOUJOURS"
 
 msgid "Adding drive to ignore list..."
 msgstr "Ajout du disque à la liste d’exclusion…"
@@ -4027,7 +4022,7 @@ msgid "FORMAT FAILED"
 msgstr "ÉCHEC DU FORMATAGE"
 
 msgid "YES, FORMAT & MERGE"
-msgstr "OUI, FORMATER & FUSIONNER"
+msgstr "OUI, FORMATER ET FUSIONNER"
 
 msgid "NO, IGNORE"
 msgstr "NON, IGNORER"
@@ -4077,6 +4072,12 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "Il y a %d seconde"
 msgstr[1] "Il y a %d secondes"
+
+#~ msgid "UNKNOWN ERROR"
+#~ msgstr "ERREUR INCONNUE"
+
+#~ msgid "up/down"
+#~ msgstr "haut/bas"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

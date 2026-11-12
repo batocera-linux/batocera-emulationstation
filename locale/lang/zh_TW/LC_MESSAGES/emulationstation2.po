@@ -3672,9 +3672,6 @@ msgstr "螢幕閱讀器已停用"
 msgid "ENABLED"
 msgstr "啟用"
 
-msgid "up/down"
-msgstr "上/下"
-
 msgid "WORKING..."
 msgstr "作業中…"
 
@@ -4006,6 +4003,9 @@ msgstr[0] "%d 分鐘前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 幾秒前"
+
+#~ msgid "up/down"
+#~ msgstr "上/下"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

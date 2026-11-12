@@ -3703,9 +3703,6 @@ msgstr "SKJERMLESER DEAKTIVERT"
 msgid "ENABLED"
 msgstr "AKTIVERT"
 
-msgid "up/down"
-msgstr "opp/ned"
-
 msgid "WORKING..."
 msgstr "ARBEIDER…"
 
@@ -4045,6 +4042,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund siden"
 msgstr[1] "%d sekunder siden"
+
+#~ msgid "up/down"
+#~ msgstr "opp/ned"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

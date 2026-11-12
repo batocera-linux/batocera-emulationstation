@@ -3738,9 +3738,6 @@ msgstr "SCHERMLEZER UITGESCHAKELD"
 msgid "ENABLED"
 msgstr "INGESCHAKELD"
 
-msgid "up/down"
-msgstr "omhoog/omlaag"
-
 msgid "WORKING..."
 msgstr "BEZIG…"
 
@@ -4080,6 +4077,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d seconden geleden"
 msgstr[1] "%d secondes geleden"
+
+#~ msgid "up/down"
+#~ msgstr "omhoog/omlaag"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -1424,7 +1424,7 @@ msgid "CONNECTED"
 msgstr "CONECTADO"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "JÁ CONECTADO"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "PESQUISANDO REDES WI-FI"
@@ -2466,7 +2466,7 @@ msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr ""
+msgstr "Permite à tela seguir a taxa de quadros. Desligue se a tela piscar."
 
 msgid "BOOT SPLASH"
 msgstr "TELA DE ABERTURA"
@@ -3742,9 +3742,6 @@ msgstr "LEITOR DE TELA DESATIVADO"
 msgid "ENABLED"
 msgstr "ATIVADO"
 
-msgid "up/down"
-msgstr "cima/baixo"
-
 msgid "WORKING..."
 msgstr "EM PROGRESSO…"
 
@@ -4085,6 +4082,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
+
+#~ msgid "up/down"
+#~ msgstr "cima/baixo"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

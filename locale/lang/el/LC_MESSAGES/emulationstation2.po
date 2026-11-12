@@ -3688,9 +3688,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΜΕΝΟ"
 
-msgid "up/down"
-msgstr "πανω/κατω"
-
 msgid "WORKING..."
 msgstr "ΔΟΥΛΕΥΕΙ…"
 
@@ -4031,6 +4028,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d δευτεροπλεπτο πριν"
 msgstr[1] "%d δευτερολεπτα πριν"
+
+#~ msgid "up/down"
+#~ msgstr "πανω/κατω"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

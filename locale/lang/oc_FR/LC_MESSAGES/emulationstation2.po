@@ -3661,9 +3661,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr ""
 
-msgid "up/down"
-msgstr "naut/bas"
-
 msgid "WORKING..."
 msgstr "TRACTAMENT…"
 
@@ -3999,6 +3996,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "Fa %d segonda"
 msgstr[1] "Fa %d segondas"
+
+#~ msgid "up/down"
+#~ msgstr "naut/bas"
 
 #~ msgid "BY HARDWARE TYPE"
 #~ msgstr "PER TIPE DE MATERIAL"

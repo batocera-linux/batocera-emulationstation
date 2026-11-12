@@ -160,7 +160,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
-
+		
 		{ "x", FLOAT },
 		{ "y", FLOAT },
 		{ "h", FLOAT },
@@ -191,6 +191,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarCorner", FLOAT },
 		{ "scrollbarAlignment", STRING },		// left, right, outer left, outer right
 
+		{ "groupBy", STRING },
+		{ "groupHeight", FLOAT },
+		{ "groupSpacing", FLOAT },
+		{ "groupBands", BOOLEAN },
+		{ "groupsAtStart", STRING },
+		{ "groupsAtEnd", STRING },
+		{ "sortBy", STRING },
+		{ "sortDescending", BOOLEAN },
+		
 		{ "centerSelection", STRING },			// true, false, partial
 		{ "scrollLoop", BOOLEAN } } },
 

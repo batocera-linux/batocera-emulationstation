@@ -2636,7 +2636,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	{
 		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
 
-		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getSelectedSystem());
 		if (sets.size() > 0)
 		{
 			item->setRowTemplate([window, sets](std::string data, ComponentListRow& row) { createDecorationItemTemplate(window, sets, data, row); });
@@ -3034,7 +3034,7 @@ void GuiMenu::openGamesSettings()
 	// decorations
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS) && !hasGlobalFeature("bezel"))
 	{
-		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getSelectedSystem());
 		if (sets.size() > 0)
 		{
 #ifdef BATOCERA
@@ -4487,21 +4487,27 @@ static void compactWifiSlots()
 	}
 }
 
-static void useWifiNetwork(Window* window, const std::string& ssid)
+static void useWifiNetwork(Window* window, const std::string& ssid, const std::function<void()>& onComplete = {})
 {
 	// the script provisions connman from the saved file
 	SystemConf::getInstance()->saveSystemConf();
 
 	if (!ssid.empty() && ssid == ApiSystem::getInstance()->getConnectedWifiSsid())
 	{
+		if (onComplete)
+			onComplete();
+
 		window->pushGui(new GuiMsgBox(window, _("ALREADY CONNECTED")));
 		return;
 	}
 
 	window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"),
 		[ssid](auto gui) { return ApiSystem::getInstance()->connectWifi(ssid); },
-		[window, ssid](bool connected)
+		[window, ssid, onComplete](bool connected)
 		{
+			if (onComplete)
+				onComplete();
+
 			window->pushGui(new GuiMsgBox(window, connected ? _("CONNECTED") : Utils::String::format(_("UNABLE TO CONNECT TO '%s'").c_str(), ssid.c_str())));
 		}));
 }
@@ -4582,11 +4588,11 @@ void GuiMenu::openWifiNetwork(const std::string& slot, const std::function<void(
 	bool isNew = ssid.empty();
 	s->onFinalize([window, slot, isNew, onClose]
 	{
-		onClose();
-
-		std::string newSsid = SystemConf::getInstance()->get(slot + ".ssid");
+		const std::string newSsid = SystemConf::getInstance()->get(slot + ".ssid");
 		if (isNew && !newSsid.empty())
-			useWifiNetwork(window, newSsid);
+			useWifiNetwork(window, newSsid, onClose);
+		else
+			onClose();
 	});
 
 	mWindow->pushGui(s);
@@ -4938,7 +4944,7 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 
 	// spacer between icon and text
 	auto spacer = std::make_shared<GuiComponent>(window);
-	spacer->setSize(IMGPADDING, maxSize.y());
+	spacer->setSize(IMGPADDING, 0);
 	row.addElement(spacer, false);
 
 	std::string label = data;
@@ -4960,6 +4966,7 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 	// image
 	if (!imageUrl.empty())
 	{
+		spacer->setSize(IMGPADDING, maxSize.y());
 		auto icon = std::make_shared<ImageComponent>(window);
 		icon->setImage(imageUrl, false, maxSize);
 		icon->setMaxSize(maxSize);

@@ -3711,9 +3711,6 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 msgid "ENABLED"
 msgstr "ZAPNUTO"
 
-msgid "up/down"
-msgstr "nahoru/dolů"
-
 msgid "WORKING..."
 msgstr "PRACUJI…"
 
@@ -4061,6 +4058,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d před sekundou"
 msgstr[1] "%d před sekundami"
 msgstr[2] "%d před sekundami"
+
+#~ msgid "up/down"
+#~ msgstr "nahoru/dolů"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

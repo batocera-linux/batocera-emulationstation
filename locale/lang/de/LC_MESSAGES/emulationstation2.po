@@ -3745,9 +3745,6 @@ msgstr "BILDSCHIRMLESER DEAKTIVIERT"
 msgid "ENABLED"
 msgstr "AKTIVIERT"
 
-msgid "up/down"
-msgstr "hinauf/hinunter"
-
 msgid "WORKING..."
 msgstr "VERARBEITE…"
 
@@ -4089,3 +4086,6 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d Sekunde her"
 msgstr[1] "%d Sekunden her"
+
+#~ msgid "up/down"
+#~ msgstr "hinauf/hinunter"

@@ -3696,9 +3696,6 @@ msgstr "NÄYTÖNSÄÄSTÄJÄ POISTETTU KÄYTÖSTÄ"
 msgid "ENABLED"
 msgstr ""
 
-msgid "up/down"
-msgstr ""
-
 msgid "WORKING..."
 msgstr ""
 

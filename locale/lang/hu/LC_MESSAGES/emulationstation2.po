@@ -3731,9 +3731,6 @@ msgstr "A KÉPERNYŐOLVASÓ LE VAN TILTVA"
 msgid "ENABLED"
 msgstr "ENGEDÉLYEZVE"
 
-msgid "up/down"
-msgstr "fel/le"
-
 msgid "WORKING..."
 msgstr "DOLGOZOM…"
 
@@ -4074,6 +4071,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d másodperce"
 msgstr[1] "%d másodperce"
+
+#~ msgid "up/down"
+#~ msgstr "fel/le"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

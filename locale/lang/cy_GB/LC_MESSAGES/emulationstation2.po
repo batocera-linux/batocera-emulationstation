@@ -3678,9 +3678,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr ""
 
-msgid "up/down"
-msgstr "lan/lawr"
-
 msgid "WORKING..."
 msgstr "YN GWEITHIO…"
 
@@ -4048,6 +4045,9 @@ msgstr[2] "%d eiliadau yn ôl"
 msgstr[3] "%d eiliadau yn ôl"
 msgstr[4] "%d eiliadau yn ôl"
 msgstr[5] "%d eiliadau yn ôl"
+
+#~ msgid "up/down"
+#~ msgstr "lan/lawr"
 
 #~ msgid "BUILD IMAGE CACHE"
 #~ msgstr "ADEILADU DELWEDD COF DROS DRO"

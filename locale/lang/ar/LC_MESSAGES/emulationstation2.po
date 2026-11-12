@@ -3752,9 +3752,6 @@ msgstr "قارئ الشاشة معطل"
 msgid "ENABLED"
 msgstr "مفعّل"
 
-msgid "up/down"
-msgstr "أعلى/أسفل"
-
 msgid "WORKING..."
 msgstr "جار التحقق من التحديثات…"
 
@@ -4126,6 +4123,9 @@ msgstr[2] "منذ %d ثانيتين"
 msgstr[3] "منذ %d ثوانٍ"
 msgstr[4] "منذ %d ثانية"
 msgstr[5] "منذ %d ثانية"
+
+#~ msgid "up/down"
+#~ msgstr "أعلى/أسفل"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

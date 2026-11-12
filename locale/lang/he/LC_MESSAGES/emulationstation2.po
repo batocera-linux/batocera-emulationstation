@@ -3665,9 +3665,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr "מופעל"
 
-msgid "up/down"
-msgstr ""
-
 msgid "WORKING..."
 msgstr ""
 
