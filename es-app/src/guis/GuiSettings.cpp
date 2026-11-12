@@ -329,7 +329,7 @@ void GuiSettings::addInputTextRow(const std::string& title, const std::string& v
 	addRow(row);
 }
 
-void GuiSettings::addFileBrowser(const std::string& title, const std::string& settingsID, GuiFileBrowser::FileTypes type, bool storeInSettings)
+void GuiSettings::addFileBrowser(const std::string& title, const std::string& settingsID, GuiFileBrowser::FileTypes type, bool storeInSettings, const std::function<void()>& onChanged)
 {
 	Window* window = mWindow;
 
@@ -358,15 +358,17 @@ void GuiSettings::addFileBrowser(const std::string& title, const std::string& se
 	std::string localSettingsID = settingsID;
 	bool localStoreInSettings = storeInSettings;
 
-	auto updateVal = [this, ed, localSettingsID, localStoreInSettings](const std::string &newVal)
+	auto updateVal = [this, ed, localSettingsID, localStoreInSettings, onChanged](const std::string &newVal)
 	{
 		ed->setValue(newVal);			
 		mMenu.updateSize();
 
-		if (localStoreInSettings)
-			Settings::getInstance()->setString(localSettingsID, newVal);
-		else
+		bool changed = localStoreInSettings ?
+			Settings::getInstance()->setString(localSettingsID, newVal) :
 			SystemConf::getInstance()->set(localSettingsID, newVal);
+
+		if (changed && onChanged != nullptr)
+			onChanged();
 	};
 
 	row.makeAcceptInputHandler([window, title, type, ed, updateVal]

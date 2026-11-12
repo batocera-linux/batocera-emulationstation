@@ -990,6 +990,9 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithDescription(_("SEARCH FOR LOCAL ART"), _("If no image is specified in the gamelist, try to find media with the same filename to use."), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
 
+	// Store gamelist.xml & media (images, videos, manuals...) in <folder>/<system> instead of the ROM folders. Reset = ROM folders.
+	s->addFileBrowser(_("GAMELISTS AND MEDIA FOLDER"), "MetadataFolder", GuiFileBrowser::DIRECTORY, true, [s] { s->setVariable("reloadGames", true); });
+
 	s->addGroup(_("USER INTERFACE"));
 
 	// carousel transition option

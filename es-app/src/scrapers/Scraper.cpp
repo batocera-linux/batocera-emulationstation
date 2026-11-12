@@ -803,7 +803,7 @@ std::string Scraper::getSaveAsPath(FileData* game, const MetaDataId metadataId, 
 	const std::string subdirectory = system->getName();
 	const std::string name = Utils::FileSystem::getStem(game->getPath()) + "-" + suffix;
 
-	std::string path = system->getRootFolder()->getPath() + "/" + folder + "/";
+	std::string path = system->getMetadataRootPath() + "/" + folder + "/";
 
 	if(!Utils::FileSystem::exists(path))
 		Utils::FileSystem::createDirectory(path);
