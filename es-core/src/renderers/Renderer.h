@@ -3,6 +3,7 @@
 #define ES_CORE_RENDERER_RENDERER_H
 
 #include <vector>
+#include <functional>
 #include <map>
 #include <cstring>
 #include "math/Vector2f.h"
@@ -121,6 +122,7 @@ namespace Renderer
 
 		virtual void         createContext() = 0;
 		virtual void         destroyContext() = 0;
+		virtual bool         makeWindowCurrent(SDL_Window*) { return false; }
 
 		virtual void         resetCache() = 0;
 
@@ -170,6 +172,9 @@ namespace Renderer
 	std::vector<std::string> getRendererNames();
 
  	bool        init            ();
+	void        renderSecondary(const std::function<void()>& draw);
+	bool        isSecondaryWindow(unsigned int windowId);
+	bool        hasSecondaryWindow();
  	void        deinit          ();
 	void        pushClipRect    (const Vector2i& _pos, const Vector2i& _size);
 	void		pushClipRect	(int x, int y, int w, int h);
