@@ -42,6 +42,7 @@ public:
 
 private:
 	void onValueChanged();
+	void sayValue();
 	unsigned int getCurColor() const;
 
 	float mMin, mMax;

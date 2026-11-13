@@ -9,6 +9,7 @@
 #include "ThemeData.h"
 #include "components/MultiLineMenuEntry.h"
 #include "components/MenuComponent.h"
+#include "TextToSpeech.h"
 
 #include <functional>
 #include <memory>
@@ -348,6 +349,7 @@ public:
 					mEntries.at(i).selected = false;
 					mEntries.at(next).selected = true;
 					onSelectedChanged();
+					TextToSpeech::getInstance()->say(getSelectedName());
 					return true;
 
 				}else if(config->isMappedLike("right", input))
@@ -361,6 +363,7 @@ public:
 					mEntries.at(i).selected = false;
 					mEntries.at(next).selected = true;
 					onSelectedChanged();
+					TextToSpeech::getInstance()->say(getSelectedName());
 					return true;
 
 				}

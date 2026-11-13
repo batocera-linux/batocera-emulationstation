@@ -4,6 +4,7 @@
 #include "LocaleES.h"
 #include "Window.h"
 #include "utils/HtmlColor.h"
+#include "TextToSpeech.h"
 
 #define MOVE_REPEAT_DELAY 500
 #define MOVE_REPEAT_RATE 40
@@ -141,6 +142,7 @@ bool SliderComponent::input(InputConfig* config, Input input)
 
 			mMoveRate = -mSingleIncrement;
 			mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			sayValue();
 			return input.value;
 		}
 		else
@@ -169,6 +171,7 @@ bool SliderComponent::input(InputConfig* config, Input input)
 
 			mMoveRate = mSingleIncrement;
 			mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			sayValue();
 			return input.value;
 		}
 		else
@@ -259,6 +262,21 @@ void SliderComponent::setValue(float value)
 float SliderComponent::getValue()
 {
 	return mValue;
+}
+
+void SliderComponent::sayValue()
+{
+	if (mIsAutoMode && getAuto())
+	{
+		TextToSpeech::getInstance()->say(_("AUTO"));
+		return;
+	}
+
+	std::stringstream ss;
+	ss << std::fixed;
+	ss.precision(mSingleIncrement < 1 ? calculatePrecision(mSingleIncrement) : 0);
+	ss << mValue << mSuffix;
+	TextToSpeech::getInstance()->say(ss.str());
 }
 
 void SliderComponent::onSizeChanged()
