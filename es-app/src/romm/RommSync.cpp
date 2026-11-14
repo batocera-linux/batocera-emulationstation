@@ -1246,10 +1246,11 @@ namespace Romm
 				auto it = doc.FindMember("PLATFORMS_BINDING");
 				if (it != doc.MemberEnd() && it->value.IsObject())
 				{
-					for (auto& m : it->value.GetObject())
+					// MemberBegin/MemberEnd, not GetObject(): windows.h defines GetObject as a macro
+					for (auto m = it->value.MemberBegin(); m != it->value.MemberEnd(); ++m)
 					{
-						if (m.value.IsString())
-							bindings[m.name.GetString()] = m.value.GetString();
+						if (m->value.IsString())
+							bindings[m->name.GetString()] = m->value.GetString();
 					}
 				}
 			}
