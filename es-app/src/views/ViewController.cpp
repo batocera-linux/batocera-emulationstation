@@ -1,4 +1,6 @@
 #include "views/ViewController.h"
+#include "guis/GuiRommDownload.h"
+#include "romm/RommBios.h"
 
 #include "animations/Animation.h"
 #include "animations/LambdaAnimation.h"
@@ -525,6 +527,26 @@ static const int RETURN_HOLD = 250;
 
 void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize, bool allowCheckLaunchOptions)
 {
+	// RomM game not downloaded yet : download it, then launch it the same way
+	if (game != nullptr && game->getType() == GAME && game->isRemote())
+	{
+		GuiRommDownload::downloadThenRun(mWindow, game, [this, game, options, center, targetSize, allowCheckLaunchOptions]
+		{
+			launch(game, options, center, targetSize, allowCheckLaunchOptions);
+		});
+		return;
+	}
+
+	// RomM: missing BIOS files available on the server are downloaded before ES checks them
+	if (allowCheckLaunchOptions && Romm::shouldCheckBiosAtLaunch(game))
+	{
+		GuiRommDownload::checkBiosThenRun(mWindow, game, [this, game, options, center, targetSize, allowCheckLaunchOptions]
+		{
+			launch(game, options, center, targetSize, allowCheckLaunchOptions);
+		});
+		return;
+	}
+
 	if (targetSize.x() <= 0 || targetSize.y() <= 0)
 	{
 		auto view = dynamic_cast<IGameListView*>(mCurrentView.get());

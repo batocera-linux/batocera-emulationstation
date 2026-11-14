@@ -1,4 +1,6 @@
 #include "guis/GuiMenu.h"
+#include "guis/GuiRommSettings.h"
+#include "romm/RommConfig.h"
 
 #include "components/OptionListComponent.h"
 #include "components/SliderComponent.h"
@@ -206,6 +208,9 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #endif
 
 		addEntry(_("SCRAPER").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");
+
+		if (SystemConf::getInstance()->getBool(Romm::CONF_ENABLED, false))
+			addEntry(_("ROMM").c_str(), true, [this] { GuiRommSettings::open(mWindow); }, "iconCloud");
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERASTORE) || ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER) ||
 			(ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEBEZELPROJECT) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS)) ||
@@ -1674,6 +1679,12 @@ void GuiMenu::openSystemSettings()
 		});
 	}
 #endif
+
+	// ROMM : shows the RomM menu, and RomM games once this device is paired and synchronized
+	s->addSwitch(_("ENABLE ROMM INTEGRATION"), Romm::CONF_ENABLED, false, [window]
+	{
+		window->postToUiThread([window] { GuiRommSettings::onIntegrationToggled(window); });
+	});
 
 #ifdef BATOCERA
 	s->addGroup(_("HARDWARE"));

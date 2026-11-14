@@ -62,6 +62,12 @@ BusyComponent::~BusyComponent()
 	SDL_DestroyMutex(mutex);
 }
 
+void BusyComponent::setFixedTextWidth(float width)
+{
+	mFixedTextWidth = width;
+	onSizeChanged();
+}
+
 void BusyComponent::setText(std::string txt)
 {
 	if (SDL_LockMutex(mutex) == 0)
@@ -108,8 +114,21 @@ void BusyComponent::onSizeChanged()
 	const float middleSpacerWidth = 0.01f * Renderer::getScreenWidth();
 	const float letterHeight = mText->getFont()->getLetterHeight();
 
+	const bool multiLine = mText->getText().find("\r") != std::string::npos;
+
 	float textHeight = mText->getFont()->getLetterHeight();
-	if (mText->getText().find("\r") != std::string::npos)
+	if (mFixedTextWidth > 0)
+	{
+		// Fixed width; the height follows the lines of the text
+		if (multiLine)
+		{
+			mText->setSize(mFixedTextWidth, 0);
+			textHeight = mText->getSize().y() - 16;
+		}
+		else
+			mText->setSize(mFixedTextWidth, textHeight);
+	}
+	else if (multiLine)
 		textHeight = mText->getSize().y() - 16;
 	else
 		mText->setSize(0, textHeight);

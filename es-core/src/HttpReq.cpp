@@ -162,6 +162,8 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 	}
 #endif
 
+	mQuietErrors = options != nullptr && options->quietErrors;
+
 	if (options != nullptr && !options->dataToPost.empty())
 	{
 		curl_easy_setopt(mHandle, CURLOPT_POST, 1L);
@@ -188,8 +190,17 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 		return;
 	}
 
-	// Ignore expired SSL certificates
-	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
+	// Ignore expired SSL certificates, unless the caller explicitly asked for verification
+	if (options != nullptr && options->verifySsl)
+	{
+		curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 1L);
+		curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYHOST, 2L);
+	}
+	else
+		curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
+
+	if (options != nullptr && options->acceptCompressed)
+		curl_easy_setopt(mHandle, CURLOPT_ACCEPT_ENCODING, "");
 
 	//set curl to connection timeout
 	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT_MS, options != nullptr ? options->connectTimeout : 10000L);
@@ -541,7 +552,14 @@ std::string HttpReq::getContent()
 void HttpReq::onError(const char* msg)
 {
 	mErrorMsg = msg;
-	LOG(LogError) << "HttpReq::onError (" + std::to_string(mStatus) << ") : " + mErrorMsg;
+	if (mQuietErrors)
+	{
+		LOG(LogDebug) << "HttpReq::onError (" + std::to_string(mStatus) << ") : " + mErrorMsg;
+	}
+	else
+	{
+		LOG(LogError) << "HttpReq::onError (" + std::to_string(mStatus) << ") : " + mErrorMsg;
+	}
 }
 
 std::string HttpReq::getErrorMsg()
