@@ -1,6 +1,7 @@
 #pragma once
 
 #include "WatchersManager.h"
+#include <string>
 
 class NetworkStateWatcher : public IWatcher
 {
@@ -19,6 +20,7 @@ protected:
 	bool check() override;
 
 private:
+	std::string mIPAddress;
 	bool mIsConnected;
 	bool mIsPlaneMode;
 	bool mIsPlaneModeSupported;
