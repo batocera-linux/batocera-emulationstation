@@ -1,4 +1,5 @@
 #include "SystemData.h"
+#include "romm/RommCatalog.h"
 
 #include "SystemConf.h"
 #include "utils/FileSystemUtil.h"
@@ -105,6 +106,10 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		{
 			populateFolder(mRootFolder, fileMap, 0, indexDepth);
 
+			// RomM games not present on disk (no-op unless RomM is enabled and synchronized)
+			if (Romm::RommCatalog::isActive())
+				Romm::RommCatalog::inject(this, fileMap, false);
+
 			if (!UIModeController::LoadEmptySystems())
 			{
 				// With a depth limit, games may only be known from gamelist.xml : check after parsing it
@@ -123,6 +128,10 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 			parseGamelist(this, fileMap);
 		}
+
+		// ParseGamelistOnly mode : the disk is not scanned, add RomM games once gamelist.xml is known
+		if (Settings::ParseGamelistOnly() && Romm::RommCatalog::isActive())
+			Romm::RommCatalog::inject(this, fileMap, true);
 
     if (indexDepth > 0 && !Settings::ParseGamelistOnly() && !UIModeController::LoadEmptySystems() && mRootFolder->getChildren().size() == 0)
       return;
@@ -923,6 +932,9 @@ bool SystemData::loadConfig(Window* window)
 
 	loadAdditionnalConfig(systemList);
 
+	// Reads the RomM settings and library snapshot (no-op unless RomM is enabled)
+	Romm::RommCatalog::prepare(systemList);
+
 	std::vector<std::string> systemsNames;
 
 	int systemCount = 0;
@@ -1200,7 +1212,8 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 		return nullptr;
 	}
 
-	if (fullMode && !UIModeController::LoadEmptySystems() && !Utils::FileSystem::exists(path))
+	// A missing folder is fine when RomM has games for this system: it is created by the first download
+	if (fullMode && !UIModeController::LoadEmptySystems() && !Utils::FileSystem::exists(path) && !Romm::RommCatalog::hasGamesFor(md.name))
 	{
 		LOG(LogError) << "System \"" << md.name << "\" path does not exist !";
 		return nullptr;

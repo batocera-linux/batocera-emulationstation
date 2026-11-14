@@ -1,6 +1,9 @@
 //EmulationStation, a graphical front-end for ROM browsing. Created by Alec "Aloshi" Lofquist.
 //http://www.aloshi.com
 
+#include "romm/RommSync.h"
+#include "romm/RommPlaySessions.h"
+#include "romm/RommMediaCache.h"
 #include "services/HttpServerThread.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
@@ -638,6 +641,9 @@ int main(int argc, char* argv[])
 	NetworkThread* nthread = new NetworkThread(&window);
 	HttpServerThread httpServer(&window);
 
+	// RomM library synchronization in the background (no-op unless RomM is enabled and paired)
+	Romm::RommSync::start(&window);
+
 	// tts
 	TextToSpeech::getInstance()->enable(Settings::getInstance()->getBool("TTS"), false);
 	
@@ -849,6 +855,9 @@ int main(int argc, char* argv[])
 		Settings::getInstance()->setBool("IgnoreGamelist", true);
 
 	WatchersManager::stop();
+	Romm::RommSync::stop();
+	Romm::RommPlaySessions::stop();
+	Romm::stopOnDemand();
 	ThreadedHasher::stop();
 	ThreadedScraper::stop();
 

@@ -1,4 +1,5 @@
 #include "DetailedContainer.h"
+#include "romm/RommMediaCache.h"
 
 #include "animations/LambdaAnimation.h"
 #include "views/ViewController.h"
@@ -18,6 +19,9 @@
 #include "components/VideoPlayerComponent.h"
 #endif
 #include "components/VideoVlcComponent.h"
+#include "components/ImageComponent.h"
+#include "components/VideoComponent.h"
+#include "utils/FileSystemUtil.h"
 
 DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* list, Window* window, DetailedContainerType viewType) :
 	mParent(parent), mList(list), mWindow(window), mViewType(viewType),
@@ -836,12 +840,16 @@ void DetailedContainer::loadThemedExtras(FileData* file)
 		resetThemedExtras();
 }
 
-void DetailedContainer::updateControls(FileData* file, bool isClearing, int moveBy, bool isDeactivating)
+void DetailedContainer::updateControls(FileData* file, bool isClearing, int moveBy, bool isDeactivating, bool mediaOnly)
 {
+	// RomM: the game the list settled on (media fetched when missing, remembered as viewed)
+	if (file != NULL && !isClearing && !isDeactivating && !mediaOnly)
+		Romm::onGameShown(file);
+
 	bool state = (file != NULL);
 	if (state)
 	{
-		if (!isClearing && !isDeactivating)
+		if (!isClearing && !isDeactivating && !mediaOnly)
 			loadThemedExtras(file);
 
 		if (mFolderView)
@@ -1102,7 +1110,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 			BindingManager::updateBindings(extra, file);
 	}
 
-	if (state && file != nullptr && !isClearing)
+	if (state && file != nullptr && !isClearing && !mediaOnly)
 	{
 		for (auto comp : getComponents())
 			handleStoryBoard(comp, true, moveBy);
@@ -1428,6 +1436,42 @@ void DetailedContainerHost::update(int deltaTime)
 Vector3f DetailedContainerHost::getLaunchTarget(Vector2f* size)
 {
 	return mContainer->getLaunchTarget(size);
+}
+
+// Images showing path: forgotten, so that setting the same path again loads the file (an image
+// component ignores the path it already has, even if the file did not exist then)
+static void forgetImage(GuiComponent* comp, const std::string& canonicalPath)
+{
+	if (comp == nullptr)
+		return;
+
+	ImageComponent* image = dynamic_cast<ImageComponent*>(comp);
+	if (image != nullptr && image->getImagePath() == canonicalPath)
+		image->setImage("");
+
+	// A video's still image (the snapshot shown before or instead of the video): the same rule
+	VideoComponent* video = dynamic_cast<VideoComponent*>(comp);
+	if (video != nullptr && !video->getImagePath().empty() && Utils::FileSystem::getCanonicalPath(video->getImagePath()) == canonicalPath)
+		video->setImage("");
+
+	for (int i = 0; i < comp->getChildCount(); i++)
+		forgetImage(comp->getChild(i), canonicalPath);
+}
+
+void DetailedContainerHost::refreshMedia(FileData* file, const std::string& changedFile)
+{
+	if (file == nullptr || mContainer == nullptr)
+		return;
+
+	if (!changedFile.empty())
+	{
+		std::string canonicalPath = Utils::FileSystem::getCanonicalPath(changedFile);
+		for (auto comp : mContainer->getComponents())
+			forgetImage(comp, canonicalPath);
+	}
+
+	// Set again in the same frame: nothing is drawn in between
+	mContainer->updateControls(file, false, 0, false, true);
 }
 
 void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int moveBy)

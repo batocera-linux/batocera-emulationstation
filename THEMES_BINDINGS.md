@@ -78,6 +78,7 @@ kidGame                     bool
 gunGame                     bool
 wheelGame                   bool
 cheevos                     bool
+remote                      bool                  True if it's a RomM game not downloaded yet
 folder                      bool
 placeholder                 bool                  True if it's a placeholder ( item when a system is empty )
 playerCount                 int

@@ -12,6 +12,7 @@
 #include "guis/GuiGamelistOptions.h"
 #include "GameNameFormatter.h"
 #include "utils/Randomizer.h"
+#include "utils/FileSystemUtil.h"
 
 GridGameListView::GridGameListView(Window* window, FolderData* root, const std::shared_ptr<ThemeData>& theme, std::string themeName, Vector2f gridSize) :
 	ISimpleGameListView(window, root),
@@ -65,6 +66,35 @@ FileData* GridGameListView::getCursor()
 void GridGameListView::resetLastCursor()
 {
 	mGrid.resetLastCursor();
+}
+
+// The tile shows the file that just appeared: made again even if its path did not change (the path
+// may have been set while the file was missing: evicted from a cache, being downloaded...)
+static bool showsFile(const std::string& tilePath, const std::string& changedFile)
+{
+	return !changedFile.empty() && !tilePath.empty() &&
+		Utils::FileSystem::getCanonicalPath(tilePath) == Utils::FileSystem::getCanonicalPath(changedFile);
+}
+
+void GridGameListView::refreshDetails(const std::string& changedFile)
+{
+	// The tile of the selected entry, then the media of the details (in place: no fade, no blink)
+	FileData* file = getCursor();
+	if (file != nullptr && !file->isPlaceHolder())
+	{
+		std::string path = getImagePath(file);
+		mGrid.setImage(path, file, showsFile(path, changedFile));
+		mDetails.refreshMedia(file, changedFile);
+	}
+}
+
+void GridGameListView::refreshEntry(FileData* entry, const std::string& changedFile)
+{
+	if (entry != nullptr && !entry->isPlaceHolder())
+	{
+		std::string path = getImagePath(entry);
+		mGrid.setImage(path, entry, showsFile(path, changedFile));
+	}
 }
 
 void GridGameListView::setCursor(FileData* cursor)

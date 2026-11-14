@@ -548,6 +548,9 @@ FileData* GuiNetPlay::getFileData(const std::string& gameInfo, bool crc, const s
 		futures.push_back(std::async(std::launch::async, [sys, crc, gameInfo, normalizedName, normalizedNameNoSpace, &normalizeName]() -> FileData* {
 			for (auto file : sys->getRootFolder()->getFilesRecursive(GAME, false, sys))
 			{
+				if (file->isRemote()) // RomM game not downloaded yet
+					continue;
+
 				if (crc)
 				{
 					if (file->getMetadata(MetaDataId::Crc32) == gameInfo)

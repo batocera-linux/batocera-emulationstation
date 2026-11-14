@@ -9,6 +9,8 @@
 class CarouselGameListView : public ISimpleGameListView
 {
 public:
+	void refreshDetails(const std::string& changedFile = "") override { FileData* file = getCursor(); if (file != nullptr && !file->isPlaceHolder()) mDetails.refreshMedia(file, changedFile); }
+
 	CarouselGameListView(Window* window, FolderData* root);
 
 	// Called when a FileData* is added, has its metadata changed, or is removed

@@ -1,4 +1,6 @@
 #include "HttpServerThread.h"
+#include "romm/RommConfig.h"
+#include "romm/RommSync.h"
 #include "httplib.h"
 #include "Log.h"
 
@@ -35,6 +37,7 @@ GET  /restart
 GET  /quit
 GET  /emukill
 GET  /reloadgames
+GET  /romm_sync                                                 -> RomM "SYNCHRONIZE NOW" (?full=1 : FULL RESYNC). 200 started, 409 already running, 503 RomM not enabled or not paired
 POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
 POST /launch													-> body must contain the exact file path as text/plain
@@ -533,6 +536,29 @@ void HttpServerThread::run()
 		{
 			GuiMenu::updateGameLists(w, false);
 		});
+	});
+
+	mHttpServer->Get("/romm_sync", [this](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		if (!Romm::RommConfig::load().isUsable())
+		{
+			res.set_content("RomM integration is not enabled or this device is not paired", "text/plain");
+			res.status = 503;
+			return;
+		}
+
+		bool full = req.has_param("full") && req.get_param_value("full") == "1";
+		if (!Romm::RommSync::requestSync(full))
+		{
+			res.set_content("A RomM synchronization is already running", "text/plain");
+			res.status = 409;
+			return;
+		}
+
+		res.set_content("OK", "text/plain");
 	});
 
 	mHttpServer->Post("/messagebox", [this](const httplib::Request& req, httplib::Response& res)

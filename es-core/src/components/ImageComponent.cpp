@@ -391,7 +391,13 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		mTexture->setRequired(true);
 	}
 
-	mLoadingTextureLoaded = mLoadingTexture != nullptr && mLoadingTexture->isLoaded();
+	// The new texture may have loaded meanwhile (a small file, a loader thread faster than this
+	// function): use it now. Marking it loaded without using it left the previous image shown for
+	// good, as watchTextureLoading only takes a texture still marked as loading.
+	mLoadingTextureLoaded = false;
+	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
+		watchTextureLoading();
+
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (mLoadingTexture == nullptr && !mTargetSize.empty())

@@ -54,6 +54,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/PostProcessShaderComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/StackPanelComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BusyComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/QrCodeComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ButtonComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ClockComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ControllerActivityComponent.h
@@ -119,6 +120,7 @@ set(CORE_HEADERS
 
 	# Utils
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/FileSystemUtil.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/qrcodegen.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringListLock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.h
@@ -188,6 +190,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/PostProcessShaderComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/StackPanelComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BusyComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/QrCodeComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ButtonComponent.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ClockComponent.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ControllerActivityComponent.cpp
@@ -251,6 +254,7 @@ set(CORE_SOURCES
 
 	# Utils
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/FileSystemUtil.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/qrcodegen.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringListLock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.cpp
