@@ -53,7 +53,7 @@ std::map<std::string, std::string> langFlag =
 	{ "pl", _U("\uF315") }
 };
 
-std::string getLangFlag(const std::string lang)
+std::string GameNameFormatter::getLangFlag(const std::string& lang)
 {
 	auto it = langFlag.find(lang);
 	if (it == langFlag.cend())
