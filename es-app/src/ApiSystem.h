@@ -358,6 +358,7 @@ public:
 
 	// LED Mode
 	void setLEDMode(const std::string& mode);
+	std::vector<std::string> getLEDBatteryProfile();
 
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 	std::string getConnectedWifiSsid();

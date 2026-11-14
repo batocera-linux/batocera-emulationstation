@@ -1587,6 +1587,9 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 	if (mSystemLedType != LED_TYPE_NONE)
 		return true;
 
+	// the battery led mode has no colour sliders, let the daemon keep drawing the level
+	auto blockColourChanges = [this] { if (SystemConf::getInstance()->get("led.mode") != "battery") executeScript("batocera-led-handheld block_color_changes"); };
+
 	// Anbernic RG 55G1: the stick LEDs sit behind the joypad MCU driver, not the LED class
 	if (Utils::FileSystem::exists("/sys/devices/platform/singleadc-joypad/led_set"))
 	{
@@ -1689,13 +1692,13 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			red = 255;
 			green = 255;
 			blue = 255;
-			executeScript("batocera-led-handheld block_color_changes");
+			blockColourChanges();
 			return true;
 		}
 		else if (LED_COLOUR_NAME == "cubexx" || LED_COLOUR_NAME == "rg_vita_pro" || LED_COLOUR_NAME == "legiongos" || LED_COLOUR_NAME == "legiongo" || LED_COLOUR_NAME == "rg55g1") 
 		{
 			getLEDColours(red, green, blue);
-			executeScript("batocera-led-handheld block_color_changes");
+			blockColourChanges();
 			return true;
 		}
 		else if (Utils::FileSystem::exists(LED_COLOUR_NAME)) 
@@ -1716,7 +1719,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 			std::getline(ss, token);
 			blue = std::stoi(token);
 
-			executeScript("batocera-led-handheld block_color_changes"); // temporarily prevent changes from external daemon
+			blockColourChanges(); // temporarily prevent changes from external daemon
 			LOG(LogInfo) << "ApiSystem::getLED > LED colours are:" << red << " " << green << " " << blue;
 
 			return true;
@@ -1725,7 +1728,7 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 	else if (mSystemLedType == LED_TYPE_ADDRESSABLE) 
 	{
 		getLEDColours(red, green, blue);
-		executeScript("batocera-led-handheld block_color_changes");
+		blockColourChanges();
 		return true;
 	}
 
@@ -1786,7 +1789,7 @@ void ApiSystem::setLEDColours(int red, int green, int blue)
 	if (red != 0 || green != 0 || blue != 0)
 	{
 		std::string currentMode = SystemConf::getInstance()->get("led.mode");
-		if (currentMode == "rainbow" || currentMode == "chroma" || currentMode == "pulse")
+		if (currentMode == "rainbow" || currentMode == "chroma" || currentMode == "pulse" || currentMode == "battery")
 		{
 			return; 
 		}
@@ -2076,13 +2079,19 @@ void ApiSystem::setLEDMode(const std::string& mode)
         executeScript("batocera-led-handheld chroma &");
     } else if (mode == "pulse") {
         executeScript("batocera-led-handheld pulse &");
-    } else {
+    } else if (mode != "battery") {
         // Fall back to the user's customized static colors
         int r, g, b;
         getLEDColours(r, g, b);
         setLEDColours(r, g, b);
     }
 #endif
+}
+
+// battery led mode levels, as level=color lines, then charging= and full=
+std::vector<std::string> ApiSystem::getLEDBatteryProfile()
+{
+	return executeEnumerationScript("batocera-led-handheld battery_profile");
 }
 
 void ApiSystem::setLEDEnabled(bool enabled)
@@ -2099,7 +2108,7 @@ void ApiSystem::setLEDEnabled(bool enabled)
 	else
 	{
 		std::string mode = SystemConf::getInstance()->get("led.mode");
-		if (mode == "rainbow" || mode == "chroma" || mode == "pulse") {
+		if (mode == "rainbow" || mode == "chroma" || mode == "pulse" || mode == "battery") {
 			setLEDMode(mode);
 		} else {
 			std::string lastColorStr = SystemConf::getInstance()->get("led.colour");
