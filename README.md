@@ -68,6 +68,20 @@ RetroArch cores stay available). The files are read at the next start: restart E
 to see the systems. Removing the emulator removes it from these files; a file created only for
 the emulator is deleted.
 
+Ports
+-----
+
+The package installs an `es_systems_ports.cfg` extra: shell scripts ending in `.sh` in
+`~/ROMs/ports`, started with `bash`. Being an extra, it is merged even when the user has an
+`es_systems_custom.cfg` base. The package also ships a default OpenRA port; on first start ES
+copies the scripts of `/usr/share/emulationstation/ports` to `~/ROMs/ports` when that folder does
+not exist yet.
+
+The Arch package depends on `openra`. On Debian, install the Flathub app
+(`flatpak install flathub net.openra.OpenRA`) or build OpenRA; the port script uses either the
+native `openra-ra`/`openra-cnc`/`openra-d2k` binaries or the Flatpak. It launches Red Alert by
+default; copy `OpenRA.sh` and change the binary to launch Tiberian Dawn or Dune 2000.
+
 Where files live
 ----------------
 

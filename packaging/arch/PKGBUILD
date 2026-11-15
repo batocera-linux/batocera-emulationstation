@@ -9,7 +9,8 @@ pkgdesc="Graphical front-end for emulators with controller navigation (Linux bui
 arch=('x86_64')
 url="https://github.com/JyuHo/emulationstation-re"
 license=('MIT' 'LGPL-3.0-or-later')
-depends=('sdl3' 'sdl3_image' 'freetype2' 'curl' 'vlc' 'alsa-lib' 'fribidi' 'libcec' 'systemd-libs' 'libglvnd' 'zlib')
+depends=('sdl3' 'sdl3_image' 'freetype2' 'curl' 'vlc' 'alsa-lib' 'fribidi' 'libcec' 'systemd-libs' 'libglvnd' 'zlib'
+         'openra')  # default game of the Ports system
 makedepends=('cmake' 'ninja' 'rapidjson' 'gettext' 'git')
 optdepends=('retroarch: frontend used by the default es_systems.cfg'
             'noto-fonts-cjk: Chinese, Japanese and Korean characters'

@@ -322,6 +322,14 @@ install(FILES ${CMAKE_SOURCE_DIR}/controllers/es_input_batocera.cfg
 # The user copy and the system-wide ones in $XDG_CONFIG_DIRS take precedence.
 install(FILES ${CMAKE_SOURCE_DIR}/es_systems.cfg
     DESTINATION ${CMAKE_INSTALL_DATADIR}/emulationstation)
+# Ports is an extra config, so it is merged even when the user has an
+# es_systems_custom.cfg base.
+install(FILES ${CMAKE_SOURCE_DIR}/es_systems_ports.cfg
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/emulationstation)
+# Default port scripts, copied to ~/ROMs/ports on first start (OpenRA...).
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/ports/
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/emulationstation/ports
+    FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 
 # Updates from the menu: es-re-update installs the latest release, pkexec runs it as root
 # without a password for the active local session (polkit policy)
