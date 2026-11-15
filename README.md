@@ -72,11 +72,12 @@ Each `XDG_*` variable falls back to the default shown in brackets.
 | --- | --- |
 | Settings, input, `es_systems.cfg`, `es_features.cfg`, scripts, theme settings, `padtokey` | `$XDG_CONFIG_HOME/emulationstation` (`~/.config`) |
 | Themes, music, gamelists, collections, resources overrides | `$XDG_DATA_HOME/emulationstation` (`~/.local/share`) |
+| ROMs of the shipped system list | `~/ROMs/<system>` (the `~/ROMs` folder is created on first start) |
 | RetroArch shader presets (`shaders/`), video filters (`videofilters/`), decoration sets (`decorations/<set>/`, such as The Bezel Project's overlays) | `$XDG_DATA_HOME/emulationstation` |
 | Downloads, video thumbnails, temporary files | `$XDG_CACHE_HOME/emulationstation` (`~/.cache`) |
 | Logs (`es_log.txt`), last used input | `$XDG_STATE_HOME/emulationstation` (`~/.local/state`) |
 | Flag files (`restart.please`...), `game.xml`, `es_input_players.cfg`, runtime scripts | `$XDG_RUNTIME_DIR/emulationstation` (`/tmp/emulationstation-<uid>`) |
-| System-wide `es_systems.cfg` and `es_features.cfg` | `$XDG_CONFIG_DIRS/emulationstation` (`/etc/xdg`) |
+| System-wide `es_systems.cfg` and `es_features.cfg` | `$XDG_CONFIG_DIRS/emulationstation` (`/etc/xdg`) and `$XDG_DATA_DIRS/emulationstation` (`/usr/local/share:/usr/share`), then the install prefix |
 | System-wide resources, themes and music | `$XDG_DATA_DIRS/emulationstation` (`/usr/local/share:/usr/share`), then the install prefix |
 
 `--home <folder>` builds the user folders from that folder instead (for example
@@ -299,7 +300,9 @@ Configuring
 ===========
 
 **~/.config/emulationstation/es_systems.cfg:**
-EmulationStation needs an `es_systems.cfg` file that lists your systems. See the "Writing an es_systems.cfg" section for more information.
+The package installs a default system list in `/usr/share/emulationstation/es_systems.cfg`, so EmulationStation has a working configuration out of the box. Copy it to `~/.config/emulationstation/es_systems.cfg` to customize it; the user copy takes precedence. See the "Writing an es_systems.cfg" section for more information.
+
+On first start, EmulationStation creates its user folders (`~/.config/emulationstation`, `~/.local/share/emulationstation/...`, `~/.cache/emulationstation`, `~/.local/state/emulationstation`) and the default ROM folder `~/ROMs`. Put each system's games in `~/ROMs/<system>`: a system is shown only when its folder contains at least one game with a matching extension.
 
 **Keep in mind you'll have to set up your emulators separately from EmulationStation!**
 
@@ -351,6 +354,8 @@ Complete configuration instructions at [emulationstation.org](http://emulationst
 
 The `es_systems.cfg` file contains the system configuration data for EmulationStation, written in XML.  This tells EmulationStation what systems you have, what platform they correspond to (for scraping), and where the games are located.
 
+A default file is installed in `/usr/share/emulationstation/es_systems.cfg`; copy it to `~/.config/emulationstation/es_systems.cfg` before editing it. It uses RetroArch through the integrated launcher and expects the games in `~/ROMs/<system>`.
+
 ES uses the first `es_systems.cfg` it finds in these folders:
 * `~/.config/emulationstation/` (`es_systems_custom.cfg` is read first if it exists)
 * the folder of the executable
@@ -358,6 +363,8 @@ ES uses the first `es_systems.cfg` it finds in these folders:
 * `$XDG_DATA_DIRS/emulationstation/` (`/usr/local/share/emulationstation/`, `/usr/share/emulationstation/`)
 
 Extra `es_systems_*.cfg` files found in the same folders are merged in.
+
+Because `es_systems_custom.cfg` is read first, creating it hides the installed default. Copy the default into it, or keep the default as an `es_systems_*.cfg` extra file, if you want both.
 
 The order EmulationStation displays systems reflects the order you define them in.
 

@@ -312,6 +312,10 @@ install(FILES ${CMAKE_SOURCE_DIR}/features/es_features.cfg
 # Batocera's controller mappings, used for a pad the player has not mapped (InputManager)
 install(FILES ${CMAKE_SOURCE_DIR}/controllers/es_input_batocera.cfg
     DESTINATION ${CMAKE_INSTALL_DATADIR}/emulationstation)
+# Default systems, used when the user has no es_systems.cfg in ~/.config/emulationstation.
+# The user copy and the system-wide ones in $XDG_CONFIG_DIRS take precedence.
+install(FILES ${CMAKE_SOURCE_DIR}/es_systems.cfg
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/emulationstation)
 
 # Updates from the menu: es-re-update installs the latest release, pkexec runs it as root
 # without a password for the active local session (polkit policy)

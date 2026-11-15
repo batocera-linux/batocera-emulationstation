@@ -1203,8 +1203,17 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 
 	if (fullMode && !UIModeController::LoadEmptySystems() && !Utils::FileSystem::exists(path))
 	{
-		LOG(LogError) << "System \"" << md.name << "\" path does not exist !";
-		return nullptr;
+		// A new install ships a default es_systems.cfg whose ROM folders do not
+		// exist yet: create them under the home directory. Paths outside home
+		// (a mounted drive, for example) keep the error, so a missing mount is
+		// not silently replaced with an empty local folder.
+		if (Utils::String::startsWith(path, Paths::getHomePath() + "/") && Utils::FileSystem::createDirectory(path))
+			LOG(LogInfo) << "Created system folder \"" << path << "\"";
+		else
+		{
+			LOG(LogError) << "System \"" << md.name << "\" path does not exist !";
+			return nullptr;
+		}
 	}
 
 	//create the system runtime environment data
