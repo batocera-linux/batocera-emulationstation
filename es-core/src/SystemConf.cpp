@@ -12,6 +12,7 @@
 #include <regex>
 #include <string>
 #include <iostream>
+#include <sys/stat.h>
 #include <SDL3/SDL_timer.h>
 
 static std::string mapSettingsName(const std::string& name)
@@ -90,6 +91,9 @@ bool SystemConf::loadSystemConf()
 
 		}
 		systemConf.close();
+
+		// It holds the RetroAchievements password.
+		chmod(mSystemConfFile.c_str(), S_IRUSR | S_IWUSR);
 	}
 	else
 	{
@@ -196,10 +200,17 @@ bool SystemConf::saveSystemConf()
 	}
 
 	fileout.close();
+
+	// The temporary file also holds the RetroAchievements password.
+	chmod(mSystemConfFileTmp.c_str(), S_IRUSR | S_IWUSR);
 	
 	std::ifstream  src(mSystemConfFileTmp, std::ios::binary);
 	std::ofstream  dst(mSystemConfFile, std::ios::binary);
 	dst << src.rdbuf();
+	dst.close();
+
+	// It holds the RetroAchievements password.
+	chmod(mSystemConfFile.c_str(), S_IRUSR | S_IWUSR);
 
 	remove(mSystemConfFileTmp.c_str());
 	changedConf.clear();

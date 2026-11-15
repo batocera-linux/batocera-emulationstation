@@ -25,6 +25,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	// retroachievements, username, password
 	addInputTextConfigRow(_("USERNAME"), "global.retroachievements.username", false);
 	addInputTextConfigRow(_("PASSWORD"), "global.retroachievements.password", true);
+	addInputTextConfigRow(_("WEB API KEY"), "CheevosWebAPIKey", true, true);
 
 	addGroup(_("OPTIONS"));
 

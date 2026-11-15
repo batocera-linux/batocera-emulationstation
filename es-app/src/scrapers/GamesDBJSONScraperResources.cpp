@@ -3,6 +3,7 @@
 #include <memory>
 #include <thread>
 #include "scrapers/GamesDBJSONScraperResources.h"
+#include "scrapers/ScraperKeys.h"
 #include "utils/FileSystemUtil.h"
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
@@ -46,7 +47,7 @@ std::string getScrapersResouceDir()
 	return Utils::FileSystem::getGenericPath(Paths::getCachePath() + std::string("/") + SCRAPER_RESOURCES_DIR);
 }
 
-std::string TheGamesDBJSONRequestResources::getApiKey() const { return GAMESDB_APIKEY; }
+std::string TheGamesDBJSONRequestResources::getApiKey() const { return ScraperKeys::gamesDBAPIKey(); }
 
 
 void TheGamesDBJSONRequestResources::prepare()
@@ -148,7 +149,7 @@ std::unique_ptr<HttpReq> TheGamesDBJSONRequestResources::fetchResource(const std
 {
 	std::string path = "https://api.thegamesdb.net/v1";
 	path += endpoint;
-	path += "?apikey=" + getApiKey();
+	path += "?apikey=" + HttpReq::urlEncode(getApiKey());
 
 	return std::unique_ptr<HttpReq>(new HttpReq(path));
 }

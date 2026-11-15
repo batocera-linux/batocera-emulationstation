@@ -1,5 +1,6 @@
 #include "utils/Uri.h"
 #include "scrapers/ScreenScraper.h"
+#include "scrapers/ScraperKeys.h"
 
 #include "utils/TimeUtil.h"
 #include "utils/StringUtil.h"
@@ -837,8 +838,10 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const std::string gameName, bool jeuRecherche) const
 {	
+	const std::string devLogin = ScraperKeys::screenScraperDevLogin();
+
 	std::string ret = API_URL_BASE
-		+ "/jeuInfos.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+		+ "/jeuInfos.php?" + devLogin +
 		+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 		+ "&output=xml"
 		+ "&romnom=" + HttpReq::urlEncode(gameName);
@@ -846,7 +849,7 @@ std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const st
 	if (jeuRecherche)
 	{
 		ret = std::string(API_URL_BASE)
-			+ "/jeuRecherche.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+			+ "/jeuRecherche.php?" + devLogin +
 			+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 			+ "&output=xml"
 			+ "&recherche=" + HttpReq::urlEncode(gameName);
@@ -864,7 +867,7 @@ std::string ScreenScraperRequest::ScreenScraperConfig::getGameSearchUrl(const st
 std::string ScreenScraperRequest::ScreenScraperConfig::getUserInfoUrl() const
 {
 	std::string ret = API_URL_BASE
-		+ "/ssuserInfos.php?" + std::string(SCREENSCRAPER_DEV_LOGIN) +
+		+ "/ssuserInfos.php?" + ScraperKeys::screenScraperDevLogin() +
 		+ "&softname=" + HttpReq::urlEncode(VERSIONED_SOFT_NAME)
 		+ "&output=xml";
 
