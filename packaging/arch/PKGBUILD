@@ -11,7 +11,8 @@ url="https://github.com/JyuHo/emulationstation-re"
 license=('MIT' 'LGPL-3.0-or-later')
 depends=('sdl3' 'sdl3_image' 'freetype2' 'curl' 'vlc' 'alsa-lib' 'fribidi' 'libcec' 'systemd-libs' 'libglvnd' 'zlib')
 makedepends=('cmake' 'ninja' 'rapidjson' 'gettext' 'git')
-optdepends=('noto-fonts-cjk: Chinese, Japanese and Korean characters'
+optdepends=('retroarch: frontend used by the default es_systems.cfg'
+            'noto-fonts-cjk: Chinese, Japanese and Korean characters'
             'polkit: updates from the menu'
             'flatpak: Flatpak emulators of the emulator catalog')
 conflicts=('emulationstation')

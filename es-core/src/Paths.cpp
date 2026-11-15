@@ -92,7 +92,11 @@ Paths::Paths()
 	mUserMusicPath = mDataPath + "/music";
 	mMusicPath = firstExistingDirectory(mSystemDataPaths, "music");
 	mKeyboardMappingsPath = mConfigPath + "/padtokey";
+	mUserKeyboardMappingsPath = mConfigPath + "/padtokey";
 	mBiosPath = mDataPath + "/bios";
+	mScreenShotsPath = mDataPath + "/screenshots";
+	mSaveStatesPath = mDataPath + "/saves";
+	mUserRetroachivementSounds = mDataPath + "/sounds/retroachievements";
 	mUserManualPath = mDataPath + "/notice.pdf";
 
 	// RetroArch shader presets of the player (system ones: "system.shaders" in the paths file)
@@ -119,6 +123,7 @@ bool Paths::createUserDirectories()
 {
 	bool ok = true;
 
+	// The XDG roots are required: without them ES cannot store anything.
 	for (const auto& dir : { getConfigPath(), getDataPath(), getCachePath(), getStatePath(), getRuntimePath() })
 	{
 		if (Utils::FileSystem::isDirectory(dir))
@@ -130,6 +135,39 @@ bool Paths::createUserDirectories()
 			std::cerr << "Could not create directory \"" << dir << "\"\n";
 			ok = false;
 		}
+	}
+
+	// Everything a new install needs: the folders the menus and launchers write
+	// to, and the default ROM folder of the shipped es_systems.cfg. A home
+	// directory that does not allow one of them (a file named ROMs, a read-only
+	// media folder...) must not stop ES from starting.
+	const std::vector<std::string> optional = {
+		getBiosPath(),
+		getSavesPath(),
+		getScreenShotPath(),
+		getUserThemesPath(),
+		getUserMusicPath(),
+		getUserShadersPath(),
+		getUserDecorationsPath(),
+		getUserVideoFilters(),
+		getUserKeyboardMappingsPath(),
+		getUserRetroachivementSounds(),
+		getDataPath() + "/gamelists",
+		getDataPath() + "/collections",
+		getDataPath() + "/emulators",
+		getDataPath() + "/cores",
+		getConfigPath() + "/emulators",
+		getHomePath() + "/ROMs",
+	};
+
+	for (const auto& dir : optional)
+	{
+		if (dir.empty() || Utils::FileSystem::isDirectory(dir))
+			continue;
+
+		Utils::FileSystem::createDirectory(dir);
+		if (!Utils::FileSystem::isDirectory(dir))
+			std::cerr << "Could not create directory \"" << dir << "\"\n";
 	}
 
 	// The runtime dir holds flag files and must stay private (XDG spec: mode 0700)
