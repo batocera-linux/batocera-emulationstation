@@ -84,6 +84,8 @@ set(ES_HEADERS
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScraperKeyFormat.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScraperKeys.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraper.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraperResources.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ArcadeDBJSONScraper.h
@@ -196,6 +198,8 @@ set(ES_SOURCES
 
     # Scrapers
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/Scraper.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScraperKeyFormat.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScraperKeys.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/GamesDBJSONScraperResources.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ArcadeDBJSONScraper.cpp
@@ -266,6 +270,13 @@ if(ES_TESTS)
     target_link_libraries(es-app-catalog-tests PRIVATE pugixml)
     target_compile_options(es-app-catalog-tests PRIVATE -Wall -Wextra)
     add_test(NAME es-app-catalog-tests COMMAND es-app-catalog-tests)
+
+    add_executable(es-app-scraper-key-format-tests
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests/scraper_key_format_tests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ScraperKeyFormat.cpp)
+    target_include_directories(es-app-scraper-key-format-tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+    target_compile_options(es-app-scraper-key-format-tests PRIVATE -Wall -Wextra)
+    add_test(NAME es-app-scraper-key-format-tests COMMAND es-app-scraper-key-format-tests)
 
     add_executable(es-app-update-tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/update_tests.cpp

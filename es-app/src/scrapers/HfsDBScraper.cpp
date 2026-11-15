@@ -3,6 +3,7 @@
 #ifdef HFS_DEV_LOGIN
 
 #include "scrapers/HfsDBScraper.h"
+#include "scrapers/ScraperKeys.h"
 #include <exception>
 #include <map>
 #include "FileData.h"
@@ -180,7 +181,9 @@ bool HfsDBScraper::ensureToken()
 
 	HttpReqOptions options;
 
-	std::string login = HFS_DEV_LOGIN;
+	std::string login = ScraperKeys::hfsDBLogin();
+	if (login.empty())
+		return false;
 
 	auto idx = login.find(":");
 	if (idx == std::string::npos)
@@ -189,9 +192,9 @@ bool HfsDBScraper::ensureToken()
 	std::string user = login.substr(0, idx);
 	std::string pass = login.substr(idx + 1);
 
-	std::string basicAuth = httplib::detail::base64_encode(HFS_DEV_LOGIN);
+	std::string basicAuth = httplib::detail::base64_encode(login);
 
-	options.dataToPost = "&username=" + user + "&password=" + pass;
+	options.dataToPost = "&username=" + HttpReq::urlEncode(user) + "&password=" + HttpReq::urlEncode(pass);
 	options.customHeaders.push_back("Authorization: Basic " + basicAuth);
 
 	HttpReq request("https://db.hfsplay.fr/api/v1/auth/token", &options);

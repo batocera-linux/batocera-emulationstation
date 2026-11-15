@@ -253,14 +253,26 @@ export GAMESDB_APIKEY="<key>" CHEEVOS_DEV_LOGIN="z=<user>&y=<web API key>"
 cmake -S . -B build -G Ninja -DGL=ON
 ```
 
-Quote the values: they hold `&`. They cannot hold a double quote (`"`). Keys given with `-D` are stored in `build/CMakeCache.txt` (remove one
-with `cmake -U <VARIABLE> build`), and every key can be read back from the binary, so do not
+Quote the values: they hold `&`. They are written to a generated `ApiKeys.h`, so `#`, quotes
+and backslashes are supported. Keys given with `-D` are stored in `build/CMakeCache.txt` (remove
+one with `cmake -U <VARIABLE> build`), and every key can be read back from the binary, so do not
 publish a build or a cache made with your own keys.
 
 IGDB and ArcadeDB need no build-time key. The IGDB client ID and secret are entered in the
-scraper settings (**Client ID** and **Client secret**, saved as `IGDBClientID` and `IGDBSecret`),
-and so are the user name and password of your own ScreenScraper account, which ES adds to the
-developer login.
+scraper settings (**Client ID** and **Client secret**, saved as `IGDBClientID` and `IGDBSecret`).
+
+The scraper account settings also accept user keys:
+
+- **ScreenScraper**: your account username/password, plus the developer ID and password
+  (they replace the compiled `SCREENSCRAPER_DEV_LOGIN`);
+- **HFSDB**: username and password (they replace the compiled `HFS_DEV_LOGIN`);
+- **TheGamesDB**: API key (it replaces the compiled `GAMESDB_APIKEY`);
+- **RetroAchievements**: a web API key (with the username, it replaces the compiled
+  `CHEEVOS_DEV_LOGIN`).
+
+A key entered by the user takes precedence over the compiled one. The keys are saved in
+`es_settings.cfg`, chmod `0600` (the optional `config` file used by `SystemConf` is chmod
+`0600` too). The compiled keys remain in the binary as a fallback.
 
 Tests
 -----

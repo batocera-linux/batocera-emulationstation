@@ -224,6 +224,7 @@ foreach(ES_API_KEY SCREENSCRAPER_SOFTNAME SCREENSCRAPER_DEV_LOGIN GAMESDB_APIKEY
     endif()
 endforeach()
 file(WRITE ${CMAKE_BINARY_DIR}/ApiKeys.h "${ES_API_KEYS_HEADER}")
+file(CHMOD ${CMAKE_BINARY_DIR}/ApiKeys.h PERMISSIONS OWNER_READ OWNER_WRITE)
 
 #-------------------------------------------------------------------------------
 

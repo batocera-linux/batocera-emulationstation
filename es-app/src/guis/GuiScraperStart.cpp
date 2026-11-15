@@ -355,6 +355,15 @@ void GuiScraperStart::loadAccountsPage()
 	addGroup(_("SCREENSCRAPER"));
 	addInputTextConfigRow(_("USERNAME"), "ScreenScraperUser", false, true);
 	addInputTextConfigRow(_("PASSWORD"), "ScreenScraperPass", true, true);
+	addInputTextConfigRow(_("DEVELOPER ID"), "ScreenScraperDevID", false, true);
+	addInputTextConfigRow(_("DEVELOPER PASSWORD"), "ScreenScraperDevPassword", true, true);
+
+	addGroup(_("HFSDB"));
+	addInputTextConfigRow(_("USERNAME"), "HfsDBUser", false, true);
+	addInputTextConfigRow(_("PASSWORD"), "HfsDBPassword", true, true);
+
+	addGroup(_("THEGAMESDB"));
+	addInputTextConfigRow(_("API KEY"), "GamesDBAPIKey", true, true);
 
 	addGroup(_("IGDB"));
 	addInputTextConfigRow(_("CLIENT ID"), "IGDBClientID", false, true);

@@ -7,6 +7,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include <algorithm>
 #include <vector>
+#include <sys/stat.h>
 #include "utils/StringUtil.h"
 #include "Paths.h"
 
@@ -239,6 +240,16 @@ void Settings::setDefaults()
 	mStringMap["GamelistViewStyle"] = "automatic";
 
 	mStringMap["Scraper"] = "ScreenScraper";
+	mStringMap["ScreenScraperUser"] = "";
+	mStringMap["ScreenScraperPass"] = "";
+	mStringMap["ScreenScraperDevID"] = "";
+	mStringMap["ScreenScraperDevPassword"] = "";
+	mStringMap["HfsDBUser"] = "";
+	mStringMap["HfsDBPassword"] = "";
+	mStringMap["GamesDBAPIKey"] = "";
+	mStringMap["CheevosWebAPIKey"] = "";
+	mStringMap["IGDBClientID"] = "";
+	mStringMap["IGDBSecret"] = "";
 	mStringMap["ScrapperImageSrc"] = "ss";
 	mStringMap["ScrapperThumbSrc"] = "box-2D";
 	mStringMap["ScrapperLogoSrc"] = "wheel";
@@ -446,6 +457,9 @@ bool Settings::saveFile()
 
 	doc.save_file(WINSTRINGW(path).c_str());
 
+	// The settings file holds scraper and IGDB credentials.
+	chmod(path.c_str(), S_IRUSR | S_IWUSR);
+
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("settings-changed");
 
@@ -457,6 +471,9 @@ void Settings::loadFile()
 	const std::string path = Paths::getConfigPath() + "/es_settings.cfg";
 	if(!Utils::FileSystem::exists(path))
 		return;
+
+	// Protect the credentials already stored by older versions.
+	chmod(path.c_str(), S_IRUSR | S_IWUSR);
 
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
