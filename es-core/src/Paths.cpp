@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <set>
 #include <algorithm>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -119,6 +120,50 @@ Paths::Paths()
 	loadCustomConfiguration(true); // Load paths overrides from emulationstation.ini file
 }
 
+// The distribution can ship default port scripts in <datadir>/emulationstation/ports.
+// Copy them to ~/ROMs/ports on the first start, when the folder does not exist yet:
+// a user who removes a script later does not get it back on every launch.
+static void installDefaultPorts()
+{
+	const std::string portsPath = Paths::getHomePath() + "/ROMs/ports";
+	if (Utils::FileSystem::isDirectory(portsPath))
+		return;
+
+	Utils::FileSystem::createDirectory(portsPath);
+	if (!Utils::FileSystem::isDirectory(portsPath))
+		return;
+
+	std::set<std::string> copied;
+	for (const auto& root : Paths::getSystemDataPaths())
+	{
+		const std::string defaults = root + "/ports";
+		if (!Utils::FileSystem::isDirectory(defaults))
+			continue;
+
+		for (const auto& file : Utils::FileSystem::getDirContent(defaults, false, false))
+		{
+			if (Utils::FileSystem::isDirectory(file))
+				continue;
+
+			const std::string name = Utils::FileSystem::getFileName(file);
+			if (!copied.insert(name).second)
+				continue;
+
+			const std::string destination = Utils::FileSystem::combine(portsPath, name);
+			if (Utils::FileSystem::exists(destination))
+				continue;
+
+			if (!Utils::FileSystem::copyFile(file, destination))
+			{
+				std::cerr << "Could not install port \"" << destination << "\"\n";
+				continue;
+			}
+
+			chmod(destination.c_str(), 0755);
+		}
+	}
+}
+
 bool Paths::createUserDirectories()
 {
 	bool ok = true;
@@ -169,6 +214,8 @@ bool Paths::createUserDirectories()
 		if (!Utils::FileSystem::isDirectory(dir))
 			std::cerr << "Could not create directory \"" << dir << "\"\n";
 	}
+
+	installDefaultPorts();
 
 	// The runtime dir holds flag files and must stay private (XDG spec: mode 0700)
 	chmod(getRuntimePath().c_str(), S_IRWXU);
