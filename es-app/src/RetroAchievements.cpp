@@ -1,3 +1,4 @@
+#include "ApiKeys.h"
 #include "RetroAchievements.h"
 #include "HttpReq.h"
 #include "ApiSystem.h"

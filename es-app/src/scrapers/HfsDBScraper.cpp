@@ -1,3 +1,5 @@
+#include "ApiKeys.h"
+
 #ifdef HFS_DEV_LOGIN
 
 #include "scrapers/HfsDBScraper.h"

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ApiKeys.h"
+
 #ifndef ES_APP_SCRAPERS_SCREEN_SCRAPER_H
 #define ES_APP_SCRAPERS_SCREEN_SCRAPER_H
 
