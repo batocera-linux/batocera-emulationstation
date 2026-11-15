@@ -25,6 +25,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/updates/SelfUpdater.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/system/SystemServices.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/catalog/EmulatorCatalog.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/catalog/CatalogSystemConfig.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ThreadedScraper.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedHasher.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedBluetooth.h
@@ -139,6 +140,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/updates/SelfUpdater.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/system/SystemServices.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/catalog/EmulatorCatalog.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/catalog/CatalogSystemConfig.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/scrapers/ThreadedScraper.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedHasher.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThreadedBluetooth.cpp
@@ -255,9 +257,13 @@ if(ES_TESTS)
     add_executable(es-app-catalog-tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/catalog_tests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/catalog/EmulatorCatalog.cpp
-        ${CMAKE_SOURCE_DIR}/es-core/src/utils/Sha256.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/catalog/CatalogSystemConfig.cpp
+        ${CMAKE_SOURCE_DIR}/es-core/src/utils/Sha256.cpp
+        ${CMAKE_SOURCE_DIR}/es-core/src/utils/StringUtil.cpp)
     target_include_directories(es-app-catalog-tests PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/es-core/src ${RAPIDJSON_INCLUDE_DIRS})
+        ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/es-core/src
+        ${CMAKE_SOURCE_DIR}/external ${RAPIDJSON_INCLUDE_DIRS})
+    target_link_libraries(es-app-catalog-tests PRIVATE pugixml)
     target_compile_options(es-app-catalog-tests PRIVATE -Wall -Wextra)
     add_test(NAME es-app-catalog-tests COMMAND es-app-catalog-tests)
 

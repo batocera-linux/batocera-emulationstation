@@ -62,6 +62,12 @@ and libretro cores from the catalog published by [es-re-catalog](https://github.
 it downloads its `catalog.json` and checks every file against the sha256 listed there. Set
 `global.catalog.url` to use another catalog. The format is documented in the es-re-catalog README.
 
+When a standalone emulator is installed, ES adds it to the system entries it supports and writes
+an `es_systems_<system>.cfg` file when a system needs one (the existing path, extensions and
+RetroArch cores stay available). The files are read at the next start: restart EmulationStation
+to see the systems. Removing the emulator removes it from these files; a file created only for
+the emulator is deleted.
+
 Where files live
 ----------------
 
