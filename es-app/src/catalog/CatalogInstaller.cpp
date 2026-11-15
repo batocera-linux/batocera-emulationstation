@@ -5,6 +5,8 @@
 #include "Log.h"
 #include "Paths.h"
 #include "SystemConf.h"
+#include "SystemData.h"
+#include "catalog/CatalogSystemConfig.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/Sha256.h"
 #include "utils/StringUtil.h"
@@ -192,6 +194,18 @@ namespace
 		if (query != std::string::npos)
 			name = name.substr(0, query);
 		return name;
+	}
+
+	SystemConfigPaths systemConfigPaths()
+	{
+		SystemConfigPaths paths;
+		paths.configDir = Paths::getConfigPath();
+		paths.baseConfigPath = SystemData::getConfigPath();
+		paths.homePath = Paths::getHomePath();
+		paths.roots = { Paths::getConfigPath(), Paths::getEmulationStationPath() };
+		paths.roots.insert(paths.roots.end(), Paths::getSystemConfigPaths().cbegin(), Paths::getSystemConfigPaths().cend());
+		paths.roots.insert(paths.roots.end(), Paths::getSystemDataPaths().cbegin(), Paths::getSystemDataPaths().cend());
+		return paths;
 	}
 }
 
@@ -482,6 +496,10 @@ CatalogInstaller::Result CatalogInstaller::installEmulator(const std::string& id
 	if (!saveInstalled(installed))
 		return failed(_("Cannot write") + " " + installedPath());
 
+	std::string configError;
+	if (!writeSystemConfigs(*emulator, item, systemConfigPaths(), &configError))
+		LOG(LogWarning) << "Catalog: " << emulator->name << " is installed, but es_systems_*.cfg could not be written: " << configError;
+
 	return ok();
 }
 
@@ -518,6 +536,10 @@ CatalogInstaller::Result CatalogInstaller::uninstallEmulator(const std::string& 
 	installed.emulators.erase(id);
 	if (!saveInstalled(installed))
 		return failed(_("Cannot write") + " " + installedPath());
+
+	std::string configError;
+	if (!removeSystemConfigs(id, Paths::getConfigPath(), &configError))
+		LOG(LogWarning) << "Catalog: " << id << " is removed, but es_systems_*.cfg could not be updated: " << configError;
 
 	return ok();
 }
