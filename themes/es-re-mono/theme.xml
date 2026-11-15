@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EmulationStation-RE default theme.
+  Logos: Monochrome Gaming Logos by HVR88 (see CREDITS.md).
+-->
+<theme>
+  <formatVersion>7</formatVersion>
+
+  <variables>
+    <accent>F2B84B</accent>
+    <text>F2F4F8</text>
+    <dim>9AA3AE</dim>
+    <panel>151B23</panel>
+    <heading>:/ubuntu_condensed.ttf</heading>
+    <body>:/Rubik-Regular.ttf</body>
+  </variables>
+
+  <view name="system">
+    <image name="e_background" extra="true">
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <path>./art/backgrounds/system.svg</path>
+      <zIndex>0</zIndex>
+    </image>
+
+    <text name="e_brand" extra="true">
+      <text>EMULATIONSTATION</text>
+      <pos>0.04 0.05</pos>
+      <origin>0 0</origin>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <color>${dim}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>60</zIndex>
+    </text>
+    <text name="e_mode" extra="true">
+      <text>SYSTEMS</text>
+      <pos>0.96 0.05</pos>
+      <origin>1 0</origin>
+      <alignment>right</alignment>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.012</fontSize>
+      <color>${accent}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>60</zIndex>
+    </text>
+
+    <image name="e_system_logo" extra="true">
+      <path>./art/logos/${system.theme}.svg</path>
+      <pos>0.5 0.30</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.42 0.20</maxSize>
+      <color>FFFFFFFF</color>
+      <zIndex>30</zIndex>
+    </image>
+    <text name="e_system_name" extra="true">
+      <text>${system.fullName}</text>
+      <pos>0.5 0.455</pos>
+      <origin>0.5 0</origin>
+      <alignment>center</alignment>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.022</fontSize>
+      <color>${dim}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>30</zIndex>
+    </text>
+
+    <image name="logo">
+      <path>./art/logos/${system.theme}.svg</path>
+      <color>FFFFFFFF</color>
+    </image>
+    <text name="logoText">
+      <fontPath>${heading}</fontPath>
+      <fontSize>0.08</fontSize>
+      <color>${text}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>50</zIndex>
+    </text>
+
+    <carousel name="systemcarousel">
+      <type>horizontal</type>
+      <pos>0 0.72</pos>
+      <size>1 0.22</size>
+      <logoSize>0.16 0.09</logoSize>
+      <logoScale>1.3</logoScale>
+      <color>00000000</color>
+      <logoAlignment>center</logoAlignment>
+      <maxLogoCount>5</maxLogoCount>
+      <zIndex>40</zIndex>
+    </carousel>
+
+    <text name="systemInfo">
+      <pos>0.5 0.94</pos>
+      <origin>0.5 0</origin>
+      <alignment>center</alignment>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.02</fontSize>
+      <color>${dim}</color>
+      <zIndex>60</zIndex>
+    </text>
+
+    <helpsystem name="help">
+      <pos>0.04 0.965</pos>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <textColor>${dim}</textColor>
+      <iconColor>${accent}</iconColor>
+    </helpsystem>
+  </view>
+
+  <view name="basic, detailed">
+    <image name="background">
+      <path>./art/backgrounds/game.svg</path>
+    </image>
+
+    <text name="e_brand" extra="true">
+      <text>EMULATIONSTATION</text>
+      <pos>0.04 0.05</pos>
+      <origin>0 0</origin>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <color>${dim}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>60</zIndex>
+    </text>
+    <text name="e_mode" extra="true">
+      <text>GAMES</text>
+      <pos>0.96 0.05</pos>
+      <origin>1 0</origin>
+      <alignment>right</alignment>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.012</fontSize>
+      <color>${accent}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>60</zIndex>
+    </text>
+
+    <image name="logo">
+      <path>./art/logos/${system.theme}.svg</path>
+      <pos>0.08 0.10</pos>
+      <origin>0 0</origin>
+      <maxSize>0.24 0.10</maxSize>
+      <color>FFFFFFFF</color>
+      <zIndex>20</zIndex>
+    </image>
+    <text name="logoText">
+      <pos>0.08 0.10</pos>
+      <origin>0 0</origin>
+      <fontPath>${heading}</fontPath>
+      <fontSize>0.055</fontSize>
+      <color>${text}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>20</zIndex>
+    </text>
+
+    <text name="e_games_label" extra="true">
+      <text>GAMES</text>
+      <pos>0.08 0.21</pos>
+      <origin>0 0</origin>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.011</fontSize>
+      <color>${accent}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>20</zIndex>
+    </text>
+
+    <textlist name="gamelist">
+      <pos>0.08 0.235</pos>
+      <size>0.54 0.66</size>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.028</fontSize>
+      <primaryColor>${text}</primaryColor>
+      <secondaryColor>${dim}</secondaryColor>
+      <selectedColor>${accent}</selectedColor>
+      <selectorColor>F2B84B33</selectorColor>
+      <selectorHeight>0.052</selectorHeight>
+      <selectorOffsetY>0.006</selectorOffsetY>
+      <alignment>left</alignment>
+      <lineSpacing>1.25</lineSpacing>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>10</zIndex>
+    </textlist>
+
+    <image name="e_media_panel" extra="true">
+      <pos>0.68 0.16</pos>
+      <size>0.26 0.46</size>
+      <path>./art/ui/media-panel.svg</path>
+      <zIndex>5</zIndex>
+    </image>
+
+    <text name="e_media_label" extra="true">
+      <text>SELECTED GAME</text>
+      <pos>0.68 0.635</pos>
+      <origin>0 0</origin>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.010</fontSize>
+      <color>${accent}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>20</zIndex>
+    </text>
+
+    <image name="md_image">
+      <pos>0.81 0.39</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.24 0.42</maxSize>
+      <zIndex>15</zIndex>
+    </image>
+
+    <text name="md_name">
+      <pos>0.68 0.655</pos>
+      <origin>0 0</origin>
+      <size>0.26 0.09</size>
+      <fontPath>${heading}</fontPath>
+      <fontSize>0.040</fontSize>
+      <color>${text}</color>
+      <alignment>left</alignment>
+      <zIndex>20</zIndex>
+    </text>
+
+    <text name="md_description">
+      <pos>0.68 0.745</pos>
+      <size>0.26 0.13</size>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <color>${dim}</color>
+      <alignment>left</alignment>
+      <lineSpacing>1.25</lineSpacing>
+      <zIndex>20</zIndex>
+    </text>
+
+    <helpsystem name="help">
+      <pos>0.04 0.965</pos>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <textColor>${dim}</textColor>
+      <iconColor>${accent}</iconColor>
+    </helpsystem>
+  </view>
+
+  <view name="detailed">
+    <!-- The right column shows a custom summary; hide the default two-column metadata. -->
+    <text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_players, md_lbl_lastplayed, md_lbl_playcount, md_lbl_gametime, md_lbl_favorite">
+      <visible>false</visible>
+    </text>
+    <rating name="md_rating"><visible>false</visible></rating>
+    <datetime name="md_releasedate, md_lastplayed"><visible>false</visible></datetime>
+    <text name="md_developer, md_publisher, md_genre, md_players, md_playcount, md_gametime, md_favorite">
+      <visible>false</visible>
+    </text>
+
+    <text name="e_meta" extra="true">
+      <text>{game:releaseyear}   //   {game:developer}   //   {game:genre}</text>
+      <pos>0.68 0.895</pos>
+      <origin>0 0</origin>
+      <size>0.26 0.04</size>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.013</fontSize>
+      <color>${accent}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>20</zIndex>
+    </text>
+  </view>
+
+  <view name="grid">
+    <image name="background">
+      <path>./art/backgrounds/game.svg</path>
+    </image>
+    <text name="e_brand" extra="true">
+      <text>EMULATIONSTATION</text>
+      <pos>0.04 0.05</pos>
+      <origin>0 0</origin>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <color>${dim}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>60</zIndex>
+    </text>
+    <text name="e_mode" extra="true">
+      <text>GAMES</text>
+      <pos>0.96 0.05</pos>
+      <origin>1 0</origin>
+      <alignment>right</alignment>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.012</fontSize>
+      <color>${accent}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>60</zIndex>
+    </text>
+    <image name="logo">
+      <path>./art/logos/${system.theme}.svg</path>
+      <pos>0.08 0.10</pos>
+      <origin>0 0</origin>
+      <maxSize>0.24 0.10</maxSize>
+      <color>FFFFFFFF</color>
+      <zIndex>20</zIndex>
+    </image>
+    <text name="logoText">
+      <pos>0.08 0.10</pos>
+      <origin>0 0</origin>
+      <fontPath>${heading}</fontPath>
+      <fontSize>0.055</fontSize>
+      <color>${text}</color>
+      <forceUppercase>true</forceUppercase>
+      <zIndex>20</zIndex>
+    </text>
+    <imagegrid name="gamegrid">
+      <pos>0.06 0.22</pos>
+      <size>0.88 0.66</size>
+      <margin>0.01 0.01</margin>
+      <zIndex>10</zIndex>
+    </imagegrid>
+    <helpsystem name="help">
+      <pos>0.04 0.965</pos>
+      <fontPath>${body}</fontPath>
+      <fontSize>0.016</fontSize>
+      <textColor>${dim}</textColor>
+      <iconColor>${accent}</iconColor>
+    </helpsystem>
+  </view>
+
+  <view name="menu">
+    <menuBackground name="menubg">
+      <color>0A0C10F2</color>
+    </menuBackground>
+  </view>
+</theme>
