@@ -36,8 +36,11 @@ private:
 	void openControllersHotkeys();
   	void openGlobalHotkeys();
   	void openKeyboardtopads();
+    	void openTrackballSpinners();
   	void initializeGlobalHotkeys(Window* window, GuiSettings* s);
   	void declareGlobalHotkey(Window* window, GuiSettings* s);
+  	void initializeTrackballSpinners(Window* window, GuiSettings* s);
+  	void declareTrackballSpinners(Window* window, GuiSettings* s, const std::string& type);
 
 	std::vector<InputConfigInfo*> mLoadedInput;
 	void clearLoadedInput();
