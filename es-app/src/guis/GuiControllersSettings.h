@@ -37,6 +37,7 @@ private:
   	void openGlobalHotkeys();
   	void openKeyboardtopads();
     	void openTrackballSpinners();
+  	void openLEDBatteryLevels();
   	void initializeGlobalHotkeys(Window* window, GuiSettings* s);
   	void declareGlobalHotkey(Window* window, GuiSettings* s);
   	void initializeTrackballSpinners(Window* window, GuiSettings* s);
