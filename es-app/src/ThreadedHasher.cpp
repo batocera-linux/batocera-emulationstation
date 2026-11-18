@@ -207,6 +207,9 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
+			if (file->isRemote()) // RomM game not downloaded yet
+				continue;
+
 			bool netPlay = takeNetplay && (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty());
 			bool cheevos = takeCheevos && (forceAllGames || file->getMetadata(MetaDataId::CheevosHash).empty());
 

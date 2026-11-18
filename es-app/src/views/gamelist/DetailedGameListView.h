@@ -11,6 +11,8 @@
 class DetailedGameListView : public BasicGameListView
 {
 public:
+	void refreshDetails(const std::string& changedFile = "") override { FileData* file = getCursor(); if (file != nullptr && !file->isPlaceHolder()) mDetails.refreshMedia(file, changedFile); }
+
 	DetailedGameListView(Window* window, FolderData* root);
 
 	virtual void onThemeChanged(const std::shared_ptr<ThemeData>& theme) override;

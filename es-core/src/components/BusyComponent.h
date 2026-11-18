@@ -26,7 +26,13 @@ public:
 
 	void setBackgroundVisible(bool visible);
 
+	// Opt-in: the text keeps this width (pixels) whatever it says, so the box does not resize as the
+	// text changes (progress messages). 0 (default) : the box fits the text.
+	void setFixedTextWidth(float width);
+
 private:
+	float mFixedTextWidth = 0;
+
 	NinePatchComponent mBackground;
 	ComponentGrid mGrid;
 

@@ -33,7 +33,11 @@ enum FilterIndexType
 	MISSING_MEDIA_FILTER = 18,
 	TRACKBALL_FILTER = 19,
 	SPINNER_FILTER = 20,
-	TAG_FILTER = 4
+	TAG_FILTER = 4,
+	// "Downloaded" : NO = RomM game not on this device yet.
+	// Negative on purpose : the filter screen lists filters by this value and, in Basic/Kid modes,
+	// hides the last ones. A value above 21 would change which existing filters get hidden.
+	ROMM_FILTER = -1
 };
 
 struct FilterDataDecl
@@ -69,7 +73,7 @@ public:
 	
 	virtual int showFile(FileData* game);
 	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByFamily || filterByTag
-		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos || filterByVertical || filterByLightGun || filterByWheel || filterByTrackball || filterBySpinner || filterByHasMedia || filterByMissingMedia); };
+		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos || filterByVertical || filterByLightGun || filterByWheel || filterByTrackball || filterBySpinner || filterByHasMedia || filterByMissingMedia || filterByDownloaded); };
 
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl> getFilterDataDecls();
@@ -124,6 +128,7 @@ protected:
       	bool filterBySpinner;
 	bool filterByHasMedia;
 	bool filterByMissingMedia;
+	bool filterByDownloaded;
 	bool filterByTag;
 
 	std::map<std::string, int> tagIndexAllKeys;
@@ -141,6 +146,7 @@ protected:
 	std::map<std::string, int> cheevosIndexAllKeys;
 	std::map<std::string, int> verticalIndexAllKeys;
 	std::map<std::string, int> lightGunIndexAllKeys;
+	std::map<std::string, int> downloadedIndexAllKeys;
   	std::map<std::string, int> wheelIndexAllKeys;
     	std::map<std::string, int> trackballIndexAllKeys;
       	std::map<std::string, int> spinnerIndexAllKeys;
@@ -162,6 +168,7 @@ protected:
 	std::unordered_set<std::string> cheevosIndexFilteredKeys;
 	std::unordered_set<std::string> verticalIndexFilteredKeys;
 	std::unordered_set<std::string> lightGunIndexFilteredKeys;
+	std::unordered_set<std::string> downloadedIndexFilteredKeys;
 	std::unordered_set<std::string> wheelIndexFilteredKeys;
   	std::unordered_set<std::string> trackballIndexFilteredKeys;
     	std::unordered_set<std::string> spinnerIndexFilteredKeys;

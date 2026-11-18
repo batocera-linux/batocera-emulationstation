@@ -1,4 +1,6 @@
 #include "GuiGameOptions.h"
+#include "guis/GuiRommDownload.h"
+#include "romm/RommDownloader.h"
 #include "guis/GuiGamelistFilter.h"
 #include "scrapers/Scraper.h"
 #include "views/gamelist/IGameListView.h"
@@ -227,7 +229,17 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			});
 		}
 
-		if (UIModeController::getInstance()->isUIModeFull())
+		if (game->isRemote())
+		{
+			// RomM game not downloaded yet : nothing to delete, offer to download it for offline play
+			mMenu.addEntry(_("DOWNLOAD FROM ROMM"), false, [this, game]
+			{
+				Window* window = mWindow;
+				close();
+				GuiRommDownload::downloadThenRun(window, game, [window] { window->displayNotificationMessage(_("GAME DOWNLOADED")); });
+			});
+		}
+		else if (UIModeController::getInstance()->isUIModeFull())
 		{
 			mMenu.addEntry(isImageViewer ? _("DELETE ITEM") : _("DELETE GAME"), false, [this, game]
 			{
@@ -511,7 +523,12 @@ void GuiGameOptions::deleteGame(FileData* file)
 		sys = sys->getParentGroupSystem();
 
 	CollectionSystemManager::get()->deleteCollectionFiles(sourceFile);
+	Romm::onGameDeleting(sourceFile);
 	sourceFile->deleteGameFiles();
+
+	// Still in RomM: stays in the list, as a cloud game
+	if (Romm::onGameDeleted(sourceFile))
+		return;
 
 	auto view = ViewController::get()->getGameListView(sys, false);
 	if (view != nullptr)

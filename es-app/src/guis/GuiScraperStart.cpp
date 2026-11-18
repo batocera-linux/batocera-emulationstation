@@ -427,6 +427,9 @@ std::queue<ScraperSearchParams> GuiScraperStart::getSearches(std::vector<SystemD
 		auto games = system->getRootFolder()->getFilesRecursive(GAME);
 		for(auto game : games)
 		{
+			if (game->isRemote()) // RomM game not downloaded yet : RomM already provides its metadata
+				continue;
+
 			if (dateSelector(game) && mediaSelector(game))
 			{
 				ScraperSearchParams search;

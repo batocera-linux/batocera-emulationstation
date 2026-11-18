@@ -49,6 +49,15 @@ public:
 
 	virtual void repopulate() = 0;
 
+	// Redraws what is shown for the selected entry (its media changed meanwhile), without moving the
+	// cursor or repopulating the list. Views without details: nothing to do. changedFile: the media
+	// file that appeared, reloaded even where its path was already set (it did not exist then).
+	virtual void refreshDetails(const std::string& /*changedFile*/ = "") {}
+
+	// Redraws this entry (its media changed meanwhile), selected or not: a grid tile. Views that show
+	// no media per entry: nothing to do.
+	virtual void refreshEntry(FileData* /*entry*/, const std::string& /*changedFile*/ = "") {}
+
 protected:
 	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;
