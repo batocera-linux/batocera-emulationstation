@@ -66,6 +66,7 @@ private:
         void openDeveloperSettings();
         void openNetplaySettings(); 
         void openRetroachievementsSettings();
+        void openProfilesSettings();
         void openMissingBiosSettings();
         void openFormatDriveSettings();
         void exitKidMode();
