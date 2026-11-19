@@ -242,6 +242,7 @@ void Settings::setDefaults()
 	mStringMap["GameTransitionStyle"] = "auto";
 
 	mStringMap["ThemeSet"] = "";
+	mStringMap["MetadataFolder"] = ""; // Empty : gamelist.xml & media are stored in the ROM folders
 	mStringMap["ScreenSaverBehavior"] = "dim";
 	mStringMap["GamelistViewStyle"] = "automatic";
 

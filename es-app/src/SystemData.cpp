@@ -81,6 +81,18 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	mSortId = Settings::getInstance()->getInt(getName() + ".sort");
 	mGridSizeOverride = Vector2f(0, 0);
 
+	// Resolved once : a change of the setting reloads all systems, and pending gamelist changes
+	// of the previous instances are still saved to the folder they were loaded from.
+	if (!mIsCollectionSystem && !mEnvData->mStartPath.empty())
+	{
+		std::string metadataFolder = Settings::MetadataFolder();
+		if (!metadataFolder.empty())
+		{
+			metadataFolder = Utils::FileSystem::resolveRelativePath(metadataFolder, Paths::getHomePath(), true);
+			mMetadataRootPath = Utils::FileSystem::combine(metadataFolder, mMetadata.name);
+		}
+	}
+
 	mFilterIndex = nullptr;
 
 	if (pEmulators != nullptr)
@@ -1402,6 +1414,17 @@ SystemData* SystemData::getPrev() const
 std::string SystemData::getGamelistPath(bool forWrite) const
 {
 	std::string filePath;
+
+	// With a metadata folder, the gamelist.xml is read & written there only : media paths it contains are relative to that folder,
+	// so a gamelist.xml from the ROM folder can't be used as is (copy it with its media folders to use it).
+	if (!mMetadataRootPath.empty())
+	{
+		filePath = mMetadataRootPath + "/gamelist.xml";
+		if (forWrite)
+			Utils::FileSystem::createDirectory(mMetadataRootPath);
+
+		return filePath;
+	}
 
 	filePath = mRootFolder->getPath() + "/gamelist.xml";
 	if(Utils::FileSystem::exists(filePath))

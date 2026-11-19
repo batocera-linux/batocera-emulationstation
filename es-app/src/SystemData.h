@@ -95,6 +95,9 @@ public:
 	inline const std::string& getName() const { return mMetadata.name; }
 	inline const std::string& getFullName() const { return mMetadata.fullName; }
 	inline const std::string& getStartPath() const { return mEnvData->mStartPath; }
+	// Folder holding gamelist.xml and the media folders (images, videos, manuals...) of this system.
+	// Media paths stored in gamelist.xml are relative to it. Same as getStartPath() unless the "MetadataFolder" setting is used.
+	inline const std::string& getMetadataRootPath() const { return mMetadataRootPath.empty() ? mEnvData->mStartPath : mMetadataRootPath; }
 	inline const std::set<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
 	inline const std::string& getThemeFolder() const { return mMetadata.themeFolder; }
 	inline SystemEnvironmentData* getSystemEnvData() const { return mEnvData; }
@@ -242,6 +245,7 @@ private:
 	static void createGroupedSystems();
 
 	size_t mGameListHash;
+	std::string mMetadataRootPath;
 
 	bool mIsCollectionSystem;
 	bool mIsGameSystem;
