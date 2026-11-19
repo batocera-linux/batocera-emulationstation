@@ -6,6 +6,8 @@
 #include "guis/GuiMsgBox.h"
 #include "utils/FileSystemUtil.h"
 #include "views/ViewController.h"
+#include "views/gamelist/IGameListView.h"
+#include "views/SecondaryScreen.h"
 #include "CollectionSystemManager.h"
 #include "EmulationStation.h"
 #include "InputManager.h"
@@ -654,6 +656,8 @@ int main(int argc, char* argv[])
 
 	window.closeSplashScreen();
 
+	std::unique_ptr<SecondaryScreen> secondaryScreen;
+
 	// Create a flag in  temporary directory to signal READY state
 	ApiSystem::getInstance()->setReadyFlag();
 
@@ -762,6 +766,13 @@ int main(int argc, char* argv[])
 			    continue;
 #endif
 
+				if ((event.type == SDL_WINDOWEVENT && Renderer::isSecondaryWindow(event.window.windowID)) ||
+					(event.type == SDL_MOUSEMOTION && Renderer::isSecondaryWindow(event.motion.windowID)) ||
+					((event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) && Renderer::isSecondaryWindow(event.button.windowID)) ||
+					(event.type == SDL_MOUSEWHEEL && Renderer::isSecondaryWindow(event.wheel.windowID)) ||
+					((event.type == SDL_FINGERDOWN || event.type == SDL_FINGERUP || event.type == SDL_FINGERMOTION) && Renderer::isSecondaryWindow(event.tfinger.windowID)))
+					continue;
+
 				TRYCATCH("InputManager::parseEvent", InputManager::getInstance()->parseEvent(event, &window));
 
 				if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED && Settings::getInstance()->getBool("Windowed"))
@@ -842,7 +853,12 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		Renderer::swapBuffers();		
+		Renderer::swapBuffers();
+		Renderer::renderSecondary([&]() {
+			if (!secondaryScreen)
+				secondaryScreen.reset(new SecondaryScreen(&window));
+			secondaryScreen->renderFrame(deltaTime);
+		});
 	}
 
 	if (Utils::Platform::isFastShutdown())
@@ -863,6 +879,7 @@ int main(int argc, char* argv[])
 	MameNames::deinit();
 	ViewController::saveState();
 	CollectionSystemManager::deinit();
+	secondaryScreen.reset();
 	SystemData::deleteSystems();
 	Scripting::exitScriptingEngine();
 
