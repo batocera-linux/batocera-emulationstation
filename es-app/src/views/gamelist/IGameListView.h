@@ -28,6 +28,7 @@ public:
 
 	void setTheme(const std::shared_ptr<ThemeData>& theme);
 	inline const std::shared_ptr<ThemeData>& getTheme() const { return mTheme; }
+	inline FolderData* getRoot() const { return mRoot; }
 
 	virtual FileData* getCursor() = 0;
 	virtual void setCursor(FileData*) = 0;
