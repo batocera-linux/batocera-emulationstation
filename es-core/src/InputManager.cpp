@@ -50,6 +50,15 @@ int SDL_USER_CECBUTTONUP   = -1;
 
 static std::mutex mJoysticksLock;
 
+// Keypad Enter acts as Return, unless the keyboard config maps it itself
+static int getKeyboardKeyId(InputConfig* config, SDL_Keycode sym)
+{
+	if (sym == SDLK_KP_ENTER && config != nullptr && config->getMappedTo(Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_KP_ENTER, 1, true)).empty())
+		return SDLK_RETURN;
+
+	return sym;
+}
+
 InputManager* InputManager::mInstance = NULL;
 Delegate<IJoystickChangedEvent> InputManager::joystickChanged;
 
@@ -790,11 +799,11 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		}
 #endif
 
-		window->input(getInputConfigByDevice(DEVICE_KEYBOARD), Input(DEVICE_KEYBOARD, TYPE_KEY, ev.key.keysym.sym, 1, false));
+		window->input(getInputConfigByDevice(DEVICE_KEYBOARD), Input(DEVICE_KEYBOARD, TYPE_KEY, getKeyboardKeyId(getInputConfigByDevice(DEVICE_KEYBOARD), ev.key.keysym.sym), 1, false));
 		return true;
 
 	case SDL_KEYUP:
-		window->input(getInputConfigByDevice(DEVICE_KEYBOARD), Input(DEVICE_KEYBOARD, TYPE_KEY, ev.key.keysym.sym, 0, false));
+		window->input(getInputConfigByDevice(DEVICE_KEYBOARD), Input(DEVICE_KEYBOARD, TYPE_KEY, getKeyboardKeyId(getInputConfigByDevice(DEVICE_KEYBOARD), ev.key.keysym.sym), 0, false));
 		return true;
 
 	case SDL_TEXTINPUT:
