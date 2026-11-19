@@ -26,6 +26,7 @@
 #include "BindingManager.h"
 #include "guis/GuiImageViewer.h"
 #include "guis/GuiGameAchievements.h"
+#include "watchers/NetworkStateWatcher.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr), mLastParentFolderData(nullptr),
@@ -54,12 +55,14 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool 
 	addChild(&mHeaderText);
 	addChild(&mBackground);
 	addChild(&mFolderPath);
+	WatchersManager::RegisterNotify(this);
 
 }
 
 
 ISimpleGameListView::~ISimpleGameListView()
 {
+	WatchersManager::UnregisterNotify(this);
 	if (mLastParentFolderData != nullptr)
 	{
 		delete mLastParentFolderData;
@@ -173,8 +176,18 @@ FolderData* ISimpleGameListView::getCurrentFolder()
 	return nullptr;
 }
 
+void ISimpleGameListView::OnWatcherChanged(IWatcher* component)
+{
+	if (dynamic_cast<NetworkStateWatcher*>(component) != nullptr)
+		mNetworkBindingsDirty = true;
+}
+
 void ISimpleGameListView::update(const int deltaTime)
 {
+	// Watcher notifications arrive on a worker thread; refresh the theme here.
+	if (mNetworkBindingsDirty.exchange(false))
+		updateThemeExtrasBindings();
+
 	GuiComponent::update(deltaTime);
 
 	if (mOKButton.isLongPressed(deltaTime))

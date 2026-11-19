@@ -9,12 +9,13 @@ NetworkStateWatcher::NetworkStateWatcher() : mIsConnected(false), mIsPlaneMode(f
 
 bool NetworkStateWatcher::check()
 {
-	bool networkConnected = !Utils::Platform::queryIPAddress().empty();
+	std::string ipAddress = Utils::Platform::queryIPAddress();
 	bool planemodeEnabled = mIsPlaneModeSupported && IExternalActivity::Instance != nullptr && IExternalActivity::Instance->isPlaneMode();
 
-	bool changed = networkConnected != mIsConnected || mIsPlaneMode != planemodeEnabled;
+	bool changed = ipAddress != mIPAddress || mIsPlaneMode != planemodeEnabled;
 
-	mIsConnected = networkConnected;
+	mIPAddress = ipAddress;
+	mIsConnected = !ipAddress.empty();
 	mIsPlaneMode = planemodeEnabled;
 	
 	return changed;
