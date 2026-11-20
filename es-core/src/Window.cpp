@@ -1251,8 +1251,11 @@ void Window::postToUiThread(const std::function<void()>& func, void* data)
 	{
 		mSleeping = false;
 		mTimeSinceLastInput = 0;
-		PowerSaver::pushRefreshEvent();
 	}
+
+	// In power saver standby the main loop blocks in SDL_WaitEventTimeout
+	// until the screensaver timeout: wake it, or the function waits for input.
+	PowerSaver::pushRefreshEvent();
 }
 
 void Window::processPostedFunctions()
