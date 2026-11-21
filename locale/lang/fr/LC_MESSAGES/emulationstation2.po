@@ -1101,25 +1101,25 @@ msgid "RED"
 msgstr "ROUGE"
 
 msgid "ORANGE"
-msgstr ""
+msgstr "ORANGE"
 
 msgid "YELLOW"
-msgstr ""
+msgstr "JAUNE"
 
 msgid "GREEN"
 msgstr "VERTE"
 
 msgid "CYAN"
-msgstr ""
+msgstr "CYAN"
 
 msgid "BLUE"
 msgstr "BLEU"
 
 msgid "PURPLE"
-msgstr ""
+msgstr "VIOLET"
 
 msgid "PINK"
-msgstr ""
+msgstr "ROSE"
 
 msgid "WHITE"
 msgstr "BLANCHE"
@@ -1194,7 +1194,7 @@ msgid "GLOBAL HOTKEYS"
 msgstr "RACCOURCIS GLOBAUX"
 
 msgid "TRACKBALLS AND SPINNERS"
-msgstr ""
+msgstr "TRACKBALLS ET SPINNERS"
 
 msgid "LED HARDWARE"
 msgstr "LEDS"
@@ -1218,16 +1218,16 @@ msgid "PULSE"
 msgstr "PULSATION"
 
 msgid "BATTERY"
-msgstr ""
+msgstr "BATTERIE"
 
 msgid "BATTERY LEVELS"
-msgstr ""
+msgstr "NIVEAUX DE LA BATTERIE"
 
 msgid "EDIT BATTERY LEVELS"
-msgstr ""
+msgstr "ÉDITER LES NIVEAUX DE LA BATTERIE"
 
 msgid "COLOR PRESET"
-msgstr ""
+msgstr "COULEUR PRÉDÉFINIE"
 
 msgid "CUSTOM"
 msgstr "PERSONNALISÉ"
@@ -1242,50 +1242,50 @@ msgid "NOT CONNECTED"
 msgstr "DÉCONNECTÉ"
 
 msgid "NUMBER OF LEVELS"
-msgstr ""
+msgstr "NOMBRE DE NIVEAUX"
 
 #, c-format
 msgid "LEVEL %i"
-msgstr ""
+msgstr "NIVEAU %i"
 
 msgid "FROM BATTERY LEVEL"
-msgstr ""
+msgstr "EN FONCTION DU NIVEAU DE LA BATTERIE"
 
 msgid "COLOR"
-msgstr ""
+msgstr "COULEUR"
 
 msgid "EFFECT"
-msgstr ""
+msgstr "EFFET"
 
 msgid "FIXED"
-msgstr ""
+msgstr "FIXE"
 
 msgid "BLINK"
-msgstr ""
+msgstr "CLIGNOTANT"
 
 msgid "CHARGER PLUGGED IN"
-msgstr ""
+msgstr "LORSQUE LE CHARGEUR EST BRANCHÉ"
 
 msgid "PULSE LEVEL COLOR"
-msgstr ""
+msgstr "COULEUR EN PULSATION"
 
 msgid "LEVEL COLOR"
-msgstr ""
+msgstr "COULEUR DU NIVEAU"
 
 msgid "BLINKING GREEN"
-msgstr ""
+msgstr "VERT CLIGNOTANT"
 
 msgid "PULSING GREEN"
-msgstr ""
+msgstr "VERT PULSANT"
 
 msgid "WHILE CHARGING"
-msgstr ""
+msgstr "PENDANT LE CHARGEMENT"
 
 msgid "WHEN FULL"
-msgstr ""
+msgstr "LORSQUE LA BATTERIE EST PLEINE"
 
 msgid "RESET TO DEFAULT"
-msgstr ""
+msgstr "REMETTRE À ZÉRO"
 
 msgid "SOUTH"
 msgstr "SUD"
@@ -1351,28 +1351,28 @@ msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "PLUSIEURS RACCOURCIS GLOBAUX DÉTECTÉS"
 
 msgid "DECLARE A NEW TRACKBALL"
-msgstr ""
+msgstr "DÉCLARER UN NOUVEAU TRACKBALL"
 
 msgid "DECLARE A NEW SPINNER"
-msgstr ""
+msgstr "DÉCLARER UN NOUVEAU SPINNER"
 
 msgid "TRACKBALLS"
-msgstr ""
+msgstr "TRACKBALLS"
 
 msgid "USER DEFINED"
-msgstr ""
+msgstr "DÉFINI PAR L'UTILISATEUR"
 
 msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
-msgstr ""
+msgstr "VOULEZ VOUS SUPPRIMER LE TRACKBALL"
 
 msgid "SPINNERS"
-msgstr ""
+msgstr "SPINNERS"
 
 msgid "DO YOU WANT TO REMOVE THIS SPINNER"
-msgstr ""
+msgstr "VOULEZ VOUS SUPPRIMER LE SPINNER"
 
 msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
-msgstr ""
+msgstr "VOUS AVEZ 8 SECONDES POUR ACTIONNER LE PÉRIPHÉRIQUE RAPIDEMENT"
 
 msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"
