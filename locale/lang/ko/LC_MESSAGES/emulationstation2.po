@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2026-08-30 12:51+0900\n"
+"PO-Revision-Date: 2026-11-15 11:04+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Loco-Source-Locale: ko_KR\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 "X-Loco-Parser: loco_parse_po\n"
 
 msgid "Searching"
@@ -1406,7 +1406,7 @@ msgid "CONNECTED"
 msgstr "연결됨"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "이미 연결됨"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WI-FI 네트워크 검색 중"
@@ -2041,7 +2041,7 @@ msgid "VSYNC"
 msgstr "수직 동기화"
 
 msgid "ANTI-ALIASING (MSAA)"
-msgstr ""
+msgstr "안티앨리어싱 (MSAA)"
 
 msgid "FPS LIMIT"
 msgstr "FPS 제한"
@@ -2209,10 +2209,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "첫 번째 조이스틱으로만 에뮬레이션스테이션 제어"
 
 msgid "RIGHT ANALOG STICK CHANGES VOLUME"
-msgstr ""
+msgstr "오른쪽 아날로그 스틱으로 볼륨 조절"
 
 msgid "Move the right stick up/down to raise or lower the audio volume."
-msgstr ""
+msgstr "오른쪽 스틱을 위아래로 움직여 오디오 볼륨을 높이거나 낮추세요."
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "건 움직임 허용 오차"
@@ -2249,15 +2249,17 @@ msgstr ""
 "완전히 스크렙한 게임 리스트를 스크롤링 할 때 지연을 감소, 부팅 시간 증가"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "인덱싱할 디렉토리 구조"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "무제한"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
 msgstr ""
+"각 ROM 폴더 내 최대 정밀 스캔, 이는 파일이 많은 하위 폴더를 무시하기 위함입니"
+"다."
 
 msgid "THREADED LOADING"
 msgstr "스레드된 불러오기"
@@ -2293,7 +2295,7 @@ msgid "UPDATE TYPE"
 msgstr "업데이트 유형"
 
 msgid "ARCHITECTURE UPDATE"
-msgstr ""
+msgstr "아키텍쳐 업데이트"
 
 msgid "APPLY UPDATE"
 msgstr "업데이트 적용"
@@ -2417,10 +2419,11 @@ msgid "Available options can change depending on current audio output."
 msgstr "현재의 오디오 출력에 따라 사용 가능한 옵션이 변경될 수 있습니다."
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr ""
+"Moonlight HDR 스트림과 같은 HDR 콘텐츠를 디스플레이로 전송할 수 있게 합니다."
 
 msgid "VARIABLE REFRESH RATE"
 msgstr "가변 주사율"
@@ -2428,6 +2431,7 @@ msgstr "가변 주사율"
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
+"디스플레이가 프레임 레이트를 따라가도록 합니다. 화면이 깜빡이면 끄세요."
 
 msgid "BOOT SPLASH"
 msgstr "스플래시 부팅"
@@ -2909,13 +2913,13 @@ msgstr "비디오 미리보기 오디오 활성화"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "'%s'에 연결할 수 없음"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "Wi-Fi 네트워크"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "Wi-Fi 네트워크 추가"
 
 msgid "WI-FI SSID"
 msgstr "WI-FI SSID"
@@ -2924,7 +2928,7 @@ msgid "WI-FI KEY"
 msgstr "WI-FI 비밀번호"
 
 msgid "USE"
-msgstr ""
+msgstr "사용"
 
 msgid "FORGET"
 msgstr "제거"
