@@ -271,6 +271,7 @@ void Settings::setDefaults()
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 	mBoolMap["SlideshowScreenSaverGameName"] = true;
 	mStringMap["ScreenSaverDecorations"] = "systems";
+	mStringMap["ScreenSaverCollection"] = "all";
 
 	mBoolMap["ShowCheevosIcon"] = true;
 
