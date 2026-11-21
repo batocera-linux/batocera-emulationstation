@@ -1083,6 +1083,33 @@ msgstr "控制器 #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "玩家%i 控制器"
 
+msgid "RED"
+msgstr "红色"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "绿色"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "蓝色"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "白色"
+
 msgid "CONTROLLER MAPPING"
 msgstr "手柄按键映射"
 
@@ -1150,6 +1177,9 @@ msgstr "禁止使用手柄热键退出"
 msgid "GLOBAL HOTKEYS"
 msgstr "全局热键"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED硬件"
 
@@ -1171,14 +1201,20 @@ msgstr "色度"
 msgid "PULSE"
 msgstr "脉冲"
 
-msgid "RED"
-msgstr "红色"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "绿色"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "蓝色"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "定制"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED亮度"
@@ -1188,6 +1224,52 @@ msgstr "默认"
 
 msgid "NOT CONNECTED"
 msgstr "未连接"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "南"
@@ -1252,6 +1334,30 @@ msgstr "未检测到全局热键"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "检测到多个全局热键"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "边框大小"
 
@@ -1281,9 +1387,6 @@ msgstr "隐藏"
 
 msgid "BORDER COLOR"
 msgstr "边框颜色"
-
-msgid "WHITE"
-msgstr "白色"
 
 msgid "BORDER RATIO"
 msgstr "边框比率"
@@ -1458,9 +1561,6 @@ msgstr "蒙特利尔"
 
 msgid "SAO PAULO"
 msgstr "圣保罗"
-
-msgid "CUSTOM"
-msgstr "定制"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "定制中继服务器"

@@ -1096,6 +1096,33 @@ msgstr "Ovládač #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "Ovládač P%i"
 
+msgid "RED"
+msgstr "červená"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "zelená"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "modrá"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "biela"
+
 msgid "CONTROLLER MAPPING"
 msgstr "Mapovanie ovládača"
 
@@ -1164,6 +1191,9 @@ msgstr "Obmedziť ukončenie tlačidlami joysticku"
 msgid "GLOBAL HOTKEYS"
 msgstr "Globálne hotkey"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED hardvér"
 
@@ -1185,14 +1215,20 @@ msgstr ""
 msgid "PULSE"
 msgstr ""
 
-msgid "RED"
-msgstr "červená"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "zelená"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "modrá"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "Vlastné"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED jasnosť"
@@ -1202,6 +1238,52 @@ msgstr "predvolené"
 
 msgid "NOT CONNECTED"
 msgstr "Nepripojené"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "Juh"
@@ -1266,6 +1348,30 @@ msgstr "Nezistil sa globálny hotkey"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "Zistil sa viac ako jeden globálny hotkey"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "Veľkosť okraja"
 
@@ -1295,9 +1401,6 @@ msgstr "Skryté"
 
 msgid "BORDER COLOR"
 msgstr "Farba okraja"
-
-msgid "WHITE"
-msgstr "biela"
 
 msgid "BORDER RATIO"
 msgstr "Percento okraja"
@@ -1472,9 +1575,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "Vlastné"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "Vlastný relay server"

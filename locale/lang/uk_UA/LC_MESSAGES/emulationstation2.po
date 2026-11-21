@@ -12,7 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Searching"
 msgstr "Пошук"
@@ -71,8 +72,14 @@ msgstr "Дитячий"
 msgid "Basic"
 msgstr "Базовий"
 
-msgid "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE FORMAT.\nDO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr "ПОПЕРЕДЖЕННЯ: ВСТАНОВЛЕНИЙ ЕМУЛЯТОР/ЯДРО НЕ ПІДТРИМУЄ ФОРМАТ ФАЙЛУ ЦІЄЇ ГРИ.\nВСЕ ОДНО ЗАПУСТИТИ?"
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"ПОПЕРЕДЖЕННЯ: ВСТАНОВЛЕНИЙ ЕМУЛЯТОР/ЯДРО НЕ ПІДТРИМУЄ ФОРМАТ ФАЙЛУ ЦІЄЇ "
+"ГРИ.\n"
+"ВСЕ ОДНО ЗАПУСТИТИ?"
 
 msgid "YES"
 msgstr "ТАК"
@@ -80,8 +87,14 @@ msgstr "ТАК"
 msgid "NO"
 msgstr "НІ"
 
-msgid "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY?"
-msgstr "ПОПЕРЕДЖЕННЯ: ДЛЯ ЦІЄЇ СИСТЕМИ БРАКУЄ ФАЙЛІВ BIOS, ТОМУ ГРА МОЖЕ ПРАЦЮВАТИ НЕКОРЕКТНО.\nВСЕ ОДНО ЗАПУСТИТИ?"
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"ПОПЕРЕДЖЕННЯ: ДЛЯ ЦІЄЇ СИСТЕМИ БРАКУЄ ФАЙЛІВ BIOS, ТОМУ ГРА МОЖЕ ПРАЦЮВАТИ "
+"НЕКОРЕКТНО.\n"
+"ВСЕ ОДНО ЗАПУСТИТИ?"
 
 msgid "Preloading UI"
 msgstr "Попереднє завантаження інтерфейсу"
@@ -308,19 +321,24 @@ msgid "HARDCORE MODE"
 msgstr "РЕЖИМ HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Вимикає завантаження станів, перемотування та чити заради більшої кількості очок."
+msgstr ""
+"Вимикає завантаження станів, перемотування та чити заради більшої кількості "
+"очок."
 
 msgid "LEADERBOARDS"
 msgstr "ТАБЛИЦІ ЛІДЕРІВ"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr "Змагайтеся в таблицях лідерів за найвищим рахунком і найкращим часом (потрібен режим hardcore)."
+msgstr ""
+"Змагайтеся в таблицях лідерів за найвищим рахунком і найкращим часом "
+"(потрібен режим hardcore)."
 
 msgid "VERBOSE MODE"
 msgstr "ДЕТАЛЬНИЙ РЕЖИМ"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "Показувати прогрес досягнень під час запуску гри та в інших сповіщеннях."
+msgstr ""
+"Показувати прогрес досягнень під час запуску гри та в інших сповіщеннях."
 
 msgid "RICH PRESENCE"
 msgstr "RICH PRESENCE"
@@ -340,8 +358,12 @@ msgstr "Автоматично робити знімок екрана, коли 
 msgid "CHALLENGE INDICATORS"
 msgstr "ІНДИКАТОРИ ВИКЛИКІВ"
 
-msgid "Shows icons in the bottom right corner when eligible achievements can be earned."
-msgstr "Показує значки в правому нижньому куті, коли можна здобути доступні досягнення."
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Показує значки в правому нижньому куті, коли можна здобути доступні "
+"досягнення."
 
 msgid "UNOFFICIAL ACHIEVEMENTS"
 msgstr "НЕОФІЦІЙНІ ДОСЯГНЕННЯ"
@@ -579,12 +601,22 @@ msgid "REALLY UPDATE?"
 msgstr "ТОЧНО ОНОВИТИ?"
 
 #, c-format
-msgid "YOU ARE CURRENTLY USING VERSION %s\nDO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr "ЗАРАЗ ВИ КОРИСТУЄТЕСЬ ВЕРСІЄЮ %s\nОНОВИТИ ДО ВЕРСІЇ %s?"
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"ЗАРАЗ ВИ КОРИСТУЄТЕСЬ ВЕРСІЄЮ %s\n"
+"ОНОВИТИ ДО ВЕРСІЇ %s?"
 
 #, c-format
-msgid "UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\nUPGRADING COULD BREAK YOUR SYSTEM.\nDO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr "ВИЯВЛЕНО НЕОФІЦІЙНІ ЗМІНИ В СИСТЕМІ.\nОНОВЛЕННЯ МОЖЕ ПОШКОДИТИ ВАШУ СИСТЕМУ.\nОНОВИТИ ДО ВЕРСІЇ %s?"
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"ВИЯВЛЕНО НЕОФІЦІЙНІ ЗМІНИ В СИСТЕМІ.\n"
+"ОНОВЛЕННЯ МОЖЕ ПОШКОДИТИ ВАШУ СИСТЕМУ.\n"
+"ОНОВИТИ ДО ВЕРСІЇ %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ПОТРІБНЕ МЕРЕЖЕВЕ ПІДКЛЮЧЕННЯ"
@@ -872,8 +904,12 @@ msgstr "ВИДАЛИТИ ЕЛЕМЕНТ"
 msgid "DELETE GAME"
 msgstr "ВИДАЛИТИ ГРУ"
 
-msgid "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\nARE YOU SURE?"
-msgstr "ЦЕ ВИДАЛИТЬ САМІ ФАЙЛИ ГРИ!\nВИ ВПЕВНЕНІ?"
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ЦЕ ВИДАЛИТЬ САМІ ФАЙЛИ ГРИ!\n"
+"ВИ ВПЕВНЕНІ?"
 
 msgid "NFC"
 msgstr "NFC"
@@ -882,8 +918,14 @@ msgid "WRITE AN NFC TAG FOR THIS GAME"
 msgstr "ЗАПИСАТИ NFC-МІТКУ ДЛЯ ЦІЄЇ ГРИ"
 
 #, c-format
-msgid "IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n'%s'\nPRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
-msgstr "ЩОБ ЗАПИСАТИ КОМАНДУ ЗАПУСКУ ДЛЯ\n'%s'\nНАТИСНІТЬ КНОПКУ ЗАПИСУ, А ПОТІМ ПОКЛАДІТЬ NFC-МІТКУ НА ПРИСТРІЙ ЗАПИСУ"
+msgid ""
+"IN ORDER TO WRITE THE LAUNCH COMMAND FOR\n"
+"'%s'\n"
+"PRESS THE WRITE BUTTON AND THEN PLACE AN NFC TAG ON THE WRITER"
+msgstr ""
+"ЩОБ ЗАПИСАТИ КОМАНДУ ЗАПУСКУ ДЛЯ\n"
+"'%s'\n"
+"НАТИСНІТЬ КНОПКУ ЗАПИСУ, А ПОТІМ ПОКЛАДІТЬ NFC-МІТКУ НА ПРИСТРІЙ ЗАПИСУ"
 
 msgid "WRITE"
 msgstr "ЗАПИСАТИ"
@@ -1060,11 +1102,47 @@ msgstr "КОНТРОЛЕР №%i"
 msgid "P%i'S CONTROLLER"
 msgstr "КОНТРОЛЕР ГРАВЦЯ P%i"
 
+msgid "RED"
+msgstr "ЧЕРВОНИЙ"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "ЗЕЛЕНИЙ"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "СИНІЙ"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "БІЛИЙ"
+
 msgid "CONTROLLER MAPPING"
 msgstr "ПРИВ'ЯЗКА КНОПОК КОНТРОЛЕРА"
 
-msgid "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr "ВИ ЗБИРАЄТЕСЬ НАЛАШТУВАТИ КОНТРОЛЕР. ПРИЗНАЧАЙТЕ ЗА ПОЛОЖЕННЯМ КНОПКИ, А НЕ ЗА ЇЇ ФІЗИЧНИМ НАПИСОМ. ЯКЩО У ВАС НЕМАЄ ОКРЕМОЇ КНОПКИ ДЛЯ HOTKEY, ВИКОРИСТАЙТЕ КНОПКУ SELECT. ПРОПУСТІТЬ УСІ КНОПКИ/СТІКИ, ЯКИХ У ВАС НЕМАЄ, УТРИМУЮЧИ БУДЬ-ЯКУ КНОПКУ. ПО ЗАВЕРШЕННІ НАТИСНІТЬ ПІВДЕННУ КНОПКУ ДЛЯ ПІДТВЕРДЖЕННЯ."
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"ВИ ЗБИРАЄТЕСЬ НАЛАШТУВАТИ КОНТРОЛЕР. ПРИЗНАЧАЙТЕ ЗА ПОЛОЖЕННЯМ КНОПКИ, А НЕ "
+"ЗА ЇЇ ФІЗИЧНИМ НАПИСОМ. ЯКЩО У ВАС НЕМАЄ ОКРЕМОЇ КНОПКИ ДЛЯ HOTKEY, "
+"ВИКОРИСТАЙТЕ КНОПКУ SELECT. ПРОПУСТІТЬ УСІ КНОПКИ/СТІКИ, ЯКИХ У ВАС НЕМАЄ, "
+"УТРИМУЮЧИ БУДЬ-ЯКУ КНОПКУ. ПО ЗАВЕРШЕННІ НАТИСНІТЬ ПІВДЕННУ КНОПКУ ДЛЯ "
+"ПІДТВЕРДЖЕННЯ."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "НАЛАШТУВАННЯ ПІСТОЛЕТА SINDEN"
@@ -1120,6 +1198,9 @@ msgstr "ОБМЕЖИТИ ГАРЯЧІ КЛАВІШІ ДЖОЙСТИКІВ ЛИШ
 msgid "GLOBAL HOTKEYS"
 msgstr "ГЛОБАЛЬНІ ГАРЯЧІ КЛАВІШІ"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "СВІТЛОДІОДИ (LED)"
 
@@ -1141,14 +1222,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "ПУЛЬСАЦІЯ"
 
-msgid "RED"
-msgstr "ЧЕРВОНИЙ"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "ЗЕЛЕНИЙ"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "СИНІЙ"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "ВЛАСНИЙ"
 
 msgid "LED BRIGHTNESS"
 msgstr "ЯСКРАВІСТЬ LED"
@@ -1158,6 +1245,52 @@ msgstr "типово"
 
 msgid "NOT CONNECTED"
 msgstr "НЕ ПІДКЛЮЧЕНО"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "ПІВДЕНЬ"
@@ -1222,6 +1355,30 @@ msgstr "ГЛОБАЛЬНУ ГАРЯЧУ КЛАВІШУ НЕ ВИЯВЛЕНО"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "ВИЯВЛЕНО БІЛЬШЕ ОДНІЄЇ ГЛОБАЛЬНОЇ ГАРЯЧОЇ КЛАВІШІ"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "ТОВЩИНА РАМКИ"
 
@@ -1251,9 +1408,6 @@ msgstr "ПРИХОВАНО"
 
 msgid "BORDER COLOR"
 msgstr "КОЛІР РАМКИ"
-
-msgid "WHITE"
-msgstr "БІЛИЙ"
 
 msgid "BORDER RATIO"
 msgstr "СПІВВІДНОШЕННЯ РАМКИ"
@@ -1406,7 +1560,8 @@ msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "ПОКАЗУВАТИ ЛИШЕ ІГРИ НА РЕТРАНСЛЯЦІЙНОМУ СЕРВЕРІ"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Ігри на ретрансляційному сервері мають більше шансів на успішне підключення."
+msgstr ""
+"Ігри на ретрансляційному сервері мають більше шансів на успішне підключення."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗУВАТИ НЕДОСТУПНІ ІГРИ"
@@ -1428,9 +1583,6 @@ msgstr "МОНРЕАЛЬ"
 
 msgid "SAO PAULO"
 msgstr "САН-ПАУЛУ"
-
-msgid "CUSTOM"
-msgstr "ВЛАСНИЙ"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "ВЛАСНИЙ РЕТРАНСЛЯЦІЙНИЙ СЕРВЕР"
@@ -1579,8 +1731,14 @@ msgstr "CLIENT ID"
 msgid "CLIENT SECRET"
 msgstr "CLIENT SECRET"
 
-msgid "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY BE FOR DIFFERENT SYSTEMS!\nCONTINUE ANYWAY?"
-msgstr "ПОПЕРЕДЖЕННЯ: ДЛЯ ДЕЯКИХ ВИБРАНИХ СИСТЕМ НЕ ЗАДАНО ПЛАТФОРМУ. РЕЗУЛЬТАТИ МОЖУТЬ СТОСУВАТИСЯ ІНШИХ СИСТЕМ!\nВСЕ ОДНО ПРОДОВЖИТИ?"
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"ПОПЕРЕДЖЕННЯ: ДЛЯ ДЕЯКИХ ВИБРАНИХ СИСТЕМ НЕ ЗАДАНО ПЛАТФОРМУ. РЕЗУЛЬТАТИ "
+"МОЖУТЬ СТОСУВАТИСЯ ІНШИХ СИСТЕМ!\n"
+"ВСЕ ОДНО ПРОДОВЖИТИ?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "СКРЕЙПІНГ ТРИВАЄ. ЗУПИНИТИ ЙОГО?"
@@ -2045,7 +2203,8 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТИ СПИСКИ ІГОР І ВИДАЛИТИ НЕВИКОРИСТОВУВАНІ МЕДІА"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr "Видаляє невикористовувані записи та очищає посилання на відсутні медіа."
+msgstr ""
+"Видаляє невикористовувані записи та очищає посилання на відсутні медіа."
 
 msgid "Cleaning"
 msgstr "Очищення"
@@ -2098,8 +2257,11 @@ msgstr "ІГНОРУВАТИ БАГАТОФАЙЛОВИЙ ВМІСТ ДИСКІ�
 msgid "ENABLE GAME FILTERING"
 msgstr "УВІМКНУТИ ФІЛЬТРАЦІЮ ІГОР"
 
-msgid "Whether to show or hide game filtering related settings in the view options."
-msgstr "Показувати чи приховувати в параметрах перегляду налаштування, пов'язані з фільтрацією ігор."
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
+"Показувати чи приховувати в параметрах перегляду налаштування, пов'язані з "
+"фільтрацією ігор."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "ЗБЕРІГАТИ МЕТАДАНІ ПРИ ВИХОДІ"
@@ -2108,13 +2270,19 @@ msgid "PARSE GAMELISTS ONLY"
 msgstr "ЛИШЕ РОЗБИРАТИ СПИСКИ ІГОР"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "Інструмент налагодження: не перевіряти, чи ROM насправді існують. Може спричинити проблеми!"
+msgstr ""
+"Інструмент налагодження: не перевіряти, чи ROM насправді існують. Може "
+"спричинити проблеми!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ШУКАТИ ЛОКАЛЬНІ ЗОБРАЖЕННЯ"
 
-msgid "If no image is specified in the gamelist, try to find media with the same filename to use."
-msgstr "Якщо в списку ігор не вказано зображення, спробувати знайти медіа з тією самою назвою файлу."
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+"Якщо в списку ігор не вказано зображення, спробувати знайти медіа з тією "
+"самою назвою файлу."
 
 msgid "USER INTERFACE"
 msgstr "ІНТЕРФЕЙС КОРИСТУВАЧА"
@@ -2149,8 +2317,12 @@ msgstr "Міняє місцями функції південної та схі�
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП ДО ПАРАМЕТРІВ ГРИ ПІВНІЧНОЮ КНОПКОЮ"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
-msgstr "Перемикає на коротке натискання північної кнопки для збережень стану та довге утримання південної кнопки для параметрів гри"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
+msgstr ""
+"Перемикає на коротке натискання північної кнопки для збережень стану та "
+"довге утримання південної кнопки для параметрів гри"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "КЕРУВАТИ EMULATIONSTATION ЛИШЕ ПЕРШИМ ДЖОЙСТИКОМ"
@@ -2182,14 +2354,21 @@ msgstr "ОПТИМІЗАЦІЇ"
 msgid "PRELOAD UI ELEMENTS ON BOOT"
 msgstr "ПОПЕРЕДНЬО ЗАВАНТАЖУВАТИ ЕЛЕМЕНТИ ІНТЕРФЕЙСУ ПРИ СТАРТІ"
 
-msgid "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr "Зменшує затримку під час переходу до списків ігор із системного меню, збільшує час завантаження"
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr ""
+"Зменшує затримку під час переходу до списків ігор із системного меню, "
+"збільшує час завантаження"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "ПОПЕРЕДНЬО ЗАВАНТАЖУВАТИ МЕДІА МЕТАДАНИХ ПРИ СТАРТІ"
 
-msgid "Reduces lag when scrolling through a fully scraped gamelist, increases boot time"
-msgstr "Зменшує затримку під час прокручування повністю скрейпленого списку ігор, збільшує час завантаження"
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
+"Зменшує затримку під час прокручування повністю скрейпленого списку ігор, "
+"збільшує час завантаження"
 
 msgid "DIRECTORY DEPTH TO INDEX"
 msgstr "ГЛИБИНА ТЕК ДЛЯ ІНДЕКСУВАННЯ"
@@ -2197,8 +2376,12 @@ msgstr "ГЛИБИНА ТЕК ДЛЯ ІНДЕКСУВАННЯ"
 msgid "UNLIMITED"
 msgstr "БЕЗ ОБМЕЖЕНЬ"
 
-msgid "Maximum depth scanned inside each ROM folder, to ignore subfolders with many files."
-msgstr "Максимальна глибина сканування в кожній теці з ROM, щоб ігнорувати підтеки з великою кількістю файлів."
+msgid ""
+"Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
+"files."
+msgstr ""
+"Максимальна глибина сканування в кожній теці з ROM, щоб ігнорувати підтеки з "
+"великою кількістю файлів."
 
 msgid "THREADED LOADING"
 msgstr "БАГАТОПОТОКОВЕ ЗАВАНТАЖЕННЯ"
@@ -2284,8 +2467,12 @@ msgstr "РОЗКЛАДКА КЛАВІАТУРИ"
 msgid "KEYBOARD VARIANT"
 msgstr "ВАРІАНТ КЛАВІАТУРИ"
 
-msgid "Select the physical keyboard layout. A reboot may be required for changes to take full effect."
-msgstr "Оберіть фізичну розкладку клавіатури. Щоб зміни повністю набрали чинності, може знадобитися перезавантаження."
+msgid ""
+"Select the physical keyboard layout. A reboot may be required for changes to "
+"take full effect."
+msgstr ""
+"Оберіть фізичну розкладку клавіатури. Щоб зміни повністю набрали чинності, "
+"може знадобитися перезавантаження."
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "ОБЕРІТЬ СВІЙ ЧАСОВИЙ ПОЯС"
@@ -2306,7 +2493,9 @@ msgid "INSTANT"
 msgstr "МИТТЄВИЙ"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Зменшує споживання енергії в режимі очікування (корисно для портативних пристроїв)."
+msgstr ""
+"Зменшує споживання енергії в режимі очікування (корисно для портативних "
+"пристроїв)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ЕКРАННИЙ ДИКТОР (ПЕРЕТВОРЕННЯ ТЕКСТУ В МОВЛЕННЯ)"
@@ -2317,8 +2506,14 @@ msgstr "РЕЖИМ ІНТЕРФЕЙСУ"
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr "Блокує певні меню налаштувань для використання гостями/дітьми."
 
-msgid "You are changing the user interface to a restricted mode:\nThis will hide most menu options to prevent changes to the system.\nTo unlock and return to the full user interface, enter this code:"
-msgstr "Ви змінюєте інтерфейс на обмежений режим:\nБільшість пунктів меню буде приховано, щоб запобігти змінам у системі.\nЩоб розблокувати та повернутися до повного інтерфейсу, введіть цей код:"
+msgid ""
+"You are changing the user interface to a restricted mode:\n"
+"This will hide most menu options to prevent changes to the system.\n"
+"To unlock and return to the full user interface, enter this code:"
+msgstr ""
+"Ви змінюєте інтерфейс на обмежений режим:\n"
+"Більшість пунктів меню буде приховано, щоб запобігти змінам у системі.\n"
+"Щоб розблокувати та повернутися до повного інтерфейсу, введіть цей код:"
 
 msgid "Do you want to proceed?"
 msgstr "Бажаєте продовжити?"
@@ -2345,19 +2540,24 @@ msgid "AUDIO PROFILE"
 msgstr "АУДІОПРОФІЛЬ"
 
 msgid "Available options can change depending on current audio output."
-msgstr "Доступні параметри можуть змінюватися залежно від поточного аудіовиходу."
+msgstr ""
+"Доступні параметри можуть змінюватися залежно від поточного аудіовиходу."
 
 msgid "HDR"
 msgstr "HDR"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr "Дозволяє передавати на дисплей HDR-контент, наприклад потоки Moonlight HDR."
+msgstr ""
+"Дозволяє передавати на дисплей HDR-контент, наприклад потоки Moonlight HDR."
 
 msgid "VARIABLE REFRESH RATE"
 msgstr "ЗМІННА ЧАСТОТА ОНОВЛЕННЯ"
 
-msgid "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr "Дозволяє дисплею слідувати за частотою кадрів. Вимкніть, якщо екран мерехтить."
+msgid ""
+"Lets the display follow the frame rate. Turn off if the screen flickers."
+msgstr ""
+"Дозволяє дисплею слідувати за частотою кадрів. Вимкніть, якщо екран "
+"мерехтить."
 
 msgid "BOOT SPLASH"
 msgstr "ЗАСТАВКА ПРИ ЗАВАНТАЖЕННІ"
@@ -2455,8 +2655,12 @@ msgstr "ПАРОЛЬ ROOT"
 msgid "CPU SECURITY MITIGATIONS"
 msgstr "ЗАХОДИ ЗАХИСТУ ВІД УРАЗЛИВОСТЕЙ ЦП"
 
-msgid "Disabling mitigations may improve performance on some systems at the cost of reduced protection against certain CPU vulnerabilities."
-msgstr "Вимкнення захисту може підвищити продуктивність на деяких системах ціною зниження захисту від певних уразливостей ЦП."
+msgid ""
+"Disabling mitigations may improve performance on some systems at the cost of "
+"reduced protection against certain CPU vulnerabilities."
+msgstr ""
+"Вимкнення захисту може підвищити продуктивність на деяких системах ціною "
+"зниження захисту від певних уразливостей ЦП."
 
 msgid "LATENCY REDUCTION"
 msgstr "ЗМЕНШЕННЯ ЗАТРИМКИ"
@@ -2479,14 +2683,21 @@ msgstr "АВТОМАТИЧНА ЗАТРИМКА КАДРУ"
 msgid "AUTO FRAME DELAY"
 msgstr "АВТОЗАТРИМКА КАДРУ"
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops. Can introduce stuttering."
-msgstr "Автоматично тимчасово зменшує затримку кадру, щоб запобігти пропуску кадрів. Може спричинити ривки."
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+"Автоматично тимчасово зменшує затримку кадру, щоб запобігти пропуску кадрів. "
+"Може спричинити ривки."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "ЗМІННА ЧАСТОТА ОНОВЛЕННЯ (G-SYNC, FREESYNC)"
 
-msgid "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr "Не відхилятися від часових параметрів, запитаних ядром. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Не відхилятися від часових параметрів, запитаних ядром. G-Sync, FreeSync, "
+"HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "НАБІР ОФОРМЛЕННЯ"
@@ -2501,7 +2712,9 @@ msgid "AUTO SAVE/LOAD"
 msgstr "АВТОЗБЕРЕЖЕННЯ/ЗАВАНТАЖЕННЯ"
 
 msgid "Load latest savestate on game launch and save state when exiting game."
-msgstr "Завантажувати останній збережений стан під час запуску гри та зберігати стан під час виходу з гри."
+msgstr ""
+"Завантажувати останній збережений стан під час запуску гри та зберігати стан "
+"під час виходу з гри."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ПОСТУПОВІ ЗБЕРЕЖЕННЯ СТАНУ"
@@ -2510,7 +2723,8 @@ msgid "INCREMENT PER SAVE"
 msgstr "НОВЕ ЗБЕРЕЖЕННЯ ЗА КОЖНИМ РАЗОМ"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "Ніколи не перезаписувати старі збереження стану, завжди створювати нові."
+msgstr ""
+"Ніколи не перезаписувати старі збереження стану, завжди створювати нові."
 
 msgid "INCREMENT SLOT"
 msgstr "ЗБІЛЬШУВАТИ СЛОТ"
@@ -2545,14 +2759,19 @@ msgstr "СПІВВІДНОШЕННЯ СТОРІН ГРИ"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Примусово відтворювати гру в цьому співвідношенні сторін."
 
-msgid "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr "Задає роздільну здатність дисплея. Не впливає на роздільну здатність відтворення."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
+"Задає роздільну здатність дисплея. Не впливає на роздільну здатність "
+"відтворення."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "ЗГЛАДЖУВАННЯ ІГОР (БІЛІНІЙНА ФІЛЬТРАЦІЯ)"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Зберігати минулі стани для перемотування в реальному часі, якщо ядро це підтримує."
+msgstr ""
+"Зберігати минулі стани для перемотування в реальному часі, якщо ядро це "
+"підтримує."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦІЛОЧИСЕЛЬНЕ МАСШТАБУВАННЯ (ПІКСЕЛЬ В ПІКСЕЛЬ)"
@@ -2603,7 +2822,8 @@ msgid "RESIZE TATTOO"
 msgstr "ЗМІНИТИ РОЗМІР ТАТУ"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Зменшувати/збільшувати тату, щоб воно вміщувалося в межах рамки безеля."
+msgstr ""
+"Зменшувати/збільшувати тату, щоб воно вміщувалося в межах рамки безеля."
 
 msgid "AI GAME TRANSLATION"
 msgstr "ШІ-ПЕРЕКЛАД ІГОР"
@@ -3018,8 +3238,12 @@ msgstr "ТЕГИ"
 msgid "GENRES"
 msgstr "ЖАНРИ"
 
-msgid "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\nDO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
-msgstr "ДЕЯКІ ВКАЗАНІ ВАМИ ФАЙЛИ РОЗТАШОВАНІ ПОЗА ШЛЯХОМ СПИСКУ ІГОР.\nВИКОРИСТАТИ КОПІЇ ЦИХ ФАЙЛІВ ВІДНОСНО СПИСКУ ІГОР?"
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+"ДЕЯКІ ВКАЗАНІ ВАМИ ФАЙЛИ РОЗТАШОВАНІ ПОЗА ШЛЯХОМ СПИСКУ ІГОР.\n"
+"ВИКОРИСТАТИ КОПІЇ ЦИХ ФАЙЛІВ ВІДНОСНО СПИСКУ ІГОР?"
 
 msgid "FILE BROWSER"
 msgstr "ФАЙЛОВИЙ МЕНЕДЖЕР"
@@ -3474,8 +3698,12 @@ msgstr[2] "Ця колекція містить %i ігор, зокрема: %s"
 msgid "INVALID CONTENT"
 msgstr "НЕДІЙСНИЙ ВМІСТ"
 
-msgid "A valid account is required. Please register an account on https://retroachievements.org"
-msgstr "Потрібен дійсний обліковий запис. Зареєструйтеся на https://retroachievements.org"
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Потрібен дійсний обліковий запис. Зареєструйтеся на https://"
+"retroachievements.org"
 
 msgid "SLOW"
 msgstr "ПОВІЛЬНО"
@@ -3807,8 +4035,12 @@ msgstr "УТРИМУЙТЕ БУДЬ-ЯКУ КНОПКУ, ЩОБ ПРОПУСТИ
 msgid "-NOT DEFINED-"
 msgstr "-НЕ ВИЗНАЧЕНО-"
 
-msgid "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
-msgstr "КНОПКУ HOTKEY НЕ ПРИЗНАЧЕНО. ВОНА ПОТРІБНА ДЛЯ ВИХОДУ З ІГОР ЗА ДОПОМОГОЮ КОНТРОЛЕРА. ВИКОРИСТОВУВАТИ КНОПКУ SELECT ЯК HOTKEY?"
+msgid ""
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+"КНОПКУ HOTKEY НЕ ПРИЗНАЧЕНО. ВОНА ПОТРІБНА ДЛЯ ВИХОДУ З ІГОР ЗА ДОПОМОГОЮ "
+"КОНТРОЛЕРА. ВИКОРИСТОВУВАТИ КНОПКУ SELECT ЯК HOTKEY?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "ПРИЗНАЧИТИ SELECT ЯК HOTKEY"
@@ -3829,8 +4061,12 @@ msgstr "НАТИСНІТЬ БУДЬ-ЩО"
 msgid "ALREADY TAKEN"
 msgstr "УЖЕ ЗАЙНЯТО"
 
-msgid "CALIBRATING GUN\nFire on targets to calibrate"
-msgstr "КАЛІБРУВАННЯ ПІСТОЛЕТА\nСтріляйте по мішенях для калібрування"
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
+"КАЛІБРУВАННЯ ПІСТОЛЕТА\n"
+"Стріляйте по мішенях для калібрування"
 
 msgid "Reloaded the games list..."
 msgstr "Список ігор перезавантажено..."

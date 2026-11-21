@@ -1088,6 +1088,33 @@ msgstr "컨트롤러 #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i 컨트롤러"
 
+msgid "RED"
+msgstr "빨간색"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "초록색"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "파란색"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "하얀색"
+
 msgid "CONTROLLER MAPPING"
 msgstr "컨트롤러 맵핑"
 
@@ -1156,6 +1183,9 @@ msgstr "조이스틱 단축키를 나가기로 제한"
 msgid "GLOBAL HOTKEYS"
 msgstr "글로벌 단축키"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED 하드웨어"
 
@@ -1177,14 +1207,20 @@ msgstr "채도"
 msgid "PULSE"
 msgstr "파형"
 
-msgid "RED"
-msgstr "빨간색"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "초록색"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "파란색"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "커스텀"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED 밝기"
@@ -1194,6 +1230,52 @@ msgstr "기본"
 
 msgid "NOT CONNECTED"
 msgstr "연결되지 않음"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "↓"
@@ -1258,6 +1340,30 @@ msgstr "글로벌 핫키가 감지되지 않았"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "두 개 이상의 글로벌 핫키가 감지되었음"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "테두리 크기"
 
@@ -1287,9 +1393,6 @@ msgstr "숨김"
 
 msgid "BORDER COLOR"
 msgstr "테두리 색상"
-
-msgid "WHITE"
-msgstr "하얀색"
 
 msgid "BORDER RATIO"
 msgstr "테두리 비율"
@@ -1464,9 +1567,6 @@ msgstr "몬트리올"
 
 msgid "SAO PAULO"
 msgstr "상파울루"
-
-msgid "CUSTOM"
-msgstr "커스텀"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "커스텀 중계 서버"

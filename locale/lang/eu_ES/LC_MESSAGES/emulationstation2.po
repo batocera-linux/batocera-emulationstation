@@ -1099,6 +1099,33 @@ msgstr "%i. AGINTE-KONTROLA"
 msgid "P%i'S CONTROLLER"
 msgstr "%i. JOKALARIAREN AGINTE-KONTROLA"
 
+msgid "RED"
+msgstr "GORRIA"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "BERDEA"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "URDINA"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "ZURIA"
+
 msgid "CONTROLLER MAPPING"
 msgstr "AGINTE-KONTROLAREN ESLEIPENA"
 
@@ -1168,6 +1195,9 @@ msgstr "MUGATU JOYSTICKEN LASTER-TEKLAK IRTETEKORA"
 msgid "GLOBAL HOTKEYS"
 msgstr "LASTER-TEKLA OROKORRAK"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED HARDWAREA"
 
@@ -1189,14 +1219,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "PULTSUA"
 
-msgid "RED"
-msgstr "GORRIA"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "BERDEA"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "URDINA"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "PERTSONALIZATUA"
 
 msgid "LED BRIGHTNESS"
 msgstr "LEDAREN DISTIRA"
@@ -1206,6 +1242,52 @@ msgstr "lehenetsia"
 
 msgid "NOT CONNECTED"
 msgstr "KONEKTATU GABE"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "HEGOA"
@@ -1270,6 +1352,30 @@ msgstr "EZ DA LASTER-TEKLA OROKORRIK HAUTEMAN"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "LASTER-TEKLA OROKOR BAT BAINO GEHIAGO HAUTEMAN DA"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "ERTZAREN TAMAINA"
 
@@ -1299,9 +1405,6 @@ msgstr "EZKUTATUTA"
 
 msgid "BORDER COLOR"
 msgstr "ERTZAREN KOLOREA"
-
-msgid "WHITE"
-msgstr "ZURIA"
 
 msgid "BORDER RATIO"
 msgstr "ERTZAREN PROPORTZIOA"
@@ -1476,9 +1579,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SÃO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERTSONALIZATUA"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "ERRELE-ZERBITZARI PERTSONALIZATUA"
