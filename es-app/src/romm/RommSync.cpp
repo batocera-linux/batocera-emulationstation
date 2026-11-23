@@ -86,7 +86,7 @@ namespace Romm
 	}
 
 	// "2026-10-16T10:11:12[.ffffff][Z|+00:00]" -> seconds since epoch (UTC). -1 if not parsable.
-	static long long parseIsoUtc(const std::string& iso)
+	long long parseIsoUtc(const std::string& iso)
 	{
 		int Y, M, D, h, mi, s;
 		if (iso.size() < 19 || sscanf(iso.c_str(), "%4d-%2d-%2dT%2d:%2d:%2d", &Y, &M, &D, &h, &mi, &s) != 6)

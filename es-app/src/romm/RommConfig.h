@@ -22,6 +22,7 @@ namespace Romm
 	static const char* const CONF_WITHROM_PREFIX = "romm.withrom.";
 	static const char* const CONF_FAVORITES = "romm.favorites"; // RomM favorites -> ES favorites (off when absent)
 	static const char* const CONF_PLAYSESSIONS = "romm.playsessions"; // send play sessions to RomM (off when absent)
+	static const char* const CONF_SYNCSAVES = "romm.syncsaves";       // off when absent
 	static const char* const CONF_HIDDEN_SYSTEMS = "romm.hiddensystems"; // comma separated ES system names
 	static const char* const CONF_COLLECTIONS = "romm.collections";      // comma separated collection keys (c<id>, s<id>), none when absent
 
@@ -51,6 +52,7 @@ namespace Romm
 		bool fetchesWithRom(Media type) const;
 		bool syncFavorites = false;
 		bool syncPlaySessions = false;
+		bool syncSaves = false;
 		std::set<std::string> hiddenSystems;   // RomM games of these systems are not shown
 		std::set<std::string> collections;     // RomM collections turned into ES collections
 

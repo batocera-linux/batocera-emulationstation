@@ -91,6 +91,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSettings.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommPairing.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommDownload.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSaves.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommConfig.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommClient.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommAuth.h
@@ -99,6 +100,8 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCollections.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommBios.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlaySessions.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaveLayout.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaves.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommMedia.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommWork.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCache.h
@@ -213,6 +216,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSettings.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommPairing.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommDownload.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSaves.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommConfig.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommClient.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommAuth.cpp
@@ -222,6 +226,8 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCollections.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommBios.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlaySessions.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaveLayout.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaves.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommMedia.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommWork.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCache.cpp

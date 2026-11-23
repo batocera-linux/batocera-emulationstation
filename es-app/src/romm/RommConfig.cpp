@@ -244,6 +244,7 @@ namespace Romm
 		}
 		cfg.syncFavorites = conf->getBool(CONF_FAVORITES, false);
 		cfg.syncPlaySessions = conf->getBool(CONF_PLAYSESSIONS, false);
+		cfg.syncSaves = conf->getBool(CONF_SYNCSAVES, false);
 
 		for (auto& name : Utils::String::split(conf->get(CONF_HIDDEN_SYSTEMS), ','))
 		{

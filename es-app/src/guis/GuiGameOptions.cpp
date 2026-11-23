@@ -29,6 +29,7 @@
 #include "guis/GuiGameScraper.h"
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
+#include "guis/GuiRommSaves.h"
 #include "SystemConf.h"
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
@@ -151,14 +152,24 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		{
 			mMenu.addEntry(_("SAVESTATES"), false, [window, game, this]
 			{
-				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState* state)
+				// close() deletes this callback
+				Window* w = window;
+				FileData* g = game;
+				auto open = [w, g]
 				{
-					LaunchGameOptions options;
-					options.saveStateInfo = state;
-					ViewController::get()->launch(game, options);
-				}));
+					w->pushGui(new GuiSaveState(w, g, [g](SaveState* state)
+					{
+						LaunchGameOptions options;
+						options.saveStateInfo = state;
+						ViewController::get()->launch(g, options);
+					}));
+				};
 
 				this->close();
+
+				// RomM: sync first
+				if (!GuiRommSaves::syncBeforeChoice(w, g, open))
+					open();
 			});
 		}
 		else

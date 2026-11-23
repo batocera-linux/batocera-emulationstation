@@ -1,5 +1,9 @@
 #include "views/ViewController.h"
 #include "guis/GuiRommDownload.h"
+#include "guis/GuiRommSaves.h"
+#include "SaveStateRepository.h"
+#include "guis/GuiSaveState.h"
+#include "romm/RommSaves.h"
 #include "romm/RommBios.h"
 
 #include "animations/Animation.h"
@@ -546,6 +550,49 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		});
 		return;
 	}
+
+	// RomM: sync the saves first
+	if (allowCheckLaunchOptions && game != nullptr && game->getType() == GAME && !Romm::RommSaves::consumeChecked(game->getSourceFileData()->getPath()))
+	{
+		Romm::SaveJob job;
+		if (Romm::RommSaves::prepare(game, job))
+		{
+			bool hardcore = job.hardcore;
+			GuiRommSaves::checkThenRun(mWindow, game, [this, game, options, center, targetSize, allowCheckLaunchOptions, hardcore]
+			{
+				// States the sync brought are offered now (not in hardcore)
+				if (options.saveStateInfo == nullptr && !hardcore && SaveStateRepository::isEnabled(game))
+				{
+					SaveStateRepository* repository = game->getSourceFileData()->getSystem()->getSaveStateRepository();
+					repository->refresh();
+
+					if (game->getCurrentGameSetting("savestates") == "2" && repository->hasSaveStates(game))
+					{
+						Romm::RommSaves::consumeChecked(game->getSourceFileData()->getPath());
+						mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game, options, center, targetSize, allowCheckLaunchOptions](SaveState* state)
+						{
+							LaunchGameOptions withState = options;
+							withState.saveStateInfo = state;
+							Romm::RommSaves::markChecked(game->getSourceFileData()->getPath());
+							launch(game, withState, center, targetSize, allowCheckLaunchOptions);
+						}));
+						return;
+					}
+				}
+
+				launch(game, options, center, targetSize, allowCheckLaunchOptions);
+			});
+			return;
+		}
+	}
+
+	// RomM: hardcore session on a softcore save
+	if (allowCheckLaunchOptions && game != nullptr && game->getType() == GAME &&
+		GuiRommSaves::confirmHardcore(mWindow, game, [this, game, options, center, targetSize, allowCheckLaunchOptions]
+		{
+			launch(game, options, center, targetSize, allowCheckLaunchOptions);
+		}))
+		return;
 
 	if (targetSize.x() <= 0 || targetSize.y() <= 0)
 	{

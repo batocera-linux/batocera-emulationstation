@@ -2,6 +2,7 @@
 //http://www.aloshi.com
 
 #include "romm/RommSync.h"
+#include "romm/RommSaves.h"
 #include "romm/RommPlaySessions.h"
 #include "romm/RommMediaCache.h"
 #include "services/HttpServerThread.h"
@@ -643,6 +644,7 @@ int main(int argc, char* argv[])
 
 	// RomM library synchronization in the background (no-op unless RomM is enabled and paired)
 	Romm::RommSync::start(&window);
+	Romm::RommSaves::recoverAsync(&window);
 
 	// tts
 	TextToSpeech::getInstance()->enable(Settings::getInstance()->getBool("TTS"), false);

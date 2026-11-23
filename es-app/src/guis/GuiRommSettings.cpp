@@ -249,7 +249,7 @@ void GuiRommSettings::openLibraryManagement()
 		});
 	}
 
-	gui->addGroup(_("FAVORITES & PLAY TIME"));
+	gui->addGroup(_("FAVORITES, PLAY TIME & SAVES"));
 	// romm.favorites : OFF when absent. Applied when the game lists load.
 	gui->addSwitch(_("SYNC FAVORITES"), _("Games in your RomM favorites are Batocera favorites."), CONF_FAVORITES, false, [window]
 	{
@@ -268,6 +268,11 @@ void GuiRommSettings::openLibraryManagement()
 		if (SystemConf::getInstance()->getBool(CONF_PLAYSESSIONS, false))
 			RommPlaySessions::flushAsync();
 	});
+
+#ifdef BATOCERA
+	// romm.syncsaves : OFF when absent. Batocera only (RommSaveLayout).
+	gui->addSwitch(_("SYNC SAVES"), _("Saves and save states follow you between devices through RomM."), CONF_SYNCSAVES, false, nullptr);
+#endif
 
 	gui->addGroup(_("STORAGE"));
 	// MEDIA CACHE SIZE (limits: RommMediaCache)

@@ -14,6 +14,9 @@ class Window;
 
 namespace Romm
 {
+	// "2026-10-16T10:11:12[.ffffff][Z|+00:00]" -> seconds since epoch (UTC). -1 if not parsable.
+	long long parseIsoUtc(const std::string& iso);
+
 	// Background synchronisation of the RomM library into the local snapshot.
 	// Never touches the game lists of a running ES: changes are applied by the next
 	// load of the systems (ES start, "apply changes" in the RomM menu, any reload).

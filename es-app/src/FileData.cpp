@@ -1,5 +1,7 @@
 #include "FileData.h"
 #include "romm/RommPlaySessions.h"
+#include "romm/RommSaves.h"
+#include "guis/GuiRommSaves.h"
 #include "romm/RommWork.h"
 
 #include "utils/FileSystemUtil.h"
@@ -660,7 +662,8 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	{
 		if (options.saveStateInfo == nullptr)
 		{
-			if (getCurrentGameSetting("autosave") == "1")
+			// Not in hardcore: a state would end it
+			if (getCurrentGameSetting("autosave") == "1" && !Romm::RommSaves::isHardcoreSession(this))
 				options.saveStateInfo = system->getSaveStateRepository()->getGameAutoSave(this);
 			else
 				options.saveStateInfo = SaveStateRepository::getEmptySaveState();
@@ -778,6 +781,14 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 			options.saveStateInfo->onGameEnded(this);
 
 		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
+	}
+
+	// RomM: after ES restored its state files
+	{
+		bool fromAutosave = options.saveStateInfo != nullptr && options.saveStateInfo->isSlotValid()
+			? options.saveStateInfo->slot == -1
+			: gameToUpdate->getCurrentGameSetting("autosave") == "1" && !Romm::RommSaves::isHardcoreSession(gameToUpdate);
+		GuiRommSaves::afterGame(window, gameToUpdate, fromAutosave);
 	}
 
 	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k

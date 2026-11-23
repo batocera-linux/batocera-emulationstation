@@ -1,4 +1,7 @@
 #include "romm/RommClient.h"
+
+#include <atomic>
+#include <ctime>
 #include "utils/FileSystemUtil.h"
 #include "romm/RommConfig.h"
 
@@ -28,15 +31,49 @@ namespace Romm
 
 	std::string RommClient::url(const std::string& pathAndQuery) const
 	{
-		if (pathAndQuery.empty() || pathAndQuery[0] != '/')
-			return mBaseUrl + "/" + pathAndQuery;
+		// RomM's download paths can hold spaces
+		std::string path = Utils::String::replace(pathAndQuery, " ", "%20");
 
-		return mBaseUrl + pathAndQuery;
+		if (path.empty() || path[0] != '/')
+			return mBaseUrl + "/" + path;
+
+		return mBaseUrl + path;
 	}
 
-	HttpResult RommClient::get(const std::string& pathAndQuery, const std::atomic<bool>* cancel)
+	HttpResult RommClient::get(const std::string& pathAndQuery, const std::atomic<bool>* cancel, int timeoutSeconds)
 	{
-		return perform(pathAndQuery, nullptr, "", nullptr, cancel, API_TIMEOUT_SECONDS, false);
+		return perform(pathAndQuery, nullptr, "", nullptr, cancel, timeoutSeconds > 0 ? timeoutSeconds : API_TIMEOUT_SECONDS, false);
+	}
+
+	HttpResult RommClient::postMultipart(const std::string& path, const std::string& body, const std::string& boundary, const std::atomic<bool>* cancel)
+	{
+		return perform(path, &body, "", nullptr, cancel, API_TIMEOUT_SECONDS, false, false, "multipart/form-data; boundary=" + boundary);
+	}
+
+	MultipartBody::MultipartBody()
+	{
+		static std::atomic<unsigned> counter(0);
+		mBoundary = "----es-romm-" + std::to_string((unsigned long long)time(nullptr)) + "-" + std::to_string(++counter);
+	}
+
+	void MultipartBody::addField(const std::string& name, const std::string& value, const std::string& contentType)
+	{
+		mBody += "--" + mBoundary + "\r\nContent-Disposition: form-data; name=\"" + name + "\"\r\nContent-Type: " + contentType + "\r\n\r\n" + value + "\r\n";
+	}
+
+	void MultipartBody::addFile(const std::string& name, const std::string& fileName, const std::string& content)
+	{
+		std::string safeName = Utils::String::replace(Utils::String::replace(fileName, "\"", "_"), "\r", "");
+		safeName = Utils::String::replace(safeName, "\n", "");
+		mBody += "--" + mBoundary + "\r\nContent-Disposition: form-data; name=\"" + name + "\"; filename=\"" + safeName +
+			"\"\r\nContent-Type: application/octet-stream\r\n\r\n";
+		mBody += content;
+		mBody += "\r\n";
+	}
+
+	std::string MultipartBody::finish()
+	{
+		return mBody + "--" + mBoundary + "--\r\n";
 	}
 
 	HttpResult RommClient::postJson(const std::string& path, const std::string& json, const std::atomic<bool>* cancel, bool quietErrors)
@@ -64,7 +101,8 @@ namespace Romm
 	}
 
 	HttpResult RommClient::perform(const std::string& pathAndQuery, const std::string* postData, const std::string& outputFile,
-		const std::function<void(int, long long)>& progress, const std::atomic<bool>* cancel, int timeoutSeconds, bool stallTimeout, bool quietErrors)
+		const std::function<void(int, long long)>& progress, const std::atomic<bool>* cancel, int timeoutSeconds, bool stallTimeout, bool quietErrors,
+		const std::string& contentType)
 	{
 		HttpResult result;
 
@@ -81,7 +119,7 @@ namespace Romm
 
 		if (postData != nullptr)
 		{
-			options.customHeaders.push_back("Content-Type: application/json");
+			options.customHeaders.push_back("Content-Type: " + contentType);
 			// HttpReq only switches to POST when there is data: an empty JSON object is still valid JSON
 			options.dataToPost = postData->empty() ? std::string("{}") : *postData;
 		}
