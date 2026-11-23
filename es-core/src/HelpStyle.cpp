@@ -81,6 +81,9 @@ void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::s
 		if (elem->has("iconSelect"))
 			iconMap["select"] = elem->get<std::string>("iconSelect");
 
+		if (elem->has("iconHotkey"))
+			iconMap["hotkey"] = elem->get<std::string>("iconHotkey");
+
 		if (elem->has("iconF1"))
 			iconMap["F1"] = elem->get<std::string>("iconF1");
 	}

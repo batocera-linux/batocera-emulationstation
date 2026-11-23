@@ -18,6 +18,7 @@
 #include "guis/GuiImageViewer.h"
 #include "guis/GuiNetPlaySettings.h"
 #include "guis/GuiRetroAchievementsSettings.h"
+#include "guis/GuiProfilesSettings.h"
 #include "guis/GuiSystemInformation.h"
 #include "guis/GuiControllersSettings.h"
 #include "views/UIModeController.h"
@@ -2277,6 +2278,9 @@ void GuiMenu::openSystemSettings()
 	}
 #endif
 
+	// Profiles
+	s->addEntry(_("PROFILES"), true, [this] { openProfilesSettings(); });
+
 	// Developer options
 	if (isFullUI)
 		s->addEntry(_("FRONTEND DEVELOPER OPTIONS"), true, [this] { openDeveloperSettings(); });
@@ -2337,6 +2341,11 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 void GuiMenu::openRetroachievementsSettings()
 {
 	mWindow->pushGui(new GuiRetroAchievementsSettings(mWindow));
+}
+
+void GuiMenu::openProfilesSettings()
+{
+	mWindow->pushGui(new GuiProfilesSettings(mWindow));
 }
 
 void GuiMenu::openNetplaySettings()

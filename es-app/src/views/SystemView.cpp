@@ -3,6 +3,7 @@
 #include "animations/LambdaAnimation.h"
 #include "guis/GuiMsgBox.h"
 #include "views/UIModeController.h"
+#include "guis/GuiProfilesSettings.h"
 #include "views/ViewController.h"
 #include "Log.h"
 #include "Scripting.h"
@@ -918,6 +919,9 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 
 	if (SystemData::IsManufacturerSupported)
 		prompts.push_back(HelpPrompt("b", _("NAVIGATION BAR"), [&] { showNavigationBar(); }));
+
+	if (UIModeController::getInstance()->isUIModeFull() && GuiProfilesSettings::isHotkeyEnabled())
+		prompts.push_back(HelpPrompt("hotkey", _("PROFILES") + std::string(" (2x)")));
 
 #ifdef _ENABLE_FILEMANAGER_
 	if (UIModeController::getInstance()->isUIModeFull()) {
