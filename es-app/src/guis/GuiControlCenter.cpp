@@ -987,7 +987,7 @@ void GuiControlCenter::layout()
 	mHandleH = 0.7f * u;
 
 	float chrome = mTabsH + mHeaderH + mFooterH + mHelpH + mHandleH;
-	float cardH = mFitContent ? std::min(H * (mThemeHeight > 0 ? mThemeHeight : 0.86f), chrome + mContentH) : H;
+	float cardH = mFitContent ? std::min(H * (mThemeHeight > 0 ? mThemeHeight : 1.0f), chrome + mContentH) : H;
 
 	bool moved = mCard.w != (int)cardW || mCard.h != (int)cardH;
 	mCard = Renderer::Rect((int)((W - cardW) / 2), 0, (int)cardW, (int)cardH);
