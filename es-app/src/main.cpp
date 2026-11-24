@@ -6,6 +6,7 @@
 #include "romm/RommMediaCache.h"
 #ifdef BATOCERA
 #include "controlcenter/ControlCenterApp.h"
+#endif
 #include "services/HttpServerThread.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
