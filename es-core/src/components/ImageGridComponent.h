@@ -188,7 +188,8 @@ public:
 	void add(const std::string& name, const std::string& imagePath, const T& obj);
 	virtual void clear();
 
-	void setImage(const std::string& imagePath, const T& obj);
+	// force: made again even when the path is the same (the file appeared or changed since)
+	void setImage(const std::string& imagePath, const T& obj, bool force = false);
 	std::string getImage(const T& obj);
 
 	bool input(InputConfig* config, Input input) override;
@@ -1464,14 +1465,25 @@ std::string ImageGridComponent<T>::getImage(const T& obj)
 }
 
 template<typename T>
-void ImageGridComponent<T>::setImage(const std::string& imagePath, const T& obj)
+void ImageGridComponent<T>::setImage(const std::string& imagePath, const T& obj, bool force)
 {
 	IList<ImageGridData, T>* list = static_cast<IList< ImageGridData, T >*>(this);
 	auto entry = list->findEntry(obj);
-	if (entry != list->end() && (*entry).data.texturePath != imagePath)
+	if (entry != list->end() && (force || (*entry).data.texturePath != imagePath))
 	{
 		(*entry).data.texturePath = imagePath;
-		(*entry).data.tile = nullptr;
+
+		// The tile is made again (with its selected state) at the next update. The old one leaves the
+		// visible tiles: left there, it was drawn over the new one (the selected tile is drawn last)
+		// and never freed.
+		if ((*entry).data.tile != nullptr)
+		{
+			auto it = std::find(mVisibleTiles.cbegin(), mVisibleTiles.cend(), (*entry).data.tile);
+			if (it != mVisibleTiles.cend())
+				mVisibleTiles.erase(it);
+
+			(*entry).data.tile = nullptr;
+		}
 
 		mEntriesDirty = true;
 	}

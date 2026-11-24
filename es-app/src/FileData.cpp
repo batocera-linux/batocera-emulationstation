@@ -1,4 +1,8 @@
 #include "FileData.h"
+#include "romm/RommPlaySessions.h"
+#include "romm/RommSaves.h"
+#include "guis/GuiRommSaves.h"
+#include "romm/RommWork.h"
 
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
@@ -56,6 +60,7 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "trackballGame",		[](FileData* file) { return file->isTrackballGame(); } },
 	{ "spinnerGame",		[](FileData* file) { return file->isSpinnerGame(); } },
 	{ "cheevos",			[](FileData* file) { return file->hasCheevos(); } },
+	{ "remote",				[](FileData* file) { return file->isRemote(); } },
 	{ "genre",			    [](FileData* file) { return file->getGenre(); } },
 	{ "hasKeyboardMapping", [](FileData* file) { return file->hasKeyboardMapping(); } },	
 	{ "systemName",			[](FileData* file) { return file->getSourceFileData()->getSystem()->getFullName(); } },
@@ -67,13 +72,22 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 FileData* FileData::mRunningGame = nullptr;
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
-	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
+	: mPath(path), mType(type), mRemote(false), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
 	// metadata needs at least a name field (since that's what getName() will return)
 	if (mMetadata.get(MetaDataId::Name).empty() && !mPath.empty())
 		mMetadata.set(MetaDataId::Name, getDisplayName());
 	
 	mMetadata.resetChangedFlag();
+}
+
+bool FileData::isRemote()
+{
+	FileData* source = getSourceFileData();
+	if (source != nullptr && source != this)
+		return source->mRemote;
+
+	return mRemote;
 }
 
 const std::string FileData::getPath() const
@@ -648,7 +662,8 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	{
 		if (options.saveStateInfo == nullptr)
 		{
-			if (getCurrentGameSetting("autosave") == "1")
+			// Not in hardcore: a state would end it
+			if (getCurrentGameSetting("autosave") == "1" && !Romm::RommSaves::isHardcoreSession(this))
 				options.saveStateInfo = system->getSaveStateRepository()->getGameAutoSave(this);
 			else
 				options.saveStateInfo = SaveStateRepository::getEmptySaveState();
@@ -706,6 +721,13 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (gameToUpdate == nullptr)
 		return false;
 
+	// RomM game not downloaded yet : ViewController::launch downloads it first, other callers can't launch it
+	if (gameToUpdate->mRemote)
+	{
+		LOG(LogWarning) << "Not launching a RomM game that is not downloaded yet : " << gameToUpdate->getPath();
+		return false;
+	}
+
 	SystemData* system = gameToUpdate->getSystem();
 	if (system == nullptr)
 		return false;
@@ -739,7 +761,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	ProcessStartInfo process(command);
 	process.window = hideWindow ? NULL : window;
 	
+	Romm::setGameRunning(true); // RomM background work waits while the game runs
 	int exitCode = process.run();
+	Romm::setGameRunning(false);
 	
 	// Resume watchers when returning to ES
 	WatchersManager::resume();
@@ -757,6 +781,14 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 			options.saveStateInfo->onGameEnded(this);
 
 		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
+	}
+
+	// RomM: after ES restored its state files
+	{
+		bool fromAutosave = options.saveStateInfo != nullptr && options.saveStateInfo->isSlotValid()
+			? options.saveStateInfo->slot == -1
+			: gameToUpdate->getCurrentGameSetting("autosave") == "1" && !Romm::RommSaves::isHardcoreSession(gameToUpdate);
+		GuiRommSaves::afterGame(window, gameToUpdate, fromAutosave);
 	}
 
 	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k
@@ -791,7 +823,12 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		long elapsedSeconds = difftime(tend, tstart);
 		long gameTime = gameToUpdate->getMetadata().getInt(MetaDataId::GameTime) + elapsedSeconds;
 		if (elapsedSeconds >= 10)
+		{
 			gameToUpdate->setMetadata(MetaDataId::GameTime, std::to_string(static_cast<long>(gameTime)));
+
+			// Same session sent to RomM (when "SYNC PLAY TIME" is on and it is a RomM game)
+			Romm::RommPlaySessions::record(gameToUpdate->getPath(), tstart, tend);
+		}
 
 		//update last played time
 		gameToUpdate->setMetadata(MetaDataId::LastPlayed, Utils::Time::DateTime(Utils::Time::now()));
@@ -1610,6 +1647,9 @@ void FileData::checkCrc32(bool force)
 		return;
 	}
 
+	if (mRemote) // nothing on disk to hash yet
+		return;
+
 	if (!force && !getMetadata(MetaDataId::Crc32).empty())
 		return;
 
@@ -1632,6 +1672,9 @@ void FileData::checkMd5(bool force)
 		getSourceFileData()->checkMd5(force);
 		return;
 	}
+
+	if (mRemote) // nothing on disk to hash yet
+		return;
 
 	if (!force && !getMetadata(MetaDataId::Md5).empty())
 		return;
@@ -1656,6 +1699,9 @@ void FileData::checkCheevosHash(bool force)
 		getSourceFileData()->checkCheevosHash(force);
 		return;
 	}
+
+	if (mRemote) // nothing on disk to hash yet
+		return;
 
 	if (!force && !getMetadata(MetaDataId::CheevosHash).empty())
 		return;

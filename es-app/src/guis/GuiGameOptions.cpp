@@ -1,4 +1,6 @@
 #include "GuiGameOptions.h"
+#include "guis/GuiRommDownload.h"
+#include "romm/RommDownloader.h"
 #include "guis/GuiGamelistFilter.h"
 #include "scrapers/Scraper.h"
 #include "views/gamelist/IGameListView.h"
@@ -27,6 +29,7 @@
 #include "guis/GuiGameScraper.h"
 #include "SaveStateRepository.h"
 #include "guis/GuiSaveState.h"
+#include "guis/GuiRommSaves.h"
 #include "SystemConf.h"
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
@@ -149,14 +152,24 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		{
 			mMenu.addEntry(_("SAVESTATES"), false, [window, game, this]
 			{
-				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState* state)
+				// close() deletes this callback
+				Window* w = window;
+				FileData* g = game;
+				auto open = [w, g]
 				{
-					LaunchGameOptions options;
-					options.saveStateInfo = state;
-					ViewController::get()->launch(game, options);
-				}));
+					w->pushGui(new GuiSaveState(w, g, [g](SaveState* state)
+					{
+						LaunchGameOptions options;
+						options.saveStateInfo = state;
+						ViewController::get()->launch(g, options);
+					}));
+				};
 
 				this->close();
+
+				// RomM: sync first
+				if (!GuiRommSaves::syncBeforeChoice(w, g, open))
+					open();
 			});
 		}
 		else
@@ -227,7 +240,17 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			});
 		}
 
-		if (UIModeController::getInstance()->isUIModeFull())
+		if (game->isRemote())
+		{
+			// RomM game not downloaded yet : nothing to delete, offer to download it for offline play
+			mMenu.addEntry(_("DOWNLOAD FROM ROMM"), false, [this, game]
+			{
+				Window* window = mWindow;
+				close();
+				GuiRommDownload::downloadThenRun(window, game, [window] { window->displayNotificationMessage(_("GAME DOWNLOADED")); });
+			});
+		}
+		else if (UIModeController::getInstance()->isUIModeFull())
 		{
 			mMenu.addEntry(isImageViewer ? _("DELETE ITEM") : _("DELETE GAME"), false, [this, game]
 			{
@@ -511,7 +534,12 @@ void GuiGameOptions::deleteGame(FileData* file)
 		sys = sys->getParentGroupSystem();
 
 	CollectionSystemManager::get()->deleteCollectionFiles(sourceFile);
+	Romm::onGameDeleting(sourceFile);
 	sourceFile->deleteGameFiles();
+
+	// Still in RomM: stays in the list, as a cloud game
+	if (Romm::onGameDeleted(sourceFile))
+		return;
 
 	auto view = ViewController::get()->getGameListView(sys, false);
 	if (view != nullptr)

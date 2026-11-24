@@ -554,7 +554,7 @@ void SystemScreenSaver::launchGame()
 		if (view != nullptr)
 			view->setCursor(mCurrentGame);
 
-		if (Settings::getInstance()->getBool("ScreenSaverControls"))
+		if (Settings::getInstance()->getBool("ScreenSaverControls") && !mCurrentGame->isRemote())
 			mCurrentGame->launchGame(mWindow);
 		else
 			ViewController::get()->goToGameList(mCurrentGame->getSystem());

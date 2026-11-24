@@ -12,6 +12,8 @@ class VideoComponent;
 class VideoGameListView : public BasicGameListView
 {
 public:
+	void refreshDetails(const std::string& changedFile = "") override { FileData* file = getCursor(); if (file != nullptr && !file->isPlaceHolder()) mDetails.refreshMedia(file, changedFile); }
+
 	VideoGameListView(Window* window, FolderData* root);
 
 	virtual void onShow() override;

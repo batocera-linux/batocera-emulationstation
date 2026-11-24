@@ -53,7 +53,9 @@ public:
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 	Vector3f getLaunchTarget(Vector2f* size = nullptr);
 
-	void updateControls(FileData* file, bool isClearing, int moveBy = 0, bool isDeactivating = false);
+	// mediaOnly: the media of the shown game changed (fetched meanwhile): set them in place, without
+	// reloading the theme extras or replaying the storyboards (no fade, no blink)
+	void updateControls(FileData* file, bool isClearing, int moveBy = 0, bool isDeactivating = false, bool mediaOnly = false);
 
 protected:
 	void	initMDLabels();
@@ -172,6 +174,10 @@ public:
 
 	void updateControls(FileData* file, bool isClearing, int moveBy = 0);
 	void update(int deltaTime);
+
+	// The media of the shown game changed: shown in place (see DetailedContainer::updateControls).
+	// changedFile: the file that appeared, reloaded where its path was already set.
+	void refreshMedia(FileData* file, const std::string& changedFile = "");
 
 private:
 	FileData* mActiveFile;
