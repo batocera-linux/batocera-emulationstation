@@ -752,7 +752,7 @@ menu is used to theme helpsystem and ES menus.
 
 #### controlcenter
 * `container name="card"` - SIZE
-	- Size of the control center card, as fractions of the screen width and of its maximum height. Defaults to the width of the menus and 86% of the screen height.
+	- Size of the control center card, as fractions of the screen width and of its maximum height. Defaults to the width of the menus and the full screen height; the card is only as tall as its content.
 * `menuBackground name="card"` - COLOR
 	- Background color of the card. Defaults to the color of `menubg`.
 
