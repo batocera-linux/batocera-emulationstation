@@ -506,6 +506,17 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 					if (!hidden)
 						grabTime = SDL_GetTicks() + grabDelay;
 				}
+				else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_FOCUS_LOST)
+				{
+					// a window opened over the card: the pads and hotkeys go back to it
+					ungrabJoysticks(grabbed);
+					grabTime = 0;
+				}
+				else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED)
+				{
+					if (!hidden && grabbed.empty())
+						grabTime = SDL_GetTicks() + grabDelay;
+				}
 				else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
 				{
 					// labwc can size the surface for another output: trust the chosen output's bounds
@@ -529,6 +540,15 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 				lastToggle = now;
 				if (hidden)
 					show();
+				else if (!(SDL_GetWindowFlags(sdlWindow) & SDL_WINDOW_INPUT_FOCUS))
+				{
+					// covered by a game started after it: map it again on top
+					SDL_HideWindow(sdlWindow);
+					showWindow();
+					SDL_RaiseWindow(sdlWindow);
+					grabTime = SDL_GetTicks() + grabDelay;
+					lastRender = 0;
+				}
 				else
 					gui->close();
 			}
