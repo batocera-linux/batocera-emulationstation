@@ -23,6 +23,9 @@
 #include "ThreadedHasher.h"
 #include "scrapers/ThreadedScraper.h"
 #include "guis/GuiUpdate.h"
+#ifdef BATOCERA
+#include "controlcenter/ControlCenterApp.h"
+#endif
 #include "ContentInstaller.h"
 #include "InputManager.h"
 
@@ -273,6 +276,25 @@ void HttpServerThread::run()
 
 		res.set_content(HttpApi::getSystemList(), "application/json");
 	});
+
+#ifdef BATOCERA
+	mHttpServer->Get("/controlcenter", [this](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		if (FileData::GetRunningGame() != nullptr || !canShowControlCenterInProcess())
+		{
+			res.set_content("{\"msg\":\"NOT IN FRONT\"}", "application/json");
+			res.status = 409;
+			return;
+		}
+
+		Window* window = mWindow;
+		mWindow->postToUiThread([window]() { toggleControlCenterInProcess(window); });
+		res.set_content("{\"msg\":\"OK\"}", "application/json");
+	});
+#endif
 
 	mHttpServer->Get("/runningGame", [](const httplib::Request& req, httplib::Response& res)
 	{

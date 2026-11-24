@@ -223,3 +223,9 @@ std::vector<HelpPrompt> GuiMsgBox::getHelpPrompts()
 {
 	return mGrid.getHelpPrompts();
 }
+
+void GuiMsgBox::setDefaultButton(int index)
+{
+	if (index >= 0 && index < (int)mButtons.size())
+		mButtonGrid->setCursorTo(mButtons[index]);
+}

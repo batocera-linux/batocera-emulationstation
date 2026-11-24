@@ -258,7 +258,7 @@ static void crashHandler(int sig)
     raise(sig);
 }
 
-void Log::init()
+void Log::init(const std::string& name)
 {
     AsyncLogger::instance().close();
 
@@ -286,7 +286,7 @@ void Log::init()
     signal(SIGTERM, crashHandler);
 #endif
 
-    auto base = Paths::getUserEmulationStationPath() + "/es_log";
+    auto base = Paths::getUserEmulationStationPath() + "/" + name;
     auto logPath = base + ".txt";
 
     if ((int)lvl < 0)

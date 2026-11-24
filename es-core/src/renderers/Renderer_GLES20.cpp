@@ -392,6 +392,19 @@ namespace Renderer
 
 	} // convertBlendFactor
 
+	// a transparent window is composited as premultiplied alpha
+	static void blendFunc(GLenum src, GLenum dst)
+	{
+#ifdef BATOCERA
+		if (isTransparentWindow())
+		{
+			glBlendFuncSeparate(src, dst, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+			return;
+		}
+#endif
+		glBlendFunc(src, dst);
+	}
+
 //////////////////////////////////////////////////////////////////////////
 
 	static GLenum convertTextureType(const Texture::Type _type)
@@ -597,7 +610,7 @@ namespace Renderer
 		setupDefaultShaders();
 		setupVertexBuffer();
 
-		GL_CHECK_ERROR(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+		GL_CHECK_ERROR(glClearColor(0.0f, 0.0f, 0.0f, isTransparentWindow() ? 0.0f : 1.0f));
 
 #if OPENGL_EXTENSIONS
 		GL_CHECK_ERROR(glActiveTexture_(GL_TEXTURE0));
@@ -854,7 +867,7 @@ namespace Renderer
 		if (_srcBlendFactor != Blend::ONE && _dstBlendFactor != Blend::ONE)
 		{
 			GL_CHECK_ERROR(glEnable(GL_BLEND));
-			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+			GL_CHECK_ERROR(blendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
 			GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
 			GL_CHECK_ERROR(glDisable(GL_BLEND));
 		}
@@ -888,7 +901,7 @@ namespace Renderer
 		useProgram(&shaderProgramColorNoTexture);
 
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
-		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
+		GL_CHECK_ERROR(blendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
 
 		auto inner = createRoundRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, cornerRadius, _fillColor);
 
@@ -906,7 +919,7 @@ namespace Renderer
 			GL_CHECK_ERROR(glStencilFunc(GL_NOTEQUAL, 1, ~0));
 
 			GL_CHECK_ERROR(glEnable(GL_BLEND));
-			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
+			GL_CHECK_ERROR(blendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
 
 			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * outer.size(), outer.data(), GL_DYNAMIC_DRAW));
 			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, outer.size()));
@@ -981,7 +994,7 @@ namespace Renderer
 		if (_srcBlendFactor != Blend::ONE && _dstBlendFactor != Blend::ONE)
 		{
 			GL_CHECK_ERROR(glEnable(GL_BLEND));
-			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+			GL_CHECK_ERROR(blendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
 			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
 			GL_CHECK_ERROR(glDisable(GL_BLEND));
 		}
@@ -1098,7 +1111,7 @@ namespace Renderer
 		if (_srcBlendFactor != Blend::ONE && _dstBlendFactor != Blend::ONE)
 		{
 			GL_CHECK_ERROR(glEnable(GL_BLEND));
-			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+			GL_CHECK_ERROR(blendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
 			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices));
 			GL_CHECK_ERROR(glDisable(GL_BLEND));
 		}
@@ -1125,7 +1138,7 @@ namespace Renderer
 		glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
 		glEnable(GL_BLEND);
-		glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+		blendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices);
 		glDisable(GL_BLEND);
