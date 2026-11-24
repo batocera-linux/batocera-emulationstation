@@ -12,12 +12,15 @@
 #include "InputManager.h"
 #include "PowerSaver.h"
 #include "Log.h"
+#include "Paths.h"
 #include "Settings.h"
 #include "SystemConf.h"
 #include "ThemeData.h"
 #include "Window.h"
 
 #include <SDL.h>
+#include <pugixml/src/pugixml.hpp>
+#include <algorithm>
 #include <cstring>
 #include <thread>
 #include <sys/stat.h>
@@ -134,6 +137,25 @@ static time_t fileTime(const std::string& path)
 	return stat(path.c_str(), &st) == 0 ? st.st_mtime : 0;
 }
 
+// The es_settings.cfg entries the theme is built from
+static std::string themeSettings()
+{
+	pugi::xml_document doc;
+	if (!doc.load_file((Paths::getUserEmulationStationPath() + "/es_settings.cfg").c_str()))
+		return "";
+
+	pugi::xml_node root = doc.child("config") ? doc.child("config") : doc;
+
+	std::string values;
+	for (pugi::xml_node node : root.children())
+	{
+		std::string name = node.attribute("name").as_string();
+		if (Utils::String::startsWith(name, "Theme") || Utils::String::startsWith(name, "subset."))
+			values += name + "=" + node.attribute("value").as_string() + "\n";
+	}
+	return values;
+}
+
 static void restartShown(char* argv[])
 {
 	std::vector<char*> args;
@@ -147,7 +169,37 @@ static void restartShown(char* argv[])
 	execv("/proc/self/exe", args.data());
 }
 
-// --screen, then controlcenter.screen, else the second screen
+// The connector for "primary" or "secondary", picked as emulationstation-standalone does
+static std::string outputFor(const std::string& role)
+{
+	std::vector<std::string> outputs;
+	for (auto& o : Utils::String::split(CcShell::capture("batocera-resolution listOutputs"), '\n'))
+		if (!Utils::String::trim(o).empty())
+			outputs.push_back(Utils::String::trim(o));
+
+	auto valid = [&outputs](const std::string& o) { return std::find(outputs.cbegin(), outputs.cend(), o) != outputs.cend(); };
+
+	std::string primary = Utils::String::trim(CcShell::capture("batocera-settings-get-master global.videooutput"));
+	if (!valid(primary))
+		primary = Utils::String::trim(CcShell::capture("batocera-resolution currentOutput"));
+	if (!valid(primary) && !outputs.empty())
+		primary = outputs[0];
+
+	if (role == "primary")
+		return primary;
+
+	std::string secondary = Utils::String::trim(CcShell::capture("batocera-settings-get-master global.videooutput2"));
+	if (valid(secondary) && secondary != primary)
+		return secondary;
+
+	for (auto& o : outputs)
+		if (o != primary)
+			return o;
+
+	return "";
+}
+
+// --screen, then controlcenter.screen: primary, secondary (the default) or a connector
 static int selectDisplay(const std::string& arg)
 {
 	int count = SDL_GetNumVideoDisplays();
@@ -157,6 +209,9 @@ static int selectDisplay(const std::string& arg)
 	std::string want = arg;
 	if (want.empty())
 		want = Utils::String::trim(Utils::String::replace(SystemConf::getInstance()->get("controlcenter.screen"), "\"", ""));
+
+	if (want.empty() || want == "primary" || want == "secondary")
+		want = outputFor(want == "primary" ? "primary" : "secondary");
 
 	if (!want.empty())
 	{
@@ -352,6 +407,7 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 	bool rescreen = false;
 	GuiControlCenter* gui = nullptr;
 	time_t xmlTime = fileTime(xmlPath);
+	std::string themeValues = themeSettings();
 
 	auto fitGui = [&gui, &bounds, transparent]()
 	{
@@ -388,7 +444,8 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 
 	auto show = [&]()
 	{
-		if (selectDisplay(screenArg) != display)
+		// a new theme needs fonts and textures loaded from scratch
+		if (selectDisplay(screenArg) != display || themeSettings() != themeValues)
 			restartShown(argv);
 
 		if (fileTime(xmlPath) != xmlTime)
