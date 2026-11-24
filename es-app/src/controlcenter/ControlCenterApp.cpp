@@ -422,6 +422,7 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 	auto createGui = [&]()
 	{
 		gui = new GuiControlCenter(&window, xmlPath, (float)bounds.h, transparent);
+		gui->setSavesHistory(true);
 		fitGui();
 		gui->setOnRescreen([&rescreen, &gui]() { rescreen = true; gui->close(); });
 		window.pushGui(gui);
@@ -544,8 +545,12 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 		int deltaTime = std::max(0, curTime - lastTime);
 		lastTime = curTime;
 
+		// the monitor history keeps sampling while hidden
 		if (hidden)
+		{
+			window.update(deltaTime);
 			continue;
+		}
 
 		if (grabTime != 0 && SDL_GetTicks() >= grabTime)
 			grabTime = grabJoysticks(grabbed) ? 0 : SDL_GetTicks() + 30;

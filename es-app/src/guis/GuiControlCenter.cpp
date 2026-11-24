@@ -301,7 +301,13 @@ GuiControlCenter::GuiControlCenter(Window* window, const std::string& xmlPath, f
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
+	mSavesHistory = false;
+	mHistoryDirty = false;
+	mHistoryMs = 0;
+	mHistorySaveMs = 0;
+
 	load(xmlPath);
+	loadHistory();
 }
 
 GuiControlCenter::~GuiControlCenter()
@@ -636,7 +642,7 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 			texts.erase(texts.begin());
 		}
 
-		item->value->onResult = [item](const std::string& v)
+		item->value->onResult = [this, item](const std::string& v)
 		{
 			float f = 0;
 			if (!parseNumber(v, f))
@@ -645,6 +651,7 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 			item->history.push_back(f);
 			while ((int)item->history.size() > item->historyMax)
 				item->history.pop_front();
+			mHistoryDirty = true;
 		};
 		firstLabel = "";
 	}
@@ -1245,6 +1252,94 @@ void GuiControlCenter::request(const std::shared_ptr<Binding>& b)
 	});
 }
 
+static const int HIDDEN_SAMPLE_MS = 5000;
+
+static std::string historyPath()
+{
+	return "/tmp/.batocera-resources/controlcenter-history";
+}
+
+// Graphs off screen keep their history rolling, at a slower rate
+void GuiControlCenter::sampleHiddenGraphs(int deltaTime)
+{
+	mHistoryMs += deltaTime;
+	if (mHistoryMs >= HIDDEN_SAMPLE_MS)
+	{
+		mHistoryMs = 0;
+		for (auto item : mItems)
+		{
+			auto& b = item->value;
+			if (item->kind != CcKind::Graph || !b || b->inflight)
+				continue;
+
+			if (mClosed || (b->tab != -1 && b->tab != mTab))
+			{
+				mShell->invalidate(b->tmpl);
+				request(b);
+			}
+		}
+	}
+
+	mHistorySaveMs += deltaTime;
+	if (mSavesHistory && mHistoryDirty && mHistorySaveMs >= 1000)
+	{
+		mHistorySaveMs = 0;
+		mHistoryDirty = false;
+		saveHistory();
+	}
+}
+
+// one line per graph: its command, a tab, then the values
+void GuiControlCenter::saveHistory()
+{
+	std::string tmp = historyPath() + ".new";
+	std::ofstream out(tmp);
+	if (!out)
+		return;
+
+	for (auto item : mItems)
+	{
+		if (item->kind != CcKind::Graph || !item->value || item->history.empty())
+			continue;
+
+		out << item->value->tmpl << '\t';
+		for (auto v : item->history)
+			out << v << ' ';
+		out << '\n';
+	}
+	out.close();
+	std::rename(tmp.c_str(), historyPath().c_str());
+}
+
+void GuiControlCenter::loadHistory()
+{
+	std::ifstream in(historyPath());
+	std::string line;
+	while (std::getline(in, line))
+	{
+		auto tab = line.find('\t');
+		if (tab == std::string::npos)
+			continue;
+
+		std::string cmd = line.substr(0, tab);
+		for (auto item : mItems)
+		{
+			if (item->kind != CcKind::Graph || !item->value || item->value->tmpl != cmd)
+				continue;
+
+			item->history.clear();
+			for (auto& v : Utils::String::split(line.substr(tab + 1), ' ', true))
+			{
+				float f;
+				if (parseNumber(v, f))
+					item->history.push_back(f);
+			}
+			while ((int)item->history.size() > item->historyMax)
+				item->history.pop_front();
+		}
+	}
+}
+
 void GuiControlCenter::refreshItem(Item* item)
 {
 	for (auto& b : { item->value, item->labelValue, item->enabled })
@@ -1821,12 +1916,14 @@ void GuiControlCenter::update(int deltaTime)
 			mDragOffset = 0;
 	}
 
+	sampleHiddenGraphs(deltaTime);
+
 	for (auto& b : mBindings)
 	{
 		if (b->holdMs > 0)
 			b->holdMs -= deltaTime;
 
-		if (!b->idRef.empty() || b->inflight || !CcShell::hasCommands(b->tmpl))
+		if (mClosed || !b->idRef.empty() || b->inflight || !CcShell::hasCommands(b->tmpl))
 			continue;
 
 		if (b->tab != -1 && b->tab != mTab)

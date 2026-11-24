@@ -50,6 +50,9 @@ public:
 
 	static std::string defaultXmlPath();
 
+	// the process that samples while hidden saves the monitor history for the others
+	void setSavesHistory(bool save) { mSavesHistory = save; }
+
 	void setOnClosed(const std::function<void()>& func) { mOnClosed = func; }
 	void setOnRescreen(const std::function<void()>& func) { mOnRescreen = func; }
 
@@ -149,6 +152,15 @@ private:
 	bool mClosing;
 	bool mClosed;
 	std::vector<std::string> mCloseActions;
+
+	void sampleHiddenGraphs(int deltaTime);
+	void loadHistory();
+	void saveHistory();
+
+	bool mSavesHistory;
+	bool mHistoryDirty;
+	int mHistoryMs;
+	int mHistorySaveMs;
 	float mDragOffset;
 
 	Drag mDrag;
