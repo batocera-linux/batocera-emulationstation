@@ -20,7 +20,7 @@ public:
 	static LogLevel getReportingLevel() { return mReportingLevel; }
 	static bool     enabled() { return mEnabled; }
 
-	static void init();
+	static void init(const std::string& name = "es_log");
 	static void flush();
 	static void close();
 
