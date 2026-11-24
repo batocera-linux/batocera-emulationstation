@@ -1094,6 +1094,33 @@ msgstr "KONTROLCÜ #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i KONTROLCÜ"
 
+msgid "RED"
+msgstr "KIRMIZI"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "YEŞİL"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "MAVİ"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "BEYAZ"
+
 msgid "CONTROLLER MAPPING"
 msgstr "KONTROLCÜ EŞLEMESİ"
 
@@ -1162,6 +1189,9 @@ msgstr "JOYSTICK KISAYOLLARININ ÇIKIŞ İÇİN KULLANILMASINI KISITLA"
 msgid "GLOBAL HOTKEYS"
 msgstr "GENEL KISAYOL TUŞLARI"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED DONANIM"
 
@@ -1183,14 +1213,20 @@ msgstr "KROMA"
 msgid "PULSE"
 msgstr "NABIZ"
 
-msgid "RED"
-msgstr "KIRMIZI"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "YEŞİL"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "MAVİ"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "ÖZEL"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED PARLAKLIĞI"
@@ -1200,6 +1236,52 @@ msgstr "varsayılan"
 
 msgid "NOT CONNECTED"
 msgstr "BAĞLI DEĞİL"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "GÜNEY"
@@ -1264,6 +1346,30 @@ msgstr "GENEL KISAYOL TUŞU ALGILANMADI"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "BİRDEN FAZLA GENEL KISAYOL ALGILANDI"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "KENAR BOYUTU"
 
@@ -1293,9 +1399,6 @@ msgstr "GİZLİ"
 
 msgid "BORDER COLOR"
 msgstr "KENAR RENGİ"
-
-msgid "WHITE"
-msgstr "BEYAZ"
 
 msgid "BORDER RATIO"
 msgstr "KENAR ORANI"
@@ -1470,9 +1573,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "ÖZEL"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "ÖZEL ARA SUNUCU"
@@ -2451,8 +2551,7 @@ msgstr "DEĞİŞKEN YENİLEME HIZI"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr ""
-"Ekranın kare hızıyla uyumlu olmasını sağlar. Ekran titriyorsa kapatın."
+msgstr "Ekranın kare hızıyla uyumlu olmasını sağlar. Ekran titriyorsa kapatın."
 
 msgid "BOOT SPLASH"
 msgstr "AÇILIŞ GÖRSELİ"
@@ -3743,9 +3842,6 @@ msgstr "EKRAN OKUYUCUSU PASİF EDİLDİ"
 msgid "ENABLED"
 msgstr "AKTİF"
 
-msgid "up/down"
-msgstr "yukarı/aşağı"
-
 msgid "WORKING..."
 msgstr "ÇALIŞIYOR..."
 
@@ -4085,6 +4181,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d saniye önce"
 msgstr[1] "%d saniye önce"
+
+#~ msgid "up/down"
+#~ msgstr "yukarı/aşağı"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-10-20 20:09+0200\n"
+"PO-Revision-Date: 2026-11-03 20:41+0100\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -1096,6 +1096,33 @@ msgstr "COMANDAMENT #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "COMANDAMENT DEL J%i"
 
+msgid "RED"
+msgstr "VERMELL"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "VERD"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BLAU"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "BLANC"
+
 msgid "CONTROLLER MAPPING"
 msgstr "MAPATGE DE COMANDAMENTS"
 
@@ -1165,6 +1192,9 @@ msgstr "RESTRINGIR DRECERES DELS COMANDAMENTS PER SORTIR"
 msgid "GLOBAL HOTKEYS"
 msgstr "DRECERES GLOBALS"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED DE MAQUINARI"
 
@@ -1186,14 +1216,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "PULSE"
 
-msgid "RED"
-msgstr "VERMELL"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "VERD"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BLAU"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "PERSONALITZAT"
 
 msgid "LED BRIGHTNESS"
 msgstr "BRILLANTOR DEL LED"
@@ -1203,6 +1239,52 @@ msgstr "per defecte"
 
 msgid "NOT CONNECTED"
 msgstr "NO CONNECTAT"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "SUD"
@@ -1267,6 +1349,30 @@ msgstr "DREÇERA GLOBAL NO DETECTADA"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "S’HA DETECTAT MÉS D’UNA DREÇERA GLOBAL"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "MIDA DE LA VORA"
 
@@ -1296,9 +1402,6 @@ msgstr "OCULT"
 
 msgid "BORDER COLOR"
 msgstr "COLOR DE LES VORES"
-
-msgid "WHITE"
-msgstr "BLANC"
 
 msgid "BORDER RATIO"
 msgstr "RELACIÓ DE LA VORA"
@@ -1473,9 +1576,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALITZAT"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR DE RETRANSMISSIÓ PERSONALITZAT"
@@ -2450,11 +2550,13 @@ msgid "Allows HDR content such as Moonlight HDR streams to the display."
 msgstr "Permet el streaming HDR amb Moonlight HDR."
 
 msgid "VARIABLE REFRESH RATE"
-msgstr "FREQÜÈNCIA DE MOSTRATGE VARIABLE"
+msgstr "FREQÜÈNCIA DE MOSTRATGE VARIABLE (VRR)"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
 msgstr ""
+"Permet que la pantalla s'ajusti a la freqüència de fotogrames. Desactiva-ho "
+"si la pantalla parpelleja."
 
 msgid "BOOT SPLASH"
 msgstr "PANTALLA DE PRESENTACIÓ"
@@ -3734,9 +3836,6 @@ msgstr "LECTOR DE PANTALLA DESHABILITAT"
 msgid "ENABLED"
 msgstr "HABILITAT"
 
-msgid "up/down"
-msgstr "amunt/avall"
-
 msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
 
@@ -4076,6 +4175,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "fa %d segon"
 msgstr[1] "fa %d segons"
+
+#~ msgid "up/down"
+#~ msgstr "amunt/avall"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

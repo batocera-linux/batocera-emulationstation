@@ -1092,6 +1092,33 @@ msgstr "BỘ ĐIỀU KHIỂN #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "BỘ ĐIỀU KHIỂN CỦA P%i"
 
+msgid "RED"
+msgstr "ĐỎ"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "XANH LÁ"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "XANH DƯƠNG"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "TRẮNG"
+
 msgid "CONTROLLER MAPPING"
 msgstr "BẢN ĐỒ PHÍM"
 
@@ -1160,6 +1187,9 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "PHẦN CỨNG LED"
 
@@ -1181,14 +1211,20 @@ msgstr ""
 msgid "PULSE"
 msgstr ""
 
-msgid "RED"
-msgstr "ĐỎ"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "XANH LÁ"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "XANH DƯƠNG"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "TÙY CHỈNH"
 
 msgid "LED BRIGHTNESS"
 msgstr "ĐỘ SÁNG LED"
@@ -1198,6 +1234,52 @@ msgstr "mặc định"
 
 msgid "NOT CONNECTED"
 msgstr "KHÔNG KẾT NỐI"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr ""
@@ -1262,6 +1344,30 @@ msgstr ""
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "KÍCH CỠ VIỀN"
 
@@ -1291,9 +1397,6 @@ msgstr "ẨN"
 
 msgid "BORDER COLOR"
 msgstr "MÀU VIỀN"
-
-msgid "WHITE"
-msgstr "TRẮNG"
 
 msgid "BORDER RATIO"
 msgstr "TỶ LỆ VIỀN"
@@ -1468,9 +1571,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "TÙY CHỈNH"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
@@ -3710,9 +3810,6 @@ msgstr "TẮT TRÌNH ĐỌC MÀN HÌNH"
 msgid "ENABLED"
 msgstr "BẬT"
 
-msgid "up/down"
-msgstr "lên/xuống"
-
 msgid "WORKING..."
 msgstr "ĐANG LÀM VIỆC…"
 
@@ -4044,6 +4141,9 @@ msgstr[0] "%d phút trước"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d giây trước"
+
+#~ msgid "up/down"
+#~ msgstr "lên/xuống"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

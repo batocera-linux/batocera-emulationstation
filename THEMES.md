@@ -750,6 +750,14 @@ This kind of view is used for retrocompatibility with Retropie themes, but is de
 
 menu is used to theme helpsystem and ES menus.
 
+#### controlcenter
+* `container name="card"` - SIZE
+	- Size of the control center card, as fractions of the screen width and of its maximum height. Defaults to the width of the menus and the full screen height; the card is only as tall as its content.
+* `menuBackground name="card"` - COLOR
+	- Background color of the card. Defaults to the color of `menubg`.
+
+controlcenter is optional (Batocera only): the control center is drawn with the menu view, these elements only adjust its card.
+
 #### screen
 
 ** BATOCERA 5.24

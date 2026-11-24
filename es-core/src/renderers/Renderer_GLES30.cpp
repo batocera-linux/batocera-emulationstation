@@ -931,7 +931,13 @@ namespace Renderer
 
 		if (enabled && (!stateCache.blendFactorsKnown || stateCache.blendSource != source || stateCache.blendDestination != destination))
 		{
-			GLES30_CALL(glBlendFunc(source, destination));
+#ifdef BATOCERA
+			// a transparent window is composited as premultiplied alpha
+			if (isTransparentWindow())
+				GLES30_CALL(glBlendFuncSeparate(source, destination, GL_ONE, GL_ONE_MINUS_SRC_ALPHA));
+			else
+#endif
+				GLES30_CALL(glBlendFunc(source, destination));
 			stateCache.blendFactorsKnown = true;
 			stateCache.blendSource = source;
 			stateCache.blendDestination = destination;
@@ -1418,7 +1424,7 @@ namespace Renderer
 		setupPixelUploadBuffers();
 		resetStateCaches();
 
-		GLES30_CALL(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+		GLES30_CALL(glClearColor(0.0f, 0.0f, 0.0f, isTransparentWindow() ? 0.0f : 1.0f));
 		GLES30_CALL(glClearStencil(0));
 
 #if OPENGL_EXTENSIONS

@@ -1087,6 +1087,33 @@ msgstr "KONTROLER #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "KONTROLER P%i"
 
+msgid "RED"
+msgstr "MERAH"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "HIJAU"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BIRU"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "PUTIH"
+
 msgid "CONTROLLER MAPPING"
 msgstr "PEMETAAN KONTROLER"
 
@@ -1155,6 +1182,9 @@ msgstr "BATASI TOMBOL PINTAS JOYSTICK HANYA UNTUK KELUAR"
 msgid "GLOBAL HOTKEYS"
 msgstr "TOMBOL PINTAS GLOBAL"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "PERANGKAT LED"
 
@@ -1176,14 +1206,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "DENYUT (PULSE)"
 
-msgid "RED"
-msgstr "MERAH"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "HIJAU"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BIRU"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "KUSTOM"
 
 msgid "LED BRIGHTNESS"
 msgstr "KECERAHAN LED"
@@ -1193,6 +1229,52 @@ msgstr "standar"
 
 msgid "NOT CONNECTED"
 msgstr "TIDAK TERHUBUNG"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "SELATAN (BAWAH)"
@@ -1257,6 +1339,30 @@ msgstr "TIDAK ADA TOMBOL PINTAS GLOBAL TERDETEKSI"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "LEBIH DARI SATU TOMBOL PINTAS GLOBAL TERDETEKSI"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "UKURAN"
 
@@ -1286,9 +1392,6 @@ msgstr "TERSEMBUNYI"
 
 msgid "BORDER COLOR"
 msgstr "WARNA BORDER"
-
-msgid "WHITE"
-msgstr "PUTIH"
 
 msgid "BORDER RATIO"
 msgstr "RASIO TEPI"
@@ -1464,9 +1567,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "KUSTOM"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "KUSTOM SERVER RELAY"
@@ -3710,9 +3810,6 @@ msgstr "PEMBACA LAYAR DIMATIKAN"
 msgid "ENABLED"
 msgstr "AKTIFKAN"
 
-msgid "up/down"
-msgstr "atas/bawah"
-
 msgid "WORKING..."
 msgstr "MEMPROSES…"
 
@@ -4044,6 +4141,9 @@ msgstr[0] "%d menit lalu"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d detik lalu"
+
+#~ msgid "up/down"
+#~ msgstr "atas/bawah"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

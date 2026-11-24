@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-13 10:22+0800\n"
+"PO-Revision-Date: 2026-10-31 01:31+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -1083,6 +1083,33 @@ msgstr "控制器 #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "玩家%i 控制器"
 
+msgid "RED"
+msgstr "红色"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "绿色"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "蓝色"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "白色"
+
 msgid "CONTROLLER MAPPING"
 msgstr "手柄按键映射"
 
@@ -1150,6 +1177,9 @@ msgstr "禁止使用手柄热键退出"
 msgid "GLOBAL HOTKEYS"
 msgstr "全局热键"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED硬件"
 
@@ -1171,14 +1201,20 @@ msgstr "色度"
 msgid "PULSE"
 msgstr "脉冲"
 
-msgid "RED"
-msgstr "红色"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "绿色"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "蓝色"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "定制"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED亮度"
@@ -1188,6 +1224,52 @@ msgstr "默认"
 
 msgid "NOT CONNECTED"
 msgstr "未连接"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "南"
@@ -1252,6 +1334,30 @@ msgstr "未检测到全局热键"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "检测到多个全局热键"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "边框大小"
 
@@ -1281,9 +1387,6 @@ msgstr "隐藏"
 
 msgid "BORDER COLOR"
 msgstr "边框颜色"
-
-msgid "WHITE"
-msgstr "白色"
 
 msgid "BORDER RATIO"
 msgstr "边框比率"
@@ -1400,7 +1503,7 @@ msgid "CONNECTED"
 msgstr "已连接"
 
 msgid "ALREADY CONNECTED"
-msgstr ""
+msgstr "已连接"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "正在查询WI-FI网络"
@@ -1458,9 +1561,6 @@ msgstr "蒙特利尔"
 
 msgid "SAO PAULO"
 msgstr "圣保罗"
-
-msgid "CUSTOM"
-msgstr "定制"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "定制中继服务器"
@@ -2235,15 +2335,15 @@ msgid ""
 msgstr "减少扫描完整的游戏列表时的延迟，增加启动时间"
 
 msgid "DIRECTORY DEPTH TO INDEX"
-msgstr ""
+msgstr "目录深度至索引"
 
 msgid "UNLIMITED"
-msgstr ""
+msgstr "无限"
 
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
-msgstr ""
+msgstr "在每个ROM文件夹内扫描的最大深度，忽略包含许多文件的子文件夹。"
 
 msgid "THREADED LOADING"
 msgstr "线程载入中"
@@ -2401,17 +2501,17 @@ msgid "Available options can change depending on current audio output."
 msgstr "可用选项会根据当前音频输出而改变。"
 
 msgid "HDR"
-msgstr ""
+msgstr "HDR（高动态范围）"
 
 msgid "Allows HDR content such as Moonlight HDR streams to the display."
-msgstr ""
+msgstr "允许将HDR内容（如Moonlight HDR流）传输到显示器。"
 
 msgid "VARIABLE REFRESH RATE"
 msgstr "可变刷新率"
 
 msgid ""
 "Lets the display follow the frame rate. Turn off if the screen flickers."
-msgstr ""
+msgstr "让显示器跟随帧速率。如果屏幕闪烁请关闭。"
 
 msgid "BOOT SPLASH"
 msgstr "开机画面"
@@ -2892,13 +2992,13 @@ msgstr "启用视频预览声音"
 
 #, c-format
 msgid "UNABLE TO CONNECT TO '%s'"
-msgstr ""
+msgstr "无法连接到 '%s'"
 
 msgid "WI-FI NETWORKS"
-msgstr ""
+msgstr "WI-FI网络"
 
 msgid "ADD A WI-FI NETWORK"
-msgstr ""
+msgstr "添加WI-FI网络"
 
 msgid "WI-FI SSID"
 msgstr "WI-FI 名称"
@@ -2907,7 +3007,7 @@ msgid "WI-FI KEY"
 msgstr "WI-FI 密码"
 
 msgid "USE"
-msgstr ""
+msgstr "使用"
 
 msgid "FORGET"
 msgstr "忘记"
@@ -3677,9 +3777,6 @@ msgstr "屏幕阅读器已关闭"
 msgid "ENABLED"
 msgstr "启用"
 
-msgid "up/down"
-msgstr "上/下"
-
 msgid "WORKING..."
 msgstr "进行中…"
 
@@ -4011,6 +4108,9 @@ msgstr[0] "%d 分钟前"
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
+
+#~ msgid "up/down"
+#~ msgstr "上/下"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

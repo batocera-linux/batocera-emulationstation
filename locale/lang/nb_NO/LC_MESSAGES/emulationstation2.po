@@ -1089,6 +1089,33 @@ msgstr "KONTROLLER #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S KONTROLLER"
 
+msgid "RED"
+msgstr "RØD"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "GRØNN"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BLÅ"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "HVIT"
+
 msgid "CONTROLLER MAPPING"
 msgstr "KONTROLLKARTLEGGING"
 
@@ -1157,6 +1184,9 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED MASKINVARE"
 
@@ -1178,14 +1208,20 @@ msgstr ""
 msgid "PULSE"
 msgstr ""
 
-msgid "RED"
-msgstr "RØD"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "GRØNN"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BLÅ"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "EGENDEFINERT"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED LYSSTYRKE"
@@ -1195,6 +1231,52 @@ msgstr "standard"
 
 msgid "NOT CONNECTED"
 msgstr "FRAKOBLET"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr ""
@@ -1259,6 +1341,30 @@ msgstr ""
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "KANT STØRRELSE"
 
@@ -1288,9 +1394,6 @@ msgstr "SKJULT"
 
 msgid "BORDER COLOR"
 msgstr "RAMME FARGE"
-
-msgid "WHITE"
-msgstr "HVIT"
 
 msgid "BORDER RATIO"
 msgstr "KANTFORHOLD"
@@ -1465,9 +1568,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "EGENDEFINERT"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGENDEFINERT RELAY SERVER"
@@ -3703,9 +3803,6 @@ msgstr "SKJERMLESER DEAKTIVERT"
 msgid "ENABLED"
 msgstr "AKTIVERT"
 
-msgid "up/down"
-msgstr "opp/ned"
-
 msgid "WORKING..."
 msgstr "ARBEIDER…"
 
@@ -4045,6 +4142,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund siden"
 msgstr[1] "%d sekunder siden"
+
+#~ msgid "up/down"
+#~ msgstr "opp/ned"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

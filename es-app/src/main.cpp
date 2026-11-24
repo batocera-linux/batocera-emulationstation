@@ -1,10 +1,11 @@
 //EmulationStation, a graphical front-end for ROM browsing. Created by Alec "Aloshi" Lofquist.
 //http://www.aloshi.com
-
 #include "romm/RommSync.h"
 #include "romm/RommSaves.h"
 #include "romm/RommPlaySessions.h"
 #include "romm/RommMediaCache.h"
+#ifdef BATOCERA
+#include "controlcenter/ControlCenterApp.h"
 #include "services/HttpServerThread.h"
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiMsgBox.h"
@@ -58,6 +59,12 @@
 static std::string gPlayVideo;
 static int gPlayVideoDuration = 0;
 static bool enable_startup_game = true;
+#ifdef BATOCERA
+static bool gControlCenter = false;
+static bool gControlCenterHidden = false;
+static std::string gControlCenterXml;
+static std::string gControlCenterScreen;
+#endif
 
 bool parseArgs(int argc, char* argv[])
 {
@@ -173,6 +180,21 @@ bool parseArgs(int argc, char* argv[])
 		}else if(strcmp(argv[i], "--exit-on-reboot-required") == 0)
 		{
 			Settings::getInstance()->setBool("ExitOnRebootRequired", true);
+#ifdef BATOCERA
+		}else if(strcmp(argv[i], "--controlcenter") == 0)
+		{
+			gControlCenter = true;
+			enable_startup_game = false;
+		}else if(strcmp(argv[i], "--controlcenter-hidden") == 0)
+		{
+			gControlCenterHidden = true;
+		}else if(strcmp(argv[i], "--controlcenter-xml") == 0 && i < argc - 1)
+		{
+			gControlCenterXml = argv[++i];
+		}else if(strcmp(argv[i], "--controlcenter-screen") == 0 && i < argc - 1)
+		{
+			gControlCenterScreen = argv[++i];
+#endif
 		}else if(strcmp(argv[i], "--no-startup-game") == 0)
 		{
 		        enable_startup_game = false;
@@ -537,8 +559,12 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	//start the logger
-	Log::init();	
+	//start the logger, the control center keeps its own log
+#ifdef BATOCERA
+	Log::init(gControlCenter ? "es_controlcenter" : "es_log");
+#else
+	Log::init();
+#endif
 
 	LOG(LogInfo) << "EmulationStation - v" << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING;
 
@@ -547,6 +573,11 @@ int main(int argc, char* argv[])
 
 	// Set locale
 	setLocale(argv[0]);	
+
+#ifdef BATOCERA
+	if (gControlCenter)
+		return runControlCenter(argc, argv, gControlCenterXml, gControlCenterScreen, gControlCenterHidden);
+#endif
 
 #if !WIN32
 	if(enable_startup_game) {
@@ -757,7 +788,8 @@ int main(int argc, char* argv[])
 					      if (config->isMappedTo(hotkey_controlcenter, input))
 						{
 						  hotkeyPressed = false;
-						  ApiSystem::getInstance()->launchControlcenter();
+						  if (!toggleControlCenterInProcess(&window))
+							  ApiSystem::getInstance()->launchControlcenter();
 						  eventTaken = true;
 						}
 					    }

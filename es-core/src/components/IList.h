@@ -135,7 +135,7 @@ public:
 			stopScrolling();
 	}
 	
-	void setCursorIndex(int index, bool force = false)
+	virtual void setCursorIndex(int index, bool force = false)
 	{
 		if (mCursor == index && !force)
 			return;
@@ -149,7 +149,7 @@ public:
 		}
 	}
 	
-	int getCursorIndex()
+	virtual int getCursorIndex()
 	{
 		return mCursor;
 	}

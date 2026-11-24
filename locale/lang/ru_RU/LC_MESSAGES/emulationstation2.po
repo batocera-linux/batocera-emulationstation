@@ -1096,6 +1096,33 @@ msgstr "КОНТРОЛЛЕР #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i КОНТРОЛЛЕР"
 
+msgid "RED"
+msgstr "КРАСНЫЙ"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "ЗЕЛЁНЫЙ"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "СИНИЙ"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "БЕЛЫЙ"
+
 msgid "CONTROLLER MAPPING"
 msgstr "НАСТРОЙКА КОНТРОЛЛЕРОВ"
 
@@ -1164,6 +1191,9 @@ msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЖОЙСТИКОВ ТОЛЬКО ВЫ
 msgid "GLOBAL HOTKEYS"
 msgstr "ГЛОБАЛЬНЫЕ ХОТКЕИ"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
@@ -1185,14 +1215,20 @@ msgstr "ХРОМА"
 msgid "PULSE"
 msgstr "ПУЛЬСАЦИЯ"
 
-msgid "RED"
-msgstr "КРАСНЫЙ"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "ЗЕЛЁНЫЙ"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "СИНИЙ"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED ЯРКОСТЬ"
@@ -1202,6 +1238,52 @@ msgstr "по умолчанию"
 
 msgid "NOT CONNECTED"
 msgstr "НЕ ПОДКЛЮЧЕНО"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "ЮГ"
@@ -1266,6 +1348,30 @@ msgstr "ГЛОБАЛЬНЫЙ ХОТКЕЙ НЕ ОБНАРУЖЕН"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "ОБНАРУЖЕНО БОЛЕЕ ОДНОГО ГЛОБАЛЬНОГО ХОТКЕЯ"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "РАЗМЕР РАМКИ"
 
@@ -1295,9 +1401,6 @@ msgstr "СКРЫТЫЙ"
 
 msgid "BORDER COLOR"
 msgstr "ЦВЕТ РАМКИ"
-
-msgid "WHITE"
-msgstr "БЕЛЫЙ"
 
 msgid "BORDER RATIO"
 msgstr "СООТНОШЕНИЕ РАМКИ"
@@ -1472,9 +1575,6 @@ msgstr "МОНРЕАЛЬ"
 
 msgid "SAO PAULO"
 msgstr "САН-ПАУЛУ"
-
-msgid "CUSTOM"
-msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
@@ -3715,9 +3815,6 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 msgid "ENABLED"
 msgstr "ВКЛЮЧЕНО"
 
-msgid "up/down"
-msgstr "вверх/вниз"
-
 msgid "WORKING..."
 msgstr "ОБРАБОТКА…"
 
@@ -4065,6 +4162,9 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
+
+#~ msgid "up/down"
+#~ msgstr "вверх/вниз"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

@@ -29,7 +29,11 @@
 #include <unordered_set>
 
 std::set<std::string> ThemeData::sSupportedItemTemplate { "imagegrid", "carousel", "gamecarousel", "textlist" };
-std::set<std::string> ThemeData::sSupportedViews        { "system", "basic", "detailed", "grid", "video", "gamecarousel", "menu", "screen", "splash" };
+std::set<std::string> ThemeData::sSupportedViews        { "system", "basic", "detailed", "grid", "video", "gamecarousel", "menu", "screen", "splash"
+#ifdef BATOCERA
+	, "controlcenter"
+#endif
+};
 std::set<std::string> ThemeData::sSupportedFeatures     { "video", "carousel", "gamecarousel", "z-index", "visible", "manufacturer" };
 
 static std::set<std::string> _autoExtraTypes            { "stackpanel", "container", "screenshader", "clock", "networkIcon", "webimage", "batteryText", "batteryIcon", "rectangle" };
@@ -160,7 +164,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
-
+		
 		{ "x", FLOAT },
 		{ "y", FLOAT },
 		{ "h", FLOAT },
@@ -191,6 +195,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarCorner", FLOAT },
 		{ "scrollbarAlignment", STRING },		// left, right, outer left, outer right
 
+		{ "groupBy", STRING },
+		{ "groupHeight", FLOAT },
+		{ "groupSpacing", FLOAT },
+		{ "groupBands", BOOLEAN },
+		{ "groupsAtStart", STRING },
+		{ "groupsAtEnd", STRING },
+		{ "sortBy", STRING },
+		{ "sortDescending", BOOLEAN },
+		
 		{ "centerSelection", STRING },			// true, false, partial
 		{ "scrollLoop", BOOLEAN } } },
 

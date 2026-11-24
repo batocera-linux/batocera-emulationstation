@@ -1093,6 +1093,33 @@ msgstr "HANDKONTROLL #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S handkontroll"
 
+msgid "RED"
+msgstr "RÖD"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "GRÖN"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BLÅ"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "VIT"
+
 msgid "CONTROLLER MAPPING"
 msgstr "MAPPNING AV STYRENHET"
 
@@ -1161,6 +1188,9 @@ msgstr "BEGRÄNSA JOYSTICKS SNABBTANGENTER FÖR ATT AVSLUTA"
 msgid "GLOBAL HOTKEYS"
 msgstr "GLOBALA snabbtangentS"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED-HÅRDVARA"
 
@@ -1182,14 +1212,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "PULSERANDE"
 
-msgid "RED"
-msgstr "RÖD"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "GRÖN"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BLÅ"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "ANPASSAD"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED-LJUSSTYRKA"
@@ -1199,6 +1235,52 @@ msgstr "standard"
 
 msgid "NOT CONNECTED"
 msgstr "INTE ANSLUTEN"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "SÖD"
@@ -1265,6 +1347,30 @@ msgstr "INGEN GLOBAL SNABBTANGENT UPPTÄCKT"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "MER ÄN EN GLOBAL SNABBTANGENT UPPTÄCKT"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "BORDER STORLEK"
 
@@ -1294,9 +1400,6 @@ msgstr "DOLD"
 
 msgid "BORDER COLOR"
 msgstr "BORDER FÄRG"
-
-msgid "WHITE"
-msgstr "VIT"
 
 msgid "BORDER RATIO"
 msgstr "GRÄNSRATIO"
@@ -1471,9 +1574,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "ANPASSAD"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "ANPASSAD RELÄSERVER"
@@ -3721,9 +3821,6 @@ msgstr "SKÄRMLÄSARE FUNKTIONSHINDRAD"
 msgid "ENABLED"
 msgstr "AKTIVERAD"
 
-msgid "up/down"
-msgstr "upp/ned"
-
 msgid "WORKING..."
 msgstr "ARBETAR…"
 
@@ -4063,6 +4160,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund sedan"
 msgstr[1] "%d sekunder sedan"
+
+#~ msgid "up/down"
+#~ msgstr "upp/ned"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

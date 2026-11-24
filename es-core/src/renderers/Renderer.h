@@ -191,6 +191,8 @@ namespace Renderer
 	bool		isVerticalScreen();
 
 	void		setWindowResizable(bool resizable);
+	void		setInitialWindowPosition(int x, int y);
+	bool		isTransparentWindow();
 	bool		onScreenSizeChanged(int width, int height);
 
 	Vector2i    physicalScreenToRotatedScreen(int x, int y);

@@ -40,6 +40,8 @@ public:
 		GuiMsgBoxIcon icon = ICON_AUTOMATIC);
 
 	bool input(InputConfig* config, Input input) override;
+
+	void setDefaultButton(int index);
 	void onSizeChanged() override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
 

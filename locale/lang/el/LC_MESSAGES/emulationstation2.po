@@ -1090,6 +1090,33 @@ msgstr ""
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
+msgid "RED"
+msgstr "ΚΟΚΚΙΝΟ"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "ΠΡΑΣΙΝΟ"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "ΜΠΛΕ"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "ΑΣΠΡΟ"
+
 msgid "CONTROLLER MAPPING"
 msgstr "ΧΑΡΤΟΓΡΑΦΗΣΗ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 
@@ -1154,6 +1181,9 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr ""
 
@@ -1175,14 +1205,20 @@ msgstr ""
 msgid "PULSE"
 msgstr ""
 
-msgid "RED"
-msgstr "ΚΟΚΚΙΝΟ"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "ΠΡΑΣΙΝΟ"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "ΜΠΛΕ"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
 
 msgid "LED BRIGHTNESS"
 msgstr ""
@@ -1192,6 +1228,52 @@ msgstr "προεπιλεγμενο"
 
 msgid "NOT CONNECTED"
 msgstr "ΜΗ ΣΥΝΔΕΔΕΜΕΝΟ"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr ""
@@ -1256,6 +1338,30 @@ msgstr ""
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "ΜΕΓΕΘΟΣ ΠΕΡΙΓΡΑΜΜΑΤΟΣ"
 
@@ -1285,9 +1391,6 @@ msgstr "ΚΡΥΦΟ"
 
 msgid "BORDER COLOR"
 msgstr "ΧΡΩΜΑ ΠΕΡΙΓΡΑΜΜΑΤΟΣ"
-
-msgid "WHITE"
-msgstr "ΑΣΠΡΟ"
 
 msgid "BORDER RATIO"
 msgstr ""
@@ -1462,9 +1565,6 @@ msgstr "ΜΟΝΤΡΕΑΛ"
 
 msgid "SAO PAULO"
 msgstr "ΣΑΟ ΠΑΟΛΟ"
-
-msgid "CUSTOM"
-msgstr ""
 
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
@@ -3688,9 +3788,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΜΕΝΟ"
 
-msgid "up/down"
-msgstr "πανω/κατω"
-
 msgid "WORKING..."
 msgstr "ΔΟΥΛΕΥΕΙ…"
 
@@ -4031,6 +4128,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d δευτεροπλεπτο πριν"
 msgstr[1] "%d δευτερολεπτα πριν"
+
+#~ msgid "up/down"
+#~ msgstr "πανω/κατω"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

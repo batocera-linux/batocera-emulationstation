@@ -306,6 +306,22 @@ endif()
 #-------------------------------------------------------------------------------
 # define target
 include_directories(${COMMON_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/src)
+if(BATOCERA)
+	LIST(APPEND ES_HEADERS
+		${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControlCenter.h
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/CcShell.h
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/ControlCenterApp.h
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/GuiTextViewer.h
+	)
+	LIST(APPEND ES_SOURCES
+		${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControlCenter.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/CcShell.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/ControlCenterApp.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/GuiTextViewer.cpp
+		${CMAKE_SOURCE_DIR}/external/qrcodegen/qrcodegen.cpp
+	)
+endif()
+
 add_executable(emulationstation ${ES_SOURCES} ${ES_HEADERS})
 target_link_libraries(emulationstation ${COMMON_LIBRARIES} es-core)
 

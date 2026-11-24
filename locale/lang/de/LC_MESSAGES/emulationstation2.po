@@ -1097,6 +1097,33 @@ msgstr "CONTROLLER #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S CONTROLLER"
 
+msgid "RED"
+msgstr "ROT"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "GRÜN"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BLAU"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "WEISS"
+
 msgid "CONTROLLER MAPPING"
 msgstr "CONTROLLER TASTENBELEGUNG"
 
@@ -1167,6 +1194,9 @@ msgstr "JOYSTICK-HOTKEYS NUR FÜR BEENDEN"
 msgid "GLOBAL HOTKEYS"
 msgstr "GLOBALE HOTKEYS"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED-HARDWARE"
 
@@ -1188,14 +1218,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "PULSIEREND"
 
-msgid "RED"
-msgstr "ROT"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "GRÜN"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BLAU"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "BENUTZERDEFINIERT"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED-HELLIGKEIT"
@@ -1205,6 +1241,52 @@ msgstr "Standard"
 
 msgid "NOT CONNECTED"
 msgstr "NICHT VERBUNDEN"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "SÜD"
@@ -1269,6 +1351,30 @@ msgstr "KEIN GLOBALER HOTKEY ERKANNT"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "MEHR ALS EIN GLOBALER HOTKEY ERKANNT"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "RAHMENGRÖSSE"
 
@@ -1298,9 +1404,6 @@ msgstr "VERBORGEN"
 
 msgid "BORDER COLOR"
 msgstr "RAHMENFARBE"
-
-msgid "WHITE"
-msgstr "WEISS"
 
 msgid "BORDER RATIO"
 msgstr "RAHMENVERHÄLTNIS"
@@ -1477,9 +1580,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "BENUTZERDEFINIERT"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "BENUTZERDEFINIERTER RELAY-SERVER"
@@ -3745,9 +3845,6 @@ msgstr "BILDSCHIRMLESER DEAKTIVIERT"
 msgid "ENABLED"
 msgstr "AKTIVIERT"
 
-msgid "up/down"
-msgstr "hinauf/hinunter"
-
 msgid "WORKING..."
 msgstr "VERARBEITE…"
 
@@ -4089,3 +4186,6 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d Sekunde her"
 msgstr[1] "%d Sekunden her"
+
+#~ msgid "up/down"
+#~ msgstr "hinauf/hinunter"

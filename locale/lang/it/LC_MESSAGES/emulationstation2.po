@@ -1090,6 +1090,33 @@ msgstr "CONTROLLER #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "CONTROLLER P%i"
 
+msgid "RED"
+msgstr "ROSSO"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BLU"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "BIANCO"
+
 msgid "CONTROLLER MAPPING"
 msgstr "CONFIGURA CONTROLLER"
 
@@ -1158,6 +1185,9 @@ msgstr "LIMITA HOTKEYS DEI JOYSTICKS ALL'USCITA"
 msgid "GLOBAL HOTKEYS"
 msgstr "HOTKEYS GLOBALI"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "HARDWARE LED"
 
@@ -1179,14 +1209,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "PULSE"
 
-msgid "RED"
-msgstr "ROSSO"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "VERDE"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BLU"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "PERSONALIZZATO"
 
 msgid "LED BRIGHTNESS"
 msgstr "LUMINOSITA' LED"
@@ -1196,6 +1232,52 @@ msgstr "default"
 
 msgid "NOT CONNECTED"
 msgstr "NON CONNESSO"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "SUD"
@@ -1260,6 +1342,30 @@ msgstr "NESSUN HOTKEY GLOBALE RILEVATO"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "RILEVATO PIU' DI UN HOTKEY GLOBALE"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "DIMENSIONI BORDO"
 
@@ -1289,9 +1395,6 @@ msgstr "NASCOSTO"
 
 msgid "BORDER COLOR"
 msgstr "COLORE BORDO"
-
-msgid "WHITE"
-msgstr "BIANCO"
 
 msgid "BORDER RATIO"
 msgstr "PROPORZIONE BORDI"
@@ -1466,9 +1569,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALIZZATO"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "RELAY SERVER PERSONALIZZATO"
@@ -3712,9 +3812,6 @@ msgstr "SINTESI VOCALE DISATTIVATA"
 msgid "ENABLED"
 msgstr "ATTIVATO"
 
-msgid "up/down"
-msgstr "su/giù"
-
 msgid "WORKING..."
 msgstr "ATTENDERE…"
 
@@ -4055,6 +4152,9 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d secondo fa"
 msgstr[1] "%d secondi fa"
+
+#~ msgid "up/down"
+#~ msgstr "su/giù"
 
 #~ msgid ""
 #~ "Load latest savestate on game launch and savestate when exiting game."

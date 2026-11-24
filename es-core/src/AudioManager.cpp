@@ -78,8 +78,18 @@ void AudioManager::init()
 		return;
 	}
 
+	int audioRate = 44100;
+	int audioChunk = 4096;
+#if defined(__linux__) && !defined(BCM2711)
+	audioRate = 48000;
+#endif
+	// Match the PipeWire graph so a video preview's stream doesn't change the quantum under the music
+	const char* audioDriver = SDL_GetCurrentAudioDriver();
+	if (audioDriver != nullptr && std::string(audioDriver) == "pipewire")
+		audioChunk = 1024;
+
 	// Open the audio device and pause
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0)
+	if (Mix_OpenAudio(audioRate, MIX_DEFAULT_FORMAT, 2, audioChunk) < 0)
 	{
 		mMusicVolume = 0;
 		LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
