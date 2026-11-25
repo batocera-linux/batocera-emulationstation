@@ -17,6 +17,9 @@ public:
 	static std::string getSystemGames(SystemData* system);
 
 	static std::string getRunnningGameInfo();
+#ifdef BATOCERA
+	static std::string getRunningGameSaveStates();
+#endif
 
 	static std::string ToJson(SystemData* system, bool localpaths = false);
 	static std::string ToJson(FileData* file, bool localpaths = false);

@@ -39,6 +39,10 @@
 #include "resources/TextureData.h"
 #include "views/gamelist/GameNameFormatter.h"
 #include "watchers/WatchersManager.h"
+#ifdef BATOCERA
+#include "views/ViewController.h"
+#include <mutex>
+#endif
 
 using namespace Utils::Platform;
 
@@ -70,6 +74,43 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 };
 
 FileData* FileData::mRunningGame = nullptr;
+
+#ifdef BATOCERA
+// the state the running game starts again from once it has quit
+static std::mutex sRestartLock;
+static FileData* sRestartGame = nullptr;
+static std::string sRestartFile;
+static time_t sRestartTime = 0;
+static int sRestartSlot = -99;
+
+bool FileData::restartRunningGameAtState(int slot)
+{
+	FileData* game = mRunningGame;
+	if (game == nullptr || !SaveStateRepository::isEnabled(game))
+		return false;
+
+	// read now, the system's own list is only refreshed when a game ends
+	SaveStateRepository repository(game->getSourceFileData()->getSystem());
+	for (auto state : repository.getSaveStates(game))
+	{
+		if (state->slot != slot)
+			continue;
+
+		{
+			std::unique_lock<std::mutex> lock(sRestartLock);
+			sRestartGame = game;
+			sRestartFile = state->fileName;
+			sRestartTime = state->creationDate;
+			sRestartSlot = slot;
+		}
+
+		ApiSystem::getInstance()->emuKill();
+		return true;
+	}
+
+	return false;
+}
+#endif
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mRemote(false), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -845,6 +886,48 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	if (exitCode >= 200 && exitCode <= 300)
 		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURRED") + ":\r\n" + getMessageFromExitCode(exitCode), _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
+
+#ifdef BATOCERA
+	std::string restartFile;
+	time_t restartTime = 0;
+	int restartSlot = -99;
+	{
+		std::unique_lock<std::mutex> lock(sRestartLock);
+		if (sRestartGame == this)
+		{
+			restartFile = sRestartFile;
+			restartTime = sRestartTime;
+			restartSlot = sRestartSlot;
+		}
+		sRestartGame = nullptr;
+	}
+
+	// the end of the game renumbers the states, a renamed one keeps its time
+	if (restartSlot != -99)
+	{
+		auto states = getSourceFileData()->getSystem()->getSaveStateRepository()->getSaveStates(this);
+		auto find = [&states](const std::function<bool(SaveState*)>& match) -> SaveState*
+		{
+			for (auto state : states)
+				if (match(state))
+					return state;
+			return nullptr;
+		};
+
+		SaveState* restart = find([restartTime](SaveState* state) { return (time_t)state->creationDate == restartTime; });
+		if (restart == nullptr)
+			restart = find([&restartFile](SaveState* state) { return state->fileName == restartFile; });
+		if (restart == nullptr)
+			restart = find([restartSlot](SaveState* state) { return state->slot == restartSlot; });
+
+		if (restart != nullptr)
+		{
+			LaunchGameOptions restartOptions;
+			restartOptions.saveStateInfo = restart;
+			window->postToUiThread([this, restartOptions]() { ViewController::get()->launch(this, restartOptions); });
+		}
+	}
+#endif
 
 	return exitCode == 0;
 }

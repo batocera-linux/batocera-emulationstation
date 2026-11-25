@@ -80,6 +80,10 @@ public:
 	virtual ~FileData();
 
 	static FileData* GetRunningGame() { return mRunningGame; }
+#ifdef BATOCERA
+	// quits the running game and starts it again at one of its save states
+	static bool restartRunningGameAtState(int slot);
+#endif
 
 	virtual const std::string& getName();
 

@@ -67,6 +67,7 @@ private:
 	void buildContainer(const pugi::xml_node& node, int tab, std::vector<Item*>& target, std::vector<std::shared_ptr<Binding>> conds);
 	void buildControls(const std::string& label, const std::vector<pugi::xml_node>& controls, int tab, std::vector<Item*>& target, const std::vector<std::shared_ptr<Binding>>& conds);
 	std::shared_ptr<Binding> bind(const std::string& tmpl, float refresh, int tab, int ttlMs = 1000);
+	void rebuildGallery(Item* gallery, const std::string& json);
 	std::shared_ptr<Binding> bindCondition(const pugi::xml_node& node, float refresh, int tab);
 	void registerId(const pugi::xml_node& node, Item* item);
 
