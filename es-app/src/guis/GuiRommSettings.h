@@ -32,6 +32,10 @@ private:
 	void openSyncActions(const std::shared_ptr<class TextComponent>& statusText); // pause / unpause / cancel
 	void unpair();
 
+	// SERVER ADDRESS editor: a new server while paired is confirmed, then unpairs and removes its library
+	void addServerAddressRow(GuiSettings* gui);
+	void switchServer();
+
 	std::shared_ptr<SwitchComponent> mInsecure;
 	bool mWasEnabled;
 	bool mWasPaired;

@@ -56,9 +56,7 @@ private:
 	Phase mPhase;
 	Phase mShownPhase;
 	std::string mError;
-	std::string mUserCode;
 	std::string mVerificationUrl;
-	std::string mPageUrl;
 	bool mClosing;
 };
 
