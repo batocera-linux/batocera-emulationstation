@@ -30,20 +30,48 @@
 #include <dirent.h>
 #include <set>
 #include <unistd.h>
+#include <fcntl.h>
+#include <poll.h>
 #include <linux/input.h>
 #include <sys/ioctl.h>
 
 static std::atomic<int> sToggleRequests(0);
 static std::atomic<bool> sQuitRequested(false);
+static int sWakePipe[2] = { -1, -1 };
+
+static void wakeMainLoop()
+{
+	if (sWakePipe[1] >= 0 && write(sWakePipe[1], "", 1) < 0) {}
+}
 
 static void onToggleSignal(int)
 {
 	sToggleRequests++;
+	wakeMainLoop();
 }
 
 static void onQuitSignal(int)
 {
 	sQuitRequested = true;
+	wakeMainLoop();
+}
+
+// SDL_WaitEventTimeout polls every millisecond while joysticks are open
+static bool waitHidden(SDL_Event* event, int timeoutMs)
+{
+	if (sWakePipe[0] >= 0)
+	{
+		struct pollfd pfd = { sWakePipe[0], POLLIN, 0 };
+		if (poll(&pfd, 1, timeoutMs) > 0)
+		{
+			char buf[16];
+			while (read(sWakePipe[0], buf, sizeof(buf)) > 0) {}
+		}
+	}
+	else
+		SDL_Delay(timeoutMs);
+
+	return SDL_PollEvent(event);
 }
 
 static bool anyKeyDown(int fd)
@@ -362,6 +390,9 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 		Renderer::setInitialWindowPosition(bounds.x + (bounds.w - w) / 2, bounds.y);
 	}
 
+	if (pipe2(sWakePipe, O_NONBLOCK | O_CLOEXEC) != 0)
+		sWakePipe[0] = sWakePipe[1] = -1;
+
 	signal(SIGUSR1, onToggleSignal);
 	signal(SIGTERM, onQuitSignal);
 	signal(SIGINT, onQuitSignal);
@@ -492,7 +523,7 @@ int runControlCenter(int argc, char* argv[], const std::string& xmlArg, const st
 	while (!sQuitRequested)
 	{
 		SDL_Event event;
-		if (SDL_WaitEventTimeout(&event, hidden ? 250 : 16))
+		if (hidden ? waitHidden(&event, 250) : SDL_WaitEventTimeout(&event, 16))
 		{
 			do
 			{

@@ -400,7 +400,8 @@ void Window::layoutNotificationPopups()
 
 void Window::processSongTitleNotifications()
 {
-	if (AudioManager::getInstance()->songNameChanged())
+	// getInstance() opens the audio device, the control center has none
+	if (AudioManager::isInitialized() && AudioManager::getInstance()->songNameChanged())
 	{
 		if (Settings::getInstance()->getBool("audio.display_titles"))
 		{
