@@ -465,7 +465,11 @@ std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 
 	std::vector<BatoceraBezel> res;
 
-	HttpReq request(getUpdateUrl() + "/bezels.txt");
+	std::string url = Paths::getBezelsUpdateUrl();
+	if (url.empty())
+		url = getUpdateUrl() + "/bezels.txt";
+
+	HttpReq request(url);
 	if (request.wait())
 	{
 		auto lines = Utils::String::split(request.getContent(), '\n');

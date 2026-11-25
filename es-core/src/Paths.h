@@ -60,6 +60,8 @@ public:
 	static std::string& getUserManualPath() { return getInstance()->mUserManualPath; }
 
 	static std::string& getKodiPath() { return getInstance()->mKodiPath; }
+
+	static std::string& getBezelsUpdateUrl() { return getInstance()->mBezelsUpdateUrl; }
 	
 	static std::string& getHomePath();
 	static void setHomePath(const std::string& _path);
@@ -108,5 +110,6 @@ private:
 
 	std::string mUserManualPath;
 	std::string mVersionInfoPath;
-	std::string mKodiPath;	
+	std::string mKodiPath;
+	std::string mBezelsUpdateUrl;
 };

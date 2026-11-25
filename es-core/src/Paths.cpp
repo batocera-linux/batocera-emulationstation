@@ -130,6 +130,11 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 #endif
 	};
 
+	std::map<std::string, std::string*> urls =
+	{
+		{ "bezels.url", &mBezelsUpdateUrl }
+	};
+
 	std::map<std::string, std::string> ret;
 
 	std::string path = mEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
@@ -223,6 +228,16 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 					continue;
 
 				std::string key = line.substr(0, idx);
+
+				if (urls.find(key) != urls.cend())
+				{
+					std::string url = Utils::String::trim(line.substr(idx + 1));
+					if (!url.empty())
+						ret[key] = url;
+
+					continue;
+				}
+
 				std::string value = Utils::String::replace(line.substr(idx + 1), "\\", "/");
 				if (!key.empty() && !value.empty())
 				{
@@ -246,6 +261,15 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 	}
 
 	for (auto vv : files)
+	{
+		auto it = ret.find(vv.first);
+		if (it == ret.cend())
+			continue;
+
+		(*vv.second) = it->second;
+	}
+
+	for (auto vv : urls)
 	{
 		auto it = ret.find(vv.first);
 		if (it == ret.cend())
