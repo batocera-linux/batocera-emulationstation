@@ -118,6 +118,7 @@ struct GuiControlCenter::Item
 	std::deque<float> history;
 	int historyMax = 60;
 	std::string unit;
+	std::vector<std::string> valueLabels;
 	float warn = -1;
 	bool autoMax = false;
 };
@@ -538,6 +539,9 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 		item->actionSet = p.attribute("action_set").as_string();
 		item->step = lastNumber(item->actionInc, 5);
 		item->unit = p.attribute("unit").as_string("%");
+		// named steps from min to max, shown in place of the number
+		for (auto label : Utils::String::split(p.attribute("labels").as_string(), '|', true))
+			item->valueLabels.push_back(tr(label));
 		registerId(dec, item);
 		registerId(inc, item);
 
@@ -1035,7 +1039,10 @@ float GuiControlCenter::viewHeight()
 void GuiControlCenter::sliderTrack(Item* item, float& x, float& w)
 {
 	float labelW = std::min(item->rect.w * 0.32f, 7.0f * mUnit);
-	float valueW = mFontText->sizeText("100%", 1.0f).x() + mPad;
+	float valueW = mFontText->sizeText("100%", 1.0f).x();
+	for (auto& label : item->valueLabels)
+		valueW = std::max(valueW, mFontText->sizeText(label, 1.0f).x());
+	valueW += mPad;
 	x = item->rect.x + labelW + mPad;
 	w = item->rect.w - labelW - valueW - 3 * mPad;
 }
@@ -2135,8 +2142,12 @@ void GuiControlCenter::renderItem(Item* item, const Transform4x4f& trans, float 
 		drawIcon(mIconKnob, tx + tw * f - kw / 2, y + (h - ks) / 2, ks, fg, trans);
 
 		int pct = (int)std::round(item->min + f * (item->max - item->min));
+		std::string value = std::to_string(pct) + item->unit;
+		if (!item->valueLabels.empty())
+			value = item->valueLabels[std::min((size_t)std::max(0, pct - (int)item->min), item->valueLabels.size() - 1)];
+
 		float valueX = tx + tw + mPad;
-		drawText(mFontText, std::to_string(pct) + item->unit, valueX, y, x + w - mPad - valueX + 1, h, fg, ALIGN_RIGHT, trans);
+		drawText(mFontText, value, valueX, y, x + w - mPad - valueX + 1, h, fg, ALIGN_RIGHT, trans);
 		break;
 	}
 
@@ -2424,15 +2435,50 @@ void GuiControlCenter::render(const Transform4x4f& parentTrans)
 	{
 		std::vector<std::string> labels;
 		std::vector<float> widths;
-		float total = 0;
-		for (auto t : tabs)
+		float textTotal = 0;
+		int activeTab = 0;
+		for (int i = 0; i < (int)tabs.size(); i++)
 		{
-			labels.push_back(Utils::String::toUpper(t->label));
-			widths.push_back(mFontText->sizeText(labels.back(), 1.0f).x() + 1.6f * u);
-			total += widths.back();
+			labels.push_back(Utils::String::toUpper(tabs[i]->label));
+			widths.push_back(mFontText->sizeText(labels.back(), 1.0f).x());
+			textTotal += widths.back();
+			if (tabs[i] == mTabs[mTab])
+				activeTab = i;
 		}
 
-		float x = std::max(0.0f, (mCard.w - total) / 2);
+		// close the gaps before the tabs run off the card, then scroll to the active one
+		float avail = mCard.w - 2 * mPad;
+		float gap = clampf((avail - textTotal) / tabs.size(), 0.6f * u, 1.6f * u);
+		float total = 0;
+		float before = 0;
+		for (int i = 0; i < (int)widths.size(); i++)
+		{
+			widths[i] += gap;
+			total += widths[i];
+			if (i < activeTab)
+				before += widths[i];
+		}
+
+		float x = (mCard.w - total) / 2;
+		bool scrolled = false;
+		if (total > avail)
+		{
+			x = clampf(mCard.w / 2 - before - widths[activeTab] / 2, mCard.w - mPad - total, mPad);
+
+			Vector3f tr = card.translation();
+			int clipY = (int)tr.y();
+			int clipH = (int)mTabsH;
+			if (clipY < 0)
+			{
+				clipH += clipY;
+				clipY = 0;
+			}
+
+			scrolled = clipH > 0;
+			if (scrolled)
+				Renderer::pushClipRect((int)(tr.x() + mPad), clipY, (int)avail, clipH);
+		}
+
 		float ty = mTitleH;
 		float th = mTabsH - mTitleH;
 		for (int i = 0; i < (int)tabs.size(); i++)
@@ -2452,6 +2498,9 @@ void GuiControlCenter::render(const Transform4x4f& parentTrans)
 			mTabRects.push_back(Renderer::Rect((int)x, (int)ty, (int)widths[i], (int)th));
 			x += widths[i];
 		}
+
+		if (scrolled)
+			Renderer::popClipRect();
 	}
 
 	if (mHeaderH > 0)
