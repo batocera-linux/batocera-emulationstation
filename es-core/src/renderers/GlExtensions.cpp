@@ -42,6 +42,8 @@ namespace glext
 
 	PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform = nullptr;
 
+	PFNGLBLENDFUNCSEPARATEPROC glBlendFuncSeparate = nullptr;
+
 	void* _glProcAddress(const char *proc)
 	{
 		void* ret = SDL_GL_GetProcAddress(proc);
@@ -113,6 +115,7 @@ namespace glext
 		glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC)_glProcAddress("glDeleteFramebuffers");		
 
 		glGetActiveUniform = (PFNGLGETACTIVEUNIFORMPROC)_glProcAddress("glGetActiveUniform");
+		glBlendFuncSeparate = (PFNGLBLENDFUNCSEPARATEPROC)_glProcAddress("glBlendFuncSeparate");
 
 		return 
 			glCreateShader != nullptr && glCompileShader != nullptr && glCreateProgram != nullptr && glGenBuffers != nullptr && 

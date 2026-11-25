@@ -1091,6 +1091,33 @@ msgstr "コントローラー #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "プレイヤー %i コントローラー"
 
+msgid "RED"
+msgstr "赤"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "緑"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "青"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "白"
+
 msgid "CONTROLLER MAPPING"
 msgstr "ボタン設定"
 
@@ -1160,6 +1187,9 @@ msgstr "ジョイスティックの終了用のホットキーを制限"
 msgid "GLOBAL HOTKEYS"
 msgstr "グローバルホットキー"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED ハードウェア"
 
@@ -1181,14 +1211,20 @@ msgstr "彩度"
 msgid "PULSE"
 msgstr "パルス"
 
-msgid "RED"
-msgstr "赤"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "緑"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "青"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "カスタム"
 
 msgid "LED BRIGHTNESS"
 msgstr "LED 輝度"
@@ -1198,6 +1234,52 @@ msgstr "標準"
 
 msgid "NOT CONNECTED"
 msgstr "未接続"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "S ボタン / 下位置"
@@ -1262,6 +1344,30 @@ msgstr "グローバルホットキーが認識できません"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "重複したグローバルホットキーです"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "境界サイズ"
 
@@ -1291,9 +1397,6 @@ msgstr "非表示"
 
 msgid "BORDER COLOR"
 msgstr "境界色"
-
-msgid "WHITE"
-msgstr "白"
 
 msgid "BORDER RATIO"
 msgstr "境界サイズ"
@@ -1468,9 +1571,6 @@ msgstr "モントリオール"
 
 msgid "SAO PAULO"
 msgstr "サンパウロ"
-
-msgid "CUSTOM"
-msgstr "カスタム"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "カスタムリレーサーバー"

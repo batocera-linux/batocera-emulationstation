@@ -88,6 +88,26 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlaySettings.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievementsSettings.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSettings.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommPairing.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommDownload.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSaves.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommConfig.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommClient.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommAuth.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlatforms.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCatalog.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCollections.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommBios.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlaySessions.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaveLayout.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaves.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommMedia.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommWork.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCache.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommMediaCache.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSync.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommDownloader.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemInformation.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothDevices.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothPair.h
@@ -193,6 +213,27 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiNetPlaySettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievements.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRetroAchievementsSettings.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSettings.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommPairing.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommDownload.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiRommSaves.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommConfig.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommClient.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommAuth.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlatforms.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlatformsData.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCatalog.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCollections.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommBios.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommPlaySessions.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaveLayout.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSaves.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommMedia.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommWork.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommCache.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommMediaCache.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommSync.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/romm/RommDownloader.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiSystemInformation.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothDevices.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBluetoothPair.cpp
@@ -265,6 +306,22 @@ endif()
 #-------------------------------------------------------------------------------
 # define target
 include_directories(${COMMON_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/src)
+if(BATOCERA)
+	LIST(APPEND ES_HEADERS
+		${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControlCenter.h
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/CcShell.h
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/ControlCenterApp.h
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/GuiTextViewer.h
+	)
+	LIST(APPEND ES_SOURCES
+		${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControlCenter.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/CcShell.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/ControlCenterApp.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/src/controlcenter/GuiTextViewer.cpp
+		${CMAKE_SOURCE_DIR}/external/qrcodegen/qrcodegen.cpp
+	)
+endif()
+
 add_executable(emulationstation ${ES_SOURCES} ${ES_HEADERS})
 target_link_libraries(emulationstation ${COMMON_LIBRARIES} es-core)
 

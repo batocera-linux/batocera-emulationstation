@@ -80,6 +80,10 @@ public:
 	virtual ~FileData();
 
 	static FileData* GetRunningGame() { return mRunningGame; }
+#ifdef BATOCERA
+	// quits the running game and starts it again at one of its save states
+	static bool restartRunningGameAtState(int slot);
+#endif
 
 	virtual const std::string& getName();
 
@@ -119,6 +123,10 @@ public:
 	const std::string getConfigurationName();
 
 	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };	
+
+	// RomM game listed but not downloaded yet (follows the source game for collection entries)
+	bool isRemote();
+	inline void setRemote(bool remote) { mRemote = remote; }
 
 	virtual std::string getKey();
 	const bool isArcadeAsset();
@@ -200,6 +208,7 @@ protected:
 	FolderData* mParent;
 	std::string mPath;
 	FileType mType;
+	bool mRemote; // fits in the padding before mSystem : no size change
 	SystemData* mSystem;
 	std::string* mDisplayName;
 };

@@ -1091,6 +1091,33 @@ msgstr "CONTROLLER #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "P%i's CONTROLLER"
 
+msgid "RED"
+msgstr "RED"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "GREEN"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "BLUE"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "WHITE"
+
 msgid "CONTROLLER MAPPING"
 msgstr "CONTROLLER MAPPING"
 
@@ -1159,6 +1186,9 @@ msgstr ""
 msgid "GLOBAL HOTKEYS"
 msgstr ""
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "LED HARDWARE"
 
@@ -1180,14 +1210,20 @@ msgstr ""
 msgid "PULSE"
 msgstr ""
 
-msgid "RED"
-msgstr "RED"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "GREEN"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "BLUE"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr ""
 
 msgid "LED BRIGHTNESS"
 msgstr "LED BRIGHTNESS"
@@ -1197,6 +1233,52 @@ msgstr "default"
 
 msgid "NOT CONNECTED"
 msgstr "NOT CONNECTED"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr ""
@@ -1261,6 +1343,30 @@ msgstr ""
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr ""
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "BORDER SIZE"
 
@@ -1290,9 +1396,6 @@ msgstr "HIDDEN"
 
 msgid "BORDER COLOR"
 msgstr "BORDER COLOUR"
-
-msgid "WHITE"
-msgstr "WHITE"
 
 msgid "BORDER RATIO"
 msgstr ""
@@ -1467,9 +1570,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
-
-msgid "CUSTOM"
-msgstr ""
 
 msgid "CUSTOM RELAY SERVER"
 msgstr ""

@@ -44,6 +44,10 @@ namespace Renderer
 	static Rect				viewPort;
 
 	static Vector2i			sdlWindowPosition = Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED);
+	static bool				transparentWindow = false;
+
+	void setInitialWindowPosition(int x, int y) { sdlWindowPosition = Vector2i(x, y); }
+	bool isTransparentWindow() { return transparentWindow; }
 
 	static int              currentFrame = 0;
 
@@ -218,6 +222,23 @@ namespace Renderer
 
 		unsigned int windowFlags = (Settings::getInstance()->getBool("Windowed") ? 0 : (Settings::getInstance()->getBool("FullscreenBorderless") ? SDL_WINDOW_BORDERLESS : SDL_WINDOW_FULLSCREEN)) | getWindowFlags();
 
+		bool overlayWindow = false;
+#ifdef BATOCERA
+		overlayWindow = Settings::getInstance()->getBool("OverlayWindow");
+#endif
+		if (overlayWindow)
+		{
+			transparentWindow = Settings::getInstance()->getBool("OverlayTransparent");
+			if (transparentWindow)
+			{
+				SDL_SetHint("SDL_VIDEO_EGL_ALLOW_TRANSPARENCY", "1");
+				SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+			}
+
+			// fullscreen is requested once mapped, else labwc's MoveToOutput rules win
+			windowFlags = getWindowFlags() | SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_SKIP_TASKBAR | SDL_WINDOW_BORDERLESS;
+		}
+
 #if WIN32
 		if (Settings::getInstance()->getBool("AlwaysOnTop"))
 			windowFlags |= SDL_WINDOW_ALWAYS_ON_TOP;
@@ -245,7 +266,7 @@ namespace Renderer
 		if (Settings::getInstance()->getBool("Windowed"))
 			SDL_SetWindowMinimumSize(sdlWindow, 320, 200);
 
-		if (windowFlags & SDL_WINDOW_MAXIMIZED)
+		if ((windowFlags & SDL_WINDOW_MAXIMIZED) || overlayWindow)
 		{
 			SDL_Event event;
 			while (SDL_PollEvent(&event));

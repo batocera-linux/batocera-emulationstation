@@ -1139,6 +1139,33 @@ msgstr "#%i وحدة التحكم"
 msgid "P%i'S CONTROLLER"
 msgstr "%i وحدة تحكم اللاعب"
 
+msgid "RED"
+msgstr "أحمر"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "أخضر"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "أزرق"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "أبيض"
+
 msgid "CONTROLLER MAPPING"
 msgstr "ضبط أزرار وحدة التحكم"
 
@@ -1207,6 +1234,9 @@ msgstr "تقييد مفاتيح اختصار عصا التحكم للخروج ف
 msgid "GLOBAL HOTKEYS"
 msgstr "مفاتيح الاختصار العامة"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "أجهزة LED"
 
@@ -1228,14 +1258,20 @@ msgstr "كروم"
 msgid "PULSE"
 msgstr "نبض"
 
-msgid "RED"
-msgstr "أحمر"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "أخضر"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "أزرق"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "مخصص"
 
 msgid "LED BRIGHTNESS"
 msgstr "سطوع LED"
@@ -1245,6 +1281,52 @@ msgstr "افتراضي"
 
 msgid "NOT CONNECTED"
 msgstr "غير متصل"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "الجنوب"
@@ -1309,6 +1391,30 @@ msgstr "لم يتم اكتشاف مفتاح اختصار عام"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "تم اكتشاف أكثر من مفتاح اختصار عام"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "حجم الإطار"
 
@@ -1338,9 +1444,6 @@ msgstr "مخفي"
 
 msgid "BORDER COLOR"
 msgstr "لون الإطار"
-
-msgid "WHITE"
-msgstr "أبيض"
 
 msgid "BORDER RATIO"
 msgstr "نسبة الحدود"
@@ -1515,9 +1618,6 @@ msgstr "مونريال MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "ساو باولو SAO PAULO"
-
-msgid "CUSTOM"
-msgstr "مخصص"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "خادم التتابع المخصص"

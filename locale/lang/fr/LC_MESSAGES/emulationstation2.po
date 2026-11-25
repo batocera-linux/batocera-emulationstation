@@ -1097,6 +1097,33 @@ msgstr "MANETTE %i"
 msgid "P%i'S CONTROLLER"
 msgstr "MANETTE J%i"
 
+msgid "RED"
+msgstr "ROUGE"
+
+msgid "ORANGE"
+msgstr "ORANGE"
+
+msgid "YELLOW"
+msgstr "JAUNE"
+
+msgid "GREEN"
+msgstr "VERTE"
+
+msgid "CYAN"
+msgstr "CYAN"
+
+msgid "BLUE"
+msgstr "BLEU"
+
+msgid "PURPLE"
+msgstr "VIOLET"
+
+msgid "PINK"
+msgstr "ROSE"
+
+msgid "WHITE"
+msgstr "BLANCHE"
+
 msgid "CONTROLLER MAPPING"
 msgstr "CONFIGURER UNE MANETTE"
 
@@ -1166,6 +1193,9 @@ msgstr "RESTREINDRE LES RACCOURCIS DES MANETTES À QUITTER"
 msgid "GLOBAL HOTKEYS"
 msgstr "RACCOURCIS GLOBAUX"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr "TRACKBALLS ET SPINNERS"
+
 msgid "LED HARDWARE"
 msgstr "LEDS"
 
@@ -1187,14 +1217,20 @@ msgstr "SATURATION"
 msgid "PULSE"
 msgstr "PULSATION"
 
-msgid "RED"
-msgstr "ROUGE"
+msgid "BATTERY"
+msgstr "BATTERIE"
 
-msgid "GREEN"
-msgstr "VERTE"
+msgid "BATTERY LEVELS"
+msgstr "NIVEAUX DE LA BATTERIE"
 
-msgid "BLUE"
-msgstr "BLEU"
+msgid "EDIT BATTERY LEVELS"
+msgstr "ÉDITER LES NIVEAUX DE LA BATTERIE"
+
+msgid "COLOR PRESET"
+msgstr "COULEUR PRÉDÉFINIE"
+
+msgid "CUSTOM"
+msgstr "PERSONNALISÉ"
 
 msgid "LED BRIGHTNESS"
 msgstr "LUMINOSITÉ DES LEDS"
@@ -1204,6 +1240,52 @@ msgstr "par défaut"
 
 msgid "NOT CONNECTED"
 msgstr "DÉCONNECTÉ"
+
+msgid "NUMBER OF LEVELS"
+msgstr "NOMBRE DE NIVEAUX"
+
+#, c-format
+msgid "LEVEL %i"
+msgstr "NIVEAU %i"
+
+msgid "FROM BATTERY LEVEL"
+msgstr "EN FONCTION DU NIVEAU DE LA BATTERIE"
+
+msgid "COLOR"
+msgstr "COULEUR"
+
+msgid "EFFECT"
+msgstr "EFFET"
+
+msgid "FIXED"
+msgstr "FIXE"
+
+msgid "BLINK"
+msgstr "CLIGNOTANT"
+
+msgid "CHARGER PLUGGED IN"
+msgstr "LORSQUE LE CHARGEUR EST BRANCHÉ"
+
+msgid "PULSE LEVEL COLOR"
+msgstr "COULEUR EN PULSATION"
+
+msgid "LEVEL COLOR"
+msgstr "COULEUR DU NIVEAU"
+
+msgid "BLINKING GREEN"
+msgstr "VERT CLIGNOTANT"
+
+msgid "PULSING GREEN"
+msgstr "VERT PULSANT"
+
+msgid "WHILE CHARGING"
+msgstr "PENDANT LE CHARGEMENT"
+
+msgid "WHEN FULL"
+msgstr "LORSQUE LA BATTERIE EST PLEINE"
+
+msgid "RESET TO DEFAULT"
+msgstr "REMETTRE À ZÉRO"
 
 msgid "SOUTH"
 msgstr "SUD"
@@ -1268,6 +1350,30 @@ msgstr "PAS DE RACCOURCI GLOBAL DÉTECTÉ"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "PLUSIEURS RACCOURCIS GLOBAUX DÉTECTÉS"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr "DÉCLARER UN NOUVEAU TRACKBALL"
+
+msgid "DECLARE A NEW SPINNER"
+msgstr "DÉCLARER UN NOUVEAU SPINNER"
+
+msgid "TRACKBALLS"
+msgstr "TRACKBALLS"
+
+msgid "USER DEFINED"
+msgstr "DÉFINI PAR L'UTILISATEUR"
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr "VOULEZ VOUS SUPPRIMER LE TRACKBALL"
+
+msgid "SPINNERS"
+msgstr "SPINNERS"
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr "VOULEZ VOUS SUPPRIMER LE SPINNER"
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr "VOUS AVEZ 8 SECONDES POUR ACTIONNER LE PÉRIPHÉRIQUE RAPIDEMENT"
+
 msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"
 
@@ -1297,9 +1403,6 @@ msgstr "CACHÉ"
 
 msgid "BORDER COLOR"
 msgstr "COULEUR DE LA BORDURE"
-
-msgid "WHITE"
-msgstr "BLANCHE"
 
 msgid "BORDER RATIO"
 msgstr "RATIO DE LA BORDURE"
@@ -1475,9 +1578,6 @@ msgstr "MONTRÉAL"
 
 msgid "SAO PAULO"
 msgstr "SÃO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONNALISÉ"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVEUR RELAIS PERSONNALISÉ"

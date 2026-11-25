@@ -1,4 +1,5 @@
 #include "FileFilterIndex.h"
+#include "romm/RommCatalog.h"
 
 #include "utils/StringUtil.h"
 #include "views/UIModeController.h"
@@ -21,7 +22,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false), filterByTag(false)
-	, filterByLightGun(false), filterByWheel(false), filterByTrackball(false), filterBySpinner(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
+	, filterByLightGun(false), filterByWheel(false), filterByTrackball(false), filterBySpinner(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false), filterByDownloaded(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -45,6 +46,7 @@ FileFilterIndex::FileFilterIndex()
 		{ WHEEL_FILTER, 	&wheelIndexAllKeys,     &filterByWheel,	    &wheelIndexFilteredKeys,    "wheel",		false,				"",				_("STEERING WHEEL") },
 		{ TRACKBALL_FILTER, 	&trackballIndexAllKeys,     &filterByTrackball,	    &trackballIndexFilteredKeys,    "trackball",		false,				"",				_("TRACKBALL") },
 		{ SPINNER_FILTER, 	&spinnerIndexAllKeys,     &filterBySpinner,	    &spinnerIndexFilteredKeys,    "spinner",		false,				"",				_("SPINNER") },
+		{ ROMM_FILTER, 		&downloadedIndexAllKeys, &filterByDownloaded, &downloadedIndexFilteredKeys, "downloaded",	false,				"",				_("DOWNLOADED") },
 		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAVING MEDIAS") },
 		{ MISSING_MEDIA_FILTER, &missingMediasIndexAllKeys, &filterByMissingMedia, &missingMediaIndexFilteredKeys, "missingMedia",		false,				"",				_("MISSING MEDIAS") }
 	};
@@ -122,6 +124,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &wheelIndexAllKeys, &(indexToImport->wheelIndexAllKeys) },
 		{ &trackballIndexAllKeys, &(indexToImport->trackballIndexAllKeys) },
 		{ &spinnerIndexAllKeys, &(indexToImport->spinnerIndexAllKeys) },
+		{ &downloadedIndexAllKeys, &(indexToImport->downloadedIndexAllKeys) },
 		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) },
 		{ &missingMediasIndexAllKeys, &(indexToImport->missingMediasIndexAllKeys) }
 	};
@@ -169,6 +172,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(wheelIndexAllKeys);
 	clearIndex(trackballIndexAllKeys);
 	clearIndex(spinnerIndexAllKeys);
+	clearIndex(downloadedIndexAllKeys);
 	clearIndex(hasMediasIndexAllKeys);
 	clearIndex(missingMediasIndexAllKeys);
 	clearIndex(tagIndexAllKeys);
@@ -199,6 +203,13 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&spinnerIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&spinnerIndexAllKeys, "TRUE", false);
+
+	// Only offered when RomM games are shown (the filter screen hides filters without values)
+	if (Romm::RommCatalog::isActive())
+	{
+		manageIndexEntry(&downloadedIndexAllKeys, "FALSE", false);
+		manageIndexEntry(&downloadedIndexAllKeys, "TRUE", false);
+	}
 	
 //	manageIndexEntry(&hasMediasIndexAllKeys, "any", false);
 	manageIndexEntry(&hasMediasIndexAllKeys, "image", false);
@@ -389,6 +400,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 
 		return game->hasAnyMedia() ? "TRUE" : "FALSE";
 	}*/
+
+	case ROMM_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "TRUE";
+
+		return game->isRemote() ? "FALSE" : "TRUE";
+	}
 
 	case LIGHTGUN_FILTER:
 	{
@@ -1211,6 +1233,8 @@ bool CollectionFilter::load(const std::string file)
 			verticalIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "lightgun")
 			lightGunIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "downloaded")
+			downloadedIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "wheel")
 			wheelIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "trackball")
@@ -1291,6 +1315,9 @@ bool CollectionFilter::save()
 
 	for (auto key : lightGunIndexFilteredKeys)
 		root.append_child("lightgun").text().set(key.c_str());
+
+	for (auto key : downloadedIndexFilteredKeys)
+		root.append_child("downloaded").text().set(key.c_str());
 
 	for (auto key : wheelIndexFilteredKeys)
 		root.append_child("wheel").text().set(key.c_str());

@@ -62,6 +62,12 @@ public:
 
 	std::string outputFilename;
 	std::vector<std::string> customHeaders;
+	// Opt-in: verify the server's TLS certificate (default keeps the historical behaviour: no peer verification)
+	bool verifySsl = false;
+	// Opt-in: advertise and transparently decode compressed responses (gzip, deflate...)
+	bool acceptCompressed = false;
+	// Opt-in: HTTP errors that are an expected answer are logged at debug level instead of error
+	bool quietErrors = false;
 	std::string dataToPost;
 	std::string userAgent;
     long connectTimeout;
@@ -136,6 +142,7 @@ private:
 	static CURLM* s_multi_handle;
 
 	void onError(const char* msg);
+	bool mQuietErrors = false;
 
 	CURL* mHandle;
 

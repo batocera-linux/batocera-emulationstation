@@ -2,6 +2,8 @@
 
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
+#include "guis/GuiRommSaves.h"
+#include "romm/RommSaves.h"
 #include "CollectionSystemManager.h"
 #include "Settings.h"
 #include "Sound.h"
@@ -373,6 +375,10 @@ void ISimpleGameListView::showSelectedGameSaveSnapshots()
 
 	if (SaveStateRepository::isEnabled(cursor))
 	{
+		// RomM: sync first
+		if (GuiRommSaves::syncBeforeChoice(mWindow, cursor, [this] { showSelectedGameSaveSnapshots(); }))
+			return;
+
 		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
 
 		mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)
@@ -413,7 +419,11 @@ void ISimpleGameListView::launchSelectedGame()
 	{
 		if (cursor->getType() == GAME)
 		{
-			if (SaveStateRepository::isEnabled(cursor) &&
+			// RomM: sync first
+			if (GuiRommSaves::syncBeforeChoice(mWindow, cursor, [this] { launchSelectedGame(); }))
+				return;
+
+			if (SaveStateRepository::isEnabled(cursor) && !Romm::RommSaves::isHardcoreSession(cursor) &&
 				(cursor->getCurrentGameSetting("savestates") == "1" || (cursor->getCurrentGameSetting("savestates") == "2" && cursor->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(cursor))))
 			{
 				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)

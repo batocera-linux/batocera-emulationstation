@@ -50,6 +50,8 @@ namespace glext
 	extern PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers;		
 
 	extern PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform;
+
+	extern PFNGLBLENDFUNCSEPARATEPROC glBlendFuncSeparate;
 };
 
 using namespace glext;

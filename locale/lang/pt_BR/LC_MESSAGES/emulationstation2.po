@@ -1102,6 +1102,33 @@ msgstr "CONTROLE #%i"
 msgid "P%i'S CONTROLLER"
 msgstr "CONTROLE DO JOGADOR %i"
 
+msgid "RED"
+msgstr "VERMELHO"
+
+msgid "ORANGE"
+msgstr ""
+
+msgid "YELLOW"
+msgstr ""
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "CYAN"
+msgstr ""
+
+msgid "BLUE"
+msgstr "AZUL"
+
+msgid "PURPLE"
+msgstr ""
+
+msgid "PINK"
+msgstr ""
+
+msgid "WHITE"
+msgstr "BRANCO"
+
 msgid "CONTROLLER MAPPING"
 msgstr "MAPEAMENTO DO CONTROLE"
 
@@ -1172,6 +1199,9 @@ msgstr "RESTRINGIR AS TECLAS DE ATALHO DO CONTROLE PARA SAIR"
 msgid "GLOBAL HOTKEYS"
 msgstr "TECLAS DE ATALHO GLOBAIS"
 
+msgid "TRACKBALLS AND SPINNERS"
+msgstr ""
+
 msgid "LED HARDWARE"
 msgstr "HARDWARE LED"
 
@@ -1193,14 +1223,20 @@ msgstr "CHROMA"
 msgid "PULSE"
 msgstr "PULSAR"
 
-msgid "RED"
-msgstr "VERMELHO"
+msgid "BATTERY"
+msgstr ""
 
-msgid "GREEN"
-msgstr "VERDE"
+msgid "BATTERY LEVELS"
+msgstr ""
 
-msgid "BLUE"
-msgstr "AZUL"
+msgid "EDIT BATTERY LEVELS"
+msgstr ""
+
+msgid "COLOR PRESET"
+msgstr ""
+
+msgid "CUSTOM"
+msgstr "PERSONALIZAR"
 
 msgid "LED BRIGHTNESS"
 msgstr "BRILHO LED"
@@ -1210,6 +1246,52 @@ msgstr "padrão"
 
 msgid "NOT CONNECTED"
 msgstr "DESCONECTADO"
+
+msgid "NUMBER OF LEVELS"
+msgstr ""
+
+#, c-format
+msgid "LEVEL %i"
+msgstr ""
+
+msgid "FROM BATTERY LEVEL"
+msgstr ""
+
+msgid "COLOR"
+msgstr ""
+
+msgid "EFFECT"
+msgstr ""
+
+msgid "FIXED"
+msgstr ""
+
+msgid "BLINK"
+msgstr ""
+
+msgid "CHARGER PLUGGED IN"
+msgstr ""
+
+msgid "PULSE LEVEL COLOR"
+msgstr ""
+
+msgid "LEVEL COLOR"
+msgstr ""
+
+msgid "BLINKING GREEN"
+msgstr ""
+
+msgid "PULSING GREEN"
+msgstr ""
+
+msgid "WHILE CHARGING"
+msgstr ""
+
+msgid "WHEN FULL"
+msgstr ""
+
+msgid "RESET TO DEFAULT"
+msgstr ""
 
 msgid "SOUTH"
 msgstr "SUL"
@@ -1276,6 +1358,30 @@ msgstr "NENHUMA TECLA DE ATALHO GLOBAL DETECTADA"
 msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "MAIS DE UMA TECLA DE ATALHO GLOBAL DETECTADA"
 
+msgid "DECLARE A NEW TRACKBALL"
+msgstr ""
+
+msgid "DECLARE A NEW SPINNER"
+msgstr ""
+
+msgid "TRACKBALLS"
+msgstr ""
+
+msgid "USER DEFINED"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
+msgstr ""
+
+msgid "SPINNERS"
+msgstr ""
+
+msgid "DO YOU WANT TO REMOVE THIS SPINNER"
+msgstr ""
+
+msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
+msgstr ""
+
 msgid "BORDER SIZE"
 msgstr "TAMANHO DA BORDA"
 
@@ -1305,9 +1411,6 @@ msgstr "OCULTO"
 
 msgid "BORDER COLOR"
 msgstr "COR DA BORDA"
-
-msgid "WHITE"
-msgstr "BRANCO"
 
 msgid "BORDER RATIO"
 msgstr "RAZÃO DE BORDA"
@@ -1483,9 +1586,6 @@ msgstr "MONTREAL"
 
 msgid "SAO PAULO"
 msgstr "SÃO PAULO"
-
-msgid "CUSTOM"
-msgstr "PERSONALIZAR"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR PERSONALIZADO"

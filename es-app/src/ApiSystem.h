@@ -109,6 +109,14 @@ struct GlobalHotkey
   std::string action;
 };
 
+struct TrackballSpinner
+{
+  std::string name;
+  std::string type;
+  std::string source;
+  std::string key;
+};
+
 struct Keyboardtopad
 {
   std::string name;
@@ -358,6 +366,7 @@ public:
 
 	// LED Mode
 	void setLEDMode(const std::string& mode);
+	std::vector<std::string> getLEDBatteryProfile();
 
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 	std::string getConnectedWifiSsid();
@@ -404,6 +413,10 @@ public:
     	virtual std::vector<GlobalHotkey> getGlobalHotkeys();
       	virtual void removeGlobalHotkey(const std::string& config, const std::string& key);
     	virtual void setGlobalHotkey(const std::string& config, const std::string& key, const std::string& action);
+
+    	virtual void detectTrackballSpinners(const std::string& type);
+    	virtual std::vector<TrackballSpinner> getTrackballSpinners();
+    	virtual void removeTrackballSpinners(const std::string& key);
 
       	virtual std::vector<Keyboardtopad> getKeyboardtopads();
       	virtual std::vector<KeyboardtopadDevice> getKeyboardtopadDevices(std::string config);

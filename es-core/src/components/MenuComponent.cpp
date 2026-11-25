@@ -133,6 +133,9 @@ void MenuComponent::addMenuIcon(Window* window, ComponentListRow& row, const std
 	auto theme = ThemeData::getMenuTheme();
 
 	std::string iconPath = theme->getMenuIcon(iconName);
+	if (iconPath.empty() && iconName == "iconCloud")
+		iconPath = ":/cloud.svg"; // themes may set their own
+
 	if (!iconPath.empty())
 	{
 		// icon
