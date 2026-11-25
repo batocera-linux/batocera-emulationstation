@@ -537,6 +537,7 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 		item->actionInc = inc.attribute("action").as_string();
 		item->actionSet = p.attribute("action_set").as_string();
 		item->step = lastNumber(item->actionInc, 5);
+		item->unit = p.attribute("unit").as_string("%");
 		registerId(dec, item);
 		registerId(inc, item);
 
@@ -2135,7 +2136,7 @@ void GuiControlCenter::renderItem(Item* item, const Transform4x4f& trans, float 
 
 		int pct = (int)std::round(item->min + f * (item->max - item->min));
 		float valueX = tx + tw + mPad;
-		drawText(mFontText, std::to_string(pct) + "%", valueX, y, x + w - mPad - valueX + 1, h, fg, ALIGN_RIGHT, trans);
+		drawText(mFontText, std::to_string(pct) + item->unit, valueX, y, x + w - mPad - valueX + 1, h, fg, ALIGN_RIGHT, trans);
 		break;
 	}
 
