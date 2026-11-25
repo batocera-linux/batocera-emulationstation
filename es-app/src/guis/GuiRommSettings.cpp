@@ -20,6 +20,8 @@
 #include "SystemData.h"
 #include "FileData.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "Settings.h"
+#include "guis/GuiTextEditPopup.h"
 #include "components/SwitchComponent.h"
 #include "components/TextComponent.h"
 #include "views/ViewController.h"
@@ -28,6 +30,8 @@
 #include "ThemeData.h"
 #include "Window.h"
 #include "utils/FileSystemUtil.h"
+#include <chrono>
+#include <thread>
 #include "utils/StringUtil.h"
 
 #include <algorithm>
@@ -106,7 +110,7 @@ GuiRommSettings::GuiRommSettings(Window* window) : GuiSettings(window, _("ROMM")
 	{
 		addGroup(_("SERVER"));
 
-		addInputTextConfigRow(_("SERVER ADDRESS"), CONF_URL, false);
+		addServerAddressRow(this);
 
 		mInsecure = std::make_shared<SwitchComponent>(mWindow);
 		mInsecure->setState(config.allowSelfSigned);
@@ -357,7 +361,7 @@ void GuiRommSettings::openServerAccount()
 	auto gui = new GuiSettings(window, _("SERVER & ACCOUNT").c_str());
 
 	gui->addGroup(_("SERVER"));
-	gui->addInputTextConfigRow(_("SERVER ADDRESS"), CONF_URL, false);
+	addServerAddressRow(gui);
 
 	auto insecure = std::make_shared<SwitchComponent>(window);
 	insecure->setState(config.allowSelfSigned);
@@ -863,6 +867,78 @@ void GuiRommSettings::openCollections()
 	});
 
 	window->pushGui(gui);
+}
+
+void GuiRommSettings::addServerAddressRow(GuiSettings* gui)
+{
+	gui->addInputTextConfigRow(_("SERVER ADDRESS"), CONF_URL, false, false,
+		[this, gui](Window* window, std::string title, std::string value, const std::function<void(std::string)>& save)
+		{
+			auto onEdited = [this, gui, window, save](const std::string& newValue)
+			{
+				RommConfig config = RommConfig::load();
+				RommConfig edited = config;
+				edited.url = newValue;
+
+				// The same server written differently (a trailing slash...), or nothing paired yet: saved as is
+				if (!config.isPaired() || edited.baseUrl() == config.pairedUrl)
+				{
+					save(newValue);
+					return;
+				}
+
+				window->pushGui(new GuiMsgBox(window,
+					_("CHANGE THE ROMM SERVER?") + "\n" +
+					Utils::String::format(_("This device will be unpaired from %s and its library removed from the game lists. Downloaded games and saves are kept.").c_str(), config.pairedUrl.c_str()),
+					_("CHANGE AND PAIR"), [this, gui, window, save, newValue]
+					{
+						save(newValue);
+						if (gui != this)
+							gui->close();
+
+						window->postToUiThread([this] { switchServer(); });
+					},
+					_("CANCEL"), nullptr));
+			};
+
+			if (Settings::getInstance()->getBool("UseOSK"))
+				window->pushGui(new GuiTextEditPopupKeyboard(window, title, value, onEdited, false));
+			else
+				window->pushGui(new GuiTextEditPopup(window, title, value, onEdited, false));
+		});
+}
+
+void GuiRommSettings::switchServer()
+{
+	Window* window = mWindow;
+
+	RommSync::cancel();
+	RommConfig::clearCredentials(true);
+
+	// The game lists are reloaded below, once the old library is gone
+	onFinalize(nullptr);
+	close();
+
+	window->pushGui(new GuiLoading<CacheCleanupResult>(window, _("REMOVING THE PREVIOUS LIBRARY..."),
+		[](auto gui)
+		{
+			// A cancelled sync still writing to the old cache
+			for (int i = 0; i < 100 && RommSync::isRunning(); i++)
+				std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+			return cleanupCache(); // unpaired: removes the caches of every server
+		},
+		[window](CacheCleanupResult)
+		{
+			window->postToUiThread([window]
+			{
+				ViewController::reloadAllGames(window, true);
+
+				auto settings = new GuiRommSettings(window);
+				window->pushGui(settings);
+				settings->pairDevice();
+			});
+		}));
 }
 
 void GuiRommSettings::unpair()

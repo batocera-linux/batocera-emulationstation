@@ -101,9 +101,7 @@ void GuiRommPairing::threadPairing()
 
 	{
 		std::unique_lock<std::mutex> lock(mMutex);
-		mUserCode = request.userCode;
 		mVerificationUrl = request.verificationUrl;
-		mPageUrl = request.pairingPageUrl;
 		mPhase = Phase::WAITING;
 	}
 
@@ -167,14 +165,12 @@ void GuiRommPairing::update(int deltaTime)
 	GuiComponent::update(deltaTime);
 
 	Phase phase;
-	std::string error, userCode, verificationUrl, pageUrl;
+	std::string error, verificationUrl;
 	{
 		std::unique_lock<std::mutex> lock(mMutex);
 		phase = mPhase;
 		error = mError;
-		userCode = mUserCode;
 		verificationUrl = mVerificationUrl;
-		pageUrl = mPageUrl;
 	}
 
 	if (phase == mShownPhase)
@@ -185,10 +181,10 @@ void GuiRommPairing::update(int deltaTime)
 	switch (phase)
 	{
 	case Phase::WAITING:
+		// RomM's pairing page takes the code from the link only: the one the QR code holds
 		mQrCode->setText(verificationUrl);
 		mMessage->setText(
-			_("SCAN THE CODE WITH YOUR PHONE, OR OPEN") + "\n" + pageUrl + "\n" +
-			_("AND ENTER THE CODE") + " " + userCode + "\n" +
+			_("SCAN THE CODE WITH YOUR PHONE, OR OPEN") + "\n" + verificationUrl + "\n" +
 			_("WAITING FOR APPROVAL..."));
 		break;
 
