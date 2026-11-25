@@ -15,6 +15,9 @@
 #include "utils/StringUtil.h"
 #include "utils/md5.h"
 #include "scrapers/Scraper.h"
+#include "SaveStateRepository.h"
+#include "LocaleES.h"
+#include <algorithm>
 #include <unordered_map>
 
 void HttpApi::getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, SystemData* sys, bool localpaths)
@@ -321,6 +324,43 @@ std::string HttpApi::getRunnningGameInfo()
 
 	return ToJson(file);
 }
+
+#ifdef BATOCERA
+// for the control center: id, title, subtitle and image of each state, newest first
+std::string HttpApi::getRunningGameSaveStates()
+{
+	rapidjson::StringBuffer s;
+	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
+	writer.StartArray();
+
+	auto game = FileData::GetRunningGame();
+	if (game != nullptr && SaveStateRepository::isEnabled(game))
+	{
+		// read now, the system's own list is only refreshed when a game ends
+		SaveStateRepository repository(game->getSourceFileData()->getSystem());
+		auto states = repository.getSaveStates(game);
+		std::sort(states.begin(), states.end(), [](SaveState* a, SaveState* b) { return a->creationDate > b->creationDate; });
+
+		for (auto state : states)
+		{
+			if (!state->isSlotValid() || state->slot < -1)
+				continue;
+
+			std::string title = state->slot == -1 ? _("AUTO SAVE") : _("SLOT") + std::string(" ") + std::to_string(state->slot);
+
+			writer.StartObject();
+			writer.Key("id"); writer.Int(state->slot);
+			writer.Key("title"); writer.String(title.c_str());
+			writer.Key("subtitle"); writer.String(state->creationDate.toLocalTimeString().c_str());
+			writer.Key("image"); writer.String(state->getScreenShot().c_str());
+			writer.EndObject();
+		}
+	}
+
+	writer.EndArray();
+	return s.GetString();
+}
+#endif
 
 std::string HttpApi::getCaps()
 {

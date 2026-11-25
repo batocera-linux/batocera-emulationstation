@@ -314,6 +314,32 @@ void HttpServerThread::run()
 			res.set_content(ret, "application/json");
 	});
 
+#ifdef BATOCERA
+	mHttpServer->Get("/runningGame/savestates", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		res.set_content(HttpApi::getRunningGameSaveStates(), "application/json");
+	});
+
+	// body: the slot to start again from, as listed above
+	mHttpServer->Post("/runningGame/savestates/load", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		if (!FileData::restartRunningGameAtState(atoi(req.body.c_str())))
+		{
+			res.set_content("{\"msg\":\"NO SUCH STATE\"}", "application/json");
+			res.status = 404;
+			return;
+		}
+
+		res.set_content("{\"msg\":\"OK\"}", "application/json");
+	});
+#endif
+
 	mHttpServer->Get("/isIdle", [](const httplib::Request& req, httplib::Response& res)
 	{
 		if (!isAllowed(req, res))

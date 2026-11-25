@@ -17,6 +17,7 @@
 
 #include <pugixml/src/pugixml.hpp>
 #include <qrcodegen/qrcodegen.hpp>
+#include <rapidjson/document.h>
 #include <cstdio>
 #include <deque>
 #include <fstream>
@@ -76,6 +77,7 @@ struct GuiControlCenter::Item
 	std::string afterclick;
 	std::vector<std::string> updateIds;
 	bool confirm = false;
+	std::string confirmText;
 	bool toggle = false;
 	bool progress = false;
 
@@ -114,6 +116,11 @@ struct GuiControlCenter::Item
 	std::shared_ptr<ImageComponent> qrLogo;
 	std::vector<bool> qrModules;
 	int qrModulesSize = 0;
+
+	// a <gallery>: its JSON list becomes these tiles, placed after it in its tab
+	bool gallery = false;
+	int galleryTab = -1;
+	std::vector<Item*> galleryItems;
 
 	std::deque<float> history;
 	int historyMax = 60;
@@ -482,7 +489,7 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 {
 	bool header = (&target == &mHeader || &target == &mFooter);
 
-	std::vector<pugi::xml_node> buttons, progress, texts, switches, choices, images, qrcodes, docs, graphs;
+	std::vector<pugi::xml_node> buttons, progress, texts, switches, choices, images, qrcodes, docs, graphs, galleries;
 	for (auto& c : controls)
 	{
 		std::string n = c.name();
@@ -495,6 +502,7 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 		else if (n == "qrcode") qrcodes.push_back(c);
 		else if (n == "doc") docs.push_back(c);
 		else if (n == "graph") graphs.push_back(c);
+		else if (n == "gallery") galleries.push_back(c);
 		else
 			LOG(LogDebug) << "ControlCenter: <" << n << "> is not rendered yet";
 	}
@@ -777,6 +785,84 @@ void GuiControlCenter::buildControls(const std::string& label, const std::vector
 		if (item->value->resolved)
 			image->setImage(item->value->value);
 	}
+
+	for (auto& g : galleries)
+	{
+		Item* item = newItem(CcKind::Info, g);
+		item->gallery = true;
+		item->galleryTab = tab;
+		item->action = g.attribute("action").as_string();
+		item->confirmText = tr(g.attribute("confirm").as_string());
+		item->confirm = !item->confirmText.empty();
+		item->value = bind(g.attribute("display").as_string(), refreshOf(g), tab);
+		item->value->onChanged = [this, item](const std::string& json) { rebuildGallery(item, json); };
+		if (item->value->resolved)
+			rebuildGallery(item, item->value->value);
+	}
+}
+
+void GuiControlCenter::rebuildGallery(Item* gallery, const std::string& json)
+{
+	if (gallery->galleryTab < 0 || gallery->galleryTab >= (int)mTabs.size())
+		return;
+
+	auto& items = mTabs[gallery->galleryTab]->items;
+	for (auto old : gallery->galleryItems)
+	{
+		items.erase(std::remove(items.begin(), items.end(), old), items.end());
+		mItems.erase(std::remove(mItems.begin(), mItems.end(), old), mItems.end());
+		if (mFocus == old)
+			mFocus = nullptr;
+		if (mDownItem == old)
+			mDownItem = nullptr;
+		if (mSheetItem == old)
+			closeSheet();
+		delete old;
+	}
+	gallery->galleryItems.clear();
+
+	rapidjson::Document doc;
+	doc.Parse(json.c_str());
+	if (!doc.HasParseError() && doc.IsArray())
+	{
+		auto at = std::find(items.begin(), items.end(), gallery);
+		if (at != items.end())
+			++at;
+
+		for (auto& entry : doc.GetArray())
+		{
+			if (!entry.IsObject())
+				continue;
+
+			auto text = [&entry](const char* key) -> std::string
+			{
+				if (!entry.HasMember(key))
+					return "";
+				auto& v = entry[key];
+				return v.IsString() ? v.GetString() : v.IsInt() ? std::to_string(v.GetInt()) : "";
+			};
+
+			Item* tile = new Item();
+			tile->kind = CcKind::Tile;
+			tile->conds = gallery->conds;
+			tile->label = text("title");
+			tile->subLabel = text("subtitle");
+			tile->action = Utils::String::replace(gallery->action, "{id}", text("id"));
+			tile->afterclick = gallery->afterclick;
+			tile->updateIds = gallery->updateIds;
+			tile->confirm = gallery->confirm;
+			tile->confirmText = gallery->confirmText;
+			tile->image = std::make_shared<WebImageComponent>(mWindow, 30);
+			tile->image->setImage(text("image"));
+
+			mItems.push_back(tile);
+			at = items.insert(at, tile) + 1;
+			gallery->galleryItems.push_back(tile);
+		}
+	}
+
+	mLayoutDirty = true;
+	mDirty = true;
 }
 
 bool GuiControlCenter::conditionsPass(const std::vector<std::shared_ptr<Binding>>& conds, int depth)
@@ -800,6 +886,9 @@ bool GuiControlCenter::conditionsPass(const std::vector<std::shared_ptr<Binding>
 bool GuiControlCenter::isVisible(Item* item, int depth)
 {
 	if (!conditionsPass(item->conds, depth))
+		return false;
+
+	if (item->gallery)
 		return false;
 
 	if (item->kind == CcKind::Image || item->kind == CcKind::Qr || item->kind == CcKind::Info || item->doc || (item->kind == CcKind::Chip && item->value))
@@ -911,12 +1000,14 @@ void GuiControlCenter::layout()
 
 		auto media = [](Item* it) { return it->kind == CcKind::Image || it->kind == CcKind::Qr; };
 		size_t end = i;
-		while (end < items.size() && (items[end]->kind == item->kind || (media(item) && media(items[end]))))
+		// tiles with a picture form their own grid
+		auto pictured = [](Item* it) { return it->kind == CcKind::Tile && it->image != nullptr; };
+		while (end < items.size() && ((items[end]->kind == item->kind && pictured(items[end]) == pictured(item)) || (media(item) && media(items[end]))))
 			end++;
 
-		item->asRow = item->kind == CcKind::Tile && end - i == 1;
+		item->asRow = item->kind == CcKind::Tile && end - i == 1 && !pictured(item);
 
-		int group = item->kind == CcKind::Slider || item->kind == CcKind::Cycler || item->asRow ? 0 : media(item) ? 1 + (int)CcKind::Image : 1 + (int)item->kind;
+		int group = item->kind == CcKind::Slider || item->kind == CcKind::Cycler || item->asRow ? 0 : media(item) ? 1 + (int)CcKind::Image : pictured(item) ? 100 : 1 + (int)item->kind;
 		if (lastGroup >= 0 && lastGroup != group)
 			y += groupGap;
 		lastGroup = group;
@@ -935,7 +1026,7 @@ void GuiControlCenter::layout()
 			}
 			float cellW = (cardW - gap * (cols - 1)) / cols;
 
-			float cellH = 2.2f * mRowH;
+			float cellH = pictured(item) ? cellW * 9.0f / 16.0f + 2.0f * mRowH : 2.2f * mRowH;
 			if (kind != CcKind::Tile)
 			{
 				cellH = 0;
@@ -952,7 +1043,9 @@ void GuiControlCenter::layout()
 				it->row = kind == CcKind::Tile ? row + r : -1;
 				it->rect.h = (int)cellH;
 
-				if (it->image)
+				if (pictured(it))
+					it->image->setMaxSize(cellW - 2 * mPad, cellW * 9.0f / 16.0f - mPad);
+				else if (it->image)
 					it->image->setMaxSize(cellW, cellH);
 			}
 
@@ -1666,7 +1759,7 @@ void GuiControlCenter::activate(Item* item)
 		}
 		else if (item->confirm)
 		{
-			std::string question = Utils::String::endsWith(item->label, "?") ? item->label : item->label + "?";
+			std::string question = !item->confirmText.empty() ? item->confirmText : Utils::String::endsWith(item->label, "?") ? item->label : item->label + "?";
 			auto msgBox = new GuiMsgBox(mWindow, question,
 				_("YES"), [this, item] { runAction(item, item->action, item->afterclick, item->updateIds); },
 				_("NO"), nullptr);
@@ -2113,6 +2206,20 @@ void GuiControlCenter::renderItem(Item* item, const Transform4x4f& trans, float 
 		}
 
 		float tw = w - 2 * mPad;
+		if (item->image)
+		{
+			// a picture above the two lines
+			float ih = w * 9.0f / 16.0f;
+			auto sz = item->image->getSize();
+			item->image->setPosition(x + (w - sz.x()) / 2, y + (ih - sz.y()) / 2 + mPad / 2);
+			item->image->render(trans);
+
+			float th = (h - ih) / 2;
+			drawText(mFontText, Utils::String::toUpper(item->label), x + mPad, y + ih, tw, th, fg, ALIGN_LEFT, trans);
+			drawText(mFontSub, item->subLabel, x + mPad, y + ih + th * 0.9f, tw, th, focused ? mColorSelected : mColorTextDim, ALIGN_LEFT, trans);
+			break;
+		}
+
 		drawText(mFontText, Utils::String::toUpper(item->label), x + mPad, y + h * 0.12f, tw, h * 0.42f, fg, ALIGN_LEFT, trans);
 
 		std::string sub = item->toggle || (disabled && !item->disabledLabel.empty()) ? state : item->loading ? "..." : Utils::String::toUpper(item->subLabel);
