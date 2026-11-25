@@ -60,6 +60,8 @@ void BasicGameListView::onFileChanged(FileData* file, FileChangeType change)
 
 void BasicGameListView::populateList(const std::vector<FileData*>& files)
 {
+	invalidateArtworkResidency();
+
 	updateHeaderLogoAndText();
 
 	mList.clear();

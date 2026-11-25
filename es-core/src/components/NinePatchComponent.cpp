@@ -27,7 +27,7 @@ NinePatchComponent::~NinePatchComponent()
 	}
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 
 	if (mVertices != NULL)
 		delete[] mVertices;
@@ -146,13 +146,16 @@ void NinePatchComponent::buildVertices()
 
 void NinePatchComponent::render(const Transform4x4f& parentTrans)
 {
+	if (mVisible && !mTexture && !mPath.empty())
+		setImagePath(mPath);
+
 	if (!mVisible || mTexture == nullptr)
 		return;
 
 	if (!mTextureLoaded && mTexture && mTexture->isLoaded())
 	{
 		mTextureLoaded = true;
-		mTexture->setRequired(isShowing());
+		mTexture->setRequired(isShowing(), this);
 
 		buildVertices();
 		updateColors();
@@ -314,20 +317,20 @@ void NinePatchComponent::fitTo(Vector2f size, Vector3f position, Vector2f paddin
 
 void NinePatchComponent::setImagePath(const std::string& path, bool asyncLoading)
 {
-	if (mPath == path)
+	if (mPath == path && (mTexture || path.empty()))
 		return;
 
 	mPath = path;
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 
 	auto prev = mTexture;
 	mTexture = TextureResource::get(mPath, false, true, !asyncLoading);
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (isShowing() && mTexture != nullptr)
-		mTexture->setRequired(true);
+		mTexture->setRequired(true, this);
 
 	buildVertices();
 }
@@ -404,8 +407,10 @@ void NinePatchComponent::onShow()
 {
 	GuiComponent::onShow();
 
+	preloadArtwork(true);
+
 	if (mTexture != nullptr)
-		mTexture->setRequired(true);	
+		mTexture->setRequired(true, this);
 }
 
 void NinePatchComponent::onHide()
@@ -413,9 +418,7 @@ void NinePatchComponent::onHide()
 	GuiComponent::onHide();
 
 #if defined(USE_OPENGLES_30)
-	// Post-process textures are raw renderer objects rather than reloadable
-	// TextureResources. Release the cache while the context is still valid so a
-	// renderer/context restart cannot leave this component holding a stale name.
+	// Free the texture while the renderer is still available.
 	if (mPostProcessTextureId != (unsigned int)-1)
 	{
 		Renderer::destroyTexture(mPostProcessTextureId);
@@ -424,7 +427,43 @@ void NinePatchComponent::onHide()
 #endif
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
+}
+
+void NinePatchComponent::preloadArtwork(bool prioritize)
+{
+	if (!mTexture && !mPath.empty())
+		setImagePath(mPath);
+
+	if (mTexture)
+	{
+		mTexture->reload(prioritize ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP);
+	}
+
+	GuiComponent::preloadArtwork(prioritize);
+}
+
+void NinePatchComponent::releaseArtwork()
+{
+	GuiComponent::releaseArtwork();
+
+	if (isShowing())
+		return;
+
+	if (mTexture)
+		mTexture->setRequired(false, this);
+
+	mTexture.reset();
+	mTextureLoaded = false;
+
+	delete[] mVertices;
+	mVertices = nullptr;
+
+	if (mPostProcessTextureId != (unsigned int)-1)
+	{
+		Renderer::destroyTexture(mPostProcessTextureId);
+		mPostProcessTextureId = (unsigned int)-1;
+	}
 }
 
 ThemeData::ThemeElement::Property NinePatchComponent::getProperty(const std::string name)

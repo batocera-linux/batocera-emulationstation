@@ -9,6 +9,7 @@
 #include "math/Vector2i.h"
 #include <memory>
 #include <functional>
+#include <list>
 
 class FileData;
 class Font;
@@ -128,7 +129,8 @@ private:
 		void* container;
 	};
 
-	std::vector<PostedFunction> mFunctions;
+	std::list<PostedFunction> mFunctions;
+	std::list<PostedFunction> mProcessingFunctions;
 
 	std::vector<GuiInfoPopup*> mNotificationPopups;
 	void updateNotificationPopups(int deltaTime);

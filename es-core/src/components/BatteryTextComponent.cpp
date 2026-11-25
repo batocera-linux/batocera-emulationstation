@@ -6,14 +6,9 @@
 #define UPDATE_NETWORK_DELAY	2000
 
 BatteryTextComponent::BatteryTextComponent(Window* window) : TextComponent(window), mDirty(true)
-{		
-	mBatteryInfo = Utils::Platform::BatteryInformation();
-
+{
 	WatchersManager::getInstance()->RegisterNotify(this);
-
-	BatteryLevelWatcher* watcher = WatchersManager::GetComponent<BatteryLevelWatcher>();
-	if (watcher != nullptr)
-		mBatteryInfo = watcher->getBatteryInfo();
+	mBatteryInfo = BatteryLevelWatcher::getSnapshot();
 }
 
 BatteryTextComponent::~BatteryTextComponent()
@@ -23,25 +18,21 @@ BatteryTextComponent::~BatteryTextComponent()
 
 void BatteryTextComponent::OnWatcherChanged(IWatcher* component)
 {
-	BatteryLevelWatcher* watcher = dynamic_cast<BatteryLevelWatcher*>(component);
-	if (watcher != nullptr)
-	{
-		mBatteryInfo = watcher->getBatteryInfo();
-		mDirty = true;
-	}
+	if (dynamic_cast<BatteryLevelWatcher*>(component) != nullptr)
+		mDirty.store(true);
 }
 
 void BatteryTextComponent::update(int deltaTime)
 {
 	TextComponent::update(deltaTime);
-		
-	if (!mDirty)
+
+	if (!mDirty.exchange(false))
 		return;
-	
+
+	mBatteryInfo = BatteryLevelWatcher::getSnapshot();
+
 	if (Settings::getInstance()->getString("ShowBattery") != "text")
 		mBatteryInfo.hasBattery = false;
-	else 
-		mBatteryInfo = Utils::Platform::queryBatteryInformation();
 
 	setVisible(mBatteryInfo.hasBattery && mBatteryInfo.level >= 0);
 
@@ -59,6 +50,4 @@ void BatteryTextComponent::update(int deltaTime)
 		mSize.x() = sx;
 		setSize(sz);
 	}
-
-	mDirty = false;
 }

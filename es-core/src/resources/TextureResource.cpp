@@ -8,9 +8,10 @@
 #include "Log.h"
 #include "renderers/Renderer.h"
 
-TextureDataManager		TextureResource::sTextureDataManager;
-std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
-std::set<TextureResource*> 	TextureResource::sNonDynamicTextureResources;
+TextureDataManager				TextureResource::sTextureDataManager;
+TextureResource::TextureCache			TextureResource::sTextureMap;
+TextureResource::TextureCache::iterator		TextureResource::sTextureCleanupPosition = TextureResource::sTextureMap.end();
+std::set<TextureResource*> 			TextureResource::sNonDynamicTextureResources;
 
 TextureResource::TextureResource(const std::string& path, bool tile, bool linear, bool dynamic, bool allowAsync, const MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
 {
@@ -29,7 +30,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 
 			if (allowAsync && Settings::getInstance()->getBool("AsyncImages")) // && ImageIO::loadImageSize(ResourceManager::getInstance()->getResourcePath(path), &width, &height))
 				data->setScalable(Utils::FileSystem::isSVG(path));
-			else				
+			else
 				sTextureDataManager.load(data, true); // Force the texture manager to load it using a blocking load
 		}
 		else
@@ -41,7 +42,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 
 			mTextureData->setDynamic(false);
 			mTextureData->initFromPath(path);
-			mTextureData->load();			
+			mTextureData->load();
 		}
 	}
 	else
@@ -58,7 +59,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 TextureResource::~TextureResource()
 {
 	LOG(LogDebug) << "~TextureResource";
-	
+
 	if (mTextureData == nullptr)
 		sTextureDataManager.remove(this);
 	else if (sNonDynamicTextureResources.size() > 0)
@@ -69,16 +70,25 @@ TextureResource::~TextureResource()
 	}
 }
 
-void TextureResource::cleanupTextureResourceCache()
+void TextureResource::cleanupTextureResourceCache(size_t maxEntries)
 {
-	std::vector<TextureKeyType> toRemove;
+	size_t remaining = sTextureMap.size();
 
-	for (auto item : sTextureMap)
-		if (item.second.expired())
-			toRemove.push_back(item.first);
+	if (maxEntries != 0 && remaining > maxEntries)
+		remaining = maxEntries;
 
-	for (auto tmp : toRemove)
-		sTextureMap.erase(tmp);
+	while (remaining > 0)
+	{
+		if (sTextureCleanupPosition == sTextureMap.end())
+			sTextureCleanupPosition = sTextureMap.begin();
+
+		if (sTextureCleanupPosition->second.expired())
+			sTextureCleanupPosition = sTextureMap.erase(sTextureCleanupPosition);
+		else
+			++sTextureCleanupPosition;
+
+		--remaining;
+	}
 }
 
 std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool linear, bool forceLoad, bool dynamic, bool asReloadable, const MaxSizeInfo* maxSize, const std::string& shareId)
@@ -121,9 +131,14 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 
 					if (dt->isLoaded() && !dt->isMaxSizeValid())
 					{
-						dt->releaseVRAM();
-						dt->releaseRAM();
-						dt->load();
+						if (rc->mTextureData)
+						{
+							dt->releaseVRAM();
+							dt->releaseRAM();
+							dt->load();
+						}
+						else
+							sTextureDataManager.load(dt, true);
 					}
 				}
 			}
@@ -131,7 +146,12 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 			return rc;
 		}
 		else if (!asReloadable)
+		{
+			if (sTextureCleanupPosition == foundTexture)
+				++sTextureCleanupPosition;
+
 			sTextureMap.erase(foundTexture);
+		}
 	}
 
 	// need to create it
@@ -158,7 +178,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 		tex->mForceLoad = forceLoad;
 
 		if (data != nullptr && !data->isLoaded())
-			data->load();
+			sTextureDataManager.load(data, true);
 	}
 
 	return tex;
@@ -221,14 +241,14 @@ void TextureResource::prioritize() const
 		sTextureDataManager.get(this, TextureLoadMode::MOVETOTOPONLY);
 }
 
-void TextureResource::setRequired(bool value) const
+void TextureResource::setRequired(bool value, const void* owner) const
 {
 	if (mTextureData != nullptr)
 		return;
-	
+
 	auto data = sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	if (data != nullptr)
-		data->setRequired(value);	
+		data->setRequired(value, owner);
 }
 
 bool TextureResource::bind()
@@ -239,7 +259,7 @@ bool TextureResource::bind()
 		return true;
 	}
 
-	return sTextureDataManager.bind(this);	
+	return sTextureDataManager.bind(this);
 }
 
 void TextureResource::cancelAsync(std::shared_ptr<TextureResource> texture)
@@ -320,9 +340,19 @@ void TextureResource::reload(TextureLoadMode mode)
 		sTextureDataManager.get(this, mode);
 }
 
-void TextureResource::clearQueue()
+void TextureResource::setLoadingPaused(bool paused)
 {
-	sTextureDataManager.clearQueue();
+	sTextureDataManager.setLoadingPaused(paused);
+}
+
+void TextureResource::suspendLoading()
+{
+	sTextureDataManager.suspend();
+}
+
+void TextureResource::resumeLoading()
+{
+	sTextureDataManager.resume();
 }
 
 int TextureResource::getQueueSize()
@@ -330,14 +360,19 @@ int TextureResource::getQueueSize()
 	return sTextureDataManager.getQueueSize();
 }
 
+bool TextureResource::isLoadingIdle()
+{
+	return sTextureDataManager.isLoadingIdle();
+}
+
 const Vector2i TextureResource::getSize() const
-{ 	
+{
 	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data && data->isLoaded() ? data->getSize() : Vector2i::Zero(); //	mSize;
 }
 
-const Vector2f TextureResource::getPhysicalSize() const 
-{ 
+const Vector2f TextureResource::getPhysicalSize() const
+{
 	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureLoadMode::NOLOAD);
 	return data && data->isLoaded() ? data->getPhysicalSize() : Vector2f::Zero(); // mPhysicalSize;
 }

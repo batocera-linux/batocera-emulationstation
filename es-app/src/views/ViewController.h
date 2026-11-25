@@ -8,9 +8,9 @@
 #include <vector>
 #include <functional>
 #include <future>
+#include "views/gamelist/ISimpleGameListView.h"
 
 class IGameListView;
-class ISimpleGameListView;
 class SystemData;
 class SystemView;
 class Window;
@@ -38,10 +38,6 @@ public:
 
 	virtual ~ViewController();
 
-	// Try to completely populate the GameListView map.
-	// Caches things so there's no pauses during transitions.
-	void preload();
-
 	// If a basic view detected a metadata change, it can request to recreate
 	// the current gamelist view (as it may change to be detailed).
 	void reloadGameListView(IGameListView* gamelist);
@@ -53,7 +49,7 @@ public:
 	// Navigation.
 	void goToNextGameList();
 	void goToPrevGameList();
-	void goToGameList(SystemData* system, bool forceImmediate = false);
+	void goToGameList(SystemData* system, bool forceImmediate = false, FileData* selectedGame = nullptr);
 	bool goToGameList(const std::string& systemName, bool forceImmediate = false);
 	void goToSystemView(SystemData* system, bool forceImmediate = false);
 	void goToSystemView(std::string& systemName, bool forceImmediate = false, ViewMode mode = SYSTEM_SELECT);
@@ -121,6 +117,7 @@ private:
 	static ViewController* sInstance;
 
 	void playViewTransition(bool forceImmediate);
+	void releaseInactiveGameListView();
 	bool doLaunchGame(FileData* game, LaunchGameOptions options);
 	bool checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center, Vector2f targetSize);
 	std::shared_future<bool> checkMissingBiosAsync(FileData* game);
@@ -130,6 +127,7 @@ private:
 
 	std::shared_ptr<GuiComponent> mCurrentView;
 	std::map< SystemData*, std::shared_ptr<IGameListView> > mGameListViews;
+	std::map<SystemData*, ISimpleGameListView::NavigationState> mGameListNavigation;
 	std::shared_ptr<SystemView> mSystemListView;
 	
 	Transform4x4f mCamera;

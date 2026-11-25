@@ -5,6 +5,13 @@
 class NetworkStateWatcher : public IWatcher
 {
 public:
+	struct Snapshot
+	{
+		bool connected = false;
+		bool planeMode = false;
+	};
+
+	static Snapshot getSnapshot();
 	NetworkStateWatcher();
 
 	bool isConnected() { return mIsConnected; }
@@ -21,5 +28,4 @@ protected:
 private:
 	bool mIsConnected;
 	bool mIsPlaneMode;
-	bool mIsPlaneModeSupported;
 };

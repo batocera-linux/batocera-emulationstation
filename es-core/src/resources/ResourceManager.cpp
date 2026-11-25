@@ -183,6 +183,34 @@ bool ResourceManager::fileExists(const std::string& path) const
 	return Utils::FileSystem::exists(Utils::FileSystem::getCanonicalPath(path));
 }
 
+ResourceManager::ReloadableList::const_iterator
+ResourceManager::eraseReloadable(ReloadableList::const_iterator iter)
+{
+	// Move the cleanup cursor before erasing its entry.
+	if (mCleanupCursor == iter)
+		++mCleanupCursor;
+
+	return mReloadables.erase(iter);
+}
+
+void ResourceManager::cleanupExpiredReloadables()
+{
+	const unsigned int scanBudget = 16;
+
+	if (mCleanupCursor == mReloadables.cend())
+		mCleanupCursor = mReloadables.cbegin();
+
+	for (unsigned int scanned = 0;
+		scanned < scanBudget && mCleanupCursor != mReloadables.cend();
+		++scanned)
+	{
+		if ((*mCleanupCursor)->data.expired())
+			mCleanupCursor = eraseReloadable(mCleanupCursor);
+		else
+			++mCleanupCursor;
+	}
+}
+
 void ResourceManager::unloadAll()
 {
 	auto iter = mReloadables.cbegin();
@@ -200,7 +228,7 @@ void ResourceManager::unloadAll()
 			iter++;
 		}
 		else
-			iter = mReloadables.erase(iter);	
+			iter = eraseReloadable(iter);
 	}
 }
 
@@ -222,7 +250,7 @@ void ResourceManager::reloadAll()
 			iter++;
 		}
 		else
-			iter = mReloadables.erase(iter);		
+			iter = eraseReloadable(iter);
 	}
 }
 
@@ -253,6 +281,6 @@ void ResourceManager::removeReloadable(std::weak_ptr<IReloadable> reloadable)
 			iter++;
 		}
 		else
-			iter = mReloadables.erase(iter);
+			iter = eraseReloadable(iter);
 	}
 }

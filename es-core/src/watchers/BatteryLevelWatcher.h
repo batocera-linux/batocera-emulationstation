@@ -6,6 +6,7 @@
 class BatteryLevelWatcher : public IWatcher
 {
 public:
+	static Utils::Platform::BatteryInformation getSnapshot();
 	Utils::Platform::BatteryInformation& getBatteryInfo() { return mBatteryInfo; }
 
 protected:

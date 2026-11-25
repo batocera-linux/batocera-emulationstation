@@ -13,6 +13,7 @@
 #include "Window.h"
 #include "LocaleES.h"
 #include "guis/GuiSettings.h"
+#include <algorithm>
 #include <set>
 #include "components/SwitchComponent.h"
 #include "ApiSystem.h"
@@ -73,6 +74,8 @@ ISimpleGameListView::~ISimpleGameListView()
 
 void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
+	invalidateArtworkResidency();
+
 	using namespace ThemeFlags;
 	mBackground.applyTheme(theme, getName(), "background", ALL);
 	mHeaderImage.applyTheme(theme, getName(), "logo", ALL);
@@ -113,6 +116,7 @@ void ISimpleGameListView::onFileChanged(FileData* /*file*/, FileChangeType /*cha
 	if (!cursor->isPlaceHolder())
 	{
 		populateList(cursor->getParent()->getChildrenListToDisplay());
+		resetLastCursor();
 		setCursor(cursor);
 	}
 	else
@@ -121,8 +125,83 @@ void ISimpleGameListView::onFileChanged(FileData* /*file*/, FileChangeType /*cha
 			mCursorStack.pop();
 
 		populateList(mRoot->getChildrenListToDisplay());
+		resetLastCursor();
 		setCursor(cursor);
 	}
+}
+
+ISimpleGameListView::NavigationState
+ISimpleGameListView::saveNavigationState()
+{
+        NavigationState state;
+
+        auto folders = mCursorStack;
+        while (!folders.empty())
+        {
+                state.folders.push_back(folders.top()->getPath());
+                folders.pop();
+        }
+
+        state.cursorIndex = getCursorIndex();
+
+        auto cursor = getCursor();
+        if (cursor != nullptr)
+        {
+                state.syntheticCursor = cursor == mLastParentFolderData || cursor->isPlaceHolder();
+
+                if (!state.syntheticCursor)
+                        state.cursorPath = cursor->getPath();
+        }
+
+        return state;
+}
+
+void ISimpleGameListView::restoreNavigationState(const NavigationState& state)
+{
+        std::stack<FileData*> folders;
+
+        FolderData* parent = mRoot;
+        // Folders are saved deepest first.
+        for (auto it = state.folders.rbegin(); it != state.folders.rend(); ++it)
+        {
+                auto children = parent->getChildrenListToDisplay();
+                auto folder = std::find_if(children.begin(), children.end(), [&](FileData* child) {
+                        return child->getType() == FOLDER && child->getPath() == *it;
+                });
+                if (folder == children.end())
+                        break;
+
+                parent = static_cast<FolderData*>(*folder);
+                folders.push(parent);
+        }
+
+        mCursorStack = folders;
+
+        if (!folders.empty())
+                repopulate();
+
+        resetLastCursor();
+
+        auto entries = getFileDataEntries();
+
+        if (!state.cursorPath.empty())
+        {
+                for (auto file : entries)
+                {
+                        if (file != nullptr && !file->isPlaceHolder() &&
+                                file->getPath() == state.cursorPath)
+                        {
+                                setCursor(file);
+                                return;
+                        }
+                }
+        }
+
+        // The new view creates its own parent and placeholder rows.
+        // Restore those rows by position.
+        if (state.syntheticCursor && folders.size() == state.folders.size() && state.cursorIndex >= 0 &&
+                state.cursorIndex < static_cast<int>(entries.size()))
+                setCursorIndex(state.cursorIndex);
 }
 
 void ISimpleGameListView::moveToFolder(FolderData* folder)

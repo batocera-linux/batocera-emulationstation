@@ -338,17 +338,18 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 		}
 	}
 
-	// Storyboards. Manage bindings on 'enabled' property
-	for (auto storyBoards : comp->mStoryBoards)
+	for (const auto& storyBoards : comp->mStoryBoards)
 	{
-		for (auto anim : storyBoards.second->animations)
+		const auto& animations = storyBoards.second->getAnimations();
+		for (std::size_t i = 0; i < animations.size(); ++i)
 		{
+			const auto& anim = animations[i];
 			if (anim->enabledExpression.empty())
 				continue;
-			
+
 			std::string xp = anim->enabledExpression;
 			std::string evaluableExpression = updateBoundExpression(xp, bindable, text != nullptr && showDefaultText);
-			
+
 			bool value = false;
 
 			if (bindable != nullptr)
@@ -362,7 +363,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 				catch (...) { }
 			}
 
-			anim->enabled = value;
+			storyBoards.second->setAnimationEnabled(i, value);
 		}
 
 	}

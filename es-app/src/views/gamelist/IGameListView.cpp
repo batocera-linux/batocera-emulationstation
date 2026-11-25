@@ -6,6 +6,21 @@
 #include "Sound.h"
 #include "Window.h"
 
+void IGameListView::onShow()
+{
+	invalidateArtworkResidency();
+	GuiComponent::onShow();
+}
+
+void IGameListView::releaseArtwork()
+{
+	if (isShowing() || mArtworkReleased)
+		return;
+
+	GuiComponent::releaseArtwork();
+	mArtworkReleased = true;
+}
+
 void IGameListView::setTheme(const std::shared_ptr<ThemeData>& theme)
 {
 	mTheme = theme;

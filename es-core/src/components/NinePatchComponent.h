@@ -50,6 +50,10 @@ public:
 
 	void onShow() override;
 	void onHide() override;
+
+	void preloadArtwork(bool prioritize = false) override;
+	void releaseArtwork() override;
+
 	void onPaddingChanged() override;
 
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;

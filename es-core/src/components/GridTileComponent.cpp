@@ -22,6 +22,7 @@
 GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBackground(window), mLabel(window), mVideo(nullptr), mVideoPlaying(false), mHasItemTemplate(false)
 {
 	mHasStandardMarquee = false;
+	mSelected = false;
 	mSelectedZoomPercent = 1.0f;
 	mAnimPosition = Vector3f(0, 0);
 	mVideo = nullptr;
@@ -46,7 +47,7 @@ GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBa
 	addChild(&(*mImage));
 	addChild(&mLabel);
 
-	setSelected(false);
+	setSelected(false, false, nullptr, true);
 	setVisible(true);
 }
 
@@ -1161,7 +1162,10 @@ void GridTileComponent::onShow()
 	GuiComponent::onShow();	
 
 	if (mSelected)
+	{
 		handleStoryBoard(true);
+		startVideo();
+	}
 	else
 	{
 		if (selectStoryboard())
@@ -1218,11 +1222,18 @@ void GridTileComponent::stopVideo()
 
 void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f* pPosition, bool force, bool startsVideo)
 {
-	if (!isShowing() || !ALLOWANIMATIONS)
+	const bool showing = isShowing();
+
+	if (!showing || !ALLOWANIMATIONS)
 		allowAnimation = false;
+
+	startsVideo = startsVideo && showing;
 
 	if (mSelected == selected && !force)
 	{
+		if (!showing)
+			return;
+
 		if (mHasItemTemplate && !mSelected)
 		{
 			if (selectStoryboard("scroll"))
@@ -1243,7 +1254,7 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 		return;
 	}
 
-	if (mSelected != selected)
+	if (mSelected != selected && showing)
 		handleStoryBoard(selected);
 
 	mSelected = selected;

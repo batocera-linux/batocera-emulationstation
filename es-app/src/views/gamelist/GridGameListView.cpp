@@ -43,6 +43,38 @@ GridGameListView::GridGameListView(Window* window, FolderData* root, const std::
 	updateInfoPanel();
 }
 
+ISimpleGameListView::NavigationState
+GridGameListView::saveNavigationState()
+{
+	auto state = ISimpleGameListView::saveNavigationState();
+	state.gridViewport = mGrid.saveViewportState();
+	return state;
+}
+
+void GridGameListView::restoreNavigationState(
+	const NavigationState& state)
+{
+	ISimpleGameListView::restoreNavigationState(state);
+
+	auto cursor = getCursor();
+	if (cursor == nullptr)
+		return;
+
+	if (!state.cursorPath.empty())
+	{
+		if (cursor->isPlaceHolder() || cursor->getPath() != state.cursorPath)
+		{
+			return;
+		}
+	}
+	else if (!state.syntheticCursor)
+	{
+		return;
+	}
+
+	mGrid.restoreViewportState(state.gridViewport);
+}
+
 void GridGameListView::onShow()
 {
 	ISimpleGameListView::onShow();
@@ -171,6 +203,8 @@ const std::string GridGameListView::getImagePath(FileData* file)
 
 void GridGameListView::populateList(const std::vector<FileData*>& files)
 {
+	invalidateArtworkResidency();
+
 	updateHeaderLogoAndText();
 
 	mGrid.resetLastCursor();
@@ -259,7 +293,7 @@ void GridGameListView::updateInfoPanel()
 
 	FileData* file = (mGrid.size() == 0 || mGrid.isScrolling()) ? NULL : mGrid.getSelected();
 	bool isClearing = mGrid.getObjects().size() == 0 && mGrid.getCursorIndex() == 0 && mGrid.getScrollingVelocity() == 0;
-	mDetails.updateControls(file, isClearing, mGrid.getCursorIndex() - mGrid.getLastCursor());
+	mDetails.updateControls(file, isClearing, mGrid.getCursorDisplayIndex() - mGrid.getLastCursor());
 }
 
 void GridGameListView::addPlaceholder()

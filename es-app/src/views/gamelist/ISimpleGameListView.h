@@ -4,10 +4,13 @@
 
 #include "components/ImageComponent.h"
 #include "components/TextComponent.h"
+#include "components/GridViewportState.h"
 #include "views/gamelist/IGameListView.h"
 #include <stack>
 #include <set>
 #include "MultiStateInput.h"
+#include <string>
+#include <vector>
 
 class ISimpleGameListView : public IGameListView
 {
@@ -36,6 +39,18 @@ public:
 	
 	virtual std::vector<std::string> getEntriesLetters() override;
 	// virtual std::vector<FileData*> getFileDataEntries() = 0;
+
+	struct NavigationState
+	{
+		std::vector<std::string> folders;
+		std::string cursorPath;
+		int cursorIndex = 0;
+		bool syntheticCursor = false;
+		GridViewportState gridViewport;
+	};
+
+	virtual NavigationState saveNavigationState();
+	virtual void restoreNavigationState(const NavigationState& state);
 
 	void	moveToFolder(FolderData* folder);
 	FolderData*		getCurrentFolder();

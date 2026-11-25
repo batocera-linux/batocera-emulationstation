@@ -1120,12 +1120,6 @@ void GuiMenu::openDeveloperSettings()
 
 	s->addGroup(_("OPTIMIZATIONS"));
 
-	// preload UI
-	auto preloadUI = std::make_shared<SwitchComponent>(mWindow);
-	preloadUI->setState(Settings::getInstance()->getBool("PreloadUI"));
-	s->addWithDescription(_("PRELOAD UI ELEMENTS ON BOOT"), _("Reduces lag when entering gamelists from the system menu, increases boot time"), preloadUI);
-	s->addSaveFunc([preloadUI] { Settings::getInstance()->setBool("PreloadUI", preloadUI->getState()); });
-
 	// preload Medias
 	auto preloadMedias = std::make_shared<SwitchComponent>(mWindow);
 	preloadMedias->setState(Settings::getInstance()->getBool("PreloadMedias"));
@@ -1164,6 +1158,18 @@ void GuiMenu::openDeveloperSettings()
 	optimizeVram->setState(Settings::getInstance()->getBool("OptimizeVRAM"));
 	s->addWithLabel(_("OPTIMIZE IMAGES VRAM USE"), optimizeVram);
 	s->addSaveFunc([optimizeVram] { Settings::getInstance()->setBool("OptimizeVRAM", optimizeVram->getState()); });
+
+#ifndef _WIN32
+	auto textureDiskCache = std::make_shared<SwitchComponent>(mWindow);
+	textureDiskCache->setState(Settings::getInstance()->getBool("TextureDiskCache"));
+	s->addWithDescription(_("TEXTURE DISK CACHE"), _("Store cached textures on disk to speed up loading."), textureDiskCache);
+	s->addSaveFunc([s, textureDiskCache] { if (Settings::getInstance()->setBool("TextureDiskCache", textureDiskCache->getState())) s->setVariable("reboot", true); });
+
+	auto textureDiskCacheSize = std::make_shared<SliderComponent>(mWindow, 500.f, 5000.f, 250.f, "MB");
+	textureDiskCacheSize->setValue((float)(Settings::getInstance()->getInt("TextureDiskCacheSize")));
+	s->addWithLabel(_("TEXTURE DISK CACHE SIZE"), textureDiskCacheSize);
+	s->addSaveFunc([s, textureDiskCacheSize] { if (Settings::getInstance()->setInt("TextureDiskCacheSize", (int)round(textureDiskCacheSize->getValue()))) s->setVariable("reboot", true); });
+#endif
 
 	// optimizeVideo
 	auto optimizeVideo = std::make_shared<SwitchComponent>(mWindow);

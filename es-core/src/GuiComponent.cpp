@@ -641,7 +641,7 @@ bool GuiComponent::storyBoardExists(const std::string& name, const std::string& 
 		if (propertyName.empty())
 			return true;
 		
-		for (auto animation : it->second->animations)
+		for (const auto& animation : it->second->getAnimations())
 			if (animation->propertyName == propertyName)
 				return true;
 	}
@@ -664,7 +664,7 @@ bool GuiComponent::selectStoryboard(const std::string& name)
 			mStoryboardAnimator = nullptr;
 		}
 
-		mStoryboardAnimator = new StoryboardAnimator(this, sb->second);
+		mStoryboardAnimator = new StoryboardAnimator(this, sb->second.get());
 		return true;
 	}
 
@@ -751,18 +751,17 @@ void GuiComponent::loadThemedChildren(const ThemeData::ThemeElement* elem)
 			std::pair<std::string, ThemeData::ThemeElement>* item = (std::pair<std::string, ThemeData::ThemeElement>*) &child;
 
 			// Default pos & size properties
-			if (child.second.properties.find("pos") == child.second.properties.cend() &&
-				child.second.properties.find("x") == child.second.properties.cend() &&
-				child.second.properties.find("y") == child.second.properties.cend())
-				item->second.properties["pos"] = Vector2f(0, 0);
+			if (!child.second.has("pos") &&
+				!child.second.has("x") &&
+				!child.second.has("y"))
+				item->second.setProperty("pos", Vector2f(0, 0));
 
-			if (child.second.properties.find("size") == child.second.properties.cend() &&
-				child.second.properties.find("minSize") == child.second.properties.cend() &&
-				child.second.properties.find("maxSize") == child.second.properties.cend() &&
-				child.second.properties.find("w") == child.second.properties.cend() &&
-				child.second.properties.find("w") == child.second.properties.cend() &&
-				child.second.properties.find("h") == child.second.properties.cend())
-				item->second.properties["size"] = Vector2f(1, 1);
+			if (!child.second.has("size") &&
+				!child.second.has("minSize") &&
+				!child.second.has("maxSize") &&
+				!child.second.has("w") &&
+				!child.second.has("h"))
+				item->second.setProperty("size", Vector2f(1, 1));
 
 			addChild(comp);
 			ThemeData::applySelfTheme(comp, child.second);			
@@ -896,7 +895,7 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 	else
 		setClickAction("");
 
-	for (auto prop : elem->properties)
+	for (const auto& prop : elem->getProperties())
 		if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
 			mBindingExpressions[Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;
 
@@ -954,6 +953,33 @@ void GuiComponent::onHide()
 
 	for (auto child : mChildren)
 		child->onHide();
+}
+
+bool GuiComponent::visitArtworkChildren(
+	const std::function<bool(GuiComponent*)>& visitor)
+{
+	for (auto child : mChildren)
+	{
+		if (!visitor(child))
+			return false;
+	}
+
+	return true;
+}
+
+void GuiComponent::preloadArtwork(bool prioritize)
+{
+	for (auto child : mChildren)
+		child->preloadArtwork(prioritize);
+}
+
+void GuiComponent::releaseArtwork()
+{
+	visitArtworkChildren([](GuiComponent* child)
+	{
+		child->releaseArtwork();
+		return true;
+	});
 }
 
 void GuiComponent::onScreenSaverActivate()

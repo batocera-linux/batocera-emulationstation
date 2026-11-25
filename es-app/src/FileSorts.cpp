@@ -3,6 +3,9 @@
 
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include <memory>
+#include <unordered_map>
+#include <utility>
 
 namespace FileSorts
 {
@@ -71,6 +74,185 @@ namespace FileSorts
 		mSortTypes.push_back(SortType(RELEASEDATE_SYSTEM_DESCENDING, &compareReleaseYearSystem, false, _("RELEASE YEAR, SYSTEM, DESCENDING"), _U("\uF161 ")));
 	}
 
+	namespace
+	{
+		int getGameSortValue(const FileData* file, MetaDataId field)
+		{
+			const auto& metadata = file->getMetadata();
+			return metadata.getType() == GAME_METADATA
+				? metadata.getInt(field) : 0;
+		}
+
+		template<typename GetKey, typename Less>
+		std::function<bool(const FileData*, const FileData*)>
+		prepareKeys(const std::vector<FileData*>& files,
+			GetKey getKey, Less less)
+		{
+			using Key = decltype(getKey(files.front()));
+			using Keys = std::unordered_map<const FileData*, Key>;
+
+			auto keys = std::make_shared<Keys>();
+			keys->reserve(files.size());
+
+			for (auto file : files)
+			{
+				if (keys->find(file) == keys->end())
+					keys->emplace(file, getKey(file));
+			}
+
+			return [keys, less](const FileData* first, const FileData* second)
+			{
+				return less(keys->at(first), keys->at(second));
+			};
+		}
+
+		struct SystemYearKey
+		{
+			std::string system;
+			std::string year;
+			std::string name;
+		};
+	}
+
+	std::function<bool(const FileData*, const FileData*)> prepareComparison(
+		const std::vector<FileData*>& files, const SortType& sort)
+	{
+		auto comparison = sort.comparisonFunction;
+
+		auto textLess = [](const std::string& first, const std::string& second)
+		{
+			return Utils::String::compareIgnoreCase(first, second) < 0;
+		};
+
+		if (comparison == &compareName)
+		{
+			const bool ignoreArticles = Settings::IgnoreLeadingArticles();
+			const auto articles = Utils::String::commaStringToVector(_("A,AN,THE"));
+
+			return prepareKeys(files,
+				[ignoreArticles, articles](const FileData* file)
+				{
+					auto name = file->getSortName();
+					return ignoreArticles
+						? stripLeadingArticle(name, articles) : name;
+				}, textLess);
+		}
+
+		if (comparison == &compareRating)
+		{
+			return prepareKeys(files,
+				[](const FileData* file)
+				{
+					return file->getMetadata().getFloat(MetaDataId::Rating);
+				}, std::less<float>());
+		}
+
+		if (comparison == &compareTimesPlayed || comparison == &compareGameTime || comparison == &compareNumPlayers)
+		{
+			const auto field = comparison == &compareTimesPlayed
+				? MetaDataId::PlayCount
+				: comparison == &compareGameTime
+					? MetaDataId::GameTime : MetaDataId::Players;
+
+			const bool gamesOnly = comparison != &compareNumPlayers;
+
+			return prepareKeys(files,
+				[field, gamesOnly](const FileData* file)
+				{
+					return gamesOnly
+						? getGameSortValue(file, field)
+						: file->getMetadata().getInt(field);
+				}, std::less<int>());
+		}
+
+		if (comparison == &compareLastPlayed || comparison == &compareReleaseDate)
+		{
+			const auto field = comparison == &compareLastPlayed
+				? MetaDataId::LastPlayed : MetaDataId::ReleaseDate;
+
+			return prepareKeys(files,
+				[field](const FileData* file)
+				{
+					return file->getMetadata().get(field);
+				}, std::less<std::string>());
+		}
+
+		if (comparison == &compareGenre || comparison == &compareDeveloper || comparison == &comparePublisher)
+		{
+			const auto field = comparison == &compareGenre
+				? MetaDataId::Genre
+				: comparison == &compareDeveloper
+					? MetaDataId::Developer : MetaDataId::Publisher;
+
+			return prepareKeys(files,
+				[field](const FileData* file)
+				{
+					return file->getMetadata().get(field);
+				}, textLess);
+		}
+
+		if (comparison == &compareSystem)
+		{
+			return prepareKeys(files,
+				[](const FileData* file)
+				{
+					return const_cast<FileData*>(file)
+						->getSourceFileData()->getSystemName();
+				}, textLess);
+		}
+
+		if (comparison == &compareFileCreationDate)
+		{
+			return prepareKeys(files,
+				[](const FileData* file)
+				{
+					return Utils::FileSystem::getFileCreationDate(
+						file->getPath()).getIsoString();
+				}, std::less<std::string>());
+		}
+
+		if (comparison == &compareSystemReleaseYear || comparison == &compareReleaseYearSystem)
+		{
+			const bool systemFirst = comparison == &compareSystemReleaseYear;
+
+			return prepareKeys(files,
+				[](const FileData* file)
+				{
+					SystemYearKey key;
+					key.system = const_cast<FileData*>(file)
+						->getSourceFileData()->getSystemName();
+					key.year = file->getMetadata()
+						.get(MetaDataId::ReleaseDate).substr(0, 4);
+					key.name = const_cast<FileData*>(file)->getName();
+					return key;
+				},
+				[systemFirst, textLess](
+					const SystemYearKey& first, const SystemYearKey& second)
+				{
+					if (systemFirst)
+					{
+						if (first.system != second.system)
+							return textLess(first.system, second.system);
+
+						if (first.year != second.year)
+							return first.year < second.year;
+					}
+					else
+					{
+						if (first.year != second.year)
+							return first.year < second.year;
+
+						if (first.system != second.system)
+							return textLess(first.system, second.system);
+					}
+
+					return textLess(first.name, second.name);
+				});
+		}
+
+		return comparison;
+	}
+
 	//returns if file1 should come before file2
 	bool compareName(const FileData* file1, const FileData* file2)
 	{
@@ -116,20 +298,12 @@ namespace FileSorts
 
 	bool compareTimesPlayed(const FileData* file1, const FileData* file2)
 	{
-		//only games have playcount metadata
-		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
-			return (file1)->getMetadata().getInt(MetaDataId::PlayCount) < (file2)->getMetadata().getInt(MetaDataId::PlayCount);
-
-		return false;
+		return getGameSortValue(file1, MetaDataId::PlayCount) < getGameSortValue(file2, MetaDataId::PlayCount);
 	}
 
 	bool compareGameTime(const FileData* file1, const FileData* file2)
 	{
-		//only games have playcount metadata
-		if (file1->getMetadata().getType() == GAME_METADATA && file2->getMetadata().getType() == GAME_METADATA)
-			return (file1)->getMetadata().getInt(MetaDataId::GameTime) < (file2)->getMetadata().getInt(MetaDataId::GameTime);
-
-		return false;
+		return getGameSortValue(file1, MetaDataId::GameTime) < getGameSortValue(file2, MetaDataId::GameTime);
 	}
 
 	bool compareLastPlayed(const FileData* file1, const FileData* file2)

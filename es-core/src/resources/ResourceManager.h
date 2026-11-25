@@ -34,6 +34,8 @@ public:
 	void addReloadable(std::weak_ptr<IReloadable> reloadable);
 	void removeReloadable(std::weak_ptr<IReloadable> reloadable);
 
+	void cleanupExpiredReloadables();
+
 	void unloadAll();
 	void reloadAll();
 
@@ -58,7 +60,12 @@ private:
 		bool locked;
 	};
 
-	std::list<std::shared_ptr<ReloadableInfo>> mReloadables;
+	using ReloadableList = std::list<std::shared_ptr<ReloadableInfo>>;
+
+	ReloadableList mReloadables;
+	ReloadableList::const_iterator mCleanupCursor = mReloadables.cend();
+
+	ReloadableList::const_iterator eraseReloadable(ReloadableList::const_iterator iter);
 };
 
 #endif // ES_CORE_RESOURCES_RESOURCE_MANAGER_H

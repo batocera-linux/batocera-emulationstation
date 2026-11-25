@@ -33,10 +33,12 @@ public:
 		to.type = ThemeData::ThemeElement::Property::PropertyType::Unknown;
 	}
 
+	virtual ~ThemeAnimation() = default;
+
 	std::string propertyName;
 	int duration;
 	int begin;
-	bool autoReverse;	
+	bool autoReverse;
 	int repeat; // 0 = forever
 	EasingMode easingMode;
 
@@ -46,30 +48,22 @@ public:
 
 	ThemeData::ThemeElement::Property from;
 	ThemeData::ThemeElement::Property to;
-	
-	virtual ThemeData::ThemeElement::Property computeValue(double value) = 0;
 
-	void ensureInitialValue(const ThemeData::ThemeElement::Property& initialValue)
-	{
-		if (from.type == ThemeData::ThemeElement::Property::PropertyType::Unknown)
-			from = initialValue;
+	virtual ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const = 0;
 
-		if (to.type == ThemeData::ThemeElement::Property::PropertyType::Unknown)
-			to = initialValue;
-	}	
 };
 
 class ThemeFloatAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		return from.f * (1.0 - value) + to.f * value;
-	}	
+	}
 };
 
 class ThemeColorAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		return Renderer::mixColors(from.i, to.i, value);
 	}
@@ -77,11 +71,11 @@ class ThemeColorAnimation : public ThemeAnimation
 
 class ThemeVector2Animation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		auto ret = Vector2f(
 			from.v.x() * (1.0f - value) + to.v.x() * value,
-			from.v.y() * (1.0f - value) + to.v.y() * value);		
+			from.v.y() * (1.0f - value) + to.v.y() * value);
 
 		return ret;
 	}
@@ -89,7 +83,7 @@ class ThemeVector2Animation : public ThemeAnimation
 
 class ThemeVector4Animation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		return Vector4f(
 			from.r.x() * (1.0f - value) + to.r.x() * value,
@@ -101,7 +95,7 @@ class ThemeVector4Animation : public ThemeAnimation
 
 class ThemeStringAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		if (value >= 0.9999)
 			return to.s;
@@ -112,7 +106,7 @@ class ThemeStringAnimation : public ThemeAnimation
 
 class ThemePathAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		if (value >= 0.9999)
 			return to.s;
@@ -124,7 +118,7 @@ class ThemePathAnimation : public ThemeAnimation
 
 class ThemeBoolAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		if (value >= 0.9999)
 			return to.b;
@@ -136,7 +130,7 @@ class ThemeBoolAnimation : public ThemeAnimation
 
 class ThemeSoundAnimation : public ThemeAnimation
 {
-	ThemeData::ThemeElement::Property computeValue(double value) override
+	ThemeData::ThemeElement::Property computeValue(double value, const ThemeData::ThemeElement::Property& from, const ThemeData::ThemeElement::Property& to) const override
 	{
 		if (value >= 0.9999)
 			return to.s;

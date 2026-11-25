@@ -6,6 +6,7 @@
 #include "GuiComponent.h"
 #include "components/ImageComponent.h"
 #include "watchers/WatchersManager.h"
+#include <atomic>
 
 class Window;
 
@@ -25,7 +26,7 @@ public:
 private:
 	bool mConnected;
 	bool mPlaneMode;
-	bool mDirty;
+	std::atomic<bool> mDirty;
 	
 	std::string mNetworkIcon;
 	std::string mPlanemodeIcon;

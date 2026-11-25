@@ -12,6 +12,7 @@
 #include "Window.h"
 #include "components/ComponentGrid.h"
 #include <set>
+#include <memory>
 #include "BindingManager.h"
 
 #ifdef _RPI_
@@ -406,7 +407,7 @@ void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_
 
 	auto elem = theme->getElement(getName(), element, "image");
 
-	if (forceLoad || (elem && elem->properties.size() > 0 && (!elem->has("visible") || elem->get<bool>("visible"))))
+	if (forceLoad || (elem && !elem->getProperties().empty() && (!elem->has("visible") || elem->get<bool>("visible"))))
 	{
 		createImageComponent(pImage, element == "md_fanart", element == "md_fanart" && Settings::AllImagesAsync());			
 		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));	
@@ -1415,16 +1416,17 @@ void DetailedContainerHost::update(int deltaTime)
 
 		if (!dc->anyComponentHasStoryBoardRunning() || index > 4)
 		{
+			auto retired = std::shared_ptr<DetailedContainer>(dc);
 			it = mContainers.erase(it);
 
-			for (auto cp : dc->getComponents())
+			for (auto cp : retired->getComponents())
 			{
 				cp->setVisible(false);
 				cp->onHide();
 			}
 
-			mWindow->postToUiThread([dc]() { delete dc; }, this);
-			// break;
+			// The callback keeps the old container alive until the UI releases it.
+			mWindow->postToUiThread([retired] {}, this);
 		}
 		else
 			++it;

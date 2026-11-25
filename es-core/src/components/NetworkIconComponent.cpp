@@ -11,12 +11,9 @@ NetworkIconComponent::NetworkIconComponent(Window* window) : ImageComponent(wind
 
 	WatchersManager::getInstance()->RegisterNotify(this);
 
-	NetworkStateWatcher* watcher = WatchersManager::GetComponent<NetworkStateWatcher>();
-	if (watcher != nullptr)
-	{
-		mConnected = watcher->isConnected();
-		mPlaneMode = watcher->isPlaneMode();
-	}
+	auto state = NetworkStateWatcher::getSnapshot();
+	mConnected = state.connected;
+	mPlaneMode = state.planeMode;
 }
 
 NetworkIconComponent::~NetworkIconComponent()
@@ -26,21 +23,20 @@ NetworkIconComponent::~NetworkIconComponent()
 
 void NetworkIconComponent::OnWatcherChanged(IWatcher* component)
 {
-	NetworkStateWatcher* watcher = dynamic_cast<NetworkStateWatcher*>(component);
-	if (watcher != nullptr)
-	{
-		mConnected = watcher->isConnected();
-		mPlaneMode = watcher->isPlaneMode();
-		mDirty = true;
-	}	
+	if (dynamic_cast<NetworkStateWatcher*>(component) != nullptr)
+		mDirty.store(true);
 }
 
 void NetworkIconComponent::update(int deltaTime)
 {
 	ImageComponent::update(deltaTime);
 
-	if (mDirty)
-	{		
+	if (mDirty.exchange(false))
+	{
+		auto state = NetworkStateWatcher::getSnapshot();
+		mConnected = state.connected;
+		mPlaneMode = state.planeMode;
+
 		bool networkConnected = Settings::ShowNetworkIndicator() && mConnected;
 		bool planemodeEnabled = Settings::ShowNetworkIndicator() && mPlaneMode;
 
@@ -55,8 +51,6 @@ void NetworkIconComponent::update(int deltaTime)
 
 			setImage(txName);
 		}
-
-		mDirty = false;
 	}
 }
 
@@ -75,5 +69,7 @@ void NetworkIconComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 
 	if (elem->has("planemodeIcon") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("planemodeIcon")))
 		mPlanemodeIcon = elem->get<std::string>("planemodeIcon");
+
+	mDirty.store(true);
 }
 

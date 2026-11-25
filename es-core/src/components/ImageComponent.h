@@ -109,10 +109,14 @@ public:
 
 	void onShow() override;
 	void onHide() override;
+	void preloadArtwork(bool prioritize = false) override;
+	void releaseArtwork() override;
 	void update(int deltaTime) override;
 	void onPaddingChanged() override;
 
-	void setPlaylist(std::shared_ptr<IPlaylist> playList);
+	void setPlaylist(std::shared_ptr<IPlaylist> playList, bool selectFirst = true);
+	std::shared_ptr<IPlaylist> getPlaylist() const { return mPlaylist; }
+	std::string getPlaylistMediaPath() const { return mPath; }
 
 	std::string getImagePath() { return mPath; }
 	bool isTiled();
@@ -153,6 +157,7 @@ private:
 	void updateColors();
 	void updateRoundCorners();
 	bool watchTextureLoading();
+	void restoreArtwork();
 
 	void fadeIn(bool textureLoaded);
 
@@ -177,6 +182,11 @@ private:
 	bool mAllowFading;
 
 	std::string mPath;
+
+	bool mFileImage = false;
+	bool mArtworkReleased = false;
+	bool mImageTiled = false;
+	MaxSizeInfo mImageMaxSize = MaxSizeInfo::Empty;
 
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;

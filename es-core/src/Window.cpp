@@ -130,6 +130,7 @@ bool Window::init(bool initRenderer, bool initInputManager)
 	if (initInputManager)
 		InputManager::getInstance()->init();
 
+	TextureResource::resumeLoading();
 	ResourceManager::getInstance()->reloadAll();
 
 	//keep a reference to the default fonts, so they don't keep getting destroyed/recreated
@@ -199,7 +200,7 @@ void Window::deinit(bool deinitRenderer)
 	if (deinitRenderer)
 		InputManager::getInstance()->deinit();
 
-	TextureResource::clearQueue();
+	TextureResource::suspendLoading();
 	ResourceManager::getInstance()->unloadAll();
 
 	if (deinitRenderer)
@@ -432,6 +433,8 @@ void Window::processSongTitleNotifications()
 
 void Window::update(int deltaTime)
 {
+	ResourceManager::getInstance()->cleanupExpiredReloadables();
+	TextureResource::cleanupTextureResourceCache(16);
 	TextureResource::cleanupVRAM();
 
 	if (mLastShowCursor >= 0)
@@ -1230,17 +1233,29 @@ void Window::unregisterPostedFunctions(void* data)
 	if (data == nullptr)
 		return;
 
-	for (auto it = mFunctions.cbegin(); it != mFunctions.cend(); )
+	std::list<PostedFunction> cancelled;
+
 	{
-		if ((*it).container == data)
-			it = mFunctions.erase(it);
-		else
-			it++;
+		std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+
+		auto cancelMatching = [&](std::list<PostedFunction>& functions)
+		{
+			for (auto it = functions.begin(); it != functions.end(); )
+			{
+				auto current = it++;
+
+				if (current->container == data)
+					cancelled.splice(cancelled.end(), functions, current);
+			}
+		};
+
+		cancelMatching(mFunctions);
+		cancelMatching(mProcessingFunctions);
 	}
 }
 
 void Window::postToUiThread(const std::function<void()>& func, void* data)
-{	
+{
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
 	PostedFunction pf;
@@ -1257,19 +1272,28 @@ void Window::postToUiThread(const std::function<void()>& func, void* data)
 
 void Window::processPostedFunctions()
 {
-	std::vector<PostedFunction> functions;
+	{
+		std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
-	mNotificationMessagesLock.lock();
+		// New callbacks wait for the next update.
+		mProcessingFunctions.splice(mProcessingFunctions.end(), mFunctions);
+	}
 
-	for (auto func : mFunctions)
-		functions.push_back(func);
+	for (;;)
+	{
+		std::list<PostedFunction> current;
 
-	mFunctions.clear();
+		{
+			std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
-	mNotificationMessagesLock.unlock();
+			if (mProcessingFunctions.empty())
+				break;
 
-	for (auto func : functions)
-		TRYCATCH("processPostedFunction", func.func())
+			current.splice(current.end(), mProcessingFunctions, mProcessingFunctions.begin());
+		}
+
+		TRYCATCH("processPostedFunction", current.front().func())
+	}
 }
 
 void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
