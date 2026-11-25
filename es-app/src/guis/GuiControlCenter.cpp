@@ -222,7 +222,7 @@ GuiControlCenter::GuiControlCenter(Window* window, const std::string& xmlPath, f
 	: GuiComponent(window), mRefHeight(refHeight), mFitContent(fitContent),
 	mTab(0), mFocus(nullptr), mFocusTabs(false), mFocusHeader(-1), mShowFocus(true), mLayoutDirty(true), mDirty(true), mTabChosen(false),
 	mTitleH(0), mHeaderH(0), mTabsH(0), mFooterH(0), mHelpH(0), mHandleH(0), mContentH(0), mScroll(0),
-	mShown(0), mClosing(false), mClosed(false), mDragOffset(0),
+	mShown(0), mClosing(true), mClosed(true), mDragOffset(0),
 	mDrag(Drag::None), mDownScroll(0), mDownSheetScroll(0), mDownItem(nullptr),
 	mRepeatDir(0), mRepeatTime(0),
 	mSheetItem(nullptr), mSheetCursor(0), mSheetScroll(0), mSheetLoading(false)
