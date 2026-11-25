@@ -987,10 +987,34 @@ void GuiControlCenter::layout()
 	mHandleH = 0.7f * u;
 
 	float chrome = mTabsH + mHeaderH + mFooterH + mHelpH + mHandleH;
-	float cardH = mFitContent ? std::min(H * (mThemeHeight > 0 ? mThemeHeight : 1.0f), chrome + mContentH) : H;
+	float maxH = H * (mThemeHeight > 0 ? mThemeHeight : 1.0f);
 
-	bool moved = mCard.w != (int)cardW || mCard.h != (int)cardH;
-	mCard = Renderer::Rect((int)((W - cardW) / 2), 0, (int)cardW, (int)cardH);
+	// shorten the graphs rather than scroll them
+	int graphs = 0;
+	for (auto item : items)
+		graphs += item->kind == CcKind::Graph;
+
+	float excess = chrome + mContentH - maxH;
+	if (mFitContent && graphs > 0 && excess > 0)
+	{
+		int shrink = (int)std::ceil(std::min(excess / graphs, 0.7f * mRowH));
+		int shift = 0;
+		for (auto item : items)
+		{
+			item->rect.y -= shift;
+			if (item->kind == CcKind::Graph)
+			{
+				item->rect.h -= shrink;
+				shift += shrink;
+			}
+		}
+		mContentH -= shift;
+	}
+
+	int cardH = (int)std::ceil(mFitContent ? std::min(maxH, chrome + mContentH) : H);
+
+	bool moved = mCard.w != (int)cardW || mCard.h != cardH;
+	mCard = Renderer::Rect((int)((W - cardW) / 2), 0, (int)cardW, cardH);
 	if (moved)
 		updateHelpPrompts();
 	mScroll = clampf(mScroll, 0.0f, std::max(0.0f, mContentH - viewHeight()));
