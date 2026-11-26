@@ -96,6 +96,9 @@ bool FileData::restartRunningGameAtState(int slot)
 		if (state->slot != slot)
 			continue;
 
+		if (state->config != nullptr && !state->config->emulator.empty() && !state->config->isActiveConfig(game))
+			continue;
+
 		{
 			std::unique_lock<std::mutex> lock(sRestartLock);
 			sRestartGame = game;

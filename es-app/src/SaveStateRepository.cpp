@@ -66,6 +66,8 @@ void SaveStateRepository::refresh()
 	{
 		std::string path = rs->getDirectory(mSystem);
 
+		// a game can create its states directory while it runs
+		Utils::FileSystem::FileSystemCache::reset(path);
 		if (!Utils::FileSystem::exists(path))
 			continue;
 
@@ -97,7 +99,7 @@ void SaveStateRepository::refresh()
 			// screenshot
 			if (Utils::FileSystem::exists(state->fileName + ".png"))
 				state->screenshot = state->fileName + ".png";
-			else
+			else if (!(slot < 0 ? rs->autosave_image : rs->image).empty())
 			{
 				std::string screenshot = Utils::FileSystem::combine(path, slot < 0 ? rs->autosave_image : rs->image);
 				std::string basename = Utils::FileSystem::getFileName(file.path);

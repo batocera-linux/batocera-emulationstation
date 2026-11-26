@@ -346,6 +346,10 @@ std::string HttpApi::getRunningGameSaveStates()
 			if (!state->isSlotValid() || state->slot < -1)
 				continue;
 
+			// another emulator's states can't be loaded into the running one
+			if (state->config != nullptr && !state->config->emulator.empty() && !state->config->isActiveConfig(game))
+				continue;
+
 			std::string title = state->slot == -1 ? _("AUTO SAVE") : _("SLOT") + std::string(" ") + std::to_string(state->slot);
 
 			writer.StartObject();
