@@ -122,8 +122,20 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	}
 
 	// put the buttons into a ComponentGrid
-	mButtonGrid = makeButtonGrid(mWindow, mButtons);
+	float buttonsWidth = 0;
+	for (auto& button : mButtons)
+		buttonsWidth += button->getSize().x();
+
+	// a row that does not fit on screen is stacked instead
+	if (buttonsWidth > Renderer::getScreenWidth() - 4 * HORIZONTAL_PADDING_PX)
+		mButtonGrid = makeVerticalButtonGrid(mWindow, mButtons);
+	else
+		mButtonGrid = makeButtonGrid(mWindow, mButtons);
+
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 1), true, false, Vector2i(2, 1), GridFlags::BORDER_TOP);
+
+	if (mButtonGrid->getSize().x() > width)
+		width = mButtonGrid->getSize().x();
 
 	// decide final width
 	if(mMsg->getSize().x() < width && mButtonGrid->getSize().x() < width)
