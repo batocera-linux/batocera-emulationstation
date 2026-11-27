@@ -1,6 +1,7 @@
 #include "CustomFeatures.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
+#include "utils/Platform.h"
 #include "Log.h"
 #include "Paths.h"
 #include "SystemConf.h"
@@ -527,15 +528,20 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 	return ret;
 }
 
+static const std::string REQUIRES_BATTERY = "battery";
+
 bool CustomFeature::isAvailable() const
 {
+	if (requiredSetting == REQUIRES_BATTERY)
+		return Utils::Platform::queryBatteryInformation().hasBattery;
+
 	return requiredSetting.empty() || !SystemConf::getInstance()->get(requiredSetting).empty();
 }
 
 // with a required setting, only the choices it lists are offered
 std::vector<CustomFeatureChoice> CustomFeature::availableChoices() const
 {
-	if (requiredSetting.empty())
+	if (requiredSetting.empty() || requiredSetting == REQUIRES_BATTERY)
 		return choices;
 
 	auto supported = Utils::String::split(SystemConf::getInstance()->get(requiredSetting), ' ', true);
