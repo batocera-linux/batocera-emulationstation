@@ -994,6 +994,12 @@ void GuiControlCenter::layout()
 		}
 	}
 
+	// the tab's slider tracks line up after its longest label
+	mSliderLabelW = 7.0f * u;
+	for (auto item : items)
+		if (item->kind == CcKind::Slider)
+			mSliderLabelW = std::max(mSliderLabelW, mFontText->sizeText(Utils::String::toUpper(item->label), 1.0f).x() + mPad);
+
 	for (size_t i = 0; i < items.size(); )
 	{
 		Item* item = items[i];
@@ -1131,7 +1137,7 @@ float GuiControlCenter::viewHeight()
 
 void GuiControlCenter::sliderTrack(Item* item, float& x, float& w)
 {
-	float labelW = std::min(item->rect.w * 0.32f, 7.0f * mUnit);
+	float labelW = std::min(item->rect.w * 0.32f, mSliderLabelW);
 	float valueW = mFontText->sizeText("100%", 1.0f).x();
 	for (auto& label : item->valueLabels)
 		valueW = std::max(valueW, mFontText->sizeText(label, 1.0f).x());

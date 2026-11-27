@@ -123,6 +123,7 @@ private:
 	float mUnit;
 	float mRowH;
 	float mPad;
+	float mSliderLabelW = 0;
 	bool mFitContent;
 
 	std::vector<Item*> mItems;
