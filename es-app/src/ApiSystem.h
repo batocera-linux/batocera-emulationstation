@@ -286,6 +286,8 @@ public:
 #ifdef BATOCERA
     bool isHdrSupported();
     bool isVrrSupported();
+    std::vector<std::string> getBatteryChargeModes();
+    void setBatteryChargeMode(const std::string& mode);
 #endif
 	std::vector<std::string> getCustomRunners();
 

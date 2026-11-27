@@ -756,6 +756,16 @@ bool ApiSystem::isVrrSupported()
 {
 	return executeScript("batocera-resolution supportVrr", nullptr).second == 0;
 }
+
+std::vector<std::string> ApiSystem::getBatteryChargeModes()
+{
+	return executeEnumerationScript("batocera-battery-charge list");
+}
+
+void ApiSystem::setBatteryChargeMode(const std::string& mode)
+{
+	executeScript("batocera-battery-charge set " + mode);
+}
 #endif
 
 std::vector<std::string> ApiSystem::getCustomRunners() 
