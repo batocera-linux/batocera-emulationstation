@@ -1383,7 +1383,7 @@ void GuiControlCenter::request(const std::shared_ptr<Binding>& b)
 	});
 }
 
-static const int HIDDEN_SAMPLE_MS = 5000;
+static const int HIDDEN_SAMPLE_MS = 30000;
 
 static std::string historyPath()
 {
