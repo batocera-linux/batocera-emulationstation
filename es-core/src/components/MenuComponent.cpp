@@ -531,6 +531,26 @@ std::shared_ptr<ComponentGrid> makeButtonGrid(Window* window, const std::vector<
 	return buttonGrid;
 }
 
+std::shared_ptr<ComponentGrid> makeVerticalButtonGrid(Window* window, const std::vector< std::shared_ptr<ButtonComponent> >& buttons)
+{
+	std::shared_ptr<ComponentGrid> buttonGrid = std::make_shared<ComponentGrid>(window, Vector2i(1, (int)buttons.size()));
+
+	float buttonWidth = 0;
+	for (auto& button : buttons)
+		buttonWidth = Math::max(buttonWidth, button->getSize().x());
+
+	for (int i = 0; i < (int)buttons.size(); i++)
+	{
+		buttons.at(i)->setSize(buttonWidth, buttons.at(i)->getSize().y());
+		buttonGrid->setEntry(buttons.at(i), Vector2i(0, i), true, false);
+	}
+
+	float rowHeight = buttons.at(0)->getSize().y() + BUTTON_GRID_VERT_PADDING / 2;
+	buttonGrid->setSize(buttonWidth + BUTTON_GRID_HORIZ_PADDING, rowHeight * (float)buttons.size() + BUTTON_GRID_VERT_PADDING / 2);
+
+	return buttonGrid;
+}
+
 std::shared_ptr<ImageComponent> makeArrow(Window* window)
 {
 	auto menuTheme = ThemeData::getMenuTheme();
