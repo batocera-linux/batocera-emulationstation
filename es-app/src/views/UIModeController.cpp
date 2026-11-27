@@ -4,11 +4,15 @@
 #include "views/ViewController.h"
 #include "Log.h"
 #include "Window.h"
+#include "InputConfig.h"
 
 #define fake_gettext_full _("Full")
 #define fake_gettext_kiosk _("Kiosk")
 #define fake_gettext_kid _("Kid")
 #define fake_gettext_basic _("Basic")
+
+extern char* BUTTON_OK;
+extern char* BUTTON_BACK;
 
 UIModeController *  UIModeController::sInstance = NULL;
 
@@ -83,9 +87,9 @@ bool UIModeController::listen(InputConfig * config, Input input)
 bool UIModeController::inputIsMatch(InputConfig * config, Input input)
 {
 	for (auto valstring : mInputVals)
-	{
-		if (config->isMappedLike(valstring, input) &&
-			(mPassKeySequence[mPassKeyCounter] == valstring[0]))
+	{		
+		auto test = InputConfig::buttonLabel(valstring);
+		if (config->isMappedLike(test, input) && (mPassKeySequence[mPassKeyCounter] == valstring[0]))
 		{
 			mPassKeyCounter++;
 			return true;
