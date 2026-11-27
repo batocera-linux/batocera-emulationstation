@@ -1723,6 +1723,41 @@ void GuiMenu::openSystemSettings()
 	}
 
 #ifdef BATOCERA
+	auto chargeModes = ApiSystem::getInstance()->getBatteryChargeModes();
+	if (!chargeModes.empty())
+	{
+		std::string selectedCharge = SystemConf::getInstance()->get("system.battery.chargemode");
+		if (selectedCharge.empty())
+			selectedCharge = "auto";
+
+		auto optionsCharge = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BATTERY CHARGING"), false);
+		optionsCharge->add(_("AUTO"), "auto", selectedCharge == "auto");
+		for (auto mode : chargeModes)
+		{
+			if (mode == "fast")
+				optionsCharge->add(_("FAST"), mode, selectedCharge == mode);
+			else if (mode == "standard")
+				optionsCharge->add(_("STANDARD"), mode, selectedCharge == mode);
+			else if (mode == "longlife")
+				optionsCharge->add(_("LONG LIFE"), mode, selectedCharge == mode);
+		}
+		if (!optionsCharge->hasSelection())
+			optionsCharge->selectFirstItem();
+
+		s->addWithDescription(_("BATTERY CHARGING"), _("Long life charges to about 80% to slow battery wear."), optionsCharge);
+		s->addSaveFunc([optionsCharge]
+		{
+			if (optionsCharge->changed())
+			{
+				std::string mode = optionsCharge->getSelected();
+				SystemConf::getInstance()->set("system.battery.chargemode", mode == "auto" ? "" : mode);
+				ApiSystem::getInstance()->setBatteryChargeMode(mode);
+			}
+		});
+	}
+#endif
+
+#ifdef BATOCERA
 	// video device
 	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
 	if (availableVideo.size())
