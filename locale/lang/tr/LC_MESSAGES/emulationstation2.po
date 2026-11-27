@@ -1098,25 +1098,25 @@ msgid "RED"
 msgstr "KIRMIZI"
 
 msgid "ORANGE"
-msgstr ""
+msgstr "TURUNCU"
 
 msgid "YELLOW"
-msgstr ""
+msgstr "SARI"
 
 msgid "GREEN"
 msgstr "YEŞİL"
 
 msgid "CYAN"
-msgstr ""
+msgstr "CAM GÖBEĞİ"
 
 msgid "BLUE"
 msgstr "MAVİ"
 
 msgid "PURPLE"
-msgstr ""
+msgstr "MOR"
 
 msgid "PINK"
-msgstr ""
+msgstr "PEMBE"
 
 msgid "WHITE"
 msgstr "BEYAZ"
@@ -1190,7 +1190,7 @@ msgid "GLOBAL HOTKEYS"
 msgstr "GENEL KISAYOL TUŞLARI"
 
 msgid "TRACKBALLS AND SPINNERS"
-msgstr ""
+msgstr "İZ TOPLARI VE KAYDIRMA TEKERLEKLERİ"
 
 msgid "LED HARDWARE"
 msgstr "LED DONANIM"
@@ -1214,16 +1214,16 @@ msgid "PULSE"
 msgstr "NABIZ"
 
 msgid "BATTERY"
-msgstr ""
+msgstr "PİL"
 
 msgid "BATTERY LEVELS"
-msgstr ""
+msgstr "PİL SEVİYELERİ"
 
 msgid "EDIT BATTERY LEVELS"
-msgstr ""
+msgstr "PİL SEVİYELERİNİ DÜZENLE"
 
 msgid "COLOR PRESET"
-msgstr ""
+msgstr "RENK ÖN AYARI"
 
 msgid "CUSTOM"
 msgstr "ÖZEL"
@@ -1238,50 +1238,50 @@ msgid "NOT CONNECTED"
 msgstr "BAĞLI DEĞİL"
 
 msgid "NUMBER OF LEVELS"
-msgstr ""
+msgstr "SEVİYE SAYISI"
 
 #, c-format
 msgid "LEVEL %i"
-msgstr ""
+msgstr "SEVİYE %i"
 
 msgid "FROM BATTERY LEVEL"
-msgstr ""
+msgstr "PİL SEVİYESİNE GÖRE"
 
 msgid "COLOR"
-msgstr ""
+msgstr "RENK"
 
 msgid "EFFECT"
-msgstr ""
+msgstr "ETKİ"
 
 msgid "FIXED"
-msgstr ""
+msgstr "SABİT"
 
 msgid "BLINK"
-msgstr ""
+msgstr "YANIP SÖNME"
 
 msgid "CHARGER PLUGGED IN"
-msgstr ""
+msgstr "ŞARJ CİHAZI TAKILI"
 
 msgid "PULSE LEVEL COLOR"
-msgstr ""
+msgstr "DARBE SEVİYESİ RENGİ"
 
 msgid "LEVEL COLOR"
-msgstr ""
+msgstr "SEVİYE RENGİ"
 
 msgid "BLINKING GREEN"
-msgstr ""
+msgstr "YANIP SÖNEN YEŞİL"
 
 msgid "PULSING GREEN"
-msgstr ""
+msgstr "DARBELİ YEŞİL"
 
 msgid "WHILE CHARGING"
-msgstr ""
+msgstr "ŞARJ OLURKEN"
 
 msgid "WHEN FULL"
-msgstr ""
+msgstr "DOLU OLDUĞUNDA"
 
 msgid "RESET TO DEFAULT"
-msgstr ""
+msgstr "VARSAYILANA SIFIRLA"
 
 msgid "SOUTH"
 msgstr "GÜNEY"
@@ -1347,28 +1347,28 @@ msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "BİRDEN FAZLA GENEL KISAYOL ALGILANDI"
 
 msgid "DECLARE A NEW TRACKBALL"
-msgstr ""
+msgstr "YENİ BİR İZ TOPU TANIMLA"
 
 msgid "DECLARE A NEW SPINNER"
-msgstr ""
+msgstr "YENİ BİR KAYDIRMA TEKERLEĞİ TANIMLA"
 
 msgid "TRACKBALLS"
-msgstr ""
+msgstr "İZ TOPLARI"
 
 msgid "USER DEFINED"
-msgstr ""
+msgstr "KULLANICI TANIMLI"
 
 msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
-msgstr ""
+msgstr "BU İZ TOPUNU KALDIRMAK İSTİYOR MUSUN"
 
 msgid "SPINNERS"
-msgstr ""
+msgstr "KAYDIRMA TEKERLEKLERİ"
 
 msgid "DO YOU WANT TO REMOVE THIS SPINNER"
-msgstr ""
+msgstr "BU KAYDIRMA TEKERLEĞİNİ KALDIRMAK İSTİYOR MUSUN"
 
 msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
-msgstr ""
+msgstr "CİHAZI MÜMKÜN OLDUĞUNCA FAZLA HAREKET ETTİRMEK İÇİN 8 SANİYENİZ VAR"
 
 msgid "BORDER SIZE"
 msgstr "KENAR BOYUTU"

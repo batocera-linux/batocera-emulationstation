@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-11-09 11:40+0100\n"
+"PO-Revision-Date: 2026-11-22 07:00+0100\n"
 "Last-Translator: Eder Etxebarria\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
@@ -1103,25 +1103,25 @@ msgid "RED"
 msgstr "GORRIA"
 
 msgid "ORANGE"
-msgstr ""
+msgstr "LARANJA"
 
 msgid "YELLOW"
-msgstr ""
+msgstr "HORIA"
 
 msgid "GREEN"
 msgstr "BERDEA"
 
 msgid "CYAN"
-msgstr ""
+msgstr "ZIANA"
 
 msgid "BLUE"
 msgstr "URDINA"
 
 msgid "PURPLE"
-msgstr ""
+msgstr "MOREA"
 
 msgid "PINK"
-msgstr ""
+msgstr "ARROSA"
 
 msgid "WHITE"
 msgstr "ZURIA"
@@ -1196,7 +1196,7 @@ msgid "GLOBAL HOTKEYS"
 msgstr "LASTER-TEKLA OROKORRAK"
 
 msgid "TRACKBALLS AND SPINNERS"
-msgstr ""
+msgstr "TRACKBALLAK ETA SPINNERRAK"
 
 msgid "LED HARDWARE"
 msgstr "LED HARDWAREA"
@@ -1220,16 +1220,16 @@ msgid "PULSE"
 msgstr "PULTSUA"
 
 msgid "BATTERY"
-msgstr ""
+msgstr "BATERIA"
 
 msgid "BATTERY LEVELS"
-msgstr ""
+msgstr "BATERIA-MAILAK"
 
 msgid "EDIT BATTERY LEVELS"
-msgstr ""
+msgstr "EDITATU BATERIA-MAILAK"
 
 msgid "COLOR PRESET"
-msgstr ""
+msgstr "KOLORE-AURREZARPENA"
 
 msgid "CUSTOM"
 msgstr "PERTSONALIZATUA"
@@ -1244,50 +1244,50 @@ msgid "NOT CONNECTED"
 msgstr "KONEKTATU GABE"
 
 msgid "NUMBER OF LEVELS"
-msgstr ""
+msgstr "MAILA KOPURUA"
 
 #, c-format
 msgid "LEVEL %i"
-msgstr ""
+msgstr "%i. MAILA"
 
 msgid "FROM BATTERY LEVEL"
-msgstr ""
+msgstr "BATERIA-MAILA HONETATIK"
 
 msgid "COLOR"
-msgstr ""
+msgstr "KOLOREA"
 
 msgid "EFFECT"
-msgstr ""
+msgstr "EFEKTUA"
 
 msgid "FIXED"
-msgstr ""
+msgstr "FINKOA"
 
 msgid "BLINK"
-msgstr ""
+msgstr "KEINUKA"
 
 msgid "CHARGER PLUGGED IN"
-msgstr ""
+msgstr "KARGAGAILUA KONEKTATUTA"
 
 msgid "PULSE LEVEL COLOR"
-msgstr ""
+msgstr "MAILAREN KOLOREA PULTSUKA"
 
 msgid "LEVEL COLOR"
-msgstr ""
+msgstr "MAILAREN KOLOREA"
 
 msgid "BLINKING GREEN"
-msgstr ""
+msgstr "BERDEA KEINUKA"
 
 msgid "PULSING GREEN"
-msgstr ""
+msgstr "BERDEA PULTSUKA"
 
 msgid "WHILE CHARGING"
-msgstr ""
+msgstr "KARGATZEN ARI DELA"
 
 msgid "WHEN FULL"
-msgstr ""
+msgstr "BETETA DAGOENEAN"
 
 msgid "RESET TO DEFAULT"
-msgstr ""
+msgstr "BERREZARRI BALIO LEHENETSIAK"
 
 msgid "SOUTH"
 msgstr "HEGOA"
@@ -1353,28 +1353,28 @@ msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "LASTER-TEKLA OROKOR BAT BAINO GEHIAGO HAUTEMAN DA"
 
 msgid "DECLARE A NEW TRACKBALL"
-msgstr ""
+msgstr "ERREGISTRATU TRACKBALL BERRI BAT"
 
 msgid "DECLARE A NEW SPINNER"
-msgstr ""
+msgstr "ERREGISTRATU SPINNER BERRI BAT"
 
 msgid "TRACKBALLS"
-msgstr ""
+msgstr "TRACKBALLAK"
 
 msgid "USER DEFINED"
-msgstr ""
+msgstr "ERABILTZAILEAK DEFINITUA"
 
 msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL HAU KENDU NAHI DUZU"
 
 msgid "SPINNERS"
-msgstr ""
+msgstr "SPINNERRAK"
 
 msgid "DO YOU WANT TO REMOVE THIS SPINNER"
-msgstr ""
+msgstr "SPINNER HAU KENDU NAHI DUZU"
 
 msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
-msgstr ""
+msgstr "8 SEGUNDO DITUZU GAILUA AHALIK ETA GEHIEN MUGITZEKO"
 
 msgid "BORDER SIZE"
 msgstr "ERTZAREN TAMAINA"

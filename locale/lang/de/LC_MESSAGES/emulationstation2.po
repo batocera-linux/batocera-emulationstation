@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-10-27 19:55+0000\n"
+"PO-Revision-Date: 2026-11-26 13:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: de_DE\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "Searching"
 msgstr "Suche"
@@ -1101,25 +1101,25 @@ msgid "RED"
 msgstr "ROT"
 
 msgid "ORANGE"
-msgstr ""
+msgstr "ORANGE"
 
 msgid "YELLOW"
-msgstr ""
+msgstr "GELB"
 
 msgid "GREEN"
 msgstr "GRÜN"
 
 msgid "CYAN"
-msgstr ""
+msgstr "CYAN"
 
 msgid "BLUE"
 msgstr "BLAU"
 
 msgid "PURPLE"
-msgstr ""
+msgstr "VIOLETT"
 
 msgid "PINK"
-msgstr ""
+msgstr "PINK"
 
 msgid "WHITE"
 msgstr "WEISS"
@@ -1130,8 +1130,8 @@ msgstr "CONTROLLER TASTENBELEGUNG"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
 "TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
@@ -1195,7 +1195,7 @@ msgid "GLOBAL HOTKEYS"
 msgstr "GLOBALE HOTKEYS"
 
 msgid "TRACKBALLS AND SPINNERS"
-msgstr ""
+msgstr "TRACKBALLS UND SPINNER"
 
 msgid "LED HARDWARE"
 msgstr "LED-HARDWARE"
@@ -1219,16 +1219,16 @@ msgid "PULSE"
 msgstr "PULSIEREND"
 
 msgid "BATTERY"
-msgstr ""
+msgstr "AKKU"
 
 msgid "BATTERY LEVELS"
 msgstr ""
 
 msgid "EDIT BATTERY LEVELS"
-msgstr ""
+msgstr "AKKULADESTUFEN"
 
 msgid "COLOR PRESET"
-msgstr ""
+msgstr "FARBVOREINSTELLUNG"
 
 msgid "CUSTOM"
 msgstr "BENUTZERDEFINIERT"
@@ -1243,50 +1243,50 @@ msgid "NOT CONNECTED"
 msgstr "NICHT VERBUNDEN"
 
 msgid "NUMBER OF LEVELS"
-msgstr ""
+msgstr "ANZAHL DER STUFEN"
 
 #, c-format
 msgid "LEVEL %i"
-msgstr ""
+msgstr "STUFE %i"
 
 msgid "FROM BATTERY LEVEL"
-msgstr ""
+msgstr "AB AKKULADESTAND"
 
 msgid "COLOR"
-msgstr ""
+msgstr "FARBE"
 
 msgid "EFFECT"
-msgstr ""
+msgstr "EFFEKT"
 
 msgid "FIXED"
-msgstr ""
+msgstr "KONSTANT"
 
 msgid "BLINK"
-msgstr ""
+msgstr "BLINKEND"
 
 msgid "CHARGER PLUGGED IN"
-msgstr ""
+msgstr "LADEGERÄT ANGESCHLOSSEN"
 
 msgid "PULSE LEVEL COLOR"
-msgstr ""
+msgstr "LADESTANDSFARBE PULSIEREND"
 
 msgid "LEVEL COLOR"
-msgstr ""
+msgstr "LADESTANDSFARBE"
 
 msgid "BLINKING GREEN"
-msgstr ""
+msgstr "GRÜN BLINKEND"
 
 msgid "PULSING GREEN"
-msgstr ""
+msgstr "GRÜN PULSIEREND"
 
 msgid "WHILE CHARGING"
-msgstr ""
+msgstr "WÄHREND DES LADEVORGANGS"
 
 msgid "WHEN FULL"
-msgstr ""
+msgstr "BEI VOLLSTÄNDIGER LADUNG"
 
 msgid "RESET TO DEFAULT"
-msgstr ""
+msgstr "AUF STANDARDEINSTELLUNGEN ZURÜCKSETZEN"
 
 msgid "SOUTH"
 msgstr "SÜD"
@@ -1352,28 +1352,28 @@ msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "MEHR ALS EIN GLOBALER HOTKEY ERKANNT"
 
 msgid "DECLARE A NEW TRACKBALL"
-msgstr ""
+msgstr "NEUEN TRACKBALL HINZUFÜGEN"
 
 msgid "DECLARE A NEW SPINNER"
-msgstr ""
+msgstr "NEUEN SPINNER HINZUFÜGEN"
 
 msgid "TRACKBALLS"
-msgstr ""
+msgstr "TRACKBALLS"
 
 msgid "USER DEFINED"
-msgstr ""
+msgstr "BENUTZERDEFINIERT"
 
 msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
-msgstr ""
+msgstr "MÖCHTEST DU DIESEN TRACKBALL ENTFERNEN?"
 
 msgid "SPINNERS"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "DO YOU WANT TO REMOVE THIS SPINNER"
-msgstr ""
+msgstr "MÖCHTEST DU DIESEN SPINNER ENTFERNEN?"
 
 msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
-msgstr ""
+msgstr "DU HAST 8 SEKUNDEN, UM DAS GERÄT SO VIEL WIE MÖGLICH ZU BEWEGEN"
 
 msgid "BORDER SIZE"
 msgstr "RAHMENGRÖSSE"
@@ -2363,8 +2363,8 @@ msgstr "UI-ELEMENTE BEIM BOOTEN VORLADEN"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-"
-"Menü, verlängert Boot-Zeit"
+"Reduziert Verzögerungen bei der Eingabe von Spielelisten aus dem System-Menü,"
+" verlängert Boot-Zeit"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "MEDIEN-METADATEN BEIM BOOTEN VORLADEN"
@@ -3707,11 +3707,11 @@ msgid "INVALID CONTENT"
 msgstr "UNGÜLTIGER INHALT"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https://"
-"retroachievements.org"
+"Ein gültiger Zugang wird benötigt. Bitte registriere dich auf https:"
+"//retroachievements.org"
 
 msgid "SLOW"
 msgstr "LANGSAM"
@@ -4186,6 +4186,3 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d Sekunde her"
 msgstr[1] "%d Sekunden her"
-
-#~ msgid "up/down"
-#~ msgstr "hinauf/hinunter"
