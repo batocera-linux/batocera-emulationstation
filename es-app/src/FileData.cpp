@@ -793,7 +793,11 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	time_t tstart = time(NULL);
 
-	LOG(LogInfo) << "	" << command;
+	std::string logCommand = command;
+	if (!options.netplayClientPassword.empty())
+		logCommand = Utils::String::replace(logCommand, "-netplaypass " + options.netplayClientPassword, "-netplaypass ***");
+
+	LOG(LogInfo) << "	" << logCommand;
 
 	auto p2kConv = convertP2kFile();
 
