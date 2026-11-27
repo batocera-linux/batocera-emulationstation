@@ -629,6 +629,311 @@ msgstr "AKTUALIZACJA JEST GOTOWA"
 msgid "REBOOT TO APPLY"
 msgstr "ZRESTARTUJ ABY ZASTOSOWAĆ"
 
+msgid "NOT PAIRED"
+msgstr ""
+
+msgid "PAIRED"
+msgstr ""
+
+msgid "PAIRED AS"
+msgstr ""
+
+msgid "ROMM"
+msgstr ""
+
+msgid "SERVER"
+msgstr "SERWER"
+
+msgid "ALLOW SELF-SIGNED CERTIFICATE"
+msgstr ""
+
+msgid "Only for HTTPS servers using a certificate you created yourself."
+msgstr ""
+
+msgid "ACCOUNT"
+msgstr "KONTO"
+
+msgid "STATUS"
+msgstr ""
+
+msgid "PAIR THIS DEVICE"
+msgstr ""
+
+msgid "ENTER A PAIRING CODE"
+msgstr ""
+
+msgid "LIBRARY"
+msgstr ""
+
+msgid "PAUSED"
+msgstr ""
+
+msgid "SYNCHRONIZING..."
+msgstr ""
+
+msgid "SYNC STATUS"
+msgstr ""
+
+msgid "SYNCHRONIZE NOW"
+msgstr ""
+
+msgid "ROMM SYNCHRONIZATION STARTED"
+msgstr ""
+
+msgid "ROMM SYNCHRONIZATION ALREADY RUNNING"
+msgstr ""
+
+msgid "APPLY LIBRARY CHANGES"
+msgstr ""
+
+msgid "SYSTEMS"
+msgstr "SYSTEMY"
+
+msgid "DOWNLOAD MISSING BIOS"
+msgstr ""
+
+msgid "CHECKING BIOS FILES..."
+msgstr ""
+
+msgid "BIOS FROM ROMM"
+msgstr ""
+
+msgid "BIOS FILES DOWNLOADED FROM ROMM"
+msgstr ""
+
+msgid "MISSING BIOS FILES NOT ON ROMM"
+msgstr ""
+
+msgid "FAILED DOWNLOADS"
+msgstr ""
+
+msgid "LIBRARY MANAGEMENT"
+msgstr ""
+
+msgid "Media, favorites, play time, cache"
+msgstr ""
+
+msgid "SERVER & ACCOUNT"
+msgstr ""
+
+msgid "MEDIA"
+msgstr ""
+
+msgid "SYNC FROM LIBRARY"
+msgstr ""
+
+msgid "DOWNLOAD ALONG WITH ROM"
+msgstr ""
+
+msgid "Besides the media synced from the library"
+msgstr ""
+
+msgid "IMAGE SHOWN"
+msgstr ""
+
+msgid "AUTOMATIC"
+msgstr ""
+
+msgid ""
+"Automatic: the cover, else the large cover, a screenshot, the title screen..."
+msgstr ""
+
+msgid "FAVORITES, PLAY TIME & SAVES"
+msgstr ""
+
+msgid "SYNC FAVORITES"
+msgstr ""
+
+msgid "Games in your RomM favorites are Batocera favorites."
+msgstr ""
+
+msgid "Send the play time of RomM games to RomM."
+msgstr ""
+
+msgid "Pair this device again to allow it."
+msgstr ""
+
+msgid "Refused by RomM: pair this device again."
+msgstr ""
+
+msgid "SYNC PLAY TIME"
+msgstr ""
+
+msgid "SYNC SAVES"
+msgstr ""
+
+msgid "Saves and save states follow you between devices through RomM."
+msgstr ""
+
+msgid "STORAGE"
+msgstr "PRZECHOWYWANIE DANYCH"
+
+msgid "USED"
+msgstr ""
+
+msgid "MEDIA CACHE SIZE"
+msgstr ""
+
+msgid "UNLIMITED"
+msgstr "NIEOGRANICZONE"
+
+msgid "CLEAN UP LOCAL CACHE"
+msgstr ""
+
+msgid "CLEANING UP..."
+msgstr ""
+
+msgid "FILES REMOVED"
+msgstr ""
+
+msgid "SPACE FREED"
+msgstr ""
+
+msgid "MAINTENANCE"
+msgstr ""
+
+msgid "FULL RESYNC"
+msgstr ""
+
+msgid "UNPAIR THIS DEVICE"
+msgstr ""
+
+msgid "ENTER THE SERVER ADDRESS FIRST."
+msgstr ""
+
+msgid "CONTACTING THE SERVER..."
+msgstr ""
+
+msgid "UNABLE TO REACH THE ROMM SERVER"
+msgstr ""
+
+msgid "ROMM PAIRING CODE"
+msgstr ""
+
+msgid "PAIRING..."
+msgstr ""
+
+msgid "PAIRING FAILED"
+msgstr ""
+
+msgid "PAIRED WITH ROMM"
+msgstr ""
+
+msgid "NO ROMM GAMES YET. SYNCHRONIZE FIRST."
+msgstr ""
+
+msgid "ROMM SYSTEMS"
+msgstr ""
+
+msgid "GAMES"
+msgstr ""
+
+msgid "NO SYNCHRONIZATION IN PROGRESS"
+msgstr ""
+
+msgid "CANCELLING..."
+msgstr ""
+
+msgid "SYNCHRONIZATION PAUSED"
+msgstr ""
+
+msgid "UNPAUSE SYNC"
+msgstr ""
+
+msgid "CANCEL SYNC"
+msgstr ""
+
+msgid "SYNCHRONIZATION IN PROGRESS"
+msgstr ""
+
+msgid "PAUSE SYNC"
+msgstr ""
+
+msgid "DOWNLOAD MEDIA AGAIN"
+msgstr ""
+
+msgid "A SYNCHRONIZATION IS RUNNING. TRY AGAIN WHEN IT IS OVER."
+msgstr ""
+
+msgid "SELECT AT LEAST ONE MEDIA TYPE."
+msgstr ""
+
+msgid ""
+"DOWNLOAD THE SELECTED MEDIA AGAIN FOR ALL ROMM GAMES NOT ON THIS DEVICE?"
+msgstr ""
+
+msgid "DOWNLOADING MEDIA AGAIN"
+msgstr ""
+
+msgid "NO GAME DOWNLOADED FROM ROMM ON THIS DEVICE YET."
+msgstr ""
+
+msgid "DOWNLOAD AGAIN"
+msgstr ""
+
+#, c-format
+msgid "FOR THE %d GAMES DOWNLOADED FROM ROMM?"
+msgstr ""
+
+msgid "DOWNLOADING MEDIA AGAIN IN THE BACKGROUND"
+msgstr ""
+
+msgid "NO ROMM COLLECTIONS YET. SYNCHRONIZE FIRST."
+msgstr ""
+
+msgid "ROMM COLLECTIONS"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED COLLECTIONS"
+msgstr ""
+
+msgid "SELECT AT LEAST ONE COLLECTION."
+msgstr ""
+
+msgid "ALL THE GAMES OF THESE COLLECTIONS ARE ALREADY ON THIS DEVICE."
+msgstr ""
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "SMART COLLECTION"
+msgstr ""
+
+msgid "SERVER ADDRESS"
+msgstr ""
+
+msgid "CHANGE THE ROMM SERVER?"
+msgstr ""
+
+#, c-format
+msgid ""
+"This device will be unpaired from %s and its library removed from the game "
+"lists. Downloaded games and saves are kept."
+msgstr ""
+
+msgid "CHANGE AND PAIR"
+msgstr ""
+
+msgid "REMOVING THE PREVIOUS LIBRARY..."
+msgstr ""
+
+msgid ""
+"UNPAIR THIS DEVICE FROM ROMM?\n"
+"DOWNLOADED GAMES ARE KEPT."
+msgstr ""
+
+msgid "INSTALLING"
+msgstr ""
+
+msgid "SYNCING FROM ROMM"
+msgstr ""
+
+msgid "GAMES DOWNLOADED"
+msgstr ""
+
+msgid "DOWNLOAD CANCELLED"
+msgstr ""
+
 msgid "CONNECT TO NETPLAY"
 msgstr "POŁĄCZ Z NETPLAY"
 
@@ -726,9 +1031,6 @@ msgstr "ZRESETUJ WSZYSTKIE FILTRY"
 
 msgid "FIND GAMES"
 msgstr "ZNAJDŹ GRY"
-
-msgid "SYSTEMS"
-msgstr "SYSTEMY"
 
 msgid "INSTALL ON A NEW DISK"
 msgstr "ZAINSTALUJ NA NOWYM DYSKU"
@@ -893,6 +1195,12 @@ msgstr "HASŁO WIDZA"
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY…"
 
+msgid "DOWNLOAD FROM ROMM"
+msgstr ""
+
+msgid "GAME DOWNLOADED"
+msgstr ""
+
 msgid "DELETE ITEM"
 msgstr "USUŃ ELEMENT"
 
@@ -962,6 +1270,88 @@ msgstr "EDYTOWANIE METADANYCH FOLDERU"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "EDYTUJ METADANE GRY"
+
+msgid "SYNCING SAVES WITH ROMM..."
+msgstr ""
+
+msgid "ROMM NOT REACHED: LOCAL SAVE USED"
+msgstr ""
+
+msgid "SAVES NOT SYNCED WITH ROMM"
+msgstr ""
+
+msgid ""
+"This in-game save was made outside hardcore mode on this device. Play it in "
+"hardcore mode anyway?"
+msgstr ""
+
+#, c-format
+msgid ""
+"This in-game save was made outside hardcore mode on %s. Play it in hardcore "
+"mode anyway?"
+msgstr ""
+
+msgid "PLAY"
+msgstr ""
+
+msgid "another device"
+msgstr ""
+
+#, c-format
+msgid ""
+"This session replaced the autosave from %s without starting from it. Which "
+"autosave do you keep?"
+msgstr ""
+
+msgid "THIS SESSION'S"
+msgstr ""
+
+msgid "THE OTHER ONE"
+msgstr ""
+
+msgid "THE SAVE COULD NOT BE SYNCED WITH ROMM."
+msgstr ""
+
+msgid "PLAY ANYWAY"
+msgstr ""
+
+msgid "REPLACE A HARDCORE SAVE?"
+msgstr ""
+
+msgid "SAVE CONFLICT"
+msgstr ""
+
+msgid "REPLACE THE HARDCORE SAVE"
+msgstr ""
+
+msgid "The hardcore save stays in RomM's history."
+msgstr ""
+
+msgid "USE THE CLOUD SAVE"
+msgstr ""
+
+#, c-format
+msgid "From %s. Yours is kept as a backup."
+msgstr ""
+
+msgid "KEEP THIS DEVICE'S SAVE"
+msgstr ""
+
+msgid "It becomes the latest; the other one stays in history."
+msgstr ""
+
+msgid "KEEP BOTH"
+msgstr ""
+
+msgid "This device's save goes on in a channel of its own."
+msgstr ""
+
+#, c-format
+msgid "From %s."
+msgstr ""
+
+msgid "PLAY WITHOUT SYNCING"
+msgstr ""
 
 msgid "GAME COLLECTION SETTINGS"
 msgstr "USTAWIENIA KOLEKCJI GIER"
@@ -1076,6 +1466,21 @@ msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
 msgid "NO DEVICE FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "File not found"
+msgstr ""
+
+msgid "Unsupported document"
+msgstr ""
+
+msgid "ON"
+msgstr "WŁ."
+
+msgid "OFF"
+msgstr "WYŁ."
 
 msgid "CONTROLLER SETTINGS"
 msgstr "USTAWIENIA KONTROLERÓW"
@@ -1484,6 +1889,21 @@ msgstr "LEWO"
 
 msgid "RIGHT"
 msgstr "PRAWO"
+
+msgid "PAIR WITH ROMM"
+msgstr ""
+
+msgid "THE PAIRING REQUEST WAS DENIED"
+msgstr ""
+
+msgid "THE PAIRING CODE EXPIRED"
+msgstr ""
+
+msgid "SCAN THE CODE WITH YOUR PHONE, OR OPEN"
+msgstr ""
+
+msgid "WAITING FOR APPROVAL..."
+msgstr ""
 
 msgid "FAVORITE SONGS"
 msgstr "ULUBIONE UTWORY"
@@ -2063,9 +2483,6 @@ msgstr "USŁUGI"
 msgid "DMD"
 msgstr "DMD"
 
-msgid "SERVER"
-msgstr "SERWER"
-
 msgid "DMDSERVER (for real dmd)"
 msgstr "SERWER DMD (dla prawdziwego dmd)"
 
@@ -2370,9 +2787,6 @@ msgstr ""
 msgid "DIRECTORY DEPTH TO INDEX"
 msgstr "GŁĘBOKOŚĆ INDEKSOWANIA KATALOGÓW"
 
-msgid "UNLIMITED"
-msgstr "NIEOGRANICZONE"
-
 msgid ""
 "Maximum depth scanned inside each ROM folder, to ignore subfolders with many "
 "files."
@@ -2527,6 +2941,9 @@ msgstr "WŁĄCZ KODI"
 msgid "LAUNCH KODI AT BOOT"
 msgstr "KODI PRZY STARCIE"
 
+msgid "ENABLE ROMM INTEGRATION"
+msgstr ""
+
 msgid "HARDWARE"
 msgstr "SPRZĘT"
 
@@ -2580,12 +2997,6 @@ msgstr "SPRAWDŹ BIOS PRZED URUCHOMIENIEM GRY"
 msgid "MULTIMEDIA KEYS"
 msgstr "KLUCZE MULTIMEDIÓW"
 
-msgid "ON"
-msgstr "WŁ."
-
-msgid "OFF"
-msgstr "WYŁ."
-
 msgid "BUTTON LED COLOR"
 msgstr "KOLOR DIODY PRZYCISKU"
 
@@ -2624,9 +3035,6 @@ msgstr "wł."
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
-
-msgid "STORAGE"
-msgstr "PRZECHOWYWANIE DANYCH"
 
 msgid "STORAGE DEVICE"
 msgstr "NOŚNIK DANYCH"
@@ -3715,6 +4123,9 @@ msgstr "POLUBIONE"
 msgid "DISLIKED"
 msgstr "NIEPOLUBIONE"
 
+msgid "SCROLL"
+msgstr ""
+
 msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
 
@@ -3808,11 +4219,98 @@ msgstr "TRACKBALL"
 msgid "SPINNER"
 msgstr "SPINNER"
 
+msgid "DOWNLOADED"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "POSIADA MEDIA"
 
 msgid "MISSING MEDIAS"
 msgstr "BRAK MEDIÓW"
+
+msgid "LAST SYNC"
+msgstr ""
+
+msgid "ROMM LIBRARY"
+msgstr ""
+
+msgid "CANCELLED"
+msgstr ""
+
+msgid "SYNC INTERRUPTED"
+msgstr ""
+
+msgid "MEDIA DOWNLOADED AGAIN"
+msgstr ""
+
+msgid "SYNCHRONIZATION CANCELLED"
+msgstr ""
+
+msgid "NOT CONFIGURED"
+msgstr ""
+
+msgid "AUTHORIZATION REJECTED, PAIR THIS DEVICE AGAIN"
+msgstr ""
+
+msgid "SERVER UNREACHABLE"
+msgstr ""
+
+msgid "INVALID SERVER RESPONSE"
+msgstr ""
+
+msgid "SYNC FAILED"
+msgstr ""
+
+msgid "SYNCHRONIZING GAMES"
+msgstr ""
+
+msgid "UPDATING GAMES"
+msgstr ""
+
+msgid "UNABLE TO WRITE THE LIBRARY CACHE"
+msgstr ""
+
+msgid "SYNC INCOMPLETE"
+msgstr ""
+
+msgid "ROMM LIBRARY UPDATED"
+msgstr ""
+
+msgid "ROMM COLLECTIONS UPDATED"
+msgstr ""
+
+msgid "DOWNLOADING MEDIA"
+msgstr ""
+
+msgid "ROMM MEDIA DOWNLOADED"
+msgstr ""
+
+msgid "A FOLDER WITH THIS NAME ALREADY EXISTS"
+msgstr ""
+
+msgid "A FILE WITH THIS NAME ALREADY EXISTS"
+msgstr ""
+
+msgid "DOWNLOAD FAILED"
+msgstr ""
+
+msgid "INSTALLATION FAILED"
+msgstr ""
+
+msgid "THIS GAME IS NOT AVAILABLE ON ROMM"
+msgstr ""
+
+msgid "THIS DEVICE IS NOT PAIRED WITH ROMM"
+msgstr ""
+
+msgid "UNABLE TO CREATE FOLDER"
+msgstr ""
+
+msgid "THIS GAME IS NOT IN ROMM"
+msgstr ""
+
+msgid "ROMM IS NOT CONFIGURED"
+msgstr ""
 
 msgid "SEARCHING RETROACHIEVEMENTS"
 msgstr "WYSZUKIWANIE RETROOSIĄGNIĘĆ"
@@ -4221,9 +4719,6 @@ msgstr[2] "%d sekund temu"
 
 #~ msgid "SCRAPER SETTINGS"
 #~ msgstr "USTAWIENIA SCRAPE'A"
-
-#~ msgid "ACCOUNT"
-#~ msgstr "KONTO"
 
 #~ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 #~ msgstr "TRYB INTERFEJSU UŻYTKOWNIKA JEST TERAZ ODBLOKOWANY"
