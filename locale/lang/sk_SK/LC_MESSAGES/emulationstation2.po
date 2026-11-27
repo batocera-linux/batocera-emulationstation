@@ -2932,6 +2932,22 @@ msgstr ""
 msgid "HARDWARE"
 msgstr "Hardvér"
 
+msgid "BATTERY CHARGING"
+msgstr ""
+
+msgid "FAST"
+msgstr ""
+
+msgid "STANDARD"
+msgstr ""
+
+msgid "LONG LIFE"
+msgstr ""
+
+#, c-format
+msgid "Long life charges to about 80% to slow battery wear."
+msgstr ""
+
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Nastaví predvolené rozlíšenie pre EmulationStation."
 

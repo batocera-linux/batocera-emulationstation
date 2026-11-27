@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v44b(2026/10/26)\n"
+"Project-Id-Version: batocera-es v44(2026/11/25)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2026-10-26 21:03+0900\n"
+"PO-Revision-Date: 2026-11-25 11:23+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1500,25 +1500,25 @@ msgid "RED"
 msgstr "赤"
 
 msgid "ORANGE"
-msgstr ""
+msgstr "オレンジ"
 
 msgid "YELLOW"
-msgstr ""
+msgstr "黄色"
 
 msgid "GREEN"
 msgstr "緑"
 
 msgid "CYAN"
-msgstr ""
+msgstr "シアン"
 
 msgid "BLUE"
 msgstr "青"
 
 msgid "PURPLE"
-msgstr ""
+msgstr "紫"
 
 msgid "PINK"
-msgstr ""
+msgstr "ピンク"
 
 msgid "WHITE"
 msgstr "白"
@@ -1593,7 +1593,7 @@ msgid "GLOBAL HOTKEYS"
 msgstr "グローバルホットキー"
 
 msgid "TRACKBALLS AND SPINNERS"
-msgstr ""
+msgstr "トラックボールとスピナー"
 
 msgid "LED HARDWARE"
 msgstr "LED ハードウェア"
@@ -1617,16 +1617,16 @@ msgid "PULSE"
 msgstr "パルス"
 
 msgid "BATTERY"
-msgstr ""
+msgstr "バッテリー"
 
 msgid "BATTERY LEVELS"
-msgstr ""
+msgstr "バッテリー残量"
 
 msgid "EDIT BATTERY LEVELS"
-msgstr ""
+msgstr "バッテリー残量の編集"
 
 msgid "COLOR PRESET"
-msgstr ""
+msgstr "カラープリセット"
 
 msgid "CUSTOM"
 msgstr "カスタム"
@@ -1641,50 +1641,50 @@ msgid "NOT CONNECTED"
 msgstr "未接続"
 
 msgid "NUMBER OF LEVELS"
-msgstr ""
+msgstr "残量段階数"
 
 #, c-format
 msgid "LEVEL %i"
-msgstr ""
+msgstr "残量 %i"
 
 msgid "FROM BATTERY LEVEL"
-msgstr ""
+msgstr "バッテリー残量から"
 
 msgid "COLOR"
-msgstr ""
+msgstr "色"
 
 msgid "EFFECT"
-msgstr ""
+msgstr "効果"
 
 msgid "FIXED"
-msgstr ""
+msgstr "固定"
 
 msgid "BLINK"
-msgstr ""
+msgstr "点滅"
 
 msgid "CHARGER PLUGGED IN"
-msgstr ""
+msgstr "充電器、接続"
 
 msgid "PULSE LEVEL COLOR"
-msgstr ""
+msgstr "色の変化や演出"
 
 msgid "LEVEL COLOR"
-msgstr ""
+msgstr "残量の色"
 
 msgid "BLINKING GREEN"
-msgstr ""
+msgstr "点滅する緑"
 
 msgid "PULSING GREEN"
-msgstr ""
+msgstr "ゆっくり点滅する緑"
 
 msgid "WHILE CHARGING"
-msgstr ""
+msgstr "充電中"
 
 msgid "WHEN FULL"
-msgstr ""
+msgstr "容量に達したとき"
 
 msgid "RESET TO DEFAULT"
-msgstr ""
+msgstr "標準に戻す"
 
 msgid "SOUTH"
 msgstr "S ボタン / 下位置"
@@ -1750,28 +1750,28 @@ msgid "MORE THAN ONE GLOBAL HOTKEY DETECTED"
 msgstr "重複したグローバルホットキーです"
 
 msgid "DECLARE A NEW TRACKBALL"
-msgstr ""
+msgstr "新しいトラックボールを登録"
 
 msgid "DECLARE A NEW SPINNER"
-msgstr ""
+msgstr "新しいスピナーを登録"
 
 msgid "TRACKBALLS"
-msgstr ""
+msgstr "トラックボール"
 
 msgid "USER DEFINED"
-msgstr ""
+msgstr "ユーザー定義"
 
 msgid "DO YOU WANT TO REMOVE THIS TRACKBALL"
-msgstr ""
+msgstr "このトラックボールを削除しますか？"
 
 msgid "SPINNERS"
-msgstr ""
+msgstr "スピナー"
 
 msgid "DO YOU WANT TO REMOVE THIS SPINNER"
-msgstr ""
+msgstr "このスピナーを削除しますか？"
 
 msgid "YOU'VE 8 SECONDS TO MOVE THE DEVICE AS MUCH AS POSSIBLE"
-msgstr ""
+msgstr "8秒間にできるだけデバイスを動かしてください"
 
 msgid "BORDER SIZE"
 msgstr "境界サイズ"
@@ -2931,6 +2931,22 @@ msgstr ""
 
 msgid "HARDWARE"
 msgstr "ハードウェア"
+
+msgid "BATTERY CHARGING"
+msgstr ""
+
+msgid "FAST"
+msgstr ""
+
+msgid "STANDARD"
+msgstr ""
+
+msgid "LONG LIFE"
+msgstr ""
+
+#, c-format
+msgid "Long life charges to about 80% to slow battery wear."
+msgstr ""
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr ""

@@ -2944,6 +2944,22 @@ msgstr ""
 msgid "HARDWARE"
 msgstr "DONANIM"
 
+msgid "BATTERY CHARGING"
+msgstr ""
+
+msgid "FAST"
+msgstr ""
+
+msgid "STANDARD"
+msgstr ""
+
+msgid "LONG LIFE"
+msgstr ""
+
+#, c-format
+msgid "Long life charges to about 80% to slow battery wear."
+msgstr ""
+
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Emulationstation için ekran çözünürlüğünü ayarlar."
 

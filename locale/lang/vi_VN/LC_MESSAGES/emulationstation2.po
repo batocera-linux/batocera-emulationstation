@@ -2929,6 +2929,22 @@ msgstr ""
 msgid "HARDWARE"
 msgstr "PHẦN CỨNG"
 
+msgid "BATTERY CHARGING"
+msgstr ""
+
+msgid "FAST"
+msgstr ""
+
+msgid "STANDARD"
+msgstr ""
+
+msgid "LONG LIFE"
+msgstr ""
+
+#, c-format
+msgid "Long life charges to about 80% to slow battery wear."
+msgstr ""
+
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Đặt độ phân giải của màn hình cho trình giả lập."
 

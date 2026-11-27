@@ -2923,6 +2923,22 @@ msgstr ""
 msgid "HARDWARE"
 msgstr "하드웨어"
 
+msgid "BATTERY CHARGING"
+msgstr ""
+
+msgid "FAST"
+msgstr ""
+
+msgid "STANDARD"
+msgstr ""
+
+msgid "LONG LIFE"
+msgstr ""
+
+#, c-format
+msgid "Long life charges to about 80% to slow battery wear."
+msgstr ""
+
 msgid "Sets the display's resolution for emulationstation."
 msgstr "에뮬레이션스테이션의 디스플레이 해상도를 설정합니다."
 
