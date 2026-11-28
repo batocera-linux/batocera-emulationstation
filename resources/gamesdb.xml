@@ -171,6 +171,9 @@
     <game id="aplatoon">
       <gun/>
     </game>
+    <game id="aquajet">
+      <wheel rotation="270"/>
+    </game>
     <game id="arcadecl">
       <trackball/>
     </game>
@@ -3513,6 +3516,15 @@
     <game id="rapidfire">
       <gun/>
     </game>
+    <game id="raverace">
+      <wheel rotation="270"/>
+    </game>
+    <game id="raveracej">
+      <wheel rotation="270"/>
+    </game>
+    <game id="raveraceja">
+      <wheel rotation="270"/>
+    </game>
     <game id="raveracj">
       <wheel rotation="270"/>
     </game>
@@ -3587,6 +3599,12 @@
     </game>
     <game id="RingRiders">
       <wheel/>
+    </game>
+    <game id="ringout">
+      <wheel rotation="270"/>
+    </game>
+    <game id="ringouto">
+      <wheel rotation="270"/>
     </game>
     <game id="ripcord">
       <spinner/>
@@ -4353,6 +4371,9 @@
     <game id="SWDC">
       <wheel/>
     </game>
+    <game id="swracer">
+      <wheel rotation="270"/>
+    </game>
     <game id="swtrilgy">
       <gun/>
     </game>
@@ -4975,6 +4996,9 @@
     <game id="WastelandRacers">
       <wheel/>
     </game>
+    <game id="waverunr">
+      <wheel rotation="270"/>
+    </game>
     <game id="wcbowl">
       <trackball/>
     </game>
@@ -5129,6 +5153,12 @@
       <wheel rotation="270"/>
     </game>
     <game id="wrallyb">
+      <wheel rotation="270"/>
+    </game>
+    <game id="wrungp">
+      <wheel rotation="270"/>
+    </game>
+    <game id="wrungpo">
       <wheel rotation="270"/>
     </game>
     <game id="wschamp">
