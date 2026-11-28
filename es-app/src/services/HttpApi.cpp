@@ -17,8 +17,12 @@
 #include "scrapers/Scraper.h"
 #include "SaveStateRepository.h"
 #include "LocaleES.h"
+#include "RetroAchievements.h"
+#include "SystemConf.h"
 #include <algorithm>
 #include <unordered_map>
+#include <mutex>
+#include <chrono>
 
 void HttpApi::getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, SystemData* sys, bool localpaths)
 {
@@ -326,6 +330,58 @@ std::string HttpApi::getRunnningGameInfo()
 }
 
 #ifdef BATOCERA
+static bool isCheevosActive(FileData* game)
+{
+	if (SystemConf::getInstance()->get("global.retroachievements.username").empty() || game->getCurrentGameSetting("retroachievements") != "1")
+		return false;
+
+	if (Utils::String::toInteger(game->getMetadata(MetaDataId::CheevosId)) <= 0)
+		return false;
+
+	auto system = game->getSourceFileData()->getSystem();
+	return system->isFeatureSupported(game->getEmulator(), game->getCore(), EmulatorFeatures::cheevos);
+}
+
+// hardcore mode refuses state loading
+static bool isHardcoreActive(FileData* game)
+{
+	return isCheevosActive(game) && game->getCurrentGameSetting("retroachievements.hardcore") == "1";
+}
+
+// the control center polls, so keep the RA web API to one request a minute per game
+static bool getRunningGameProgress(FileData*& game, GameInfoAndUserProgress& progress)
+{
+	static std::mutex lock;
+	static int cachedId = 0;
+	static GameInfoAndUserProgress cached;
+	static std::chrono::steady_clock::time_point cachedAt;
+
+	game = FileData::GetRunningGame();
+	if (game == nullptr || !isCheevosActive(game))
+		return false;
+
+	int id = Utils::String::toInteger(game->getMetadata(MetaDataId::CheevosId));
+
+	std::unique_lock<std::mutex> guard(lock);
+	auto now = std::chrono::steady_clock::now();
+	// offline, or a failed refresh, keeps the last list
+	if ((id != cachedId || now - cachedAt > std::chrono::seconds(60)) && ApiSystem::getInstance()->getIpAddress() != "NOT CONNECTED")
+	{
+		auto info = RetroAchievements::getGameInfoAndUserProgress(id);
+		if (info.ID == id || id != cachedId)
+			cached = info;
+
+		cachedId = id;
+		cachedAt = now;
+	}
+
+	if (cached.ID != id || cached.Achievements.empty())
+		return false;
+
+	progress = cached;
+	return true;
+}
+
 // for the control center: id, title, subtitle and image of each state, newest first
 std::string HttpApi::getRunningGameSaveStates()
 {
@@ -334,7 +390,7 @@ std::string HttpApi::getRunningGameSaveStates()
 	writer.StartArray();
 
 	auto game = FileData::GetRunningGame();
-	if (game != nullptr && SaveStateRepository::isEnabled(game))
+	if (game != nullptr && SaveStateRepository::isEnabled(game) && !isHardcoreActive(game))
 	{
 		// read now, the system's own list is only refreshed when a game ends
 		SaveStateRepository repository(game->getSourceFileData()->getSystem());
@@ -363,6 +419,59 @@ std::string HttpApi::getRunningGameSaveStates()
 
 	writer.EndArray();
 	return s.GetString();
+}
+
+// for the control center: the running game's achievements, unlocked first
+std::string HttpApi::getRunningGameAchievements()
+{
+	rapidjson::StringBuffer s;
+	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
+	writer.StartArray();
+
+	FileData* game = nullptr;
+	GameInfoAndUserProgress progress;
+	if (getRunningGameProgress(game, progress))
+	{
+		// softcore unlocks don't count in hardcore mode
+		bool hardcore = isHardcoreActive(game);
+		auto earned = [hardcore](const Achievement& a) { return !a.DateEarnedHardcore.empty() || (!hardcore && !a.DateEarned.empty()); };
+		std::stable_partition(progress.Achievements.begin(), progress.Achievements.end(), earned);
+
+		for (auto& achievement : progress.Achievements)
+		{
+			std::string title = Utils::String::trim(achievement.Title);
+			std::string subtitle = achievement.Points + " " + _("Points") + _U(" - ") + Utils::String::trim(achievement.Description);
+			std::string image = "http://i.retroachievements.org/Badge/" + achievement.BadgeName + (earned(achievement) ? ".png" : "_lock.png");
+
+			writer.StartObject();
+			writer.Key("id"); writer.String(achievement.ID.c_str());
+			writer.Key("title"); writer.String(title.c_str());
+			writer.Key("subtitle"); writer.String(subtitle.c_str());
+			writer.Key("image"); writer.String(image.c_str());
+			writer.EndObject();
+		}
+	}
+
+	writer.EndArray();
+	return s.GetString();
+}
+
+std::string HttpApi::getRunningGameAchievementsSummary()
+{
+	FileData* game = nullptr;
+	GameInfoAndUserProgress progress;
+	if (!getRunningGameProgress(game, progress) || progress.NumAchievements <= 0)
+		return "";
+
+	bool hardcore = isHardcoreActive(game);
+	int won = hardcore ? progress.NumAwardedToUserHardcore : progress.NumAwardedToUser;
+	int percent = won * 100 / progress.NumAchievements;
+
+	std::string ret = Utils::String::format(_("%d%% (%d of %d)").c_str(), percent, won, progress.NumAchievements);
+	if (hardcore)
+		ret += _U(" - ") + _("HARDCORE MODE");
+
+	return ret;
 }
 #endif
 

@@ -323,6 +323,22 @@ void HttpServerThread::run()
 		res.set_content(HttpApi::getRunningGameSaveStates(), "application/json");
 	});
 
+	mHttpServer->Get("/runningGame/achievements", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		res.set_content(HttpApi::getRunningGameAchievements(), "application/json");
+	});
+
+	mHttpServer->Get("/runningGame/achievements/summary", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		res.set_content(HttpApi::getRunningGameAchievementsSummary(), "text/plain");
+	});
+
 	// body: the slot to start again from, as listed above
 	mHttpServer->Post("/runningGame/savestates/load", [](const httplib::Request& req, httplib::Response& res)
 	{
