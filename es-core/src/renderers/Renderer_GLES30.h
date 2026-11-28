@@ -26,6 +26,7 @@ namespace Renderer
 
 		void         createContext() override;
 		void         destroyContext() override;
+		bool         makeWindowCurrent(SDL_Window* window) override;
 
 		void		 resetCache() override;
 

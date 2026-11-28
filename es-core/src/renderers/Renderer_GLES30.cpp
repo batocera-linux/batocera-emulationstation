@@ -1440,6 +1440,17 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
+	bool GLES30Renderer::makeWindowCurrent(SDL_Window* window)
+	{
+		flushQuadBatch();
+		if (SDL_GL_MakeCurrent(window, sdlContext) != 0)
+			return false;
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		useProgram(nullptr);
+		resetStateCaches();
+		return true;
+	}
+
 	void GLES30Renderer::resetCache()
 	{
 		flushQuadBatch();
