@@ -2,6 +2,7 @@
 
 #include "resources/Font.h"
 #include "LocaleES.h"
+#include "TextToSpeech.h"
 
 SwitchComponent::SwitchComponent(Window* window, bool state, bool hasAuto, bool autoState) : GuiComponent(window), mImage(window), mState(state), mInitialState(state), mHasAuto(hasAuto), mAutoState(autoState), mInitialAutoState(autoState)
 {
@@ -59,6 +60,7 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 			mState = !mState;
 		}
 		onStateChanged();
+		TextToSpeech::getInstance()->say((mHasAuto && mAutoState) ? _("AUTO") : (mState ? _("ENABLED") : _("DISABLED")));
 		return true;
 	}
 
@@ -72,6 +74,7 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 		}
 		updateAutoImage();
 		onStateChanged();
+		TextToSpeech::getInstance()->say((mHasAuto && mAutoState) ? _("AUTO") : (mState ? _("ENABLED") : _("DISABLED")));
 		return true;
 	}
 
@@ -85,6 +88,7 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 		}
 		updateAutoImage();
 		onStateChanged();
+		TextToSpeech::getInstance()->say((mHasAuto && mAutoState) ? _("AUTO") : (mState ? _("ENABLED") : _("DISABLED")));
 		return true;
 	}
 
