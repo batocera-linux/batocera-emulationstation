@@ -7,6 +7,8 @@
 #include "resources/Font.h"
 #include "GuiComponent.h"
 #include "MultiStateInput.h"
+#include "watchers/WatchersManager.h"
+#include <atomic>
 
 #include "components/CarouselComponent.h"
 #include "components/TextListComponent.h"
@@ -30,7 +32,7 @@ struct SystemViewData
 };
 
 
-class SystemView : public GuiComponent
+class SystemView : public GuiComponent, public IWatcherNotify
 {
 public:
 	SystemView(Window* window);
@@ -52,6 +54,7 @@ public:
 
 	virtual bool input(InputConfig* config, Input input) override;
 	virtual void update(int deltaTime) override;
+	void OnWatcherChanged(IWatcher* component) override;
 	virtual void render(const Transform4x4f& parentTrans) override;
 
 	// Help
@@ -117,6 +120,7 @@ private:
 	int				mExtrasFadeOldCursor;
 
 	bool			mViewNeedsReload;		
+	std::atomic<bool> mNetworkBindingsDirty{false};
 	bool			mDisable;
 	bool			mScreensaverActive;
 
