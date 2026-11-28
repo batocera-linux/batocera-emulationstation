@@ -18,7 +18,7 @@ class TextureData;
 class TextureResource;
 
 enum class MemoryUsageType { Allocated, VRAM, RAM, Estimated };
-enum class TextureLoadMode { STANDARD, NOLOAD, MOVETOTOPONLY, LOADNOMOVETOTOP };
+enum class TextureLoadMode { STANDARD, NOLOAD, MOVETOTOPONLY, LOADNOMOVETOTOP, BLOCKING };
 
 class TextureLoader
 {
@@ -26,25 +26,33 @@ public:
 	TextureLoader(TextureDataManager* mgr);
 	~TextureLoader();
 
-	void load(std::shared_ptr<TextureData> textureData);
+	void load(std::shared_ptr<TextureData> textureData, bool prioritize = true);
 	bool remove(std::shared_ptr<TextureData> textureData);
-	void clearQueue();
+	void waitFor(const std::shared_ptr<TextureData>& textureData);
+	void suspend();
+	void resume();
 	int getQueueSize();
+	bool isLoadingIdle();
 
-	static std::atomic<bool> paused;
+	void setPaused(bool paused);
 
 	std::mutex& Mutex() { return mLoaderLock; }
 
-private:	
+private:
 	void threadProc();
 
-	std::set<std::shared_ptr<TextureData>> 											mProcessingTextureDataQ;
-	std::list<std::shared_ptr<TextureData>> 										mTextureDataQ;
-	std::set<std::shared_ptr<TextureData>> 											mTextureDataQSet;
+	std::set<std::shared_ptr<TextureData>>					mProcessingTextureDataQ;
+	using TextureQueue = std::list<std::shared_ptr<TextureData>>;
+
+	TextureQueue mTextureDataQ;
+	std::unordered_map<std::shared_ptr<TextureData>, TextureQueue::iterator> mQueuedTextures;
 
 	std::vector<std::thread>	mThreads;
 	std::mutex					mLoaderLock;
 	std::condition_variable		mEvent;
+	std::condition_variable		mIdle;
+	bool mSuspended = false;
+	bool mPaused = false;
 	std::atomic<bool>			mExit;
 
 	TextureDataManager*			mManager;
@@ -86,10 +94,15 @@ public:
 	size_t	getTotalMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated);
 
 	// Load a texture, freeing resources as necessary to make space
-	void load(std::shared_ptr<TextureData> tex, bool block = false);
+	void load(std::shared_ptr<TextureData> tex, bool block = false, bool prioritize = true);
 
-	void clearQueue();
+	void setLoadingPaused(bool paused);
+
+	// Call suspend and resume on the UI thread.
+	void suspend();
+	void resume();
 	int getQueueSize();
+	bool isLoadingIdle();
 
 	void cleanupVRAM();
 
@@ -98,6 +111,7 @@ private:
 	std::shared_ptr<TextureData> getBlankTexture();
 
 	std::recursive_mutex	mMutex;
+	bool mSuspended = false;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
 	std::unordered_map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;

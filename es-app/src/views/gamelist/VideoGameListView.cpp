@@ -63,6 +63,6 @@ void VideoGameListView::update(int deltaTime)
 
 void VideoGameListView::onShow()
 {
-	GuiComponent::onShow();
+	BasicGameListView::onShow();
 	updateInfoPanel();
 }

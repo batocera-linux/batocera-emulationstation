@@ -29,6 +29,7 @@
 #include <algorithm>
 #include "LangParser.h"
 #include "resources/ResourceManager.h"
+#include "resources/TextureResource.h"
 #include "RetroAchievements.h"
 #include "SaveStateRepository.h"
 #include "Genres.h"
@@ -846,6 +847,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	if (!hideWindow && Settings::getInstance()->getBool("HideWindowFullReinit"))
 	{
+		TextureResource::resumeLoading();
 		ResourceManager::getInstance()->reloadAll();
 		window->deinit();
 		window->init();
@@ -1267,24 +1269,27 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		ret.push_back(*it);
 	}
 
+	if (ret.size() < 2)
+		return ret;
+
 	unsigned int currentSortId = sys->getSortId();
-	if (currentSortId > FileSorts::getSortTypes().size())
+	if (currentSortId >= FileSorts::getSortTypes().size())
 		currentSortId = 0;
 
 	const FileSorts::SortType& sort = FileSorts::getSortTypes().at(currentSortId);
 
 	if (idx != nullptr && idx->hasRelevency())
 	{
-		auto compf = sort.comparisonFunction;
+		auto compf = FileSorts::prepareComparison(ret, sort);
 
 		std::sort(ret.begin(), ret.end(), [scoringBoard, compf](const FileData* file1, const FileData* file2) -> bool
-		{ 
+		{
 			auto s1 = scoringBoard.find((FileData*) file1);
-			auto s2 = scoringBoard.find((FileData*) file2);		
+			auto s2 = scoringBoard.find((FileData*) file2);
 
 			if (s1 != scoringBoard.cend() && s2 != scoringBoard.cend() && s1->second != s2->second)
 				return s1->second < s2->second;
-			
+
 			return compf(file1, file2);
 		});
 	}
@@ -1293,7 +1298,9 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 		bool foldersFirst = Settings::ShowFoldersFirst();
 		bool favoritesFirst = getSystem()->getShowFavoritesFirst();
 
-		std::stable_sort(ret.begin(), ret.end(), [sort, foldersFirst, favoritesFirst](const FileData* file1, const FileData* file2) -> bool
+		auto compf = FileSorts::prepareComparison(ret, sort);
+
+		std::stable_sort(ret.begin(), ret.end(), [&sort, foldersFirst, favoritesFirst, &compf](const FileData* file1, const FileData* file2) -> bool
 			{
 				if (favoritesFirst && file1->getFavorite() != file2->getFavorite())
 					return file1->getFavorite();
@@ -1301,7 +1308,9 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 				if (foldersFirst && file1->getType() != file2->getType())
 					return (file1->getType() == FOLDER);
 
-				return sort.comparisonFunction(file1, file2) == sort.ascending;
+				return sort.ascending
+					? compf(file1, file2)
+					: compf(file2, file1);
 			});
 	}
 

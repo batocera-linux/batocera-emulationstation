@@ -206,6 +206,11 @@ public:
 	virtual void	onFocusLost() { };
 	virtual void	onShow();
 	virtual void	onHide();
+	// Includes artwork outside mChildren. The visitor can return false to stop.
+	virtual bool visitArtworkChildren(const std::function<bool(GuiComponent*)>& visitor);
+	// Load artwork without showing it or starting playback.
+	virtual void	preloadArtwork(bool prioritize = false);
+	virtual void	releaseArtwork();
 	virtual void	onScreenSaverActivate();
 	virtual void	onScreenSaverDeactivate();
 	virtual void	onMouseLeave();
@@ -223,7 +228,7 @@ public:
 
 	void			setAmbientOpacity(unsigned char opacity);
 
-	std::map<std::string, ThemeStoryboard*>& getStoryBoards() { return mStoryBoards; };
+	std::map<std::string, std::shared_ptr<ThemeStoryboard>>& getStoryBoards() { return mStoryBoards; };
 
 protected:
 	void			beginCustomClipRect();
@@ -292,7 +297,7 @@ private:
 	std::map<unsigned char, AnimationController*> mAnimationMap;
 
 	StoryboardAnimator* mStoryboardAnimator;
-	std::map<std::string, ThemeStoryboard*> mStoryBoards;
+	std::map<std::string, std::shared_ptr<ThemeStoryboard>> mStoryBoards;
 };
 
 #endif // ES_CORE_GUI_COMPONENT_H

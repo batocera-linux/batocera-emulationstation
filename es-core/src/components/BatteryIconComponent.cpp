@@ -11,13 +11,9 @@ BatteryIconComponent::BatteryIconComponent(Window* window) : ImageComponent(wind
 	mAt25 = ResourceManager::getInstance()->getResourcePath(":/battery/25.svg");
 	mEmpty = ResourceManager::getInstance()->getResourcePath(":/battery/empty.svg");
 
-	mBatteryInfo = Utils::Platform::BatteryInformation();	
-
 	WatchersManager::getInstance()->RegisterNotify(this);
 
-	BatteryLevelWatcher* watcher = WatchersManager::GetComponent<BatteryLevelWatcher>();
-	if (watcher != nullptr)
-		mBatteryInfo = watcher->getBatteryInfo();
+	mBatteryInfo = BatteryLevelWatcher::getSnapshot();
 }
 
 BatteryIconComponent::~BatteryIconComponent()
@@ -27,25 +23,21 @@ BatteryIconComponent::~BatteryIconComponent()
 
 void BatteryIconComponent::OnWatcherChanged(IWatcher* component)
 {
-	BatteryLevelWatcher* watcher = dynamic_cast<BatteryLevelWatcher*>(component);
-	if (watcher != nullptr)
-	{
-		mBatteryInfo = watcher->getBatteryInfo();
-		mDirty = true;
-	}
+	if (dynamic_cast<BatteryLevelWatcher*>(component) != nullptr)
+		mDirty.store(true);
 }
 
 void BatteryIconComponent::update(int deltaTime)
 {
 	ImageComponent::update(deltaTime);
 
-	if (!mDirty)
+	if (!mDirty.exchange(false))
 		return;
+
+	mBatteryInfo = BatteryLevelWatcher::getSnapshot();
 
 	if (Settings::getInstance()->getString("ShowBattery").empty())
 		mBatteryInfo.hasBattery = false;
-	else
-		mBatteryInfo = Utils::Platform::queryBatteryInformation();
 
 	setVisible(mBatteryInfo.hasBattery); // Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAddress().empty());
 
@@ -68,8 +60,6 @@ void BatteryIconComponent::update(int deltaTime)
 
 		setImage(txName);
 	}
-
-	mDirty = false;
 }
 
 void BatteryIconComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
@@ -97,5 +87,7 @@ void BatteryIconComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 
 	if (elem->has("empty") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("empty")))
 		mEmpty = elem->get<std::string>("empty");
+
+	mDirty.store(true);
 }
 

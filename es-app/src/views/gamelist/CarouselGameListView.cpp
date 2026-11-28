@@ -67,6 +67,8 @@ void CarouselGameListView::onFileChanged(FileData* file, FileChangeType change)
 
 void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 {
+	invalidateArtworkResidency();
+
 	updateHeaderLogoAndText();
 
 	mList.clear();
@@ -114,6 +116,12 @@ FileData* CarouselGameListView::getCursor()
 void CarouselGameListView::resetLastCursor()
 {
 	mList.resetLastCursor();
+}
+
+void CarouselGameListView::restoreNavigationState(const NavigationState& state)
+{
+	ISimpleGameListView::restoreNavigationState(state);
+	mList.setHiddenCursor(getCursor());
 }
 
 void CarouselGameListView::setCursor(FileData* cursor)

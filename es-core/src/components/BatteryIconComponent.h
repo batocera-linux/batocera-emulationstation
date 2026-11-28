@@ -7,6 +7,7 @@
 #include "components/ImageComponent.h"
 #include "utils/Platform.h"
 #include "watchers/WatchersManager.h"
+#include <atomic>
 
 class Window;
 
@@ -25,7 +26,7 @@ public:
 
 private:
 	Utils::Platform::BatteryInformation mBatteryInfo;
-	bool mDirty;
+	std::atomic<bool> mDirty;
 
 	std::string mIncharge;
 	std::string mFull;

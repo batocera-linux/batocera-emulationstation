@@ -221,7 +221,7 @@ public:
 
 		int extra;
 		std::string type;
-		std::map<std::string, ThemeStoryboard*> mStoryBoards;
+		std::map<std::string, std::shared_ptr<ThemeStoryboard>> mStoryBoards;
 
 		std::vector<std::pair<std::string, ThemeElement>> children;
 
@@ -271,51 +271,82 @@ public:
 
 		};
 
-		std::unordered_map<std::string, Property> properties;
+		using PropertyMap = std::unordered_map<std::string, Property>;
 
-		template<typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0> 
+	private:
+		std::shared_ptr<PropertyMap> properties = std::make_shared<PropertyMap>();
+
+		void ensurePrivateProperties();
+
+	public:
+		const PropertyMap& getProperties() const
+		{
+			return *properties;
+		}
+
+		void setProperty(const std::string& name, const Property& value)
+		{
+			ensurePrivateProperties();
+			(*properties)[name] = value;
+		}
+
+		void eraseProperty(const std::string& name)
+		{
+			if (!has(name))
+				return;
+
+			ensurePrivateProperties();
+			properties->erase(name);
+		}
+
+		void shareProperties();
+
+		template<typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return static_cast<float>(properties.at(prop).f);
+			return static_cast<float>(properties->at(prop).f);
 		}
 
 		template<typename T, typename std::enable_if<std::is_same<T, double>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return properties.at(prop).f;
+			return properties->at(prop).f;
 		}
 
 		template<typename T, typename std::enable_if<std::is_same<T, std::string>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return properties.at(prop).s;
+			return properties->at(prop).s;
 		}
 
 		template<typename T, typename std::enable_if<std::is_same<T, bool>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return properties.at(prop).b;
+			return properties->at(prop).b;
 		}
 
 		template<typename T, typename std::enable_if<std::is_same<T, Vector2f>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return properties.at(prop).v;
+			return properties->at(prop).v;
 		}
 
 		template<typename T, typename std::enable_if<std::is_same<T, Vector4f>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return properties.at(prop).r;
+			return properties->at(prop).r;
 		}
 
 		template<typename T, typename std::enable_if<std::is_same<T, unsigned int>::value, int>::type = 0>
 		const T get(const std::string& prop) const
 		{
-			return properties.at(prop).i;
+			return properties->at(prop).i;
 		}
 
-		inline bool has(const std::string& prop) const { return (properties.find(prop) != properties.cend()); }
+		inline bool has(const std::string& prop) const
+		{
+			return properties->find(prop) != properties->cend();
+		}
 	};
 
 private:
@@ -442,8 +473,10 @@ private:
 	void parseViews(const pugi::xml_node& themeRoot);
 	void parseCustomView(const pugi::xml_node& node, const pugi::xml_node& root);	
 	void parseViewElement(const pugi::xml_node& node);
-	void parseView(const pugi::xml_node& viewNode, ThemeView& view, bool overwriteElements = true);
-	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, ThemeView& view, bool overwrite = true);
+	void parseView(const pugi::xml_node& viewNode, ThemeView& view, bool overwriteElements = true,
+		std::map<pugi::xml_node, std::shared_ptr<ThemeStoryboard>>* sharedStoryboardCache = nullptr);
+	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, ThemeView& view, bool overwrite = true,
+		std::map<pugi::xml_node, std::shared_ptr<ThemeStoryboard>>* storyboardCache = nullptr);
 	bool parseRegion(const pugi::xml_node& node);
 	bool parseSubset(const pugi::xml_node& node);
 	bool isFirstSubset(const pugi::xml_node& node);
@@ -579,21 +612,19 @@ class ThemeFileCache
 public:
 	static ThemeFileCache& getInstance()
 	{
-		if (_instance == nullptr)
-			_instance = new ThemeFileCache();
-
-		return *_instance;
+		static ThemeFileCache cache;
+		return cache;
 	}
 
 public:
-	std::string& getXmlDocument(const std::string& path);
+	std::shared_ptr<const pugi::xml_document> getParsedXmlDocument(const std::string& path);
 	void clear();
 
 private:
-	std::unordered_map<std::string, std::string> _cache;
+	std::unordered_map<std::string, std::shared_ptr<const pugi::xml_document>> _domCache;
 	std::mutex _lock;
 
-	static ThemeFileCache* _instance;
+	size_t _generation = 0;
 };
 
 #endif // ES_CORE_THEME_DATA_H

@@ -59,7 +59,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 ImageComponent::~ImageComponent()
 {
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 }
 
 void ImageComponent::setSize(float w, float h)
@@ -289,11 +289,17 @@ void ImageComponent::setDefaultImage(const std::string& path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSizeInfo& maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
+void ImageComponent::setImage(const std::string& path, bool tile, const MaxSizeInfo& maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
-	std::string canonicalPath = (path[0] == '{' ? "" : Utils::FileSystem::getCanonicalPath(path));
-	if (!mPath.empty() && mPath == canonicalPath)
+	std::string canonicalPath = (!path.empty() && path[0] == '{' ? "" : Utils::FileSystem::getCanonicalPath(path));
+
+	if (mFileImage && !mArtworkReleased && !mPath.empty() && mPath == canonicalPath)
 		return;
+
+	mFileImage = true;
+	mArtworkReleased = false;
+	mImageTiled = tile;
+	mImageMaxSize = maxSize;
 	
 	if (allowMultiImagePlaylist && !canonicalPath.empty())
 	{
@@ -325,7 +331,7 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 	mPath = canonicalPath;
 
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 
 	// If the previous image is in the async queue, remove it
 	if (mLoadingTexture && mLoadingTexture.use_count() == 1 && !mLoadingTexture->isLoaded())
@@ -388,12 +394,9 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 	if (mShowing && mTexture != nullptr)
 	{
 		mTexture->reload();
-		mTexture->setRequired(true);
+		mTexture->setRequired(true, this);
 	}
 
-	// The new texture may have loaded meanwhile (a small file, a loader thread faster than this
-	// function): use it now. Marking it loaded without using it left the previous image shown for
-	// good, as watchTextureLoading only takes a texture still marked as loading.
 	mLoadingTextureLoaded = false;
 	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
 		watchTextureLoading();
@@ -406,9 +409,14 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 
 void ImageComponent::setImage(const char* path, size_t length, bool tile)
 {
+	mFileImage = false;
+	mArtworkReleased = false;
+	mLoadingTexture.reset();
+	mLoadingTextureLoaded = false;
+
 	mPath = "";
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 
 	mTexture.reset();
 
@@ -425,14 +433,19 @@ void ImageComponent::setImage(const char* path, size_t length, bool tile)
 
 void ImageComponent::setImage(const std::shared_ptr<TextureResource>& texture)
 {
+	mFileImage = false;
+	mArtworkReleased = false;
+	mLoadingTexture.reset();
+	mLoadingTextureLoaded = false;
+
 	if (mTexture != nullptr)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 
 	mTexture = texture;
 	mTextureLoaded = mTexture != nullptr && mTexture->isLoaded();
 
 	if (isShowing() && mTexture != nullptr)
-		mTexture->setRequired(true);
+		mTexture->setRequired(true, this);
 
 	resize();
 }
@@ -629,6 +642,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible)
 		return;
 
+	restoreArtwork();
 	watchTextureLoading(); // Required when hosted in a grid/list
 
 	if (!mTextureLoaded && mTexture && !mTexture->isLoaded())
@@ -768,10 +782,10 @@ bool ImageComponent::watchTextureLoading()
 	if (!mLoadingTextureLoaded && mLoadingTexture && mLoadingTexture->isLoaded())
 	{
 		if (mTexture != nullptr)
-			mTexture->setRequired(false);
+			mTexture->setRequired(false, this);
 
 		mTexture = mLoadingTexture;
-		mTexture->setRequired(isShowing());
+		mTexture->setRequired(isShowing(), this);
 		mLoadingTexture.reset();
 
 		resize();
@@ -788,7 +802,7 @@ bool ImageComponent::watchTextureLoading()
 
 	if (!mTextureLoaded && mTexture->getSize() != Vector2i::Zero())
 	{
-		mTexture->setRequired(isShowing());
+		mTexture->setRequired(isShowing(), this);
 
 		resize();
 		updateVertices();
@@ -998,7 +1012,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		if (child.second.has("enabled"))
 			mCustomShaderEnabled = child.second.get<bool>("enabled");
 
-		for (auto prop : child.second.properties)
+		for (const auto& prop : child.second.getProperties())
 		{
 			if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
 				mBindingExpressions["shader." + Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;				
@@ -1013,11 +1027,11 @@ std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
 	return ret;
 }
 
-void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
+void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList, bool selectFirst)
 {
 	mPlaylistCache.clear();
 	mPlaylist = playList;
-	if (mPlaylist == nullptr)
+	if (mPlaylist == nullptr || !selectFirst)
 		return;
 
 	auto image = mPlaylist->getNextItem();
@@ -1033,24 +1047,25 @@ void ImageComponent::onShow()
 
 	if (!isShowing() && mPlaylist != nullptr && !mPath.empty() && mPlaylist->getRotateOnShow())
 	{
-		auto item = mPlaylist->getNextItem();
-		if (!item.empty())
-			setImage(item); // , false, getMaxSizeInfo(), true, false);
+		const auto image = mPlaylist->getNextItem();
+		if (!image.empty())
+			setImage(image);
 	}
 
-	GuiComponent::onShow();	
+	GuiComponent::onShow();
+	restoreArtwork();
 
 	if (mTexture != nullptr)
 	{
-		mTexture->reload();			
-		mTexture->setRequired(true);
+		mTexture->reload();
+		mTexture->setRequired(true, this);
 	}
 }
 
 void ImageComponent::onHide()
 {
 	if (mTexture)
-		mTexture->setRequired(false);
+		mTexture->setRequired(false, this);
 
 	if (mShowing)
 	{
@@ -1070,6 +1085,50 @@ void ImageComponent::onHide()
 	}
 
 	GuiComponent::onHide();
+}
+
+void ImageComponent::restoreArtwork()
+{
+	if (!mArtworkReleased)
+		return;
+
+	const std::string path = mPath;
+	setImage(path, mImageTiled, mImageMaxSize, true, false);
+}
+
+void ImageComponent::preloadArtwork(bool prioritize)
+{
+	restoreArtwork();
+
+	const auto mode = prioritize ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP;
+
+	if (mLoadingTexture)
+		mLoadingTexture->reload(mode);
+
+	if (mTexture)
+		mTexture->reload(mode);
+
+	GuiComponent::preloadArtwork(prioritize);
+}
+
+void ImageComponent::releaseArtwork()
+{
+	GuiComponent::releaseArtwork();
+
+	if (mShowing || !mFileImage || mArtworkReleased)
+		return;
+
+	if (mTexture)
+		mTexture->setRequired(false, this);
+	if (mLoadingTexture)
+		mLoadingTexture->setRequired(false, this);
+
+	mLoadingTexture.reset();
+	mTexture.reset();
+	mPlaylistCache.clear();
+	mLoadingTextureLoaded = false;
+	mTextureLoaded = false;
+	mArtworkReleased = true;
 }
 
 void ImageComponent::update(int deltaTime)
@@ -1098,7 +1157,7 @@ void ImageComponent::update(int deltaTime)
 
 bool ImageComponent::isTiled()
 { 
-	return mTexture != nullptr && mTexture->isTiled(); 
+	return mArtworkReleased ? mImageTiled : mTexture != nullptr && mTexture->isTiled();
 }
 
 ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string name)

@@ -49,6 +49,9 @@ public:
 	static Vector2f adjustPictureSizeF(Vector2f imageSize, Vector2f maxSize, bool externSize = false);
 
 	static bool		getMultiBitmapInformation(const std::string& path, int& totalFrames, int& frameTime);
+
+	static MaxSizeInfo getTextureDecodeSize(const MaxSizeInfo& requested, const Vector2i& screenSize, bool optimizeVRAM);
+	static Vector2i getRasterOutputSize(const Vector2i& sourceSize, const MaxSizeInfo* maxSize, const Vector2i& screenSize);
 };
 
 #endif // ES_CORE_IMAGE_IO

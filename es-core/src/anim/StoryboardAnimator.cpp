@@ -1,27 +1,59 @@
 #include "StoryboardAnimator.h"
 #include "PowerSaver.h"
 
-StoryboardAnimator::StoryboardAnimator(GuiComponent* comp, ThemeStoryboard* storyboard)
+StoryboardAnimator::StoryboardAnimator(GuiComponent* comp, const ThemeStoryboard* storyboard)
 {
 	mHasInitialProperties = false;
 	mPaused = true;
 	mComponent = comp;
 
-	mStoryBoard = new ThemeStoryboard(*storyboard);
+	mStoryBoard = storyboard->getDefinition();
+	mAnimations.reserve(mStoryBoard->animations.size());
+	for (std::size_t i = 0; i < mStoryBoard->animations.size(); ++i)
+		if (storyboard->isAnimationEnabled(i))
+			mAnimations.push_back(mStoryBoard->animations[i].get());
 	mRepeatCount = 0;
 	mCurrentTime = 0;
 }
 
 StoryboardAnimator::~StoryboardAnimator()
 {
-	delete mStoryBoard;
-
 	pause();
+	clearStories();
+}
 
-	for (auto story : _currentStories)
-		delete story;
+StoryboardAnimator::InitialValues& StoryboardAnimator::initialValues(const ThemeAnimation* animation)
+{
+	auto it = mInitialValues.find(animation);
+	if (it == mInitialValues.end())
+		it = mInitialValues.emplace(animation, InitialValues(animation)).first;
+	return it->second;
+}
 
-	_currentStories.clear();
+const ThemeData::ThemeElement::Property& StoryboardAnimator::fromValue(const ThemeAnimation* animation)
+{
+	return animation->from.type == ThemeData::ThemeElement::Property::Unknown ?
+		initialValues(animation).from : animation->from;
+}
+
+const ThemeData::ThemeElement::Property& StoryboardAnimator::toValue(const ThemeAnimation* animation)
+{
+	return animation->to.type == ThemeData::ThemeElement::Property::Unknown ?
+		initialValues(animation).to : animation->to;
+}
+
+void StoryboardAnimator::ensureInitialValues(const ThemeAnimation* animation,
+	const ThemeData::ThemeElement::Property& value)
+{
+	if (fromValue(animation).type == ThemeData::ThemeElement::Property::Unknown)
+		initialValues(animation).from = value;
+	if (toValue(animation).type == ThemeData::ThemeElement::Property::Unknown)
+		initialValues(animation).to = value;
+}
+
+StoryAnimation* StoryboardAnimator::createStory(const ThemeAnimation* animation)
+{
+	return new StoryAnimation(animation, fromValue(animation), toValue(animation));
 }
 
 void StoryboardAnimator::clearStories()
@@ -50,9 +82,9 @@ void StoryboardAnimator::reset(int atTime, bool resetInitialProperties)
 
 	if (atTime > 0)
 	{
-		for (auto anim : mStoryBoard->animations)
-			if (anim->enabled && (anim->begin + anim->duration <= atTime))
-				_finishedStories.push_back(new StoryAnimation(anim));
+		for (auto anim : mAnimations)
+			if (anim->begin + anim->duration <= atTime)
+				_finishedStories.push_back(createStory(anim));
 
 		addNewAnimations();
 	}
@@ -71,8 +103,8 @@ void StoryboardAnimator::reset(int atTime, bool resetInitialProperties)
 
 				if (atTime == 0)
 				{
-					for (auto anim : mStoryBoard->animations)
-						if (anim->enabled && anim->begin == 0 && anim->propertyName == prop.first)
+					for (auto anim : mAnimations)
+						if (anim->begin == 0 && anim->propertyName == prop.first)
 							hasAssignationAtZero = true;
 				}
 
@@ -81,14 +113,14 @@ void StoryboardAnimator::reset(int atTime, bool resetInitialProperties)
 			}
 		}
 
-		for (auto anim : mStoryBoard->animations)
-			if (anim->enabled && anim->begin == 0)
-				_currentStories.push_back(new StoryAnimation(anim));
+		for (auto anim : mAnimations)
+			if (anim->begin == 0)
+				_currentStories.push_back(createStory(anim));
 	}
 }
 
 void StoryboardAnimator::clearInitialProperties()
-{	
+{
 	mInitialProperties.clear();
 }
 
@@ -114,11 +146,8 @@ void StoryboardAnimator::pause()
 
 void StoryboardAnimator::addNewAnimations()
 {
-	for (auto anim : mStoryBoard->animations)
+	for (auto anim : mAnimations)
 	{
-		if (!anim->enabled)
-			continue;
-
 		bool exists = false;
 
 		for (auto story : _currentStories)
@@ -135,8 +164,8 @@ void StoryboardAnimator::addNewAnimations()
 
 		if (mCurrentTime >= anim->begin)
 		{
-			anim->ensureInitialValue(mComponent->getProperty(anim->propertyName));
-			_currentStories.push_back(new StoryAnimation(anim));
+			ensureInitialValues(anim, mComponent->getProperty(anim->propertyName));
+			_currentStories.push_back(createStory(anim));
 		}
 	}
 }
@@ -150,20 +179,20 @@ bool StoryboardAnimator::update(int elapsed)
 	{
 		mHasInitialProperties = true;
 
-		for (auto anim : mStoryBoard->animations)
-			if (anim->enabled && anim->propertyName != "sound") // Sound is always initially empty
+		for (auto anim : mAnimations)
+			if (anim->propertyName != "sound") // Sound is always initially empty
 				mInitialProperties[anim->propertyName] = mComponent->getProperty(anim->propertyName);
 
-		for (auto anim : mStoryBoard->animations)
+		for (auto anim : mAnimations)
 		{
-			if (anim->begin == 0 && anim->enabled)
+			if (anim->begin == 0)
 			{
-				if (anim->to.type == ThemeData::ThemeElement::Property::Unknown)
-					anim->to = anim->propertyName == "sound" ? std::string() : mComponent->getProperty(anim->propertyName);
-				if (anim->from.type == ThemeData::ThemeElement::Property::Unknown)
-					anim->from = anim->propertyName == "sound" ? std::string() : mComponent->getProperty(anim->propertyName);
+				if (toValue(anim).type == ThemeData::ThemeElement::Property::Unknown)
+					initialValues(anim).to = anim->propertyName == "sound" ? std::string() : mComponent->getProperty(anim->propertyName);
+				if (fromValue(anim).type == ThemeData::ThemeElement::Property::Unknown)
+					initialValues(anim).from = anim->propertyName == "sound" ? std::string() : mComponent->getProperty(anim->propertyName);
 				else if (mDisabledProperties.find(anim->propertyName) == mDisabledProperties.cend())
-					mComponent->setProperty(anim->propertyName, anim->from);
+					mComponent->setProperty(anim->propertyName, fromValue(anim));
 			}
 		}
 	}
@@ -194,7 +223,7 @@ bool StoryboardAnimator::update(int elapsed)
 		}
 	}
 
-	if (_finishedStories.size() == mStoryBoard->animations.size())
+	if (_finishedStories.size() == mAnimations.size())
 	{
 		if (mStoryBoard->repeat == 1)
 		{

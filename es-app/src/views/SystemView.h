@@ -11,8 +11,11 @@
 #include "components/CarouselComponent.h"
 #include "components/TextListComponent.h"
 #include "components/ImageGridComponent.h"
+#include "components/ArtworkResidencyTracker.h"
 
 #include <memory>
+#include <tuple>
+#include <vector>
 #include <functional>
 #include <map>
 #include <unordered_set>
@@ -22,11 +25,21 @@
 class AnimatedImageComponent;
 class SystemData;
 class VideoVlcComponent;
+class IPlaylist;
+
+struct SystemViewPlaylistState
+{
+	std::shared_ptr<IPlaylist> playlist;
+	std::string path;
+	bool tiled = false;
+};
 
 struct SystemViewData
 {
 	SystemData* object;
 	std::vector<GuiComponent*> backgroundExtras;
+	bool extrasLoaded = false;
+	std::map<std::vector<std::string>, SystemViewPlaylistState> playlists;
 };
 
 
@@ -40,6 +53,9 @@ public:
 
 	void onThemeChanged(const std::shared_ptr<ThemeData>& theme);
 	void reloadTheme(SystemData* system);
+
+	void prepareHiddenSystem(SystemData* system);
+	void releaseHiddenExtras();
 
 	SystemData* getActiveSystem();
 
@@ -75,17 +91,35 @@ protected:
 	SystemData* getSelected();
 
 private:
-	void	 loadExtras(SystemData* system);
-	void	 ensureTexture(GuiComponent* extra, TextureLoadMode mode = TextureLoadMode::LOADNOMOVETOTOP);
+	enum class ExtraResidencyMode
+	{
+		Navigation,
+		Hidden,
+		HiddenPrepared
+	};
+
+	using ExtraResidencyKey = std::tuple<int, int, int, int, int, ExtraResidencyMode>;
+	using ExtraTracker = ArtworkResidencyTracker<ExtraResidencyKey>;
+
+	ExtraTracker mExtraResidency;
+
+	void	 loadExtras(SystemViewData& entry);
+	void	 saveExtraPlaylists(SystemViewData& entry);
+	void	 ensureExtras(int index);
+	void	 prepareExtras(int index, bool prioritize);
+	void	 ensureWarmExtras();
+	void	 releaseExtras(SystemViewData& entry);
 
 	void	 updateExtraTextBinding();
 	void	 showQuickSearch();
 
-	void	 preloadExtraNeighbours(int cursor);
 	void	 setExtraRequired(SystemViewData& data, bool required);
 
 	void	 activateExtras(int cursor, bool activate = true);	
 	void	 updateExtras(const std::function<void(GuiComponent*)>& func);
+	void	 collectExtraUpdateEntries(std::unordered_set<int>& entries);
+	void	 collectExtraResidencyEntries(std::unordered_set<int>& entries, int padding);
+	void	 updateExtraResidency(ExtraResidencyMode mode, bool allowRelease = false);
 	void	 clearEntries();
 
 	int		 moveCursorFast(bool forward = true);

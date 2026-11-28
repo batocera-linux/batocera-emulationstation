@@ -4,6 +4,7 @@
 
 #include "FileData.h"
 #include <vector>
+#include <functional>
 
 namespace FileSorts
 {
@@ -65,6 +66,8 @@ namespace FileSorts
 	void reset();
 	SortType getSortType(int sortId);
 	const std::vector<SortType>& getSortTypes();
+
+	std::function<bool(const FileData*, const FileData*)> prepareComparison(const std::vector<FileData*>& files, const SortType& sort);
 
 	bool compareName(const FileData* file1, const FileData* file2);
 	bool compareRating(const FileData* file1, const FileData* file2);

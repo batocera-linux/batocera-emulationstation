@@ -4,6 +4,7 @@
 
 #include <mutex>
 #include <string>
+#include <unordered_set>
 #include <vector>
 #include "ImageIO.h"
 #include "TextureDataManager.h"
@@ -34,7 +35,7 @@ public:
 	bool initFromRGBA(unsigned char* dataRGBA, size_t width, size_t height, bool copyData = true);
 
 	// Read the data into memory if necessary
-	bool load();
+	bool load(bool allowCacheWrite = false);
 	bool loadFromCbz();
 	bool loadFromPdf(int pageIndex = 1);
 	bool loadFromVideo();
@@ -57,6 +58,8 @@ public:
 #else
 	size_t getMemoryUsage(MemoryUsageType type = MemoryUsageType::Allocated)
 	{
+		std::unique_lock<std::mutex> lock(mMutex);
+
 		if (type == MemoryUsageType::RAM)
 			return mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0;
 
@@ -70,8 +73,17 @@ public:
 	}
 #endif
 
-	const 	Vector2i& getSize() const { return mSize; }
-	const 	Vector2f& getPhysicalSize() const { return mPhysicalSize; }
+	Vector2i getSize() const
+	{
+		std::unique_lock<std::mutex> lock(mMutex);
+		return mSize;
+	}
+
+	Vector2f getPhysicalSize() const
+	{
+		std::unique_lock<std::mutex> lock(mMutex);
+		return mPhysicalSize;
+	}
 
 	bool rasterizeAt(float width, float height);
 
@@ -86,21 +98,42 @@ public:
 
 	bool updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
 
-	inline bool isRequired() { return mRequired; };
-	void setRequired(bool value) { mRequired = value; };
+	bool isRequired() { return mRequired || !mRequiredOwners.empty(); }
+
+	void setRequired(bool value, const void* owner = nullptr)
+	{
+		if (owner == nullptr)
+			mRequired = value;
+		else if (value)
+			mRequiredOwners.insert(owner);
+		else
+			mRequiredOwners.erase(owner);
+	}
 
 	inline bool isDynamic() { return mDynamic; };
 	void setDynamic(bool value) { mDynamic = value; };
 
 	inline bool isReloadable() { return mReloadable; };
 	
-	inline bool isScalable() { return mScalable; }
-	void setScalable(bool value) { mScalable = value; };
+	bool isScalable()
+	{
+		std::unique_lock<std::mutex> lock(mMutex);
+		return mScalable;
+	}
+
+	void setScalable(bool value)
+	{
+		std::unique_lock<std::mutex> lock(mMutex);
+		mScalable = value;
+	}
 
 private:
+	bool	initImage(const unsigned char* fileData, size_t length, int subImageIndex, bool fileBacked, bool allowCacheWrite);
 	bool			mRequired;
+	std::unordered_set<const void*>	mRequiredOwners;
 
-	std::mutex		mMutex;
+	mutable std::mutex	mMutex;
+	std::mutex		mImageLoadMutex;
 	bool			mTile;
 	bool			mLinear;
 	std::string		mPath;

@@ -46,6 +46,49 @@ public:
 		return mGrid;
 	}
 
+	bool supportsHiddenArtwork() const
+	{
+		return mCarousel != nullptr || mGrid != nullptr || mText != nullptr;
+	}
+
+	bool setHiddenCursor(SystemData* system)
+	{
+		if (mCarousel)
+			return mCarousel->setHiddenCursor(system);
+
+		if (mGrid)
+			return mGrid->setHiddenCursor(system);
+
+		if (mText)
+			return mText->setHiddenCursor(system);
+
+		return false;
+	}
+
+	bool prepareHiddenArtwork()
+	{
+		if (mCarousel)
+			return mCarousel->prepareHiddenArtwork();
+
+		if (mGrid)
+			return mGrid->prepareHiddenArtwork();
+
+		if (mText)
+			return mText->prepareHiddenArtwork();
+
+		return false;
+	}
+
+	void releaseHiddenArtwork()
+	{
+		if (mCarousel)
+			mCarousel->releaseHiddenArtwork();
+		else if (mGrid)
+			mGrid->releaseHiddenArtwork();
+		else if (mText)
+			mText->releaseHiddenArtwork();
+	}
+
 	void setCursorChangedCallback(const std::function<void(CursorState state)>& func)
 	{
 		if (mText) mText->setCursorChangedCallback(func);
@@ -79,6 +122,32 @@ public:
 		if (mText) return mText->size();
 		if (mGrid) return mGrid->size();
 		return mCarousel->size();
+	}
+
+	void getActiveRange(int& first, int& last) const
+	{
+		if (mText)
+		{
+			mText->getActiveRange(first, last);
+			return;
+		}
+
+		if (mGrid)
+		{
+			Vector2i range = mGrid->getVisibleRange();
+			first = range.x();
+			last = range.y();
+			return;
+		}
+
+		if (mCarousel)
+		{
+			mCarousel->getActiveRange(first, last);
+			return;
+		}
+
+		first = 0;
+		last = -1;
 	}
 
 	// GuiComponent wrapped methods

@@ -68,7 +68,7 @@ void PostProcessShaderComponent::applyTheme(const std::shared_ptr<ThemeData>& th
 	if (elem->has("path"))
 		mShaderPath = elem->get<std::string>("path");
 
-	for (auto prop : elem->properties)
+	for (const auto& prop : elem->getProperties())
 	{
 		if (prop.first == "pos" || prop.first == "path" || prop.first == "size" || prop.first == "zIndex" || prop.first == "visible")
 			continue;

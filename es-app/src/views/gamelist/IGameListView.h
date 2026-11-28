@@ -18,6 +18,11 @@ public:
 
 	virtual ~IGameListView() {}
 
+	void onShow() override;
+	void releaseArtwork() override;
+
+	bool isArtworkReleased() const { return mArtworkReleased; }
+
 	// Called when a new file is added, a file is removed, a file's metadata changes, or a file's children are sorted.
 	// NOTE: FILE_SORTED is only reported for the topmost FileData, where the sort started.
 	//       Since sorts are recursive, that FileData's children probably changed too.
@@ -62,6 +67,11 @@ protected:
 	FolderData* mRoot;
 	std::shared_ptr<ThemeData> mTheme;
 	std::string mCustomThemeName;
+
+	void invalidateArtworkResidency() { mArtworkReleased = false; }
+
+private:
+	bool mArtworkReleased = false;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_IGAME_LIST_VIEW_H

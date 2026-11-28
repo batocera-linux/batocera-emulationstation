@@ -65,6 +65,11 @@ public:
 
 	virtual void onShow() override;
 	virtual void onHide() override;
+
+	bool visitArtworkChildren(const std::function<bool(GuiComponent*)>& visitor) override;
+	void preloadArtwork(bool prioritize = false) override;
+	void releaseArtwork() override;
+
 	virtual void onScreenSaverActivate() override;
 	virtual void onScreenSaverDeactivate() override;
 	virtual void topWindow(bool isTop) override;
@@ -156,7 +161,9 @@ public:
 		return mVideoPath; 
 	}
 
-	void setPlaylist(std::shared_ptr<IPlaylist> playList);
+	void setPlaylist(std::shared_ptr<IPlaylist> playList, bool selectFirst = true);
+	std::shared_ptr<IPlaylist> getPlaylist() const { return mPlaylist; }
+	std::string getPlaylistMediaPath() const { return mVideoPath; }
 	void onPositionChanged() override;
 
 	bool getPlayAudio() { return mPlayAudio; }

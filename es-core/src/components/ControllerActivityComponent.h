@@ -7,6 +7,7 @@
 #include "resources/Font.h"
 #include "utils/Platform.h"
 #include "watchers/WatchersManager.h"
+#include <atomic>
 
 class TextureResource;
 
@@ -113,8 +114,8 @@ protected:
 	int mBatteryTextX;
 
 	Utils::Platform::BatteryInformation mBatteryInfo;
-	Utils::Platform::BatteryInformation mWatchedBatteryInfo;
-	bool mBatteryInfoChanged;
+	std::atomic<bool> mBatteryInfoChanged{true};
+	std::atomic<bool> mNetworkInfoChanged{true};
 
 	std::shared_ptr<TextureResource> mBatteryImage;
 	std::shared_ptr<Font>			 mBatteryFont;

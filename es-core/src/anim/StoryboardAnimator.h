@@ -10,13 +10,16 @@
 class StoryAnimation
 {
 public:
-	StoryAnimation(ThemeAnimation* anim)
+	StoryAnimation(const ThemeAnimation* anim,
+		const ThemeData::ThemeElement::Property& from,
+		const ThemeData::ThemeElement::Property& to)
+		: mFrom(&from), mTo(&to)
 	{
 		animation = anim;
 
 		_repeatCount = 0;
 		_currentTime = 0;
-		_isReversed = false;		
+		_isReversed = false;
 	}
 
 	bool update(int elapsed)
@@ -69,7 +72,7 @@ public:
 
 		if (ended || animation->duration == 0)
 		{
-			currentValue = animation->computeValue(animation->autoReverse ? 0.0f : 1.0f);
+			currentValue = animation->computeValue(animation->autoReverse ? 0.0f : 1.0f, *mFrom, *mTo);
 			return false;
 		}
 
@@ -137,7 +140,7 @@ public:
 			}
 		}
 
-		currentValue = animation->computeValue(value);
+		currentValue = animation->computeValue(value, *mFrom, *mTo);
 
 		return !ended;
 	}
@@ -145,9 +148,11 @@ public:
 
 	ThemeData::ThemeElement::Property currentValue;
 
-	ThemeAnimation* animation;
+	const ThemeAnimation* animation;
 
 private:
+	const ThemeData::ThemeElement::Property* mFrom;
+	const ThemeData::ThemeElement::Property* mTo;
 	int _repeatCount;
 	int _currentTime;
 	bool _isReversed;
@@ -156,7 +161,7 @@ private:
 class StoryboardAnimator
 {
 public:
-	StoryboardAnimator(GuiComponent* comp, ThemeStoryboard* storyboard);
+	StoryboardAnimator(GuiComponent* comp, const ThemeStoryboard* storyboard);
 	~StoryboardAnimator();
 
 	void reset(int atTime = 0, bool resetInitialProperties = true);
@@ -176,7 +181,24 @@ private:
 	void clearStories();
 
 	GuiComponent* mComponent;
-	ThemeStoryboard* mStoryBoard;
+	std::shared_ptr<const ThemeStoryboardDefinition> mStoryBoard;
+	std::vector<const ThemeAnimation*> mAnimations;
+
+	struct InitialValues
+	{
+		explicit InitialValues(const ThemeAnimation* animation) :
+			from(animation->from), to(animation->to) {}
+		ThemeData::ThemeElement::Property from;
+		ThemeData::ThemeElement::Property to;
+	};
+
+	// These values must outlive the animations that use them.
+	std::map<const ThemeAnimation*, InitialValues> mInitialValues;
+	InitialValues& initialValues(const ThemeAnimation* animation);
+	const ThemeData::ThemeElement::Property& fromValue(const ThemeAnimation* animation);
+	const ThemeData::ThemeElement::Property& toValue(const ThemeAnimation* animation);
+	void ensureInitialValues(const ThemeAnimation* animation, const ThemeData::ThemeElement::Property& value);
+	StoryAnimation* createStory(const ThemeAnimation* animation);
 
 	int mRepeatCount;
 	int mCurrentTime;

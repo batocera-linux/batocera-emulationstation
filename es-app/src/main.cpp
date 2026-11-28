@@ -44,6 +44,8 @@
 #include "TextToSpeech.h"
 #include "Paths.h"
 #include "resources/TextureData.h"
+#include "resources/TextureDiskCache.h"
+#include "resources/TextureResource.h"
 #include "Scripting.h"
 #include "watchers/WatchersManager.h"
 #include "HttpReq.h"
@@ -587,6 +589,10 @@ int main(int argc, char* argv[])
 	}
 #endif
 
+	TextureDiskCache::configure(
+		Settings::getInstance()->getBool("TextureDiskCache"),
+		Settings::getInstance()->getInt("TextureDiskCacheSize"));
+
 	// Threaded initializations
 	auto threadPool = new Utils::ThreadPool("main()", -3);
 	auto vlcInit = threadPool->queueWorkItem([] { VideoVlcComponent::init(); });
@@ -605,6 +611,7 @@ int main(int argc, char* argv[])
 	if (!window.init(true, false))
 	{
 		LOG(LogError) << "Window failed to initialize!";
+		TextureResource::suspendLoading();
 		return 1;
 	}
 
@@ -637,6 +644,7 @@ int main(int argc, char* argv[])
 		if (errorMsg == NULL)
 		{
 			LOG(LogError) << "Unknown error occured while parsing system config file.";
+			TextureResource::suspendLoading();
 			Renderer::deinit();
 			return 1;
 		}
@@ -662,10 +670,6 @@ int main(int argc, char* argv[])
 		}
 	}
 #endif
-
-	// preload what we can right away instead of waiting for the user to select it
-	// this makes for no delays when accessing content, but a longer startup time
-	ViewController::get()->preload();
 
 	// Initialize input
 	InputManager::getInstance()->init();

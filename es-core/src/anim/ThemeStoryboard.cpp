@@ -4,56 +4,49 @@
 #include "utils/HtmlColor.h"
 #include "resources/ResourceManager.h"
 
-ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
+namespace
 {
-	eventName = src.eventName;
-	repeat = src.repeat;
-	repeatAt = src.repeatAt;
-
-	for (auto anim : src.animations)
+	std::shared_ptr<const ThemeStoryboardDefinition> emptyStoryboardDefinition()
 	{
-		if (dynamic_cast<ThemeFloatAnimation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeFloatAnimation((const ThemeFloatAnimation&)(*anim))));
-		else if (dynamic_cast<ThemeColorAnimation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeColorAnimation((const ThemeColorAnimation&)(*anim))));
-		else if (dynamic_cast<ThemeVector2Animation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeVector2Animation((const ThemeVector2Animation&)(*anim))));
-		else if (dynamic_cast<ThemeVector4Animation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeVector4Animation((const ThemeVector4Animation&)(*anim))));
-		else if (dynamic_cast<ThemeStringAnimation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeStringAnimation((const ThemeStringAnimation&)(*anim))));
-		else if (dynamic_cast<ThemePathAnimation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemePathAnimation((const ThemePathAnimation&)(*anim))));
-		else if (dynamic_cast<ThemeBoolAnimation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeBoolAnimation((const ThemeBoolAnimation&)(*anim))));
-		else if (dynamic_cast<ThemeSoundAnimation*>(anim) != nullptr)
-			animations.push_back(std::move(new ThemeSoundAnimation((const ThemeSoundAnimation&)(*anim))));
+		static const auto definition = std::make_shared<const ThemeStoryboardDefinition>();
+		return definition;
 	}
 }
 
-ThemeStoryboard::~ThemeStoryboard()
-{
-	for (auto anim : animations)
-		delete anim;
+ThemeStoryboard::ThemeStoryboard() : mDefinition(emptyStoryboardDefinition()) {}
 
-	animations.clear();
+bool ThemeStoryboard::isAnimationEnabled(std::size_t index) const
+{
+	const auto it = mEnabledOverrides.find(index);
+	return it == mEnabledOverrides.end() ? mDefinition->animations.at(index)->enabled : it->second;
+}
+
+void ThemeStoryboard::setAnimationEnabled(std::size_t index, bool enabled)
+{
+	if (enabled == mDefinition->animations.at(index)->enabled)
+		mEnabledOverrides.erase(index);
+	else
+		mEnabledOverrides[index] = enabled;
 }
 
 #define RESOLVEVAR(x) variables.resolvePlaceholders(x)
 
 bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap, const std::string& relativePath, const ThemeVariables& variables)
-{	
+{
 	if (strcmp(root.name(), "storyboard") != 0)
 		return false;
 
-	this->repeat = 1;
-	this->eventName = RESOLVEVAR(root.attribute("event").as_string());
+	// Other storyboards may share this definition.
+	auto definition = std::make_shared<ThemeStoryboardDefinition>(*mDefinition);
+
+	definition->repeat = 1;
+	definition->eventName = RESOLVEVAR(root.attribute("event").as_string());
 
 	std::string sbrepeat = RESOLVEVAR(root.attribute("repeat").as_string());
 	if (sbrepeat == "forever" || sbrepeat == "infinite")
-		this->repeat = 0;
+		definition->repeat = 0;
 	else if (!sbrepeat.empty() && sbrepeat != "none")
-		this->repeat = Utils::String::toInteger(sbrepeat);
+		definition->repeat = Utils::String::toInteger(sbrepeat);
 
 	sbrepeat = RESOLVEVAR(root.attribute("repeatAt").as_string());
 	if (sbrepeat.empty())
@@ -61,10 +54,10 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 
 	if (!sbrepeat.empty())
 	{
-		if (this->repeat = 1)
-			this->repeat = 0;
+		if (definition->repeat == 1)
+			definition->repeat = 0;
 
-		this->repeatAt = Utils::String::toInteger(sbrepeat);
+		definition->repeatAt = Utils::String::toInteger(sbrepeat);
 	}
 
 	for (pugi::xml_node node = root.child("animation"); node; node = node.next_sibling("animation"))
@@ -89,48 +82,48 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 			}
 		}
 
-		ThemeAnimation* anim = nullptr;
+		std::shared_ptr<ThemeAnimation> anim;
 
 		switch (type)
 		{
 		case ThemeData::ElementPropertyType::NORMALIZED_RECT:
-			anim = new ThemeVector4Animation();
+			anim = std::make_shared<ThemeVector4Animation>();
 			if (node.attribute("from")) anim->from = Vector4f::parseString(RESOLVEVAR(node.attribute("from").as_string()));
 			if (node.attribute("to")) anim->to = Vector4f::parseString(RESOLVEVAR(node.attribute("to").as_string()));
 			break;
 
 		case ThemeData::ElementPropertyType::NORMALIZED_PAIR:
-			anim = new ThemeVector2Animation();
+			anim = std::make_shared<ThemeVector2Animation>();
 			if (node.attribute("from")) anim->from = Vector2f::parseString(RESOLVEVAR(node.attribute("from").as_string()));
 			if (node.attribute("to")) anim->to = Vector2f::parseString(RESOLVEVAR(node.attribute("to").as_string()));
 			break;
 
-		case ThemeData::ElementPropertyType::COLOR:			
-			anim = new ThemeColorAnimation();
+		case ThemeData::ElementPropertyType::COLOR:
+			anim = std::make_shared<ThemeColorAnimation>();
 			if (node.attribute("from")) anim->from = Utils::HtmlColor::parse(RESOLVEVAR(node.attribute("from").as_string()));
 			if (node.attribute("to")) anim->to = Utils::HtmlColor::parse(RESOLVEVAR(node.attribute("to").as_string()));
 			break;
 
 		case ThemeData::ElementPropertyType::FLOAT:
-			anim = new ThemeFloatAnimation();
+			anim = std::make_shared<ThemeFloatAnimation>();
 			if (node.attribute("from")) anim->from = Utils::String::toFloat(RESOLVEVAR(node.attribute("from").as_string()));
 			if (node.attribute("to")) anim->to = Utils::String::toFloat(RESOLVEVAR(node.attribute("to").as_string()));
 			break;
 
 		case ThemeData::ElementPropertyType::PATH:
-			anim = new ThemePathAnimation();
+			anim = std::make_shared<ThemePathAnimation>();
 			if (node.attribute("from")) anim->from = Utils::FileSystem::resolveRelativePath(RESOLVEVAR(node.attribute("from").as_string()), relativePath, true);
 			if (node.attribute("to")) anim->to = Utils::FileSystem::resolveRelativePath(RESOLVEVAR(node.attribute("to").as_string()), relativePath, true);
 			break;
 
 		case ThemeData::ElementPropertyType::STRING:
-			anim = new ThemeStringAnimation();
+			anim = std::make_shared<ThemeStringAnimation>();
 			if (node.attribute("from")) anim->from = RESOLVEVAR(node.attribute("from").as_string());
 			if (node.attribute("to")) anim->to = RESOLVEVAR(node.attribute("to").as_string());
 			break;
 
 		case ThemeData::ElementPropertyType::BOOLEAN:
-			anim = new ThemeBoolAnimation();
+			anim = std::make_shared<ThemeBoolAnimation>();
 			if (node.attribute("from")) anim->from = Utils::String::toBoolean(RESOLVEVAR(node.attribute("from").as_string()));
 			if (node.attribute("to")) anim->to = Utils::String::toBoolean(RESOLVEVAR(node.attribute("to").as_string()));
 			break;
@@ -196,7 +189,7 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 			else
 				anim->easingMode = ThemeAnimation::EasingMode::Linear;
 
-			animations.push_back(std::move(anim));
+			definition->animations.push_back(std::move(anim));
 		}
 	}
 
@@ -210,9 +203,9 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 		if (!ResourceManager::getInstance()->fileExists(path))
 			continue;
 
-		auto sound = new ThemeSoundAnimation();
+		auto sound = std::make_shared<ThemeSoundAnimation>();
 		sound->propertyName = "sound";
-		sound->to = path;		
+		sound->to = path;
 
 		for (pugi::xml_attribute xattr : node.attributes())
 		{
@@ -235,8 +228,9 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 			}
 		}
 
-		animations.push_back(std::move(sound));
+		definition->animations.push_back(std::move(sound));
 	}
 
-	return animations.size() > 0;
+	mDefinition = std::move(definition);
+	return !mDefinition->animations.empty();
 }

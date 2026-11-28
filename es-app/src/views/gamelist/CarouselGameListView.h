@@ -23,6 +23,7 @@ public:
 	virtual int getCursorIndex() override; 
 	virtual void setCursorIndex(int index) override; 
 	virtual void resetLastCursor() override;
+	void restoreNavigationState(const NavigationState& state) override;
 	virtual bool onMouseWheel(int delta) override;
 	virtual void onShow();
 

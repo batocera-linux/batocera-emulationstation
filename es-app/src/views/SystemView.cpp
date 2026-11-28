@@ -21,13 +21,95 @@
 #include "SystemRandomPlaylist.h"
 #include "playlists/M3uPlaylist.h"
 #include "CollectionSystemManager.h"
-#include "resources/TextureDataManager.h"
+#include "resources/TextureResource.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "TextToSpeech.h"
 #include "BindingManager.h"
 #include "guis/GuiRetroAchievements.h"
 #include "components/CarouselComponent.h"
+
+namespace
+{
+	constexpr int EXTRA_LOAD_PADDING = 2;
+	constexpr int EXTRA_RETAIN_PADDING = 4;
+
+	bool canReleaseExtraTree(GuiComponent* component, bool restorable)
+	{
+		if (component->isShowing())
+			return false;
+
+		if (!restorable)
+		{
+			if (auto video = dynamic_cast<VideoComponent*>(component))
+			{
+				if (video->getPlaylist() != nullptr)
+					return false;
+			}
+
+			if (auto image = dynamic_cast<ImageComponent*>(component))
+			{
+				if (image->getPlaylist() != nullptr)
+					return false;
+			}
+		}
+
+		for (unsigned int i = 0; i < component->getChildCount(); i++)
+		{
+			auto child = component->getChild(i);
+			bool childRestorable = restorable && child->getExtraType() == ExtraType::EXTRACHILDREN;
+
+			if (!canReleaseExtraTree(child, childRestorable))
+				return false;
+		}
+
+		return true;
+	}
+
+	template <typename Visitor>
+	void visitThemeExtraTree(
+		GuiComponent* component,
+		std::vector<std::string>& path,
+		const Visitor& visitor)
+	{
+		path.push_back(component->getTag());
+		visitor(component, path);
+
+		for (unsigned int i = 0; i < component->getChildCount(); i++)
+		{
+			auto child = component->getChild(i);
+			if (child->getExtraType() == ExtraType::EXTRACHILDREN)
+			{
+				path.push_back(std::to_string(i));
+				visitThemeExtraTree(child, path, visitor);
+				path.pop_back();
+			}
+		}
+
+		path.pop_back();
+	}
+
+	bool restoreExtraPlaylist(
+		GuiComponent* component,
+		const SystemViewPlaylistState& state)
+	{
+		if (auto video = dynamic_cast<VideoComponent*>(component))
+		{
+			video->setPlaylist(state.playlist, false);
+			video->setVideo(state.path);
+			return true;
+		}
+
+		if (auto image = dynamic_cast<ImageComponent*>(component))
+		{
+			image->setPlaylist(state.playlist, false);
+			image->setImage(state.path, state.tiled, MaxSizeInfo::Empty, true, false);
+			return true;
+		}
+
+		return false;
+	}
+}
 
 SystemView::SystemView(Window* window) : GuiComponent(window),
 	mViewNeedsReload(true),
@@ -70,6 +152,8 @@ SystemView::~SystemView()
 
 void SystemView::clearEntries()
 {
+	mExtraResidency.invalidate();
+
 	for (auto& entry : mEntries)
 	{
 		setExtraRequired(entry, false);
@@ -86,6 +170,8 @@ void SystemView::clearEntries()
 
 void SystemView::reloadTheme(SystemData* system)
 {
+	mExtraResidency.invalidate();
+
 	auto carousel = mCarousel.asCarousel();
 	if (carousel == nullptr)
 	{
@@ -123,25 +209,112 @@ void SystemView::reloadTheme(SystemData* system)
 			logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE);
 	}
 
-	loadExtras(system);	
+	auto& entry = mEntries[idx];
+	releaseExtras(entry);
+	entry.playlists.clear();
+	if (idx == mCarousel.getCursorIndex())
+	{
+		updateExtraTextBinding();
+		activateExtras(idx);
+	}
+	SystemRandomPlaylist::resetCache();
 }
 
-void SystemView::loadExtras(SystemData* system)
+void SystemView::saveExtraPlaylists(SystemViewData& entry)
 {
-	auto it = std::find_if(mEntries.begin(), mEntries.end(), [system](const SystemViewData& ss) { return ss.object == system; });
-	if (it != mEntries.cend())
-	{
-		// delete any existing extras
-		for (auto extra : it->backgroundExtras)
-			delete extra;
+	if (!entry.extrasLoaded)
+		return;
 
-		it->backgroundExtras.clear();
-	}
+	entry.playlists.clear();
+
+	auto save = [&entry](GuiComponent* extra, const std::vector<std::string>& path)
+	{
+		SystemViewPlaylistState state;
+
+		if (extra->isKindOf<VideoComponent>())
+		{
+			auto video = static_cast<VideoComponent*>(extra);
+			state.playlist = video->getPlaylist();
+			state.path = video->getPlaylistMediaPath();
+		}
+		else if (extra->isKindOf<ImageComponent>())
+		{
+			auto image = static_cast<ImageComponent*>(extra);
+			state.playlist = image->getPlaylist();
+			state.path = image->getPlaylistMediaPath();
+			state.tiled = image->isTiled();
+		}
+
+		if (state.playlist != nullptr)
+			entry.playlists.emplace(path, std::move(state));
+	};
+
+	std::vector<std::string> path;
+	for (auto extra : entry.backgroundExtras)
+		visitThemeExtraTree(extra, path, save);
+}
+
+void SystemView::ensureExtras(int index)
+{
+	if (index < 0 || index >= static_cast<int>(mEntries.size()))
+		return;
+
+	if (mEntries[index].extrasLoaded)
+		return;
+
+	auto& entry = mEntries[index];
+	loadExtras(entry);
+
+	for (auto extra : entry.backgroundExtras)
+		BindingManager::updateBindings(extra, entry.object);
+}
+
+void SystemView::prepareExtras(int index, bool prioritize)
+{
+	if (index < 0 || index >= static_cast<int>(mEntries.size()))
+		return;
+
+	ensureExtras(index);
+
+	for (auto extra : mEntries[index].backgroundExtras)
+		extra->preloadArtwork(prioritize);
+}
+
+void SystemView::loadExtras(SystemViewData& entry)
+{
+	auto system = entry.object;
 
 	// make background extras
 	auto extras = ThemeData::makeExtras(system->getTheme(), "system", mWindow);
+
+	if (!entry.playlists.empty())
+	{
+		auto restore = [&entry](GuiComponent* extra, const std::vector<std::string>& path)
+		{
+			// The loop below restores the top-level extras.
+			if (path.size() == 1)
+				return;
+
+			auto saved = entry.playlists.find(path);
+			if (saved != entry.playlists.end())
+				restoreExtraPlaylist(extra, saved->second);
+		};
+
+		std::vector<std::string> path;
+		for (auto extra : extras)
+			visitThemeExtraTree(extra, path, restore);
+	}
+
 	for (auto extra : extras)
 	{
+		if (!entry.playlists.empty())
+		{
+			auto saved = entry.playlists.find(std::vector<std::string>{extra->getTag()});
+
+			if (saved != entry.playlists.end() && restoreExtraPlaylist(extra, saved->second))
+				continue;
+		}
+
 		if (extra->isKindOf<VideoComponent>())
 		{
 			auto elem = system->getTheme()->getElement("system", extra->getTag(), "video");
@@ -179,15 +352,9 @@ void SystemView::loadExtras(SystemData* system)
 	// sort the extras by z-index
 	std::stable_sort(extras.begin(), extras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
 
-	if (it == mEntries.cend())
-	{
-		SystemViewData data;
-		data.object = system;
-		data.backgroundExtras = extras;
-		mEntries.push_back(data);
-	}
-	else
-		it->backgroundExtras = extras;
+	entry.backgroundExtras = std::move(extras);
+	entry.extrasLoaded = true;
+	entry.playlists.clear();
 
 	SystemRandomPlaylist::resetCache();
 }
@@ -195,7 +362,7 @@ void SystemView::loadExtras(SystemData* system)
 
 void SystemView::populate()
 {
-	TextureLoader::paused = true;
+	TextureResource::setLoadingPaused(true);
 
 	clearEntries();
 
@@ -210,20 +377,15 @@ void SystemView::populate()
 
 		if (system->isVisible())
 		{
-			mCarousel.add(system->getName(), system, true);
-			loadExtras(system);
+			SystemViewData entry;
+			entry.object = system;
+			mEntries.push_back(std::move(entry));
 
-			auto carousel = mCarousel.asCarousel();
-			if (carousel)
-			{
-				auto logo = carousel->getLogo(mCarousel.size() - 1);
-				if (logo)
-					ensureTexture(logo.get(), TextureLoadMode::STANDARD);
-			}
+			mCarousel.add(system->getName(), system, false);
 		}
 	}
 
-	TextureLoader::paused = false;
+	TextureResource::setLoadingPaused(false);
 
 	if (mEntries.size() == 0)
 	{
@@ -245,10 +407,43 @@ void SystemView::populate()
 
 		return;
 	}
+}
 
-	auto grid = mCarousel.asGrid();
-	if (grid)
-		grid->preloadTiles();	
+void SystemView::prepareHiddenSystem(SystemData* system)
+{
+	if (isShowing() || system == nullptr || mEntries.empty())
+		return;
+
+	if (!mCarousel.supportsHiddenArtwork())
+	{
+		releaseHiddenExtras();
+		return;
+	}
+
+	if (getSelected() != system || mCarousel.getScrollingVelocity() != 0)
+	{
+		if (!mCarousel.setHiddenCursor(system))
+			return;
+	}
+
+	if (!mCarousel.prepareHiddenArtwork())
+		return;
+
+	const int cursor = mCarousel.getCursorIndex();
+
+	mLastCursor = cursor;
+	mCamOffset = static_cast<float>(cursor);
+	mExtrasCamOffset = static_cast<float>(cursor);
+	mExtrasFadeOpacity = 0.0f;
+	mExtrasFadeMove = 0.0f;
+	mExtrasFadeOldCursor = -1;
+
+	updateExtraResidency(ExtraResidencyMode::HiddenPrepared, true);
+}
+
+void SystemView::releaseHiddenExtras()
+{
+	updateExtraResidency(ExtraResidencyMode::Hidden);
 }
 
 void SystemView::goToSystem(SystemData* system, bool animate)
@@ -611,6 +806,178 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
 	mWindow->pushGui(gs);
 }
 
+void SystemView::collectExtraUpdateEntries(std::unordered_set<int>& entries)
+{
+	entries.clear();
+
+	if (mEntries.empty())
+		return;
+
+	const int entryCount = (int)mEntries.size();
+
+	auto addEntry = [&entries, entryCount](int index)
+	{
+		index %= entryCount;
+		if (index < 0)
+			index += entryCount;
+
+		entries.insert(index);
+	};
+
+	const int cursor = mCarousel.getCursorIndex();
+	if (cursor >= 0 && cursor < entryCount)
+		addEntry(cursor);
+
+	addEntry((int)mExtrasCamOffset);
+	addEntry((int)(mExtrasCamOffset + 0.99999f));
+
+	if (mExtrasFadeOldCursor >= 0 && mExtrasFadeOldCursor < entryCount)
+		addEntry(mExtrasFadeOldCursor);
+}
+
+void SystemView::collectExtraResidencyEntries(
+	std::unordered_set<int>& entries, int padding)
+{
+	collectExtraUpdateEntries(entries);
+
+	if (mEntries.empty())
+		return;
+
+	const int entryCount = (int)mEntries.size();
+
+	const std::vector<int> activeEntries(entries.begin(), entries.end());
+	const int distance = Math::min(Math::max(0, padding), entryCount - 1);
+
+	auto grid = mCarousel.asGrid();
+	for (int index : activeEntries)
+	{
+		const int position = grid ? grid->getDisplayIndex(index) : index;
+		if (position < 0)
+			continue;
+
+		for (int offset = 1; offset <= distance; offset++)
+		{
+			const int next = (position + offset) % entryCount;
+			const int previous = (position - offset + entryCount) % entryCount;
+			entries.insert(grid ? grid->getSourceIndex(next) : next);
+			entries.insert(grid ? grid->getSourceIndex(previous) : previous);
+		}
+	}
+}
+
+void SystemView::ensureWarmExtras()
+{
+	std::unordered_set<int> entries;
+	collectExtraResidencyEntries(entries, EXTRA_LOAD_PADDING);
+
+	const int cursor = mCarousel.getCursorIndex();
+
+	prepareExtras(cursor, true);
+
+	for (int index : entries)
+	{
+		if (index != cursor)
+			prepareExtras(index, false);
+	}
+}
+
+void SystemView::releaseExtras(SystemViewData& entry)
+{
+	saveExtraPlaylists(entry);
+	setExtraRequired(entry, false);
+
+	for (auto extra : entry.backgroundExtras)
+		delete extra;
+
+	std::vector<GuiComponent*>().swap(entry.backgroundExtras);
+	entry.extrasLoaded = false;
+}
+
+void SystemView::updateExtraResidency(ExtraResidencyMode mode, bool allowRelease)
+{
+	if (mEntries.empty())
+	{
+		mExtraResidency.invalidate();
+		return;
+	}
+
+	const bool navigation = mode == ExtraResidencyMode::Navigation;
+	if (navigation)
+	{
+		if (!isShowing() || mScreensaverActive || mDisable || mLockExtraChanges || mLockCamOffsetChanges)
+			return;
+	}
+	else if (isShowing())
+		return;
+
+	const auto key = std::make_tuple(
+		static_cast<int>(mEntries.size()),
+		mCarousel.getCursorIndex(),
+		static_cast<int>(mExtrasCamOffset),
+		static_cast<int>(mExtrasCamOffset + 0.99999f),
+		mExtrasFadeOldCursor,
+		mode);
+
+	const auto work = mExtraResidency.workFor(key);
+	if (work == ExtraTracker::Work::None)
+		return;
+
+	if (work == ExtraTracker::Work::Prepare)
+	{
+		if (navigation)
+			ensureWarmExtras();
+		else if (mode == ExtraResidencyMode::HiddenPrepared)
+			prepareExtras(mCarousel.getCursorIndex(), false);
+		else
+			mCarousel.releaseHiddenArtwork();
+
+		mExtraResidency.complete(key, true);
+	}
+
+	std::unordered_set<int> retainEntries;
+	if (mode != ExtraResidencyMode::Hidden)
+	{
+		if (!allowRelease ||
+			isAnimationPlaying(0) ||
+			mCarousel.getScrollingVelocity() != 0 ||
+			!TextureResource::isLoadingIdle())
+		{
+			return;
+		}
+
+		collectExtraResidencyEntries(retainEntries, EXTRA_RETAIN_PADDING);
+	}
+
+	for (int index = 0; index < static_cast<int>(mEntries.size()); ++index)
+	{
+		auto& entry = mEntries[index];
+
+		if (!entry.extrasLoaded || entry.backgroundExtras.empty() ||
+			retainEntries.count(index) != 0)
+		{
+			continue;
+		}
+
+		bool canRelease = true;
+		for (auto extra : entry.backgroundExtras)
+		{
+			if (!canReleaseExtraTree(extra, true))
+			{
+				canRelease = false;
+				break;
+			}
+		}
+
+		if (!canRelease)
+			continue;
+
+		releaseExtras(entry);
+		return;
+	}
+
+	mExtraResidency.complete(key, false);
+}
+
 void SystemView::update(int deltaTime)
 {
 	mCarousel.update(deltaTime);
@@ -619,17 +986,29 @@ void SystemView::update(int deltaTime)
 	for (auto sb : mStaticBackgrounds)
 		sb->update(deltaTime);
 
-	for (auto& entry : mEntries)
-		for (auto extra : entry.backgroundExtras)
-			extra->update(deltaTime);
-
 	GuiComponent::update(deltaTime);
+
+	if (isShowing() && !mEntries.empty())
+	{
+		std::unordered_set<int> updateEntries;
+		collectExtraUpdateEntries(updateEntries);
+
+		for (int index : updateEntries)
+		{
+			ensureExtras(index);
+
+			for (auto extra : mEntries[index].backgroundExtras)
+				extra->update(deltaTime);
+		}
+	}
 
 	// Long press on the west button always selects a random system, matching the game list view.
 	// It used to do so only when netplay was enabled, and otherwise just repeated the quick
 	// search already bound to the short press.
 	if (mYButton.isLongPressed(deltaTime))
 		mCarousel.setCursor(SystemData::getRandomSystem());
+
+	updateExtraResidency(ExtraResidencyMode::Navigation);
 }
 
 void SystemView::updateExtraTextBinding()
@@ -642,6 +1021,7 @@ void SystemView::updateExtraTextBinding()
 	if (system == nullptr)
 		return;
 
+	ensureExtras(mCursor);
 	for (auto extra : mEntries[mCursor].backgroundExtras)
 		BindingManager::updateBindings(extra, system);
 }
@@ -752,7 +1132,10 @@ void SystemView::onCursorChanged(const CursorState& state)
 
 	// no need to animate transition, we're not going anywhere (probably mEntries.size() == 1)
 	if (endPos == mCamOffset && endPos == mExtrasCamOffset)
+	{
+		mLastCursor = mCursor;
 		return;
+	}
 
 	// tts
 	if (state == CURSOR_STOPPED)
@@ -842,6 +1225,9 @@ void SystemView::onCursorChanged(const CursorState& state)
 		activateExtras(mCursor);
 	}
 
+	stopAnimation(0);
+	mWindow->normalizeNextUpdate();
+
 	setAnimation(anim, 0, [this, mCursor, lockExtraChanges]
 		{
 			if (!lockExtraChanges)
@@ -870,6 +1256,8 @@ void SystemView::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
+	const bool loaderWasIdle = TextureResource::isLoadingIdle();
+
 	auto carouselZindex = mCarousel.getZIndex();
 	auto systemInfoZIndex = mSystemInfo.getZIndex();
 	auto minMax = std::minmax(carouselZindex, systemInfoZIndex);
@@ -892,6 +1280,8 @@ void SystemView::render(const Transform4x4f& parentTrans)
 		renderInfoBar(trans);
 
 	renderExtras(trans, minMax.second, INT16_MAX);
+
+	updateExtraResidency(ExtraResidencyMode::Navigation, loaderWasIdle);
 }
 
 std::vector<HelpPrompt> SystemView::getHelpPrompts()
@@ -1073,75 +1463,16 @@ void SystemView::renderInfoBar(const Transform4x4f& trans)
 
 void SystemView::setExtraRequired(SystemViewData& data, bool required)
 {
-	auto setTexture = [](GuiComponent* extra, const std::function<void(std::shared_ptr<TextureResource>)>& func)
+	for (auto extra : data.backgroundExtras)
 	{
-		if (extra->isKindOf<ImageComponent>())
-		{
-			auto tex = ((ImageComponent*)extra)->getTexture();
-			if (tex != nullptr)
-				func(tex);
-		}
-	};
+		if (!extra->isKindOf<ImageComponent>())
+			continue;
 
-	// Disable unloading for textures that will have to display 
-	for (GuiComponent* extra : data.backgroundExtras)
-		setTexture(extra, [required](std::shared_ptr<TextureResource> x) { x->setRequired(required); });
-}
+		auto image = static_cast<ImageComponent*>(extra);
+		auto texture = image->getTexture();
 
-void SystemView::ensureTexture(GuiComponent* extra, TextureLoadMode mode)
-{
-	if (extra == nullptr)
-		return;
-
-	ImageComponent* image = dynamic_cast<ImageComponent*>(extra);
-	if (image != nullptr)
-	{
-		auto tex = image->getTexture();
-		if (tex == nullptr || tex->isLoaded())
-			return;
-
-		tex->reload(mode);
-	}
-
-	for (auto child : extra->enumerateExtraChildrens())
-	{
-		image = dynamic_cast<ImageComponent*>(child);
-		if (image != nullptr)
-		{
-			auto tex = image->getTexture();
-			if (tex == nullptr)
-				return;
-
-			tex->reload(mode);
-		}
-	}
-}
-
-void SystemView::preloadExtraNeighbours(int cursor)
-{
-	// Make sure near textures are in at top position & will be released last if VRAM is required
-	int distances[] = { -2, 2, -1, 1, 0 };
-
-	for (int dx = 0; dx < 5; dx++)
-	{
-		int i = cursor + distances[dx];
-		int index = i % (int)mEntries.size();
-		if (index < 0)
-			index += (int)mEntries.size();
-
-		TextureLoadMode loadMode = abs(distances[dx]) <= 1 ? TextureLoadMode::STANDARD : TextureLoadMode::LOADNOMOVETOTOP;
-
-		auto carousel = mCarousel.asCarousel();
-		if (carousel)
-		{
-			auto logo = carousel->getLogo(index);
-			if (logo)
-				ensureTexture(logo.get(), loadMode);
-		}
-
-		SystemViewData& entry = mEntries.at(index);
-		for (auto extra : entry.backgroundExtras)
-			ensureTexture(extra, loadMode);
+		if (texture != nullptr)
+			texture->setRequired(required, image);
 	}
 }
 
@@ -1281,6 +1612,8 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		auto rectExtra = Renderer::getScreenRect(extrasTrans, mSize);
 		if (!Renderer::isVisibleOnScreen(rectExtra))
 			continue;
+
+		ensureExtras(index);
 
 		if (mExtrasFadeOpacity && mExtrasFadeOldCursor == index)
 			extrasTrans = trans;
@@ -1437,11 +1770,13 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 
 void SystemView::onShow()
 {
-	GuiComponent::onShow();
+	mExtraResidency.invalidate();
 
+	GuiComponent::onShow();
 	mCarousel.onShow();
 
 	activateExtras(mCarousel.getCursorIndex());
+	updateExtraResidency(ExtraResidencyMode::Navigation, false);
 
 	for (auto sb : mStaticBackgrounds)
 		sb->onShow();
@@ -1452,11 +1787,17 @@ void SystemView::onShow()
 
 void SystemView::onHide()
 {
+	mExtraResidency.invalidate();
+
+	finishAnimation(0);
+	cancelAnimation(1);
+	cancelAnimation(2);
+
 	GuiComponent::onHide();
 
 	mCarousel.onHide();
 
-	updateExtras([this](GuiComponent* p) { p->onHide(); });
+	updateExtras([](GuiComponent* p) { p->onHide(); });
 
 	for (auto sb : mStaticBackgrounds)
 		sb->onHide();
@@ -1501,11 +1842,10 @@ void SystemView::activateExtras(int cursor, bool activate)
 	if (cursor < 0 || cursor >= mEntries.size())
 		return;
 
+	if (activate)
+		ensureExtras(cursor);
 
 	bool show = activate && isShowing() && !mScreensaverActive && !mDisable;
-
-	if (show)
-		preloadExtraNeighbours(cursor);
 
 	SystemViewData& data = mEntries.at(cursor);
 	for (unsigned int j = 0; j < data.backgroundExtras.size(); j++)
@@ -1514,14 +1854,13 @@ void SystemView::activateExtras(int cursor, bool activate)
 
 		if (show && activate)
 		{
-			ensureTexture(extra, TextureLoadMode::STANDARD);
 			extra->onShow();
 		}
 		else
 			extra->onHide();
 	}
 
-	setExtraRequired(data, activate);
+	setExtraRequired(data, show);
 
 }
 
