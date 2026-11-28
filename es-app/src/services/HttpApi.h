@@ -19,6 +19,8 @@ public:
 	static std::string getRunnningGameInfo();
 #ifdef BATOCERA
 	static std::string getRunningGameSaveStates();
+	static std::string getRunningGameAchievements();
+	static std::string getRunningGameAchievementsSummary();
 #endif
 
 	static std::string ToJson(SystemData* system, bool localpaths = false);
