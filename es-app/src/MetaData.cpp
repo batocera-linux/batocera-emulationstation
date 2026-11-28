@@ -158,7 +158,7 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 	mScrapeDates.clear();
 
 	std::string value;
-	std::string relativeTo = mRelativeTo->getStartPath();
+	std::string relativeTo = mRelativeTo->getMetadataRootPath();
 
 	bool preloadMedias = Settings::PreloadMedias();
 	if (preloadMedias && Settings::ParseGamelistOnly())
@@ -309,7 +309,7 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 			if (mddIter->type == MD_PATH)
 			{
 				if (fullPaths && mRelativeTo != nullptr)
-					value = Utils::FileSystem::resolveRelativePath(value, mRelativeTo->getStartPath(), true);
+					value = Utils::FileSystem::resolveRelativePath(value, mRelativeTo->getMetadataRootPath(), true);
 				else
 					value = Utils::FileSystem::createRelativePath(value, relativeTo, true);
 			}
@@ -382,11 +382,11 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 			if (value.size())
 			{
 				mIndices[id] = (int8_t)mValues.size();
-				mValues.push_back(value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true));
+				mValues.push_back(value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getMetadataRootPath(), true));
 			}
 		}
 		else
-			mValues[idx] = value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getStartPath(), true);
+			mValues[idx] = value[0] == '.' && value[1] == '/' ? value : Utils::FileSystem::createRelativePath(value, mRelativeTo->getMetadataRootPath(), true);
 	}
 	else
 	{
@@ -417,7 +417,7 @@ const std::string MetaDataList::get(MetaDataId id, bool resolveRelativePaths) co
 	{
 		
 		if (resolveRelativePaths && mGameTypeMap[id] == MD_PATH && mRelativeTo != nullptr) // if it's a path, resolve relative paths				
-			return Utils::FileSystem::resolveRelativePath(mValues[idx]/*it->second*/, mRelativeTo->getStartPath(), true);
+			return Utils::FileSystem::resolveRelativePath(mValues[idx]/*it->second*/, mRelativeTo->getMetadataRootPath(), true);
 
 		return mValues[idx]; // it->second;
 	}
@@ -576,7 +576,7 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 std::string MetaDataList::getRelativeRootPath()
 {
 	if (mRelativeTo)
-		return mRelativeTo->getStartPath();
+		return mRelativeTo->getMetadataRootPath();
 
 	return "";
 }

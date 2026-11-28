@@ -8,6 +8,16 @@ ES will check three places for a gamelist.xml in the following order, using the 
 * `~/.emulationstation/gamelists/[SYSTEM_NAME]/gamelist.xml`
 * `/etc/emulationstation/gamelists/[SYSTEM_NAME]/gamelist.xml`
 
+#### Separate gamelists and media folder
+
+The `MetadataFolder` setting (*Developer > Data management > Gamelists and media folder*, stored in `es_settings.cfg`) moves the gamelists and the scraped media out of the ROM folders, for instance to keep ROMs on a network share while gamelists and media stay on a local disk:
+
+* The gamelist of a system is read from and written to `[METADATA_FOLDER]/[SYSTEM_NAME]/gamelist.xml` only.
+* Scraped media are saved to `[METADATA_FOLDER]/[SYSTEM_NAME]/images`, `videos`, `manuals`...
+* Media paths starting with "./" are relative to `[METADATA_FOLDER]/[SYSTEM_NAME]`. Game `<path>` values stay relative to the system's ROM folder.
+
+To keep existing metadata, copy `gamelist.xml` and the media folders of each system from `[SYSTEM_PATH]` to `[METADATA_FOLDER]/[SYSTEM_NAME]`. Resetting the setting returns to the default locations.
+
 An example gamelist.xml:
 ```xml
 <gameList>
