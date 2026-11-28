@@ -31,6 +31,9 @@
 
 #define LAUNCHERURL "https://github.com/fabricecaruso/batocera-ports/releases/download/continuous/batocera-ports.zip"
 
+#define BEZELURL "https://www.retrobat.ovh/repo/thebezelproject/bezelproject.txt"
+#define BATOCERABEZELURL "https://updates.batocera.org/tbp_systems.txt"
+
 Win32ApiSystem::Win32ApiSystem()
 {
 	m_hJob = CreateJobObject(NULL, NULL);
@@ -459,43 +462,127 @@ std::vector<std::string> Win32ApiSystem::getAvailableStorageDevices()
 	return res;
 }
 
+static std::string getLocalBezelsListPath()
+{
+	return Paths::getUserEmulationStationPath() + "/bezelproject.txt";
+}
+
+static bool isValidBezelsList(const std::string& content)
+{
+	for (auto line : Utils::String::split(content, '\n'))
+	{
+		auto parts = Utils::String::splitAny(Utils::String::trim(line), " \t", true);
+		if (parts.size() >= 2 && parts[0][0] != '#' && Utils::String::startsWith(parts[1], "http"))
+			return true;
+	}
+
+	return false;
+}
+
+static bool downloadBezelsList(const std::string& url, std::string& content)
+{
+	HttpReq request(url);
+	if (!request.wait())
+	{
+		LOG(LogWarning) << "Unable to download " << url;
+		return false;
+	}
+
+	content = request.getContent();
+	return isValidBezelsList(content);
+}
+
+// Rewritten even when unchanged: the file date is the date of the last check
+static void saveLocalBezelsList(const std::string& content)
+{
+	std::string localPath = getLocalBezelsListPath();
+	std::string tmp = localPath + ".tmp";
+	Utils::FileSystem::writeAllText(tmp, content);
+	Utils::FileSystem::renameFile(tmp, localPath, true);
+}
+
+// 1. Local copy checked less than 2 days ago
+// 2. Else the url of emulatorLauncher.cfg ("bezels.url"), saved as the local copy
+// 3. Else the local copy, whatever its age
+// 4. No local copy: RetroBat's list, saved as the local copy
+// 5. Last resort: Batocera's list, not saved (RetroBat's list is tried again next time)
+static std::string loadBezelsList()
+{
+	std::string localPath = getLocalBezelsListPath();
+	std::string local;
+
+	if (Utils::FileSystem::exists(localPath))
+	{
+		local = Utils::FileSystem::readAllText(localPath);
+
+		time_t age = time(nullptr) - Utils::FileSystem::getFileModificationDate(localPath).getTime();
+		if (age >= 0 && age < 48 * 3600 && isValidBezelsList(local))
+			return local;
+	}
+
+	std::string downloaded;
+
+	std::string url = Paths::getBezelsUpdateUrl();
+	if (!url.empty() && downloadBezelsList(url, downloaded))
+	{
+		saveLocalBezelsList(downloaded);
+		return downloaded;
+	}
+
+	if (isValidBezelsList(local))
+		return local;
+
+	if (downloadBezelsList(BEZELURL, downloaded))
+	{
+		saveLocalBezelsList(downloaded);
+		return downloaded;
+	}
+
+	if (downloadBezelsList(BATOCERABEZELURL, downloaded))
+		return downloaded;
+
+	return "";
+}
+
+static std::vector<BatoceraBezel> parseBezelsList(const std::string& content)
+{
+	std::vector<BatoceraBezel> res;
+
+	for (auto line : Utils::String::split(content, '\n'))
+	{
+		line = Utils::String::trim(line);
+		if (line.empty() || line[0] == '#')
+			continue;
+
+		auto parts = Utils::String::splitAny(line, " \t", true);
+		if (parts.size() < 2)
+			continue;
+
+		BatoceraBezel bz;
+		bz.name = parts[0];
+		bz.url = parts[1];
+		bz.folderPath = parts.size() < 3 ? "" : parts[2];
+		bz.isInstalled = Utils::FileSystem::exists(Paths::getUserDecorationsPath() + "/thebezelproject/games/" + bz.name);
+
+		if (bz.name != "?")
+			res.push_back(bz);
+	}
+
+	return res;
+}
+
 std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 {
 	LOG(LogDebug) << "ApiSystem::getBatoceraBezelsList";
 
-	std::vector<BatoceraBezel> res;
-
-	HttpReq request(getUpdateUrl() + "/bezels.txt");
-	if (request.wait())
-	{
-		auto lines = Utils::String::split(request.getContent(), '\n');
-		for (auto line : lines)
-		{
-			auto parts = Utils::String::splitAny(line, " \t");
-			if (parts.size() < 2)
-				continue;
-
-			BatoceraBezel bz;
-			bz.name = parts[0];
-			bz.url = parts[1];
-			bz.folderPath = parts.size() < 3 ? "" : parts[2];
-
-			std::string theBezelProject = Paths::getUserDecorationsPath() + "/thebezelproject/games/" + parts[0];
-			bz.isInstalled = Utils::FileSystem::exists(theBezelProject);
-			
-			if (bz.name != "?")
-				res.push_back(bz);
-		}
-	}
-
-	return res;
+	return parseBezelsList(loadBezelsList());
 }
 
 std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
 	LOG(LogDebug) << "ApiSystem::installBatoceraBezel";
 
-	for (auto bezel : getBatoceraBezelsList())
+	for (auto bezel : parseBezelsList(loadBezelsList()))
 	{		
 		if (bezel.name == bezelsystem)
 		{
@@ -522,14 +609,22 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 					if (ext != ".cfg" && ext != ".png")
 						return false;
 
-					if (!subFolder.empty() && Utils::FileSystem::getGenericPath(name).find(subFolder.c_str()) == std::string::npos)
+					// Bezels only: RetroArch core configs (retroarch/config) use the same file names
+					std::string path = Utils::String::toLower(Utils::FileSystem::getGenericPath(name));
+					size_t overlay = path.find("/overlay/");
+					if (overlay == std::string::npos)
 						return false;
 
-					if (subFolder.empty() && name.find("/overlay/GameBezels/") == std::string::npos)
-						return false;
+					// Folder of the list, case insensitive: a path (RetroBat's list) or a folder name (Batocera's tbp_systems.txt)
+					std::string folder = Utils::String::toLower(subFolder.empty() ? "GameBezels" : subFolder);
+					while (!folder.empty() && folder.back() == '/')
+						folder.pop_back();
 
-					return true;
-				};				
+					if (folder.find("overlay/") != std::string::npos)
+						return path.find(folder + "/") != std::string::npos;
+
+					return path.find("/" + folder + "/", overlay) != std::string::npos;
+				};
 
 				unzipFile(zipFile, tmp, shouldProcessFile);
 
