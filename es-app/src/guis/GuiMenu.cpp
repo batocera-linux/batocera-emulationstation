@@ -1011,6 +1011,12 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
 	s->addSaveFunc([quick_sys_select] { Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState()); });
 
+	// category filtering (hardware filtering with directional controls)
+	auto category_filtering = std::make_shared<SwitchComponent>(mWindow);
+	category_filtering->setState(Settings::getInstance()->getBool("CategoryFiltering"));
+	s->addWithDescription(_("CATEGORY FILTERING"), _("Enable hardware category filtering using directional controls. When enabled, Quick System Select will use Page Up/Down instead."), category_filtering);
+	s->addSaveFunc([category_filtering] { Settings::getInstance()->setBool("CategoryFiltering", category_filtering->getState()); });
+
 	// quick jump next letter (R2/L2 in game list view)
 	auto quick_jump_letter = std::make_shared<SwitchComponent>(mWindow);
 	quick_jump_letter->setState(Settings::getInstance()->getBool("QuickJumpLetter"));
